@@ -1,3 +1,4 @@
+import InnBusinessScene from './inn-business-scene';
 import PaidStaffing from './paid-staffing';
 import {originalProgression} from '@/lib/original-progression.mjs';
 import {innGiftEmployeePercent} from '@/lib/inn-guests.mjs';
@@ -10,12 +11,13 @@ import {NativeSelect,NativeSelectOption} from '@/components/ui/native-select';
 import PanelPages from './panel-pages';
 import {BUSINESSES,enterpriseState,enterpriseBreakdown,employeeRateFor,operationSlots,employeeCap,sourceEmployeeYield} from '@/lib/businesses.mjs';
 import {FELLOWS,BUILDINGS,fellowById} from '@/lib/catalog.mjs';
-export default function BusinessPanel({game,action,locked,selectedBusiness,onBusinessSelect,onApothecary}:any){
+export default function BusinessPanel({game,action,locked,selectedBusiness,onBusinessSelect,onApothecary,plain=false}:any){
  const [localSelected,setLocalSelected]=useState(BUSINESSES[0].id),[operator,setOperator]=useState('hero_15');
  const selected=selectedBusiness??localSelected,setSelected=onBusinessSelect??setLocalSelected;
  const definition=BUSINESSES.find(b=>b.id===selected)!,rows=enterpriseState(game),b=rows[selected],rates=enterpriseBreakdown(game,selected);
  const available=FELLOWS.filter(f=>Object.hasOwn(game.fellows,f.id));
  const workplace=(id:string)=>BUSINESSES.find(d=>rows[d.id]?.fellows.includes(id))?.name||BUILDINGS.find(d=>game.buildings[d.id]?.fellow===id)?.name||'Unassigned';
+ if(selected==='Building_101'&&!plain)return <InnBusinessScene game={game} action={action} locked={locked} management={<BusinessPanel plain game={game} action={action} locked={locked} selectedBusiness="Building_101"/>}/>;
  return <section><label htmlFor="original-business">Village business</label><NativeSelect id="original-business" value={selected} onChange={e=>setSelected(e.target.value)}>{BUSINESSES.map(d=><NativeSelectOption key={d.id} value={d.id}>{d.name}{rows[d.id]?' · Open':''}</NativeSelectOption>)}</NativeSelect>
  <h2>{definition.name}</h2>{selected==='Building_201'&&<p className="small-note">Manage employees and Fellow assignments to earn village gold. Potion sales have a separate counter and deposit.</p>}{selected==='Building_201'&&onApothecary&&<Button variant="outline" onClick={onApothecary}>Open potion counter</Button>}<p>{definition.type?`${definition.type} type`:'Type not yet verified'} · {b?.staffingYield?'Mixed retained and APK employee rates':`${employeeRateFor(game,definition)} gold/s per employee`}</p>
  {!b?<><p>{definition.description}</p><Button disabled={locked} onClick={()=>action('openEnterprise',selected)}>Open · Free sandbox</Button></>:<>

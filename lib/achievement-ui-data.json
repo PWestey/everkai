@@ -1,0 +1,30 @@
+{
+  "Icon_Achive_Village": {
+    "src": "ui-original/Icon_Achive_Village.png",
+    "sha256": "2e8ec0154324b989b7e1031e58cbbbb440e78974d751406409718e607b098ee7"
+  },
+  "Icon_Achive_Family": {
+    "src": "ui-original/Icon_Achive_Family.png",
+    "sha256": "d42e6058c8b6ed24fae5dbf0d905502ab46755bdafe13615a877f1c044378b40"
+  },
+  "Icon_Achive_Progress": {
+    "src": "ui-original/Icon_Achive_Progress.png",
+    "sha256": "1a34039f5d75db13eaf1796ba52844a2d9c9a312f910e2a8dbdf906eb42c7c0b"
+  },
+  "Icon_Achive_Treasure": {
+    "src": "ui-original/Icon_Achive_Treasure.png",
+    "sha256": "43bc0fd6ab7a634f9eb51cc697d28bf76ca948aa1b45db315f4fdd8213970a38"
+  },
+  "Icon_Achive_Lifestyle": {
+    "src": "ui-original/Icon_Achive_Lifestyle.png",
+    "sha256": "7dc741a75b36d68c230ef94357d5ebde4abade80c0e22976acb90b3a0ecd6380"
+  },
+  "Label_Common_13": {
+    "src": "ui-original/Label_Common_13.png",
+    "sha256": "eb6e016eaeb87ee2e1a0faacef161377ce881eecb8c962590afc8c65c31bc741"
+  },
+  "Label_Common_13_Selected": {
+    "src": "ui-original/Label_Common_13_Selected.png",
+    "sha256": "00d79b1e7d8edf998cc0d130929a34122c08cf58a83d265822bdbf683706454d"
+  }
+}

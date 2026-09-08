@@ -1,0 +1,97 @@
+{
+  "chapters": {
+    "1": {
+      "background": "Bg_Village_01",
+      "src": "ui-scenes/Bg_Village_01_Mid.png",
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+    },
+    "2": {
+      "background": "Bg_Field_01",
+      "src": "ui-scenes/Bg_Field_01_Mid.png",
+      "sha256": "a9ce92f498aaeb553201dcdd48e17a294933342c7935c66a9a7e871090bc0e9c"
+    },
+    "3": {
+      "background": "Bg_Village_01",
+      "src": "ui-scenes/Bg_Village_01_Mid.png",
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+    },
+    "4": {
+      "background": "Bg_Village_01",
+      "src": "ui-scenes/Bg_Village_01_Mid.png",
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+    },
+    "5": {
+      "background": "Bg_City_01",
+      "src": "ui-scenes/Bg_City_01_Mid.png",
+      "sha256": "1906220e52a98d09026a0f27c144a57cd54b9f93e5973863aae70ddd8a4767e3"
+    },
+    "6": {
+      "background": "Bg_Level_03",
+      "src": "ui-scenes/Bg_Level_03_Mid.png",
+      "sha256": "96f8410b0759a541e8b5fa7c884055d2c4efb247a5c9c7d39b93656f65af087d"
+    }
+  },
+  "files": [
+    {
+      "src": "ui-scenes/Bg_Loading_Stage.png",
+      "name": "Bg_Loading_Stage",
+      "sha256": "b3b8b8c6440ffb13eb662ec7fab94265042117133994462bf2314bd5227ddd99"
+    },
+    {
+      "src": "ui-scenes/Bar_Loading_Stage.png",
+      "name": "Bar_Loading_Stage",
+      "sha256": "1263da1de4822a08c64ddae54c3ae554f256c409789ec7f375e903c064588979"
+    },
+    {
+      "src": "ui-scenes/Bg_Stage_Info.png",
+      "name": "Bg_Stage_Info",
+      "sha256": "56ea38d4112327b9e6b9ddb621c5a437d49e629b2f55784684a88881a6a0b30d"
+    },
+    {
+      "src": "ui-scenes/Icon_Stage_Boss.png",
+      "name": "Icon_Stage_Boss",
+      "sha256": "768b779628eed330885635fb59f6747453b0b196bbc0ba70cb3d7621397e2d4a"
+    },
+    {
+      "src": "ui-scenes/Icon_Stage_Arrived.png",
+      "name": "Icon_Stage_Arrived",
+      "sha256": "d5194bfacbe6486fda2c6ae65a2de97f82aa3e24b1c73e0044dfa336fdbc2840"
+    },
+    {
+      "src": "ui-scenes/Icon_Stage_NotArrived.png",
+      "name": "Icon_Stage_NotArrived",
+      "sha256": "abd785d4bf1c7b55beb9d9db0417523cfc922c8d5d60637ea5dc9368a8adb511"
+    },
+    {
+      "src": "ui-scenes/Arrow_2.png",
+      "name": "Arrow_2",
+      "sha256": "c781d207b72bc854c9b62a07279035b2341fceac057be5ed7d7795957cac7751"
+    },
+    {
+      "src": "ui-scenes/Scene_MainCity_Building_2_1_New.png",
+      "name": "Scene_MainCity_Building_2_1_New",
+      "sha256": "ad9a86a684158073407a9a007b61df77417f283b2cbcd5cfb2a13a5c445f4fe2"
+    },
+    {
+      "src": "ui-scenes/Bg_Village_01_Mid.png",
+      "name": "Bg_Village_01_Mid",
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+    },
+    {
+      "src": "ui-scenes/Bg_Field_01_Mid.png",
+      "name": "Bg_Field_01_Mid",
+      "sha256": "a9ce92f498aaeb553201dcdd48e17a294933342c7935c66a9a7e871090bc0e9c"
+    },
+    {
+      "src": "ui-scenes/Bg_City_01_Mid.png",
+      "name": "Bg_City_01_Mid",
+      "sha256": "1906220e52a98d09026a0f27c144a57cd54b9f93e5973863aae70ddd8a4767e3"
+    },
+    {
+      "src": "ui-scenes/Bg_Level_03_Mid.png",
+      "name": "Bg_Level_03_Mid",
+      "sha256": "96f8410b0759a541e8b5fa7c884055d2c4efb247a5c9c7d39b93656f65af087d"
+    }
+  ],
+  "bindingLimits": "Exact chapter background and named path sprites; camera/runtime controller/parallax remain local presentation. Inn exterior visual match; renderer assembly not asserted."
+}

@@ -1,0 +1,709 @@
+{
+  "gift1": {
+    "src": "inventory/Icons--Icon_Intimacy_1.png",
+    "icon": "Icon_Intimacy_1",
+    "sha256": "24d30ed3e0b78b5626069b4a959e1ada11a4cdeec8641a76a6f81d6cab913f7a",
+    "bytes": 6868,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "gift2": {
+    "src": "inventory/Icons--Icon_Intimacy_2.png",
+    "icon": "Icon_Intimacy_2",
+    "sha256": "831c745495e90dfd8f3f66d97423c04c77465ec7bca73683c04116d3aa286a8d",
+    "bytes": 8159,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "gift3": {
+    "src": "inventory/Icons--Icon_EmblemStrength_1.png",
+    "icon": "Icon_EmblemStrength_1",
+    "sha256": "043dc50290ad0cd490f6b73e7c4752531e64d5db69fff0098c0e01a01d1cc80c",
+    "bytes": 14904,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "gift4": {
+    "src": "inventory/Icons--Icon_EmblemStrength_2.png",
+    "icon": "Icon_EmblemStrength_2",
+    "sha256": "3f8eeb7d4f090110d25f71195a8cc13f0898e25cfdc5bf24ddfb779a7e24d6d5",
+    "bytes": 14328,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "gift5": {
+    "src": "inventory/Icons--Icon_Intimacy_3.png",
+    "icon": "Icon_Intimacy_3",
+    "sha256": "f73aa1fcc8eb870ec9ba42f868a71907463d87e46f0e334410285fd3e554a207",
+    "bytes": 13453,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_GetCE_10": {
+    "src": "inventory/Icons--Icon_GetCE_10.png",
+    "icon": "Icon_GetCE_10",
+    "sha256": "32c8c8e3f10a7c7858c55d4f40e123ae2982455cae2d4eda4de2ace47a9d12f9",
+    "bytes": 7598,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_HeroEXP_Resources_4": {
+    "src": "inventory/Icons--Icon_Crystal_2.png",
+    "icon": "Icon_Crystal_2",
+    "sha256": "789e64762f6a5ee166cb1794b6507ff546f1cd7e04ec10bb0fba651bf84c7bb3",
+    "bytes": 14262,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_HeroEXP_Resources_3": {
+    "src": "inventory/Icons--Icon_Crystal_1.png",
+    "icon": "Icon_Crystal_1",
+    "sha256": "fdb8141445e409895e0229546983fd17a97753b797cfe67c0370cb2cc9cb3000",
+    "bytes": 11041,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_HeroEXP_Resources_2": {
+    "src": "inventory/Icons--Icon_Crystal_0.5.png",
+    "icon": "Icon_Crystal_0.5",
+    "sha256": "0ea85ff11ec707f9e971d5541fe1d15d11c06e14fd12be0c6b05d90ff36c5e0e",
+    "bytes": 8932,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_HeroEXP_Resources_1": {
+    "src": "inventory/Icons--Icon_Crystal_0.1.png",
+    "icon": "Icon_Crystal_0.1",
+    "sha256": "b9fa0f9bbbe1cfdd518f4c62706edd30c91eaa6de78314d8e2bdaf9ec22c6c79",
+    "bytes": 8525,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Gcoin_YieldPack_3": {
+    "src": "inventory/Icons--Icon_Card_Hour.png",
+    "icon": "Icon_Card_Hour",
+    "sha256": "8df10bb5bedcc89d5719de37738ae903a18fcbc32cb8fbbc8dc449b89a887a4c",
+    "bytes": 10466,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Gcoin_YieldPack_1": {
+    "src": "inventory/Icons--Icon_Card_Minute.png",
+    "icon": "Icon_Card_Minute",
+    "sha256": "790a01cab1e707283e5b52af3b09d50636c1a44fa074aa9d2a32f065f3535d49",
+    "bytes": 9231,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Talent_Hero_1": {
+    "src": "inventory/Icons--Icon_Talent_Item.png",
+    "icon": "Icon_Talent_Item",
+    "sha256": "881b148e54db61e7c90c9ed222080c03aaf1f32f3d7fe6ffdfbf191754943ec3",
+    "bytes": 20271,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_1_1": {
+    "src": "inventory/Icons--Icon_Equipment_01_S.png",
+    "icon": "Icon_Equipment_01_S",
+    "sha256": "12d023e76b68bf4aad5b182372c4ee39aa57f5181fc7f08307a72474ef18e655",
+    "bytes": 9519,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_1_2": {
+    "src": "inventory/Icons--Icon_Equipment_02_S.png",
+    "icon": "Icon_Equipment_02_S",
+    "sha256": "1edd69d9dba1dc3b1c6b8a46aaf25ed8af17f861687a49ac07055605c0b0be93",
+    "bytes": 12598,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_1_3": {
+    "src": "inventory/Icons--Icon_Equipment_03_S.png",
+    "icon": "Icon_Equipment_03_S",
+    "sha256": "19aac3d6dd0e191ce12b55e8bf1a053e30e280ff0de8d75dbff6cf450adc2829",
+    "bytes": 18022,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_2_1": {
+    "src": "inventory/Icons--Icon_Equipment_04_S.png",
+    "icon": "Icon_Equipment_04_S",
+    "sha256": "f7ac76759b6e031894c1beeee054d3979f8e2c7ccc933b3ab8f4d713e8597071",
+    "bytes": 10277,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_2_2": {
+    "src": "inventory/Icons--Icon_Equipment_05_S.png",
+    "icon": "Icon_Equipment_05_S",
+    "sha256": "8f99d1c907fd97486e242b14829a7b58fa56c3aade85d42fbd9212879385fcf8",
+    "bytes": 21938,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_2_3": {
+    "src": "inventory/Icons--Icon_Equipment_06_S.png",
+    "icon": "Icon_Equipment_06_S",
+    "sha256": "4ed327a393f01a44347e5763686a55bcbd05cdb710f224a2b08da3ca70ed167c",
+    "bytes": 19468,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_3_1": {
+    "src": "inventory/Icons--Icon_Equipment_07_S.png",
+    "icon": "Icon_Equipment_07_S",
+    "sha256": "4fc87c11459e3eff6f59349c7024af49d44d1a0521feccfa12c8806efbf174ac",
+    "bytes": 19079,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_3_2": {
+    "src": "inventory/Icons--Icon_Equipment_08_S.png",
+    "icon": "Icon_Equipment_08_S",
+    "sha256": "e05a8f5c3ddae758af73bddb991e53bd5bfa14c92a90d70ed415556a2b7746ce",
+    "bytes": 16029,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_3_3": {
+    "src": "inventory/Icons--Icon_Equipment_09_S.png",
+    "icon": "Icon_Equipment_09_S",
+    "sha256": "6fb1a8307982c179072405f1beae781902c826001458fe74d13ae426603ea767",
+    "bytes": 16277,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_3_4": {
+    "src": "inventory/Icons--Icon_Equipment_10_S.png",
+    "icon": "Icon_Equipment_10_S",
+    "sha256": "6dc28894a68970170566d5be070f11094b5cdf8ae85de2642705851e0bfb1804",
+    "bytes": 13092,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_4_1": {
+    "src": "inventory/Icons--Icon_Equipment_11_S.png",
+    "icon": "Icon_Equipment_11_S",
+    "sha256": "9be6695db340a026d31f757cdd7d9a0cd385fbe4416c3c223e6fdf34ae36770b",
+    "bytes": 14970,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_4_2": {
+    "src": "inventory/Icons--Icon_Equipment_12_S.png",
+    "icon": "Icon_Equipment_12_S",
+    "sha256": "5aabd9bce895582e84ec24aacaf1c9295e6168b2063895fc65ca0de656af3319",
+    "bytes": 24510,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_4_3": {
+    "src": "inventory/Icons--Icon_Equipment_13_S.png",
+    "icon": "Icon_Equipment_13_S",
+    "sha256": "17897b9414f5e2931ddf65e83268547fd7361be6c88d91065e87ff36a300b0a3",
+    "bytes": 20001,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_4_4": {
+    "src": "inventory/Icons--Icon_Equipment_14_S.png",
+    "icon": "Icon_Equipment_14_S",
+    "sha256": "8bd6362e804ffdb8efbd5802eb8a52dd95b45d83e81da784f68a3fe719077458",
+    "bytes": 21527,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_1": {
+    "src": "inventory/Icons--Icon_Equipment_15_S.png",
+    "icon": "Icon_Equipment_15_S",
+    "sha256": "364c8873bf3a251bf8d87687b5541f1c0ad308427284bf49acc17c1d567d8681",
+    "bytes": 14946,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_2": {
+    "src": "inventory/Icons--Icon_Equipment_16_S.png",
+    "icon": "Icon_Equipment_16_S",
+    "sha256": "94106d4c3f6623b9ae8d9ad9eadb855c28d59672fd11774a5206f76b22639f34",
+    "bytes": 22197,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_3": {
+    "src": "inventory/Icons--Icon_Equipment_17_S.png",
+    "icon": "Icon_Equipment_17_S",
+    "sha256": "fe05eeb056c60980b2ce783e69e66fb171c8fa1310fb0ad0c51def16e46d7e8d",
+    "bytes": 21931,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_4": {
+    "src": "inventory/Icons--Icon_Equipment_18_S.png",
+    "icon": "Icon_Equipment_18_S",
+    "sha256": "8c2b5ceeabc717db3c79b89692e38ee3a60902f60ae3fd87e54f5294eb899321",
+    "bytes": 30332,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_1": {
+    "src": "inventory/Icons--Icon_Equipment_19_S.png",
+    "icon": "Icon_Equipment_19_S",
+    "sha256": "f7ab67f37a2876a645d2de1f2bcb738439338bd2577bf9ad83a21037523489a9",
+    "bytes": 28813,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_2": {
+    "src": "inventory/Icons--Icon_Equipment_20_S.png",
+    "icon": "Icon_Equipment_20_S",
+    "sha256": "805dac1dae83cb8ea501c668694b4c995619189cfc24f186f3d2ba5a9d1d8662",
+    "bytes": 36515,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_3": {
+    "src": "inventory/Icons--Icon_Equipment_21_S.png",
+    "icon": "Icon_Equipment_21_S",
+    "sha256": "4db211b61ef05a5e12c6cdeddce27b93bd6a3acb4eb12ea2dd360f8214d4ab98",
+    "bytes": 22958,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_4": {
+    "src": "inventory/Icons--Icon_Equipment_22_S.png",
+    "icon": "Icon_Equipment_22_S",
+    "sha256": "cdd2a411dd8e1445a0eb0a734eb692b39a109e1925dd5c66a3e372608fe56535",
+    "bytes": 28282,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_5": {
+    "src": "inventory/Icons--Icon_Equipment_23_S.png",
+    "icon": "Icon_Equipment_23_S",
+    "sha256": "7d06614fba0e53dae1997604f2ac3970aa3bfaa7233ce2360aeb3f2d3b8d1bc2",
+    "bytes": 18326,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_7_1": {
+    "src": "inventory/Icons--Icon_Equipment_24_S.png",
+    "icon": "Icon_Equipment_24_S",
+    "sha256": "6552ba9ca98addfde84f625b0dbfa8640bc488b1ff6e972e2f68d307c602470b",
+    "bytes": 39557,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_7_2": {
+    "src": "inventory/Icons--Icon_Equipment_25_S.png",
+    "icon": "Icon_Equipment_25_S",
+    "sha256": "2aef55e16b72d921616d77c8ab670fa724996ab4c6f208adefa678bf323aa5fc",
+    "bytes": 40670,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_7_3": {
+    "src": "inventory/Icons--Icon_Equipment_26_S.png",
+    "icon": "Icon_Equipment_26_S",
+    "sha256": "caa4796f09b8c47cc8939690d0ad1159e922c31cb27ceb21ba995cf279bd7a56",
+    "bytes": 33160,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_7_4": {
+    "src": "inventory/Icons--Icon_Equipment_29.png",
+    "icon": "Icon_Equipment_29",
+    "sha256": "3436b7442f7cc904aca3b583ef30c9b9169f842ccd62d865e7f2fea1c997ec89",
+    "bytes": 45738,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_7_5": {
+    "src": "inventory/Icons--Icon_Equipment_69_S.png",
+    "icon": "Icon_Equipment_69_S",
+    "sha256": "2d030e7460fa0d3288df5e615e264d476322b3c98d29c1e4aafb45bac15f6afb",
+    "bytes": 24145,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_7_6": {
+    "src": "inventory/Icons--Icon_Equipment_87_S.png",
+    "icon": "Icon_Equipment_87_S",
+    "sha256": "33afe9a60ecdf97cdb49b1a70ea8dd951724c2168367c24682db670b720530be",
+    "bytes": 45861,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_ES_information_intimacy_S": {
+    "src": "inventory/Icons--Icon_ES_information_intimacy_S.png",
+    "icon": "Icon_ES_information_intimacy_S",
+    "sha256": "b4ebe8ac44bb4db8835235e56bff6efa255e540107b71c49448b8ab0b64ad21e",
+    "bytes": 16143,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_ES_information_intimacy_A": {
+    "src": "inventory/Icons--Icon_ES_information_intimacy_A.png",
+    "icon": "Icon_ES_information_intimacy_A",
+    "sha256": "c7dae568bfb38e1d0b558eb1ec9665fd995c3b11edb1415fa66c8d24ebee5300",
+    "bytes": 12990,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_ES_information_charm_S": {
+    "src": "inventory/Icons--Icon_ES_information_charm_S.png",
+    "icon": "Icon_ES_information_charm_S",
+    "sha256": "9f18cd9911d989e114f508bc2a94fb4370a519aa820e2f58a6e5b35a39519d68",
+    "bytes": 17128,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_ES_information_charm_A": {
+    "src": "inventory/Icons--Icon_ES_information_charm_A.png",
+    "icon": "Icon_ES_information_charm_A",
+    "sha256": "8e8262836bac43069b9eeaa74bc687afc3f743c46339627cc59c22ddb5685bc8",
+    "bytes": 13325,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Monopoly01_WifeIntimacy": {
+    "src": "inventory/Icons--Icon_Monopoly01_WifeIntimacy.png",
+    "icon": "Icon_Monopoly01_WifeIntimacy",
+    "sha256": "88627809721aa943cee486651c719a7d2b822369f782286cbfcb6363e2bafa2f",
+    "bytes": 10456,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Monopoly01_WifeCharm": {
+    "src": "inventory/Icons--Icon_Monopoly01_WifeCharm.png",
+    "icon": "Icon_Monopoly01_WifeCharm",
+    "sha256": "83caca9429d2eaa410bc4d68f91e171d6610b988eae4b7563eeed1f1b1888081",
+    "bytes": 11778,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_5": {
+    "src": "inventory/Icons--Icon_Equipment_28_S.png",
+    "icon": "Icon_Equipment_28_S",
+    "sha256": "80631645d12332ef629b31a6470982c82051f49c278f61bf3bc9d0702ea092e6",
+    "bytes": 26127,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Monopoly02_WifeIntimacy": {
+    "src": "inventory/Icons--Icon_Monopoly02_WifeIntimacy.png",
+    "icon": "Icon_Monopoly02_WifeIntimacy",
+    "sha256": "b2ed22cc7ea1d30aaa1320380d2b99fa5d4afed54ffcea96f2e734dfd4752e01",
+    "bytes": 10284,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Monopoly02_WifeCharm": {
+    "src": "inventory/Icons--Icon_Monopoly02_WifeCharm.png",
+    "icon": "Icon_Monopoly02_WifeCharm",
+    "sha256": "0ae326de0a478854992b7604b1f2254b1fd90fa84f350bb37d2694659f043aab",
+    "bytes": 12274,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Monopoly03_WifeIntimacy": {
+    "src": "inventory/Icons--Icon_Monopoly03_WifeIntimacy.png",
+    "icon": "Icon_Monopoly03_WifeIntimacy",
+    "sha256": "1529931bfd9240bed2194cff9d856ac3de412d9f2e8aec55cf1a2fe61196f8b6",
+    "bytes": 10009,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Monopoly03_WifeCharm": {
+    "src": "inventory/Icons--Icon_Monopoly03_WifeCharm.png",
+    "icon": "Icon_Monopoly03_WifeCharm",
+    "sha256": "0d0be95ad58d1de3a9ae085a45d32ece1f8fb57858832c4c8a66aa9fa747eb07",
+    "bytes": 11044,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_6": {
+    "src": "inventory/Icons_EN--Icon_Equipment_30_S.png",
+    "icon": "Icon_Equipment_30_S",
+    "sha256": "83b9db268f8e89b2ce94a994cd4a8b2dd56213199f24d64f5e2049acb43735b5",
+    "bytes": 36910,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_6": {
+    "src": "inventory/Icons_EN--Icon_Equipment_31_S.png",
+    "icon": "Icon_Equipment_31_S",
+    "sha256": "6878eb0a53f793ed77f6890ef7229c755c088d747ea75127d85557eed304a485",
+    "bytes": 30749,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_7": {
+    "src": "inventory/Icons--Icon_Equipment_32_S.png",
+    "icon": "Icon_Equipment_32_S",
+    "sha256": "16914c75000091f1748eac7b68099bc5fd537809d536917ba0d1e5e36d8887f6",
+    "bytes": 33389,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_8": {
+    "src": "inventory/Icons_EN--Icon_Equipment_33_S.png",
+    "icon": "Icon_Equipment_33_S",
+    "sha256": "9c8e4fdf4ec9838e41a35ddd323f69a3687fcd898b8cf1911c96cdd391a0efd8",
+    "bytes": 41242,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_9": {
+    "src": "inventory/Icons_EN--Icon_Equipment_34_S.png",
+    "icon": "Icon_Equipment_34_S",
+    "sha256": "81ea2d35f0c5c5ba18340b9ed72b4faee0feef698df8e0c7363e1228fa75ab32",
+    "bytes": 37979,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_10": {
+    "src": "inventory/Icons_EN--Icon_Equipment_35_S.png",
+    "icon": "Icon_Equipment_35_S",
+    "sha256": "44e6c356e207c2d8f795af0bac68f08fe8839b451f94a0878e6e019a19f88388",
+    "bytes": 27519,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_5_7": {
+    "src": "inventory/Icons_EN--Icon_Equipment_36_S.png",
+    "icon": "Icon_Equipment_36_S",
+    "sha256": "9fcefd5f031ecc3a534a9c0de1affd8d8ad28fb8248005813ed862564ed06d3c",
+    "bytes": 21871,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_11": {
+    "src": "inventory/Icons_EN--Icon_Equipment_37_S.png",
+    "icon": "Icon_Equipment_37_S",
+    "sha256": "9715b1c675b49e88fd9fd5d5726de71b29594abccb447a6dd4048f9d8f4e3edf",
+    "bytes": 19258,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_12": {
+    "src": "inventory/Icons_EN--Icon_Equipment_38.png",
+    "icon": "Icon_Equipment_38",
+    "sha256": "c61c6e5737d988cc4e478b4342a922c1f04e4da2861af28ebeeaaaa6f12f5134",
+    "bytes": 30887,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_13": {
+    "src": "inventory/Icons_EN--Icon_Equipment_40.png",
+    "icon": "Icon_Equipment_40",
+    "sha256": "9729979120dd86e4a0bae7f11109e722f976aa906752f14e76117cec6cb0e5e9",
+    "bytes": 29130,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_14": {
+    "src": "inventory/Icons_EN--Icon_Equipment_41.png",
+    "icon": "Icon_Equipment_41",
+    "sha256": "3fd86bb090ea16a5f58a4dafd6f7c092dbc977e1670c839cbe50b1c951bcefbd",
+    "bytes": 25896,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_15": {
+    "src": "inventory/Icons_EN--Icon_Equipment_39.png",
+    "icon": "Icon_Equipment_39",
+    "sha256": "89aa6bfb8270900bd2b05541c692d31195914620a2a25dea9b43632d34a30f5f",
+    "bytes": 27633,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_WifeBlessExp_extradd_01": {
+    "src": "inventory/Icons--Icon_FixedEmblemStrength_1.png",
+    "icon": "Icon_FixedEmblemStrength_1",
+    "sha256": "86409b56f9ffe685b5e31a1b3a116718db6fb97454a9f637d7e0d7f3f2f99ea4",
+    "bytes": 9745,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_16": {
+    "src": "inventory/Icons_EN--Icon_Equipment_42.png",
+    "icon": "Icon_Equipment_42",
+    "sha256": "ab5bcfd3aff67c87bbd8c01240e574119f57a1b3b2a2f7388dc35ced97b58844",
+    "bytes": 26748,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_17": {
+    "src": "inventory/Icons_EN--Icon_Equipment_43.png",
+    "icon": "Icon_Equipment_43",
+    "sha256": "f58581673a2d0adf7471b4b60c2b18310f6c752aab7fe33a10f835254e81a0f4",
+    "bytes": 37284,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_18": {
+    "src": "inventory/Icons_EN--Icon_Equipment_45.png",
+    "icon": "Icon_Equipment_45",
+    "sha256": "38e74e7c39be7eef954f7fa8ceedf06c505695e0a87657b2a659edddf1e3e228",
+    "bytes": 29084,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_19": {
+    "src": "inventory/Icons_EN--Icon_Equipment_44.png",
+    "icon": "Icon_Equipment_44",
+    "sha256": "007155d37b099784b722552a3e24ae4a028cb5f026aaeb77108203fc9576631f",
+    "bytes": 26751,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_20": {
+    "src": "inventory/Icons_EN--Icon_Equipment_46.png",
+    "icon": "Icon_Equipment_46",
+    "sha256": "d070355772ef3a7c2bc33ca0e87321b348cff308f26ce3eeeef0cf26f43aed53",
+    "bytes": 32146,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_21": {
+    "src": "inventory/Icons_EN--Icon_Equipment_47.png",
+    "icon": "Icon_Equipment_47",
+    "sha256": "a819d45c40a08382d9d69219ebbe2fd01b0b61774e80885124db79bcb2cc1889",
+    "bytes": 33430,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_22": {
+    "src": "inventory/Icons_EN--Icon_Equipment_48.png",
+    "icon": "Icon_Equipment_48",
+    "sha256": "a50aa2ac955335ec185fbda93455199b05a44d3c834e15ca431e911f3006ffcf",
+    "bytes": 35883,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_23": {
+    "src": "inventory/Icons_EN--Icon_Equipment_49.png",
+    "icon": "Icon_Equipment_49",
+    "sha256": "8aebedaefe126c4373bf6c6c1c5089c144406b8d55d1902e776e6c71113e0a9e",
+    "bytes": 29414,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_24": {
+    "src": "inventory/Icons_EN--Icon_Equipment_50.png",
+    "icon": "Icon_Equipment_50",
+    "sha256": "54796c31759e9979e90d2e5292a8e30e207303e3db530700401e56ef7fbd509b",
+    "bytes": 32963,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_25": {
+    "src": "inventory/Icons_EN--Icon_Equipment_52.png",
+    "icon": "Icon_Equipment_52",
+    "sha256": "71c50493125b2833017cf61ecbc38632c97654bd41001647c8ac5d9b3ab30404",
+    "bytes": 29197,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_26": {
+    "src": "inventory/Icons_EN--Icon_Equipment_51.png",
+    "icon": "Icon_Equipment_51",
+    "sha256": "68e6db8f8a3728ec30d19bd9c3ad1081cbf9e60ccaeaaef8b23c3f512b00c438",
+    "bytes": 29658,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_27": {
+    "src": "inventory/Icons_EN--Icon_Equipment_53.png",
+    "icon": "Icon_Equipment_53",
+    "sha256": "3cc0827c5e23f1a7469a189b3f49d09c169309f5bd2a6d89fc9032595347a871",
+    "bytes": 34987,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_28": {
+    "src": "inventory/Icons_EN--Icon_Equipment_54.png",
+    "icon": "Icon_Equipment_54",
+    "sha256": "8281c7f9029c1b46dd4248ae6ab2f17f56ef187ada49f25987f7ef343b6dffd4",
+    "bytes": 24239,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_29": {
+    "src": "inventory/Icons--Icon_Equipment_55.png",
+    "icon": "Icon_Equipment_55",
+    "sha256": "1820d4f68cc484e38781f0337219b56e5ca8d9780c812589f22d553d804c214c",
+    "bytes": 25376,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_38": {
+    "src": "inventory/Icons_EN--Icon_Equipment_64.png",
+    "icon": "Icon_Equipment_64",
+    "sha256": "0aa0e5d835c61e81e264489b53cea901fa517ce02db00789048d293a9b96181a",
+    "bytes": 29828,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_30": {
+    "src": "inventory/Icons_EN--Icon_Equipment_56.png",
+    "icon": "Icon_Equipment_56",
+    "sha256": "8aef300cf03ecb757b246c06b1341b744d87284d7168e7b32fdead0a4ab8a1d2",
+    "bytes": 36070,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_31": {
+    "src": "inventory/Icons_EN--Icon_Equipment_57.png",
+    "icon": "Icon_Equipment_57",
+    "sha256": "53d05ce06f846a4f201cc6b1a48ea2e61eed4bc1ca4baa80495d321bc357df2a",
+    "bytes": 19003,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_32": {
+    "src": "inventory/Icons_EN--Icon_Equipment_58.png",
+    "icon": "Icon_Equipment_58",
+    "sha256": "e2bbd1679cd6282a4245c527d797dc5c70b10e86d0cbc1c91fc24683d123b658",
+    "bytes": 20148,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_33": {
+    "src": "inventory/Icons_EN--Icon_Equipment_59.png",
+    "icon": "Icon_Equipment_59",
+    "sha256": "9e5ad50269acb341b9def71390d962500e69cd0232cbba6ce362c6438c0baa89",
+    "bytes": 20993,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_34": {
+    "src": "inventory/Icons_EN--Icon_Equipment_60.png",
+    "icon": "Icon_Equipment_60",
+    "sha256": "ebddf0d84f45741c264325729e89a3814332e19d5516d2a3ae9c713d64ab69ba",
+    "bytes": 21880,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_35": {
+    "src": "inventory/Icons_EN--Icon_Equipment_61.png",
+    "icon": "Icon_Equipment_61",
+    "sha256": "f4c6f942202e1573b31cfcb9e0f365f18cb7d37c379964cf733c5f94cccfa831",
+    "bytes": 22033,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_36": {
+    "src": "inventory/Icons_EN--Icon_Equipment_62.png",
+    "icon": "Icon_Equipment_62",
+    "sha256": "85e7d236fcfdcc69847f9579e59e1c2322669baeafe9a2bc3a33260587427e35",
+    "bytes": 22041,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_37": {
+    "src": "inventory/Icons_EN--Icon_Equipment_63.png",
+    "icon": "Icon_Equipment_63",
+    "sha256": "b1d421935f52e4c37ea2e1527af6dbaf777e79ec572109085e45c770218d9f45",
+    "bytes": 19298,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_40": {
+    "src": "inventory/Icons_EN--Icon_Equipment_65.png",
+    "icon": "Icon_Equipment_65",
+    "sha256": "b9ae6944945a0a294c7e9a20e3296159dd7c26a20f5c8d02f778b4cc68ed2418",
+    "bytes": 21413,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_41": {
+    "src": "inventory/Icons_EN--Icon_Equipment_66.png",
+    "icon": "Icon_Equipment_66",
+    "sha256": "ececf27049e90a51a2ad8717b39a8a08fd9fd2f0d9839e0f3a1179fafdb081d3",
+    "bytes": 29438,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_42": {
+    "src": "inventory/Icons_EN--Icon_Equipment_67.png",
+    "icon": "Icon_Equipment_67",
+    "sha256": "065268a3268d1f9dcc0c92e35dd588001dec3e5a2fa961ffacdd9bf2cf13a8ca",
+    "bytes": 17112,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_43": {
+    "src": "inventory/Icons_EN--Icon_Equipment_68.png",
+    "icon": "Icon_Equipment_68",
+    "sha256": "96255f030d9e6d678420d4bb378fdc06a3f25b5a433951f10c98b846fa5ec12c",
+    "bytes": 28127,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_45": {
+    "src": "inventory/Icons_EN--Icon_Equipment_70.png",
+    "icon": "Icon_Equipment_70",
+    "sha256": "63307972c3094a2d772f5c7d27413e30faa9b5ed404cdf0bb94330fb4739b855",
+    "bytes": 34628,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_46": {
+    "src": "inventory/Icons_EN--Icon_Equipment_71.png",
+    "icon": "Icon_Equipment_71",
+    "sha256": "a4027b7be6aa13c91c91b70822658a7ce3de247de25882fac1426822419b12c8",
+    "bytes": 31427,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_47": {
+    "src": "inventory/Icons_EN--Icon_Equipment_72.png",
+    "icon": "Icon_Equipment_72",
+    "sha256": "0345bcf45558a10e4de0d0a949c9b5bd12bec110f23bc48f36cac5502701106e",
+    "bytes": 30647,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_48": {
+    "src": "inventory/Icons_EN--Icon_Equipment_73.png",
+    "icon": "Icon_Equipment_73",
+    "sha256": "a4a31dec024ffd80bd541e01c71ebbc2ad474df797207d96cff0369ddbc04e09",
+    "bytes": 22899,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_49": {
+    "src": "inventory/Icons_EN--Icon_Equipment_74.png",
+    "icon": "Icon_Equipment_74",
+    "sha256": "2dae702d3311f3e033ce079be0367353ccfe9bb77298270d4e418053c03ddd6a",
+    "bytes": 27154,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_50": {
+    "src": "inventory/Icons--Icon_Equipment_76.png",
+    "icon": "Icon_Equipment_76",
+    "sha256": "44ae84be39a9269adb6d6884fd802136cce6c08173570d5cac74830947b1f263",
+    "bytes": 32508,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_H259": {
+    "src": "inventory/Icons--Icon_Equipment_77.png",
+    "icon": "Icon_Equipment_77",
+    "sha256": "5d01e6fe3b7ac37f72615ff64376a2b6964c86e48a40a01e5e919995b6ef0491",
+    "bytes": 53192,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  },
+  "Item_Weapon_Equipment_6_H262": {
+    "src": "inventory/Icons--Icon_Equipment_78.png",
+    "icon": "Icon_Equipment_78",
+    "sha256": "619564316f7c7604779ba4fe2cb3c13744f443a40ad077307660a3916fe0ac62",
+    "bytes": 51019,
+    "sourceIndexSha256": "f2845d6ba8461ec67aed63cf85480df5e45ea4b5e7f2eddee74d412dff4e2353"
+  }
+}

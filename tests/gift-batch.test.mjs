@@ -1,0 +1,8 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {fresh,act,decode} from '../lib/game.mjs';
+import {GIFTS} from '../lib/catalog.mjs';
+const joined=()=>act(fresh(0),'welcome',0,'wife_2').state;
+test('batch gifts match repeated single gifts and survive save reload',()=>{for(const gift of GIFTS){const s=joined();s.inventory[gift.id]=7;let single=s;for(let n=0;n<7;n++)single=act(single,'gift',0,'wife_2',gift.id).state;const batch=act(s,'giftBatch',0,'wife_2',{giftId:gift.id,count:7});assert(!batch.error);assert.deepEqual(batch.state,single);assert.deepEqual(decode(JSON.stringify(batch.state)),decode(JSON.stringify(single)));}});
+test('batch gifts conserve unused stock when only complete effects fit',()=>{const s=joined();s.inventory.gift5=100;s.family.wife_2.intimacy=999993;const r=act(s,'giftBatch',0,'wife_2',{giftId:'gift5',count:100});assert(!r.error);assert.equal(r.state.inventory.gift5,99);assert.equal(r.state.family.wife_2.intimacy,999998);assert.equal(r.state.stats.gifts,s.stats.gifts+1);const blocked=act(r.state,'giftBatch',0,'wife_2',{giftId:'gift5',count:100});assert(blocked.error);assert.deepEqual(blocked.state,r.state);});
+test('invalid batch quantity, missing owner and foreign gift fail without mutation',()=>{const s=joined();for(const count of [0,-1,1.5,NaN,Infinity,1000001,'2']){const r=act(s,'giftBatch',0,'wife_2',{giftId:'gift1',count});assert(r.error);assert.deepEqual(r.state,s)}for(const [owner,id]of[['wife_999','gift1'],['wife_2','fake']]){const r=act(s,'giftBatch',0,owner,{giftId:id,count:1});assert(r.error);assert.deepEqual(r.state,s)}});

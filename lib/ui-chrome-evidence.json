@@ -1,0 +1,20 @@
+[
+  {
+    "src": "ui-original/parchment.png",
+    "sha256": "8ab745541f2af919b83c31085d49a8ef8994f1f9879127a5fc55d5cd0892c061",
+    "source": "/Users/westmanfamily/Desktop/ISEKAI/local-everstead/buttons/Base_atlas_d1wo1nupmsk.png",
+    "binding": "visual-source role; native placement and responsive border slices not asserted"
+  },
+  {
+    "src": "ui-original/title.png",
+    "sha256": "38ee7f1ca85ef8a60006f91c44758b3ee8949c580f2d33518d36c0ef1ea9928a",
+    "source": "/Users/westmanfamily/Desktop/ISEKAI/local-everstead/buttons/Base_atlas_f2211nupkt8.png",
+    "binding": "visual-source role; native placement and responsive border slices not asserted"
+  },
+  {
+    "src": "ui-original/close.png",
+    "sha256": "1ede42ba0d1eb3cda4b0416b58b3dda0c333032599d41278955e89896137291c",
+    "source": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/ui-artifact-map/shield-close-visual-crop.png",
+    "binding": "visual-source role; native placement and responsive border slices not asserted"
+  }
+]

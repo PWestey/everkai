@@ -1,0 +1,793 @@
+{
+  "gift1": {
+    "name": "Gold Ring",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_Intimacy_1",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "gift2": {
+    "name": "Gemstone Ring",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Intimacy_2",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "gift3": {
+    "name": "Flower Necklace",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_EmblemStrength_1",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "gift4": {
+    "name": "Jewel Necklace",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_EmblemStrength_2",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "gift5": {
+    "name": "Diamond Ring",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Intimacy_3",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_GetCE_10": {
+    "name": "Focus Candy",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_GetCE_10",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_HeroEXP_Resources_4": {
+    "name": "Ancient Exp Stone",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Crystal_2",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_HeroEXP_Resources_3": {
+    "name": "Large Exp Stone",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Crystal_1",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_HeroEXP_Resources_2": {
+    "name": "Refined Exp Stone",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Crystal_0.5",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_HeroEXP_Resources_1": {
+    "name": "Exp Stone",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_Crystal_0.1",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Gcoin_YieldPack_3": {
+    "name": "Advanced Earnings Card",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Card_Hour",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Gcoin_YieldPack_1": {
+    "name": "Basic Earnings Card",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_Card_Minute",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Talent_Hero_1": {
+    "name": "Skill Pearl",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Talent_Item",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_1_1": {
+    "name": "Goblin Club",
+    "rarity": 1,
+    "isActivity": false,
+    "icon": "Icon_Equipment_01_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_1_2": {
+    "name": "Dwarf Hammer",
+    "rarity": 1,
+    "isActivity": false,
+    "icon": "Icon_Equipment_02_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_1_3": {
+    "name": "Kemono Drum",
+    "rarity": 1,
+    "isActivity": false,
+    "icon": "Icon_Equipment_03_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_2_1": {
+    "name": "Felling Axe",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_Equipment_04_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_2_2": {
+    "name": "Herbalist's Mortar",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_Equipment_05_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_2_3": {
+    "name": "Snow Boots",
+    "rarity": 2,
+    "isActivity": false,
+    "icon": "Icon_Equipment_06_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_3_1": {
+    "name": "Nocturnal Lantern",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_07_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_3_2": {
+    "name": "Preliminary Textbook",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_08_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_3_3": {
+    "name": "Refined Anvil",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_09_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_3_4": {
+    "name": "Maid Bell",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_10_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_4_1": {
+    "name": "Craftsman's Goggles",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_11_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_4_2": {
+    "name": "Infinite Quiver",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_12_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_4_3": {
+    "name": "Ancient Slate",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_13_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_4_4": {
+    "name": "Invigorating Harp",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_14_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_1": {
+    "name": "Master Key",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Equipment_15_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_2": {
+    "name": "Magic Pendant",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Equipment_16_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_3": {
+    "name": "Lucky Horseshoe",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Equipment_17_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_4": {
+    "name": "Psychical Orbuculum",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Equipment_18_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_1": {
+    "name": "Meowna Lisa",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_19_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_2": {
+    "name": "Cloak of Levitation",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_20_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_3": {
+    "name": "Mask of Nobility",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_21_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_4": {
+    "name": "Mermaid's Tear",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_22_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_5": {
+    "name": "Sapphire Crown",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_23_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_7_1": {
+    "name": "Golden Apple",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_24_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_7_2": {
+    "name": "Horn of Plenty",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_25_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_7_3": {
+    "name": "Magic Lamp",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_26_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_7_4": {
+    "name": "Dragon Summon Horn",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_29",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_7_5": {
+    "name": "Dragon Tamer's Scepter",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_69_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_7_6": {
+    "name": "Ring of Spirit Submission",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_87_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_ES_information_intimacy_S": {
+    "name": "Touno Specialty 2",
+    "rarity": 5,
+    "isActivity": true,
+    "icon": "Icon_ES_information_intimacy_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_ES_information_intimacy_A": {
+    "name": "Touno Specialty 1",
+    "rarity": 4,
+    "isActivity": true,
+    "icon": "Icon_ES_information_intimacy_A",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_ES_information_charm_S": {
+    "name": "Touno Souvenir 2",
+    "rarity": 5,
+    "isActivity": true,
+    "icon": "Icon_ES_information_charm_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_ES_information_charm_A": {
+    "name": "Touno Souvenir 1",
+    "rarity": 4,
+    "isActivity": true,
+    "icon": "Icon_ES_information_charm_A",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Monopoly01_WifeIntimacy": {
+    "name": "Heart Cake",
+    "rarity": 3,
+    "isActivity": true,
+    "icon": "Icon_Monopoly01_WifeIntimacy",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Monopoly01_WifeCharm": {
+    "name": "Bat Cake",
+    "rarity": 3,
+    "isActivity": true,
+    "icon": "Icon_Monopoly01_WifeCharm",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_5": {
+    "name": "Giant Thermal Stone",
+    "rarity": 3,
+    "isActivity": false,
+    "icon": "Icon_Equipment_28_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Monopoly02_WifeIntimacy": {
+    "name": "Amber of Fish",
+    "rarity": 3,
+    "isActivity": true,
+    "icon": "Icon_Monopoly02_WifeIntimacy",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Monopoly02_WifeCharm": {
+    "name": "Strange Pearl",
+    "rarity": 3,
+    "isActivity": true,
+    "icon": "Icon_Monopoly02_WifeCharm",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Monopoly03_WifeIntimacy": {
+    "name": "Hiemspresent Hairpin",
+    "rarity": 3,
+    "isActivity": true,
+    "icon": "Icon_Monopoly03_WifeIntimacy",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Monopoly03_WifeCharm": {
+    "name": "Hiemspresent Hat",
+    "rarity": 3,
+    "isActivity": true,
+    "icon": "Icon_Monopoly03_WifeCharm",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_6": {
+    "name": "Uchine",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Equipment_30_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_6": {
+    "name": "Draupnir",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_31_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_7": {
+    "name": "Cane of Abundance",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_32_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_8": {
+    "name": "Tomoe's katana",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_33_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_9": {
+    "name": "Mio's iron fan",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_34_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_10": {
+    "name": "Shiki's crown",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_35_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_5_7": {
+    "name": "Space Portal",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_Equipment_36_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_11": {
+    "name": "Universal Farming Tool",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_37_S",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_12": {
+    "name": "Kanna Plush",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_38",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_13": {
+    "name": "Elma Plush",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_40",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_14": {
+    "name": "Fafnir Plush",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_41",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_15": {
+    "name": "Tohru Plush",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_39",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_WifeBlessExp_extradd_01": {
+    "name": "Blessing Point Insight",
+    "rarity": 4,
+    "isActivity": false,
+    "icon": "Icon_FixedEmblemStrength_1",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_16": {
+    "name": "Anti-Magic Mask",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_42",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_17": {
+    "name": "Dragon Knuckles (Replica)",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_43",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_18": {
+    "name": "Shuna's Doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_45",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_19": {
+    "name": "Diablo's Doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_44",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_20": {
+    "name": "Beryl's Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_46",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_21": {
+    "name": "Allucia's Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_47",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_22": {
+    "name": "Surena's Dragon Dual Blades",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_48",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_23": {
+    "name": "Golden Microphone",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_49",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_24": {
+    "name": "Rica's Plushie",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_50",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_25": {
+    "name": "Desperate",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_52",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_26": {
+    "name": "Alvs Eustitia",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_51",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_27": {
+    "name": "Hestia's Doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_53",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_28": {
+    "name": "Liliruca's Doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_54",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_29": {
+    "name": "Willful Dice",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_55",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_38": {
+    "name": "Emiru Plushie",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_64",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_30": {
+    "name": "Mushroom Staff",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_56",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_31": {
+    "name": "Kuromi's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_57",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_32": {
+    "name": "Cinnamoroll's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_58",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_33": {
+    "name": "Pompompurin's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_59",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_34": {
+    "name": "Hello Kitty's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_60",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_35": {
+    "name": "My Melody's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_61",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_36": {
+    "name": "Tuxedosam's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_62",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_37": {
+    "name": "Pochacco's doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_63",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_40": {
+    "name": "Dragon-Scale Scarf",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_65",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_41": {
+    "name": "Silver Necklace",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_66",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_42": {
+    "name": "Demon Blade Benizakura",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_67",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_43": {
+    "name": "Lucy Doll",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_68",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_45": {
+    "name": "Roxy's Wand",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_70",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_46": {
+    "name": "Paul's Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_71",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_47": {
+    "name": "Hachigane",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_72",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_48": {
+    "name": "Aqua Heartia",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_73",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_49": {
+    "name": "Sylphiette Greyrat Figure",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_74",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_50": {
+    "name": "Divine Vintage Wine",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_76",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H259": {
+    "name": "True Love Trap",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_77",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H260": {
+    "name": "Aqua Plushie",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_79",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_W174": {
+    "name": "Megumin Plushie",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_80",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H184": {
+    "name": "Chunchunmaru",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_81",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_51": {
+    "name": "Veldora's Cloak",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_75",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_52": {
+    "name": "Shion Plushie",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_82",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H262": {
+    "name": "Icefang Necklace",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_78",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H263": {
+    "name": "Chisato Nishikigi's Pistol",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_88",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_W184": {
+    "name": "Takina Inoue Plushie",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_89",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H264": {
+    "name": "Shinobu Kocho's Nichirin Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_90",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H301": {
+    "name": "Giyu Tomioka's Nichirin Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_91",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H302": {
+    "name": "Tanjiro Kamado's Nichirin Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_92",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H303": {
+    "name": "Zenitsu Agatsuma's Nichirin Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_93",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  },
+  "Item_Weapon_Equipment_6_H304": {
+    "name": "Inosuke Hashibira's Nichirin Sword",
+    "rarity": 5,
+    "isActivity": false,
+    "icon": "Icon_Equipment_94",
+    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
+  }
+}
