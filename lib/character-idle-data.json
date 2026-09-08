@@ -1,0 +1,28 @@
+{
+  "wife_1": {
+    "id": "wife_01",
+    "sha256": "272d2eb116438f7439b019664f0287d18e178ec96bba3579fca901a426c32f16",
+    "bytes": 101180,
+    "width": 256,
+    "height": 512,
+    "fps": 24,
+    "frames": 64,
+    "encodedDuration": 2.6666666666666665,
+    "owner": "wife_1",
+    "costumeId": null,
+    "src": "idle/wife_01-idle.mp4"
+  },
+  "hero_1": {
+    "id": "hero_01",
+    "sha256": "1bfe76fa20c831f28bf054ff0bcb77f683d4d6dbb903686dbd62b4cd1d1b1711",
+    "bytes": 128385,
+    "width": 344,
+    "height": 512,
+    "fps": 24,
+    "frames": 64,
+    "encodedDuration": 2.6666666666666665,
+    "owner": "hero_1",
+    "costumeId": null,
+    "src": "idle/hero_01-idle.mp4"
+  }
+}
