@@ -1,3 +1,4 @@
+import {wardrobeAppearance} from '@/lib/wardrobe.mjs';
 import {openingTask,openingRequirement} from '@/lib/opening.mjs';
 import {openingObjective} from '@/lib/opening-presentation.mjs';
 import MineClearancePanel from './mine-clearance-panel';
@@ -81,7 +82,7 @@ export default function App(){
  function openModule(id:string){if(id==='businesses')setBusinessPage(0);if(id==='treasure')setTreasurePage('dig');setTab(id);setModuleOpen(true)}
  function openRelics(){setTreasurePage('relics');setTab('treasure');setModuleOpen(true)}
  const journey=(game as any).opening,nextJourneyTask=openingTask(game),nextJourneyRequirement=openingRequirement(game),nextJourneyObjective=openingObjective(nextJourneyTask);
- const character=fellowById(selected)||FELLOWS[0];const displayCharacter=tab==='family'?(FAMILY.find(f=>f.id===familySelected)||FAMILY[0]):character;const owned=game.fellows[character.id];const workplace=BUILDINGS.find(b=>game.buildings[b.id]?.fellow===character.id)||BUSINESSES.find(b=>enterpriseState(game)[b.id]?.fellows.includes(character.id));const locked=!loaded||failedLoad||saveFailed;
+ const character=wardrobeAppearance(game,fellowById(selected)||FELLOWS[0]);const displayCharacter=tab==='family'?wardrobeAppearance(game,FAMILY.find(f=>f.id===familySelected)||FAMILY[0]):character;const owned=game.fellows[character.id];const workplace=BUILDINGS.find(b=>game.buildings[b.id]?.fellow===character.id)||BUSINESSES.find(b=>enterpriseState(game)[b.id]?.fellows.includes(character.id));const locked=!loaded||failedLoad||saveFailed;
  return <main className="game">
   <header className="hud"><div><small>VILLAGE RANK {playerRank(game)}</small><h1>Isekai</h1></div><div className="purse"><span className="gold-value"><Coins size={22}/>{fmt(game.gold)}</span><span>Gold</span></div><Button className="save-button" aria-label="Save and offline settings" onClick={()=>setPanel(true)}><HardDrive size={21}/></Button></header>
   <section className="village-next-step" aria-label="Your next objective"><div><small>{journey?'ADVENTURE RANK '+journey.rank:'START YOUR STORY'}</small><p>{!journey?'Build a village, earn companions and explore.':nextJourneyObjective?.text||'Opening journey complete. Your village keeps growing.'}</p></div><Button disabled={locked} onClick={()=>{if(!journey){if(action('openingStart'))openModule('adventure')}else if(nextJourneyTask&&nextJourneyRequirement.ready){if(action('openingClaim',nextJourneyTask._id))openModule('adventure')}else openModule('adventure')}}>{!journey?'Start journey':nextJourneyTask&&nextJourneyRequirement.ready?'Claim quest reward':'Next objective'}</Button></section>

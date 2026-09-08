@@ -1,6 +1,6 @@
 # Everkai — Private Village
 
-An independently implemented, offline-capable single-player village sandbox. This delivery is based on the independently reviewed Isekai Private Village source commit `4a7586610c48c08352ce8fb0fd5f260ef193bf28` (playable release v116), with independently reviewed startup recovery from `21b029c5f009ab84084a633436114c549ea11e4a`. It is not the original mobile client, and original-game fidelity remains incomplete.
+An independently implemented, offline-capable single-player village sandbox. This delivery is based on the independently reviewed Isekai Private Village source commit `27b58f6f3bbcccaa502c2daf975f532c44257f17` (wardrobe plus startup recovery). It is not the original mobile client, and original-game fidelity remains incomplete.
 
 ## Run locally
 
@@ -48,3 +48,9 @@ Game logic combines readable local source evidence, public reference material an
 Artwork derives from the user's supplied Isekai files and selected locally prepared compositions. Original artwork remains owned by its respective rights holders; no ownership or redistribution license is asserted. No original APK, protected bundle, production credential, personal save, proprietary animation runtime or private hosting binding is included. There is no production game-server connection or authentication bypass.
 
 `docs/DEVELOPMENT_HISTORY.md` preserves chronological implementation notes; older entries describe earlier versions and can be superseded. Optional extraction/import tools may retain source provenance paths; they are authoring aids, not build prerequisites. The separate research handoff and Everstead project are not included or coupled to this repository.
+
+## Wardrobe update
+
+Family and Fellow details now offer Wardrobe: explicitly collect costumes for free after welcoming/recruiting the exact character, then wear one or restore the base appearance. This cosmetic policy changes no stats or collection rewards. There are 268 active-owner costume records and 257 verified static costume images; 11 art exceptions remain unavailable. Unique-owned collection score uses the source score under a local rule.
+
+57 explicit costume-linked Family picture routes require exact costume ownership, the recorded Intimacy threshold and a later successful date. Wearing the costume is not required. Collect/equip never grants a picture directly. One missing source unlock type and other unsupported gates remain locked. The extra costume art adds about 10 MB to the offline download. Base roster portraits and story art remain unchanged.

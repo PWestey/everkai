@@ -45,3 +45,11 @@ All prior save versions migrate, with an automatic `-backup-before-v4` copy. Exp
 Levels now spend the Fellow EXP earned from school and stages. Independent Aptitude, skills, limit breaks and equipment feed Power and business earnings. Three named equipment bonuses follow readable item descriptions. Adventure adds a local 30-stage campaign, party selection, single-claim first-clear loot, crystals and repeatable EXP patrols. Bag & shop covers materials, equipment, gift counts and explicit sandbox grants. Four more Journey milestones integrate the new systems.
 
 Schema-five migration retains all previous levels, EXP, currencies, school/family progress and claims. No previous levels are charged again. The automatic backup uses `-backup-before-v5`. The built app contains no remote game calls. See SYSTEMS.md and adventure-rule-evidence.json for original rules versus local formulas. Power-comparison battles are a first local resolver, not original combat fidelity.
+
+## Wardrobe and costume pictures (optional save ledger)
+
+The local wardrobe has 268 active-owner costume records and 257 verified static compositions (101 Family, 156 Fellows). Eleven art exceptions remain unavailable. After welcoming or recruiting a character, explicitly collect a costume for free, then wear it or restore the base appearance. Ownership is distinct from equip; no costume is granted automatically. Costumes grant no Power/economic bonus or collection reward. Collection score is the local sum of each uniquely owned costume's source score.
+
+Family and Fellow details have a Wardrobe page. Equipped appearances apply to character details, enlarged artwork and Family date presentation. Base collection portraits and story illustrations remain unchanged. The 257 bounded costume images add 10,058,482 bytes to the offline cache; source compositions retain their original aspect ratio/surround.
+
+On a successful Family date, 57 explicit type2 costume-linked pictures can become eligible with exact costume ownership and the recovered Intimacy threshold. Wearing it is not required. Collection/equip never directly grants a picture. Wife111C2_DateDialogue1 lacks an unlock type and remains locked; special-item/unresolved routes also remain locked. These are disclosed local selection/gating rules, not recovered server behavior. Existing saves without a wardrobe remain unchanged.
