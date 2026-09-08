@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,decode,settle} from '../lib/game.mjs';import {habitPeriod,validHabits,exportHabitTasks} from '../lib/habits.mjs';
+import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,decode,settle} from '../lib/game.mjs';import {habitPeriod,validHabits,exportHabitTasks,sortHabitItems} from '../lib/habits.mjs';
 const date=s=>new Date(s+'T12:00:00').getTime();const start=date('2026-09-07');
 function add(s=fresh(start),spec={}){const r=act(s,'habitSave',s.lastAt,null,{title:'Task',...spec});assert(!r.error,r.error);return r.state}
 function doAct(s,a,t=null,v=null,now=s.lastAt){const r=act(s,a,now,t,v);assert(!r.error,r.error);assert(validHabits(r.state));return r.state}
@@ -16,3 +16,17 @@ test('hostile fields, invalid amounts and malformed imports fail atomically',()=
 test('task backup restores definitions without issuing rewards or reusing IDs',()=>{let s=doAct(add(),'habitComplete','h1');s=doAct(s,'habitClear');assert.equal(s.habits.items.length,0);s=doAct(s,'habitRestoreTasks');assert.equal(s.habits.items.length,1);assert.equal(s.gold,270);s=add(s,{title:'Another'});assert.equal(s.habits.items[1].id,'h2');});
 test('opening on each weekend day preserves the last scheduled completion',()=>{let s=add(fresh(date('2026-09-04')),{days:[1,2,3,4,5]});s=doAct(s,'habitComplete','h1');for(const d of ['2026-09-05','2026-09-06','2026-09-07']){s=settle(s,date(d));assert.equal(s.habits.items[0].streak,1)}assert.equal(s.habits.grace,0);assert(!s.habits.items[0].done);});
 test('quarterly tasks always remain reachable through Reviews',()=>{const s=add(fresh(start),{freq:'quarterly',review:false});assert.equal(s.habits.items[0].review,true);});
+test('template field presence, aliases, explicit order and quarterly blocks round-trip losslessly',()=>{
+ const input={oathforgeDailies:1,exportedAt:'fixture',count:3,dailies:[{title:' Quarterly ',freq:'quarterly',diff:'med',domain:'faith',notes:'',block:'quarterStart',gate:'',review:true,gateOrd:20},{title:'Morning',freq:'daily',domain:'home',gate:'preFull',gateOrd:5,extra:{enabled:false}},{title:'Plain',freq:'weekly'}],retire:[]};
+ let s=doAct(fresh(start),'habitImport',null,input);assert.deepEqual(exportHabitTasks(s.habits),input);assert.equal(s.habits.items[0].domain,'reflection');assert.equal(s.habits.items[1].domain,'household');assert.equal(s.habits.items[0].diff,'med');s=decode(JSON.stringify(s));assert.deepEqual(exportHabitTasks(s.habits),input);
+ s=doAct(s,'habitComplete','h2');const gold=s.gold,history=structuredClone(s.habits.history);s=doAct(s,'habitImport',null,input);assert.equal(s.gold,gold);assert.deepEqual(s.habits.history,history);assert(s.habits.items[1].done);assert.equal(s.habits.nextId,4);assert.deepEqual(exportHabitTasks(s.habits),input);
+ s=doAct(s,'habitSave','h2',{domain:'career'});assert.equal(exportHabitTasks(s.habits).dailies[1].domain,'work');
+});
+test('filtered reorder keeps hidden positions and persists through export and reload',()=>{
+ let s=doAct(fresh(start),'habitImport',null,[{title:'First',gate:'preCore'},{title:'Hidden',gate:'preFull'},{title:'Last',gate:'preFull'},{title:'Closing',gate:'post'}]);
+ s=doAct(s,'habitReorder',null,['h3','h1']);assert.deepEqual(sortHabitItems(s.habits.items).map(x=>x.id),['h3','h2','h1','h4']);assert.deepEqual(s.habits.items.map(x=>x.id),['h1','h2','h3','h4']);assert.equal(exportHabitTasks(s.habits)[1].gateOrd,20);
+ const n=doAct(fresh(start),'habitImport',null,exportHabitTasks(s.habits));assert.deepEqual(sortHabitItems(decode(JSON.stringify(n)).habits.items).map(x=>x.id),['h3','h2','h1','h4']);assert(act(s,'habitReorder',start,null,['h4','h1']).error);
+});
+test('template backup restores its envelope and duplicate import fails atomically',()=>{
+ let s=doAct(fresh(start),'habitImport',null,{count:1,dailies:[{title:'A',block:'quarterEnd',freq:'quarterly'}]});const original=exportHabitTasks(s.habits);s=doAct(s,'habitImport',null,{tasks:[{title:'B'}]});s=doAct(s,'habitRestoreTasks');assert.deepEqual(exportHabitTasks(s.habits),original);const r=act(s,'habitImport',start,null,[{title:'Same'},{title:'same'}]);assert(r.error);assert.deepEqual(r.state.habits.items,s.habits.items);
+});
