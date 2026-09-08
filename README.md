@@ -1,6 +1,6 @@
 # Everkai — Private Village
 
-An independently implemented, offline-capable single-player village sandbox. This delivery is based on the independently reviewed Isekai Private Village source commit `4a7586610c48c08352ce8fb0fd5f260ef193bf28` (playable release v116). It is not the original mobile client, and original-game fidelity remains incomplete.
+An independently implemented, offline-capable single-player village sandbox. This delivery is based on the independently reviewed Isekai Private Village source commit `4a7586610c48c08352ce8fb0fd5f260ef193bf28` (playable release v116), with independently reviewed startup recovery from `21b029c5f009ab84084a633436114c549ea11e4a`. It is not the original mobile client, and original-game fidelity remains incomplete.
 
 ## Run locally
 
@@ -25,7 +25,9 @@ pnpm start
 
 The complete static website is generated in `dist/client`. Serve that directory over HTTPS for installation and offline support; localhost also supports service workers. Build generates the versioned offline manifest and worker. No backend, database, game server, API key or environment secret is required. The checked-in data and optimized artwork are sufficient to build; optional import scripts reference local research inputs that are not needed for installation or gameplay.
 
-CI runs tests, type checking and the production build and uploads the static build as an artifact. **This repository does not configure a hosting deployment.** Uploading source to GitHub alone does not publish a playable website. The existing private playable release remains at https://isekai-private-village-pw.westman-pa.chatgpt.site/ and requires its existing access permission.
+CI runs tests, type checking and the production build. The Pages workflow publishes only `dist/client` to **https://pwestey.github.io/everkai/** after those checks pass. Repository Settings → Pages → Source must stay **GitHub Actions**. Do not publish the source branch root: its development TSX entry is not a runnable static build. Relative built asset paths and the service-worker scope support `/everkai/`.
+
+The independent private backup remains at https://isekai-private-village-pw.westman-pa.chatgpt.site/ with its existing access permission. Saves do not automatically transfer between these origins; use export/restore. Startup recovery provides a visible reload screen and, for rendering failures, a raw-save download without clearing stored data.
 
 ## Install on iPhone
 
