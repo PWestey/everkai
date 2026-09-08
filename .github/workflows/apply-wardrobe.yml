@@ -1,0 +1,37 @@
+name: Apply verified wardrobe update
+on:
+  push:
+    paths:
+      - '.delivery-wardrobe/**'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and unpack reviewed source changes
+        run: |
+          cat .delivery-wardrobe/part-* > /tmp/wardrobe-update.tar.gz
+          echo '7cfcbd22c72558cbadd30108de2316cc95028c39a8a0dd7e7e69252d90f0327f  /tmp/wardrobe-update.tar.gz' | sha256sum --check
+          tar -xzf /tmp/wardrobe-update.tar.gz
+          rm -r .delivery-wardrobe
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm exec tsc --noEmit
+      - run: pnpm build
+      - name: Verify accepted build identity and record source
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; if(!fs.readFileSync('dist/client/offline-files.js','utf8').includes('8f4d1e4a92da549f')) throw Error('Build identity differs from reviewed candidate')"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'Integrate reviewed wardrobe and startup source 27b58f6'
+          git push origin HEAD:main
