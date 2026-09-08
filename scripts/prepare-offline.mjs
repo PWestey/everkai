@@ -6,4 +6,4 @@ await walk();files.sort();const hash=createHash('sha256');for(const f of files)h
 await writeFile(new URL('offline-files.js',root),`self.OFFLINE_VERSION=${JSON.stringify(version)};self.OFFLINE_FILES=${JSON.stringify(files)};\n`);console.log(`Offline bundle: ${files.length} files, ${version}`);
 
 // Embed the manifest so every release changes the worker itself, even for older installed clients.
-const manifest=await readFile(new URL('offline-files.js',root),'utf8');const worker=await readFile(new URL('sw.js',root),'utf8');await writeFile(new URL('sw.js',root),worker.replace("importScripts('./offline-files.js');",manifest));
+const manifest=await readFile(new URL('offline-files.js',root),'utf8');const worker=await readFile(new URL('sw.js',root),'utf8');await writeFile(new URL('sw.js',root),worker.replace("importScripts('./offline-files.js','./media-range.js');",manifest+"importScripts('./media-range.js');"));

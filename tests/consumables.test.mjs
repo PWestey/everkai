@@ -42,7 +42,7 @@ test('numeric effects remain linked to the literal original text, with no random
 test('original gift icons are complete, unchanged atlas crops with matching identifiers',()=>{
  const evidence=JSON.parse(readFileSync(new URL('../lib/item-art-evidence.json',import.meta.url)));
  assert.equal(Object.keys(itemArt).length,10);
- for(const [id,path] of Object.entries(itemArt)){const e=evidence[id];assert.equal(e.sprite.name,id.replace('Item_','Icon_'));assert.ok(CONSUMABLES.some(i=>i.id===id));assert.equal(createHash('sha256').update(readFileSync(new URL('../public'+path,import.meta.url))).digest('hex'),e.sha256);assert.ok(e.width>0&&e.height>0);}
+ for(const [id,path] of Object.entries(itemArt)){const e=evidence[id];assert.equal(e.sprite.name,id.replace('Item_','Icon_'));assert.ok(CONSUMABLES.some(i=>i.id===id));assert.equal(createHash('sha256').update(readFileSync(new URL('../public/'+path.replace(/^\.\//,''),import.meta.url))).digest('hex'),e.sha256);assert.ok(e.width>0&&e.height>0);}
 });
 test('ordinary family gifts also preserve inventory if their full bonus cannot fit',()=>{
  const s=act(fresh(0),'welcome',0).state;s.family.wife_2.intimacy=999999;s.inventory.gift2=1;
