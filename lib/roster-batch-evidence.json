@@ -1,0 +1,6468 @@
+[
+  {
+    "id": "hero_1",
+    "name": "Fifi",
+    "status": "verified-base",
+    "model": "hero_01",
+    "art": "roster/hero_1.webp",
+    "source_portrait_sha256": "9934f5c660ddfb836d54d99af37ca0105b48021d0c5bb7b8470814d476b6f32c",
+    "render_evidence": {
+      "id": "hero_1",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      67,
+      44,
+      247,
+      440
+    ]
+  },
+  {
+    "id": "hero_101",
+    "name": "Emosen",
+    "status": "verified-base",
+    "model": "hero_101",
+    "art": "roster/hero_101.webp",
+    "source_portrait_sha256": "c16fa9c33519f47d272934ae110c54fcfd5fc21439f1a4e045b6ae4c189616f5",
+    "render_evidence": {
+      "id": "hero_101",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      52,
+      289,
+      428
+    ]
+  },
+  {
+    "id": "hero_102",
+    "name": "Jewlry",
+    "status": "verified-base",
+    "model": "hero_102",
+    "art": "roster/hero_102.webp",
+    "source_portrait_sha256": "8e6f861b348b746db719a9bd0e2c3ddba2409b1cf475020f75b7ca6bd6b1747e",
+    "render_evidence": {
+      "id": "hero_102",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      76,
+      293,
+      405
+    ]
+  },
+  {
+    "id": "hero_103",
+    "name": "Anne",
+    "status": "verified-base",
+    "model": "hero_103",
+    "art": "roster/hero_103.webp",
+    "source_portrait_sha256": "804335df39666bb9342173fee930d3c9c481e79fc3a5ad487001294aad5e16ba",
+    "render_evidence": {
+      "id": "hero_103",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      84,
+      293,
+      396
+    ]
+  },
+  {
+    "id": "hero_104",
+    "name": "Loya",
+    "status": "verified-base",
+    "model": "hero_104",
+    "art": "roster/hero_104.webp",
+    "source_portrait_sha256": "3fd2ab39e15c056506246ebad4a554e0bc9a8da741882457de063586687b3ccf",
+    "render_evidence": {
+      "id": "hero_104",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      46,
+      294,
+      434
+    ]
+  },
+  {
+    "id": "hero_105",
+    "name": "Augustine",
+    "status": "verified-base",
+    "model": "hero_105",
+    "art": "roster/hero_105.webp",
+    "source_portrait_sha256": "98425698d1071a4e31fddfcc7d48d733afcb9786cb932cda74d84f451a8636ea",
+    "render_evidence": {
+      "id": "hero_105",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      66,
+      294,
+      414
+    ]
+  },
+  {
+    "id": "hero_106",
+    "name": "Ida",
+    "status": "verified-base",
+    "model": "hero_106",
+    "art": "roster/hero_106.webp",
+    "source_portrait_sha256": "f15be900468ac31e16ae548e1c723477448d332440f54fec6073af27a5d938f8",
+    "render_evidence": {
+      "id": "hero_106",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      102,
+      294,
+      378
+    ]
+  },
+  {
+    "id": "hero_11",
+    "name": "Bj\u00f6rnson",
+    "status": "verified-base",
+    "model": "hero_11",
+    "art": "roster/hero_11.webp",
+    "source_portrait_sha256": "b1452b80a997dcbc0176c7c308d1f713c1e7c8ec83b6a8b8933b0c4e78388f42",
+    "render_evidence": {
+      "id": "hero_11",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      91,
+      291,
+      397
+    ]
+  },
+  {
+    "id": "hero_111",
+    "name": "Tigirl",
+    "status": "verified-base",
+    "model": "hero_111",
+    "art": "roster/hero_111.webp",
+    "source_portrait_sha256": "8088ab4bc95bfcffc7d8a10640573235f1f19d74ab9c657f98b08e7571093c2c",
+    "render_evidence": {
+      "id": "hero_111",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      60,
+      83,
+      280,
+      406
+    ]
+  },
+  {
+    "id": "hero_112",
+    "name": "Iori",
+    "status": "verified-base",
+    "model": "hero_112",
+    "art": "roster/hero_112.webp",
+    "source_portrait_sha256": "8a4286922087c2141ed2ecad78a7bdfc1f7fac29e7628f7c92c018b5c7e39680",
+    "render_evidence": {
+      "id": "hero_112",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      41,
+      40,
+      279,
+      440
+    ]
+  },
+  {
+    "id": "hero_113",
+    "name": "Leon",
+    "status": "verified-base",
+    "model": "hero_113",
+    "art": "roster/hero_113.webp",
+    "source_portrait_sha256": "bd68c9b026ba304993b9d137c5e3a7e118bcdbcdeb3359bf116aae3f35043b6d",
+    "render_evidence": {
+      "id": "hero_113",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      87,
+      294,
+      394
+    ]
+  },
+  {
+    "id": "hero_114",
+    "name": "Orivita",
+    "status": "verified-base",
+    "model": "hero_114",
+    "art": "roster/hero_114.webp",
+    "source_portrait_sha256": "84eb3cbc78ed39f44772732581d7e0c7a1d2b8ca013ee26f5bf075d55d3e4a50",
+    "render_evidence": {
+      "id": "hero_114",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      70,
+      40,
+      250,
+      440
+    ]
+  },
+  {
+    "id": "hero_115",
+    "name": "Kerr & Bel & Ross",
+    "status": "verified-base",
+    "model": "hero_115",
+    "art": "roster/hero_115.webp",
+    "source_portrait_sha256": "a1420a675d09df60013e514e9f02f86b43c866fe7354916c5154793814b84d93",
+    "render_evidence": {
+      "id": "hero_115",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      48,
+      294,
+      432
+    ]
+  },
+  {
+    "id": "hero_116",
+    "name": "Nierus",
+    "status": "verified-base",
+    "model": "hero_116",
+    "art": "roster/hero_116.webp",
+    "source_portrait_sha256": "452bc722af7b4c734da3828f1927410be82ca0fda8c6bf1e1d6ed46c79860024",
+    "render_evidence": {
+      "id": "hero_116",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      66,
+      40,
+      254,
+      440
+    ]
+  },
+  {
+    "id": "hero_117",
+    "name": "Amaterasu",
+    "status": "verified-base",
+    "model": "hero_117",
+    "art": "roster/hero_117.webp",
+    "source_portrait_sha256": "30064da75dcb8f753271b8b5a11e4ab925fd247b23cf22f29011f04006fc3814",
+    "render_evidence": {
+      "id": "hero_117",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      59,
+      293,
+      421
+    ]
+  },
+  {
+    "id": "hero_118",
+    "name": "Sunna",
+    "status": "verified-base",
+    "model": "hero_118",
+    "art": "roster/hero_118.webp",
+    "source_portrait_sha256": "25b3d518d017c8a235002b1efc6408302496b3cb61a2c942e1ec9c38c4d9db46",
+    "render_evidence": {
+      "id": "hero_118",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      64,
+      293,
+      417
+    ]
+  },
+  {
+    "id": "hero_119",
+    "name": "Paat",
+    "status": "verified-base",
+    "model": "hero_119",
+    "art": "roster/hero_119.webp",
+    "source_portrait_sha256": "68c556790c0949d7c95bec395949556fde8549a4b4b1dc7d1dc8aaca5984759d",
+    "render_evidence": {
+      "id": "hero_119",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      52,
+      40,
+      272,
+      440
+    ]
+  },
+  {
+    "id": "hero_12",
+    "name": "Belle",
+    "status": "verified-base",
+    "model": "hero_12",
+    "art": "roster/hero_12.webp",
+    "source_portrait_sha256": "8a72bf1c40df3f910724d11f8808749a05d458154c8e4f8a4e358b07e9cb8b1a",
+    "render_evidence": {
+      "id": "hero_12",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      40,
+      284,
+      440
+    ]
+  },
+  {
+    "id": "hero_120",
+    "name": "Eter & NAL",
+    "status": "verified-base",
+    "model": "hero_120",
+    "art": "roster/hero_120.webp",
+    "source_portrait_sha256": "d4fb129003fedbedd01c7058a409fc7509182521af850d8f93394771e2447ffb",
+    "render_evidence": {
+      "id": "hero_120",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      40,
+      286,
+      440
+    ]
+  },
+  {
+    "id": "hero_121",
+    "name": "Tomoe",
+    "status": "verified-base",
+    "model": "hero_121",
+    "art": "roster/hero_121.webp",
+    "source_portrait_sha256": "8741049af38f6b72e8efeaa9659100326de9b52db3b8e2096818be6336c2b9dd",
+    "render_evidence": {
+      "id": "hero_121",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      79,
+      284,
+      401
+    ]
+  },
+  {
+    "id": "hero_122",
+    "name": "Mio",
+    "status": "verified-base",
+    "model": "hero_122",
+    "art": "roster/hero_122.webp",
+    "source_portrait_sha256": "91f6190552d8edc4afa80543a235f38894455ccd6631dbbadb7e2c2207b405ca",
+    "render_evidence": {
+      "id": "hero_122",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      42,
+      40,
+      278,
+      440
+    ]
+  },
+  {
+    "id": "hero_123",
+    "name": "Shiki",
+    "status": "verified-base",
+    "model": "hero_123",
+    "art": "roster/hero_123.webp",
+    "source_portrait_sha256": "7927d7893cc5e690dee5198714d3b4cfdb33895aebf3037984022398f3efb418",
+    "render_evidence": {
+      "id": "hero_123",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      41,
+      292,
+      440
+    ]
+  },
+  {
+    "id": "hero_124",
+    "name": "Flos",
+    "status": "verified-base",
+    "model": "hero_124",
+    "art": "roster/hero_124.webp",
+    "source_portrait_sha256": "8de9e31fa2ddff44863a3f4e2f10cf26ea92468005ee28695463950b77cd2f9f",
+    "render_evidence": {
+      "id": "hero_124",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      40,
+      293,
+      440
+    ]
+  },
+  {
+    "id": "hero_125",
+    "name": "Onikiri",
+    "status": "verified-base",
+    "model": "hero_125",
+    "art": "roster/hero_125.webp",
+    "source_portrait_sha256": "8e8cf8d93a922fbb73b618093ad0cca2011ca9b90701c13294c338962ee05173",
+    "render_evidence": {
+      "id": "hero_125",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      44,
+      40,
+      276,
+      440
+    ]
+  },
+  {
+    "id": "hero_126",
+    "name": "Thalia",
+    "status": "verified-base",
+    "model": "hero_126",
+    "art": "roster/hero_126.webp",
+    "source_portrait_sha256": "d55646317343e3f137e0caf4ec2a7ae86938189536e4a0a0396d6e6376fdf79e",
+    "render_evidence": {
+      "id": "hero_126",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      77,
+      293,
+      408
+    ]
+  },
+  {
+    "id": "hero_127",
+    "name": "Myner",
+    "status": "verified-base",
+    "model": "hero_127",
+    "art": "roster/hero_127.webp",
+    "source_portrait_sha256": "fb1d21a1d1e58dc8ae4150687333b87cdc609e84def26234452350805f967882",
+    "render_evidence": {
+      "id": "hero_127",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      63,
+      40,
+      252,
+      440
+    ]
+  },
+  {
+    "id": "hero_128",
+    "name": "Beelsebub",
+    "status": "verified-base",
+    "model": "hero_128",
+    "art": "roster/hero_128.webp",
+    "source_portrait_sha256": "bfa7c0cecd4f30e57f73dc354dc1eabeb249a649c99b01db8e621326791a2659",
+    "render_evidence": {
+      "id": "hero_128",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      41,
+      284,
+      440
+    ]
+  },
+  {
+    "id": "hero_129",
+    "name": "Black",
+    "status": "verified-base",
+    "model": "hero_129",
+    "art": "roster/hero_129.webp",
+    "source_portrait_sha256": "5c1749cfad65d89fbac53ed176ae043a4548410885d5b3bce9a491c5feb447e8",
+    "render_evidence": {
+      "id": "hero_129",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      80,
+      40,
+      245,
+      440
+    ]
+  },
+  {
+    "id": "hero_130",
+    "name": "Healora",
+    "status": "verified-base",
+    "model": "hero_130",
+    "art": "roster/hero_130.webp",
+    "source_portrait_sha256": "ddcf5abb63e8d92a975b31c0b980445686d119a4283fdb2f077d63df8e7d7ac9",
+    "render_evidence": {
+      "id": "hero_130",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      42,
+      43,
+      278,
+      440
+    ]
+  },
+  {
+    "id": "hero_131",
+    "name": "Hakuren",
+    "status": "verified-base",
+    "model": "hero_131",
+    "art": "roster/hero_131.webp",
+    "source_portrait_sha256": "cecb6adfff4b29d752cf37c5c4c4c31d9ada102f1a7fc76c60c3241243628dc1",
+    "render_evidence": {
+      "id": "hero_131",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      62,
+      294,
+      418
+    ]
+  },
+  {
+    "id": "hero_132",
+    "name": "Anpu",
+    "status": "verified-base",
+    "model": "hero_132",
+    "art": "roster/hero_132.webp",
+    "source_portrait_sha256": "87bf2c5dad2c207d0e5373c114f1736fbf2eadcfb03ee50ca211b611243dde1e",
+    "render_evidence": {
+      "id": "hero_132",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      45,
+      40,
+      277,
+      440
+    ]
+  },
+  {
+    "id": "hero_133",
+    "name": "Bubo",
+    "status": "verified-base",
+    "model": "hero_133",
+    "art": "roster/hero_133.webp",
+    "source_portrait_sha256": "b93c636c001d284f6b20ade47ddf4655bb9a5df175b63bb453b0e4c9aaadedd5",
+    "render_evidence": {
+      "id": "hero_133",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      77,
+      293,
+      404
+    ]
+  },
+  {
+    "id": "hero_134",
+    "name": "Freesia",
+    "status": "verified-base",
+    "model": "hero_134",
+    "art": "roster/hero_134.webp",
+    "source_portrait_sha256": "bee14af4f062d7b760ad7567c88f012868075956c305e818d46458233fc13280",
+    "render_evidence": {
+      "id": "hero_134",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      41,
+      294,
+      440
+    ]
+  },
+  {
+    "id": "hero_135",
+    "name": "Aegle",
+    "status": "verified-base",
+    "model": "hero_135",
+    "art": "roster/hero_135.webp",
+    "source_portrait_sha256": "825c75a062540a93298a1da22b143a8e6fd7b85ee89055c0ff4a5ce4c47298b0",
+    "render_evidence": {
+      "id": "hero_135",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      54,
+      291,
+      426
+    ]
+  },
+  {
+    "id": "hero_136",
+    "name": "Frogella",
+    "status": "verified-base",
+    "model": "hero_136",
+    "art": "roster/hero_136.webp",
+    "source_portrait_sha256": "a48460c85d87cd8ea0ca2b23d419c9f53101c40f1eb99e6c481f2564f21115bd",
+    "render_evidence": {
+      "id": "hero_136",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      54,
+      294,
+      429
+    ]
+  },
+  {
+    "id": "hero_137",
+    "name": "Phinphinx",
+    "status": "verified-base",
+    "model": "hero_137",
+    "art": "roster/hero_137.webp",
+    "source_portrait_sha256": "46255373e3c73d6691c1bd12699df3287441ac51a6add626cf134899f24b2aed",
+    "render_evidence": {
+      "id": "hero_137",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      40,
+      284,
+      440
+    ]
+  },
+  {
+    "id": "hero_138",
+    "name": "Lula",
+    "status": "verified-base",
+    "model": "hero_138",
+    "art": "roster/hero_138.webp",
+    "source_portrait_sha256": "9505214051595fb760ad0e6ef6751f82646675c7a092dec957db7f7a9ec6450e",
+    "render_evidence": {
+      "id": "hero_138",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      69,
+      290,
+      412
+    ]
+  },
+  {
+    "id": "hero_139",
+    "name": "Tohru",
+    "status": "verified-base",
+    "model": "hero_139",
+    "art": "roster/hero_139.webp",
+    "source_portrait_sha256": "1ea0735bb9b4e153ec19567db5bb93b7d928f61ccb38a0feb0eb8874aab6832a",
+    "render_evidence": {
+      "id": "hero_139",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      67,
+      294,
+      412
+    ]
+  },
+  {
+    "id": "hero_14",
+    "name": "Woolf",
+    "status": "verified-base",
+    "model": "hero_14",
+    "art": "roster/hero_14.webp",
+    "source_portrait_sha256": "1bd5b080916aac0f4639218d8e30aa1013a123b804d903ff9ddd5eae05cbf47b",
+    "render_evidence": {
+      "id": "hero_14",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      79,
+      294,
+      401
+    ]
+  },
+  {
+    "id": "hero_140",
+    "name": "Elma",
+    "status": "verified-base",
+    "model": "hero_140",
+    "art": "roster/hero_140.webp",
+    "source_portrait_sha256": "d55f979f6a0f66694727cd81931cebba5dffd2d01564c1ceff5c6322ba8410ea",
+    "render_evidence": {
+      "id": "hero_140",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      67,
+      290,
+      414
+    ]
+  },
+  {
+    "id": "hero_141",
+    "name": "Fafnir",
+    "status": "verified-base",
+    "model": "hero_141",
+    "art": "roster/hero_141.webp",
+    "source_portrait_sha256": "cc0e43565e471270a03a4a16ab0b9b5c2265672dac40c89acd42f6f538f42d00",
+    "render_evidence": {
+      "id": "hero_141",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      94,
+      287,
+      388
+    ]
+  },
+  {
+    "id": "hero_142",
+    "name": "Kanna",
+    "status": "verified-base",
+    "model": "hero_142",
+    "art": "roster/hero_142.webp",
+    "source_portrait_sha256": "d799898a9b061b5e31f6e7cd03a8613eb919d6dc007ef4aa871993cb1418ac92",
+    "render_evidence": {
+      "id": "hero_142",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      71,
+      294,
+      409
+    ]
+  },
+  {
+    "id": "hero_144",
+    "name": "Benimaru",
+    "status": "verified-base",
+    "model": "hero_144",
+    "art": "roster/hero_144.webp",
+    "source_portrait_sha256": "eb9660d24a33a057af008296228fa1d001b333df324818078e9bcbbdf69b961e",
+    "render_evidence": {
+      "id": "hero_144",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      78,
+      294,
+      406
+    ]
+  },
+  {
+    "id": "hero_145",
+    "name": "Heracles",
+    "status": "verified-base",
+    "model": "hero_145",
+    "art": "roster/hero_145.webp",
+    "source_portrait_sha256": "8d2cd01ac399173a10f7ede3d7c2c08c615b798c3e6fe5e03d04bc30a97ec933",
+    "render_evidence": {
+      "id": "hero_145",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      57,
+      44,
+      260,
+      440
+    ]
+  },
+  {
+    "id": "hero_146",
+    "name": "Allucia",
+    "status": "verified-base",
+    "model": "hero_146",
+    "art": "roster/hero_146.webp",
+    "source_portrait_sha256": "f92ecbca661b88ee6836cab1f8921ad60b21f102ce3cf7ae3a9e0b0e9a368cf7",
+    "render_evidence": {
+      "id": "hero_146",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      49,
+      294,
+      430
+    ]
+  },
+  {
+    "id": "hero_147",
+    "name": "Surena",
+    "status": "verified-base",
+    "model": "hero_147",
+    "art": "roster/hero_147.webp",
+    "source_portrait_sha256": "34ab28d3fdaa33b8574b63a11655f35a91579f10dfb373af4fa30f517f12e264",
+    "render_evidence": {
+      "id": "hero_147",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      46,
+      40,
+      271,
+      440
+    ]
+  },
+  {
+    "id": "hero_148",
+    "name": "Master Tongxuan",
+    "status": "verified-base",
+    "model": "hero_148",
+    "art": "roster/hero_148.webp",
+    "source_portrait_sha256": "2e44cb277d5597a1bffaa283316b02a5a084dd172f43b2d491443671b42369d1",
+    "render_evidence": {
+      "id": "hero_148",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      71,
+      293,
+      412
+    ]
+  },
+  {
+    "id": "hero_149",
+    "name": "Tigris",
+    "status": "verified-base",
+    "model": "hero_149",
+    "art": "roster/hero_149.webp",
+    "source_portrait_sha256": "1fd385774c122ec9529807035194f5a2dc74aac59dffc18f3d1b4ba939147724",
+    "render_evidence": {
+      "id": "hero_149",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      52,
+      45,
+      261,
+      440
+    ]
+  },
+  {
+    "id": "hero_15",
+    "name": "Kaity",
+    "status": "verified-base",
+    "model": "hero_15",
+    "art": "roster/hero_15.webp",
+    "source_portrait_sha256": "87e2b80ca05c33b165a0336bb65256a29deb6f6b6fa62998b32d935035040cc9",
+    "render_evidence": {
+      "id": "hero_15",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      54,
+      49,
+      268,
+      440
+    ]
+  },
+  {
+    "id": "hero_151",
+    "name": "Avril",
+    "status": "verified-base",
+    "model": "hero_151",
+    "art": "roster/hero_151.webp",
+    "source_portrait_sha256": "ab0bb0dc433955750ac92b7cb7ee5dfc2d8a692f1aa25a49bf24a30bc8a30b8f",
+    "render_evidence": {
+      "id": "hero_151",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      77,
+      285,
+      403
+    ]
+  },
+  {
+    "id": "hero_152",
+    "name": "Stephanie",
+    "status": "verified-base",
+    "model": "hero_152",
+    "art": "roster/hero_152.webp",
+    "source_portrait_sha256": "cb77c14748b8f6e7860f4c5e1d73dfcb7c6031fa3d7df056f26fae997120b7df",
+    "render_evidence": {
+      "id": "hero_152",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      44,
+      72,
+      294,
+      417
+    ]
+  },
+  {
+    "id": "hero_153",
+    "name": "Salvo",
+    "status": "verified-base",
+    "model": "hero_153",
+    "art": "roster/hero_153.webp",
+    "source_portrait_sha256": "2a1d48d94bde407208bec70361a7f2e2d1c1453d1f40fb31cac770f0b1cf1bba",
+    "render_evidence": {
+      "id": "hero_153",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      61,
+      289,
+      419
+    ]
+  },
+  {
+    "id": "hero_154",
+    "name": "Kaye",
+    "status": "verified-base",
+    "model": "hero_154",
+    "art": "roster/hero_154.webp",
+    "source_portrait_sha256": "fc8565a3e75fdfc54df8e341d2d0d88bb81abe4fc9be8fe47fc6f9070b54e550",
+    "render_evidence": {
+      "id": "hero_154",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      103,
+      294,
+      381
+    ]
+  },
+  {
+    "id": "hero_155",
+    "name": "Nip",
+    "status": "verified-base",
+    "model": "hero_155",
+    "art": "roster/hero_155.webp",
+    "source_portrait_sha256": "792cf1ec875e9e92682456e8831cbd307b9ebe8bee3d3f5cc5c0e383c601285d",
+    "render_evidence": {
+      "id": "hero_155",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      39,
+      41,
+      283,
+      440
+    ]
+  },
+  {
+    "id": "hero_156",
+    "name": "Lux",
+    "status": "verified-base",
+    "model": "hero_156",
+    "art": "roster/hero_156.webp",
+    "source_portrait_sha256": "d746d2688c2e550c88e17bfb33a9474e0aa611ec1a4c304716de34c44305f49a",
+    "render_evidence": {
+      "id": "hero_156",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      44,
+      44,
+      279,
+      439
+    ]
+  },
+  {
+    "id": "hero_157",
+    "name": "Super",
+    "status": "verified-base",
+    "model": "hero_157",
+    "art": "roster/hero_157.webp",
+    "source_portrait_sha256": "7832faf40cecb744d5edc0948844a0055cdfe258ad986a13032c7aaabd233eeb",
+    "render_evidence": {
+      "id": "hero_157",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      50,
+      294,
+      430
+    ]
+  },
+  {
+    "id": "hero_158",
+    "name": "Ira",
+    "status": "verified-base",
+    "model": "hero_158",
+    "art": "roster/hero_158.webp",
+    "source_portrait_sha256": "4514cd377f67c9290d6f45a153c48616e7894dc5e88c78bb99df822260067384",
+    "render_evidence": {
+      "id": "hero_158",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      90,
+      294,
+      390
+    ]
+  },
+  {
+    "id": "hero_159",
+    "name": "Acedia",
+    "status": "verified-base",
+    "model": "hero_159",
+    "art": "roster/hero_159.webp",
+    "source_portrait_sha256": "ee0cde2d311a281e7a3aa9c29aa3816fe6de1b71dfc100a821bc13d4a9424a33",
+    "render_evidence": {
+      "id": "hero_159",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      93,
+      294,
+      387
+    ]
+  },
+  {
+    "id": "hero_16",
+    "name": "Geast",
+    "status": "verified-base",
+    "model": "hero_16",
+    "art": "roster/hero_16.webp",
+    "source_portrait_sha256": "050e06821b8136a917e3bf7000351c402ee22fd157af8221c9983d84d2db0728",
+    "render_evidence": {
+      "id": "hero_16",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      44,
+      40,
+      263,
+      440
+    ]
+  },
+  {
+    "id": "hero_160",
+    "name": "Avar",
+    "status": "verified-base",
+    "model": "hero_160",
+    "art": "roster/hero_160.webp",
+    "source_portrait_sha256": "6978cfa8d484d0541b90e166ddfe5dab629ac18f8352d23d06500f29d2888ddf",
+    "render_evidence": {
+      "id": "hero_160",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      90,
+      294,
+      391
+    ]
+  },
+  {
+    "id": "hero_161",
+    "name": "Mulberry",
+    "status": "verified-base",
+    "model": "hero_161",
+    "art": "roster/hero_161.webp",
+    "source_portrait_sha256": "01ec6ea3a9422947c2151e09977f775051e4be5e87ef270c33c3819cb499ce59",
+    "render_evidence": {
+      "id": "hero_161",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      78,
+      40,
+      228,
+      440
+    ]
+  },
+  {
+    "id": "hero_162",
+    "name": "Tamamo",
+    "status": "verified-base",
+    "model": "hero_162",
+    "art": "roster/hero_162.webp",
+    "source_portrait_sha256": "8245f3fe94b802defd67560d7bbdfb864561369741ffb7c3e7c381b72fa6bd4e",
+    "render_evidence": {
+      "id": "hero_162",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      115,
+      240,
+      366
+    ]
+  },
+  {
+    "id": "hero_163",
+    "name": "Stheno",
+    "status": "verified-base",
+    "model": "hero_163",
+    "art": "roster/hero_163.webp",
+    "source_portrait_sha256": "4d984bc21003818436f67087b42a8aa40cd3f5b10e69b898c6559f6e87879c62",
+    "render_evidence": {
+      "id": "hero_163",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      44,
+      280,
+      440
+    ]
+  },
+  {
+    "id": "hero_164",
+    "name": "Crysta",
+    "status": "verified-base",
+    "model": "hero_164",
+    "art": "roster/hero_164.webp",
+    "source_portrait_sha256": "58dd9f1dfcbbd82d0b56a2d1c1a53cc0d569981f7230bf5b8b829f3370d221b1",
+    "render_evidence": {
+      "id": "hero_164",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      36,
+      40,
+      283,
+      439
+    ]
+  },
+  {
+    "id": "hero_165",
+    "name": "Ryu Lion",
+    "status": "verified-base",
+    "model": "hero_165",
+    "art": "roster/hero_165.webp",
+    "source_portrait_sha256": "7d9d6b06e2cc1ad2fe9c7a5c9ebc4df4e94e93d7ea6eddb39a850a84a78b087b",
+    "render_evidence": {
+      "id": "hero_165",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      52,
+      288,
+      428
+    ]
+  },
+  {
+    "id": "hero_166",
+    "name": "Ais Wallenstein",
+    "status": "verified-base",
+    "model": "hero_166",
+    "art": "roster/hero_166.webp",
+    "source_portrait_sha256": "a65ff3bad2faf265ca8f5a7a3b1d266e74c83cfcb905d68accf11dbedfa647f1",
+    "render_evidence": {
+      "id": "hero_166",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      37,
+      40,
+      283,
+      440
+    ]
+  },
+  {
+    "id": "hero_167",
+    "name": "Bell Cranel",
+    "status": "verified-base",
+    "model": "hero_167",
+    "art": "roster/hero_167.webp",
+    "source_portrait_sha256": "7fadd7a407d146e4a9194e0e53d5674f7289d26ec016d856bf7fcb42ea9a7c00",
+    "render_evidence": {
+      "id": "hero_167",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      41,
+      287,
+      440
+    ]
+  },
+  {
+    "id": "hero_168",
+    "name": "Athena",
+    "status": "verified-base",
+    "model": "hero_168",
+    "art": "roster/hero_168.webp",
+    "source_portrait_sha256": "abad46b8be769255453ed58b6101dfd9b93065f5a42105c59040c39ce7c41886",
+    "render_evidence": {
+      "id": "hero_168",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      41,
+      277,
+      440
+    ]
+  },
+  {
+    "id": "hero_169",
+    "name": "Nyar",
+    "status": "verified-base",
+    "model": "hero_169",
+    "art": "roster/hero_169.webp",
+    "source_portrait_sha256": "b3465a7a4c68322545104e49bded168257fbc6406b35b588b43f48b4c8b6d2f4",
+    "render_evidence": {
+      "id": "hero_169",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      37,
+      98,
+      282,
+      379
+    ]
+  },
+  {
+    "id": "hero_17",
+    "name": "Meaden",
+    "status": "verified-base",
+    "model": "hero_17",
+    "art": "roster/hero_17.webp",
+    "source_portrait_sha256": "ba0c7d7cf3865e4ad47893fdc44596b361d16f315b1ecda83b08f9a05c5b3f3d",
+    "render_evidence": {
+      "id": "hero_17",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      59,
+      276,
+      440
+    ]
+  },
+  {
+    "id": "hero_170",
+    "name": "Magellan",
+    "status": "verified-base",
+    "model": "hero_170",
+    "art": "roster/hero_170.webp",
+    "source_portrait_sha256": "42065079f2f66bdd9f417fc44aabde7d4cca18f34a662ce48fa64336e1a9dd46",
+    "render_evidence": {
+      "id": "hero_170",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      63,
+      287,
+      417
+    ]
+  },
+  {
+    "id": "hero_171",
+    "name": "Gale",
+    "status": "verified-base",
+    "model": "hero_171",
+    "art": "roster/hero_171.webp",
+    "source_portrait_sha256": "43014a51eccbd11c1f9c6f6dc12a834d74fada12ea34297cf915a1018391bfba",
+    "render_evidence": {
+      "id": "hero_171",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      58,
+      294,
+      427
+    ]
+  },
+  {
+    "id": "hero_172",
+    "name": "Umbra",
+    "status": "verified-base",
+    "model": "hero_172",
+    "art": "roster/hero_172.webp",
+    "source_portrait_sha256": "fb6839ca6e74fe556fbb01cb078167906a93faf79d7ccab6b82ba93d53480cce",
+    "render_evidence": {
+      "id": "hero_172",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      57,
+      76,
+      263,
+      440
+    ]
+  },
+  {
+    "id": "hero_173",
+    "name": "Erza",
+    "status": "verified-base",
+    "model": "hero_173",
+    "art": "roster/hero_173.webp",
+    "source_portrait_sha256": "83a93518de785201f4382f8ff9a69c528f63439371d0ed94cd00c9a7e556357c",
+    "render_evidence": {
+      "id": "hero_173",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      91,
+      293,
+      400
+    ]
+  },
+  {
+    "id": "hero_174",
+    "name": "Gray",
+    "status": "verified-base",
+    "model": "hero_174",
+    "art": "roster/hero_174.webp",
+    "source_portrait_sha256": "4aa71d2f1343f5d3e5486e4d9fa3c365f1cff1b089d6346b81cc4db49f1d20c0",
+    "render_evidence": {
+      "id": "hero_174",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      49,
+      282,
+      432
+    ]
+  },
+  {
+    "id": "hero_175",
+    "name": "Thora",
+    "status": "verified-base",
+    "model": "hero_175",
+    "art": "roster/hero_175.webp",
+    "source_portrait_sha256": "4614370d3d98a725df9b14b464f2cd9670c1a9f569b430832fa576122c2616ee",
+    "render_evidence": {
+      "id": "hero_175",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      92,
+      294,
+      388
+    ]
+  },
+  {
+    "id": "hero_176",
+    "name": "Rudeus Greyrat",
+    "status": "verified-base",
+    "model": "hero_176",
+    "art": "roster/hero_176.webp",
+    "source_portrait_sha256": "9f7c8f334aa7debc61b7c28491fa3a1b8c4adb8744a93c25691248aa07f691f6",
+    "render_evidence": {
+      "id": "hero_176",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      65,
+      282,
+      423
+    ]
+  },
+  {
+    "id": "hero_177",
+    "name": "Aisha Greyrat",
+    "status": "verified-base",
+    "model": "hero_177",
+    "art": "roster/hero_177.webp",
+    "source_portrait_sha256": "ddc24142ca5ee55a7437d109122437a3cb4598fb05389ac9fadfff16a13313df",
+    "render_evidence": {
+      "id": "hero_177",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      40,
+      277,
+      439
+    ]
+  },
+  {
+    "id": "hero_178",
+    "name": "Norn Greyrat",
+    "status": "verified-base",
+    "model": "hero_178",
+    "art": "roster/hero_178.webp",
+    "source_portrait_sha256": "8d36584592dcd0c0a7ea50d5b994ddce4e9f8a68a45f22ae29371910ee2a68cd",
+    "render_evidence": {
+      "id": "hero_178",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      50,
+      40,
+      270,
+      440
+    ]
+  },
+  {
+    "id": "hero_179",
+    "name": "Lokia",
+    "status": "verified-base",
+    "model": "hero_179",
+    "art": "roster/hero_179.webp",
+    "source_portrait_sha256": "db1781288b707346838d9d4f761fa15f89a42692974799e8b0395e6fb69b1448",
+    "render_evidence": {
+      "id": "hero_179",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      51,
+      293,
+      430
+    ]
+  },
+  {
+    "id": "hero_18",
+    "name": "Dr.Dotor",
+    "status": "verified-base",
+    "model": "hero_18",
+    "art": "roster/hero_18.webp",
+    "source_portrait_sha256": "ed64f906140e8b6e4d3b73692797e6bea3e7ac472b28868bfd07cec5fa2a4b1e",
+    "render_evidence": {
+      "id": "hero_18",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      74,
+      40,
+      247,
+      440
+    ]
+  },
+  {
+    "id": "hero_180",
+    "name": "Luminus Valentine",
+    "status": "verified-base",
+    "model": "hero_180",
+    "art": "roster/hero_180.webp",
+    "source_portrait_sha256": "2a6e73fdbfcbc2d41ec6f9f16830b2fd3a8c5aea44420726cbaab7ce31928088",
+    "render_evidence": {
+      "id": "hero_180",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      77,
+      289,
+      404
+    ]
+  },
+  {
+    "id": "hero_182",
+    "name": "Kuku",
+    "status": "verified-base",
+    "model": "hero_182",
+    "art": "roster/hero_182.webp",
+    "source_portrait_sha256": "6ab9a00bb5d2e28650a6b0500ddbe151297f5a59892e14d1892dfc99ed07356b",
+    "render_evidence": {
+      "id": "hero_182",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      93,
+      294,
+      387
+    ]
+  },
+  {
+    "id": "hero_183",
+    "name": "Veldora Tempest",
+    "status": "verified-base",
+    "model": "hero_183",
+    "art": "roster/hero_183.webp",
+    "source_portrait_sha256": "04edfa07938990dee230ebd25c3ebed6c358aa908af26c189c8986b8e4dc216a",
+    "render_evidence": {
+      "id": "hero_183",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      92,
+      270,
+      393
+    ]
+  },
+  {
+    "id": "hero_184",
+    "name": "Kazuma",
+    "status": "verified-base",
+    "model": "hero_184",
+    "art": "roster/hero_184.webp",
+    "source_portrait_sha256": "e441e6298c7f1dd10267212d2a41668decb8becf4d57ed6b077b57793880298d",
+    "render_evidence": {
+      "id": "hero_184",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      63,
+      116,
+      235,
+      394
+    ]
+  },
+  {
+    "id": "hero_185",
+    "name": "Darkness",
+    "status": "verified-base",
+    "model": "hero_185",
+    "art": "roster/hero_185.webp",
+    "source_portrait_sha256": "01b9d92100f4df257b5e2be579f5819f353c54d3f1e42fce61cba5cbb9bfadb6",
+    "render_evidence": {
+      "id": "hero_185",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      48,
+      290,
+      433
+    ]
+  },
+  {
+    "id": "hero_186",
+    "name": "Liona",
+    "status": "verified-base",
+    "model": "hero_186",
+    "art": "roster/hero_186.webp",
+    "source_portrait_sha256": "bf2f7b43da2778ed093c2a16cf8fe6c8977d0492de9b70458fe1af72e3003d10",
+    "render_evidence": {
+      "id": "hero_186",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      67,
+      293,
+      422
+    ]
+  },
+  {
+    "id": "hero_189",
+    "name": "Verity",
+    "status": "verified-base",
+    "model": "hero_189",
+    "art": "roster/hero_189.webp",
+    "source_portrait_sha256": "3d2ca004c5add096c60851f2b732127700abb450801bfb289b0bdc541bfa0cea",
+    "render_evidence": {
+      "id": "hero_189",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      48,
+      40,
+      270,
+      440
+    ]
+  },
+  {
+    "id": "hero_19",
+    "name": "Prim",
+    "status": "verified-base",
+    "model": "hero_19",
+    "art": "roster/hero_19.webp",
+    "source_portrait_sha256": "36823eda198e0c0e5902692d2e3409f19271513046f6ca75585514a4d8343c2a",
+    "render_evidence": {
+      "id": "hero_19",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      90,
+      40,
+      230,
+      440
+    ]
+  },
+  {
+    "id": "hero_190",
+    "name": "Elise",
+    "status": "verified-base",
+    "model": "hero_190",
+    "art": "roster/hero_190.webp",
+    "source_portrait_sha256": "cc61f9fe4a6e0d7951874e191657b6dd5113e5c3eb5dc69957d9734f9880f253",
+    "render_evidence": {
+      "id": "hero_190",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      71,
+      292,
+      406
+    ]
+  },
+  {
+    "id": "hero_191",
+    "name": "Trady",
+    "status": "verified-base",
+    "model": "hero_191",
+    "art": "roster/hero_191.webp",
+    "source_portrait_sha256": "aaefe2900e97613e62c58c15dbd841fd1cd7b664481c5c33168066f0da711ecc",
+    "render_evidence": {
+      "id": "hero_191",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      107,
+      294,
+      375
+    ]
+  },
+  {
+    "id": "hero_192",
+    "name": "Mescal",
+    "status": "verified-base",
+    "model": "hero_192",
+    "art": "roster/hero_192.webp",
+    "source_portrait_sha256": "88b9e9ff84fcceb4f48dd42e12b16c55118e0de0dfedda72ee700b610542a56c",
+    "render_evidence": {
+      "id": "hero_192",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      84,
+      292,
+      396
+    ]
+  },
+  {
+    "id": "hero_193",
+    "name": "Mammon",
+    "status": "verified-base",
+    "model": "hero_193",
+    "art": "roster/hero_193.webp",
+    "source_portrait_sha256": "d2b1511edfc2cdc1a7390581f338d0fe1c89a00e6efd68fc8afdd3c56fb3e5b5",
+    "render_evidence": {
+      "id": "hero_193",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      40,
+      281,
+      440
+    ]
+  },
+  {
+    "id": "hero_194",
+    "name": "Shlomo",
+    "status": "verified-base",
+    "model": "hero_194",
+    "art": "roster/hero_194.webp",
+    "source_portrait_sha256": "8057a88d8c8a8f6afeecc374992090f69c6e6b816e6456679b5bdc91c39394c6",
+    "render_evidence": {
+      "id": "hero_194",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      85,
+      291,
+      397
+    ]
+  },
+  {
+    "id": "hero_195",
+    "name": "Neptune",
+    "status": "verified-base",
+    "model": "hero_195",
+    "art": "roster/hero_195.webp",
+    "source_portrait_sha256": "7f7579e0c9acee8cd06a1c55b5e8c585242c93c85370fb7c6c50144bcdacca73",
+    "render_evidence": {
+      "id": "hero_195",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      105,
+      294,
+      371
+    ]
+  },
+  {
+    "id": "hero_196",
+    "name": "Ixchel",
+    "status": "verified-base",
+    "model": "hero_196",
+    "art": "roster/hero_196.webp",
+    "source_portrait_sha256": "202e3e17af6892a3f5841598e09b331abbe4c111577428f074c87befa319bb66",
+    "render_evidence": {
+      "id": "hero_196",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      58,
+      294,
+      424
+    ]
+  },
+  {
+    "id": "hero_197",
+    "name": "Fifi",
+    "status": "verified-base",
+    "model": "hero_197",
+    "art": "roster/hero_197.webp",
+    "source_portrait_sha256": "d1189089ef025ac26d693080196a97fa75a15cd92ad12b49e9283bf2e3a439db",
+    "render_evidence": {
+      "id": "hero_197",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      69,
+      41,
+      293,
+      434
+    ]
+  },
+  {
+    "id": "hero_198",
+    "name": "Future Maxim",
+    "status": "verified-base",
+    "model": "hero_198",
+    "art": "roster/hero_198.webp",
+    "source_portrait_sha256": "c1eee3334bd30d5c246d55d7cf29cfab85a9eb1e3e8e09dd1b0dbc185b5e86d6",
+    "render_evidence": {
+      "id": "hero_198",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      40,
+      262,
+      440
+    ]
+  },
+  {
+    "id": "hero_199",
+    "name": "Aurora",
+    "status": "verified-base",
+    "model": "hero_199",
+    "art": "roster/hero_199.webp",
+    "source_portrait_sha256": "0c152e6f616536452f73bc8687e9164f33d9aa5dd0bee6add5941b2385a20a8a",
+    "render_evidence": {
+      "id": "hero_199",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      63,
+      40,
+      264,
+      440
+    ]
+  },
+  {
+    "id": "hero_2",
+    "name": "Maxim",
+    "status": "verified-base",
+    "model": "hero_02",
+    "art": "roster/hero_2.webp",
+    "source_portrait_sha256": "23853fc856fd6e40ede61e5dd3e99698df5debf85049875dbd1b0410710c1fc0",
+    "render_evidence": {
+      "id": "hero_2",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      92,
+      41,
+      228,
+      440
+    ]
+  },
+  {
+    "id": "hero_20",
+    "name": "Guarg",
+    "status": "verified-base",
+    "model": "hero_20",
+    "art": "roster/hero_20.webp",
+    "source_portrait_sha256": "1c12d4e74597d25a941b062c957fec5ebedcfd55ea1d8a84cfadcb4a2c68fb90",
+    "render_evidence": {
+      "id": "hero_20",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      39,
+      43,
+      281,
+      440
+    ]
+  },
+  {
+    "id": "hero_200",
+    "name": "Lailah",
+    "status": "verified-base",
+    "model": "hero_200",
+    "art": "roster/hero_200.webp",
+    "source_portrait_sha256": "3623469e5ed7812dee37b740b6be7e12a1fe9cab6e2345cc1de7679979eb9c2f",
+    "render_evidence": {
+      "id": "hero_200",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      52,
+      251,
+      428
+    ]
+  },
+  {
+    "id": "hero_21",
+    "name": "Mirac",
+    "status": "verified-base",
+    "model": "hero_21",
+    "art": "roster/hero_21.webp",
+    "source_portrait_sha256": "06767e1258d7a7ec2bf896f53320a8397f578a70af4e29cd0eda1106a8ff2a38",
+    "render_evidence": {
+      "id": "hero_21",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      64,
+      64,
+      292,
+      416
+    ]
+  },
+  {
+    "id": "hero_211",
+    "name": "Phanes",
+    "status": "verified-base",
+    "model": "hero_211",
+    "art": "roster/hero_211.webp",
+    "source_portrait_sha256": "a762e44472e438ef611a3252f2b70e39aca61db83a8b2d24287b307eb568654f",
+    "render_evidence": {
+      "id": "hero_211",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      57,
+      41,
+      261,
+      440
+    ]
+  },
+  {
+    "id": "hero_212",
+    "name": "Ao Li",
+    "status": "verified-base",
+    "model": "hero_212",
+    "art": "roster/hero_212.webp",
+    "source_portrait_sha256": "fa6fc61a62fc38a083be18fcb9ac13bbb29c54ba2c3e6190df21ed8a1266d746",
+    "render_evidence": {
+      "id": "hero_212",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      48,
+      294,
+      437
+    ]
+  },
+  {
+    "id": "hero_213",
+    "name": "Andras",
+    "status": "verified-base",
+    "model": "hero_213",
+    "art": "roster/hero_213.webp",
+    "source_portrait_sha256": "e1ef5ab6e2e757c29bdff6c12d75841314c86c047a4d4fc4cc6ab69f9c6a924c",
+    "render_evidence": {
+      "id": "hero_213",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      59,
+      49,
+      264,
+      440
+    ]
+  },
+  {
+    "id": "hero_214",
+    "name": "Nemetona",
+    "status": "verified-base",
+    "model": "hero_214",
+    "art": "roster/hero_214.webp",
+    "source_portrait_sha256": "595b269d7df2394bd03bdd96281e98953905b84b879486e91ae0f2dc9417c873",
+    "render_evidence": {
+      "id": "hero_214",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      44,
+      292,
+      440
+    ]
+  },
+  {
+    "id": "hero_215",
+    "name": "Hermes",
+    "status": "verified-base",
+    "model": "hero_215",
+    "art": "roster/hero_215.webp",
+    "source_portrait_sha256": "0b70b7760fd3ff495d8910a20b82377b6ecffc54a7d8fcdd8238e778d98f20c3",
+    "render_evidence": {
+      "id": "hero_215",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      75,
+      289,
+      392
+    ]
+  },
+  {
+    "id": "hero_22",
+    "name": "Hawker",
+    "status": "verified-base",
+    "model": "hero_22",
+    "art": "roster/hero_22.webp",
+    "source_portrait_sha256": "2311b3bd6f69e6cce5f56792e342a0b0a5bb142fc91db8c3b9e6551a3d57b8a9",
+    "render_evidence": {
+      "id": "hero_22",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      41,
+      283,
+      440
+    ]
+  },
+  {
+    "id": "hero_23",
+    "name": "Rogile",
+    "status": "verified-base",
+    "model": "hero_23",
+    "art": "roster/hero_23.webp",
+    "source_portrait_sha256": "49a2b0104a715f40c4d1498eeb238cbc36e74ae1503da5d5e4e255cc9a245376",
+    "render_evidence": {
+      "id": "hero_23",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      65,
+      42,
+      265,
+      440
+    ]
+  },
+  {
+    "id": "hero_24",
+    "name": "Arake",
+    "status": "verified-base",
+    "model": "hero_24",
+    "art": "roster/hero_24.webp",
+    "source_portrait_sha256": "4819f1bf1e9dc5a5409d8d27a7a171461c61ae66761306768f0f078f1e34179e",
+    "render_evidence": {
+      "id": "hero_24",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      46,
+      294,
+      434
+    ]
+  },
+  {
+    "id": "hero_25",
+    "name": "Boatter",
+    "status": "verified-base",
+    "model": "hero_25",
+    "art": "roster/hero_25.webp",
+    "source_portrait_sha256": "a84a4604cc307ce03f0c08f2f1c255159c5f43c4e3d093438a7697aa6d57ed17",
+    "render_evidence": {
+      "id": "hero_25",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      62,
+      40,
+      254,
+      440
+    ]
+  },
+  {
+    "id": "hero_251",
+    "name": "Rimuru Tempest",
+    "status": "verified-base",
+    "model": "hero_251",
+    "art": "roster/hero_251.webp",
+    "source_portrait_sha256": "818ed741998e626949962399b75827aa9d07367f512f56f3e27886da228528ef",
+    "render_evidence": {
+      "id": "hero_251",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      123,
+      294,
+      394
+    ]
+  },
+  {
+    "id": "hero_253",
+    "name": "Beryl",
+    "status": "verified-base",
+    "model": "hero_253",
+    "art": "roster/hero_253.webp",
+    "source_portrait_sha256": "73c21a4d6a0b4a4bff2ed698275d17c23e588222090ec0ceb370b1bdd1867c1b",
+    "render_evidence": {
+      "id": "hero_253",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      149,
+      184,
+      335
+    ]
+  },
+  {
+    "id": "hero_254",
+    "name": "Gabrael",
+    "status": "verified-base",
+    "model": "hero_254",
+    "art": "roster/hero_254.webp",
+    "source_portrait_sha256": "834336d89e1a885b3fec02438f71ab5a9c1d17d34d95945cfd7fb3b7eeb25dd5",
+    "render_evidence": {
+      "id": "hero_254",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      63,
+      286,
+      426
+    ]
+  },
+  {
+    "id": "hero_255",
+    "name": "Mushimi",
+    "status": "verified-base",
+    "model": "hero_255",
+    "art": "roster/hero_255.webp",
+    "source_portrait_sha256": "c25862b5fc838e2c024fcb1834f731e6edfda58f759dc25dc1411649469d370c",
+    "render_evidence": {
+      "id": "hero_255",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      38,
+      56,
+      289,
+      424
+    ]
+  },
+  {
+    "id": "hero_256",
+    "name": "Natsu",
+    "status": "verified-base",
+    "model": "hero_256",
+    "art": "roster/hero_256.webp",
+    "source_portrait_sha256": "160103fe6e6319290e958bc62611cc40a917ea892b52c394b75722ddaca70825",
+    "render_evidence": {
+      "id": "hero_256",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      42,
+      292,
+      440
+    ]
+  },
+  {
+    "id": "hero_257",
+    "name": "Roxy Migurdia",
+    "status": "verified-base",
+    "model": "hero_257",
+    "art": "roster/hero_257.webp",
+    "source_portrait_sha256": "d4a6883516c20fc9da13ffabbd05178835f5c2621161a0332f70c72185e054b6",
+    "render_evidence": {
+      "id": "hero_257",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      91,
+      294,
+      389
+    ]
+  },
+  {
+    "id": "hero_258",
+    "name": "Dionysia",
+    "status": "verified-base",
+    "model": "hero_258",
+    "art": "roster/hero_258.webp",
+    "source_portrait_sha256": "4538a221df1c6213e4116fd68d0f543c01840b2d227d64dc38fac623ef721a07",
+    "render_evidence": {
+      "id": "hero_258",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      40,
+      288,
+      440
+    ]
+  },
+  {
+    "id": "hero_259",
+    "name": "Fafnyria",
+    "status": "verified-base",
+    "model": "hero_259",
+    "art": "roster/hero_259.webp",
+    "source_portrait_sha256": "1f80e5b7d4ae252f655e76b1004e935eb3bf703710e1b87aec9c1a9c7b87b83f",
+    "render_evidence": {
+      "id": "hero_259",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      67,
+      294,
+      413
+    ]
+  },
+  {
+    "id": "hero_260",
+    "name": "Aqua",
+    "status": "verified-base",
+    "model": "hero_260",
+    "art": "roster/hero_260.webp",
+    "source_portrait_sha256": "ec5da8efb655fa3c4a7a188b76c1d5521dd62ec2ba6ac6c9049bdd0fdf0c5ce0",
+    "render_evidence": {
+      "id": "hero_260",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      47,
+      293,
+      434
+    ]
+  },
+  {
+    "id": "hero_262",
+    "name": "Hattie",
+    "status": "verified-base",
+    "model": "hero_262",
+    "art": "roster/hero_262.webp",
+    "source_portrait_sha256": "686f2126092fa49098ce7906c1144064ac3ff993db7acb94e17729feec64ad28",
+    "render_evidence": {
+      "id": "hero_262",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      69,
+      40,
+      263,
+      440
+    ]
+  },
+  {
+    "id": "hero_263",
+    "name": "Chisato Nishikigi",
+    "status": "verified-base",
+    "model": "hero_263",
+    "art": "roster/hero_263.webp",
+    "source_portrait_sha256": "fc335db8ca2c26e5c407c04cdf16412a01b3c763079ea65a3ddba5469c2ccd35",
+    "render_evidence": {
+      "id": "hero_263",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      81,
+      42,
+      239,
+      440
+    ]
+  },
+  {
+    "id": "hero_264",
+    "name": "Shinobu Kocho",
+    "status": "verified-base",
+    "model": "hero_264",
+    "art": "roster/hero_264.webp",
+    "source_portrait_sha256": "cd554beddbd5e692edb1637ed5f9e57314831492ae92e09f367e43b9e6c03bc9",
+    "render_evidence": {
+      "id": "hero_264",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      80,
+      293,
+      406
+    ]
+  },
+  {
+    "id": "hero_3",
+    "name": "Reir",
+    "status": "verified-base",
+    "model": "hero_03",
+    "art": "roster/hero_3.webp",
+    "source_portrait_sha256": "33d57d6f9a347d4cc654699ea0165e80ddc5de81d17b4124a0837244e0a8d1e7",
+    "render_evidence": {
+      "id": "hero_3",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      59,
+      44,
+      254,
+      440
+    ]
+  },
+  {
+    "id": "hero_301",
+    "name": "Giyu Tomioka",
+    "status": "verified-base",
+    "model": "hero_301",
+    "art": "roster/hero_301.webp",
+    "source_portrait_sha256": "4eb92bf3f0f0ff1b77addd51708a32b74e0d6c5fd0be76edf556cc3b30c4e6c4",
+    "render_evidence": {
+      "id": "hero_301",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      58,
+      292,
+      406
+    ]
+  },
+  {
+    "id": "hero_302",
+    "name": "Tanjiro Kamado",
+    "status": "verified-base",
+    "model": "hero_302",
+    "art": "roster/hero_302.webp",
+    "source_portrait_sha256": "b26e415e151764be6aaf24cad60436a9591b0eb02ba8964c662e63b136823c63",
+    "render_evidence": {
+      "id": "hero_302",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      44,
+      58,
+      293,
+      414
+    ]
+  },
+  {
+    "id": "hero_303",
+    "name": "Zenitsu Agatsuma",
+    "status": "verified-base",
+    "model": "hero_303",
+    "art": "roster/hero_303.webp",
+    "source_portrait_sha256": "4c67fd48125bcbdea015f0be512ab39a022fee7b705b309a6b5c8ba2ff0a7473",
+    "render_evidence": {
+      "id": "hero_303",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      45,
+      88,
+      286,
+      382
+    ]
+  },
+  {
+    "id": "hero_304",
+    "name": "Inosuke Hashibira",
+    "status": "verified-base",
+    "model": "hero_304",
+    "art": "roster/hero_304.webp",
+    "source_portrait_sha256": "bc28c9afff6d856a05a299ae23b8df8192ae6cab9557d5698c0760853959a750",
+    "render_evidence": {
+      "id": "hero_304",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      45,
+      59,
+      294,
+      432
+    ]
+  },
+  {
+    "id": "hero_305",
+    "name": "Linlang",
+    "status": "verified-base",
+    "model": "hero_305",
+    "art": "roster/hero_305.webp",
+    "source_portrait_sha256": "50ffcc16e673711b5ebbe4912bd242c78f8f3d84bf5ce8b9de986ea010a6e894",
+    "render_evidence": {
+      "id": "hero_305",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      68,
+      40,
+      217,
+      439
+    ]
+  },
+  {
+    "id": "hero_308",
+    "name": "Rissette",
+    "status": "verified-base",
+    "model": "hero_308",
+    "art": "roster/hero_308.webp",
+    "source_portrait_sha256": "641a626b351d548c997678a92e830a37384fd76c629d241d8a1624049f361b47",
+    "render_evidence": {
+      "id": "hero_308",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      48,
+      265,
+      439
+    ]
+  },
+  {
+    "id": "hero_4",
+    "name": "Knivi",
+    "status": "verified-base",
+    "model": "hero_04",
+    "art": "roster/hero_4.webp",
+    "source_portrait_sha256": "1e03cc924659e6933355a25f635f855a8f5ce09f6ee11a40a8beb086b6b18dc8",
+    "render_evidence": {
+      "id": "hero_4",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      47,
+      292,
+      436
+    ]
+  },
+  {
+    "id": "hero_5",
+    "name": "Pump",
+    "status": "verified-base",
+    "model": "hero_05",
+    "art": "roster/hero_5.webp",
+    "source_portrait_sha256": "7d5ba7abf8249f3b089d6cb0d4631a3232e380573c75b214b40e8b49a88c62f5",
+    "render_evidence": {
+      "id": "hero_5",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      40,
+      289,
+      440
+    ]
+  },
+  {
+    "id": "hero_51",
+    "name": "Quenchy",
+    "status": "verified-base",
+    "model": "hero_51",
+    "art": "roster/hero_51.webp",
+    "source_portrait_sha256": "70c2509218e8dbf76cf6ed91b5cc5cde4e0d8de47a1927048ca150558224f336",
+    "render_evidence": {
+      "id": "hero_51",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      43,
+      284,
+      440
+    ]
+  },
+  {
+    "id": "hero_52",
+    "name": "Angie",
+    "status": "verified-base",
+    "model": "hero_52",
+    "art": "roster/hero_52.webp",
+    "source_portrait_sha256": "c7bf221da1b4aa3bc5acd6673b9ffea6960592a06a52279382bc71df9330d8e9",
+    "render_evidence": {
+      "id": "hero_52",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      41,
+      287,
+      439
+    ]
+  },
+  {
+    "id": "hero_53",
+    "name": "Adeline",
+    "status": "verified-base",
+    "model": "hero_53",
+    "art": "roster/hero_53.webp",
+    "source_portrait_sha256": "ab85932152da889a18f507791783004a16ccbeeab52d4f62df7d637a3b8f365d",
+    "render_evidence": {
+      "id": "hero_53",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      80,
+      154,
+      242,
+      373
+    ]
+  },
+  {
+    "id": "hero_55",
+    "name": "Moork",
+    "status": "verified-base",
+    "model": "hero_55",
+    "art": "roster/hero_55.webp",
+    "source_portrait_sha256": "be3bdd462697d15c20aeb6700128e973cc3c3e6bb5668b000d259824b2defda6",
+    "render_evidence": {
+      "id": "hero_55",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      80,
+      40,
+      243,
+      440
+    ]
+  },
+  {
+    "id": "hero_56",
+    "name": "Liz",
+    "status": "verified-base",
+    "model": "hero_56",
+    "art": "roster/hero_56.webp",
+    "source_portrait_sha256": "52320e41cf0264ae67e0b0676cc016ec7b6f46a90121b483e6473cc1a0108fff",
+    "render_evidence": {
+      "id": "hero_56",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      37,
+      43,
+      284,
+      440
+    ]
+  },
+  {
+    "id": "hero_58",
+    "name": "Denisa",
+    "status": "verified-base",
+    "model": "hero_58",
+    "art": "roster/hero_58.webp",
+    "source_portrait_sha256": "44afc8e4265abb5fd9e9b8d53dcf482a9f5ec5eb6c0dc23e9d50ece4451c476a",
+    "render_evidence": {
+      "id": "hero_58",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      36,
+      87,
+      288,
+      394
+    ]
+  },
+  {
+    "id": "hero_59",
+    "name": "Spipi",
+    "status": "verified-base",
+    "model": "hero_59",
+    "art": "roster/hero_59.webp",
+    "source_portrait_sha256": "c434faf5210eac6f78aeba72c06a5a84895bfadd66a5448cbc79a747eed0a1bd",
+    "render_evidence": {
+      "id": "hero_59",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      35,
+      40,
+      290,
+      440
+    ]
+  },
+  {
+    "id": "hero_60",
+    "name": "Kamakura",
+    "status": "verified-base",
+    "model": "hero_60",
+    "art": "roster/hero_60.webp",
+    "source_portrait_sha256": "b416191017497c83f149e5716ddb22a1faff236677691ac4496d56f27612ddf0",
+    "render_evidence": {
+      "id": "hero_60",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      60,
+      88,
+      261,
+      389
+    ]
+  },
+  {
+    "id": "hero_61",
+    "name": "Cimitir",
+    "status": "verified-base",
+    "model": "hero_61",
+    "art": "roster/hero_61.webp",
+    "source_portrait_sha256": "d67ed20ad35cbd9121d88ae48824755de82a03c93c867c151f5551c8ab3c461f",
+    "render_evidence": {
+      "id": "hero_61",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      49,
+      40,
+      271,
+      440
+    ]
+  },
+  {
+    "id": "hero_62",
+    "name": "Grayce",
+    "status": "verified-base",
+    "model": "hero_62",
+    "art": "roster/hero_62.webp",
+    "source_portrait_sha256": "86f93fe61dd142325367dab073d894382a7e96d386703c5a9d7330733fa6d540",
+    "render_evidence": {
+      "id": "hero_62",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      95,
+      40,
+      225,
+      440
+    ]
+  },
+  {
+    "id": "hero_65",
+    "name": "Brotein",
+    "status": "verified-base",
+    "model": "hero_65",
+    "art": "roster/hero_65.webp",
+    "source_portrait_sha256": "ddd8bb284cb6aad665352bfa7f75c16fb2a208c044c72928a1e0c682cc96442e",
+    "render_evidence": {
+      "id": "hero_65",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      91,
+      250,
+      393
+    ]
+  },
+  {
+    "id": "hero_66",
+    "name": "Witty",
+    "status": "verified-base",
+    "model": "hero_66",
+    "art": "roster/hero_66.webp",
+    "source_portrait_sha256": "179f2bf074a458e1b5fa05e7a1bddd02194bfdffbf209dcb9f25057e18de4789",
+    "render_evidence": {
+      "id": "hero_66",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      72,
+      40,
+      236,
+      440
+    ]
+  },
+  {
+    "id": "hero_67",
+    "name": "Emma",
+    "status": "verified-base",
+    "model": "hero_67",
+    "art": "roster/hero_67.webp",
+    "source_portrait_sha256": "aaa2889424fcf2e517fc9998e7d41b86ca49780460a5a26c17defe4e4b6cd4fc",
+    "render_evidence": {
+      "id": "hero_67",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      52,
+      294,
+      435
+    ]
+  },
+  {
+    "id": "hero_68",
+    "name": "Nalu",
+    "status": "verified-base",
+    "model": "hero_68",
+    "art": "roster/hero_68.webp",
+    "source_portrait_sha256": "1102db5bafac55c37285d97882671ac8a3ff2bfd7e6900113d7120b088b59b06",
+    "render_evidence": {
+      "id": "hero_68",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      57,
+      40,
+      265,
+      440
+    ]
+  },
+  {
+    "id": "hero_69",
+    "name": "Floaty",
+    "status": "verified-base",
+    "model": "hero_69",
+    "art": "roster/hero_69.webp",
+    "source_portrait_sha256": "e74d40d9245c8f5ddef8a16d9841558aa1606b995d113519e585c999b772aaab",
+    "render_evidence": {
+      "id": "hero_69",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      73,
+      294,
+      413
+    ]
+  },
+  {
+    "id": "hero_71",
+    "name": "Barbara",
+    "status": "verified-base",
+    "model": "hero_71",
+    "art": "roster/hero_71.webp",
+    "source_portrait_sha256": "c6ba124e4c09c86a56aabec436fc49fd2cc126f60efaaf331d30ebf9a92687f6",
+    "render_evidence": {
+      "id": "hero_71",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      68,
+      293,
+      415
+    ]
+  },
+  {
+    "id": "hero_72",
+    "name": "Carrotte",
+    "status": "verified-base",
+    "model": "hero_72",
+    "art": "roster/hero_72.webp",
+    "source_portrait_sha256": "fe00924605b09082b4a1730ab744749f54aafb0727d5312a7b200d8706d42472",
+    "render_evidence": {
+      "id": "hero_72",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      41,
+      263,
+      440
+    ]
+  },
+  {
+    "id": "hero_73",
+    "name": "Scorion",
+    "status": "verified-base",
+    "model": "hero_73",
+    "art": "roster/hero_73.webp",
+    "source_portrait_sha256": "feaa27d1cb759e235c4c52f3a1285f04020e1159387e355c6700cd72c53010df",
+    "render_evidence": {
+      "id": "hero_73",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      70,
+      45,
+      258,
+      440
+    ]
+  },
+  {
+    "id": "hero_74",
+    "name": "Lucoa",
+    "status": "verified-base",
+    "model": "hero_74",
+    "art": "roster/hero_74.webp",
+    "source_portrait_sha256": "86a047d92ee47a1d2e40bc86e47714023973e5c5e9d30a7ac39550d1fb0173ce",
+    "render_evidence": {
+      "id": "hero_74",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      55,
+      40,
+      277,
+      440
+    ]
+  },
+  {
+    "id": "hero_75",
+    "name": "Eros",
+    "status": "verified-base",
+    "model": "hero_75",
+    "art": "roster/hero_75.webp",
+    "source_portrait_sha256": "04c25ae8757cb2984bbc16220d6a2412ae8363e173d5f5b96825926f7b5f9732",
+    "render_evidence": {
+      "id": "hero_75",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      52,
+      285,
+      440
+    ]
+  },
+  {
+    "id": "hero_76",
+    "name": "Huowang Dade",
+    "status": "verified-base",
+    "model": "hero_76",
+    "art": "roster/hero_76.webp",
+    "source_portrait_sha256": "0c28b864b87db80a7b47a6936ee8509b38d5f4eb333ce65059e783a09b3b5ed9",
+    "render_evidence": {
+      "id": "hero_76",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      74,
+      41,
+      246,
+      440
+    ]
+  },
+  {
+    "id": "hero_77",
+    "name": "Searin",
+    "status": "verified-base",
+    "model": "hero_77",
+    "art": "roster/hero_77.webp",
+    "source_portrait_sha256": "ca6d07c01000f53f5addf3aa4309cef2874987bc56d4636f9e6decc4238a18d6",
+    "render_evidence": {
+      "id": "hero_77",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      76,
+      40,
+      239,
+      440
+    ]
+  },
+  {
+    "id": "hero_78",
+    "name": "Justitia",
+    "status": "verified-base",
+    "model": "hero_78",
+    "art": "roster/hero_78.webp",
+    "source_portrait_sha256": "1d574ca019355020a8c81d59770eb50a6c153111fbaf75cdedcd88a50c2a8da2",
+    "render_evidence": {
+      "id": "hero_78",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      53,
+      43,
+      271,
+      440
+    ]
+  },
+  {
+    "id": "hero_79",
+    "name": "Fawna",
+    "status": "verified-base",
+    "model": "hero_79",
+    "art": "roster/hero_79.webp",
+    "source_portrait_sha256": "fb57d10f8698bebd42254ead4dfb6da8ffa567fc63deb0b63f1dfc4d0267c00a",
+    "render_evidence": {
+      "id": "hero_79",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      61,
+      40,
+      258,
+      440
+    ]
+  },
+  {
+    "id": "wife_1",
+    "name": "Gina",
+    "status": "verified-base",
+    "model": "wife_01",
+    "art": "roster/wife_1.webp",
+    "source_portrait_sha256": "b081701a316ecb1b1c974b7dab1190c81fd917fe684fa71fc8504af7a65fa8ea",
+    "render_evidence": {
+      "id": "wife_1",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      110,
+      42,
+      219,
+      440
+    ]
+  },
+  {
+    "id": "wife_101",
+    "name": "Kosuzu",
+    "status": "verified-base",
+    "model": "wife_101",
+    "art": "roster/wife_101.webp",
+    "source_portrait_sha256": "1609aaad22b5771bf810ca2d7a8204f2b2774a0027fde3c3806b4c4783f52442",
+    "render_evidence": {
+      "id": "wife_101",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      75,
+      294,
+      405
+    ]
+  },
+  {
+    "id": "wife_102",
+    "name": "Sera",
+    "status": "verified-base",
+    "model": "wife_102",
+    "art": "roster/wife_102.webp",
+    "source_portrait_sha256": "9a5c6075c6c147053824a581dde69241986a963230aae1307cc07729b61e2bd9",
+    "render_evidence": {
+      "id": "wife_102",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      79,
+      293,
+      405
+    ]
+  },
+  {
+    "id": "wife_103",
+    "name": "Lina",
+    "status": "verified-base",
+    "model": "wife_103",
+    "art": "roster/wife_103.webp",
+    "source_portrait_sha256": "5f3d08dd03e690aa9f49a7a30a5c3eead4e139292441e8ab0bf8ab3b116cfe7e",
+    "render_evidence": {
+      "id": "wife_103",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      58,
+      40,
+      269,
+      440
+    ]
+  },
+  {
+    "id": "wife_104",
+    "name": "Denier",
+    "status": "verified-base",
+    "model": "wife_104",
+    "art": "roster/wife_104.webp",
+    "source_portrait_sha256": "8ba8c6004734cb624f60af8a9d5990ec615d4d1a7a2a390726a8ecb617fd6b8b",
+    "render_evidence": {
+      "id": "wife_104",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      88,
+      288,
+      393
+    ]
+  },
+  {
+    "id": "wife_105",
+    "name": "Baity",
+    "status": "verified-base",
+    "model": "wife_105",
+    "art": "roster/wife_105.webp",
+    "source_portrait_sha256": "0a6296b35789534c8fe864d22643ead86383d72414830a941cf7b8013c307332",
+    "render_evidence": {
+      "id": "wife_105",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      48,
+      41,
+      277,
+      440
+    ]
+  },
+  {
+    "id": "wife_106",
+    "name": "Lilith",
+    "status": "verified-base",
+    "model": "wife_106",
+    "art": "roster/wife_106.webp",
+    "source_portrait_sha256": "cfd213a66e5035ebd49e38e42893f41e68758b5015eb6c145862e104957d36fe",
+    "render_evidence": {
+      "id": "wife_106",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      85,
+      293,
+      395
+    ]
+  },
+  {
+    "id": "wife_11",
+    "name": "Ookami",
+    "status": "verified-base",
+    "model": "wife_11",
+    "art": "roster/wife_11.webp",
+    "source_portrait_sha256": "c634bc1337ea3d84e1006919c171310e50128589812ac835595055ee87f92426",
+    "render_evidence": {
+      "id": "wife_11",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      100,
+      40,
+      220,
+      440
+    ]
+  },
+  {
+    "id": "wife_111",
+    "name": "Bren",
+    "status": "verified-base",
+    "model": "wife_111",
+    "art": "roster/wife_111.webp",
+    "source_portrait_sha256": "eae10c257164cf6382ea029696a16eb3b40499ed542cc3d733804253c0149534",
+    "render_evidence": {
+      "id": "wife_111",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      51,
+      40,
+      268,
+      438
+    ]
+  },
+  {
+    "id": "wife_112",
+    "name": "Kagura",
+    "status": "verified-base",
+    "model": "wife_112",
+    "art": "roster/wife_112.webp",
+    "source_portrait_sha256": "a3156b76a5b5b5a210545e40387c50c43a403f6c67783749e3119d0da55aaa47",
+    "render_evidence": {
+      "id": "wife_112",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      42,
+      288,
+      438
+    ]
+  },
+  {
+    "id": "wife_113",
+    "name": "Willo",
+    "status": "verified-base",
+    "model": "wife_113",
+    "art": "roster/wife_113.webp",
+    "source_portrait_sha256": "5696819f541e85ea10409c6216d87c276318678d0b8bd29d8544396e54b99d3d",
+    "render_evidence": {
+      "id": "wife_113",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      41,
+      284,
+      439
+    ]
+  },
+  {
+    "id": "wife_114",
+    "name": "Phetia",
+    "status": "verified-base",
+    "model": "wife_114",
+    "art": "roster/wife_114.webp",
+    "source_portrait_sha256": "c2ca158f108cb0d12492caed7eaf56e989794b55ada3d8e19ebba12f31a52487",
+    "render_evidence": {
+      "id": "wife_114",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      37,
+      43,
+      284,
+      440
+    ]
+  },
+  {
+    "id": "wife_115",
+    "name": "Holly",
+    "status": "verified-base",
+    "model": "wife_115",
+    "art": "roster/wife_115.webp",
+    "source_portrait_sha256": "4c5ebc9bbed56496a633fcac2b17392712320ee19254b265a626c3fc24c77c0d",
+    "render_evidence": {
+      "id": "wife_115",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      85,
+      293,
+      396
+    ]
+  },
+  {
+    "id": "wife_116",
+    "name": "Mia",
+    "status": "verified-base",
+    "model": "wife_116",
+    "art": "roster/wife_116.webp",
+    "source_portrait_sha256": "ade83c79b0a110134eb57bc1bda879f52f80b5343586dd9c54882f063c2e6815",
+    "render_evidence": {
+      "id": "wife_116",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      89,
+      293,
+      392
+    ]
+  },
+  {
+    "id": "wife_117",
+    "name": "Vlad XIII",
+    "status": "verified-base",
+    "model": "wife_117",
+    "art": "roster/wife_117.webp",
+    "source_portrait_sha256": "f65576b21796895adf381f83ebccac565250d7cd030c679f249169ca2a511c1c",
+    "render_evidence": {
+      "id": "wife_117",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      40,
+      287,
+      440
+    ]
+  },
+  {
+    "id": "wife_118",
+    "name": "Pthahnil",
+    "status": "verified-base",
+    "model": "wife_118",
+    "art": "roster/wife_118.webp",
+    "source_portrait_sha256": "b615466e542484b432a9f3f0beb58721b7482f19f3284bc432ab852e2a7062e3",
+    "render_evidence": {
+      "id": "wife_118",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      81,
+      293,
+      418
+    ]
+  },
+  {
+    "id": "wife_119",
+    "name": "Alanna",
+    "status": "verified-base",
+    "model": "wife_119",
+    "art": "roster/wife_119.webp",
+    "source_portrait_sha256": "e557976a0086bf2ea5f211af0cfeedc44e452728ead31f281b1fc94faa1bc533",
+    "render_evidence": {
+      "id": "wife_119",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      47,
+      40,
+      277,
+      440
+    ]
+  },
+  {
+    "id": "wife_12",
+    "name": "Rachel",
+    "status": "verified-base",
+    "model": "wife_12",
+    "art": "roster/wife_12.webp",
+    "source_portrait_sha256": "c587daeeb0689e64a8a9a581c5a9b5321f3608150dc3177045058c72b267e76d",
+    "render_evidence": {
+      "id": "wife_12",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      57,
+      286,
+      423
+    ]
+  },
+  {
+    "id": "wife_120",
+    "name": "Connie",
+    "status": "verified-base",
+    "model": "wife_120",
+    "art": "roster/wife_120.webp",
+    "source_portrait_sha256": "427f57f31e29febb536f38e7ef51bfb4e95ccd455d63cea678e5833a8f7a39e6",
+    "render_evidence": {
+      "id": "wife_120",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      40,
+      281,
+      440
+    ]
+  },
+  {
+    "id": "wife_121",
+    "name": "Usuri",
+    "status": "verified-base",
+    "model": "wife_121",
+    "art": "roster/wife_121.webp",
+    "source_portrait_sha256": "af816480f2132d5f5b197787754cbeba7658f3be84d9e92ed2a9672ab4bc37ca",
+    "render_evidence": {
+      "id": "wife_121",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      50,
+      293,
+      430
+    ]
+  },
+  {
+    "id": "wife_122",
+    "name": "Tsukuyomi",
+    "status": "verified-base",
+    "model": "wife_122",
+    "art": "roster/wife_122.webp",
+    "source_portrait_sha256": "334f51b24190f91cc4713326da821b0ac9656173bf8a3c4d83679210cf40f773",
+    "render_evidence": {
+      "id": "wife_122",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      40,
+      287,
+      440
+    ]
+  },
+  {
+    "id": "wife_123",
+    "name": "Puffair",
+    "status": "verified-base",
+    "model": "wife_123",
+    "art": "roster/wife_123.webp",
+    "source_portrait_sha256": "85b445d7a27283305392166945bbc88ce32c060429cfe215be4cc045f1455c17",
+    "render_evidence": {
+      "id": "wife_123",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      51,
+      290,
+      434
+    ]
+  },
+  {
+    "id": "wife_124",
+    "name": "Namiko",
+    "status": "verified-base",
+    "model": "wife_124",
+    "art": "roster/wife_124.webp",
+    "source_portrait_sha256": "8b145d1382d136d7057dba7fe7cc4b28451f46084765f42e83f657f4d7280b90",
+    "render_evidence": {
+      "id": "wife_124",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      43,
+      294,
+      437
+    ]
+  },
+  {
+    "id": "wife_125",
+    "name": "Devileer",
+    "status": "verified-base",
+    "model": "wife_125",
+    "art": "roster/wife_125.webp",
+    "source_portrait_sha256": "0db746ca8ed986b8ebf1e6fd7f54156e31983395318374c6595707e7048c5a18",
+    "render_evidence": {
+      "id": "wife_125",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      41,
+      285,
+      439
+    ]
+  },
+  {
+    "id": "wife_126",
+    "name": "Skogul",
+    "status": "verified-base",
+    "model": "wife_126",
+    "art": "roster/wife_126.webp",
+    "source_portrait_sha256": "47bda00b1a316314a987bf495217b63cad7f01c8951031fc1e2a642550b47cc9",
+    "render_evidence": {
+      "id": "wife_126",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      81,
+      291,
+      400
+    ]
+  },
+  {
+    "id": "wife_127",
+    "name": "Mors",
+    "status": "verified-base",
+    "model": "wife_127",
+    "art": "roster/wife_127.webp",
+    "source_portrait_sha256": "259d65558d2836b33db9a4cf8a5a85960dac74393e0dcab79993baa4d4163cdd",
+    "render_evidence": {
+      "id": "wife_127",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      74,
+      292,
+      404
+    ]
+  },
+  {
+    "id": "wife_128",
+    "name": "Loo",
+    "status": "verified-base",
+    "model": "wife_128",
+    "art": "roster/wife_128.webp",
+    "source_portrait_sha256": "2e16138e12016206302d1589a97c909ee443b6a965bdb290ceb04bf353b8e2a8",
+    "render_evidence": {
+      "id": "wife_128",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      57,
+      44,
+      270,
+      439
+    ]
+  },
+  {
+    "id": "wife_129",
+    "name": "Tier",
+    "status": "verified-base",
+    "model": "wife_129",
+    "art": "roster/wife_129.webp",
+    "source_portrait_sha256": "f01a2e075641c68a5da1af31a6a08fe4f428645b921e6b7b3065e03a03a4d5a3",
+    "render_evidence": {
+      "id": "wife_129",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      53,
+      288,
+      425
+    ]
+  },
+  {
+    "id": "wife_13",
+    "name": "Joyce",
+    "status": "verified-base",
+    "model": "wife_13",
+    "art": "roster/wife_13.webp",
+    "source_portrait_sha256": "eb016c269ffd3ce9e83ff3466b2ebef0ceb9b3dfdb2788a3ba716bbdd651efd1",
+    "render_evidence": {
+      "id": "wife_13",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      45,
+      42,
+      276,
+      440
+    ]
+  },
+  {
+    "id": "wife_130",
+    "name": "Flora",
+    "status": "verified-base",
+    "model": "wife_130",
+    "art": "roster/wife_130.webp",
+    "source_portrait_sha256": "fbb3019a122a8ba7957043b4d86eb8f73be6b6a87aa2cf71fb6bc98a75092151",
+    "render_evidence": {
+      "id": "wife_130",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      40,
+      287,
+      440
+    ]
+  },
+  {
+    "id": "wife_131",
+    "name": "Raphael",
+    "status": "verified-base",
+    "model": "wife_131",
+    "art": "roster/wife_131.webp",
+    "source_portrait_sha256": "5773eb5ff9beeaa129af344776b7aef26839be10be398e4ff10d8aedc2bb1bfe",
+    "render_evidence": {
+      "id": "wife_131",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      89,
+      40,
+      231,
+      440
+    ]
+  },
+  {
+    "id": "wife_132",
+    "name": "Curren",
+    "status": "verified-base",
+    "model": "wife_132",
+    "art": "roster/wife_132.webp",
+    "source_portrait_sha256": "d62205ee96a7fd9c6339fe06e91c241c441e9b8cee8a7fea9220300b80ad3b78",
+    "render_evidence": {
+      "id": "wife_132",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      46,
+      53,
+      275,
+      439
+    ]
+  },
+  {
+    "id": "wife_133",
+    "name": "Bathery",
+    "status": "verified-base",
+    "model": "wife_133",
+    "art": "roster/wife_133.webp",
+    "source_portrait_sha256": "2749ad983d81d2baef8cde5832701dbb756da7163c22be333f32f387d5d71574",
+    "render_evidence": {
+      "id": "wife_133",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      53,
+      44,
+      266,
+      440
+    ]
+  },
+  {
+    "id": "wife_134",
+    "name": "Jin Yu",
+    "status": "verified-base",
+    "model": "wife_134",
+    "art": "roster/wife_134.webp",
+    "source_portrait_sha256": "202214ee46000afd9fcfa2bf5120d8b9bb11841b2d2fb11b59ba963454c2b402",
+    "render_evidence": {
+      "id": "wife_134",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      49,
+      293,
+      423
+    ]
+  },
+  {
+    "id": "wife_135",
+    "name": "Lud",
+    "status": "verified-base",
+    "model": "wife_135",
+    "art": "roster/wife_135.webp",
+    "source_portrait_sha256": "6704f121e4e2ddf8a03c47d3953aedcb923fc4ac9c36b6310057ac6f615a8922",
+    "render_evidence": {
+      "id": "wife_135",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      62,
+      40,
+      256,
+      440
+    ]
+  },
+  {
+    "id": "wife_136",
+    "name": "Squeaky",
+    "status": "verified-base",
+    "model": "wife_136",
+    "art": "roster/wife_136.webp",
+    "source_portrait_sha256": "cf0a677da2e6ff35954010ccbc5a05325515411fbb9852647810d0f6e2d81411",
+    "render_evidence": {
+      "id": "wife_136",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      50,
+      52,
+      276,
+      440
+    ]
+  },
+  {
+    "id": "wife_137",
+    "name": "Lunaria",
+    "status": "verified-base",
+    "model": "wife_137",
+    "art": "roster/wife_137.webp",
+    "source_portrait_sha256": "28cc742266b8228aa1d9845e93e8575b5242fc0b8461c83f087e065649ec494c",
+    "render_evidence": {
+      "id": "wife_137",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      84,
+      293,
+      397
+    ]
+  },
+  {
+    "id": "wife_138",
+    "name": "Wadjetta",
+    "status": "verified-base",
+    "model": "wife_138",
+    "art": "roster/wife_138.webp",
+    "source_portrait_sha256": "75ec3e4f32d8d59d8dbe0f461765052716cfa2fee4594e6a542a31bb1c5bcc38",
+    "render_evidence": {
+      "id": "wife_138",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      95,
+      45,
+      294,
+      435
+    ]
+  },
+  {
+    "id": "wife_14",
+    "name": "Sofia",
+    "status": "verified-base",
+    "model": "wife_14",
+    "art": "roster/wife_14.webp",
+    "source_portrait_sha256": "c8cb86150a41581caf6d2e65c95a2b147c9ad4660d0423dab3e5e75a0e056f3d",
+    "render_evidence": {
+      "id": "wife_14",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      101,
+      42,
+      221,
+      440
+    ]
+  },
+  {
+    "id": "wife_143",
+    "name": "Leopolda",
+    "status": "verified-base",
+    "model": "wife_143",
+    "art": "roster/wife_143.webp",
+    "source_portrait_sha256": "0266b7127b459acb10656fab8d05cdf24da7c2df01daf5aa050c0823772d9885",
+    "render_evidence": {
+      "id": "wife_143",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      40,
+      287,
+      440
+    ]
+  },
+  {
+    "id": "wife_144",
+    "name": "Shuna",
+    "status": "verified-base",
+    "model": "wife_144",
+    "art": "roster/wife_144.webp",
+    "source_portrait_sha256": "b34b22183d909b26e62c4044edbce14eec6bfa3eb217ec8e6d18547fb5bc4915",
+    "render_evidence": {
+      "id": "wife_144",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      42,
+      40,
+      279,
+      440
+    ]
+  },
+  {
+    "id": "wife_145",
+    "name": "Diablo",
+    "status": "verified-base",
+    "model": "wife_145",
+    "art": "roster/wife_145.webp",
+    "source_portrait_sha256": "297594690ce878c6d7ff58aefef58113485c24a2d3a981776326357897b43c23",
+    "render_evidence": {
+      "id": "wife_145",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      45,
+      48,
+      266,
+      440
+    ]
+  },
+  {
+    "id": "wife_146",
+    "name": "Athena",
+    "status": "verified-base",
+    "model": "wife_146",
+    "art": "roster/wife_146.webp",
+    "source_portrait_sha256": "87168bde849c9c9aa35f02a26182575c9b9cf19b97f8bd7ae10f0a69af48e7bd",
+    "render_evidence": {
+      "id": "wife_146",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      43,
+      40,
+      277,
+      440
+    ]
+  },
+  {
+    "id": "wife_148",
+    "name": "Lucy",
+    "status": "verified-base",
+    "model": "wife_148",
+    "art": "roster/wife_148.webp",
+    "source_portrait_sha256": "d70df291b5d630c9a9f256ad19a28774e3b820dc8aa609cc298041cb9cef864c",
+    "render_evidence": {
+      "id": "wife_148",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      52,
+      293,
+      433
+    ]
+  },
+  {
+    "id": "wife_149",
+    "name": "Mewi",
+    "status": "verified-base",
+    "model": "wife_149",
+    "art": "roster/wife_149.webp",
+    "source_portrait_sha256": "a61e3e35698012b65780830f2dea8f4ef4f15ce82a6fd5b28e58697ec7d7a0be",
+    "render_evidence": {
+      "id": "wife_149",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      93,
+      40,
+      224,
+      440
+    ]
+  },
+  {
+    "id": "wife_15",
+    "name": "Chihaya",
+    "status": "verified-base",
+    "model": "wife_15",
+    "art": "roster/wife_15.webp",
+    "source_portrait_sha256": "d38bd7cc934830c8abe6410bb7f2c0af90dfd15cfeebf6d35f3daf46d7cbe651",
+    "render_evidence": {
+      "id": "wife_15",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      87,
+      40,
+      227,
+      439
+    ]
+  },
+  {
+    "id": "wife_150",
+    "name": "Mercuria",
+    "status": "verified-base",
+    "model": "wife_150",
+    "art": "roster/wife_150.webp",
+    "source_portrait_sha256": "0e34025326b206217adad3e5c6825ab719148ec01f60d253e5f22794db95ad30",
+    "render_evidence": {
+      "id": "wife_150",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      42,
+      264,
+      420
+    ]
+  },
+  {
+    "id": "wife_151",
+    "name": "Pengia",
+    "status": "verified-base",
+    "model": "wife_151",
+    "art": "roster/wife_151.webp",
+    "source_portrait_sha256": "77aec9a9335ccf75dc62819863b01a262323b570e1f58bd54d0e1d0ac08e593e",
+    "render_evidence": {
+      "id": "wife_151",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      72,
+      294,
+      435
+    ]
+  },
+  {
+    "id": "wife_152",
+    "name": "Pan Pan",
+    "status": "verified-base",
+    "model": "wife_152",
+    "art": "roster/wife_152.webp",
+    "source_portrait_sha256": "2d259f604bed9acf8af92dcfdf0e485e703e1269c3da76d0335115a1bfbb30fc",
+    "render_evidence": {
+      "id": "wife_152",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      60,
+      46,
+      262,
+      440
+    ]
+  },
+  {
+    "id": "wife_153",
+    "name": "Cranelia",
+    "status": "verified-base",
+    "model": "wife_153",
+    "art": "roster/wife_153.webp",
+    "source_portrait_sha256": "bd35643a621e67451c461d1d7ae717c3653900286e9b0395050e9029e15d9d6f",
+    "render_evidence": {
+      "id": "wife_153",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      27,
+      60,
+      293,
+      420
+    ]
+  },
+  {
+    "id": "wife_154",
+    "name": "Chitana",
+    "status": "verified-base",
+    "model": "wife_154",
+    "art": "roster/wife_154.webp",
+    "source_portrait_sha256": "b82850dfccf0c10850db0166deee2fb1a317636b53c9c726dfbf07a1904f3c37",
+    "render_evidence": {
+      "id": "wife_154",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      59,
+      42,
+      256,
+      440
+    ]
+  },
+  {
+    "id": "wife_155",
+    "name": "Futaba",
+    "status": "verified-base",
+    "model": "wife_155",
+    "art": "roster/wife_155.webp",
+    "source_portrait_sha256": "db6c63d91b90984deab379dd9f7a872b454fe593249204190c33a4e39097bf80",
+    "render_evidence": {
+      "id": "wife_155",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      76,
+      292,
+      410
+    ]
+  },
+  {
+    "id": "wife_156",
+    "name": "Liliruca Arde",
+    "status": "verified-base",
+    "model": "wife_156",
+    "art": "roster/wife_156.webp",
+    "source_portrait_sha256": "0f53f0f706c448349028ea7bb7d2865d289b6dd933831f1d91c54ede61c82ec1",
+    "render_evidence": {
+      "id": "wife_156",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      35,
+      40,
+      285,
+      440
+    ]
+  },
+  {
+    "id": "wife_157",
+    "name": "Sylthiel",
+    "status": "verified-base",
+    "model": "wife_157",
+    "art": "roster/wife_157.webp",
+    "source_portrait_sha256": "697852c4135b301bfca0a9568f160df65f6f533b192c1a632020ed0cff34df07",
+    "render_evidence": {
+      "id": "wife_157",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      55,
+      289,
+      440
+    ]
+  },
+  {
+    "id": "wife_158",
+    "name": "Nyar",
+    "status": "verified-base",
+    "model": "wife_158",
+    "art": "roster/wife_158.webp",
+    "source_portrait_sha256": "950dd9f0d88773fc0caf00deb17fc5355c1374b8828582543d2176a2e07e8723",
+    "render_evidence": {
+      "id": "wife_158",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      37,
+      98,
+      282,
+      379
+    ]
+  },
+  {
+    "id": "wife_159",
+    "name": "Roxy Migurdia",
+    "status": "verified-base",
+    "model": "wife_159",
+    "art": "roster/wife_159.webp",
+    "source_portrait_sha256": "cc3de4e80ae56c7194690006b4227262cc1f13b0581fe441d4f59a78058c8895",
+    "render_evidence": {
+      "id": "wife_159",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      120,
+      183,
+      221,
+      361
+    ]
+  },
+  {
+    "id": "wife_16",
+    "name": "Kaka",
+    "status": "verified-base",
+    "model": "wife_16",
+    "art": "roster/wife_16.webp",
+    "source_portrait_sha256": "9ae87bf92513c83c6493a5564cb10f9df59bf3d3c4d297c8cf56dde7a539ab34",
+    "render_evidence": {
+      "id": "wife_16",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      57,
+      42,
+      261,
+      440
+    ]
+  },
+  {
+    "id": "wife_160",
+    "name": "Sylphiette Greyrat",
+    "status": "verified-base",
+    "model": "wife_160",
+    "art": "roster/wife_160.webp",
+    "source_portrait_sha256": "29a680bf2a2478aad92a5a238a18415acb1d1591b224454d2970df96babd6a53",
+    "render_evidence": {
+      "id": "wife_160",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      41,
+      40,
+      279,
+      440
+    ]
+  },
+  {
+    "id": "wife_161",
+    "name": "Lucy",
+    "status": "verified-base",
+    "model": "wife_161",
+    "art": "roster/wife_161.webp",
+    "source_portrait_sha256": "0f7db41cfa6ff949b1fc09c94a1560fa87d03591cf062f0b747767a117753e19",
+    "render_evidence": {
+      "id": "wife_161",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      62,
+      40,
+      258,
+      440
+    ]
+  },
+  {
+    "id": "wife_162",
+    "name": "Wendy",
+    "status": "verified-base",
+    "model": "wife_162",
+    "art": "roster/wife_162.webp",
+    "source_portrait_sha256": "5125b0c7e07c87fcf9bf22419fd48c296d5712e0d749009d177d0c3f19dc4811",
+    "render_evidence": {
+      "id": "wife_162",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      31,
+      40,
+      289,
+      440
+    ]
+  },
+  {
+    "id": "wife_163",
+    "name": "Thubran",
+    "status": "verified-base",
+    "model": "wife_163",
+    "art": "roster/wife_163.webp",
+    "source_portrait_sha256": "b3b6f9c4743535c7eb696fc9a774f4b5d4f4c404d4fe374fa6c86c8bcaccc3b6",
+    "render_evidence": {
+      "id": "wife_163",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      66,
+      294,
+      414
+    ]
+  },
+  {
+    "id": "wife_164",
+    "name": "Yunseul",
+    "status": "verified-base",
+    "model": "wife_164",
+    "art": "roster/wife_164.webp",
+    "source_portrait_sha256": "4ff4e7bf2bd0e9ca182d942ef5b44e36bada76f8f6646f23d41a0decdab20338",
+    "render_evidence": {
+      "id": "wife_164",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      40,
+      291,
+      433
+    ]
+  },
+  {
+    "id": "wife_165",
+    "name": "Lancelot",
+    "status": "verified-base",
+    "model": "wife_165",
+    "art": "roster/wife_165.webp",
+    "source_portrait_sha256": "59a0fa4b90678a8bfe92adf4463b749c0fb234413463d50b49015a17abae4874",
+    "render_evidence": {
+      "id": "wife_165",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      52,
+      282,
+      428
+    ]
+  },
+  {
+    "id": "wife_166",
+    "name": "Zenow",
+    "status": "verified-base",
+    "model": "wife_166",
+    "art": "roster/wife_166.webp",
+    "source_portrait_sha256": "df716fe6344df8864447a8876cba8f0972703723ef14684cc6cf5fb1efb4f89d",
+    "render_evidence": {
+      "id": "wife_166",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      77,
+      294,
+      402
+    ]
+  },
+  {
+    "id": "wife_167",
+    "name": "Mushimi",
+    "status": "verified-base",
+    "model": "wife_167",
+    "art": "roster/wife_167.webp",
+    "source_portrait_sha256": "342b9e54ed674e64456694f8770b452e7bab70b01530ab922403a4e0335abbe3",
+    "render_evidence": {
+      "id": "wife_167",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      76,
+      272,
+      389
+    ]
+  },
+  {
+    "id": "wife_168",
+    "name": "Shion",
+    "status": "verified-base",
+    "model": "wife_168",
+    "art": "roster/wife_168.webp",
+    "source_portrait_sha256": "479b41759220c9f25252eef6643280df2da2942aaedf6d40722abeca17639714",
+    "render_evidence": {
+      "id": "wife_168",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      44,
+      283,
+      434
+    ]
+  },
+  {
+    "id": "wife_169",
+    "name": "Ixchel",
+    "status": "verified-base",
+    "model": "wife_169",
+    "art": "roster/wife_169.webp",
+    "source_portrait_sha256": "59bed317d6224bc6308ad23744b54b36f4f7b675499b310de7c9f19955166b6f",
+    "render_evidence": {
+      "id": "wife_169",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      46,
+      41,
+      273,
+      440
+    ]
+  },
+  {
+    "id": "wife_17",
+    "name": "Freyja",
+    "status": "verified-base",
+    "model": "wife_17",
+    "art": "roster/wife_17.webp",
+    "source_portrait_sha256": "389341ff7519039155a34109839e5b2b3d72a46177cb73ce277719e86bae82dd",
+    "render_evidence": {
+      "id": "wife_17",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      65,
+      40,
+      257,
+      440
+    ]
+  },
+  {
+    "id": "wife_170",
+    "name": "Dionysia",
+    "status": "verified-base",
+    "model": "wife_170",
+    "art": "roster/wife_170.webp",
+    "source_portrait_sha256": "b78f1630494510e332c44f3fb1655aa486ff9b7ff5496e89a220c3c2a750ec39",
+    "render_evidence": {
+      "id": "wife_170",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      54,
+      284,
+      420
+    ]
+  },
+  {
+    "id": "wife_171",
+    "name": "Fafnyria",
+    "status": "verified-base",
+    "model": "wife_171",
+    "art": "roster/wife_171.webp",
+    "source_portrait_sha256": "30bc781e8cad03adcabc04624eaf35f08f091e918885812a2f052c5d156ce598",
+    "render_evidence": {
+      "id": "wife_171",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      71,
+      283,
+      408
+    ]
+  },
+  {
+    "id": "wife_173",
+    "name": "Aqua",
+    "status": "verified-base",
+    "model": "wife_173",
+    "art": "roster/wife_173.webp",
+    "source_portrait_sha256": "a9a86bd0f063773106ff4ae55961ab912dce45590ac40ab5f40886d60d18d35d",
+    "render_evidence": {
+      "id": "wife_173",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      62,
+      149,
+      266,
+      329
+    ]
+  },
+  {
+    "id": "wife_174",
+    "name": "Megumin",
+    "status": "verified-base",
+    "model": "wife_174",
+    "art": "roster/wife_174.webp",
+    "source_portrait_sha256": "1b275af0ee68a6296c0b99a1f7952603e33fba337c2b9c39b0e70ea1a4710973",
+    "render_evidence": {
+      "id": "wife_174",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      35,
+      45,
+      281,
+      440
+    ]
+  },
+  {
+    "id": "wife_175",
+    "name": "Philo",
+    "status": "verified-base",
+    "model": "wife_175",
+    "art": "roster/wife_175.webp",
+    "source_portrait_sha256": "a072bfa78d1c37eccf28e8db66b6c978517bae0f45831d1fc6ed6007d0f65da6",
+    "render_evidence": {
+      "id": "wife_175",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      62,
+      40,
+      257,
+      440
+    ]
+  },
+  {
+    "id": "wife_178",
+    "name": "Genessa",
+    "status": "verified-base",
+    "model": "wife_178",
+    "art": "roster/wife_178.webp",
+    "source_portrait_sha256": "73e51ae6b32f9438330dc2dcd910d3e86284393ceca5f7f61f95903eee2d1b82",
+    "render_evidence": {
+      "id": "wife_178",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      82,
+      293,
+      410
+    ]
+  },
+  {
+    "id": "wife_179",
+    "name": "Kerr & Bel & Ross",
+    "status": "verified-base",
+    "model": "wife_179",
+    "art": "roster/wife_179.webp",
+    "source_portrait_sha256": "d87edf971cef8914428a324083aa62c419386b071f7536fae9cb2a5e2f6a2ff9",
+    "render_evidence": {
+      "id": "wife_179",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      48,
+      294,
+      432
+    ]
+  },
+  {
+    "id": "wife_18",
+    "name": "Catherine",
+    "status": "verified-base",
+    "model": "wife_18",
+    "art": "roster/wife_18.webp",
+    "source_portrait_sha256": "4935ef0324d3df8c25ab0b7f474ee791446cf04a376370c9675b14a6a8de53e8",
+    "render_evidence": {
+      "id": "wife_18",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      65,
+      292,
+      412
+    ]
+  },
+  {
+    "id": "wife_180",
+    "name": "Crysta",
+    "status": "verified-base",
+    "model": "wife_180",
+    "art": "roster/wife_180.webp",
+    "source_portrait_sha256": "b148c5932ef037c2a0236f0d8cfa816d8677c6cb10a8bc7930c89ab271a5f2a4",
+    "render_evidence": {
+      "id": "wife_180",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      40,
+      289,
+      439
+    ]
+  },
+  {
+    "id": "wife_181",
+    "name": "Dante",
+    "status": "verified-base",
+    "model": "wife_181",
+    "art": "roster/wife_181.webp",
+    "source_portrait_sha256": "ac3a66e7e23e90f7315b2083ea1d86b17fff3bef3daa34ac6b5e5ab63d80e490",
+    "render_evidence": {
+      "id": "wife_181",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      33,
+      43,
+      284,
+      438
+    ]
+  },
+  {
+    "id": "wife_182",
+    "name": "Nonnette",
+    "status": "verified-base",
+    "model": "wife_182",
+    "art": "roster/wife_182.webp",
+    "source_portrait_sha256": "dec27ba30ff7a65458eb250173affcc1fe4e650d0076ee03009e467da2e40ba1",
+    "render_evidence": {
+      "id": "wife_182",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      78,
+      40,
+      249,
+      440
+    ]
+  },
+  {
+    "id": "wife_183",
+    "name": "Hattie",
+    "status": "verified-base",
+    "model": "wife_183",
+    "art": "roster/wife_183.webp",
+    "source_portrait_sha256": "f2daee0201110d6a53b0a103fab6289a02418df3d65a79714b72347baa143537",
+    "render_evidence": {
+      "id": "wife_183",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      82,
+      277,
+      401
+    ]
+  },
+  {
+    "id": "wife_184",
+    "name": "Takina Inoue",
+    "status": "verified-base",
+    "model": "wife_184",
+    "art": "roster/wife_184.webp",
+    "source_portrait_sha256": "bb783b07cbf80b915e1acd9d2a6aaebcb1f5ba66f1628aec06d0e61dbaaf5242",
+    "render_evidence": {
+      "id": "wife_184",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      89,
+      40,
+      231,
+      440
+    ]
+  },
+  {
+    "id": "wife_185",
+    "name": "Shinobu Kocho",
+    "status": "verified-base",
+    "model": "wife_185",
+    "art": "roster/wife_185.webp",
+    "source_portrait_sha256": "8e12c08382ab91e2dd563f917e3f5dc4e8173eb7699d1868ddb2f36899d2f30e",
+    "render_evidence": {
+      "id": "wife_185",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      56,
+      74,
+      263,
+      406
+    ]
+  },
+  {
+    "id": "wife_186",
+    "name": "Nezuko Kamado",
+    "status": "verified-base",
+    "model": "wife_186",
+    "art": "roster/wife_186.webp",
+    "source_portrait_sha256": "13d0e7e47bd91085a9beb3cbb9c7a882e20e33643a8647ce50e2db6d9504cb76",
+    "render_evidence": {
+      "id": "wife_186",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      40,
+      291,
+      440
+    ]
+  },
+  {
+    "id": "wife_188",
+    "name": "Loya",
+    "status": "verified-base",
+    "model": "wife_188",
+    "art": "roster/wife_188.webp",
+    "source_portrait_sha256": "764e9e98b4921e7732d133a80057575898dd3d939fc4f79d3b08947dffb4693f",
+    "render_evidence": {
+      "id": "wife_188",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      32,
+      46,
+      294,
+      434
+    ]
+  },
+  {
+    "id": "wife_19",
+    "name": "Otherin",
+    "status": "verified-base",
+    "model": "wife_19",
+    "art": "roster/wife_19.webp",
+    "source_portrait_sha256": "4aef0e97fe584f1e8ca8e142688f9012be914316a4d7c1bc30fda4dedd3b282d",
+    "render_evidence": {
+      "id": "wife_19",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      45,
+      55,
+      269,
+      431
+    ]
+  },
+  {
+    "id": "wife_191",
+    "name": "Bridget",
+    "status": "verified-base",
+    "model": "wife_191",
+    "art": "roster/wife_191.webp",
+    "source_portrait_sha256": "699d598fca0b5187e8c61715be0632ccb6fad02bf5a8045004eefa38589bb723",
+    "render_evidence": {
+      "id": "wife_191",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      67,
+      40,
+      249,
+      440
+    ]
+  },
+  {
+    "id": "wife_192",
+    "name": "Nibel",
+    "status": "verified-base",
+    "model": "wife_192",
+    "art": "roster/wife_192.webp",
+    "source_portrait_sha256": "c4a1744c1d8af1067cd45a62bfb76242771765d36665efe1911d485565ee53be",
+    "render_evidence": {
+      "id": "wife_192",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      43,
+      293,
+      438
+    ]
+  },
+  {
+    "id": "wife_2",
+    "name": "Charlotte",
+    "status": "verified-base",
+    "model": "wife_02",
+    "art": "roster/wife_2.webp",
+    "source_portrait_sha256": "cb149d74eb93be97f72fb5d2da80a7bbbac851352687672edb2cd939ea2e1142",
+    "render_evidence": {
+      "id": "wife_2",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      63,
+      40,
+      253,
+      440
+    ]
+  },
+  {
+    "id": "wife_20",
+    "name": "Mater",
+    "status": "verified-base",
+    "model": "wife_20",
+    "art": "roster/wife_20.webp",
+    "source_portrait_sha256": "73eb652aaa173a42c3bef680afed4a6ac0dd432e4bfff813bfd4440a43f55507",
+    "render_evidence": {
+      "id": "wife_20",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      81,
+      40,
+      242,
+      440
+    ]
+  },
+  {
+    "id": "wife_201",
+    "name": "Nirvana",
+    "status": "verified-base",
+    "model": "wife_201",
+    "art": "roster/wife_201.webp",
+    "source_portrait_sha256": "3f27b179d4e73a35c92d8de7c2b9a143ddf5e95a13d61e85699c57cafe1893ba",
+    "render_evidence": {
+      "id": "wife_201",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      41,
+      59,
+      293,
+      424
+    ]
+  },
+  {
+    "id": "wife_21",
+    "name": "Dia",
+    "status": "verified-base",
+    "model": "wife_21",
+    "art": "roster/wife_21.webp",
+    "source_portrait_sha256": "3f3dced07eeca0fda19266ffe04189557097ebe69f55e1c38e6d5eac42fcbd8e",
+    "render_evidence": {
+      "id": "wife_21",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      38,
+      42,
+      286,
+      439
+    ]
+  },
+  {
+    "id": "wife_22",
+    "name": "Herna",
+    "status": "verified-base",
+    "model": "wife_22",
+    "art": "roster/wife_22.webp",
+    "source_portrait_sha256": "905c5969c70ae738477e089325014c88ab52d0eac3f446595c614b2380832bbd",
+    "render_evidence": {
+      "id": "wife_22",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      60,
+      40,
+      251,
+      440
+    ]
+  },
+  {
+    "id": "wife_251",
+    "name": "Hina",
+    "status": "verified-base",
+    "model": "wife_251",
+    "art": "roster/wife_251.webp",
+    "source_portrait_sha256": "3372072c8e50ff7eee56ac286a3d9e41b9a73be2655e28b26a486785ac3cec41",
+    "render_evidence": {
+      "id": "wife_251",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      49,
+      288,
+      437
+    ]
+  },
+  {
+    "id": "wife_252",
+    "name": "Hanamiya Rica",
+    "status": "verified-base",
+    "model": "wife_252",
+    "art": "roster/wife_252.webp",
+    "source_portrait_sha256": "43fc0e7755cecdd5ae9e36d3613b1392f149a4e4b2834094a648b22622c0efc9",
+    "render_evidence": {
+      "id": "wife_252",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      60,
+      45,
+      275,
+      440
+    ]
+  },
+  {
+    "id": "wife_253",
+    "name": "Hestia",
+    "status": "verified-base",
+    "model": "wife_253",
+    "art": "roster/wife_253.webp",
+    "source_portrait_sha256": "e82ecd427eabfdd11b73bcadbe8cdbb1b367999fb4ad39eaf692bd263de32afa",
+    "render_evidence": {
+      "id": "wife_253",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      49,
+      44,
+      271,
+      436
+    ]
+  },
+  {
+    "id": "wife_254",
+    "name": "Emiru",
+    "status": "verified-base",
+    "model": "wife_254",
+    "art": "roster/wife_254.webp",
+    "source_portrait_sha256": "57b8ae5dec106ec794c7215d64093fe6b796fce497bbc4c7a606422c066fe30c",
+    "render_evidence": {
+      "id": "wife_254",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      49,
+      45,
+      271,
+      440
+    ]
+  },
+  {
+    "id": "wife_3",
+    "name": "Epona",
+    "status": "verified-base",
+    "model": "wife_03",
+    "art": "roster/wife_3.webp",
+    "source_portrait_sha256": "492aefc4eaa373b9a626a1f0118b576854c377accb74373cf4fb3c89d66c89a9",
+    "render_evidence": {
+      "id": "wife_3",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      74,
+      40,
+      245,
+      440
+    ]
+  },
+  {
+    "id": "wife_4",
+    "name": "Nene",
+    "status": "verified-base",
+    "model": "wife_04",
+    "art": "roster/wife_4.webp",
+    "source_portrait_sha256": "3131f9f4df8f357051ae4182057ceb86dae4b92643dbcbfe08c17db11c8f1bf1",
+    "render_evidence": {
+      "id": "wife_4",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      59,
+      51,
+      268,
+      440
+    ]
+  },
+  {
+    "id": "wife_5",
+    "name": "Susie",
+    "status": "verified-base",
+    "model": "wife_05",
+    "art": "roster/wife_5.webp",
+    "source_portrait_sha256": "47bf5d4a2463c30b2eb3f5cf279e0ac9e968b1ec5ee31c48c42541d3e8f217b2",
+    "render_evidence": {
+      "id": "wife_5",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      62,
+      41,
+      257,
+      440
+    ]
+  },
+  {
+    "id": "wife_51",
+    "name": "Selena",
+    "status": "verified-base",
+    "model": "wife_51",
+    "art": "roster/wife_51.webp",
+    "source_portrait_sha256": "0d436cfe582e7e5f45f09a3fb74f1afcfc2bf0778763d70b8ee2ae7299fd287e",
+    "render_evidence": {
+      "id": "wife_51",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      40,
+      40,
+      282,
+      439
+    ]
+  },
+  {
+    "id": "wife_52",
+    "name": "Melody",
+    "status": "verified-base",
+    "model": "wife_52",
+    "art": "roster/wife_52.webp",
+    "source_portrait_sha256": "94096213c7baef05a13d3fb3aa69f9024694eef626d25ee7432b6b909964b9db",
+    "render_evidence": {
+      "id": "wife_52",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      41,
+      40,
+      279,
+      440
+    ]
+  },
+  {
+    "id": "wife_53",
+    "name": "Merry",
+    "status": "verified-base",
+    "model": "wife_53",
+    "art": "roster/wife_53.webp",
+    "source_portrait_sha256": "eac99fbb00506f55a1eed5d5686d34899fcef14e332a718377d17ce45e83d852",
+    "render_evidence": {
+      "id": "wife_53",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      57,
+      294,
+      423
+    ]
+  },
+  {
+    "id": "wife_54",
+    "name": "Ena",
+    "status": "verified-base",
+    "model": "wife_54",
+    "art": "roster/wife_54.webp",
+    "source_portrait_sha256": "def5b767fb3ca09ef4db4d32f31b68c049d460131c56b2034f4290f2a4c331ea",
+    "render_evidence": {
+      "id": "wife_54",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      48,
+      49,
+      270,
+      440
+    ]
+  },
+  {
+    "id": "wife_55",
+    "name": "Lulu",
+    "status": "verified-base",
+    "model": "wife_55",
+    "art": "roster/wife_55.webp",
+    "source_portrait_sha256": "59a591babd832947ff80faf154a384b382848f5cbcd82427eb933052d8c53b14",
+    "render_evidence": {
+      "id": "wife_55",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      28,
+      71,
+      284,
+      409
+    ]
+  },
+  {
+    "id": "wife_57",
+    "name": "Sadako",
+    "status": "verified-base",
+    "model": "wife_57",
+    "art": "roster/wife_57.webp",
+    "source_portrait_sha256": "c9dd24a08b6918efd3dc885c5de403db47eca9e652c01d32e4bd91a13fd438da",
+    "render_evidence": {
+      "id": "wife_57",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      53,
+      40,
+      267,
+      440
+    ]
+  },
+  {
+    "id": "wife_58",
+    "name": "Clarice",
+    "status": "verified-base",
+    "model": "wife_58",
+    "art": "roster/wife_58.webp",
+    "source_portrait_sha256": "dc2c20c091bde9818cdfa61abd0dd63ba7b4ba438c8124487635690489f3a1c1",
+    "render_evidence": {
+      "id": "wife_58",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      89,
+      293,
+      391
+    ]
+  },
+  {
+    "id": "wife_59",
+    "name": "Bullety",
+    "status": "verified-base",
+    "model": "wife_59",
+    "art": "roster/wife_59.webp",
+    "source_portrait_sha256": "26fabd9547ca038cbb3edc5c16b1deda605fc8ad8d467f5dcf1e76f1d90ce7a3",
+    "render_evidence": {
+      "id": "wife_59",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      81,
+      41,
+      248,
+      440
+    ]
+  },
+  {
+    "id": "wife_6",
+    "name": "Will",
+    "status": "verified-base",
+    "model": "wife_06",
+    "art": "roster/wife_6.webp",
+    "source_portrait_sha256": "14181d8612a54f2090ab36961690569cd595aed9d2dda934b4f44cddbaeb0c61",
+    "render_evidence": {
+      "id": "wife_6",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      80,
+      40,
+      240,
+      440
+    ]
+  },
+  {
+    "id": "wife_60",
+    "name": "Wenreesa",
+    "status": "verified-base",
+    "model": "wife_60",
+    "art": "roster/wife_60.webp",
+    "source_portrait_sha256": "9b07f26b97024416041dfc4f7f9e2512edca63bb4422a59204b84087de606ee4",
+    "render_evidence": {
+      "id": "wife_60",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      26,
+      87,
+      294,
+      394
+    ]
+  },
+  {
+    "id": "wife_61",
+    "name": "Isatilra",
+    "status": "verified-base",
+    "model": "wife_61",
+    "art": "roster/wife_61.webp",
+    "source_portrait_sha256": "aa0fee3ca084e4307c5a5e11a96c24b95cf8b052abf1569053a04e4b254493fa",
+    "render_evidence": {
+      "id": "wife_61",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      34,
+      48,
+      288,
+      433
+    ]
+  },
+  {
+    "id": "wife_62",
+    "name": "Nousa",
+    "status": "verified-base",
+    "model": "wife_62",
+    "art": "roster/wife_62.webp",
+    "source_portrait_sha256": "33ad0226cb755b0f560f6ae7406d7325109c965685ca39f8653be9fbb23c8a54",
+    "render_evidence": {
+      "id": "wife_62",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      51,
+      290,
+      429
+    ]
+  },
+  {
+    "id": "wife_63",
+    "name": "Pinor",
+    "status": "verified-base",
+    "model": "wife_63",
+    "art": "roster/wife_63.webp",
+    "source_portrait_sha256": "86d7d15852750af4b9e94bfc9c45891bb79d14294f07e5debfe74b3e7d406293",
+    "render_evidence": {
+      "id": "wife_63",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      70,
+      40,
+      254,
+      440
+    ]
+  },
+  {
+    "id": "wife_64",
+    "name": "Vivian",
+    "status": "verified-base",
+    "model": "wife_64",
+    "art": "roster/wife_64.webp",
+    "source_portrait_sha256": "c87564ac396fc2c7e27cd2019435bdef5bc4c1c98e5bf8ea125222830783f9e2",
+    "render_evidence": {
+      "id": "wife_64",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      30,
+      54,
+      285,
+      430
+    ]
+  },
+  {
+    "id": "wife_65",
+    "name": "Elora",
+    "status": "verified-base",
+    "model": "wife_65",
+    "art": "roster/wife_65.webp",
+    "source_portrait_sha256": "6abc83be5e78e541cfb2b38cc20824a279d154d30fe3740bac10daa1c37bd5d0",
+    "render_evidence": {
+      "id": "wife_65",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      54,
+      40,
+      262,
+      440
+    ]
+  },
+  {
+    "id": "wife_66",
+    "name": "Sachiko",
+    "status": "verified-base",
+    "model": "wife_66",
+    "art": "roster/wife_66.webp",
+    "source_portrait_sha256": "e659147779cfc614b966aaf4d0486ee4a1efe80367153d59c8cfd13d1d2f1a5a",
+    "render_evidence": {
+      "id": "wife_66",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      43,
+      290,
+      440
+    ]
+  },
+  {
+    "id": "wife_67",
+    "name": "Ria",
+    "status": "verified-base",
+    "model": "wife_67",
+    "art": "roster/wife_67.webp",
+    "source_portrait_sha256": "8691681445ae27197338a359b969457f871ff0234dcab68f2aa49a144965862f",
+    "render_evidence": {
+      "id": "wife_67",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      72,
+      40,
+      248,
+      440
+    ]
+  },
+  {
+    "id": "wife_70",
+    "name": "Emily",
+    "status": "verified-base",
+    "model": "wife_70",
+    "art": "roster/wife_70.webp",
+    "source_portrait_sha256": "d5186d2425aa90ba70ff8bd9ed5cc63d75fff1d1bb45f2d4fc986eb33f2dff44",
+    "render_evidence": {
+      "id": "wife_70",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      74,
+      43,
+      239,
+      440
+    ]
+  },
+  {
+    "id": "wife_71",
+    "name": "Orpheus",
+    "status": "verified-base",
+    "model": "wife_71",
+    "art": "roster/wife_71.webp",
+    "source_portrait_sha256": "73451fa4bd85c3495809d1a6da8221cf678a372f5ecce2981c90f58840cb856a",
+    "render_evidence": {
+      "id": "wife_71",
+      "base": true,
+      "pass": true
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      66,
+      40,
+      260,
+      440
+    ]
+  },
+  {
+    "id": "hero_13",
+    "name": "Lincale",
+    "status": "verified-base",
+    "model": "hero_13",
+    "art": "roster/hero_13.webp",
+    "source_portrait_sha256": "6cb736e156de8f29e50259db8adb97c27b1f928c1ba2a40d684b25a8efa3c130",
+    "render_evidence": {
+      "id": "hero_13",
+      "base": true,
+      "model": "hero_13",
+      "pass": true,
+      "bones": 113,
+      "animation": "Idle",
+      "finite": true,
+      "lost": false,
+      "errors": []
+    },
+    "skeleton_evidence": {
+      "group": "assets/Android/spine/hero/hero_13",
+      "path": "/Users/westmanfamily/Desktop/ISEKAI/character_asset_exports/bundles/UnityStreamingAssetsPack/hero_13_skel_89ed3457043193752d9e77c54f3c142c/files/Hero_13",
+      "version": "4.1.09",
+      "bones": 113,
+      "id": "hero_13",
+      "base": true,
+      "skeleton_sha256": "5501795ae75aa45833e0c165d93cedb4aa816fae139cd449f2f18ff862c0fa82",
+      "atlas": {
+        "type": "TextAsset",
+        "path_id": -3012227591728398911,
+        "name": "Hero_13.atlas",
+        "export": "bundles/UnityStreamingAssetsPack/hero_13_skel_89ed3457043193752d9e77c54f3c142c/files/Hero_13.atlas"
+      },
+      "textures": {
+        "Hero_13.png": "bundles/UnityStreamingAssetsPack/hero_13_atlas_4c40fa9536520f3f85781d60e0cb74cf/files/Hero_13.png"
+      }
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      61,
+      42,
+      255,
+      440
+    ]
+  },
+  {
+    "id": "hero_54",
+    "name": "Rani",
+    "status": "verified-base",
+    "model": "hero_54",
+    "art": "roster/hero_54.webp",
+    "source_portrait_sha256": "a7cf721b42612864812b766e58d6aa2f90e02f908c1dbfe088c07186d72259ae",
+    "render_evidence": {
+      "id": "hero_54",
+      "base": true,
+      "model": "hero_54",
+      "pass": true,
+      "bones": 157,
+      "animation": "Idle",
+      "finite": true,
+      "lost": false,
+      "errors": []
+    },
+    "skeleton_evidence": {
+      "group": "assets/Android/spine/hero/hero_54",
+      "path": "/Users/westmanfamily/Desktop/ISEKAI/character_asset_exports/bundles/UnityStreamingAssetsPack/hero_54_skel_fa7a3a510731e6c956ed0226ec2b181c/files/Hero_54",
+      "version": "4.1.09",
+      "bones": 157,
+      "id": "hero_54",
+      "base": true,
+      "skeleton_sha256": "32cd6bb01530bb6b22cd7d70a625abf2e79ce8a5a448c64bb0aafc920b51c0c5",
+      "atlas": {
+        "type": "TextAsset",
+        "path_id": 632826610085143901,
+        "name": "Hero_54.atlas",
+        "export": "bundles/UnityStreamingAssetsPack/hero_54_skel_fa7a3a510731e6c956ed0226ec2b181c/files/Hero_54.atlas"
+      },
+      "textures": {
+        "Hero_54.png": "bundles/UnityStreamingAssetsPack/hero_54_atlas_abf32351b7b998f687611ac7cc9e79f8/files/Hero_54.png"
+      }
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      29,
+      76,
+      291,
+      411
+    ]
+  },
+  {
+    "id": "wife_56",
+    "name": "Maynard",
+    "status": "verified-base",
+    "model": "wife_56",
+    "art": "roster/wife_56.webp",
+    "source_portrait_sha256": "f5f7e244afa73715a977e6db6c84bb1b8b8aefcd6da393ec89a2ef5001c3cc9b",
+    "render_evidence": {
+      "id": "wife_56",
+      "base": true,
+      "model": "wife_56",
+      "pass": true,
+      "bones": 137,
+      "animation": "Idle",
+      "finite": true,
+      "lost": false,
+      "errors": []
+    },
+    "skeleton_evidence": {
+      "group": "assets/Android/spine/wife/wife_56",
+      "path": "/Users/westmanfamily/Desktop/ISEKAI/character_asset_exports/bundles/UnityStreamingAssetsPack/wife_56_skel_f2a462ab6f81aa85703e6ab45aabfb85/files/Wife_56",
+      "version": "4.1.10",
+      "bones": 137,
+      "id": "wife_56",
+      "base": true,
+      "skeleton_sha256": "1dc11660ca61b705b1fcc7b260153b8b8a6ecff3c46f271be18f908f88d6ec14",
+      "atlas": {
+        "type": "TextAsset",
+        "path_id": 1794646415679706799,
+        "name": "Wife_56.atlas",
+        "export": "bundles/UnityStreamingAssetsPack/wife_56_skel_f2a462ab6f81aa85703e6ab45aabfb85/files/Wife_56.atlas"
+      },
+      "textures": {
+        "Wife_56.png": "bundles/UnityStreamingAssetsPack/wife_56_atlas_d7b0163765445309b73358424e24c9d0/files/Wife_56.png"
+      }
+    },
+    "dimensions": [
+      320,
+      480
+    ],
+    "alpha_bounds": [
+      46,
+      47,
+      283,
+      440
+    ]
+  }
+]

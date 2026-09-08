@@ -1,0 +1,282 @@
+{
+  "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/expo/index.html",
+  "skillSourceSha256": "9c5c2d7a3b0355a7657c46276b298419dcd1e06676379628c40b8962a73e4a25",
+  "heroSourceSha256": "3c66ace4184f87aacfd4d29ab3536621edbf657cdf5dfdd1d662a92191260b35",
+  "records": [
+    {
+      "stall": "Stall402",
+      "fellow": "hero_111",
+      "name": "Tigirl",
+      "percent": 25,
+      "skill": "Towerskill_Stall402",
+      "communityText": "When assigning Tigirl, Sales Ability +25%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall402",
+        "en": "When assigning Tigirl, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:111",
+        "en": "Tigirl"
+      }
+    },
+    {
+      "stall": "Stall403",
+      "fellow": "hero_102",
+      "name": "Jewlry",
+      "percent": 25,
+      "skill": "Towerskill_Stall403",
+      "communityText": "When assigning Jewlry, Sales Ability +25%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall403",
+        "en": "When assigning Jewlry, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:102",
+        "en": "Jewlry"
+      }
+    },
+    {
+      "stall": "Stall502",
+      "fellow": "hero_131",
+      "name": "Hakuren",
+      "percent": 25,
+      "skill": "Towerskill_Stall502",
+      "communityText": "When assigning Hakuren, Sales Ability +25%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall502",
+        "en": "When assigning Hakuren, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:131",
+        "en": "Hakuren"
+      }
+    },
+    {
+      "stall": "Stall203",
+      "fellow": "hero_103",
+      "name": "Anne",
+      "percent": 10,
+      "skill": "Towerskill_Stall203",
+      "communityText": "When assigning Anne, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall203",
+        "en": "When assigning Anne, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:103",
+        "en": "Anne"
+      }
+    },
+    {
+      "stall": "Stall204",
+      "fellow": "hero_104",
+      "name": "Loya",
+      "percent": 10,
+      "skill": "Towerskill_Stall204",
+      "communityText": "When assigning Loya, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall204",
+        "en": "When assigning Loya, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:104",
+        "en": "Loya"
+      }
+    },
+    {
+      "stall": "Stall205",
+      "fellow": "hero_191",
+      "name": "Trady",
+      "percent": 10,
+      "skill": "Towerskill_Stall205",
+      "communityText": "When assigning Trady, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall205",
+        "en": "When assigning Trady, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:191",
+        "en": "Trady"
+      }
+    },
+    {
+      "stall": "Stall103",
+      "fellow": "hero_101",
+      "name": "Emosen",
+      "percent": 10,
+      "skill": "Towerskill_Stall103",
+      "communityText": "When assigning Emosen, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall103",
+        "en": "When assigning Emosen, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:101",
+        "en": "Emosen"
+      }
+    },
+    {
+      "stall": "Stall104",
+      "fellow": "hero_102",
+      "name": "Jewlry",
+      "percent": 10,
+      "skill": "Towerskill_Stall104",
+      "communityText": "When assigning Jewlry, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall104",
+        "en": "When assigning Jewlry, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:102",
+        "en": "Jewlry"
+      }
+    },
+    {
+      "stall": "Stall105",
+      "fellow": "hero_192",
+      "name": "Mescal",
+      "percent": 10,
+      "skill": "Towerskill_Stall105",
+      "communityText": "When assigning Mescal, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall105",
+        "en": "When assigning Mescal, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:192",
+        "en": "Mescal"
+      }
+    },
+    {
+      "stall": "Stall303",
+      "fellow": "hero_106",
+      "name": "Ida",
+      "percent": 10,
+      "skill": "Towerskill_Stall303",
+      "communityText": "When assigning Ida, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall303",
+        "en": "When assigning Ida, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:106",
+        "en": "Ida"
+      }
+    },
+    {
+      "stall": "Stall304",
+      "fellow": "hero_105",
+      "name": "Augustine",
+      "percent": 10,
+      "skill": "Towerskill_Stall304",
+      "communityText": "When assigning Augustine, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall304",
+        "en": "When assigning Augustine, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:105",
+        "en": "Augustine"
+      }
+    },
+    {
+      "stall": "Stall305",
+      "fellow": "hero_193",
+      "name": "Mammon",
+      "percent": 10,
+      "skill": "Towerskill_Stall305",
+      "communityText": "When assigning Mammon, Sales Ability +10%.",
+      "localSkill": {
+        "id": "SkillBase:description:Towerskill_Stall305",
+        "en": "When assigning Mammon, Sales Ability +{num}."
+      },
+      "localHero": {
+        "id": "Hero:name:193",
+        "en": "Mammon"
+      }
+    }
+  ],
+  "deferred": [
+    {
+      "stall": "Stall801",
+      "text": "Slime Coffee Stall Bond When assigning Fellows of [Visitor of Tempest], Sales Ability +25%",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall602",
+      "text": "602\u5854\u7d46 When assigning Fellows of Dragons of Friendship, Sales Ability +25%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall702",
+      "text": "Mermaid Seafood When assigning Fellows of Divine Gospel, Sales Ability +25%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall206",
+      "text": "When assigning Fellows of Diligent Dynamo, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall207",
+      "text": "When assigning Fellows of Otherworld Valiants, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall208",
+      "text": "When assigning Fellows of Archdemon, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall106",
+      "text": "When assigning Fellows of Diligent Dynamo, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall107",
+      "text": "When assigning Fellows of Otherworld Valiants, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall108",
+      "text": "When assigning Fellows of Archdemon, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall306",
+      "text": "When assigning Fellows of Diligent Dynamo, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall307",
+      "text": "When assigning Fellows of Otherworld Valiants, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall308",
+      "text": "When assigning Fellows of Archdemon, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall401",
+      "text": "When assigning Fellows of Ancient Magi, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall501",
+      "text": "When assigning Fellows of Ancient Magi, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall601",
+      "text": "601\u5854\u7d46 When assigning Fellows of Dragons of Friendship, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    },
+    {
+      "stall": "Stall701",
+      "text": "Frost Monster Shaved Ice When assigning Fellows of Followers, Sales Ability +20%.",
+      "reason": "Group scope/membership not joined"
+    }
+  ],
+  "limits": "Local skill scope, pinned community quantities. Multiplicative stacking local. Group membership unresolved."
+}

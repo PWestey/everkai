@@ -1,0 +1,2095 @@
+{
+  "provenance": "Static baked mesh pose from exact SimGame4_F<id> prefab, external CAB/material/Texture2D pointers resolved in readable UnityFS. No animation/decryption or guessed Spine ordinal.",
+  "records": [
+    {
+      "id": "F1101",
+      "asset": "fishing/F1101.webp",
+      "mesh": "Skeleton Prefab Mesh \"SimGame4_F1101\"",
+      "size": [
+        308,
+        211
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_3/scene_simgame4_fish_3_atlas_1876e0f742dc60005e9f3d0a9b03a64a.mmc",
+          "sha256": "1853a4fcf21eddfcbc29f401c55812f7cfb1af625d6ca3cc41c8561cbdc7795f"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_3/scene_simgame4_fish_3_skel_5bd0c69fbf707fcee009602d6edaad04.mmc",
+          "sha256": "6b17523d267f724189e7f9066d4d8d7ef9038336d3d377cc61ffedd963e24fc8"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1101_190569db3824e96a0db4db3bfbdb344d.mmc",
+          "sha256": "eb6775a2ee8570d5d7ed801f072a58088e18a20cf1df83779667e5d3b061f5b1"
+        }
+      ],
+      "assetSha256": "ff76e7e3e7592cf35c05cc648d524bff57b92760d235185d2900c5e7b4f6d381"
+    },
+    {
+      "id": "F1102",
+      "asset": "fishing/F1102.webp",
+      "mesh": "Skeleton Prefab Mesh \"SimGame4_F1102\"",
+      "size": [
+        308,
+        87
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1102_b0c164cdb28510adab37627f4f1af66b.mmc",
+          "sha256": "f6a17431f82ae9f4d88dab9cee74413a7ded8944ff005f584b41248617d3337d"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_1/scene_simgame4_fish_1_skel_571693a1030e75446901649b2e3a704f.mmc",
+          "sha256": "12585bf0917ee6ca3ab4bcd7bdf65dbfb33cceb7e91a633c0cbf842301bdaa50"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_1/scene_simgame4_fish_1_atlas_e87402ee8630676562d9ce20df374265.mmc",
+          "sha256": "06d82c7f4aebb1d107f8a3e16db029f8754751fd7be1c686ef8dcc0c23f4b884"
+        }
+      ],
+      "assetSha256": "174e1ea0f5543f22359e067e128e82e6930c889c6b81325d7c54c8b5af490f0d"
+    },
+    {
+      "id": "F1103",
+      "asset": "fishing/F1103.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_2)\"",
+      "size": [
+        308,
+        141
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_2/scene_simgame4_fish_2_skel_27868334dc6a641d4e17deb4dd0def4e.mmc",
+          "sha256": "162301b8792f336b14aa20fcae352c62807239127f0e2dd9468c08afbb96c17c"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_2/scene_simgame4_fish_2_atlas_4e3b4db4e57f0e65dfa9c6b2e9aa6575.mmc",
+          "sha256": "11de6789440eaf0f6e7bca28b3ec0102bd979581068f178f691fbcfbb03b6625"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1103_12d8e2b652943bc665d3f57083c39b9f.mmc",
+          "sha256": "9b1d81fc54f1f1b7c23a934ab5569628025bdc9d119c5251366c792924d9ee87"
+        }
+      ],
+      "assetSha256": "f75f826427a47e913a4c828b66da89305b15f45796c2a558d17033ba7bcc43a5"
+    },
+    {
+      "id": "F1201",
+      "asset": "fishing/F1201.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_4)\"",
+      "size": [
+        308,
+        196
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_4/scene_simgame4_fish_4_skel_a730250157223146a29dab6cc076328a.mmc",
+          "sha256": "033265031abb140661cc7040ee4cc25abf1fac4dabaee3a445e0423f92a14879"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_4/scene_simgame4_fish_4_atlas_2e3737b460a20a7d83c5dceb8d8af4b1.mmc",
+          "sha256": "09587ceb46d6c886be4d61cc4cf5ed8f08669baf43bbdfece9ec6f2479b71ba5"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1201_b48e9300f9e20e50dbf9192e5a31fef4.mmc",
+          "sha256": "5e1c0d8ca6588c7a8b5dd3bd3e6029743de9b5cec74f90587c4c24fafddea15d"
+        }
+      ],
+      "assetSha256": "f8882aab206ca87c76162a8404551ecd6374881b0b5af5991561b9e54e0c7c18"
+    },
+    {
+      "id": "F1202",
+      "asset": "fishing/F1202.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_5)\"",
+      "size": [
+        308,
+        273
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_5/scene_simgame4_fish_5_atlas_8b9aabb30c36af5d041886a1730fd4a2.mmc",
+          "sha256": "45b91b82b9defdf10c205f645051f5352dc8cbc93e6e58707a385c00a1d37b4d"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_5/scene_simgame4_fish_5_skel_b849d464bd458cd1d0a2e01c8a669f75.mmc",
+          "sha256": "2cbf1930ff21c1929b31df0cfac49ab0b255ba9a4bb488c3d0d684c2ed54e665"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1202_2b3e8125efef686c9ef5fd5c33d8cefc.mmc",
+          "sha256": "88c2fd6ed525f5bbe07a16145b121e626c317ef9ffc3a1f7c4657274c5d10b06"
+        }
+      ],
+      "assetSha256": "054ee681cbab665fb15fd265415f4e400172377bfac435c8910248cecfa4e7c6"
+    },
+    {
+      "id": "F1301",
+      "asset": "fishing/F1301.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_6)\"",
+      "size": [
+        308,
+        171
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_6/scene_simgame4_fish_6_skel_9c7c76ac367a169b208b7fe124ae378b.mmc",
+          "sha256": "a5b5c396f83f692a2cb4753a0af3dcbfa827d3d6e88b8a3b02c4dabcdc3a7332"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1301_7414b7ac216c477d6b6200d96484eda7.mmc",
+          "sha256": "5e625be8a9341d912ab0cc80a6f8350059bed96e4e2f994ba917bdcd0495c55f"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_6/scene_simgame4_fish_6_atlas_98aabbfe3e6d09fef2ba350d6f118a1f.mmc",
+          "sha256": "3a65d712f9c01c61e50bca8f6e11c9dad18069df91ea7ae71ea667b1584d0bae"
+        }
+      ],
+      "assetSha256": "ef33e01266ff129c43815ecab6c1a8d8865716dc61b5ae46f5017b2c2b218ef6"
+    },
+    {
+      "id": "F1302",
+      "asset": "fishing/F1302.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_7)\"",
+      "size": [
+        309,
+        226
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_7/scene_simgame4_fish_7_skel_e003c8671242d5b6cff5f4befd63c2ad.mmc",
+          "sha256": "7d61e8171886a6454921e332773d80c230575de9dfd453f4a1a0be95792537f6"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1302_b10ff4853d7a16b07c16e02390bdd703.mmc",
+          "sha256": "7aab4b77195622472a1947d20606a73d9422720db815b99a6dc05f5cb1044c50"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_7/scene_simgame4_fish_7_atlas_57dbdc7e9ed9936749d9432a8b72e5af.mmc",
+          "sha256": "52761578d6b0e63b59b30b14946ae3742b5678d1ecee3f4795b44f49c01c3f0b"
+        }
+      ],
+      "assetSha256": "89a20956d32d6efd21f6f40d6ec0463458c3a76a9ebd2e73484b91da4d6f4006"
+    },
+    {
+      "id": "F1401",
+      "asset": "fishing/F1401.webp",
+      "mesh": "Skeleton Prefab Mesh \"SimGame4_F1401\"",
+      "size": [
+        308,
+        225
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_8/scene_simgame4_fish_8_skel_c25b7a16cc16621afb9e4067331a9ba9.mmc",
+          "sha256": "13658e5e6e762693f3de885db852b8f57dc5ad2449cdee24d8488cfca0a4a140"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1401_4cdbf4380c88faa05d74af39aa6aa511.mmc",
+          "sha256": "10ceb1e35c84b89f902971131ac0c07adf0e557d26e65bc6ac9a776161ef0116"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_8/scene_simgame4_fish_8_atlas_d2e1c10282d6921c5f4640bcf28a232a.mmc",
+          "sha256": "69e4211ff1259256340ffdd02bf720219afd4a03a7eb3c8a1cc60462aed7907f"
+        }
+      ],
+      "assetSha256": "5167422f19cd514a9f34885822005ad649269ff380136a94f1860947e0cef4f4"
+    },
+    {
+      "id": "F1501",
+      "asset": "fishing/F1501.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_9)\"",
+      "size": [
+        308,
+        140
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_9/scene_simgame4_fish_9_atlas_3f8b4bf7916f40818eded1ec529412e5.mmc",
+          "sha256": "7ff83b24ada0fb91d9f499240b07a51a1677a416aaca8ece9089eb5157119b8a"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_9/scene_simgame4_fish_9_skel_c0e65f3678ccd76f6d3e53160f081850.mmc",
+          "sha256": "fcd8bc91a84b6b4a23b5dead878b03538739da1fd2f8a87320ba72e4d7671ca4"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f1501_373877773494542cccaf593c80417aee.mmc",
+          "sha256": "959ec784e60f46f48942a27347a2885175e5868391770e05d0de2dca1c5fb4b4"
+        }
+      ],
+      "assetSha256": "05b6106be51231652592280c21581124b8382278b08c1af5d7364f02f88ddb49"
+    },
+    {
+      "id": "F2101",
+      "asset": "fishing/F2101.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_13)\"",
+      "size": [
+        308,
+        196
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_13/scene_simgame4_fish_13_skel_3306b4ed12bf48a827ca0acac7edb255.mmc",
+          "sha256": "201c4388ff192079510b4db934047ff4395e2ad71bc93171303a2de0d302ea88"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_13/scene_simgame4_fish_13_atlas_c767e9b31956cac0fb767aa3f0e428fb.mmc",
+          "sha256": "d16282510f2d314b1c0a64e1e3f5855875ae6eb25836b81d73c2c473158fe8c6"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2101_4551210bfc37b5382b6219793caa3260.mmc",
+          "sha256": "84d48f1d09aa293dc40fdacbea8852e2d378b9440f22206af789ea69076f6074"
+        }
+      ],
+      "assetSha256": "75160f4c8672dd13fdd2e24e36112cdc1545ea69e9393829315472394c7bbf0d"
+    },
+    {
+      "id": "F2102",
+      "asset": "fishing/F2102.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_11)\"",
+      "size": [
+        308,
+        186
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_11/scene_simgame4_fish_11_atlas_2e1cb072501e4b6e0b1ce63849dac178.mmc",
+          "sha256": "2458080ad924103ce205fc6dd054eb944057f26cc2f8b56cf5545dc0bb0182f0"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_11/scene_simgame4_fish_11_skel_8a0c8d36befdfe8ac5f9d147f210e63e.mmc",
+          "sha256": "db2daa071631593436f374043002fbcec8a066ec0fd4f6c9567aff6642233679"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2102_657b304f6055854a31b480b8a8ffe032.mmc",
+          "sha256": "302eb55b51b82d242141e1fe1fdf7064cea36fa98a3d495921f48785d1b3cd0c"
+        }
+      ],
+      "assetSha256": "959e5fac6c025e16a58684972512d4153bbf115a08640f1ed082776781334382"
+    },
+    {
+      "id": "F2103",
+      "asset": "fishing/F2103.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_14)\"",
+      "size": [
+        308,
+        125
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_14/scene_simgame4_fish_14_skel_83ed19575e8c415c65eaddab30446132.mmc",
+          "sha256": "57dd716cfade768429db0b9dc03e666c62ca71a30acaf5f07c3aa7cb0ad78b85"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2103_ac10687a1ae7b5cf1f82c17a13d5a33e.mmc",
+          "sha256": "59d9e0758db328100148931cbcc095f12d853b251451eb87ef180d180fb09427"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_14/scene_simgame4_fish_14_atlas_4b3a6b0a7704c817e508d9fd53849f3c.mmc",
+          "sha256": "31f7f25bba267c35ced22f68045bf785a6aa8346e4619211d7f2f19a90ff4173"
+        }
+      ],
+      "assetSha256": "ddb92fa84900aa27ae3063bcdcc1451a8c5a7a7a474d62967f14a43563f742e6"
+    },
+    {
+      "id": "F2104",
+      "asset": "fishing/F2104.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_12)\"",
+      "size": [
+        308,
+        125
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_12/scene_simgame4_fish_12_atlas_f6822271a79a12672cde58350e95ea76.mmc",
+          "sha256": "5113b5e1b30e9109449915689b91c6d64bd87b144634292701bbbb30662397cc"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_12/scene_simgame4_fish_12_skel_bb1cf44b7c17cc427e8b4ee39ea7d9cb.mmc",
+          "sha256": "a39ca1e113b979fac8d3d28308a1098de5e61a3e4e1fa14ccfb848f25ff47e51"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2104_f865a4686f38ea8c6f1b6ac2ec27f858.mmc",
+          "sha256": "babce9e775148cbda99834c890881d35bc98fea61cfe3f7729f942a1a0c9690c"
+        }
+      ],
+      "assetSha256": "a6239ca447fd2fc50b0af4e039d38bd70c0fb8b32fabbdb548706b323e439fe3"
+    },
+    {
+      "id": "F2201",
+      "asset": "fishing/F2201.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_10)\"",
+      "size": [
+        308,
+        304
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_10/scene_simgame4_fish_10_atlas_e353037d3466661832d71fd4329fb155.mmc",
+          "sha256": "0aa30d34e06b36ef85d5142d567b3c0820176fd185b6e0dfd9be7ad7a3a9ec61"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_10/scene_simgame4_fish_10_skel_2fd5591498970133b275bbfbc930d84f.mmc",
+          "sha256": "04c619c872c2640aa8fb867fb2c2ddc7ef3f20577e39d9ad7f1bc79f3515cab2"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2201_5102adbbb1dff748f0aaaaa407aa1143.mmc",
+          "sha256": "ee73329e95e2585706bc3ed4ff59a63d997b72f0267052cf9ee7995bdeed2227"
+        }
+      ],
+      "assetSha256": "03fd5c513932adb2d23f2669eb71f9ddd599f65a553efbebb2a2b5b616256abd"
+    },
+    {
+      "id": "F2202",
+      "asset": "fishing/F2202.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_18)\"",
+      "size": [
+        308,
+        235
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_18/scene_simgame4_fish_18_atlas_2661fa74aa7fb3153226fee0075f308e.mmc",
+          "sha256": "70ec871d23fff5fd8a04963f19edeec6ee138e79206615011da8797e14802c80"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_18/scene_simgame4_fish_18_skel_76cd77d8d222cbde60196fd3b94b51af.mmc",
+          "sha256": "9bf0ff07ee0e596155e40cc9b9add0485e7af5d7289bf92d7306d7cba18e1579"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2202_c5b8ae31b609d6e34937a999f4e5d010.mmc",
+          "sha256": "b35d379c3357ec39b3de605d7fc7afaae354d8d98afd3db02d201dd8e757fd0b"
+        }
+      ],
+      "assetSha256": "353309ee159fdd3e7d1305227b6ccf21510449ffc35127bde27ee78b4fef51ab"
+    },
+    {
+      "id": "F2203",
+      "asset": "fishing/F2203.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_19)\"",
+      "size": [
+        308,
+        94
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2203_7951c707319d55782d2eb5b1d43263f8.mmc",
+          "sha256": "f3abd54f19a3a795f3567ae4b0bb1f0a04043ae14f2aad60fd906c5033a9eb18"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_19/scene_simgame4_fish_19_atlas_f8a65a21c418089fce1568d5ef0d4ce1.mmc",
+          "sha256": "44cd8d53022c5d9f0fb00b54851e6c0015b54bcd58218d99b669ecde6eb21f14"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_19/scene_simgame4_fish_19_skel_b40623f8d228614eebb5ae1671e87b22.mmc",
+          "sha256": "49c78778daa371392a078f3ea98d30c8c947a7210685ddef25440a0b39125f12"
+        }
+      ],
+      "assetSha256": "838ebb67f1242e43bd74ffd14cd611b4a11e895198d55773d7f599852f10acb1"
+    },
+    {
+      "id": "F2204",
+      "asset": "fishing/F2204.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_16)\"",
+      "size": [
+        308,
+        70
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2204_fd13d710d6a7f1080965c3fad8517698.mmc",
+          "sha256": "0e8a82fea45e42e28dae3f35dfcfe5ecd26d4658b547af05c182fa432db79a8e"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_16/scene_simgame4_fish_16_atlas_529a76198eab632c0e99fc5915b3c380.mmc",
+          "sha256": "b250c77f0e8b33c4d0a86434b5391e0f9a84b7e992f81aa86416fded44529813"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_16/scene_simgame4_fish_16_skel_fada2a462958e7be32b86dbf026fb483.mmc",
+          "sha256": "cee8ff6719fe4c7bd70b7fc7c8bae03b2a08a8cd842ddd8b5e5fde219eb484ab"
+        }
+      ],
+      "assetSha256": "fa31c7c4f4bc4904e90f04d863da0c56e17c0ca160bc1c5f3099e5ac5e9206e6"
+    },
+    {
+      "id": "F2205",
+      "asset": "fishing/F2205.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_17)\"",
+      "size": [
+        308,
+        70
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2205_11a415a174713fc9ff1063930e024a12.mmc",
+          "sha256": "2534bf183431a153ef3ec6053ab5c5bbda266f836970ffae687c691f3ed30ab9"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_17/scene_simgame4_fish_17_skel_3de95efe25cc7766109188cbe96e004f.mmc",
+          "sha256": "d8240876e6bba75a4c073adeebdcba426650e8915c52a99a05d1511e5acb3ac5"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_17/scene_simgame4_fish_17_atlas_f18d586ad9231074a1c0794b8ba635fe.mmc",
+          "sha256": "687a102d3b15aa6339296b4a4fe5858d0a9a69319768afeeaad3f3be1e858dc0"
+        }
+      ],
+      "assetSha256": "18e38a6e2fd1a228b57ba6a416b963e9fd3b14948b619d298597d2b8cce28c6f"
+    },
+    {
+      "id": "F2206",
+      "asset": "fishing/F2206.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_15)\"",
+      "size": [
+        308,
+        153
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_15/scene_simgame4_fish_15_atlas_2de78ff822f3abf8a475c37e213d3f70.mmc",
+          "sha256": "54a913b0e345916451018637742903b6057a7f1089119de6e0dc71c8b59fd122"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2206_d867409fb975ad3ac05c4c6c2ddb7842.mmc",
+          "sha256": "1379174cb952cb9aaa03c3bba0a028a7d70c4fb76650300dd01fb1707a37f4cc"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_15/scene_simgame4_fish_15_skel_c25875ce0fc67a22b50992dc156a1077.mmc",
+          "sha256": "5b36c65266398bf3b383031f8d665306df24cc34e9f272d9790968c68cdc2e2f"
+        }
+      ],
+      "assetSha256": "1e2cba7507e73e405da5a38dab19af298009cd5be673f1d9b8d75f9d5293dad6"
+    },
+    {
+      "id": "F2301",
+      "asset": "fishing/F2301.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_20)\"",
+      "size": [
+        308,
+        221
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2301_b9f29a4aee055e80e71d3d4961b0ae90.mmc",
+          "sha256": "16ffeb1522dfdfa7bfb62fa3ccb945319fadcceb3b7342a571b6762c637f5146"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_20/scene_simgame4_fish_20_skel_27eb687a53b6448afa12eab9845ea08b.mmc",
+          "sha256": "ca7a10fc9eec048c5a56bbfa350cd8ad2df9fe959a494a55832467188a3ebdec"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_20/scene_simgame4_fish_20_atlas_4106336bc33377f38005455d83821ec5.mmc",
+          "sha256": "48891bd3397f0a644edf7cce37a9148ef893822e33a69318f7d20947ee7af699"
+        }
+      ],
+      "assetSha256": "5ae28074024b6771ce0a643103727467847ce524d1b2a379166e95041041209a"
+    },
+    {
+      "id": "F2302",
+      "asset": "fishing/F2302.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_22)\"",
+      "size": [
+        308,
+        253
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_22/scene_simgame4_fish_22_atlas_d7f90c660467b2ff18b5091e9eed1e60.mmc",
+          "sha256": "7b50fd5c550a3fc868e10ea3fdde9e03d46b3f89d6a7f957e965afd1890213f3"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_22/scene_simgame4_fish_22_skel_459dc7b2807fd8c3945cfae72bc9139d.mmc",
+          "sha256": "1afad0a8ccff9c51134a61a0f978e606d2c1ecd3900eff2225c58f4655c28b73"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2302_e160a2ec1717f3de84afb0160f3fdc9a.mmc",
+          "sha256": "86046d947e956694db46d829e3fdb6b0a7e2ffde12afd068129a234c1c99c934"
+        }
+      ],
+      "assetSha256": "06b3468672b8872308e746ad1715a3fdfd18aad6f493094df3dccbfdc09b8441"
+    },
+    {
+      "id": "F2303",
+      "asset": "fishing/F2303.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_25)\"",
+      "size": [
+        308,
+        167
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_25/scene_simgame4_fish_25_atlas_665f1fb24b1a501de20890ec7d10408a.mmc",
+          "sha256": "6ad09b114b9c48b6358a96719bd6e607c48d92d34b5a0b4076f8f4623aa88267"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_25/scene_simgame4_fish_25_skel_251115cce2dcfe595da0ab5806f0d10a.mmc",
+          "sha256": "fbe09426537ba7df2fcc383b74c561253bae61168b99a9a3f5c0ac0b923b62cc"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2303_1ee144dba99cc6ae33a87c1e07cdde24.mmc",
+          "sha256": "1467f372e681150a1f016f40db4675fc3e6d824a30237e6adf91c3d3ff9e0785"
+        }
+      ],
+      "assetSha256": "c618b69bd6f10629b127aae51d124760d4504b2c922b8f9bffacad163c477af7"
+    },
+    {
+      "id": "F2304",
+      "asset": "fishing/F2304.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_21)\"",
+      "size": [
+        308,
+        136
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2304_d670cd685d4e8a276b2b4d1e61a8363c.mmc",
+          "sha256": "52eb62ec9c820b01e65bedcbf93eb2e0ca964553506eff12dcc6367a5a9d4d5e"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_21/scene_simgame4_fish_21_skel_ea1c9eab81d32787cc26270ad009be98.mmc",
+          "sha256": "895517e1f90a282dbe16082bbd3c60af6648ce22cb9929924bc564132786a70e"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_21/scene_simgame4_fish_21_atlas_735d4be893eaee19e4de4709e362a96a.mmc",
+          "sha256": "8cf3079607a39f85068f97261e5a823cf1b17212d89eca6b4fd47b8d67a6f702"
+        }
+      ],
+      "assetSha256": "30a997cd97fcfaf18385b0b2a3799935a154e5bde37d36b2f5df90ce0c7db2e1"
+    },
+    {
+      "id": "F2305",
+      "asset": "fishing/F2305.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_24)\"",
+      "size": [
+        308,
+        228
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_24/scene_simgame4_fish_24_skel_16eb537a2bf0437c31d5b9a4fd661905.mmc",
+          "sha256": "c517a200ba64d8be67c309a7521ddeb3474edff45ae45c37196357b451da34cd"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2305_53e65fadea2a9ed455a334e69a9ba19b.mmc",
+          "sha256": "c3d1d1da07e0c20c850dd0dffbd5c520ed58ceb53e6d849949d13b10be6b1dda"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_24/scene_simgame4_fish_24_atlas_6ee7b1baf53564cd43332f0027892d4b.mmc",
+          "sha256": "f993c627143ac0e62170b9260a4410afbb154390f0c139b5c877794ef633b75f"
+        }
+      ],
+      "assetSha256": "8a2076b316fbdbd3192b33d6b0e800872f6327b40bc424199c359ba15c713562"
+    },
+    {
+      "id": "F2306",
+      "asset": "fishing/F2306.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_23)\"",
+      "size": [
+        308,
+        156
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_23/scene_simgame4_fish_23_atlas_c2d260b4162f7707d342874eaa762802.mmc",
+          "sha256": "ccbd9c8132ac0c58e864c549606b4e62391400ad41ee4598df13d2f57f8e75e8"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_23/scene_simgame4_fish_23_skel_ca6d4e21892cc56232e9d2928cc78320.mmc",
+          "sha256": "0404a98e55e5bc2c1ecfb53f113bcd58d38b8cc693da5a8692a1f3ff0e4e3d6a"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2306_d6dc6cc04ee268f537024e968048c3b8.mmc",
+          "sha256": "7098481dac3478a7a8f5b4d6ce740fe7f04b127ef4afee68da76c1ed2d90c385"
+        }
+      ],
+      "assetSha256": "609c4d67104a49934b11f301321d3490f20c943fb5bebc5dbd5ae6366379249b"
+    },
+    {
+      "id": "F2401",
+      "asset": "fishing/F2401.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_26)\"",
+      "size": [
+        308,
+        231
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_26/scene_simgame4_fish_26_atlas_d21f5c1a3d5ce26b649e3cf93e7f2cbf.mmc",
+          "sha256": "089d0081e8f60de2800d3d1d1f62c5a2298d8dc62ed2615983e2f16420a43127"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_26/scene_simgame4_fish_26_skel_44ce8bf85c250ac803caf0fde7408473.mmc",
+          "sha256": "10c21c4616ebc11a562f033d579a13d87fd260eb7a6aadd70333c0011bde6bb7"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2401_c43965bff59b1663cae8b6268e86125b.mmc",
+          "sha256": "a9558e10cea6e2ca944dff3bb295fb985b64fcc4f67b402481137d221de780f1"
+        }
+      ],
+      "assetSha256": "d53ad9e9eb43465428139b4ad705cf469f5e49d10440cc4e817333f19dc8e360"
+    },
+    {
+      "id": "F2402",
+      "asset": "fishing/F2402.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_27)\"",
+      "size": [
+        308,
+        227
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_27/scene_simgame4_fish_27_atlas_fa88e1a0ce7d937ea4094b157e060aa9.mmc",
+          "sha256": "1ad505af87c8e816aaa8d8acc655d52353a96fdaa2e7d7d2a8b89412a175459a"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_27/scene_simgame4_fish_27_skel_947a7c4355c7a9b93a912df50c0075f7.mmc",
+          "sha256": "fe0a3347486e6b9c12d6d3d50a3ee807721adbda11100067bac4a22b7e4a7589"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2402_a62351df8a9decf905ecab32a40944ef.mmc",
+          "sha256": "58648517bc9af62a04cdd986d3a956db0e3a80300230cc2dcb39dcd34baecef7"
+        }
+      ],
+      "assetSha256": "054044dfafd93caef2494d517c8f7a778e2e88641ae94299b6a46317c5754cf1"
+    },
+    {
+      "id": "F2403",
+      "asset": "fishing/F2403.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_56)\"",
+      "size": [
+        308,
+        210
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_56/scene_simgame4_fish_56_atlas_4c452e37c947ec131a920689b336b2bc.mmc",
+          "sha256": "181d73c413b767ba888a51f776284abb76828d7a199ecd27053c66892201ee81"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_56/scene_simgame4_fish_56_skel_766267253d2f85547af3a8bfb3a349ae.mmc",
+          "sha256": "531e484e995f5fcfa82a073c2d950d9d1ff87b2994d29d959562d3bf9387f088"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2403_bbb0e5497c54b1f1f895d3f59684a47d.mmc",
+          "sha256": "788e84cc8049f776e5e2621e30b93980adbb502c79542524db1e6ed38909a8bc"
+        }
+      ],
+      "assetSha256": "4f0755ed430ce17f12fc23c0773f63c96270ccccfc74dd5d22741a0f6259e609"
+    },
+    {
+      "id": "F2404",
+      "asset": "fishing/F2404.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_28)\"",
+      "size": [
+        308,
+        109
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2404_deb5eb456e48fae5e44e4643997335ef.mmc",
+          "sha256": "4c5e41cfaab60aa2c5ac264f5a4dbb41d93e5ec2818da5cf0cc3f624a9ed4993"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_28/scene_simgame4_fish_28_skel_309e531a307dc42d83869c7614579358.mmc",
+          "sha256": "2e68382dabe3b4f9389bce7f22d37befc9e0b4637da60d979310b1b414ad768b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_28/scene_simgame4_fish_28_atlas_338d5de169e7925b34d3f602fec1dcd6.mmc",
+          "sha256": "a95bb2034cfa1cf41667d83c3ee391bc83e0abc35f1dce7cea51b040821021c6"
+        }
+      ],
+      "assetSha256": "b8c385bf526920ea5f402f31c091728967064cf9062470cdf2deaa6e2f9a517b"
+    },
+    {
+      "id": "F2405",
+      "asset": "fishing/F2405.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_55)\"",
+      "size": [
+        308,
+        254
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_55/scene_simgame4_fish_55_atlas_29e9af620e7e4ab52fe465dba4ac5fdb.mmc",
+          "sha256": "9a675780b6f64e5304780bcf70fd69c9822f71cac518f2334c0e92b46babfd9b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_55/scene_simgame4_fish_55_skel_ec18d994d2382c8e715b838ba7eacd30.mmc",
+          "sha256": "8ff24479930368d70602484316bf62caf62bb699f256278b1b899ee3daf19a9b"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2405_327ee8f3f8c88c2905bfce676d373fee.mmc",
+          "sha256": "0347f9ddb08f74fd5607dc8ea20b1022e43aaa75fbac5ca40d77dbb9a241c5c2"
+        }
+      ],
+      "assetSha256": "9686d956592e8b6ed5a8be1b54b2a46b9d90225ceb70fe6ed4b46eb54733d10d"
+    },
+    {
+      "id": "F2501",
+      "asset": "fishing/F2501.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_58)\"",
+      "size": [
+        308,
+        103
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_58/scene_simgame4_fish_58_atlas_8d48b5e4f7f2563a0a329c43744a08e8.mmc",
+          "sha256": "b596cfc3d00f1a11922dd5c246da4f6281eec40d1552838965f710057d033e3a"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2501_75de456c1832359dcbb25e46b4cdc5bd.mmc",
+          "sha256": "2062aa3a52356f285804e8123e33bdba7d8a282c55b99db5bbf816c474f35951"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_58/scene_simgame4_fish_58_skel_d40457f6d1cfa562a39b91daa530aa92.mmc",
+          "sha256": "7e7e75472084ef00c40651c1dd00ab85411240660f080127fc6ea7357d308835"
+        }
+      ],
+      "assetSha256": "3f2c1e7b39b349859995c414ba3a8254c3288775929ad5c996a7bd78622f9196"
+    },
+    {
+      "id": "F2502",
+      "asset": "fishing/F2502.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_57)\"",
+      "size": [
+        308,
+        103
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_57/scene_simgame4_fish_57_atlas_9587f3de2a894a048d1a04f4773412f1.mmc",
+          "sha256": "2f04ff4db3e35fb1c3835b4e911af25e12611a4c2f565c4735899b12b6194000"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_57/scene_simgame4_fish_57_skel_cec12b51119b02f5a0bb08299c57a1bd.mmc",
+          "sha256": "2d8807a51a51c1f3c05c00fb9d3f96ac165d23b8e1063b9b887375e49787c86c"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2502_55b9bf347483a00e294600a32ccbc63e.mmc",
+          "sha256": "ec9f3670ff69c43d5fc43db6e7487028899cd7009df89d2697c5f878bfa920dd"
+        }
+      ],
+      "assetSha256": "6c72b1470eadeaad5244b6070d01841ec00033a3875cb9d4ed1bc281ff517431"
+    },
+    {
+      "id": "F2503",
+      "asset": "fishing/F2503.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_59)\"",
+      "size": [
+        308,
+        216
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_59/scene_simgame4_fish_59_atlas_bdc5a129215e515f1d4a13ac5fa21d91.mmc",
+          "sha256": "358990084c843b3b01ec61770433e25614b2d41e959e7bed738c7cb6c12274f2"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2503_ea9761fd4a8e839cce143e0e0c601176.mmc",
+          "sha256": "121295f58f5c1f338a50d38f339e803f1d66a1f2f5199df3c93118feff9d1c89"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_59/scene_simgame4_fish_59_skel_d4d695e9de14cfba47270a75fb997142.mmc",
+          "sha256": "c825391ce13d2643d58791cb3aa60bac7b5c41635b0564c14dbf21140f7b4339"
+        }
+      ],
+      "assetSha256": "9e93ebf7beda0dd385134f453abda316271ed31ab6757a847a44731f63ea172e"
+    },
+    {
+      "id": "F2504",
+      "asset": "fishing/F2504.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_50)\"",
+      "size": [
+        308,
+        126
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f2504_1f8ab97fc9eb2426ba0bfe69ba385602.mmc",
+          "sha256": "e5b84859122701cf791c8a520a7a4b39f4d08ef84ce18897aa90a815b903c8be"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_50/scene_simgame4_fish_50_atlas_a1a8a8f3dbefabca5b0e8cb76f8a0f40.mmc",
+          "sha256": "06654b554d554b2188a99e487a2af659a1feb8c9946b8e4af78c636a2d5f2e47"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_50/scene_simgame4_fish_50_skel_ba313a09ae5ce743d365a3eaf83c6227.mmc",
+          "sha256": "7167d731e4e422d1faf6c7f6b8bbcd2957c59971f53971449fb0da9ded1f6edf"
+        }
+      ],
+      "assetSha256": "f9b820bd8070f81f06c759e522defc2617c77f6f0282e0aaf387ba8fde05fe51"
+    },
+    {
+      "id": "F3101",
+      "asset": "fishing/F3101.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_29)\"",
+      "size": [
+        308,
+        255
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_29/scene_simgame4_fish_29_skel_2e0a24c8e212d8db9bfbbd46eda5d61f.mmc",
+          "sha256": "5b4a6aa20da5a2012b393366cacfe44cbe6a55ab1830fea5a0efb5349a594d26"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_29/scene_simgame4_fish_29_atlas_803b098edc992f0733078db3a45efed1.mmc",
+          "sha256": "9b56384cf429127ca4d0815962ba4609a2ee3addb0b8d2c38200727a277a9aff"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3101_f41f459f3c4a423cd4afdc2f836b97c4.mmc",
+          "sha256": "69bdb30f733be7f040e9ec9f9d62edaf63e6f4dc0ef594f3975fe492a879b566"
+        }
+      ],
+      "assetSha256": "9fa28703f55028194f07a225d2fc45833800f16bc39643cd4aa87578cfe0213a"
+    },
+    {
+      "id": "F3102",
+      "asset": "fishing/F3102.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_31)\"",
+      "size": [
+        308,
+        298
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_31/scene_simgame4_fish_31_atlas_2456613821d0e9756c6646516e3bba28.mmc",
+          "sha256": "9884003d71a020cc265aefcbefb36a59585db8e5ca087e856b7b2a9e688afb02"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3102_c4151c4e56f3ffa5a720b30035e07644.mmc",
+          "sha256": "2656fbf0fa283cc8a1a3b842e2da095d927e90933facb4de0f2f035ded2a310f"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_31/scene_simgame4_fish_31_skel_cb19de5372c72fd12fed9a91dde825a2.mmc",
+          "sha256": "3a7b5deb299738ba166da4e6202bc216c26bbda810cbcc93658936a5c660102d"
+        }
+      ],
+      "assetSha256": "22fd4765771669473b2bc708007258cd2932c76473313ab87db8ada42bfc3912"
+    },
+    {
+      "id": "F3103",
+      "asset": "fishing/F3103.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_30)\"",
+      "size": [
+        292,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3103_193dd6aa874fc7d280b5f44813079dae.mmc",
+          "sha256": "a7aa6f32868f2171092be2f5b2d911c10ed3fe047a2a80647856c7a9af21fe6b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_30/scene_simgame4_fish_30_atlas_5915de40ca945a14c8535ad478dd8518.mmc",
+          "sha256": "c2bf993ca86c79a03c4b1cce2dddbfe645372c387a0fda0ae1755f53bbb4a125"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_30/scene_simgame4_fish_30_skel_1873d1ccb73e0d185093074e8cb38978.mmc",
+          "sha256": "fd8b5c69284c798c8af9bc6e1b7503e1246b9f47327bd75ff5ae976ce63c5343"
+        }
+      ],
+      "assetSha256": "b98954e669415c7b4db82ba3afb48c537c2a6a1c3755a357e89f7428f0b29002"
+    },
+    {
+      "id": "F3201",
+      "asset": "fishing/F3201.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_33)\"",
+      "size": [
+        195,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3201_44e4c12eeaefee31d9a368f81c35a9e3.mmc",
+          "sha256": "c6a605c82a73a95093f887431b6329f07cb5c96eb7cae004596813186f83760b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_33/scene_simgame4_fish_33_skel_88a6a0d39cb94a3c2b473e4b41024eff.mmc",
+          "sha256": "d0094a5c74467bcddd7b7fe216a67432ead20a88617b488cec2c89f4423f26ab"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_33/scene_simgame4_fish_33_atlas_90aefc17d032933319e1943a03e2c932.mmc",
+          "sha256": "579506a0654317ad5cc40d81b3ae934ecc45d4c33e4c9509778d14ca386d501e"
+        }
+      ],
+      "assetSha256": "6593b43c89d089911c908d629e6e51523b8f7f039a00ccac9bb15fa5ea6e5515"
+    },
+    {
+      "id": "F3202",
+      "asset": "fishing/F3202.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_34)\"",
+      "size": [
+        308,
+        109
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_34/scene_simgame4_fish_34_skel_1987cb0ba3b68871c3c5e0001dbffca3.mmc",
+          "sha256": "3feafd591374dbf6471e62d1693828cd5311b4bb4778354f06cfae1a9c087ec1"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3202_1e3cf9f63e9557f0aec67f96f387cf92.mmc",
+          "sha256": "bcf8583f7f5b35339001f0a31d72d07beb855afbd1a7526233501ab6b8cdd3d2"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_34/scene_simgame4_fish_34_atlas_0031693708f9dbb6a8f21ae0803b9bf9.mmc",
+          "sha256": "546d1a7d3775717716008103ed2db9f38c12bcd8a5e3cb18b19b48ca534fa66e"
+        }
+      ],
+      "assetSha256": "2f9356268de5b95d9458ed02d36853738cf845332f629e201c0d85d10fa778f9"
+    },
+    {
+      "id": "F3203",
+      "asset": "fishing/F3203.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_32)\"",
+      "size": [
+        308,
+        290
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_32/scene_simgame4_fish_32_atlas_fafd91853df54842616dcd5305c9942c.mmc",
+          "sha256": "953f0cebbf836572810fcda837d2f8f73c8377e65f3692613f9101cbc038281a"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_32/scene_simgame4_fish_32_skel_f1f3858644c1032c7cbae97b7a86ab60.mmc",
+          "sha256": "f2d15ae3ae4a723c7b1f32d2947cd0489986f3d70d9db1f9774c35a26d2de331"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3203_a29e886d4fbec535191774e74c7b8744.mmc",
+          "sha256": "2a356d141ae8b8416ed6b7d51f92da38a227af15d4c3464af866abd1cba551d1"
+        }
+      ],
+      "assetSha256": "763f4f5456f8a0f9582905f380cbda6409dcc2604d2caa4a8e9120c386c35235"
+    },
+    {
+      "id": "F3204",
+      "asset": "fishing/F3204.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_46)\"",
+      "size": [
+        308,
+        231
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3204_4876591d8167c2783aab1de505436c53.mmc",
+          "sha256": "f68e5a16a36d966ce2fc48366f2292e30f3a3ca5ec877a3621c9d41a5762b83b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_46/scene_simgame4_fish_46_atlas_c65c77dc178dfc2110e1159854464583.mmc",
+          "sha256": "8f1d826f50c6bc7cc01d7e298bf2db99d609235b00578c2008fc649b44fcd66b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_46/scene_simgame4_fish_46_skel_9faede4faa6010ead5d5b0afb4ddd66f.mmc",
+          "sha256": "f9977aa9892a8dce1a152c7989d114811c35e4bd30f436e7a6de2c1aac4265e9"
+        }
+      ],
+      "assetSha256": "72f3c154810573e0e6ff47ebbc4c1aceb71830dd130b816f8f43804c1fd9259e"
+    },
+    {
+      "id": "F3301",
+      "asset": "fishing/F3301.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_47)\"",
+      "size": [
+        308,
+        231
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3301_8f8e0cb8958c60d5c26da5704caac65b.mmc",
+          "sha256": "6d9710ab07afdc2e06cf0822423fd5efdc87494b41028d7f893358a1190b0d7d"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_47/scene_simgame4_fish_47_skel_95cec33a7fceb7b71924a33c15cdef3d.mmc",
+          "sha256": "43b67c32f9fd221b575ef9ba8460a7e0891b69ef35bd0a5ed30b238bd1b43a1c"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_47/scene_simgame4_fish_47_atlas_f7ddf5ab7dde2ed9ecdf5fea26b093f1.mmc",
+          "sha256": "2d4064578ff34eabd5f3f1026aa9466a0be19d16662dcb6f6fb4d2612f58f076"
+        }
+      ],
+      "assetSha256": "4c3ace69f03c90e1e2d76ee992b4e70225989e9ac73354cb861162cfee45b6ac"
+    },
+    {
+      "id": "F3302",
+      "asset": "fishing/F3302.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_36)\"",
+      "size": [
+        308,
+        172
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_36/scene_simgame4_fish_36_skel_e4dfa3dce96823b668adae8cc7e252b0.mmc",
+          "sha256": "4e4d7c74fe4f95be6d8d9c45f84f6199891bf2280eb06160bf2c659dafa864f1"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3302_f0c12d209a5ae4e00bb208267bd2c194.mmc",
+          "sha256": "8bb4d02f36c74ad111e1960a8f08199dd03694fb66f019ef8c031cc35dc1d97c"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_36/scene_simgame4_fish_36_atlas_4f081842a5ce928d1b12420e011060ab.mmc",
+          "sha256": "25034634a87bb0f8b40f3e774becd36ef5525b4bf32ec231871c034e163fd4a8"
+        }
+      ],
+      "assetSha256": "9f5a0edb63b1a019bf54efd05e6c5f479d79afde7483ab0cd7497a33f77855ab"
+    },
+    {
+      "id": "F3303",
+      "asset": "fishing/F3303.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_53)\"",
+      "size": [
+        308,
+        290
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_53/scene_simgame4_fish_53_skel_7c6380a17a9d074c888f28f5dedbb091.mmc",
+          "sha256": "6d2fbc53cb498986600860869c7ebf69eeb9da7539e7b94600f9b14914cba922"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_53/scene_simgame4_fish_53_atlas_802338c8baf743288e2489d8d1c4c582.mmc",
+          "sha256": "dabee87c201d49d155ffc56901de2a8363bf55622d06e303f89f20568b86c4f3"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3303_b676070945a41d0e6a08f28c9b14ce6e.mmc",
+          "sha256": "26ef4be1484e80afc9acdfdeb5f4213d22d97e247a5d17264eaf2e5846dcc8ec"
+        }
+      ],
+      "assetSha256": "9d5e855e19e44f9b79078930ad5755e6d08820061c4a063f1b2800bb44c31a35"
+    },
+    {
+      "id": "F3304",
+      "asset": "fishing/F3304.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_54)\"",
+      "size": [
+        192,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_54/scene_simgame4_fish_54_skel_d97c6bd0c65fcc2e987f5e3de20e80a6.mmc",
+          "sha256": "7e3eec83266f3dd6afb9a3a5ee4a7bd294b190d8f081dd603ca50f1e142f1e7a"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_54/scene_simgame4_fish_54_atlas_c94874213bd891b77138cbf82e126392.mmc",
+          "sha256": "1d2c0c11b62aac0c0b9d6c99de0e1cc9cc5a27704eb2080aa06707beb0d621ff"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3304_0b324bcdab4d4733364c6bb0feef5132.mmc",
+          "sha256": "d7267b13b0d0968f54160aab47ffd1c87c5183e27a6f087acaac89c08ac91bbd"
+        }
+      ],
+      "assetSha256": "33a12e64cdccf467928e4bc8b2c72ce7d0e70477ed7f2bb9b97bcaebc2005778"
+    },
+    {
+      "id": "F3305",
+      "asset": "fishing/F3305.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_37)\"",
+      "size": [
+        308,
+        168
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_37/scene_simgame4_fish_37_skel_2ef8d76afaf7eaf765d5b59a17e186c2.mmc",
+          "sha256": "67f84115b5e89cc968651cf0c1b2bd0e126fc3c76000fb56e2461dd0da03c6ca"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_37/scene_simgame4_fish_37_atlas_e192701c0859e58a88b7aaad6eacb0d2.mmc",
+          "sha256": "be280269538cedf1ca0ac705786d6a6f366550447110095d7747ded44fa6a535"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3305_31fec6261abea5bfcff7d4febeb8ec47.mmc",
+          "sha256": "7dba4ae24ba9fbb8bad79ed889bb7a62f0b380c128e342de2d0e1d12246af0ac"
+        }
+      ],
+      "assetSha256": "1e03d4bc1800158f45595344b9a55bbd70780cbebdfe4dbf74f39b77e3bc4bcf"
+    },
+    {
+      "id": "F3306",
+      "asset": "fishing/F3306.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_35)\"",
+      "size": [
+        308,
+        105
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3306_c04cb512017bc24bfa1fac7008f7a968.mmc",
+          "sha256": "326a55ad7bcad8362a5c71ae919a501ba41e73799d6c375ae26d8f1ca53ba62c"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_35/scene_simgame4_fish_35_atlas_9f7de75795a3460ce498b2923e6ec9f1.mmc",
+          "sha256": "ccd2a885027f311ecb1296fc82b6af8cec4d008024a71a26e8f9c3808afcb27c"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_35/scene_simgame4_fish_35_skel_0304df0d1206bb3a8917962ad88c6d09.mmc",
+          "sha256": "36416ac1ed17d25bb17c15e371a42cd0c49b7008c699c989ed81f6748e9ff1ae"
+        }
+      ],
+      "assetSha256": "df181d4d6e5b3f3fc50950bdbc2c7b5f8536aa0c19f790ae828c4c8d4c367a08"
+    },
+    {
+      "id": "F3401",
+      "asset": "fishing/F3401.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_38)\"",
+      "size": [
+        308,
+        220
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_38/scene_simgame4_fish_38_skel_30abc76660ff0e84716e7de730c16747.mmc",
+          "sha256": "acac44b083f01cba7f8cc2007ce51222e2247d907d7449f5c0a34d913d0da9ab"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_38/scene_simgame4_fish_38_atlas_901a90a84d446cb0dda31384b1719d4b.mmc",
+          "sha256": "83806c117fd7bf389f474f79e4ec9236b721f796dee72eadd1e4b20ba1333f4a"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3401_96e3a13d90a1ac6492de4c30e301d0ab.mmc",
+          "sha256": "d63d9b808b9b573f84a4ae85c05c73bc851ffe293cb0aaa0df19f124cc62b709"
+        }
+      ],
+      "assetSha256": "b8b54deb4d89ac88be15991a7e614969953908ba22875d9322d2cbab72201001"
+    },
+    {
+      "id": "F3402",
+      "asset": "fishing/F3402.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_45)\"",
+      "size": [
+        308,
+        187
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3402_9de3266afd0ff14d6cc6614a5d06a1bc.mmc",
+          "sha256": "c3a25c10b4d86c5e898e1915147d43b8f1d9fa907a73bd98fbb5162f79ada314"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_45/scene_simgame4_fish_45_atlas_7dcadea8c8bbd0ae6714ba52e9e6b804.mmc",
+          "sha256": "49855c7a72ba9ce724bfb2ce6edf647fa4432dcb93bee07ac21c0bf655049dc9"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_45/scene_simgame4_fish_45_skel_8a885f250a45b901bec61d9ba7fa0403.mmc",
+          "sha256": "f33adc96629acfc0dfd53ba9ce063067c2e5a1a09401b75289841168a97c6f2b"
+        }
+      ],
+      "assetSha256": "618b1ec7aa1c8524bf7f6463e6a5cdd6cc129093ed04b191730c70f8c307c23f"
+    },
+    {
+      "id": "F3403",
+      "asset": "fishing/F3403.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_39)\"",
+      "size": [
+        308,
+        260
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_39/scene_simgame4_fish_39_skel_d19082f26f0e5a2bc7a697f9555f93cf.mmc",
+          "sha256": "de7cd5490b696c636c838ce74ba7f3c756231038fd288dc61c9b1067ed04a858"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3403_82a683add8e8f16926a5aa2061b13a27.mmc",
+          "sha256": "6b0b9bde5c6252419e463beeaa0db2f8c9c9ba77e1a9ca52ca7db46a606dbace"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_39/scene_simgame4_fish_39_atlas_6e22ab1113143fd174ce493647fc4878.mmc",
+          "sha256": "40664b39a3ce02d623442100ca09d985add3a6ef822145c3d4be8742a2d0eb90"
+        }
+      ],
+      "assetSha256": "3cf0175351c0934ac7fd4f7df1c4daa42b5c5714a3ec007a89b64b523b77ea79"
+    },
+    {
+      "id": "F3404",
+      "asset": "fishing/F3404.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_41)\"",
+      "size": [
+        308,
+        164
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_41/scene_simgame4_fish_41_skel_47860cd26c58910a61eed93a3dd9b277.mmc",
+          "sha256": "00502b8d9fc27de56e78f33a6bd5c988a5ff5633682d03a79c1cf8146b1a70bb"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3404_3970a7480e623e4574d7bee68069383e.mmc",
+          "sha256": "550ee7e2bedab098654a75872d310588cbc072bf1838b7711b38060cf9002a29"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_41/scene_simgame4_fish_41_atlas_8a1ef95f0410e8543750bc727ca6501f.mmc",
+          "sha256": "de956b815f1b164e7d2f1a7326bee00398e58f9e56b93c5016ed770d31880566"
+        }
+      ],
+      "assetSha256": "aa0b7d9c33ed59630cbf5ac7a4ae1e2529de9239cb0e9f5aab0d9542f119b049"
+    },
+    {
+      "id": "F3405",
+      "asset": "fishing/F3405.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_40)\"",
+      "size": [
+        308,
+        128
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_40/scene_simgame4_fish_40_skel_5ec7a2b0762fcff16a807c3a112366f0.mmc",
+          "sha256": "2fe4db6d9698db1c892375df0e9bac8d5cd771a88847fa10bae043cb19d30c66"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_40/scene_simgame4_fish_40_atlas_a2b5aab1edb39d750d9a968ee58748d2.mmc",
+          "sha256": "e08c4fe24c954aeba3e6e6df4ff3e77af31c01e04dad94da6d42551c49f8fd8d"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3405_90fe5a3589edef3bd80d7d5bc549dfb2.mmc",
+          "sha256": "496b391ff47a1f2b6f31d33606031f0b1a7470a9c03e314b56fdb7e8f0ec5e71"
+        }
+      ],
+      "assetSha256": "9243fcbe78aa02a848cbf08fab0b7ee5f1ae43a4da5a16cced1f91418c03b06a"
+    },
+    {
+      "id": "F3406",
+      "asset": "fishing/F3406.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_48)\"",
+      "size": [
+        308,
+        232
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_48/scene_simgame4_fish_48_atlas_93ad4187d963a00d19f4b23bfcbbdb8f.mmc",
+          "sha256": "30e1eca93214863bbefb25ec3b7034d818c2846c8997b2cf995747ddda5523c9"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3406_6730a0669f3d166f056b5430b9d1c983.mmc",
+          "sha256": "6001123361a8883f13d3baccdbc0f50aae1110da766e41b5e4df47f91a065271"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_48/scene_simgame4_fish_48_skel_08ec0d5634f19e9f046d484837a1ae2c.mmc",
+          "sha256": "b4d5bd7fdeec8dd3264220efc230c4dc7d8582c179a042f37c5e153049d65fb8"
+        }
+      ],
+      "assetSha256": "bf2dcf34ebc4ccd4c904a8eadb4d92a067bfd8720585902a7884d8035e566a0d"
+    },
+    {
+      "id": "F3407",
+      "asset": "fishing/F3407.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_44)\"",
+      "size": [
+        293,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_44/scene_simgame4_fish_44_skel_05ee4b5b14741737e81dc8452d1fa9b0.mmc",
+          "sha256": "02e3cb45214681b305facc1a919f78b84e771e05654bb3a88c564df787939fea"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_44/scene_simgame4_fish_44_atlas_f0a9af3358fd68c6141b626103b504a2.mmc",
+          "sha256": "74ab91e76ea0aa74358a0b8637c8a953721c63b6e153c5e144ad99d89fbed7f5"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3407_0eb0317f67f5d7ef0596f2cb32ce2296.mmc",
+          "sha256": "48b8703937f89dd46e7ea459ce00431faae0d05f8025322c142961af67ec43cd"
+        }
+      ],
+      "assetSha256": "d406a8065613a832030ea595667a74510b07b70666a6d16e581f745fa52b70f2"
+    },
+    {
+      "id": "F3501",
+      "asset": "fishing/F3501.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_52)\"",
+      "size": [
+        308,
+        90
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3501_93cb616a9eed411945d9ba9815a4c365.mmc",
+          "sha256": "2b5cab8e00b1cd006d5ae277dc263e8ec454b7f7722c20c38c936e660d5148d4"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_52/scene_simgame4_fish_52_skel_e837e2a89e7d379f977b9d6fb8b630b8.mmc",
+          "sha256": "1116c3baac0d1cf3bcd6101cf97acb5da7110a9f29fd202a6e7e0c5c0fb80d4f"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_52/scene_simgame4_fish_52_atlas_c9a540ec16129c2f11c0bab8f6cecaf7.mmc",
+          "sha256": "1965aa8c79c2b5c333cd89b2a706c7ea99998729b3712054478f063aa30bf5df"
+        }
+      ],
+      "assetSha256": "dd94db5710b6f049d3b7f87cff5fb49fdc49c47419695efcd0f85a7dae89eefc"
+    },
+    {
+      "id": "F3502",
+      "asset": "fishing/F3502.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_51)\"",
+      "size": [
+        308,
+        294
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3502_dad1fdc7444799d6b4d69883b516a900.mmc",
+          "sha256": "c429306fa325f9aea1b83c958831dbd01b3155d2aef7f65fe1398f71335c5865"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_51/scene_simgame4_fish_51_skel_82860bd2105c3227b509297150bfb452.mmc",
+          "sha256": "bad795c212d12aea592eb19e6c1bdad9349e54ee1aaf3b0d8e2eaa0c541ec8ad"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_51/scene_simgame4_fish_51_atlas_545fafb0889c2fd5b1952d7000feb1fe.mmc",
+          "sha256": "f68e4727786b5992d273dd8ab366cb0835b5aaee7b8286d74a2204929e524370"
+        }
+      ],
+      "assetSha256": "70ee5bd26a5b2d6b84e9bda2ea0eef7e1e5a6a699c30d04e3df51911f0346425"
+    },
+    {
+      "id": "F3503",
+      "asset": "fishing/F3503.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_43)\"",
+      "size": [
+        308,
+        113
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_43/scene_simgame4_fish_43_skel_7d903e653c8724a867430ccf1ea17b2a.mmc",
+          "sha256": "cba4b3b74f1236a9ecf4c1e7d0ac41247223ee967b1e94d9503b3fb9f146615f"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3503_c4d5841a7ef2a51af3b3c3ce452fcb65.mmc",
+          "sha256": "c3171d88f69d2ffb29dd3e98af3c0cb5798582b7250e6321d1bb277a46ced02b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_43/scene_simgame4_fish_43_atlas_bf882dc85fc0a4c3143af420f61aabc6.mmc",
+          "sha256": "e3efd535b567bf3167d1f868bc55f11386cf61f52feddbfe2b7488142f38ed4d"
+        }
+      ],
+      "assetSha256": "6df487264c3e85feffcd4e5ea22854c4904c2f622e586666c619340045afa306"
+    },
+    {
+      "id": "F3504",
+      "asset": "fishing/F3504.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_42)\"",
+      "size": [
+        308,
+        126
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_42/scene_simgame4_fish_42_atlas_5655a1c80526b8e28c65eb5ab0635367.mmc",
+          "sha256": "4ba2639ec9b74c4810a861f4d9d10211c63fb2d642315155746a91c371c02f65"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3504_4da91f704ea442251a6217e8317dff15.mmc",
+          "sha256": "7bc4af3febc163a091dd437e40e62c935bbeb7f99e3b04b46c8a71b29bcbf6be"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_42/scene_simgame4_fish_42_skel_38d1d74e70ee808f23e2bb2d8e199f46.mmc",
+          "sha256": "f60df6afde4bfc2ec5822151ab3d9af7fcada0620d0b0908bba094ab99d9805e"
+        }
+      ],
+      "assetSha256": "995c087adb944d12934c28d2b76f9e4447d18bda0c69d1d593fa8a025c542ca6"
+    },
+    {
+      "id": "F3505",
+      "asset": "fishing/F3505.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_49)\"",
+      "size": [
+        308,
+        94
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_49/scene_simgame4_fish_49_skel_20aa19dcaccd0481bdbb50b9e84ebdac.mmc",
+          "sha256": "d7759b330a92a45aabd9777f09815932239d7966c87c2f2c3005901da1c8235f"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_49/scene_simgame4_fish_49_atlas_61dc117cd15c859bc7c18a300bad2b01.mmc",
+          "sha256": "47ebae8ed44ed0eaf38899849b655a9c53e5d94fe55a7d396d97188ae2c7d987"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3505_08e20f0fd754d73ae1ad4f054c563b74.mmc",
+          "sha256": "590b12946303d67e6eba32a275be7b28f268b8afd578fc167557abdf5d5a15f5"
+        }
+      ],
+      "assetSha256": "13a15bc1670a56488e752ec97a3f4f954b8a221f05b35ef60e7ec2e178429aa2"
+    },
+    {
+      "id": "F3506",
+      "asset": "fishing/F3506.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_999)\"",
+      "size": [
+        308,
+        167
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_999/scene_simgame4_fish_999_skel_1dbe8d8de7cb90ef6e7caefbf2708d32.mmc",
+          "sha256": "90e926d2e06e94b5a4a88dfb69066761354545c8be4a8c866594a25db2385741"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_999/scene_simgame4_fish_999_atlas_41347c90154223f99b397f7a197474ae.mmc",
+          "sha256": "5d7248d91cbdca9ab889f6948409144a6a25195ce9bb25a51d7ec74b655faf92"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f3506_e0080605e2d16e849605a2245ffb763c.mmc",
+          "sha256": "998d364c74e7333355f84f02cab221ae97e4b8095b1a67b075d96a70554092c0"
+        }
+      ],
+      "assetSha256": "60d6d0227db6ad8852f241e88ff8a20349aa1bd0b3d01bd3908e1a86b17bfadc"
+    },
+    {
+      "id": "F4101",
+      "asset": "fishing/F4101.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_64)\"",
+      "size": [
+        308,
+        120
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_64/scene_simgame4_fish_64_atlas_7afec0118fc025264764aeee096c2ef0.mmc",
+          "sha256": "2ff35c14e31532067827e695b4098792d3a84b4c6d79a4d0a155d33a9d4be948"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_64/scene_simgame4_fish_64_skel_b908cdb94d2b049e38da2a65aff54672.mmc",
+          "sha256": "786941900af73a0e77b419756f7761e12c21be7b4d0c20a77f5867f26a362cb7"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4101_3f2effb972338e3a981cfe5369078010.mmc",
+          "sha256": "9fd441c7660537108b57153c78adf8476e105aab29b8786604cf4abc15b5ec37"
+        }
+      ],
+      "assetSha256": "c73e8ad3ab1ef65c99292c944e50d8ea961b84d10cbf920cb549fb12c12c55ef"
+    },
+    {
+      "id": "F4102",
+      "asset": "fishing/F4102.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_65)\"",
+      "size": [
+        308,
+        140
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4102_533a8a5322de6be6133dce2f55789f8a.mmc",
+          "sha256": "cdd98c12c204aee60979c2e192669a3c5e5f75c26def05226523e208a337b1a6"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_65/scene_simgame4_fish_65_atlas_6cfe28753ac7f042b2024a3a86dbec39.mmc",
+          "sha256": "600ca92ff27fa2b81426531823ac3fa34078403c2d9d97b1f395556630d1c489"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_65/scene_simgame4_fish_65_skel_c2dc968e266948c7522a86496450cbd1.mmc",
+          "sha256": "2e33613bcf3a7b093e0b57e42c140570b3256ae5d2e95a8870f53e9605b0ec0b"
+        }
+      ],
+      "assetSha256": "fb9e56d93709125b216ce100982f2e244e61c8cd45e92464498bdcb32b4cfc7a"
+    },
+    {
+      "id": "F4103",
+      "asset": "fishing/F4103.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_73)\"",
+      "size": [
+        308,
+        291
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_73/scene_simgame4_fish_73_skel_47cf9c98d3755b282ced2dcf12b9b495.mmc",
+          "sha256": "38b52990cae5516d51c06e1f33c1cb23a2443398c63e3f5a80ab3d8cc33e732e"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_73/scene_simgame4_fish_73_atlas_6628c8a7f904ca3016dedbf57619e252.mmc",
+          "sha256": "feb08e8657400105cf6bc415a9074999fa75751c3d13f47359c7767286a48878"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4103_dfd22b77c79c6cbfdcce31d558fc297e.mmc",
+          "sha256": "dc688540d042aee24066530f5593de9022273d0e4c68b31b6fff6923567f00d6"
+        }
+      ],
+      "assetSha256": "20c3e96465d14489996296d00f56a429bfd44688440109aece42856e8932383b"
+    },
+    {
+      "id": "F4201",
+      "asset": "fishing/F4201.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_62)\"",
+      "size": [
+        308,
+        92
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_62/scene_simgame4_fish_62_skel_e69e41cd3e6e4851e8329ba55f9da980.mmc",
+          "sha256": "bde8b38acf1c16590e618bb559abb4c9a796d7de34e8356e23f3b6308f3c13cd"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4201_fa85d89505bce55e9d216a1cd2eb4b52.mmc",
+          "sha256": "3032bff2d4946f3ec5de33824a233462269dd3c3c024ce53b7533b362292cf69"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_62/scene_simgame4_fish_62_atlas_8e0416a12a71a699193042d802530885.mmc",
+          "sha256": "ba5729ec5b8abaa5a17c07d3ecfcc0142a6a7dead054fd8c6f274fff7e83cb96"
+        }
+      ],
+      "assetSha256": "5b5173e6a6cb015cef11a4c9cb6527b9abe4edc86976d28672c57114f71e0edd"
+    },
+    {
+      "id": "F4202",
+      "asset": "fishing/F4202.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_74)\"",
+      "size": [
+        308,
+        215
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_74/scene_simgame4_fish_74_atlas_25982761d4ddc70fd5126bbb52b7d40c.mmc",
+          "sha256": "d723a41e0de9771aed75381347c086fdd80fab6b9095f4b486f46c5ca839cda5"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_74/scene_simgame4_fish_74_skel_2b33bed9a6567e48fdcfeb062d973553.mmc",
+          "sha256": "75dc76872d5ef99efa82c5ee280323f6d33661b86e1ed74b56efd99fd09a82b9"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4202_c40753dd03c963c97607eb2cbe0bed9f.mmc",
+          "sha256": "5a6cfad4bdde2c10fd116d6f3cba0a4c4e255df185f6d5a2e135cf356288f474"
+        }
+      ],
+      "assetSha256": "73ae5cf0892599486d56d68cd1fdeab108011edd1d71b40fb8f1d47c3db99e37"
+    },
+    {
+      "id": "F4203",
+      "asset": "fishing/F4203.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_63)\"",
+      "size": [
+        308,
+        274
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_63/scene_simgame4_fish_63_skel_314e9bb63cac47ca5d3df791fdaddc89.mmc",
+          "sha256": "6c9e48a00387d5e8a894a1eb53ccfc72900c539951ca7b30b50543c7e84705ae"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4203_9a58909d06e5bb8b9ba07ea06f68c1c2.mmc",
+          "sha256": "f36ff5a1976de881c7c79bc3dc1bf9f267c4e426b4c7e01141028097d8dc1655"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_63/scene_simgame4_fish_63_atlas_618c6ad14f3388351c5fabe1471c7ad3.mmc",
+          "sha256": "2f3bead2b8bf8c3ba3b6b3f51b24875fc99987b673abb5c095e73c8a5bce33ab"
+        }
+      ],
+      "assetSha256": "b3f44fd6b8aeec3b327dfb5949a22646353e4b4421e607b16a1829406bd4ddf1"
+    },
+    {
+      "id": "F4204",
+      "asset": "fishing/F4204.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_66)\"",
+      "size": [
+        308,
+        92
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_66/scene_simgame4_fish_66_skel_36b8a3a34d8df19777de36a3e0a9bb3b.mmc",
+          "sha256": "1c9a203ad3877a559aed47ded1bc24490750d4eec41854fe6b048103988a7dcf"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4204_b10d0a00d3d0a9b1f92ea1c44b48f0ce.mmc",
+          "sha256": "1690343f972c0eabbfa0b0a465395c140c35690d67508b7e9af48c5466371fcd"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_66/scene_simgame4_fish_66_atlas_2f4b0a4a1461ea621a6ba95359b26bef.mmc",
+          "sha256": "535285c0e9373b7bd9f5b586382319c5cbf784c9b0b4be651005ebca1e4bd833"
+        }
+      ],
+      "assetSha256": "74b174505f17f08cc90578cdcaa7e63514fbd463982084733a586471b950b711"
+    },
+    {
+      "id": "F4301",
+      "asset": "fishing/F4301.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_72)\"",
+      "size": [
+        308,
+        172
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_72/scene_simgame4_fish_72_atlas_fc26d4be64546f8122cde13f2c56d845.mmc",
+          "sha256": "afde7e0237a50d2d42eac5cbc760c6d78c6bb8b60ae9e8cf7d4a3ca6a4a35b7a"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4301_c755639fd05e4f0f78f6c8baa9dd3117.mmc",
+          "sha256": "430bfc1a21fcf4a658c90fb11f031958fea5d246f3928f9c2c853ad02212dbc2"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_72/scene_simgame4_fish_72_skel_7c29e6395842c002ab695d4fd757f444.mmc",
+          "sha256": "44ae4a4de64f699c8cf3508b46c5933fff5f3ae3af830aad7c9470e618a839fb"
+        }
+      ],
+      "assetSha256": "480cfbc2a3cdde0b649b321b65039e5fa6767f9bed4d35e03893afc83e684e97"
+    },
+    {
+      "id": "F4302",
+      "asset": "fishing/F4302.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_69)\"",
+      "size": [
+        308,
+        152
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4302_b0e0a8d9545f0f9ed36870cc65556654.mmc",
+          "sha256": "87d51c57503f3243f0fb3991c237ee03fec3fb004c4212010b7980649ac4882b"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_69/scene_simgame4_fish_69_skel_3ec6abac5a4699b60a7f752376e2d0fa.mmc",
+          "sha256": "19e8be01b92489aa4f8a614d26a2dc8c01c7b994310e0ec5ff1fb9050f9e939a"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_69/scene_simgame4_fish_69_atlas_0437780521cde90298407127d6e749ce.mmc",
+          "sha256": "d7de13a254e7e6229d4d2335089a65f6c2614f478143a172a804fb8eb78e208b"
+        }
+      ],
+      "assetSha256": "7173e752b6a3e50b8a0ffbcf8b120e7d89046f4db4a5d462685825d04982356c"
+    },
+    {
+      "id": "F4303",
+      "asset": "fishing/F4303.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_67)\"",
+      "size": [
+        308,
+        163
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_67/scene_simgame4_fish_67_skel_efa59f74d3e59aa51874656059e53ea2.mmc",
+          "sha256": "a68b304a085d49dfa681f7b3da94f13ad27e5f228bfab1fe640db0696974be48"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_67/scene_simgame4_fish_67_atlas_cb0e93c98f5a5eead54eb4bdf57484f0.mmc",
+          "sha256": "5b2ecf52e8537f26df2beea428e86b1ab01e2cf30a59e45e3d94e56faa6357ad"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4303_ebe36a9a24b243184fbc01e7c3e48907.mmc",
+          "sha256": "7e643edefbc5dd7de4b8e14304795d33a5986313f3b5efe7a6a7df1a75cc1a64"
+        }
+      ],
+      "assetSha256": "97eaa0d68b2b244a540dbae146c145a62d5382c5c219a4aab9fde554d06e4c71"
+    },
+    {
+      "id": "F4304",
+      "asset": "fishing/F4304.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_79)\"",
+      "size": [
+        308,
+        211
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4304_4f9e5973613499d5c06f7d9e5723267a.mmc",
+          "sha256": "ccdc8e2375ed62394746ea270ffe3ba51fd8fa95b2d0fd39ba5bcf0852fcf404"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_79/scene_simgame4_fish_79_atlas_512cc73186a8449486c1c1054658c2e0.mmc",
+          "sha256": "6228deceb751bca58d0a136ff7933377cd87172566163083e55feb1b8c22dd47"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_79/scene_simgame4_fish_79_skel_177bf7c1631069269b30fb226b26423f.mmc",
+          "sha256": "3d1053519131bae2d3aa5fda81def9fa6b56766a6551eab3cd97b9f5fd5276f5"
+        }
+      ],
+      "assetSha256": "1f40f6c9848490f46f921a20f6bd0d315571e79488fd5716e5a6acb71e452ed6"
+    },
+    {
+      "id": "F4305",
+      "asset": "fishing/F4305.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_75)\"",
+      "size": [
+        308,
+        113
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4305_8eb77737125ee1c2cf6bf250d7180361.mmc",
+          "sha256": "f048b5d478e60b7dc0f1d69d969e724ebeed49ab128cc1381e55a75033842fd3"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_75/scene_simgame4_fish_75_atlas_71670a11b57c096ee1f62474cb583020.mmc",
+          "sha256": "fffbb3aa85bd72850a05458d1920f3bb3833dfd92b00e3c7588e8ba76d083daf"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_75/scene_simgame4_fish_75_skel_6be2b4edafbbbc5eb4f0f17122f7527d.mmc",
+          "sha256": "ac5d4c986f5f3160b59067e74a6340afe93682755da654a9c431432800061876"
+        }
+      ],
+      "assetSha256": "f29f5b8bf34d019e2f766520473ef3b9fc137e0afa8a0cf645f0cd76f74ae4bf"
+    },
+    {
+      "id": "F4306",
+      "asset": "fishing/F4306.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_68)\"",
+      "size": [
+        308,
+        169
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_68/scene_simgame4_fish_68_atlas_6827cc9be192c4a973e5b649953e8910.mmc",
+          "sha256": "b2553ac825cfeda2f5d3eb8af766b1c6210683e2d8b429350526a202964bb6fe"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_68/scene_simgame4_fish_68_skel_ca0959da5d23fc5d6611028a969c7105.mmc",
+          "sha256": "b6518747485ee076f5b32cfe8885270e74b56dffe58b7a2446e0d55691d96427"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4306_e5a9c22636bc999ebfab76c8e6624bbb.mmc",
+          "sha256": "21ac6f295c79021ad672e050779af605c547bd23da592fcbfd3fbf5c9051f4bc"
+        }
+      ],
+      "assetSha256": "5ad765b4cea34088d440dbb5410bd914b26cdfeb8e6f9ff8bf409f797d87ec40"
+    },
+    {
+      "id": "F4401",
+      "asset": "fishing/F4401.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_70)\"",
+      "size": [
+        308,
+        165
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4401_3e86478c961bba54b84a3d0bf082a536.mmc",
+          "sha256": "0898c332b517dd74c70821a8fa7aec84cd51598e19d14737c0c1bdd128c26f16"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_70/scene_simgame4_fish_70_atlas_679548faf86f3a7e9b6c9c20a5515f79.mmc",
+          "sha256": "7b514d2c998805224a7465e6b691523beff78fadd77ba5f2ba63645bfdab3dc0"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_70/scene_simgame4_fish_70_skel_c6372e602413c8d2f198a469a0834d20.mmc",
+          "sha256": "36534918d3dd410a80608ccbf9900657e74e3aff61d84c1080c4b167a86044ae"
+        }
+      ],
+      "assetSha256": "f974de472c4c0ef4a5606c45ab17bda2d019ed7982726094c9fdcdb3dc98c8df"
+    },
+    {
+      "id": "F4402",
+      "asset": "fishing/F4402.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_83)\"",
+      "size": [
+        265,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4402_3ce082e36586e7f31c8985a4986421c9.mmc",
+          "sha256": "bbe45f8c5913023bdabb4b42e6ce942083d076783b125375fb9ba4c3c319fa01"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_83/scene_simgame4_fish_83_skel_180d8ecf1b7c3fe221a580b2e243fc13.mmc",
+          "sha256": "f38249d2248582f2054f5989ffa7d7fd04717573011ca842e75082e8529c3621"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_83/scene_simgame4_fish_83_atlas_f73c8f8b92ded89c47ffaee701df65db.mmc",
+          "sha256": "b76760d2463ae6384e8ea516cad10b21e89259b04996906078e57a2cbc10af3c"
+        }
+      ],
+      "assetSha256": "efd2b2d4a598ebab0a80e845dc1065956c17ef199e52614c5c02a8ee673ce127"
+    },
+    {
+      "id": "F4403",
+      "asset": "fishing/F4403.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_80)\"",
+      "size": [
+        308,
+        292
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4403_28812ef09b03f8eb7171342e6b4cbf37.mmc",
+          "sha256": "90b314388bf8f7400a8dc75fd76c13bff2e0fdd1bdb5379ed0a5be4a0af3beb3"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_80/scene_simgame4_fish_80_skel_bc4badd7874a49f6ed5fe56ce21085bc.mmc",
+          "sha256": "8868c5a8194e7975a227e47c22a1c611b908102124d6abe2190780c720c76968"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_80/scene_simgame4_fish_80_atlas_0e7276ba4e85729c31b2df33c5ef15fd.mmc",
+          "sha256": "530f62e2318d94b4f3537de45cbeb4e07310bc6513aa1239502efc7ca9c9f445"
+        }
+      ],
+      "assetSha256": "081707fd3c440db9af329f046d5974a1d096226ec722dec2d2bb71c7644a801e"
+    },
+    {
+      "id": "F4404",
+      "asset": "fishing/F4404.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_84)\"",
+      "size": [
+        286,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_84/scene_simgame4_fish_84_skel_19de1fc6b7fe97f953a62e7750ee2225.mmc",
+          "sha256": "7720c5c5724b7cbb4f241b1e9e349a74eb60a6c37597423baa9946fc97968c73"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4404_18630b5d20133f74226456322173fa25.mmc",
+          "sha256": "f304fbed68efe2bee32d7a0b7fd088e9233420ee352a2b4a52fe3e2b1ce87031"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_84/scene_simgame4_fish_84_atlas_55d7c6afd7a050eea16fe76b87aea833.mmc",
+          "sha256": "0e70d313a3d17ab2c447564e5d35c473e4ce498d4b79ab2e96140a52ec886249"
+        }
+      ],
+      "assetSha256": "3e10c6a66fd5f10bb8e7a9a1b27ccf0426d8fc3d68199f5f329de211904b0b43"
+    },
+    {
+      "id": "F4405",
+      "asset": "fishing/F4405.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_78)\"",
+      "size": [
+        303,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4405_fb981e45c925f16b691f64e1a603a855.mmc",
+          "sha256": "05d3173ba82b1742eaa6f7df765907a87cc5fc1fa7b314bc8bd28def7b7a9468"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_78/scene_simgame4_fish_78_skel_6cba9eaa02fcf7c70b84c7b3a4b90f0f.mmc",
+          "sha256": "b7679343945c0c6aed08ef5b40cec6e18b70e01932ac78386dbc6c1d7c3d692d"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_78/scene_simgame4_fish_78_atlas_e8dfdbbd04d73763554784f5e1acde9d.mmc",
+          "sha256": "0cc9c6d060b2c301beb76dd86bfe344549ccf52600e86bebfacca97ad59f3613"
+        }
+      ],
+      "assetSha256": "5b4ec86cb2df8c742640ee8f6d16b170516475c8f2e34f757b5d812d53417d5a"
+    },
+    {
+      "id": "F4406",
+      "asset": "fishing/F4406.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_77)\"",
+      "size": [
+        308,
+        97
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_77/scene_simgame4_fish_77_skel_d52c23a4bcc3ed3ac63d90af89e95b13.mmc",
+          "sha256": "42640d6f6f9c1516bd69d819a6bc17f7d25889b671b91a59640e6e1d4a3815cd"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_77/scene_simgame4_fish_77_atlas_9819759096830f41cb84b0ae430400c7.mmc",
+          "sha256": "97436ed3d1628a3b44765e495c0c5dabcbd5bfc414b334b39a943d1835ed013a"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4406_f5e5b73a5c5b8d7c49247f655fcea605.mmc",
+          "sha256": "98b0c45a9397eee90fa7c597f2abe11208300f8a028173902b42a49174323d54"
+        }
+      ],
+      "assetSha256": "006a0ac2f8392f0ea93b382a033889aaf3a454867769877ddb9a66265a0f706d"
+    },
+    {
+      "id": "F4407",
+      "asset": "fishing/F4407.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_85)\"",
+      "size": [
+        296,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4407_fea2fed722f873a07cb85df75c8792fd.mmc",
+          "sha256": "583edbb5390fa65b0a0d55e58cb9d84b5558b456c2f2d345f02e0b4a5482b7a9"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_85/scene_simgame4_fish_85_skel_9cf4a9ad3993fd8e31c839710493dae6.mmc",
+          "sha256": "9bc6a01b7c65750caa52ac3aa7c2cfbb9702c3b2521277ef1fd2828f9be84dbb"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_85/scene_simgame4_fish_85_atlas_c66a945f9b13ed54a67b2b888feae457.mmc",
+          "sha256": "4215c1518fd14f9ca0843a0531f452d80719122fd1d45b8dde8c440fa3c7c8c7"
+        }
+      ],
+      "assetSha256": "8e9d9aab34b4bba85661650309161372ca26916550e7f12743e6d7f576099f8d"
+    },
+    {
+      "id": "F4501",
+      "asset": "fishing/F4501.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_76)\"",
+      "size": [
+        308,
+        231
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_76/scene_simgame4_fish_76_skel_1dd803ce176fad02d7c2ce9e5741a232.mmc",
+          "sha256": "b272636e301c827a7b03db5d7a904536c1e573e04b04779d6efa6d41ba31b281"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_76/scene_simgame4_fish_76_atlas_737d3c6d8ba2e58e0cb87474904509c8.mmc",
+          "sha256": "263eb518c3e0b84ee4f125599c2fcc7a49c3f696d53f8322bcc40542be6e758c"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4501_716e4c4f90f4ab7624c736e431679785.mmc",
+          "sha256": "c3aba75a69c13cde749a99d09c14fbadf14bad22956770c0c63d0e850c28826d"
+        }
+      ],
+      "assetSha256": "4add33eba77473e49029b1095df66e52d51063f9ec310a2b9af283b8ab75e178"
+    },
+    {
+      "id": "F4502",
+      "asset": "fishing/F4502.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_71)\"",
+      "size": [
+        308,
+        128
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_71/scene_simgame4_fish_71_skel_f0d131bad989532f0974ee10dc95668c.mmc",
+          "sha256": "0da2ea499ed118760c916e250cfce08186f6971bc2a71562dc26ec54de200b5a"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4502_6361ae53afc6ebf16bf03e115db9b0e1.mmc",
+          "sha256": "5e4ca430919d31b4ea9694c65ba9d8925b13a5750dea9e18c1fca4dcb7368181"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_71/scene_simgame4_fish_71_atlas_9fe643848b20d8e2363e7b2724334aff.mmc",
+          "sha256": "8d019cf85fcb007a1e7c639ba565ebeb9b84d679d2b47da50933369064f21c08"
+        }
+      ],
+      "assetSha256": "4314b0d6722cb70111db01d97225a6bad02cf77d0c88b8df425eebb11e4675b7"
+    },
+    {
+      "id": "F4503",
+      "asset": "fishing/F4503.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_82)\"",
+      "size": [
+        308,
+        96
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_82/scene_simgame4_fish_82_skel_d730b4656c0ae1f7ee24f3db2a22566c.mmc",
+          "sha256": "231c3cefb145c7ad8893968b9618fa19ce09805e5a9df3049cca20828867d9c3"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_82/scene_simgame4_fish_82_atlas_4fc9653c087191cee800db4e38f008a1.mmc",
+          "sha256": "1147be4325b2fcd1f02f55bd8225843129ca684ef47e9fc15cf14392b9db2d54"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4503_6572119920d81a7b76e1be92f7896a8b.mmc",
+          "sha256": "37ec4090a9d0d51b204c2a27f77aee4a95a625cb8f6cfcb4c72e51f3d5c552c6"
+        }
+      ],
+      "assetSha256": "3367e2171af57a4eb6f6240e4d78c7348e2ba2976003a62265f6aa78f0c38de5"
+    },
+    {
+      "id": "F4504",
+      "asset": "fishing/F4504.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_86)\"",
+      "size": [
+        308,
+        108
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_86/scene_simgame4_fish_86_atlas_8813eae3f7ae592193073f88240497b9.mmc",
+          "sha256": "6013433c27fa047261e3b8b8ab0dbabd0d4d819d839704fc95b89ed5a8163fd0"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_86/scene_simgame4_fish_86_skel_6ba1b0df641ba6e2490dd2a6b41d8345.mmc",
+          "sha256": "1a4cad8cacb84e23ae47d2555e004e32844e17bf85294cb92b9c26251a96dda9"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4504_5a7563fdd651503617e85a698de53453.mmc",
+          "sha256": "c5eaffb42d4fc9bca087315cadb0c873fb157fb9d4e9e005b1fc052dccd18fee"
+        }
+      ],
+      "assetSha256": "46298db5aa5ebd31cc5915facdc2eb315869cc864fc8310c70b5fab71422a214"
+    },
+    {
+      "id": "F4505",
+      "asset": "fishing/F4505.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_81)\"",
+      "size": [
+        169,
+        308
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f4505_4d773824eea225023f02a56f27e66743.mmc",
+          "sha256": "001b849ef1d0c144572679ce56b7a68068c3033541fa08451d8e1c0305a3520d"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_81/scene_simgame4_fish_81_atlas_3ce1bc1ccf2259a8b8292981c659aaca.mmc",
+          "sha256": "5fa91473f964e3321ef3a32adfef3f78728737e00100fbd5c47c2c36b51eafec"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_81/scene_simgame4_fish_81_skel_c677b628142906f00a23a3aeb7c68348.mmc",
+          "sha256": "5d909bd1c1f70df08f7d498d76f6c6527d09eba9069953646102e4da311cafbc"
+        }
+      ],
+      "assetSha256": "c41e0aeafb15699826eb350e4d1069fbda4d0ea81a11fd431c0321cc1a7a1b24"
+    },
+    {
+      "id": "F9401",
+      "asset": "fishing/F9401.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_60)\"",
+      "size": [
+        308,
+        299
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_60/scene_simgame4_fish_60_skel_6e15f689b48e6db91a115fbd8bf6ee1c.mmc",
+          "sha256": "cc9ceb00fcd0ad53bb481fc2575ebf7f99a36b9f07188958eca9560f2ae4a478"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_60/scene_simgame4_fish_60_atlas_e0ec412ad2c0ab98837a311faf64fb7d.mmc",
+          "sha256": "be2f24abaf1a2ebfd62c61e796aac05ba43d74c55f336c73aa80827297ca73e2"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f9401_8f64fc8c1681fe3d3740c453b221ad61.mmc",
+          "sha256": "876b6295639eab9f084670cbb191fa96724e8b3751cae452b52852e3e9ddb021"
+        }
+      ],
+      "assetSha256": "c7010a2a9f9b91b3fea6b4b4255f93e00dbacd37eec99a6d346fc2530e46db62"
+    },
+    {
+      "id": "F9402",
+      "asset": "fishing/F9402.webp",
+      "mesh": "Skeleton Prefab Mesh \"Spine GameObject (Scene_SimGame4_Fish_61)\"",
+      "size": [
+        308,
+        124
+      ],
+      "sources": [
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_61/scene_simgame4_fish_61_atlas_02f8b22fe4682f7963e27794688ed2c6.mmc",
+          "sha256": "7493d3fec4094878a65e82ce7fe0929efba2582f72793c5599bc8b85c63b2922"
+        },
+        {
+          "source": "assets/Android/prefab/level/images_simgame4/simgame4_f9402_f5917577f58c0102dc5931c91d905e4e.mmc",
+          "sha256": "b806dacbc171da2f427f32de5e63829044663397e428d9ea1c3c64763ec51574"
+        },
+        {
+          "source": "assets/Android/spine/simgame4/scene_simgame4_fish_61/scene_simgame4_fish_61_skel_5125270b5372b683eef86c18a3a2f4d7.mmc",
+          "sha256": "0fbe9185a90128985cd197c1b16ace1f0ef7cb0dfdd80075d43349bfaf666c79"
+        }
+      ],
+      "assetSha256": "2a4ca4f3c9a9acf9e492193c2e2259ba1243c9f94c561728f6f6712f4e8a838e"
+    }
+  ],
+  "missing": [],
+  "absent": []
+}

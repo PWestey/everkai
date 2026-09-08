@@ -1,0 +1,8 @@
+{
+ "policyVersion":1,
+ "title":"Northern Odyssey",
+ "source":"Readable APK 1.7702 Rule:text:Dungeon_02 through Dungeon_18",
+ "sourceRules":{"supplyRecoveryMinutes":60,"suppliesPerFloor":1,"attackDamage":"player ATK","retaliation":"each attack","zeroHP":"exploration ends","training":"separate ATK and HP experience"},
+ "localRules":{"floors":3,"supplyCap":12,"initialHP":30,"attackFormula":"min(200,max(2,floor(sqrt(total bonded Fellow Power)/5)))","trainingCost":2,"trainingCap":10,"attackPerTraining":1,"hpPerTraining":5,"monsterHP":[6,12,18],"retaliation":[2,3,4],"campXP":2,"healing":10,"cacheCoins":5,"clearBonus":20,"exchangePrice":30,"exchangeItem":"Item_Gcoin_YieldPack_1","death":"XP retained, expedition coins lost","retaliationOnKillingBlow":true},
+ "exclusions":["Original map and encounter odds","Original HP/ATK scaling and costs","Ranking payouts","Original milestone or lottery rewards","Timed event reset"]
+}

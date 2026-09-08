@@ -1,0 +1,396 @@
+{
+  "provenance": {
+    "url": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/treasure-hunt/index.html",
+    "sha256": "ccf374beaca800f3431123b5bbba646d5b98721cc10e797cc38017b78259b5f8",
+    "kind": "community snapshot; not version matched",
+    "policy": "normal pools only; rounding normalized"
+  },
+  "areas": [
+    {
+      "id": "Relic001",
+      "name": "Original Ruins",
+      "gem": "GemBall101",
+      "level": 1,
+      "totalPercent": 99.99,
+      "pool": [
+        {
+          "id": "1101",
+          "percent": 25.0
+        },
+        {
+          "id": "1102",
+          "percent": 25.0
+        },
+        {
+          "id": "1103",
+          "percent": 25.0
+        },
+        {
+          "id": "1201",
+          "percent": 7.33
+        },
+        {
+          "id": "1202",
+          "percent": 7.33
+        },
+        {
+          "id": "1203",
+          "percent": 7.33
+        },
+        {
+          "id": "1301",
+          "percent": 1.0
+        },
+        {
+          "id": "1302",
+          "percent": 1.0
+        },
+        {
+          "id": "1303",
+          "percent": 1.0
+        }
+      ]
+    },
+    {
+      "id": "Relic002",
+      "name": "Memory Cave",
+      "gem": "GemBall201",
+      "level": 2,
+      "totalPercent": 100.0,
+      "pool": [
+        {
+          "id": "2101",
+          "percent": 18.75
+        },
+        {
+          "id": "2102",
+          "percent": 18.75
+        },
+        {
+          "id": "2103",
+          "percent": 18.75
+        },
+        {
+          "id": "2104",
+          "percent": 18.75
+        },
+        {
+          "id": "2201",
+          "percent": 5.5
+        },
+        {
+          "id": "2202",
+          "percent": 5.5
+        },
+        {
+          "id": "2203",
+          "percent": 5.5
+        },
+        {
+          "id": "2204",
+          "percent": 5.5
+        },
+        {
+          "id": "2301",
+          "percent": 1.0
+        },
+        {
+          "id": "2304",
+          "percent": 1.0
+        },
+        {
+          "id": "2306",
+          "percent": 1.0
+        }
+      ]
+    },
+    {
+      "id": "Relic003",
+      "name": "Frozen Abyss",
+      "gem": "GemBall301",
+      "level": 3,
+      "totalPercent": 100.0,
+      "pool": [
+        {
+          "id": "2101",
+          "percent": 18.75
+        },
+        {
+          "id": "2102",
+          "percent": 18.75
+        },
+        {
+          "id": "2103",
+          "percent": 18.75
+        },
+        {
+          "id": "2104",
+          "percent": 18.75
+        },
+        {
+          "id": "2201",
+          "percent": 5.5
+        },
+        {
+          "id": "2202",
+          "percent": 5.5
+        },
+        {
+          "id": "2203",
+          "percent": 5.5
+        },
+        {
+          "id": "2204",
+          "percent": 5.5
+        },
+        {
+          "id": "2302",
+          "percent": 1.0
+        },
+        {
+          "id": "2304",
+          "percent": 1.0
+        },
+        {
+          "id": "2305",
+          "percent": 1.0
+        }
+      ]
+    },
+    {
+      "id": "Relic004",
+      "name": "Ice Shipwreck",
+      "gem": "GemBall401",
+      "level": 4,
+      "totalPercent": 100.0,
+      "pool": [
+        {
+          "id": "2101",
+          "percent": 18.75
+        },
+        {
+          "id": "2102",
+          "percent": 18.75
+        },
+        {
+          "id": "2103",
+          "percent": 18.75
+        },
+        {
+          "id": "2104",
+          "percent": 18.75
+        },
+        {
+          "id": "2201",
+          "percent": 5.5
+        },
+        {
+          "id": "2202",
+          "percent": 5.5
+        },
+        {
+          "id": "2203",
+          "percent": 5.5
+        },
+        {
+          "id": "2204",
+          "percent": 5.5
+        },
+        {
+          "id": "2303",
+          "percent": 1.0
+        },
+        {
+          "id": "2305",
+          "percent": 1.0
+        },
+        {
+          "id": "2306",
+          "percent": 1.0
+        }
+      ]
+    }
+  ],
+  "relics": [
+    {
+      "id": "2501",
+      "name": "Ladon's Skeleton"
+    },
+    {
+      "id": "2901",
+      "name": "Ancient Golden Mural"
+    },
+    {
+      "id": "2401",
+      "name": "Snow Cyclops' Eye Fossil"
+    },
+    {
+      "id": "2402",
+      "name": "Iceborg Monster Wolf"
+    },
+    {
+      "id": "2403",
+      "name": "Oyster Trap"
+    },
+    {
+      "id": "2404",
+      "name": "Narwhal Fossil"
+    },
+    {
+      "id": "2405",
+      "name": "Sledge"
+    },
+    {
+      "id": "2406",
+      "name": "Bear-Eared Seal"
+    },
+    {
+      "id": "1401",
+      "name": "Golden Dragon Scale"
+    },
+    {
+      "id": "1402",
+      "name": "Saber-Toothed Tiger"
+    },
+    {
+      "id": "1403",
+      "name": "Lucky Megaloceros"
+    },
+    {
+      "id": "2407",
+      "name": "Mammoth"
+    },
+    {
+      "id": "2408",
+      "name": "Ironhead Turtle"
+    },
+    {
+      "id": "1301",
+      "name": "Golden Mural"
+    },
+    {
+      "id": "1302",
+      "name": "Four-Legged Shark Fossil"
+    },
+    {
+      "id": "1303",
+      "name": "Medusa Statue"
+    },
+    {
+      "id": "2301",
+      "name": "Miracle Medicine"
+    },
+    {
+      "id": "2302",
+      "name": "Master Key"
+    },
+    {
+      "id": "2303",
+      "name": "Protective Battle Flag"
+    },
+    {
+      "id": "2304",
+      "name": "Giant Serpent Egg"
+    },
+    {
+      "id": "2305",
+      "name": "Spatial Mirror"
+    },
+    {
+      "id": "2306",
+      "name": "Golden Cloak"
+    },
+    {
+      "id": "1201",
+      "name": "Golden Mushroom Statue"
+    },
+    {
+      "id": "1202",
+      "name": "Behemoth Footprint"
+    },
+    {
+      "id": "1203",
+      "name": "Survival of the Fittest Fossil"
+    },
+    {
+      "id": "2201",
+      "name": "Hornstone"
+    },
+    {
+      "id": "2202",
+      "name": "Debt Ledger"
+    },
+    {
+      "id": "2203",
+      "name": "Copper Hot Pot"
+    },
+    {
+      "id": "2204",
+      "name": "Circular Stone Formation"
+    },
+    {
+      "id": "1101",
+      "name": "Anomalocaris Fossil"
+    },
+    {
+      "id": "1102",
+      "name": "Horned Seahorse Fossil"
+    },
+    {
+      "id": "1103",
+      "name": "Giant Trilobite"
+    },
+    {
+      "id": "2101",
+      "name": "Giant Ammonite"
+    },
+    {
+      "id": "2102",
+      "name": "Unfettered Oracle Stone Tablet"
+    },
+    {
+      "id": "2103",
+      "name": "No Entry Sign"
+    },
+    {
+      "id": "2104",
+      "name": "Beast Taming Gloves"
+    },
+    {
+      "id": "25015",
+      "name": "Dragon Leg Bones"
+    },
+    {
+      "id": "25011",
+      "name": "Dragon Skull"
+    },
+    {
+      "id": "25012",
+      "name": "Dragon Spine"
+    },
+    {
+      "id": "25016",
+      "name": "Dragon Tail Bones"
+    },
+    {
+      "id": "25014",
+      "name": "Dragon Tarsal Bones"
+    },
+    {
+      "id": "25013",
+      "name": "Dragon Wing Bones"
+    },
+    {
+      "id": "29012",
+      "name": "Incoming Cataclysm"
+    },
+    {
+      "id": "29013",
+      "name": "Primordial Thermal Circle"
+    },
+    {
+      "id": "29011",
+      "name": "Protection from Northrealm Guardian"
+    }
+  ]
+}

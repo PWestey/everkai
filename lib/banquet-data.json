@@ -1,0 +1,127 @@
+{
+  "provenance": {
+    "url": "https://isekai.wiki/index.php?title=Banquet&oldid=7601",
+    "checked": "2026-09-08",
+    "kind": "manually transcribed community seats/shop rows, not version matched",
+    "itemSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+    "ruleSha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe"
+  },
+  "materials": [
+    {
+      "id": "Item_Ceremony_01",
+      "name": "Cheese"
+    },
+    {
+      "id": "Item_Ceremony_02",
+      "name": "Beer"
+    },
+    {
+      "id": "Item_Ceremony_03",
+      "name": "Steak"
+    },
+    {
+      "id": "Item_Ceremony_04",
+      "name": "Wine"
+    }
+  ],
+  "parties": [
+    {
+      "id": "wine",
+      "name": "Wine Party",
+      "seats": 4,
+      "materials": [
+        "Item_Ceremony_01",
+        "Item_Ceremony_02"
+      ]
+    },
+    {
+      "id": "fine",
+      "name": "Fine Wine Party",
+      "seats": 8,
+      "materials": [
+        "Item_Ceremony_03",
+        "Item_Ceremony_04"
+      ]
+    }
+  ],
+  "shop": [
+    {
+      "id": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "price": 300,
+      "dailyLimit": 10
+    },
+    {
+      "id": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "price": 2,
+      "dailyLimit": 100
+    },
+    {
+      "id": "gift4",
+      "name": "Jewel Necklace",
+      "price": 20,
+      "dailyLimit": 20
+    },
+    {
+      "id": "gift2",
+      "name": "Gemstone Ring",
+      "price": 30,
+      "dailyLimit": 20
+    },
+    {
+      "id": "Item_Strengthen_Equipment_1",
+      "name": "Magic Ore",
+      "price": 30,
+      "dailyLimit": 20
+    },
+    {
+      "id": "Item_Gcoin_YieldPack_1",
+      "name": "Basic Earnings Card",
+      "price": 2,
+      "dailyLimit": 50
+    }
+  ],
+  "rules": [
+    {
+      "id": "Rule:text:Ceremony_1",
+      "en": "- Holding Banquets -"
+    },
+    {
+      "id": "Rule:text:Ceremony_10",
+      "en": "\u25c6A Full Capacity Gift will be randomly sent to Transcenders who attend the banquet after the banquest is full. The gift will be distributed via mails."
+    },
+    {
+      "id": "Rule:text:Ceremony_2",
+      "en": "\u25c6 After gathering enough banquet materials, a banquet can be held. Banquets can also be held after encountering special events and receiving Invitation Cards."
+    },
+    {
+      "id": "Rule:text:Ceremony_3",
+      "en": "\u25c6 Invitation Cards to banquets have a validity period; banquets cannot be held after an Invitation Card has expired."
+    },
+    {
+      "id": "Rule:text:Ceremony_4",
+      "en": "\u25c6 After a banquet ends players will obtain Banquet Coins and Popularity."
+    },
+    {
+      "id": "Rule:text:Ceremony_5",
+      "en": "\u25c6 Specific family members and Fellows can increase the amount of Popularity received from banquets."
+    },
+    {
+      "id": "Rule:text:Ceremony_6",
+      "en": "\u25c6 Holding Dinner Parties will grant 20% increased Popularity."
+    },
+    {
+      "id": "Rule:text:Ceremony_7",
+      "en": "- Attending Banquets -"
+    },
+    {
+      "id": "Rule:text:Ceremony_8",
+      "en": "\u25c6 Players must bring a gift when attending other people's banquets. The higher the quality of the gift, the more Banquet Coins and Popularity will be received."
+    },
+    {
+      "id": "Rule:text:Ceremony_9",
+      "en": "\u25c6 Improving a Transcender's Rank and meeting certain Fellows and family members can increase the Popularity and Banquet Coins obtained from attending banquets."
+    }
+  ]
+}

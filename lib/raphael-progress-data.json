@@ -1,0 +1,347 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/events/raphael-stage/index.html",
+    "sha256": "bab193dbc4ea982dec5daa5455e330dcfb132d8b73dc141832649398aee968c6",
+    "track": "RaphaelStage_01_Task",
+    "kind": "pinned community event rows, not version matched",
+    "checked": "2026-09-08"
+  },
+  "milestones": [
+    {
+      "threshold": 10,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 100
+    },
+    {
+      "threshold": 25,
+      "itemId": "Item_Encourage_CommonLotteryTicket",
+      "name": "Stage Voucher",
+      "quantity": 3
+    },
+    {
+      "threshold": 50,
+      "itemId": "gift1",
+      "name": "Gold Ring",
+      "quantity": 20
+    },
+    {
+      "threshold": 75,
+      "itemId": "Item_Encourage_CommonLotteryTicket",
+      "name": "Stage Voucher",
+      "quantity": 3
+    },
+    {
+      "threshold": 100,
+      "itemId": "Item_Quenching_Wife_1",
+      "name": "Luck Stone",
+      "quantity": 20
+    },
+    {
+      "threshold": 125,
+      "itemId": "Item_Encourage_CommonLotteryTicket",
+      "name": "Stage Voucher",
+      "quantity": 3
+    },
+    {
+      "threshold": 150,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 1
+    },
+    {
+      "threshold": 180,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 200
+    },
+    {
+      "threshold": 210,
+      "itemId": "Item_Encourage_CommonLotteryTicket",
+      "name": "Stage Voucher",
+      "quantity": 3
+    },
+    {
+      "threshold": 240,
+      "itemId": "Item_GetFE_10",
+      "name": "Stamina Potion",
+      "quantity": 10
+    },
+    {
+      "threshold": 270,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 2
+    },
+    {
+      "threshold": 330,
+      "itemId": "Item_Encourage_CommonLotteryTicket",
+      "name": "Stage Voucher",
+      "quantity": 3
+    },
+    {
+      "threshold": 390,
+      "itemId": "Item_Strengthen_Equipment_1",
+      "name": "Magic Ore",
+      "quantity": 25
+    },
+    {
+      "threshold": 450,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 3
+    },
+    {
+      "threshold": 550,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 400
+    },
+    {
+      "threshold": 650,
+      "itemId": "gift2",
+      "name": "Gemstone Ring",
+      "quantity": 30
+    },
+    {
+      "threshold": 800,
+      "itemId": "Item_Breach_ItemPack_1",
+      "name": "Unprocessed Druse",
+      "quantity": 10
+    },
+    {
+      "threshold": 950,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 7
+    },
+    {
+      "threshold": 1200,
+      "itemId": "Item_Strengthen_Equipment_1",
+      "name": "Magic Ore",
+      "quantity": 50
+    },
+    {
+      "threshold": 1450,
+      "itemId": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "quantity": 8
+    },
+    {
+      "threshold": 1700,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 10
+    },
+    {
+      "threshold": 1900,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 600
+    },
+    {
+      "threshold": 2100,
+      "itemId": "Item_Breach_ItemPack_1",
+      "name": "Unprocessed Druse",
+      "quantity": 15
+    },
+    {
+      "threshold": 2350,
+      "itemId": "gift5",
+      "name": "Diamond Ring",
+      "quantity": 20
+    },
+    {
+      "threshold": 2600,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 12
+    },
+    {
+      "threshold": 3000,
+      "itemId": "Item_Box_Weapon_2",
+      "name": "Advanced Artifact Chest",
+      "quantity": 1
+    },
+    {
+      "threshold": 3400,
+      "itemId": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "quantity": 10
+    },
+    {
+      "threshold": 3800,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 15
+    },
+    {
+      "threshold": 4150,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 1000
+    },
+    {
+      "threshold": 4500,
+      "itemId": "Item_Breach_ItemPack_1",
+      "name": "Unprocessed Druse",
+      "quantity": 20
+    },
+    {
+      "threshold": 4900,
+      "itemId": "gift5",
+      "name": "Diamond Ring",
+      "quantity": 30
+    },
+    {
+      "threshold": 5300,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 20
+    },
+    {
+      "threshold": 6000,
+      "itemId": "Item_Box_Weapon_2",
+      "name": "Advanced Artifact Chest",
+      "quantity": 1
+    },
+    {
+      "threshold": 6700,
+      "itemId": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "quantity": 15
+    },
+    {
+      "threshold": 7600,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 30
+    },
+    {
+      "threshold": 8100,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 1500
+    },
+    {
+      "threshold": 8600,
+      "itemId": "Item_Breach_ItemPack_1",
+      "name": "Unprocessed Druse",
+      "quantity": 25
+    },
+    {
+      "threshold": 9200,
+      "itemId": "gift5",
+      "name": "Diamond Ring",
+      "quantity": 40
+    },
+    {
+      "threshold": 9800,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 40
+    },
+    {
+      "threshold": 10800,
+      "itemId": "Item_Box_Weapon_2",
+      "name": "Advanced Artifact Chest",
+      "quantity": 1
+    },
+    {
+      "threshold": 11800,
+      "itemId": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "quantity": 20
+    },
+    {
+      "threshold": 12800,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 60
+    },
+    {
+      "threshold": 13800,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 2000
+    },
+    {
+      "threshold": 14800,
+      "itemId": "Item_Breach_ItemPack_1",
+      "name": "Unprocessed Druse",
+      "quantity": 30
+    },
+    {
+      "threshold": 15900,
+      "itemId": "gift5",
+      "name": "Diamond Ring",
+      "quantity": 60
+    },
+    {
+      "threshold": 17000,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 70
+    },
+    {
+      "threshold": 18600,
+      "itemId": "Item_Box_Weapon_2",
+      "name": "Advanced Artifact Chest",
+      "quantity": 2
+    },
+    {
+      "threshold": 20200,
+      "itemId": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "quantity": 25
+    },
+    {
+      "threshold": 21800,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 80
+    },
+    {
+      "threshold": 23000,
+      "itemId": "Item_GetCE_10",
+      "name": "Focus Candy",
+      "quantity": 3000
+    },
+    {
+      "threshold": 24200,
+      "itemId": "Item_Breach_ItemPack_1",
+      "name": "Unprocessed Druse",
+      "quantity": 40
+    },
+    {
+      "threshold": 25400,
+      "itemId": "gift5",
+      "name": "Diamond Ring",
+      "quantity": 80
+    },
+    {
+      "threshold": 26600,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 80
+    },
+    {
+      "threshold": 29000,
+      "itemId": "Item_Box_Weapon_2",
+      "name": "Advanced Artifact Chest",
+      "quantity": 2
+    },
+    {
+      "threshold": 31400,
+      "itemId": "Item_Talent_Hero_1",
+      "name": "Skill Pearl",
+      "quantity": 30
+    },
+    {
+      "threshold": 33800,
+      "itemId": "Item_Owner_WifePiece_126",
+      "name": "Skogul's Fragment",
+      "quantity": 120
+    }
+  ]
+}

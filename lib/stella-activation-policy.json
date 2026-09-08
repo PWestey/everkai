@@ -1,0 +1,31 @@
+{
+  "id": "private-typed-stella-activation-v1",
+  "version": 1,
+  "kind": "authored",
+  "originalValueVerified": false,
+  "reason": "No independent explicit activation row recovered. Preserve existing v86 chosen benefit without treating ambiguous community typography or extrapolation as evidence.",
+  "owners": {
+    "hero_52": {
+      "cost": 0,
+      "flat": 0,
+      "percent": 2
+    },
+    "hero_54": {
+      "cost": 0,
+      "flat": 0,
+      "percent": 2
+    },
+    "hero_56": {
+      "cost": 0,
+      "flat": 0,
+      "percent": 2
+    },
+    "hero_190": {
+      "cost": 0,
+      "flat": 0,
+      "percent": 0,
+      "activationPolicy": "private-elise-stella-activation-v1"
+    }
+  },
+  "eliseBoundary": "Separate authored free activation grants no Power; original activation unverified. Paid source rows begin at Stella1."
+}

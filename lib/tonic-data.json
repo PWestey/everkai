@@ -1,0 +1,15 @@
+{
+  "id": "Item_GetDE_10",
+  "name": "Succubus Tonic",
+  "ledger": "Lottery_9",
+  "amount": 3,
+  "description": "A potion that replenishes Succubus Energy. Used to obtain 3 Energy.",
+  "sourceKey": "Item:description:Item_GetDE_10",
+  "sourceSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+  "version": "APK1.7702 readable English",
+  "localPolicy": {
+    "reserveCap": 30,
+    "order": "reserve before natural Energy",
+    "receiptLimit": 100000
+  }
+}

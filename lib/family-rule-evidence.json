@@ -1,0 +1,82 @@
+{
+  "source": "UnityDataAssetPack.apk / assets/Android/config/logic/en/translate_v1_c9fd6a1e92f261ca0fa68d0f79049483.mmc",
+  "method": "Unprotected UnityFS TextAsset; no protected gameplay tables read",
+  "records": [
+    {
+      "id": "Item:description:gift1",
+      "en": "An exquisite ring made of pure gold. Give it to a family member to increase their Intimacy by 1."
+    },
+    {
+      "id": "Item:description:gift2",
+      "en": "A ring inlaid with jewels. Give it to a family member to increase their Intimacy by 2."
+    },
+    {
+      "id": "Item:description:gift3",
+      "en": "A romantic necklace made of flowers. Give it to a family member to increase their Blessing Power by 1."
+    },
+    {
+      "id": "Item:description:gift4",
+      "en": "Elegant Jewel Necklace. Give it to a family member to increase their Blessing Power by 2."
+    },
+    {
+      "id": "Item:description:gift5",
+      "en": "A luxurious ring inlaid with diamonds. Give it to a family member to increase their Intimacy by 5."
+    },
+    {
+      "id": "Item:name:gift1",
+      "en": "Gold Ring"
+    },
+    {
+      "id": "Item:name:gift2",
+      "en": "Gemstone Ring"
+    },
+    {
+      "id": "Item:name:gift3",
+      "en": "Flower Necklace"
+    },
+    {
+      "id": "Item:name:gift4",
+      "en": "Jewel Necklace"
+    },
+    {
+      "id": "Item:name:gift5",
+      "en": "Diamond Ring"
+    },
+    {
+      "id": "Rule:text:Wife_10",
+      "en": "\u25c6 Give gifts to family members to improve your Intimacy with them as well as their Blessing Power."
+    },
+    {
+      "id": "Rule:text:Wife_12",
+      "en": "\u25c6 Skills that increase Building Earnings and Fellow Attributes."
+    },
+    {
+      "id": "Rule:text:Wife_14",
+      "en": "\u25c6 Upgrading family relationships improves Pupil Intellect as well as the effects of the relationship."
+    },
+    {
+      "id": "Rule:text:Wife_16",
+      "en": "\u25c6 Dates with family members are divided into Sailing Trip and Airship Journey. Sailing Trip costs Crystals, grants a large amount of Blessing Points, and guarantees 1 child. Airship Journey costs Perfume, grants a large amount of Blessing Points, and guarantees a twin."
+    },
+    {
+      "id": "Rule:text:Wife_18",
+      "en": "\u25c6 Spend Energy to go on a random date with a random family member."
+    },
+    {
+      "id": "Rule:text:Wife_19",
+      "en": "\u25c6 Going on a random date with a family member awards Blessing Points based on the family member's Blessing Power."
+    },
+    {
+      "id": "Rule:text:Wife_2",
+      "en": "\u25c6 This represents the intimacy that exists in a Transcender's family relationships. The higher the Intimacy, the greater Pupil Earnings will be."
+    },
+    {
+      "id": "Rule:text:Wife_20",
+      "en": "\u25c6 Energy recovers over time. The higher the protagonist's Rank, the higher the Energy limit will be. Items can also be used to increase Energy."
+    },
+    {
+      "id": "Rule:text:Wife_4",
+      "en": "\u25c6 This represents the strength of the blessings that a family member can provide. The higher their Blessing Power, the more Blessing Points they will receive after dates."
+    }
+  ]
+}

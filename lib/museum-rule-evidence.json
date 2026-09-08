@@ -1,0 +1,25 @@
+{
+  "source": "Readable APK 1.7702 English translation",
+  "records": [
+    {
+      "id": "Rule:text:MuseumHall1_1",
+      "en": "- Private Collection -"
+    },
+    {
+      "id": "Rule:text:MuseumHall1_2",
+      "en": "\u25c6 Your private collection exhibits the precious gifts you've gathered from various places in this world. Each exhibit embodies affection and friendship, reflecting the profound bonds you've built with others."
+    },
+    {
+      "id": "Rule:text:MuseumHall1_3",
+      "en": "\u25c6 The exhibits in this hall need to be accepted by Bubo to be displayed. After being accepted, these exhibits will bring improvements to Transcenders."
+    },
+    {
+      "id": "Rule:text:MuseumHall1_4",
+      "en": "\u25c6 You can choose on which stands you want to place your exhibits in this hall."
+    },
+    {
+      "id": "Rule:text:MuseumHall1_5",
+      "en": "\u25c6 You can remove the exhibits from the display stands, and they will still provide improvements."
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "Item_ES_information_charm_A": {
+    "sprite": {
+      "id": "nk5b1nupkuk",
+      "name": "Icon_ES_information_charm_A",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas0.png"
+      },
+      "rect": [
+        0,
+        570,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas0.png",
+      "source": "assets/Android/ui/icons/icons_atlas0_b3b1b6c4eb9055521a11efe77dce6fd4.mmc",
+      "sha256": "150e532c57ff1178a9a02a3ba97d683dea1e43f4064566362cc35865190060a4",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "6fe970e08adcdc5e38bce13b0eb34fe15504533dddd16cf0153e703a62a7eea5",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_ES_information_charm_S": {
+    "sprite": {
+      "id": "nk5b1nupkul",
+      "name": "Icon_ES_information_charm_S",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas0.png"
+      },
+      "rect": [
+        280,
+        442,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas0.png",
+      "source": "assets/Android/ui/icons/icons_atlas0_b3b1b6c4eb9055521a11efe77dce6fd4.mmc",
+      "sha256": "150e532c57ff1178a9a02a3ba97d683dea1e43f4064566362cc35865190060a4",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "7384a2eb6c21bffe98b6b2b74322aaf0d7239d207169dc855e68e8606cd8781c",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_ES_information_intimacy_A": {
+    "sprite": {
+      "id": "nk5b1nupkum",
+      "name": "Icon_ES_information_intimacy_A",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas0.png"
+      },
+      "rect": [
+        1836,
+        142,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas0.png",
+      "source": "assets/Android/ui/icons/icons_atlas0_b3b1b6c4eb9055521a11efe77dce6fd4.mmc",
+      "sha256": "150e532c57ff1178a9a02a3ba97d683dea1e43f4064566362cc35865190060a4",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "5667a970ae741a044030aca37c1b53600343601f03a264f17abadc89a226e7f8",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_ES_information_intimacy_S": {
+    "sprite": {
+      "id": "nk5b1nupkun",
+      "name": "Icon_ES_information_intimacy_S",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas0.png"
+      },
+      "rect": [
+        1540,
+        704,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas0.png",
+      "source": "assets/Android/ui/icons/icons_atlas0_b3b1b6c4eb9055521a11efe77dce6fd4.mmc",
+      "sha256": "150e532c57ff1178a9a02a3ba97d683dea1e43f4064566362cc35865190060a4",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "b46907e88ad8806ac36e262b41b98d5bddf43a6bc79d2f8e2248ef37a183d28c",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_Monopoly01_WifeCharm": {
+    "sprite": {
+      "id": "cckw1nupl3t",
+      "name": "Icon_Monopoly01_WifeCharm",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas3.png"
+      },
+      "rect": [
+        1492,
+        700,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas3.png",
+      "source": "assets/Android/ui/icons/icons_atlas3_816f589b9ab3d5c7ccf2bf5e10fd5417.mmc",
+      "sha256": "571f3854d478c75008724ff558d1328dbb2193cc9c59c67dfd1a08f09a3438f9",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "55058fc1f6a4b6f8649ee964afe267c4a63f10121035d0cda4c0ce5cb3a47586",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_Monopoly01_WifeIntimacy": {
+    "sprite": {
+      "id": "cckw1nupl3u",
+      "name": "Icon_Monopoly01_WifeIntimacy",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas3.png"
+      },
+      "rect": [
+        1632,
+        1120,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas3.png",
+      "source": "assets/Android/ui/icons/icons_atlas3_816f589b9ab3d5c7ccf2bf5e10fd5417.mmc",
+      "sha256": "571f3854d478c75008724ff558d1328dbb2193cc9c59c67dfd1a08f09a3438f9",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "20f37952f8edc905dcf48377bd272f02f9cc52688dee85835bb3704c73b1b407",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_Monopoly02_WifeCharm": {
+    "sprite": {
+      "id": "ghx61nupl5f",
+      "name": "Icon_Monopoly02_WifeCharm",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas3.png"
+      },
+      "rect": [
+        1308,
+        280,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas3.png",
+      "source": "assets/Android/ui/icons/icons_atlas3_816f589b9ab3d5c7ccf2bf5e10fd5417.mmc",
+      "sha256": "571f3854d478c75008724ff558d1328dbb2193cc9c59c67dfd1a08f09a3438f9",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "9824ff882a10275a3e7ffb8f186b988bf14f9c16059743a278ec83001559c7de",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_Monopoly02_WifeIntimacy": {
+    "sprite": {
+      "id": "ghx61nupl5g",
+      "name": "Icon_Monopoly02_WifeIntimacy",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas3.png"
+      },
+      "rect": [
+        1212,
+        1166,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas3.png",
+      "source": "assets/Android/ui/icons/icons_atlas3_816f589b9ab3d5c7ccf2bf5e10fd5417.mmc",
+      "sha256": "571f3854d478c75008724ff558d1328dbb2193cc9c59c67dfd1a08f09a3438f9",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "5b76fd62206667a6c0bc6f7ab9a0771f9658598a55742183867a24d104dd219c",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_Monopoly03_WifeCharm": {
+    "sprite": {
+      "id": "129hk1nupm3b",
+      "name": "Icon_Monopoly03_WifeCharm",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas3.png"
+      },
+      "rect": [
+        654,
+        1028,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas3.png",
+      "source": "assets/Android/ui/icons/icons_atlas3_816f589b9ab3d5c7ccf2bf5e10fd5417.mmc",
+      "sha256": "571f3854d478c75008724ff558d1328dbb2193cc9c59c67dfd1a08f09a3438f9",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "5a1196421cb1a935094d7433330092b4991d26b7f805f1854181867a0b1ea783",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  },
+  "Item_Monopoly03_WifeIntimacy": {
+    "sprite": {
+      "id": "129hk1nupm3c",
+      "name": "Icon_Monopoly03_WifeIntimacy",
+      "file": null,
+      "atlas": {
+        "name": null,
+        "file": "atlas3.png"
+      },
+      "rect": [
+        654,
+        888,
+        138,
+        138
+      ],
+      "rotated": 0
+    },
+    "source": {
+      "path": "work/item-icons/Icons_atlas3.png",
+      "source": "assets/Android/ui/icons/icons_atlas3_816f589b9ab3d5c7ccf2bf5e10fd5417.mmc",
+      "sha256": "571f3854d478c75008724ff558d1328dbb2193cc9c59c67dfd1a08f09a3438f9",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "sha256": "7d1582f355d9e31ec764b03dd6632ab2f40d611bb5fa80ce8ddaa31cc806eb2d",
+    "width": 138,
+    "height": 138,
+    "mapping": "Exact identifier suffix; Item_ to Icon_ namespace"
+  }
+}

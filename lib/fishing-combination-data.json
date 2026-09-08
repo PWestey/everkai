@@ -1,0 +1,528 @@
+{
+  "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/index.html",
+  "sha256": "a6dbd32a1a5b0fe5163b10c93c70d6c65e311c6b9d75568cfdfd1da3d6456453",
+  "records": [
+    {
+      "id": "combination:F1102:F1103",
+      "name": "River Overlord!",
+      "members": [
+        "F1102",
+        "F1103"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time educating Inspiring Type Pupils, gain 10% more Fellow EXP.",
+        "Crown Skill": "Each time educating Inspiring Type Pupils, gain 20% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": "inspiring",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F1103:F1302:F1401",
+      "name": "The Carp Family",
+      "members": [
+        "F1103",
+        "F1302",
+        "F1401"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time educating Diligent Type Pupils, gain 10% more Fellow EXP.",
+        "Crown Skill": "Each time educating Diligent Type Pupils, gain 20% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": "diligent",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F1101:F1202:F1501",
+      "name": "Just wanna Lie Down",
+      "members": [
+        "F1101",
+        "F1202",
+        "F1501"
+      ],
+      "descriptions": {
+        "Normal Skill": "All Fellow Aptitude +25",
+        "Crown Skill": "All Fellow Aptitude +50"
+      },
+      "effect": {
+        "kind": "aptitude",
+        "value": 25
+      }
+    },
+    {
+      "id": "combination:F1101:F2201",
+      "name": "Croak Croak Croak",
+      "members": [
+        "F1101",
+        "F2201"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time educating Brave Type Pupils, gain 10% more Fellow EXP.",
+        "Crown Skill": "Each time educating Brave Type Pupils, gain 20% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": "brave",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F2103:F2104",
+      "name": "The Sweetfish Family",
+      "members": [
+        "F2103",
+        "F2104"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time educating Informed Type Pupils, gain 10% more Fellow EXP.",
+        "Crown Skill": "Each time educating Informed Type Pupils, gain 20% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": "informed",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F2102:F2302",
+      "name": "Let's Dance",
+      "members": [
+        "F2102",
+        "F2302"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +15% each time you educate all Pupils",
+        "Crown Skill": "Each time educating Inspiring Type Pupils, gain 30% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": null,
+        "value": 15
+      }
+    },
+    {
+      "id": "combination:F2204:F2205",
+      "name": "Sword & Shield",
+      "members": [
+        "F2204",
+        "F2205"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +15% each time you educate all Pupils",
+        "Crown Skill": "Each time educating Diligent Type Pupils, gain 30% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": null,
+        "value": 15
+      }
+    },
+    {
+      "id": "combination:F2301:F2401",
+      "name": "Strong Bite Force",
+      "members": [
+        "F2301",
+        "F2401"
+      ],
+      "descriptions": {
+        "Normal Skill": "Employee Earnings of Inspiring Building +5",
+        "Crown Skill": "Employee Earnings of Inspiring Building +10"
+      },
+      "effect": {
+        "kind": "employee",
+        "type": "Inspiring",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F2303:F2403",
+      "name": "How to Grind Teeth",
+      "members": [
+        "F2303",
+        "F2403"
+      ],
+      "descriptions": {
+        "Normal Skill": "Employee Earnings of Diligent Building +5",
+        "Crown Skill": "Employee Earnings of Diligent Building +10"
+      },
+      "effect": {
+        "kind": "employee",
+        "type": "Diligent",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F2306:F2404:F2501",
+      "name": "Tyrant & King",
+      "members": [
+        "F2306",
+        "F2404",
+        "F2501"
+      ],
+      "descriptions": {
+        "Normal Skill": "All Fellow Power +25%",
+        "Crown Skill": "All Fellow Power +50%"
+      },
+      "effect": {
+        "kind": "percent",
+        "value": 25
+      }
+    },
+    {
+      "id": "combination:F2501:F2502",
+      "name": "Lord of the King",
+      "members": [
+        "F2501",
+        "F2502"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time dating with a Family Member, that member will gain 10% more Blessing Point.",
+        "Crown Skill": "Each time dating with a Family Member, that member will gain 20% more Blessing Point."
+      },
+      "effect": {
+        "kind": "datePoints",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F2305:F2404:F2504",
+      "name": "Food Chain",
+      "members": [
+        "F2305",
+        "F2404",
+        "F2504"
+      ],
+      "descriptions": {
+        "Normal Skill": "Level limit for all Artifacts +5",
+        "Crown Skill": "Level limit for all Artifacts +10"
+      }
+    },
+    {
+      "id": "combination:F2202:F3102",
+      "name": "The Crab Family",
+      "members": [
+        "F2202",
+        "F3102"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time educating Unfettered Type Pupils, gain 10% more Fellow EXP.",
+        "Crown Skill": "Each time educating Unfettered Type Pupils, gain 20% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": "unfettered",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F3101:F3305",
+      "name": "Good Friends",
+      "members": [
+        "F3101",
+        "F3305"
+      ],
+      "descriptions": {
+        "Normal Skill": "Power of All Fellow during Golemore Excavation +50%",
+        "Crown Skill": "Power of All Fellow during Golemore Excavation +100%"
+      }
+    },
+    {
+      "id": "combination:F3101:F3103:F3304",
+      "name": "Little Creatures",
+      "members": [
+        "F3101",
+        "F3103",
+        "F3304"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +15% each time you educate all Pupils",
+        "Crown Skill": "Each time educating Brave Type Pupils, gain 30% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": null,
+        "value": 15
+      }
+    },
+    {
+      "id": "combination:F3203:F3303",
+      "name": "Fuwa Fuwa",
+      "members": [
+        "F3203",
+        "F3303"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +15% each time you educate all Pupils",
+        "Crown Skill": "Each time educating Informed Type Pupils, gain 30% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": null,
+        "value": 15
+      }
+    },
+    {
+      "id": "combination:F3302:F3404",
+      "name": "Let's Race!",
+      "members": [
+        "F3302",
+        "F3404"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +15% each time you educate all Pupils",
+        "Crown Skill": "Each time educating Unfettered Type Pupils, gain 30% more Fellow EXP."
+      },
+      "effect": {
+        "kind": "educationXP",
+        "type": null,
+        "value": 15
+      }
+    },
+    {
+      "id": "combination:F2503:F3103",
+      "name": "Twinkle Twinkle Little Star",
+      "members": [
+        "F2503",
+        "F3103"
+      ],
+      "descriptions": {
+        "Normal Skill": "Employee Earnings of Brave Building +5",
+        "Crown Skill": "Employee Earnings of Brave Building +10"
+      },
+      "effect": {
+        "kind": "employee",
+        "type": "Brave",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F2503:F3401",
+      "name": "Moth to A Flame",
+      "members": [
+        "F2503",
+        "F3401"
+      ],
+      "descriptions": {
+        "Normal Skill": "Employee Earnings of Informed Building +5",
+        "Crown Skill": "Employee Earnings of Informed Building +10"
+      },
+      "effect": {
+        "kind": "employee",
+        "type": "Informed",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F1301:F2405:F3403",
+      "name": "The Bubble Family",
+      "members": [
+        "F1301",
+        "F2405",
+        "F3403"
+      ],
+      "descriptions": {
+        "Normal Skill": "Employee Earnings of Unfettered Building +5",
+        "Crown Skill": "Employee Earnings of Unfettered Building +10"
+      },
+      "effect": {
+        "kind": "employee",
+        "type": "Unfettered",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F3407:F3503",
+      "name": "Weird Looking",
+      "members": [
+        "F3407",
+        "F3503"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +10% every time a male Pupil is educated",
+        "Crown Skill": "Fellow EXP +20% every time a male Pupil is educated"
+      }
+    },
+    {
+      "id": "combination:F3406:F3502",
+      "name": "Strange Tale & Fairy Tale",
+      "members": [
+        "F3406",
+        "F3502"
+      ],
+      "descriptions": {
+        "Normal Skill": "Fellow EXP +10% every time a female Pupil is educated",
+        "Crown Skill": "Fellow EXP +20% every time a female Pupil is educated"
+      }
+    },
+    {
+      "id": "combination:F3501:F3502:F3505",
+      "name": "Shocking Deep Sea",
+      "members": [
+        "F3501",
+        "F3502",
+        "F3505"
+      ],
+      "descriptions": {
+        "Normal Skill": "All Fellow Power +40%",
+        "Crown Skill": "All Fellow Power +80%"
+      },
+      "effect": {
+        "kind": "percent",
+        "value": 40
+      }
+    },
+    {
+      "id": "combination:F3405:F3503:F3504",
+      "name": "Shark Shark",
+      "members": [
+        "F3405",
+        "F3503",
+        "F3504"
+      ],
+      "descriptions": {
+        "Normal Skill": "Level cap of all buildings +1",
+        "Crown Skill": "Level cap of all buildings +2"
+      }
+    },
+    {
+      "id": "combination:F2504:F3505",
+      "name": "Ancestors",
+      "members": [
+        "F2504",
+        "F3505"
+      ],
+      "descriptions": {
+        "Normal Skill": "Each time dating with a Family Member, that member will gain 10% more Blessing Point.",
+        "Crown Skill": "Each time dating with a Family Member, that member will gain 20% more Blessing Point."
+      },
+      "effect": {
+        "kind": "datePoints",
+        "value": 10
+      }
+    },
+    {
+      "id": "combination:F4101:F4102",
+      "name": "Who Tastes Better",
+      "members": [
+        "F4101",
+        "F4102"
+      ],
+      "descriptions": {
+        "Normal Skill": "All Fellow Aptitude +5",
+        "Crown Skill": "All Fellow Aptitude +10"
+      },
+      "effect": {
+        "kind": "aptitude",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F2303:F4203",
+      "name": "Crybaby",
+      "members": [
+        "F2303",
+        "F4203"
+      ],
+      "descriptions": {
+        "Normal Skill": "All Fellow Power +5%",
+        "Crown Skill": "All Fellow Power +10%"
+      },
+      "effect": {
+        "kind": "percent",
+        "value": 5
+      }
+    },
+    {
+      "id": "combination:F2205:F4305",
+      "name": "Optimist",
+      "members": [
+        "F2205",
+        "F4305"
+      ],
+      "descriptions": {
+        "Normal Skill": "When a Male Pupil graduates, the Pupil's earnings +10%.",
+        "Crown Skill": "When a Male Pupil graduates, the Pupil's earnings +20%."
+      }
+    },
+    {
+      "id": "combination:F3406:F4103:F4301",
+      "name": "Passerby",
+      "members": [
+        "F3406",
+        "F4103",
+        "F4301"
+      ],
+      "descriptions": {
+        "Normal Skill": "When a Female Pupil graduates, the Pupil's earnings +10%.",
+        "Crown Skill": "When a Female Pupil graduates, the Pupil's earnings +20%."
+      }
+    },
+    {
+      "id": "combination:F3303:F4304",
+      "name": "So Pretty",
+      "members": [
+        "F3303",
+        "F4304"
+      ],
+      "descriptions": {
+        "Normal Skill": "Friend's Stamina Potion claiming chances +1",
+        "Crown Skill": "Friend's Stamina Potion claiming chances +2"
+      }
+    },
+    {
+      "id": "combination:F3101:F4405",
+      "name": "Rock-Hard!",
+      "members": [
+        "F3101",
+        "F4405"
+      ],
+      "descriptions": {
+        "Normal Skill": "All Building Earnings +1",
+        "Crown Skill": "All Building Earnings +2"
+      }
+    },
+    {
+      "id": "combination:F4402:F4404",
+      "name": "What's a Fishing Net?",
+      "members": [
+        "F4402",
+        "F4404"
+      ],
+      "descriptions": {
+        "Normal Skill": "Chances of attending Banquets with Gold +1",
+        "Crown Skill": "Chances of attending Banquets with Gold +2"
+      }
+    },
+    {
+      "id": "combination:F3505:F4406",
+      "name": "Workout Endurance",
+      "members": [
+        "F3505",
+        "F4406"
+      ],
+      "descriptions": {
+        "Normal Skill": "Base Aptitude Skill level cap of UR and above Fellows+5",
+        "Crown Skill": "Base Aptitude Skill level cap of UR and above Fellows+10"
+      }
+    },
+    {
+      "id": "combination:F3501:F4503:F4504",
+      "name": "Big Brother",
+      "members": [
+        "F3501",
+        "F4503",
+        "F4504"
+      ],
+      "descriptions": {
+        "Normal Skill": "Level cap of all Fellows' Insight Skills +10",
+        "Crown Skill": "Level cap of all Fellows' Insight Skills +20"
+      }
+    }
+  ],
+  "limits": "Five normal stat, two dating, five typed employee and ten education EXP effects enabled; activation eligibility/permanence and stacking local. Crown and12 other normal effects deferred."
+}

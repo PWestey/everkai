@@ -1,0 +1,298 @@
+{
+  "policyVersion": 1,
+  "provenance": "Recovered APK Medicine/MedicineList and client puzzle/selector; see medicine-discovery-implementation contract for explicit local completion semantics.",
+  "colors": [
+    {
+      "id": "1",
+      "name": "blue"
+    },
+    {
+      "id": "2",
+      "name": "green"
+    },
+    {
+      "id": "3",
+      "name": "yellow"
+    },
+    {
+      "id": "4",
+      "name": "pink"
+    },
+    {
+      "id": "5",
+      "name": "red"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "1001",
+      "name": "Healing Potion",
+      "staff": 1,
+      "formula": [
+        {
+          "id": "1",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "count": 1
+        },
+        {
+          "id": "3",
+          "count": 1
+        },
+        {
+          "id": "4",
+          "count": 1
+        },
+        {
+          "id": "5",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "1002",
+      "name": "Hair Growth Solution",
+      "staff": 36,
+      "formula": [
+        {
+          "id": "1",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "count": 2
+        },
+        {
+          "id": "3",
+          "count": 1
+        },
+        {
+          "id": "4",
+          "count": 1
+        },
+        {
+          "id": "5",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "1003",
+      "name": "Poison Antidote",
+      "staff": 50,
+      "formula": [
+        {
+          "id": "1",
+          "count": 0
+        },
+        {
+          "id": "2",
+          "count": 1
+        },
+        {
+          "id": "3",
+          "count": 2
+        },
+        {
+          "id": "4",
+          "count": 0
+        },
+        {
+          "id": "5",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "1004",
+      "name": "Cooling Potion",
+      "staff": 100,
+      "formula": [
+        {
+          "id": "1",
+          "count": 2
+        },
+        {
+          "id": "2",
+          "count": 1
+        },
+        {
+          "id": "3",
+          "count": 2
+        },
+        {
+          "id": "4",
+          "count": 0
+        },
+        {
+          "id": "5",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "1005",
+      "name": "Antiburn Potion",
+      "staff": 150,
+      "formula": [
+        {
+          "id": "1",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "count": 1
+        },
+        {
+          "id": "3",
+          "count": 1
+        },
+        {
+          "id": "4",
+          "count": 2
+        },
+        {
+          "id": "5",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "1006",
+      "name": "Skin Care Gel",
+      "staff": 200,
+      "formula": [
+        {
+          "id": "1",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "count": 0
+        },
+        {
+          "id": "3",
+          "count": 0
+        },
+        {
+          "id": "4",
+          "count": 2
+        },
+        {
+          "id": "5",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "1007",
+      "name": "Monster Repellent",
+      "staff": 300,
+      "formula": [
+        {
+          "id": "1",
+          "count": 2
+        },
+        {
+          "id": "2",
+          "count": 2
+        },
+        {
+          "id": "3",
+          "count": 0
+        },
+        {
+          "id": "4",
+          "count": 1
+        },
+        {
+          "id": "5",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "1008",
+      "name": "Detergent",
+      "staff": 400,
+      "formula": [
+        {
+          "id": "1",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "count": 2
+        },
+        {
+          "id": "3",
+          "count": 0
+        },
+        {
+          "id": "4",
+          "count": 1
+        },
+        {
+          "id": "5",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "1009",
+      "name": "Sleeping Pills",
+      "staff": 500,
+      "formula": [
+        {
+          "id": "1",
+          "count": 0
+        },
+        {
+          "id": "2",
+          "count": 3
+        },
+        {
+          "id": "3",
+          "count": 1
+        },
+        {
+          "id": "4",
+          "count": 1
+        },
+        {
+          "id": "5",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "1010",
+      "name": "Deodorant",
+      "staff": 600,
+      "formula": [
+        {
+          "id": "1",
+          "count": 0
+        },
+        {
+          "id": "2",
+          "count": 0
+        },
+        {
+          "id": "3",
+          "count": 2
+        },
+        {
+          "id": "4",
+          "count": 2
+        },
+        {
+          "id": "5",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

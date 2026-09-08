@@ -1,0 +1,1970 @@
+[
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "2793527ee25023743a30eb4cacbad09a631033e7175a7a60cf58d3c27f3388ad"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "2d7e3a4afa59fcab902ece43b90a7c5b48fd7d8300578d1f24fbeb89a802001c"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "bf57e7b5d59a6f57d3af9c22da762adf3c33bdf1703a6a0c0d54206460f2295f"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "9deb754dc32289f6db402731ac7a147fba2dab8909bf62fe8377926ac8e68d18"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "f5e02d8e3b16eb269328b477c0ed9eae73fbdfa4df8f0abcabe10547cfb76bb5"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "001f672de2d17a5d09eb1ffaba36ddddb0d8f4b03944e6c51081e0f25cfa457c"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "02be7cec02842dfbc52caf4b903bfa969d9416a79a180b53e30d82587e8015a3"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "b72a5dac1a201f846a19a1b54d2b19369057d78d5e78ad75f3bd20f88dce8e5c"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "6487c630e372523e6ce37cfe2dec909977478cf47e4186cd67390a65fdb85c5d"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "4a603188023c0c1fbbd835db6ba397c31d17378ec47fd63d008f740878b3fffc"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "b1818298e6926df1e3875dba00518bc6e0f976647a6f5aefa6691f42ab005e56"
+  },
+  {
+    "version": 9,
+    "name": "Fenrir",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_4151",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "cbcfeda10a7675ff41882aaa29d622f4a37a98474c35b86ff4db3e05582039cd"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "29426ca45e175813e27d05315d3717d6ebb5c397041ad2e91efcdbbc39f603aa"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "1d4942058a6fccb496b9c113ad59e8cd7465cef630a7506cfd0012da8b1db20d"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "ef79b79599145b062f75b06439278a9070d1fdfcc5549944f69554dffa5a2c29"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "7a086bbc81d064886ea33b19d821bacd2df6635d3c0039d494ccd2e1b7ac7e99"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "fe94bcf88d51b5b613b36967bdeea76d67c6d70559cc941974a181590535edc9"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "438c8b91e31131bb98f4d55c87862c8ee1a3d4520c44fba184ceb0abad6d415d"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "59767b9fe3445f6f0e9119ec36a3c5d751c00a5c16b82817bd10c831782c54aa"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "f7ca61a508bbba6a9ee43925ffcefd0d979b92a0ab377b10e7ee8ab439b8a107"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "168ef57ce57c3d0bf691bb0ac01c48f3c4508c92cda724e595b53036a98bcf00"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "e971fe1987108d3715585f0c174c94107d65856254c9957d79d2f19a2f1e891c"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "9226d8f5978654f188bb015544d98cadb67e9cca5b53d74043e89a0a11ef6a4f"
+  },
+  {
+    "version": 9,
+    "name": "Heartcoon",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_11331",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "a339e1c9989a1a699cfa10b535a7a97eb2c12735c44e150561f91eb073615b1f"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "274640c9dd74e69ee977b81aa09db0911093f014bf1c6ab830bce153591244bf"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "81a04d06216e2d3b8ba6a82b90feebdd16d0d5b959a047073a495c689c4b6c27"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "30e07646d2e2288a3474de1ad82b505f7840444fe63714828ed3f60ea26b88d7"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "a9702ccff1b2d49cf106a92f4207dbc5c7ea987f180b1742fbcd098f8cbe15f5"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "350b0489434a5f5e1267795f5417ad7f4121180c7e12b8f66a1e75fb1f82bb65"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "3442dbe84a8fd30fa212070899b8978288d424cf1d1ec6c21e30449790f318a6"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "c700809fefc8bae8026b276d3363f52690e2476dd51ad6ccb3acc0e59f178a4c"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "e7369ba5706715a9dce12df82b4d0b76941521f05025fc6502428cf4a8d0144b"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "2934c351e7a4516c1548ab174734ec226a208a2700c241fed121e3f2dd1068fa"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "abeb67b87f783c59a54a8232193ec8510ebb43624e0d0d3407489dac75b56452"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "ffb084ce18cd37263f715b4bf8c48c83147606aa803ea164ce308a30fff5dca6"
+  },
+  {
+    "version": 9,
+    "name": "Scarfmink",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31131",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "c585025aa6352c0af99803f07761f4fae80ab0bcb6b5c390a5887d352a7610ca"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "1b4b53a5a4117ecceb0a879b88079d9402fdf32b00ec68123532a14e254f3e06"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "f96164fa32a4886cfda9eb72870b213f9d7da46a8fc88c02864ad5ff58d0eb10"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "3372feb4ff273b7c2eadc36fad27422f551956280ae007e0eb4b5aa68bec3d0c"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "ddbfe97ee62394c98094b1a47202dea0d5de47577e0e54d49d21df8e32afabcd"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "3f0632c45e53a92105d6c3fc0068a0f6d7a61342e02e97ceaf5bd8ba539412fb"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "788f92737ccd6afa1307e01959853f19357b0ed3c71ba953f563591b789a627b"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "1ba7c73df664415cae08228c03fdaf77f94ce5f35680f4c9b0579658ee14f89e"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "22020276250f3112ecef061ac33e1468245c00e396a16e54fe1f1d37ed8de34d"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "0eaf316bc6090e321173df747387b16dc8e57fa4e5f9077d85f7b565821cdc5a"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "2e839d6ea23632ba9b0f1ad35395c0cef753bdb8c944190d41efd7bb56581aa5"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "e8a65507125b0d2aaaded05affa1c60a91102b30db2c7494d1a08b9478b09a00"
+  },
+  {
+    "version": 9,
+    "name": "Icyowl",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_31241",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "8da17119d217f592dbec11cd5500da1a7373d50af67564fb0ef803ee623fbefb"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "ba7ed502b42618d97d1822e0e6f86e4443485b64fecd65ce30da584b593a9c79"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "576b51edf2b7e8022b353fd3f243813899ed27d283a4967f5cd898382f12b0f9"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "91134d2358ff5a4d442a2567109263af253ddc214a24149c8f5ad33a1539f344"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "d9f5de47a4e968889c45d8cb11c20a701184b10cc60705fad8ba49ed12bb01a9"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "3cfa2edf86243f4268c25a6eb0d5debaf14d79a7af9d30947fbcfa30af4b3e2e"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "cae897cc45e28fc4fff24dd99070ab2d24077de5bdaf4c9a313a43231530e505"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "b7064c4b3c7e1140ef91ae11256a444576e26fe735ff03b70c38cb0770750cd8"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "8bec48362f7e2f17ee6e66eab1f8599d2b8bee7188781f55703641b0b10b5b06"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "3424a9107ad205ebce41bb253ed9a93addcf3d01c04d7ded39722a6b1e6778ed"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "c205a56f83ba415e8eec9b35730fb44ffe518866d0a6b0ca7d0779107314d65c"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "e562051557c1f49d1d84ca50fa8c64735b0574bb5b6bc7caf25a9c099dd3cb12"
+  },
+  {
+    "version": 9,
+    "name": "Meteostrich",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_41141",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "b31ccae84cea6a45df17a9a0badc609fa437011ada736b5ec8c46fb2ee03ac86"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "97c9d00c1ba604b02bb77d383c18b67e25a4f92ee1dcbd0a7f46e67aa80958c7"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "fe58d16a261640712e0de35f72f9651436b315fad8b519046e186eebb74f95b1"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "501bf0e601bf2271e1f7b4a7fc2c8e7ce6eb401ceebe9ee570e59b8e70a30453"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "f87341394aceb81b9e2d2c5512a80670880bb4c1eab3d91d04f9727fd84601dd"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "454ba8edc96a237e6c6ef41611c45f5f92ee33b07e228462df9c4d73d8e0f9a9"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "e1b4fc8bd69f5724c966572d1a0b6e057b5ae70505c3c1de37a8e548c09bde37"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "c203a096b74cbd38492b1df21588688d8a5cecfb61e9689ec95465d980a1ee83"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "66e049b6d033c48fa113ee627f28fb235449c2b68a65db2ab2fc70df8aa2c541"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "eee0115d31408262d75848873ba5069abdcdab40e91bcd047edf9f5c5460bec6"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "fbd386aa90aa12f1f4c42b0de7ef6607bd97c2f919a530fc0737a2d0b92af466"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "be38655b7d31d43f32e17fc348e792ede8740d3c9bc3f231f7d6c22957cadf2f"
+  },
+  {
+    "version": 9,
+    "name": "Cactora",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_42331",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "7ca8a83a5ac90fb5d1fae6a6123424a6bbc6f7668c27d14e6bfe05c41cc719b6"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "e238b653b0d835280c9e3a3e2cf4d3e2b5daff6e095b0d3499e2235c1e36ade0"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "412877964d47fb9952d2ac0ca1f1b388524c8876f9758134130638872dc2f222"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "97cb880190a15de2029d37832caaf148f55a1ac14da18cb107ca33aa88b96836"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "e80fde865fb16f65bb4a1ade335dbd5d187f915bd08e9d16a8980bc809a65057"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "a363bd651da26c1b7bff2b1514e60af425d7eb5c147a4ffebd20c11e4cf14a5b"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "fa8149accbefa031fa091795c37cbab6270c5c4cfe5e960b518ae82b315cb248"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "e414a62fe06d6b081e91038cef9d6b895ef083f4191decb128fa92c0640d89f3"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "98f4f49c7c8c00f3d527087b54e79de46272b52d11606b873dcc3f177c9e25b7"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "9df829671acdb2ae97dd128ae0d45a40bd35a64c2c8da27dff1b6e6e33d2c720"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "db9cd7386b5df31dc30cf21a45e27e4874cd4146f34375d85b2dfc9eb93314e2"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "45fd1b37c8c3357539dfe541af19042a4d7399ff8d087fdc4741f5d1b1b4225b"
+  },
+  {
+    "version": 9,
+    "name": "Charcozard",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43131",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "50573ebe008adfad91676d9c8c65f93c839051be32520ded8be695bcf5e9faf4"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "f999eed529f78ccdf4b6d0531493c82c6ac7dba64dae3b12fbed2fe5c5a7cd92"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "d4f1e1ad3773e1e8430673bb2962094f8ddb3783b4691f4926a80f6b9fc7d380"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 1,
+        "stars": 0
+      }
+    ],
+    "sha256": "2d49d50797ed6f23892b15a54c81fe838bd344cad8aeb3fcc945865aa65f26cf"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 1,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "1c6391d46bb2eaa2d95092305e05208d47e4e9761effccbadff5e512f7daad6d"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "589eafc63a4d9d40c55a6ae26df8041d2320842afebe455e23af439f3d0ada66"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "da1bd8d35c8147a84f65e2f34f9c12bfc99ac534e462b0d6aafd6f0950a52163"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "3620cf43c2893cdd0775c6fba5a2a6886bbc5e5b483e630e2cc7dd39d34fc15d"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 150,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "a166ddd043ccd37d889841310b0b5200bd90910b17798fde5eaf289f05868956"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "f5a2b0de60ceb991beff3a598448482d64485df2e9c48e7b6dc9fce3bb857d6a"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 1,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "6685f38b1cf9a086a975edecee90039b34623c8ab94317eeb9ebd0c91206fe18"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 250,
+        "stars": 0
+      }
+    ],
+    "sha256": "ae2b1db12e37ca4995d484132d31aede25d2a94c844ddcb86373fe3ca7378beb"
+  },
+  {
+    "version": 9,
+    "name": "Rhinocryst",
+    "floor": 12,
+    "team": [
+      {
+        "id": "Pet_43141",
+        "level": 250,
+        "stars": 0
+      },
+      {
+        "id": "Pet_1191",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_12141",
+        "level": 50,
+        "stars": 0
+      },
+      {
+        "id": "Pet_8043502",
+        "level": 150,
+        "stars": 0
+      }
+    ],
+    "sha256": "94bbb448fc615dcb622a5ada142ffb09022e24c222a0273b6ec35f10f061261e"
+  }
+]

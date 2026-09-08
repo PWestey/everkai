@@ -1,0 +1,12 @@
+import {useState} from 'react';
+import {Button} from '@/components/ui/button';
+import {NativeSelect,NativeSelectOption} from '@/components/ui/native-select';
+import {familiarNodes,nodeUnlocked,inherentFamiliarBonus} from '@/lib/familiar-nodes.mjs';
+import {fellowById} from '@/lib/catalog.mjs';
+export default function FamiliarNodePanel({game,id,action,locked}:any){
+ const [fellow,setFellow]=useState(Object.keys(game.fellows)[0]),[selection,setSelection]=useState('');
+ const nodes=familiarNodes(id),active=game.familiarNodes?.[id]||[],ready=nodes.filter((n:any)=>nodeUnlocked(game.familiars[id],n)&&!active.includes(n.id)),chosen=ready.find((n:any)=>n.id===selection)||ready[0];
+ const bound=Object.entries(game.familiarBonds||{}).find(([,p])=>p===id)?.[0];
+ const label=(n:any)=>`${n.kind==='level'?'Level':'Star'} ${n.threshold}: ${Object.entries(n.effects).map(([k,v])=>`+${v}${k.includes('ercent')?'%':''} ${k}`).join(', ')}`;
+ return <><p>{active.length} nodes activated · {ready.length} ready</p><p>Bound Fellow: {bound?fellowById(bound)?.name:'None'}</p><NativeSelect aria-label="Fellow to bind" value={fellow} onChange={e=>setFellow(e.target.value)}>{Object.keys(game.fellows).map(f=><NativeSelectOption key={f} value={f}>{fellowById(f)?.name}</NativeSelectOption>)}</NativeSelect><div className="business-actions"><Button disabled={locked||bound===fellow} onClick={()=>action('bindFamiliar',id,fellow)}>Bind Fellow · Free</Button><Button variant="outline" disabled={locked||!bound} onClick={()=>action('unbindFamiliar',id)}>Unbind</Button></div><p>Base binding bonus: {Object.entries(inherentFamiliarBonus(id)).map(([k,v])=>`+${v}${k.includes('ercent')?'%':''} ${k}`).join(', ')}. Applies while bound; activated nodes add to it.</p><p>One Familiar per Fellow. Rebinding moves its activated bonuses with it.</p>{chosen&&<><NativeSelect aria-label="Unlocked node" value={chosen.id} onChange={e=>setSelection(e.target.value)}>{ready.map((n:any)=><NativeSelectOption key={n.id} value={n.id}>{label(n)}</NativeSelectOption>)}</NativeSelect><Button disabled={locked} onClick={()=>action('activateFamiliarNode',id,chosen.id)}>Activate node · Free</Button></>}<Button variant="outline" disabled={locked||!ready.length} onClick={()=>action('activateFamiliarNodes',id)}>Activate all {ready.length} ready · Free</Button><p className="small-note">Level and star nodes use public reference values. Activation and rebinding are free sandbox choices. Power ordering is reconstructed; original activation costs are unresolved.</p></>;
+}

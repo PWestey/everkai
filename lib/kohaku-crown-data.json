@@ -1,0 +1,21 @@
+{
+  "sourceItem": "Item_Fish_F9402_Crown",
+  "fishId": "F9402",
+  "crownSkillId": "Fish_G_9402",
+  "normalSkillId": "Fish_9402",
+  "effect": {
+    "kind": "percent",
+    "type": null,
+    "rarities": [],
+    "initial": 2,
+    "increment": 1
+  },
+  "sourceKeys": [
+    "Item:description:Item_Fish_F9402_Crown",
+    "Item:name:Item_Fish_F9402_Crown",
+    "Item:source:Item_Fish_F9402_Crown"
+  ],
+  "profileSource": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/kohaku/index.html",
+  "profileSha256": "68a1c538d33573aae1fa47175b4eca4291d8021196b01869ffde1af8ffa52d90",
+  "policy": "One free sandbox guaranteed claim; base crown skill only, no original event acquisition or odds claim."
+}

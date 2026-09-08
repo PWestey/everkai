@@ -1,0 +1,314 @@
+{
+  "source": "Readable English translation TextAsset / UnityDataAssetPack.apk; APK source set 1.7702",
+  "datasetSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+  "hallSnapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "hallManifestSha256": "e72970e8d3d6d2cffaf172640529441b6735f463c436a94a2322344c2135e6c6",
+  "records": [
+    {
+      "id": "Collection_24",
+      "name": "Hiemspresent Photo",
+      "description": "A precious photo with guests from another world, commemorating a friendship that connected two worlds. Usable after the museum is unlocked. Each duplicate one will be converted into 1000 Crystals.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_24",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-24"
+    },
+    {
+      "id": "Collection_25",
+      "name": "MomocaMusume",
+      "description": "MomocaMusume",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_25",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-25"
+    },
+    {
+      "id": "Collection_27",
+      "name": "Relaxing Camping",
+      "description": "A model replicating the Slime Forest Campground. It records scenes of enjoying camping with friends from another world. Usable upon unlocking the museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_27",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-27"
+    },
+    {
+      "id": "Collection_28",
+      "name": "Obsidian Compass",
+      "description": "Compass from Master Tongxuan. Channel magic power to find desired items; otherwise, it works as a normal compass for ordinary people. Unlock the museum to use it, granting +2 Aptitude to all Fellows.",
+      "effect": {
+        "stat": "aptitude",
+        "amount": 2
+      },
+      "sourceKey": "Item:description:Collection_28",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-28"
+    },
+    {
+      "id": "Collection_29",
+      "name": "Mystic Cauldron",
+      "description": "Master Tongxuan's alchemy cauldron, infused with rare herbs over the years, emits a unique scent and is believed to promote longevity. Unlock the museum to use it, increasing all Fellows' Power by 2%.",
+      "effect": {
+        "stat": "powerPercent",
+        "amount": 2
+      },
+      "sourceKey": "Item:description:Collection_29",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-29"
+    },
+    {
+      "id": "Collection_30",
+      "name": "5,000,000 Gold Check",
+      "description": "To make up for the losses caused, Beryl and you took on a task together, handing over 5000000 gold coins as compensation. This proves your sincere effort to make amends. Usable after the Museum is unlocked.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_30",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-30"
+    },
+    {
+      "id": "Collection_31",
+      "name": "Signed Poster",
+      "description": "A valuable poster of the Raphael Troupe's hit opera Dance of Light and Shadow, signed in gold by the lead star. Ideal for display. Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_31",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-31"
+    },
+    {
+      "id": "Collection_32",
+      "name": "Medal of 15 Trails",
+      "description": "You traversed fifteen trials, vanquished Heclyse, and claimed this medal—an eternal emblem of valor and glory. Unlock the museum to use it, increasing all Fellows' Power by 2%.",
+      "effect": {
+        "stat": "powerPercent",
+        "amount": 2
+      },
+      "sourceKey": "Item:description:Collection_32",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-32"
+    },
+    {
+      "id": "Collection_33",
+      "name": "2nd Anniversary Cake",
+      "description": "Your village friends made a cake to celebrate with you the village's anniversary. Happy anniversary! And let's celebrate the years that will come! Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_33",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-33"
+    },
+    {
+      "id": "Collection_34",
+      "name": "1000000 Fans Plaque",
+      "description": "After your joint efforts with Rica, you two have finally achieved the milestone of being followed by 1000000 fans. This plaque commemorates such achievement.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_34",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-34"
+    },
+    {
+      "id": "Collection_35",
+      "name": "Valkyrie's Crown",
+      "description": "To thank you for your help, the troupe made a replica of Skogul's crown as a gift for you. Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_35",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-35"
+    },
+    {
+      "id": "Collection_36",
+      "name": "Red Spider Lily",
+      "description": "The forest inhabitants have presented to you the most beautiful Red Spider Lily as a gift, representing their feelings for you. Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_36",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-36"
+    },
+    {
+      "id": "Collection_37",
+      "name": "Electric Ant",
+      "description": "To thank you for your contributions to the Shadow Kingdom, Beelsebub and Myner have created \"electric ants\" with powerful mining abilities, bringing them to you as a gift. Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_37",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-37"
+    },
+    {
+      "id": "Collection_38",
+      "name": "Golden Dumbbells",
+      "description": "Golden dumbbells blessed by the goddess of victory. Training with them will improve your physical fitness effectively! Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_38",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-38"
+    },
+    {
+      "id": "Collection_41",
+      "name": "Dungeon Medal",
+      "description": "A medal commemorating your successful quest through the Pthahnil Dungeon with Bell and the team, and also a testament to your friendship.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_41",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-41"
+    },
+    {
+      "id": "Collection_42",
+      "name": "Gold Poker",
+      "description": "You and Nyar overcame numerous challenges, defeated the malevolent force, and earned the title \"King of Gamblers\"—claiming this status-symbol gold poker.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_42",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-42"
+    },
+    {
+      "id": "Collection_43",
+      "name": "Battle Flag",
+      "description": "As the commander, you led your fellows to the ultimate victory in the siege battle, earning an honorary battle flag. Usable after unlocking the Museum, increasing all Fellows' basic Power by 2%.",
+      "effect": {
+        "stat": "basicPowerPercent",
+        "amount": 2
+      },
+      "sourceKey": "Item:description:Collection_43",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-43"
+    },
+    {
+      "id": "Collection_44",
+      "name": "Crown of the Park",
+      "description": "A special present given to you by Princess Mushimi, and a testament to your bond with her amusement park.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_44",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-44"
+    },
+    {
+      "id": "Collection_45",
+      "name": "Love Mocktail",
+      "description": "A love mocktail, personally crafted by Emiru and forever fresh, stands as a testament to your bond.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_45",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-45"
+    },
+    {
+      "id": "Collection_46",
+      "name": "Wild Motorcycle",
+      "description": "A souvenir Gale brought to the surface— a motorcycle model specially crafted by a renowned Hell artisan, made at her oh‑so‑“sincere” request.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_46",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-46"
+    },
+    {
+      "id": "Collection_47",
+      "name": "Roxy Figure",
+      "description": "A gift from your friend Rudeus from another world, faithfully recreating Roxy's pose when using magic.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_47",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-47"
+    },
+    {
+      "id": "Collection_48",
+      "name": "Championship Statue",
+      "description": "A special award crafted by the Magic Academy for the champion of the Sports Day, depicting Happy's lifelike pose when receiving the medal.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_48",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-48"
+    },
+    {
+      "id": "Collection_49",
+      "name": "Thunder God Helm",
+      "description": "A gift from Thora, imbued with her divine Thunder God power. It can shield the entire Kemonomimi Village from external harm. Usable after unlocking the Museum, increasing all Fellows' basic Power by 2%.",
+      "effect": {
+        "stat": "basicPowerPercent",
+        "amount": 2
+      },
+      "sourceKey": "Item:description:Collection_49",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-49"
+    },
+    {
+      "id": "Collection_50",
+      "name": "Golden Realm Golemore",
+      "description": "To thank you for your help in the Golden Realm, Kuku, with the assistance of Ixchel, personally crafted this golemore model.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_50",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-50"
+    },
+    {
+      "id": "Collection_Anniversary_EN3",
+      "name": "3rd Anniversary Cake",
+      "description": "Your village friends made a cake to celebrate with you the village's anniversary. Happy anniversary! And let's celebrate the years that will come! Usable after unlocking the Museum.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_Anniversary_EN3",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-anniversary-en3"
+    },
+    {
+      "id": "Collection_DemonSlayer",
+      "name": "Statue of Shinobu",
+      "description": "A woman who once briefly crossed paths with a sculptor. Struck by her remarkable beauty and elegance, the sculptor created this statue based only on faint memories of her.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_DemonSlayer",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-demonslayer"
+    },
+    {
+      "id": "Collection_DJDemonCastle",
+      "name": "Bloodline Puppet",
+      "description": "A puppet forged from the lingering power of an ancient bloodline after the disappearance of the True Ancestor, Lailah. Aurora entrusted it to you as a keepsake of that vanished legacy.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_DJDemonCastle",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-djdemoncastle"
+    },
+    {
+      "id": "Collection_GveCoinFight",
+      "name": "Money Tree Miniature",
+      "description": "A money tree miniature gifted to you by Linlang, crafted from real gold coins and jewels. Infused with Linlang's power as the Goddess of Wealth, it blesses the fortune of the entire Kemonomimi Village.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_GveCoinFight",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-gvecoinfight"
+    },
+    {
+      "id": "Collection_GveKingArthur",
+      "name": "Stoneblade",
+      "description": "Excalibur replica. Liona found it so hard to craft that she almost handed you the real one, but thankfully, Philo stopped her. Usable after unlocking the Museum, increasing all Fellows' basic Power by 2%.",
+      "effect": {
+        "stat": "basicPowerPercent",
+        "amount": 2
+      },
+      "sourceKey": "Item:description:Collection_GveKingArthur",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-gvekingarthur"
+    },
+    {
+      "id": "Collection_Konosuba",
+      "name": "Axis Order Goddess's Statue",
+      "description": "A gift from Aqua, your friend from Isekai. She claims it contains her divine power, but it only takes effect if you sign the Axis Order membership pledge.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_Konosuba",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-konosuba"
+    },
+    {
+      "id": "Collection_LycoReco",
+      "name": "Café LycoReco Memorial Statue",
+      "description": "To celebrate the huge success of Chisato and Takina’s sweets stall in the kemonomimi village, everyone built this commemorative statue together.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_LycoReco",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-lycoreco"
+    },
+    {
+      "id": "Collection_TenSuraS2",
+      "name": "Waterfall Camp Model",
+      "description": "A model crafted in the likeness of the Slime Forest's waterfall camp, perfectly capturing the scene of happy camping with friends.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_TenSuraS2",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-tensuras2"
+    }
+  ]
+}

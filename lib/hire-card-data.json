@@ -1,0 +1,27 @@
+{
+  "source": "Readable English Item translation / APK1.7702",
+  "datasetSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+  "records": [
+    {
+      "id": "Item_Building_Recruit_Increase_1",
+      "name": "Basic Hire Card",
+      "description": "Used to hire 1 employee for a random building.",
+      "amount": 1,
+      "sourceKey": "Item:description:Item_Building_Recruit_Increase_1"
+    },
+    {
+      "id": "Item_Building_Recruit_Increase_2",
+      "name": "Intermediate Hire Card",
+      "description": "Used to hire 3 employees for a random building.",
+      "amount": 3,
+      "sourceKey": "Item:description:Item_Building_Recruit_Increase_2"
+    },
+    {
+      "id": "Item_Building_Recruit_Increase_3",
+      "name": "Advanced Hire Card",
+      "description": "Used to hire 5 employees for a random building.",
+      "amount": 5,
+      "sourceKey": "Item:description:Item_Building_Recruit_Increase_3"
+    }
+  ]
+}

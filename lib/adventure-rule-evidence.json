@@ -1,0 +1,113 @@
+{
+  "source": "UnityDataAssetPack.apk / assets/Android/config/logic/en/translate_v1_c9fd6a1e92f261ca0fa68d0f79049483.mmc",
+  "records": [
+    {
+      "id": "Item:description:Item_Talent_Hero_1",
+      "en": "Used to upgrade Fellow Aptitude Skills."
+    },
+    {
+      "id": "Item:description:Item_Weapon_Equipment_1_1",
+      "en": "Aptitude +2. Goblin's favourite wood stick."
+    },
+    {
+      "id": "Item:description:Item_Weapon_Equipment_2_1",
+      "en": "Aptitude +4. An axe owned by every household."
+    },
+    {
+      "id": "Item:description:Item_Weapon_Equipment_3_1",
+      "en": "Aptitude +6. A lantern using white phosphorus."
+    },
+    {
+      "id": "Item:name:Item_Talent_Hero_1",
+      "en": "Skill Pearl"
+    },
+    {
+      "id": "Item:name:Item_Weapon_Equipment_1_1",
+      "en": "Goblin Club"
+    },
+    {
+      "id": "Item:name:Item_Weapon_Equipment_2_1",
+      "en": "Felling Axe"
+    },
+    {
+      "id": "Item:name:Item_Weapon_Equipment_3_1",
+      "en": "Nocturnal Lantern"
+    },
+    {
+      "id": "Rule:text:AutoBattle_4",
+      "en": "\u25c6 The Explore function will automatically stop when the player has run out of Gold, when Fellows don't have enough Power to clear a stage, when the event list is full, or when you exit the game."
+    },
+    {
+      "id": "Rule:text:Hero_1",
+      "en": "- Fellow Level -"
+    },
+    {
+      "id": "Rule:text:Hero_10",
+      "en": "\u25c6 Family members can improve the strength of specified Fellows through Blessing Skills."
+    },
+    {
+      "id": "Rule:text:Hero_11",
+      "en": "- Fellow Talents -"
+    },
+    {
+      "id": "Rule:text:Hero_12",
+      "en": "\u25c6 These are Fellows' natural abilities. Their effects can be improved through Awakening."
+    },
+    {
+      "id": "Rule:text:Hero_13",
+      "en": "- Fellow's Aura -"
+    },
+    {
+      "id": "Rule:text:Hero_14",
+      "en": "\u25c6 Some rare Fellows possess aura abilities that can improve Fellow Power by a percentage."
+    },
+    {
+      "id": "Rule:text:Hero_15",
+      "en": "- Fellow Limit Break -"
+    },
+    {
+      "id": "Rule:text:Hero_16",
+      "en": "\u25c6 This increases the level limit of a Fellow."
+    },
+    {
+      "id": "Rule:text:Hero_17",
+      "en": "- Fellow Awakening -"
+    },
+    {
+      "id": "Rule:text:Hero_18",
+      "en": "\u25c6 An important way to improve the Power of rare Fellows, it can also improve their Talent levels."
+    },
+    {
+      "id": "Rule:text:Hero_2",
+      "en": "\u25c6 The level of Fellows can be improved by spending Fellow EXP."
+    },
+    {
+      "id": "Rule:text:Hero_3",
+      "en": "- Fellow Types -"
+    },
+    {
+      "id": "Rule:text:Hero_4",
+      "en": "\u25c6 Fellows are divided into five different types: Inspiring, Diligent, Brave, Informed, and Unfettered. Some Fellows also have talents that increase the Power of Fellows of the same type."
+    },
+    {
+      "id": "Rule:text:Hero_5",
+      "en": "- Fellow Aptitude -"
+    },
+    {
+      "id": "Rule:text:Hero_6",
+      "en": "\u25c6 Aptitude determines the training potential of Fellows. The rarer a Fellow is, the higher their initial Aptitude will be."
+    },
+    {
+      "id": "Rule:text:Hero_7",
+      "en": "- Fellow Skills -"
+    },
+    {
+      "id": "Rule:text:Hero_8",
+      "en": "\u25c6 Skills improve the effect of Fellows' various attributes. Upgrade skills by consuming Skill Scrolls and other materials."
+    },
+    {
+      "id": "Rule:text:Hero_9",
+      "en": "- Fellow Blessings -"
+    }
+  ]
+}

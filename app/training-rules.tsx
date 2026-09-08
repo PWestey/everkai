@@ -1,0 +1,14 @@
+import {Button} from '@/components/ui/button';
+import {sourceTraining,originalTrainingCost} from '@/lib/training-costs.mjs';
+import {originalProgression,sourceQuality,qualityRule,SOURCE_MATERIALS,sourceAptitudeBonus} from '@/lib/original-progression.mjs';
+import {xpCost,fellowCap} from '@/lib/adventure.mjs';
+const materialNames:Record<string,string>=SOURCE_MATERIALS;
+export default function TrainingRules({game,id,action,locked}:any){
+ const f=game.fellows[id],active=originalProgression(game),q=sourceQuality(game,id),rule=qualityRule(q),p=game.originalProgression;
+ return <details className="rules-note"><summary>Training Rules</summary><p>{active?'APK growth':sourceTraining(game)?'APK EXP costs only':'Classic sandbox growth'}</p>
+ <p>APK growth uses recovered level costs, quality limits and starting Aptitude, plus base Talent training through source level 300 and Family blessings through level 700. Earned upgrades stay yours. Other bonuses and combat rules retain their sandbox behavior.</p>
+ {!active&&<><p>Switching keeps all owned levels, Aptitude gains, materials and receipts. This sandbox starts everyone at Quality 1 with a level limit of 100; further breakthroughs use the original crystals. Old limit tokens stay in your Bag.</p><Button variant="outline" disabled={locked} onClick={()=>action('activateOriginalProgression')}>Use APK growth</Button>{!sourceTraining(game)&&<><p>Or change EXP prices only, keeping the existing level limits and Power.</p>{f.level<fellowCap(f)&&<p>Next level: classic {xpCost(f.level)} EXP · APK {originalTrainingCost(f.level)} EXP.</p>}<Button variant="outline" disabled={locked} onClick={()=>action('activateOriginalTraining')}>Use APK EXP costs</Button></>}</>}
+ {active&&<><p>Quality {q} · level limit {rule.cap} · quality Aptitude +{rule.talent}. Starting and quality Aptitude adjustment: +{sourceAptitudeBonus(game,id)}.</p><p>Existing local breaks: {f.breaks}. Preserved as history; no crystals or past spending were inferred from them.</p>{q<14?<><p>Next: Quality {q+1} · limit {qualityRule(q+1).cap} · quality Aptitude +{qualityRule(q+1).talent}</p>{rule.consume.map((c:any)=><p key={c.id}>{materialNames[c.id]}: {p.stock[c.id]} / {c.count}</p>)}<Button variant="outline" disabled={locked||f.level<rule.cap||rule.consume.some((c:any)=>p.stock[c.id]<c.count)||p.receipts.length>=3000} onClick={()=>action('originalQuality',id)}>Upgrade quality · reach level {rule.cap}</Button></>:<p>Final supported quality · level 750</p>}<Button variant="outline" disabled={locked||p.claims>=10000||Object.values(p.stock).some((n:any)=>n>999900)} onClick={()=>action('claimOriginalSupplies')}>Sandbox supplies · 10M EXP + 100 of each crystal</Button><p>Free supplies and automatic entry at Quality 1 are private sandbox choices.</p></>}
+ {sourceTraining(game)&&<p>{game.trainingCosts.receipts.length} training receipts saved. Earlier purchases keep their original prices.</p>}
+ </details>;
+}

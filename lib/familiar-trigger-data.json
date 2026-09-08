@@ -1,0 +1,12 @@
+{
+  "policyVersion": 1,
+  "minVersion": 8,
+  "id": "Pet_8043502",
+  "skillId": "8043502_3",
+  "stage": 4,
+  "targets": 5,
+  "basisPoints": 7500,
+  "name": "Dream Eater \u00b7 P2",
+  "text": "Basic attacks heal living allies for 75% of Attack.",
+  "provenance": "Recovered APK Pet/PetSkill/PetClass plus pinned community wording; local timing/floor/effective-ATK/self policy in research Dream Eater P2 contract."
+}

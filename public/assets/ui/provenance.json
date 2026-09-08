@@ -1,0 +1,146 @@
+{
+  "fellows": {
+    "id": "cq87mc",
+    "name": "Btn_MainUI_Hero",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      1065,
+      521,
+      140,
+      140
+    ],
+    "rotated": 0
+  },
+  "family": {
+    "id": "cq87md",
+    "name": "Btn_MainUI_Home",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      483,
+      894,
+      140,
+      140
+    ],
+    "rotated": 0
+  },
+  "adventure": {
+    "id": "cq87me",
+    "name": "Btn_MainUI_Stage",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      483,
+      1036,
+      140,
+      140
+    ],
+    "rotated": 0
+  },
+  "supplies": {
+    "id": "vhlb1nupkqz",
+    "name": "Btn_MainUI_Bag",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      634,
+      759,
+      140,
+      140
+    ],
+    "rotated": 0
+  },
+  "businesses": {
+    "id": "cq87mb",
+    "name": "Btn_MainUI_City",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      1439,
+      528,
+      140,
+      140
+    ],
+    "rotated": 0
+  },
+  "school": {
+    "id": "cq87ma",
+    "name": "Btn_MainUI_Capital",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      1439,
+      386,
+      140,
+      140
+    ],
+    "rotated": 0
+  },
+  "journey": {
+    "id": "c03o1nupkxd",
+    "name": "Btn_Task",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      1230,
+      1528,
+      115,
+      115
+    ],
+    "rotated": 0
+  },
+  "close": {
+    "id": "7tnpp8",
+    "name": "Btn_Close_1",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas0.png"
+    },
+    "rect": [
+      1697,
+      1578,
+      64,
+      77
+    ],
+    "rotated": 0
+  },
+  "action": {
+    "id": "m3za1nupjhj",
+    "name": "Btn_Common_1_S",
+    "file": null,
+    "atlas": {
+      "name": null,
+      "file": "atlas2.png"
+    },
+    "rect": [
+      994,
+      209,
+      187,
+      66
+    ],
+    "rotated": 0
+  }
+}

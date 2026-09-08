@@ -1,0 +1,53 @@
+{
+  "source": "UnityDataAssetPack.apk / assets/Android/config/logic/en/translate_v1_c9fd6a1e92f261ca0fa68d0f79049483.mmc",
+  "records": [
+    {
+      "id": "Rule:text:FosterChild_1",
+      "en": "- Pupil Intellect -"
+    },
+    {
+      "id": "Rule:text:FosterChild_10",
+      "en": "\u25c6 Pupils can graduate when their education is completed."
+    },
+    {
+      "id": "Rule:text:FosterChild_11",
+      "en": "\u25c6After graduating, Pupils will receive Earnings and item rewards. Earnings are determined by Caretaker Intimacy, education, Pupil Intellect, and the Pupil\u2019s Type."
+    },
+    {
+      "id": "Rule:text:FosterChild_12",
+      "en": "\u25c6 Certain Fellow Talents and family member Relationship Skills can also improve Earnings."
+    },
+    {
+      "id": "Rule:text:FosterChild_2",
+      "en": "\u25c6 This represents a Pupil's education potential, and is determined by their relationship with their Caretaker. The higher a Pupil's Intellect, the higher their Earnings will be."
+    },
+    {
+      "id": "Rule:text:FosterChild_3",
+      "en": "- Pupil Type -"
+    },
+    {
+      "id": "Rule:text:FosterChild_4",
+      "en": "\u25c6 This represents the natural characteristics of a Pupil."
+    },
+    {
+      "id": "Rule:text:FosterChild_5",
+      "en": "- Pupil Education -"
+    },
+    {
+      "id": "Rule:text:FosterChild_6",
+      "en": "\u25c6 Pupil Education: The higher your Rank, the better the educate methods and the higher Pupil Earnings will be."
+    },
+    {
+      "id": "Rule:text:FosterChild_7",
+      "en": "\u25c6 Pupils consume Education Points when in class. Attending class will increase a Pupil educational progress and earn the player Fellow EXP. The higher the player's Rank, the more experience will be gained."
+    },
+    {
+      "id": "Rule:text:FosterChild_8",
+      "en": "\u25c6 Education Points recover at a rate of 1 point every 5 minutes. Items may also be used to obtain Education Points."
+    },
+    {
+      "id": "Rule:text:FosterChild_9",
+      "en": "- Graduation -"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "classification": "Community active descriptions; not APK1.7702 matched; passive skills and unlock thresholds missing",
+  "skills": [
+    {
+      "minVersion": 3,
+      "targeting": "randomFront",
+      "id": "Pet_11111",
+      "name": "Heavy Battering",
+      "text": "Deals damage equal to [ATK * 300%] to a random enemy in the front row.",
+      "kind": "damage",
+      "percent": 300,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/poundme/index.html",
+      "sha256": "37acd48829684c2687db29f8a846a046ff0140d38bb7d47c36176fe59780599c"
+    },
+    {
+      "minVersion": 2,
+      "targeting": "lowest",
+      "id": "Pet_11141",
+      "name": "Ghost Fire Chase",
+      "text": "Deals damage equal to [ATK * 400%] to the 2 enemies with the lowest HP.",
+      "kind": "damage",
+      "percent": 400,
+      "targets": 2,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/umbranther/index.html",
+      "sha256": "dad759ebe9513cecca7a3ef854d4b014bbffb8df3e62797eceb67e89297da721"
+    },
+    {
+      "minVersion": 2,
+      "targeting": "lowest",
+      "id": "Pet_11321",
+      "name": "Furry Ball",
+      "text": "Restores HP equal to [ATK * 300%] to the ally with the lowest HP.",
+      "kind": "heal",
+      "percent": 300,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/scruffpuppy/index.html",
+      "sha256": "7f03b4ef43b2e2045c27124ac0508bf25f1406de700e8135d369ef58afaa0eb8"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "randomFront",
+      "id": "Pet_12111",
+      "name": "Super Snipping",
+      "text": "Deals damage equal to [ATK * 300%] to a random enemy in the front row.",
+      "kind": "damage",
+      "percent": 300,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/snipme/index.html",
+      "sha256": "b2cc0d71a6b8850e4ee70f48acb8ffa3e4d0f4084beaac21216047b0a86220b5"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "randomFront",
+      "id": "Pet_13111",
+      "name": "Slaps",
+      "text": "Deals damage equal to [ATK * 300%] to a random enemy in the front row.",
+      "kind": "damage",
+      "percent": 300,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/clapme/index.html",
+      "sha256": "86fc6693ba975ed1f686d0f2329bfd6bab67a5d17d6dc3dd8c2f1acfdc816674"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "randomBack",
+      "id": "Pet_22121",
+      "name": "Ultra-Croak",
+      "text": "Deals damage equal to [ATK * 350%] to a random enemy in the back row.",
+      "kind": "damage",
+      "percent": 350,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/chatterfrog/index.html",
+      "sha256": "1c067181e2424db395c4c8a804df902a0501455cedb51816884cb6f648859859"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "random",
+      "id": "Pet_22131",
+      "name": "Web Blast",
+      "text": "Deals damage equal to [ATK * 220%] to 3 random enemies.",
+      "kind": "damage",
+      "percent": 220,
+      "targets": 3,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/arachnidmeow/index.html",
+      "sha256": "c3d47f9f24788a9ec0fe84ba9eeeb88111cbdea7fe0d72ed8cfab618e9bc8ce1"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "front",
+      "id": "Pet_23121",
+      "name": "Mega-Spicy",
+      "text": "Deals damage equal to [ATK * 240%] to all front-row enemies.",
+      "kind": "damage",
+      "percent": 240,
+      "targets": 5,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/flaremouse/index.html",
+      "sha256": "d086fd34f4afe82045fbdcb3942747941cfa1464423eb468bab6825bf65a1277"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "randomFront",
+      "id": "Pet_32121",
+      "name": "Carefree Knocking",
+      "text": "Deals damage equal to [ATK * 400%] to a random enemy in the front row.",
+      "kind": "damage",
+      "percent": 400,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/knockotter/index.html",
+      "sha256": "04beb1f31ffd28481a97cdfee5a1d71e909b9074f838b3877eb50dd9b72fd264"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "front",
+      "id": "Pet_32131",
+      "name": "High-Load Sneeze",
+      "text": "Deals damage equal to [ATK * 450%] to all front-row enemies.",
+      "kind": "damage",
+      "percent": 450,
+      "targets": 5,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/eggypenguin/index.html",
+      "sha256": "7957c2ff166de21171c81af8a159eef9cdda8fd609263bd791e0574f91ece0ba"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "randomBack",
+      "id": "Pet_33121",
+      "name": "Seal Charge",
+      "text": "Deals damage equal to [ATK * 350%] to a random enemy in the back row.",
+      "kind": "damage",
+      "percent": 350,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/roundseal/index.html",
+      "sha256": "e20db8996fdbd527958fd35656b18635788c3355bb578d6a878d07378e3c239b"
+    },
+    {
+      "minVersion": 2,
+      "targeting": "lowest",
+      "id": "Pet_41121",
+      "name": "Boss's Composure",
+      "text": "Deals [ATK*320%] damage to the enemy with the lowest HP.",
+      "kind": "damage",
+      "percent": 320,
+      "targets": 1,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/meerbaws/index.html",
+      "sha256": "e6357e41054afac88cd0e371f387275b5d7685c07f64cc3b6da506f9d462bd4a"
+    },
+    {
+      "minVersion": 3,
+      "targeting": "random",
+      "id": "Pet_43121",
+      "name": "Why Not Dance",
+      "text": "Deals [ATK*160%] damage to 3 random enemies.",
+      "kind": "damage",
+      "percent": 160,
+      "targets": 3,
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/maracanake/index.html",
+      "sha256": "3e585c4017edb016aa25941aaaeef6b3e4786b17029f37c1ce3556e0b6c8844c"
+    }
+  ]
+}

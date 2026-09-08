@@ -1,0 +1,909 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/magic-farm/index.html",
+  "sha256": "f528f27773b67ad4ee46e0f7aab9d8c96551d2fd7c84fc0e2e82aca5d718157c",
+  "plants": [
+    {
+      "id": "Plant1",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 180,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 3600,
+          "amount": 50,
+          "effectText": "All Inspiring Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 7200,
+          "amount": 100,
+          "effectText": "All Inspiring Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant2",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 300,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 3600,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 7200,
+          "amount": 100,
+          "effectText": "All Unfettered Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant3",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 600,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 3600,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 7200,
+          "amount": 100,
+          "effectText": "All Brave Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant4",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 900,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 3600,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 7200,
+          "amount": 100,
+          "effectText": "All Diligent Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant5",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 1800,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 7200,
+          "amount": 30,
+          "effectText": "All Inspiring Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 14400,
+          "amount": 60,
+          "effectText": "All Inspiring Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant6",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 3600,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 7200,
+          "amount": 30,
+          "effectText": "All Informed Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 14400,
+          "amount": 60,
+          "effectText": "All Informed Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant7",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 10800,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 14400,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 21600,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant8",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 10800,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 14400,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 21600,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant9",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant10",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant11",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant12",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Inspiring Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Inspiring Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant13",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant14",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant15",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant16",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant17",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant18",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant19",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant20",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant21",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant22",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant23",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant24",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Inspiring Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Inspiring Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant108",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant1002",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant104",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 10800,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 14400,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 21600,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant103",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Brave Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Brave Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Brave Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant102",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Inspiring Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Inspiring Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant106",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant1003",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Inspiring Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Inspiring Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant1005",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant1004",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Informed Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Informed Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Informed Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant107",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 10800,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 14400,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 21600,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant105",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant110",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 21600,
+          "amount": 10,
+          "effectText": "All Inspiring Building Earnings +100%"
+        },
+        {
+          "level": 2,
+          "seconds": 28800,
+          "amount": 20,
+          "effectText": "All Inspiring Building Earnings +150%"
+        },
+        {
+          "level": 3,
+          "seconds": 43200,
+          "amount": 50,
+          "effectText": "All Inspiring Building Earnings +200%"
+        }
+      ]
+    },
+    {
+      "id": "Plant109",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Unfettered Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Unfettered Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Unfettered Building Earnings +125%"
+        }
+      ]
+    },
+    {
+      "id": "Plant101",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 10800,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +25%"
+        },
+        {
+          "level": 2,
+          "seconds": 14400,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 3,
+          "seconds": 21600,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +75%"
+        }
+      ]
+    },
+    {
+      "id": "Plant1001",
+      "levels": [
+        {
+          "level": 1,
+          "seconds": 14400,
+          "amount": 10,
+          "effectText": "All Diligent Building Earnings +50%"
+        },
+        {
+          "level": 2,
+          "seconds": 21600,
+          "amount": 20,
+          "effectText": "All Diligent Building Earnings +80%"
+        },
+        {
+          "level": 3,
+          "seconds": 28800,
+          "amount": 50,
+          "effectText": "All Diligent Building Earnings +125%"
+        }
+      ]
+    }
+  ],
+  "unknown": [
+    "level-up costs",
+    "level versus star/production gate joins",
+    "effect activation and stacking"
+  ]
+}

@@ -1,0 +1,1665 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "records": [
+    {
+      "id": "F1101",
+      "name": "Aquafrog",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "Inspiring Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "Inspiring Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/aquafrog/index.html",
+      "sha256": "b8942be2f5c1b8127832f735396f2076c57367af69c0f8b86069df80bb21de40"
+    },
+    {
+      "id": "F1102",
+      "name": "Snakehead",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "Diligent Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "Diligent Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/snakehead/index.html",
+      "sha256": "1010c6ef91813dc8973031f0beaaef1ba8def6f46962d2da5a05f6b7af4a113a"
+    },
+    {
+      "id": "F1103",
+      "name": "Carp",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +3K (+1K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +6K (+2K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/carp/index.html",
+      "sha256": "34f82929d1d78014049f9a7ba9f4ba988eafdbaa2981c60b944058f8b4c72845"
+    },
+    {
+      "id": "F1201",
+      "name": "Redeye Bass",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "R Fellow Power +30K (+10K)"
+        ],
+        "Crown Skill": [
+          "R Fellow Aptitude +5 (+2)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/redeye-bass/index.html",
+      "sha256": "4519839a198cfa263d756c748471241ba63bf34b35bdc332caded36dd4803347"
+    },
+    {
+      "id": "F1202",
+      "name": "Lobster",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "Inspiring Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "Inspiring Fellow Power +90K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/lobster/index.html",
+      "sha256": "29a660e1cce0322b93bfb559fe23d77bb8bafc108c22febc2b56306472a06440"
+    },
+    {
+      "id": "F1301",
+      "name": "Bubble Puffer",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SR Fellow Power +40K (+15K)"
+        ],
+        "Crown Skill": [
+          "SR Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/bubble-puffer/index.html",
+      "sha256": "d16360ac452bf7baf3d1ce2be9b4349e15d6966ccffe8b20914de69f9b28a0fd"
+    },
+    {
+      "id": "F1302",
+      "name": "Sun Carp",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Power +50K (+20K)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sun-carp/index.html",
+      "sha256": "ad96d046bbe4ee74967d0ea03b8edb04c8622cb2056b2d363b8b273b7625d901"
+    },
+    {
+      "id": "F1401",
+      "name": "Megakarp",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Inspiring Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Inspiring Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/megakarp/index.html",
+      "sha256": "f251866b327f777bad0f8ceb23d3cf4dfc283c2af10e21ef3c9b3507492cd23a"
+    },
+    {
+      "id": "F1501",
+      "name": "Axolotl",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Inspiring Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Inspiring Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/axolotl/index.html",
+      "sha256": "1261ca5526d334b5bce7e08c00ee917a29e4ecc977d0308c314d6378914af9ec"
+    },
+    {
+      "id": "F2101",
+      "name": "Oyster",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "Brave Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "Brave Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/oyster/index.html",
+      "sha256": "bb1d84b5b5b04bf4c934f7d3f0ac3e7068c4e08d82ea972e5529653bc81ce5f5"
+    },
+    {
+      "id": "F2102",
+      "name": "Guppy",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "Informed Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "Informed Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/guppy/index.html",
+      "sha256": "8e76339736e429c37798b60c155951e5466015f3dfea9f657d4a8d63a7caee04"
+    },
+    {
+      "id": "F2103",
+      "name": "Ayu Sweetfish",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +3K (+1K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +6K (+2K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/ayu-sweetfish/index.html",
+      "sha256": "5458138a0a40e6750d228928297d5a733c5f7304a3cee7e85d283a2e4790f858"
+    },
+    {
+      "id": "F2104",
+      "name": "Blue Sweetfish",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +3K (+1K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +6K (+2K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/blue-sweetfish/index.html",
+      "sha256": "85ec5535c9430ed94ca719f260d34b57968b2d730ec9a15da49246bdd8a507db"
+    },
+    {
+      "id": "F2201",
+      "name": "Horned Frog",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "N Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "N Fellow Power +15% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/horned-frog/index.html",
+      "sha256": "12828df21acfd87c0c432377f99c8fff5d411f6bf6d49cebde4a8c594bfd1783"
+    },
+    {
+      "id": "F2202",
+      "name": "Flower Crab",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "Diligent Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "Diligent Fellow Power +90K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/flower-crab/index.html",
+      "sha256": "eac84624395b7d6a13d0cd8ae1be093389889b5a0d29ec9f31153081029e5186"
+    },
+    {
+      "id": "F2203",
+      "name": "Sturgeon",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "Brave Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "Brave Fellow Power +90K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sturgeon/index.html",
+      "sha256": "fef8e806248f8e7e402601657db02ec6eaaec1cd75aeef50840df55f93792f17"
+    },
+    {
+      "id": "F2204",
+      "name": "Spotted Gar",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +9K (+3K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +20K (+6K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/spotted-gar/index.html",
+      "sha256": "51bad44a44f14e055474f37f2a5afadc809594f08977b91e3fbbd60e823e3c1d"
+    },
+    {
+      "id": "F2205",
+      "name": "Longnose Gar",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +9K (+3K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +20K (+6K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/longnose-gar/index.html",
+      "sha256": "dda9af6cc8597c98cc110a867bb7a52fcbf655e71b91c606ba5483f311919cc5"
+    },
+    {
+      "id": "F2206",
+      "name": "Rainbow Trout",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +9K (+3K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +20K (+6K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/rainbow-trout/index.html",
+      "sha256": "8c4a3ee5265f1b90c30980fc008f1f21ea6df694759886c8101f59bcc3c67e8c"
+    },
+    {
+      "id": "F2301",
+      "name": "Turtoise",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "Power of UR and above quality Fellows +200K (+100K)"
+        ],
+        "Crown Skill": [
+          "Aptitude of UR and above quality Fellows+15 (+6)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/turtoise/index.html",
+      "sha256": "4359fa6031d5342fac7aafa934c4e13db0079aa1c29d7866dca9a9d1ace1d20e"
+    },
+    {
+      "id": "F2302",
+      "name": "Betta",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Power +50K (+20K)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/betta/index.html",
+      "sha256": "580df678568430cdd29396b569dec511e38f6ad98c0b670dc9f812b5ae33cc30"
+    },
+    {
+      "id": "F2303",
+      "name": "Piranha",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "Power of UR and above quality Fellows +200K (+100K)"
+        ],
+        "Crown Skill": [
+          "Aptitude of UR and above quality Fellows+15 (+6)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/piranha/index.html",
+      "sha256": "e55f83f8f7c211144cb0bc5f393c6e72a6b4cce17428dab4d233f268eca2be0c"
+    },
+    {
+      "id": "F2304",
+      "name": "Electric Eel",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "R Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "R Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/electric-eel/index.html",
+      "sha256": "d210269cb48c43ff8af67e9afca116a798fdb8c928d262f495460f4eb528eb27"
+    },
+    {
+      "id": "F2305",
+      "name": "Bigmouth Buffalo",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SR Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SR Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/bigmouth-buffalo/index.html",
+      "sha256": "4d3bcbb8c3979e050b0d66bfa203cb2d2591f4574f086c125b759719088175f6"
+    },
+    {
+      "id": "F2306",
+      "name": "Dorado",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SR Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SR Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/dorado/index.html",
+      "sha256": "b16ecef1b953dbded6003211df7e3a88dd2e4266850f40b008508f08a33c2b38"
+    },
+    {
+      "id": "F2401",
+      "name": "Alligator Snapping Turtle",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Diligent Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Diligent Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/alligator-snapping-turtle/index.html",
+      "sha256": "d86d43be274a40f87334794434c13be789281d8ede4cd3145f2c9b9beacc77c7"
+    },
+    {
+      "id": "F2402",
+      "name": "Hermit Crab",
+      "locations": [
+        "Village River"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Brave Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Brave Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/hermit-crab/index.html",
+      "sha256": "a79ef6c9a54a48f9aa50251c9a0110f3f0eb1063ca6967db50b67438b800bc7a"
+    },
+    {
+      "id": "F2403",
+      "name": "Piranhape",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg River Bank"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +2% (+1%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/piranhape/index.html",
+      "sha256": "ce223ee5ba3effeac682d52af84c7b28962b8eb9ae43feae25a410f03501d2bc"
+    },
+    {
+      "id": "F2404",
+      "name": "Giant Catfish",
+      "locations": [
+        "Drakenberg Lake Center"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Power +5% (+2.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/giant-catfish/index.html",
+      "sha256": "16108b9cede0d07689f6804ddb7ebe7252290bfed3cccd0ec5db1da1c21037fc"
+    },
+    {
+      "id": "F2405",
+      "name": "Colorful Bubble Puffer",
+      "locations": [
+        "Drakenberg Inner Lake",
+        "Drakenberg Lake Center"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Aptitude of UR and above quality Fellows+15 (+6)"
+        ],
+        "Crown Skill": [
+          "Power of UR and above quality Fellows +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/colorful-bubble-puffer/index.html",
+      "sha256": "46b5db4f546b49db6aeab4eb23312e52eb512332069cc3d1c7ce169a05415d96"
+    },
+    {
+      "id": "F2501",
+      "name": "Pirarucu",
+      "locations": [
+        "Drakenberg Inner Lake"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Diligent Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Diligent Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/pirarucu/index.html",
+      "sha256": "55bf20d2dca1cea3cf7c08f80ca0ec7f2c92f622778b1b15dba8899cd74fb41c"
+    },
+    {
+      "id": "F2502",
+      "name": "Gold Pirarucu",
+      "locations": [
+        "Drakenberg Lake Center"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Brave Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Brave Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/gold-pirarucu/index.html",
+      "sha256": "e1a63abb1ec3d78ad7a6ab86117adc1b821917e3ec6e20ab5633d172add2756a"
+    },
+    {
+      "id": "F2503",
+      "name": "Star Anglerfish",
+      "locations": [
+        "Drakenberg River Bank"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Informed Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Informed Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/star-anglerfish/index.html",
+      "sha256": "2af60eb62a5f71b439c602a1d985d3284de1c425bcfd1d8a59a804a3ef5e9914"
+    },
+    {
+      "id": "F2504",
+      "name": "Drakenberg Monster",
+      "locations": [
+        "Drakenberg Lake Center"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Unfettered Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Unfettered Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/drakenberg-monster/index.html",
+      "sha256": "7790daedc29cb0141b8f8586c6d2a6ea94bbb38c013c6b6235ebb6e72a545c1d"
+    },
+    {
+      "id": "F3101",
+      "name": "Sea Anemone",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "Unfettered Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "Unfettered Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sea-anemone/index.html",
+      "sha256": "32c346cd2a288b79a08855898ba499b6439d0fa060f827709d7c8047cf10761d"
+    },
+    {
+      "id": "F3102",
+      "name": "Tubuca Arcuata",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +3K (+1K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +6K (+2K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/tubuca-arcuata/index.html",
+      "sha256": "a542c5ea6ff04265d922f574df0a7f3723c407176413e82306c4402b6311ea8d"
+    },
+    {
+      "id": "F3103",
+      "name": "Starfish",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "N Fellow Power +30K (+10K)"
+        ],
+        "Crown Skill": [
+          "N Fellow Aptitude +3 (+1)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/starfish/index.html",
+      "sha256": "fb5eb25fbd20040915d979572c83a63b45c937b275f377a64593eb8d9997b4e5"
+    },
+    {
+      "id": "F3201",
+      "name": "Giant Oarfish",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "Informed Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "Informed Fellow Power +90K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/giant-oarfish/index.html",
+      "sha256": "669a784fc7d2afaf046a77e3b940d90a4d2fc02151a440aea99c7027d1985452"
+    },
+    {
+      "id": "F3202",
+      "name": "Sardine",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "Unfettered Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "Unfettered Fellow Power +90K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sardine/index.html",
+      "sha256": "ba5516b423ec645dbe84bd3a363046a583126672913773cf938222a95e24bc65"
+    },
+    {
+      "id": "F3203",
+      "name": "Turritopsis",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +9K (+3K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +20K (+6K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/turritopsis/index.html",
+      "sha256": "f3492ded8f26bcb46a683006074cc581a9e33764d7210c90173aa1d33909c8fe"
+    },
+    {
+      "id": "F3204",
+      "name": "Lionfish",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +9K (+3K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +20K (+6K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/lionfish/index.html",
+      "sha256": "bcc0dac088ec876dab11a95a3d6a5b071a8b23f910e50093d5f70d4959897a2c"
+    },
+    {
+      "id": "F3301",
+      "name": "Lighting Lionfish",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "R Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "R Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/lighting-lionfish/index.html",
+      "sha256": "e81ae6b4c83ad1c2a6b590bded598203f74f21d9e61916f0dacd217ebd536664"
+    },
+    {
+      "id": "F3302",
+      "name": "Tuna",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "R Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "R Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/tuna/index.html",
+      "sha256": "5f1b6267660b0ea19096d3f30770ae30947fb871753ef2010bcdfb9fdb93d5b8"
+    },
+    {
+      "id": "F3303",
+      "name": "Turritopsis Dohrnii",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SR Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SR Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/turritopsis-dohrnii/index.html",
+      "sha256": "bf73b626898d05a0dbc54856c588977de2eb1fb0c5b815bcf137c06b681b5ee5"
+    },
+    {
+      "id": "F3304",
+      "name": "Striped Seahorse",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/striped-seahorse/index.html",
+      "sha256": "842b1f71ef3bb99ad9499bc4425335271519a8ef766c4f07150865433da10540"
+    },
+    {
+      "id": "F3305",
+      "name": "Clownfish",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/clownfish/index.html",
+      "sha256": "2371169679e70127f2a8c1c6832e4e2d21a9c7701aa477e02ad22c5ced009b31"
+    },
+    {
+      "id": "F3306",
+      "name": "Mahi-mahi",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach",
+        "Island Coastline"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/mahi-mahi/index.html",
+      "sha256": "579aea2afcee3f5801930a6a608ccaf8c83e0cc8947b0c8f50124e440279606e"
+    },
+    {
+      "id": "F3401",
+      "name": "Anglerfish",
+      "locations": [
+        "Island Coastline"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Informed Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Informed Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/anglerfish/index.html",
+      "sha256": "859dcd96a3aaa970d481a27dde287aab69db80708bf0f2cadcf58cb3ac351df9"
+    },
+    {
+      "id": "F3402",
+      "name": "Nudibranch",
+      "locations": [
+        "Center of the Reef",
+        "Island Coastline"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +2% (+1%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/nudibranch/index.html",
+      "sha256": "ac5bc5c0ce9c5a12450a9088b61e740d3935cda5467e61caac0fd74132b79cdb"
+    },
+    {
+      "id": "F3403",
+      "name": "Bubble Globefish",
+      "locations": [
+        "Center of the Reef"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Power +5% (+2.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/bubble-globefish/index.html",
+      "sha256": "999fb81b0c53e42b420ca7ac84d53b68572df4c85eb049e804275f05d96063cf"
+    },
+    {
+      "id": "F3404",
+      "name": "Marlin",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Aptitude of UR and above quality Fellows+15 (+6)"
+        ],
+        "Crown Skill": [
+          "Power of UR and above quality Fellows +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/marlin/index.html",
+      "sha256": "5be15211dcfd3cfb945c2b5af1808f7f22b9152a1aa4ffa5f91976633d6c87b8"
+    },
+    {
+      "id": "F3405",
+      "name": "Megalodon",
+      "locations": [
+        "Center of the Reef",
+        "Island Coastline"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Unfettered Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Unfettered Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/megalodon/index.html",
+      "sha256": "255c7eefdaa1cb3002b9d399337d09fa0744ddebce0debb107047d943fd02824"
+    },
+    {
+      "id": "F3406",
+      "name": "Dumbo Octopus",
+      "locations": [
+        "Center of the Reef",
+        "Island Beach"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +2% (+1%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/dumbo-octopus/index.html",
+      "sha256": "42539197e20f94c28b34da84d600f8bb446ad49033f8235040f8bcbf0dc6ab21"
+    },
+    {
+      "id": "F3407",
+      "name": "Mola-Mola",
+      "locations": [
+        "Island Beach"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Power +5% (+2.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/mola-mola/index.html",
+      "sha256": "f549ead8aeccea13ffa1d9e580c67b0c97eb18b678db28172743ba0264d68e88"
+    },
+    {
+      "id": "F3501",
+      "name": "Sperm Whale",
+      "locations": [
+        "Center of the Reef"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +2% (+1%)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +3% (+1.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sperm-whale/index.html",
+      "sha256": "2c333cd7b40a7d05b37757a7a75e79d58bd2d7a8fe97d4317cdec66a8d4bcb4e"
+    },
+    {
+      "id": "F3502",
+      "name": "Giant Squid",
+      "locations": [
+        "Center of the Reef"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +2% (+1%)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +3% (+1.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/giant-squid/index.html",
+      "sha256": "7d46e0e75db410e2a493d32841297df767199f34ca521113a343ac8e8d999282"
+    },
+    {
+      "id": "F3503",
+      "name": "Helicoprion",
+      "locations": [
+        "Island Coastline"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +2% (+1%)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +3% (+1.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/helicoprion/index.html",
+      "sha256": "489fbfa00cd43945e3eb692499350a3b2e22895f10dd4bd1faf7b7e7b44032d4"
+    },
+    {
+      "id": "F3504",
+      "name": "Smooth Hammerhead",
+      "locations": [
+        "Island Beach"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +2% (+1%)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +3% (+1.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/smooth-hammerhead/index.html",
+      "sha256": "e0498c29fa53f3527c370de11b1661a72993f73455ef77f3bc0267cda7d8c686"
+    },
+    {
+      "id": "F3505",
+      "name": "Mosasaurs",
+      "locations": [
+        "Island Coastline"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +2% (+1%)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +3% (+1.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/mosasaurs/index.html",
+      "sha256": "5e5ede4042a5879a4278df9ad14cc2831b6fa6ef8748314592e118365b017ac7"
+    },
+    {
+      "id": "F3506",
+      "name": "Crystal Shell",
+      "locations": [
+        "Foggy Seas"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Earn Crystals Daily"
+        ],
+        "Crown Skill": [
+          "No description mapped."
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/crystal-shell/index.html",
+      "sha256": "9f9747f037d249c68b391f03f89f10cd71c39b1b7cd2ab5f5cddf86efb7a3bcb"
+    },
+    {
+      "id": "F4101",
+      "name": "Capelin",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/capelin/index.html",
+      "sha256": "922b3c8e19dbc574aab28f11ded1235a3cfc1596b6a744b940d771a4b20fb3b9"
+    },
+    {
+      "id": "F4102",
+      "name": "Northrealm Grayling",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +15K (+5K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +30K (+10K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/northrealm-grayling/index.html",
+      "sha256": "b9b0137c091b0fe0cedc10402ab127a76869904a26572f1a6892533e0dc08eb3"
+    },
+    {
+      "id": "F4103",
+      "name": "Sea Pig",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "N",
+      "skills": {
+        "Normal Skill": [
+          "N Fellow Power +150K (+50K)"
+        ],
+        "Crown Skill": [
+          "N Fellow Aptitude +3 (+1)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sea-pig/index.html",
+      "sha256": "271e79bb1fb86b8feb77747293c97fc31e55e895c40de5e1928b849f57211625"
+    },
+    {
+      "id": "F4201",
+      "name": "Greyback Spiny Shark",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "R Fellow Power +150K (+50K)"
+        ],
+        "Crown Skill": [
+          "R Fellow Aptitude +5 (+2)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/greyback-spiny-shark/index.html",
+      "sha256": "277ebff1345fab86152d4b48922e57f8de070480621433b18b90d6e00eec5fd5"
+    },
+    {
+      "id": "F4202",
+      "name": "Lumpfish",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "N Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "N Fellow Power +15% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/lumpfish/index.html",
+      "sha256": "628b0ae0a8895b98760adba79d128d71787b62d99a2115526858d83a0ec3c9a7"
+    },
+    {
+      "id": "F4203",
+      "name": "Patagonian Toothfish",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +100K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/patagonian-toothfish/index.html",
+      "sha256": "28115d6226df451496c451db457556bd08c45ee704a33f6a4d77e7a92e7e407f"
+    },
+    {
+      "id": "F4204",
+      "name": "Northern Pike",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "R",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Power +45K (+15K)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +100K (+30K)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/northern-pike/index.html",
+      "sha256": "1174cce78d55755a821c8e675014b47f633bf05ac2f87a8c150663c437d7ffc5"
+    },
+    {
+      "id": "F4301",
+      "name": "Giant Isopod",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SR Fellow Power +200K (+75K)"
+        ],
+        "Crown Skill": [
+          "SR Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/giant-isopod/index.html",
+      "sha256": "602db1530ffc6b455682612c710f7a7cb1273a19afb3f7e5a2f3c669cfb6015a"
+    },
+    {
+      "id": "F4302",
+      "name": "Iceshell Fish",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Power +250K (+100K)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/iceshell-fish/index.html",
+      "sha256": "53757cf5e4ebaf90731c3cee7e61fdd3c9da2662ffe8c8a317fc59a91ee08f77"
+    },
+    {
+      "id": "F4303",
+      "name": "Crocodile Icefish",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "Power of UR and above quality Fellows +1M (+500K)"
+        ],
+        "Crown Skill": [
+          "Aptitude of UR and above quality Fellows+15 (+6)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/crocodile-icefish/index.html",
+      "sha256": "9107a903ec4f453c919bcc328b16d82f9369ca09f31be3dfed6f664847df190b"
+    },
+    {
+      "id": "F4304",
+      "name": "Sea Lily",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "R Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "R Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sea-lily/index.html",
+      "sha256": "7105273e2568fcf1fe0fbc7bf754600d5034e582cd0312d737512a41455460ce"
+    },
+    {
+      "id": "F4305",
+      "name": "Long-Nosed Chimaera",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SR Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SR Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/long-nosed-chimaera/index.html",
+      "sha256": "b8dc3a099b366d231d5f829b5ababa0a05cced35cc41b2763752f153ac04a186"
+    },
+    {
+      "id": "F4306",
+      "name": "Crystal Icefish",
+      "locations": [
+        "Crushed Ice",
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +5 (+2)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/crystal-icefish/index.html",
+      "sha256": "045419e841c7487e9f3b19de2fe5e610cdf8d5e89b0b7b18758aba131b63f90c"
+    },
+    {
+      "id": "F4401",
+      "name": "Bonefish",
+      "locations": [
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Inspiring Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Inspiring Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/bonefish/index.html",
+      "sha256": "9f85bec13e8e4df8d4902542abef121f5487a9fc7726690af59e231ec0986467"
+    },
+    {
+      "id": "F4402",
+      "name": "Comb Jelly",
+      "locations": [
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Diligent Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Diligent Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/comb-jelly/index.html",
+      "sha256": "41f67a32078de7f68a37ef3847b08b22b2e0f6b45d9807e71778c66b1fa11b7a"
+    },
+    {
+      "id": "F4403",
+      "name": "Sea Butterfly",
+      "locations": [
+        "Crushed Ice"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Brave Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Brave Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sea-butterfly/index.html",
+      "sha256": "7115569c3835dab87e3609895b46daf47e66873b6a3168c17a806cddb8dbbd5f"
+    },
+    {
+      "id": "F4404",
+      "name": "Bloodbelly Comb Jelly",
+      "locations": [
+        "Glacier Bay",
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Informed Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Informed Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/bloodbelly-comb-jelly/index.html",
+      "sha256": "3a5081197da7730b7e0b70d4c05688667c4d56c2073f96c4de513edc8118a577"
+    },
+    {
+      "id": "F4405",
+      "name": "Goddess Sponge",
+      "locations": [
+        "Crushed Ice"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Unfettered Fellow Aptitude +10 (+5)"
+        ],
+        "Crown Skill": [
+          "Unfettered Fellow Power +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/goddess-sponge/index.html",
+      "sha256": "3a799365438cd5e8c520b66ac24dc009f53f67f80e8780dacccdb661ac138e14"
+    },
+    {
+      "id": "F4406",
+      "name": "Northrealm Tylosaurus",
+      "locations": [
+        "Crushed Ice"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "SSR/SSR+ Fellow Aptitude +8 (+3)"
+        ],
+        "Crown Skill": [
+          "SSR/SSR+ Fellow Power +5% (+2.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/northrealm-tylosaurus/index.html",
+      "sha256": "657cb4a031d89f1521654e9ad07fab1215cfc51ae61b65a2875cddb183f07afe"
+    },
+    {
+      "id": "F4407",
+      "name": "Ghost Jellyfish",
+      "locations": [
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "Aptitude of UR and above quality Fellows+15 (+6)"
+        ],
+        "Crown Skill": [
+          "Power of UR and above quality Fellows +10% (+5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/ghost-jellyfish/index.html",
+      "sha256": "14c68499a1ac1b1586dd9046922384583c6cdc62d173f8011c7e8ea0876c579f"
+    },
+    {
+      "id": "F4501",
+      "name": "Barreleye Fish",
+      "locations": [
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Inspiring Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Inspiring Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/barreleye-fish/index.html",
+      "sha256": "55be2c3096e3e1d3b1624670120d6d9032bec2deff49084d08f133709799b945"
+    },
+    {
+      "id": "F4502",
+      "name": "Snow Leopard Fish",
+      "locations": [
+        "Unfrozen Sea Cave"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Diligent Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Diligent Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/snow-leopard-fish/index.html",
+      "sha256": "93c09ce886060b283126564e2ff49180e15fdad3f07d9b98089711a719129c25"
+    },
+    {
+      "id": "F4503",
+      "name": "Narwhal",
+      "locations": [
+        "Glacier Bay"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Brave Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Brave Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/narwhal/index.html",
+      "sha256": "e4249bbd448925609d106a5020d687a1c5f51b92c64b6fb11df70f28fb34f897"
+    },
+    {
+      "id": "F4504",
+      "name": "Fin Whale",
+      "locations": [
+        "Glacier Bay"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Informed Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Informed Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/fin-whale/index.html",
+      "sha256": "c994e92830bc1fb1a4954047ef37fe5f20cd3e0d3174c3feead5937b4f1e1a13"
+    },
+    {
+      "id": "F4505",
+      "name": "Sea Angel",
+      "locations": [
+        "Crushed Ice"
+      ],
+      "rarity": "UR",
+      "skills": {
+        "Normal Skill": [
+          "Unfettered Fellow Power +10% (+5%)"
+        ],
+        "Crown Skill": [
+          "Unfettered Fellow Power +15% (+7.5%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/sea-angel/index.html",
+      "sha256": "3056e43b1fb15656fb307821e11fe5a9e633b78081e98ae15a0ea0e7eb4e40d4"
+    },
+    {
+      "id": "F9401",
+      "name": "Angelfish",
+      "locations": [
+        "Event"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +2% (+1%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/angelfish/index.html",
+      "sha256": "323b6badd0a4d9655514b1e27f0fbb9fae1ad3ef0b75ba1c1d556f1722e5dc9e"
+    },
+    {
+      "id": "F9402",
+      "name": "Kohaku",
+      "locations": [
+        "Event"
+      ],
+      "rarity": "SSR",
+      "skills": {
+        "Normal Skill": [
+          "All Fellow Aptitude +3 (+1)"
+        ],
+        "Crown Skill": [
+          "All Fellow Power +2% (+1%)"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/kohaku/index.html",
+      "sha256": "68a1c538d33573aae1fa47175b4eca4291d8021196b01869ffde1af8ffa52d90"
+    }
+  ]
+}

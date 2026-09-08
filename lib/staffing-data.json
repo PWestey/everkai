@@ -1,0 +1,2817 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Recovered APK1.7702 configs/decompiled client; see research staffing-cost-audit and paid-staffing-contract. No server authority claimed.",
+  "material": "Item_StarUp_Building_1_1",
+  "bands": [
+    {
+      "_id": "1",
+      "staffCount": [
+        0,
+        5
+      ],
+      "consumeCoefficient": "25000000",
+      "consumeCoefficientTotal": "24414"
+    },
+    {
+      "_id": "2",
+      "staffCount": [
+        6,
+        10
+      ],
+      "consumeCoefficient": "20000000",
+      "consumeCoefficientTotal": "60750"
+    },
+    {
+      "_id": "3",
+      "staffCount": [
+        11,
+        20
+      ],
+      "consumeCoefficient": "18000000",
+      "consumeCoefficientTotal": "317951"
+    },
+    {
+      "_id": "4",
+      "staffCount": [
+        21,
+        35
+      ],
+      "consumeCoefficient": "10000000",
+      "consumeCoefficientTotal": "1328144"
+    },
+    {
+      "_id": "5",
+      "staffCount": [
+        36,
+        60
+      ],
+      "consumeCoefficient": "2500000",
+      "consumeCoefficientTotal": "2462246"
+    },
+    {
+      "_id": "6",
+      "staffCount": [
+        61,
+        90
+      ],
+      "consumeCoefficient": "5000000",
+      "consumeCoefficientTotal": "10641582"
+    },
+    {
+      "_id": "7",
+      "staffCount": [
+        91,
+        125
+      ],
+      "consumeCoefficient": "1700000",
+      "consumeCoefficientTotal": "19197414"
+    },
+    {
+      "_id": "8",
+      "staffCount": [
+        126,
+        165
+      ],
+      "consumeCoefficient": "1500000",
+      "consumeCoefficientTotal": "34824109"
+    },
+    {
+      "_id": "9",
+      "staffCount": [
+        166,
+        210
+      ],
+      "consumeCoefficient": "1550000",
+      "consumeCoefficientTotal": "69578571"
+    },
+    {
+      "_id": "10",
+      "staffCount": [
+        211,
+        260
+      ],
+      "consumeCoefficient": "1500000",
+      "consumeCoefficientTotal": "146476807"
+    },
+    {
+      "_id": "11",
+      "staffCount": [
+        261,
+        315
+      ],
+      "consumeCoefficient": "1300000",
+      "consumeCoefficientTotal": "298051006"
+    },
+    {
+      "_id": "12",
+      "staffCount": [
+        316,
+        375
+      ],
+      "consumeCoefficient": "900000",
+      "consumeCoefficientTotal": "510233518"
+    },
+    {
+      "_id": "13",
+      "staffCount": [
+        376,
+        440
+      ],
+      "consumeCoefficient": "600000",
+      "consumeCoefficientTotal": "752747508"
+    },
+    {
+      "_id": "14",
+      "staffCount": [
+        441,
+        510
+      ],
+      "consumeCoefficient": "800000",
+      "consumeCoefficientTotal": "1314899348"
+    },
+    {
+      "_id": "15",
+      "staffCount": [
+        511,
+        585
+      ],
+      "consumeCoefficient": "700000",
+      "consumeCoefficientTotal": "2218761159"
+    },
+    {
+      "_id": "16",
+      "staffCount": [
+        586,
+        665
+      ],
+      "consumeCoefficient": "650000",
+      "consumeCoefficientTotal": "3725743739"
+    },
+    {
+      "_id": "17",
+      "staffCount": [
+        666,
+        750
+      ],
+      "consumeCoefficient": "500000",
+      "consumeCoefficientTotal": "5692936433"
+    },
+    {
+      "_id": "18",
+      "staffCount": [
+        751,
+        840
+      ],
+      "consumeCoefficient": "500000",
+      "consumeCoefficientTotal": "8918554215"
+    },
+    {
+      "_id": "19",
+      "staffCount": [
+        841,
+        935
+      ],
+      "consumeCoefficient": "400000",
+      "consumeCoefficientTotal": "13031791420"
+    },
+    {
+      "_id": "20",
+      "staffCount": [
+        936,
+        1035
+      ],
+      "consumeCoefficient": "400000",
+      "consumeCoefficientTotal": "19425188290"
+    },
+    {
+      "_id": "21",
+      "staffCount": [
+        1036,
+        1140
+      ],
+      "consumeCoefficient": "450000",
+      "consumeCoefficientTotal": "31124979197"
+    },
+    {
+      "_id": "22",
+      "staffCount": [
+        1141,
+        1250
+      ],
+      "consumeCoefficient": "370000",
+      "consumeCoefficientTotal": "46724818771"
+    },
+    {
+      "_id": "23",
+      "staffCount": [
+        1251,
+        1365
+      ],
+      "consumeCoefficient": "360000",
+      "consumeCoefficientTotal": "70633908535"
+    },
+    {
+      "_id": "24",
+      "staffCount": [
+        1366,
+        1485
+      ],
+      "consumeCoefficient": "400000",
+      "consumeCoefficientTotal": "114038445331"
+    },
+    {
+      "_id": "25",
+      "staffCount": [
+        1486,
+        1610
+      ],
+      "consumeCoefficient": "150000",
+      "consumeCoefficientTotal": "137541768913"
+    },
+    {
+      "_id": "26",
+      "staffCount": [
+        1611,
+        1740
+      ],
+      "consumeCoefficient": "400000",
+      "consumeCoefficientTotal": "231111434305"
+    },
+    {
+      "_id": "27",
+      "staffCount": [
+        1741,
+        1875
+      ],
+      "consumeCoefficient": "200000",
+      "consumeCoefficientTotal": "302663534366"
+    },
+    {
+      "_id": "28",
+      "staffCount": [
+        1876,
+        2015
+      ],
+      "consumeCoefficient": "240000",
+      "consumeCoefficientTotal": "423365751871"
+    },
+    {
+      "_id": "29",
+      "staffCount": [
+        2016,
+        2160
+      ],
+      "consumeCoefficient": "200000",
+      "consumeCoefficientTotal": "565616644499"
+    },
+    {
+      "_id": "30",
+      "staffCount": [
+        2161,
+        2310
+      ],
+      "consumeCoefficient": "250000",
+      "consumeCoefficientTotal": "822576286095"
+    },
+    {
+      "_id": "31",
+      "staffCount": [
+        2311,
+        2485
+      ],
+      "consumeCoefficient": "200000",
+      "consumeCoefficientTotal": "1166906719454"
+    },
+    {
+      "_id": "32",
+      "staffCount": [
+        2486,
+        2685
+      ],
+      "consumeCoefficient": "200000",
+      "consumeCoefficientTotal": "1740091300050"
+    },
+    {
+      "_id": "33",
+      "staffCount": [
+        2686,
+        2910
+      ],
+      "consumeCoefficient": "80000",
+      "consumeCoefficientTotal": "2083063295290"
+    },
+    {
+      "_id": "34",
+      "staffCount": [
+        2911,
+        3160
+      ],
+      "consumeCoefficient": "180000",
+      "consumeCoefficientTotal": "3265618328027"
+    },
+    {
+      "_id": "35",
+      "staffCount": [
+        3161,
+        3435
+      ],
+      "consumeCoefficient": "80000",
+      "consumeCoefficientTotal": "4068960436721"
+    },
+    {
+      "_id": "36",
+      "staffCount": [
+        3436,
+        3735
+      ],
+      "consumeCoefficient": "120000",
+      "consumeCoefficientTotal": "5830820305821"
+    },
+    {
+      "_id": "37",
+      "staffCount": [
+        3736,
+        4085
+      ],
+      "consumeCoefficient": "100000",
+      "consumeCoefficientTotal": "8272767849899"
+    },
+    {
+      "_id": "38",
+      "staffCount": [
+        4086,
+        4485
+      ],
+      "consumeCoefficient": "80000",
+      "consumeCoefficientTotal": "11391601329311"
+    },
+    {
+      "_id": "39",
+      "staffCount": [
+        4486,
+        4935
+      ],
+      "consumeCoefficient": "80000",
+      "consumeCoefficientTotal": "16325303865036"
+    },
+    {
+      "_id": "40",
+      "staffCount": [
+        4936,
+        5435
+      ],
+      "consumeCoefficient": "100000",
+      "consumeCoefficientTotal": "26908998360739"
+    },
+    {
+      "_id": "41",
+      "staffCount": [
+        5436,
+        5985
+      ],
+      "consumeCoefficient": "70000",
+      "consumeCoefficientTotal": "39540082191270"
+    },
+    {
+      "_id": "42",
+      "staffCount": [
+        5986,
+        6585
+      ],
+      "consumeCoefficient": "80000",
+      "consumeCoefficientTotal": "63888864804653"
+    },
+    {
+      "_id": "43",
+      "staffCount": [
+        6586,
+        7235
+      ],
+      "consumeCoefficient": "70000",
+      "consumeCoefficientTotal": "100682462045653"
+    },
+    {
+      "_id": "44",
+      "staffCount": [
+        7236,
+        7935
+      ],
+      "consumeCoefficient": "70000",
+      "consumeCoefficientTotal": "164313778058506"
+    },
+    {
+      "_id": "45",
+      "staffCount": [
+        7936,
+        8685
+      ],
+      "consumeCoefficient": "50000",
+      "consumeCoefficientTotal": "239060115697321"
+    },
+    {
+      "_id": "46",
+      "staffCount": [
+        8686,
+        9485
+      ],
+      "consumeCoefficient": "60000",
+      "consumeCoefficientTotal": "386273334943731"
+    },
+    {
+      "_id": "47",
+      "staffCount": [
+        9486,
+        10335
+      ],
+      "consumeCoefficient": "50000",
+      "consumeCoefficientTotal": "590766438462942"
+    },
+    {
+      "_id": "48",
+      "staffCount": [
+        10336,
+        11235
+      ],
+      "consumeCoefficient": "40000",
+      "consumeCoefficientTotal": "846686459605088"
+    },
+    {
+      "_id": "49",
+      "staffCount": [
+        11236,
+        12185
+      ],
+      "consumeCoefficient": "25000",
+      "consumeCoefficientTotal": "1073598430779250"
+    },
+    {
+      "_id": "50",
+      "staffCount": [
+        12186,
+        13185
+      ],
+      "consumeCoefficient": "30000",
+      "consumeCoefficientTotal": "1449143161865830"
+    },
+    {
+      "_id": "51",
+      "staffCount": [
+        13186,
+        14235
+      ],
+      "consumeCoefficient": "35000",
+      "consumeCoefficientTotal": "2092562725734260"
+    },
+    {
+      "_id": "52",
+      "staffCount": [
+        14236,
+        15335
+      ],
+      "consumeCoefficient": "30000",
+      "consumeCoefficientTotal": "2910545495223790"
+    },
+    {
+      "_id": "53",
+      "staffCount": [
+        15336,
+        16435
+      ],
+      "consumeCoefficient": "30000",
+      "consumeCoefficientTotal": "4048277729306770"
+    },
+    {
+      "_id": "54",
+      "staffCount": [
+        16436,
+        17535
+      ],
+      "consumeCoefficient": "25000",
+      "consumeCoefficientTotal": "5329557630632360"
+    },
+    {
+      "_id": "55",
+      "staffCount": [
+        17536,
+        18635
+      ],
+      "consumeCoefficient": "25000",
+      "consumeCoefficientTotal": "7016362620727500"
+    },
+    {
+      "_id": "56",
+      "staffCount": [
+        18636,
+        19735
+      ],
+      "consumeCoefficient": "32000",
+      "consumeCoefficientTotal": "9975864374150360"
+    },
+    {
+      "_id": "57",
+      "staffCount": [
+        19736,
+        -1
+      ],
+      "consumeCoefficient": "24520",
+      "consumeCoefficientTotal": "10645244873655800"
+    }
+  ],
+  "businesses": {
+    "Building_101": {
+      "addStaffCost": 100000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 5
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 10
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 25
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 50
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 75
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 100
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 150
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 200
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 300
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 400
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 500
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 600
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 700
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 800
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1000
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 1200
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 1400
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 1600
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 1800
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 2000
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 2200
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 2400
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 2600
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 2800
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 3000
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 3200
+        }
+      ]
+    },
+    "Building_201": {
+      "addStaffCost": 300000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 5
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 11
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 28
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 57
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 86
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 115
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 172
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 230
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 345
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 460
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 575
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 690
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 805
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 920
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1150
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 1380
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 1610
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 1840
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 2070
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 2300
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 2530
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 2760
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 2990
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 3220
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 3450
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 3680
+        }
+      ]
+    },
+    "Building_301": {
+      "addStaffCost": 800000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 6
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 13
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 32
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 65
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 97
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 130
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 195
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 260
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 390
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 520
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 650
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 780
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 910
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1040
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1300
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 1560
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 1820
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 2080
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 2340
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 2600
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 2860
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 3120
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 3380
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 3640
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 3900
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 4160
+        }
+      ]
+    },
+    "Building_401": {
+      "addStaffCost": 2400000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 7
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 14
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 36
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 72
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 108
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 145
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 217
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 290
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 435
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 580
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 725
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 870
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1015
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1160
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1450
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 1740
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 2030
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 2320
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 2610
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 2900
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 3190
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 3480
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 3770
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 4060
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 4350
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 4640
+        }
+      ]
+    },
+    "Building_501": {
+      "addStaffCost": 6400000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 8
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 16
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 40
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 80
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 120
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 160
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 240
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 320
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 480
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 640
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 800
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 960
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1120
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1280
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1600
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 1920
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 2240
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 2560
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 2880
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 3200
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 3520
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 3840
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 4160
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 4480
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 4800
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 5120
+        }
+      ]
+    },
+    "Building_601": {
+      "addStaffCost": 16000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 8
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 17
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 43
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 87
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 131
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 175
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 262
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 350
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 525
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 700
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 875
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1050
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1225
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1400
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1750
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 2100
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 2450
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 2800
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 3150
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 3500
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 3850
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 4200
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 4550
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 4900
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 5250
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 5600
+        }
+      ]
+    },
+    "Building_701": {
+      "addStaffCost": 40000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 9
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 19
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 47
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 95
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 142
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 190
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 285
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 380
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 570
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 760
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 950
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1140
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1330
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1520
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 1900
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 2280
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 2660
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 3040
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 3420
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 3800
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 4180
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 4560
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 4940
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 5320
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 5700
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 6080
+        }
+      ]
+    },
+    "Building_801": {
+      "addStaffCost": 100000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 10
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 20
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 51
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 102
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 153
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 205
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 307
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 410
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 615
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 820
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1025
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1230
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1435
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1640
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2050
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 2460
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 2870
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 3280
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 3690
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 4100
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 4510
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 4920
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 5330
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 5740
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 6150
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 6560
+        }
+      ]
+    },
+    "Building_901": {
+      "addStaffCost": 240000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 11
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 22
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 55
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 110
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 165
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 220
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 330
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 440
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 660
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 880
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1100
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1320
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1540
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1760
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2200
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 2640
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 3080
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 3520
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 3960
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 4400
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 4840
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 5280
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 5720
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 6160
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 6600
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 7040
+        }
+      ]
+    },
+    "Building_1001": {
+      "addStaffCost": 500000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 11
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 23
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 58
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 117
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 176
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 235
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 352
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 470
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 705
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 940
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1175
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1410
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1645
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 1880
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2350
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 2820
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 3290
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 3760
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 4230
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 4700
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 5170
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 5640
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 6110
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 6580
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 7050
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 7520
+        }
+      ]
+    },
+    "Building_1101": {
+      "addStaffCost": 1150000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 12
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 25
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 62
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 125
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 187
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 250
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 375
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 500
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 750
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1000
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1250
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1500
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1750
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2000
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2500
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 3000
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 3500
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 4000
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 4500
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 5000
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 5500
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 6000
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 6500
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 7000
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 7500
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 8000
+        }
+      ]
+    },
+    "Building_1201": {
+      "addStaffCost": 2500000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 13
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 26
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 66
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 132
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 198
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 265
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 397
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 530
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 795
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1060
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1325
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1590
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1855
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2120
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2650
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 3180
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 3710
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 4240
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 4770
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 5300
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 5830
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 6360
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 6890
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 7420
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 7950
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 8480
+        }
+      ]
+    },
+    "Building_1301": {
+      "addStaffCost": 5000000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 14
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 28
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 70
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 140
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 210
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 280
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 420
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 560
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 840
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1120
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1400
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1680
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 1960
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2240
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2800
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 3360
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 3920
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 4480
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 5040
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 5600
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 6160
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 6720
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 7280
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 7840
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 8400
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 8960
+        }
+      ]
+    },
+    "Building_1401": {
+      "addStaffCost": 10000000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 14
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 29
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 73
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 147
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 221
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 295
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 442
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 590
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 885
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1180
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1475
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1770
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 2065
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2360
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 2950
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 3540
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 4130
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 4720
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 5310
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 5900
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 6490
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 7080
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 7670
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 8260
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 8850
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 9440
+        }
+      ]
+    },
+    "Building_1501": {
+      "addStaffCost": 20000000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 15
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 31
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 77
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 155
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 232
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 310
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 465
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 620
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 930
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1240
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1550
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1860
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 2170
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2480
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 3100
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 3720
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 4340
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 4960
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 5580
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 6200
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 6820
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 7440
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 8060
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 8680
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 9300
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 9920
+        }
+      ]
+    },
+    "Building_1601": {
+      "addStaffCost": 40000000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 16
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 32
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 81
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 162
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 243
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 325
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 487
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 650
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 975
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1300
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1625
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 1950
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 2275
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2600
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 3250
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 3900
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 4550
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 5200
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 5850
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 6500
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 7150
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 7800
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 8450
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 9100
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 9750
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 10400
+        }
+      ]
+    },
+    "Building_1701": {
+      "addStaffCost": 80000000000,
+      "qualities": [
+        {
+          "cap": 1000,
+          "yieldRise": 0,
+          "cost": 17
+        },
+        {
+          "cap": 2000,
+          "yieldRise": 10000,
+          "cost": 34
+        },
+        {
+          "cap": 3000,
+          "yieldRise": 30000,
+          "cost": 85
+        },
+        {
+          "cap": 4000,
+          "yieldRise": 50000,
+          "cost": 170
+        },
+        {
+          "cap": 5000,
+          "yieldRise": 70000,
+          "cost": 255
+        },
+        {
+          "cap": 6000,
+          "yieldRise": 110000,
+          "cost": 340
+        },
+        {
+          "cap": 7000,
+          "yieldRise": 140000,
+          "cost": 510
+        },
+        {
+          "cap": 8000,
+          "yieldRise": 190000,
+          "cost": 680
+        },
+        {
+          "cap": 9000,
+          "yieldRise": 240000,
+          "cost": 1020
+        },
+        {
+          "cap": 10000,
+          "yieldRise": 290000,
+          "cost": 1360
+        },
+        {
+          "cap": 11000,
+          "yieldRise": 340000,
+          "cost": 1700
+        },
+        {
+          "cap": 12000,
+          "yieldRise": 390000,
+          "cost": 2040
+        },
+        {
+          "cap": 13000,
+          "yieldRise": 440000,
+          "cost": 2380
+        },
+        {
+          "cap": 14000,
+          "yieldRise": 490000,
+          "cost": 2720
+        },
+        {
+          "cap": 15000,
+          "yieldRise": 540000,
+          "cost": 3400
+        },
+        {
+          "cap": 16000,
+          "yieldRise": 590000,
+          "cost": 4080
+        },
+        {
+          "cap": 17000,
+          "yieldRise": 640000,
+          "cost": 4760
+        },
+        {
+          "cap": 18000,
+          "yieldRise": 690000,
+          "cost": 5440
+        },
+        {
+          "cap": 19000,
+          "yieldRise": 740000,
+          "cost": 6120
+        },
+        {
+          "cap": 20000,
+          "yieldRise": 790000,
+          "cost": 6800
+        },
+        {
+          "cap": 21000,
+          "yieldRise": 840000,
+          "cost": 7480
+        },
+        {
+          "cap": 22000,
+          "yieldRise": 890000,
+          "cost": 8160
+        },
+        {
+          "cap": 23000,
+          "yieldRise": 940000,
+          "cost": 8840
+        },
+        {
+          "cap": 24000,
+          "yieldRise": 1000000,
+          "cost": 9520
+        },
+        {
+          "cap": 25000,
+          "yieldRise": 1060000,
+          "cost": 10200
+        },
+        {
+          "cap": 26000,
+          "yieldRise": 1120000,
+          "cost": 10880
+        }
+      ]
+    }
+  }
+}

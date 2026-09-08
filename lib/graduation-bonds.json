@@ -1,0 +1,303 @@
+{
+  "wife_1": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/gina/",
+    "sha256": "2527ba89f9cffda1c0e17c82c08becd778c27621b7c46a6cb8ab4accd2a7bf5c"
+  },
+  "wife_2": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/charlotte/",
+    "sha256": "44014706f0f383123aeea3ab37453e544aa47043b5eeb36b93a63dd7bbdeadef"
+  },
+  "wife_5": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/susie/",
+    "sha256": "85f1fe3fa1c5455fbdcfcb08ba880d3942f789e30185e2af0bbdd83b601f7009"
+  },
+  "wife_6": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/will/",
+    "sha256": "a5fea9e00d274e480f02c7d55c3110b8ca9e00ac3fcf94b7aea4085ee4380db5"
+  },
+  "wife_12": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/rachel/",
+    "sha256": "7d85df6b20e5a34938e67f73c58ed06d8dec861321a3c16d49ed1a4ce6da47cc"
+  },
+  "wife_13": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/joyce/",
+    "sha256": "08b44c27cc67092003165741cd383341eb860f23741bbdb3b4fccba443def799"
+  },
+  "wife_17": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/freyja/",
+    "sha256": "b04eac25ce581b60cd4e5201bebba6223b330294479835233f20115b4de22bc2"
+  },
+  "wife_19": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/otherin/",
+    "sha256": "c3d08236c6192534dc2ec8b7b320accaee48e0707c173e28766dff5f92f0b353"
+  },
+  "wife_22": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/herna/",
+    "sha256": "1f0a90b032b4d3b880e51a43f864f3c6809e19d1e7004b31321a1ec7a4cfb6d6"
+  },
+  "wife_53": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/merry/",
+    "sha256": "f495b85761fb6339585437fd13331d0e0a3cf4875eda763111b59a43761ace8e"
+  },
+  "wife_60": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wenreesa/",
+    "sha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d"
+  },
+  "wife_63": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pinor/",
+    "sha256": "602bf9bf2d2646b83b5898c7f51c62ce0dc226f49e17b948306a5053759b0497"
+  },
+  "wife_64": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/vivian/",
+    "sha256": "983814c16e4d6eb3e2737a232fbff90c0f6047e18e45f096dc906e439e77b305"
+  },
+  "wife_67": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/ria/",
+    "sha256": "deb92a63363043f5f9b3a8611984d724966e9520905604971439f24816631423"
+  },
+  "wife_68": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-68/",
+    "sha256": "c3b611a20d8cd462855d0da9bd11507afdd13d322f34d8f66fd39164f8224530"
+  },
+  "wife_105": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/baity/",
+    "sha256": "9d5a99d3adde9d705622054f81701e6ba9c9e90918469d5411624031ed267875"
+  },
+  "wife_113": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/willo/",
+    "sha256": "a5eb7ed64eb9b2908c9a211d0840871e9b00b902dd3d2804f509aad8013def88"
+  },
+  "wife_114": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/phetia/",
+    "sha256": "23d25b47ef2adf801596b24bf8a89b82cddc5de776776cb47b5dc7cfc50e203d"
+  },
+  "wife_115": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/holly/",
+    "sha256": "d0e040673a90fac828b3fd415828a12d59325ace5806ada6c6f344904bfd9a1c"
+  },
+  "wife_117": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/vlad-xiii/",
+    "sha256": "796d269110eb859fc633175eba52c08b9a00dcec424ca385fc9ca6317e2b7619"
+  },
+  "wife_119": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/alanna/",
+    "sha256": "c97d402be280beb77b1ec70a03ecb3a9dfd0ccd0dc0028c101e373aa6da36ad4"
+  },
+  "wife_120": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/connie/",
+    "sha256": "75adf9b1388a3195b25f03bbbaad36ccc9aebd2809836ca396402aff095c4d8f"
+  },
+  "wife_123": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/puffair/",
+    "sha256": "f8f993fa42d17bfec7e8d2151ee60809a9ef2d7bf43ae1d0f112b8a240da0e19"
+  },
+  "wife_125": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/devileer/",
+    "sha256": "b4198bf842230056e79a19d9c61c0e52ee5a96924b5e81ff6dd69e58edc9170b"
+  },
+  "wife_129": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/tier/",
+    "sha256": "91395bac3f2b5f774ca563932d5ea5c0e726f568bca9d1e3460e3e052ecaaf52"
+  },
+  "wife_130": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/flora/",
+    "sha256": "16a9db7bd25dc5cae47981294be5f12c604cb17436819c85d29eba2f3c10c15b"
+  },
+  "wife_131": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/raphael/",
+    "sha256": "a22f1d6a1eea2111e978cb7c5ed5dd489b1a617d5108c10f04642a61db50961e"
+  },
+  "wife_133": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/bathery/",
+    "sha256": "ff4a013ee842c7dd91f3d6128c21fbc26425b345eb7bc4d4605bbc88bdcfdc22"
+  },
+  "wife_134": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/jin-yu/",
+    "sha256": "a108d617f9e5e9842646dcc31c02eedc8db5d877ef4485b1ccf75147fcfbb26f"
+  },
+  "wife_135": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lud/",
+    "sha256": "84a36e3f0fb1684a87b236fe61e78f19a59b47ede1ce5cdf2cf7a23405c21cde"
+  },
+  "wife_136": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/squeaky/",
+    "sha256": "1b0afcb3d4b4d7acaccf25af64cdddfbc51c9e368b278ab7cbe620b692118b80"
+  },
+  "wife_137": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lunaria/",
+    "sha256": "a313fc20e2321cf93e1b861b5547aac34b88eaed6983792265a8ab9d3729a51c"
+  },
+  "wife_140": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-140/",
+    "sha256": "17997b54902a28d6c9dd67db8849c7cdfef49ef8a172eb96494dfbaf954ff094"
+  },
+  "wife_141": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-141/",
+    "sha256": "91ee952942d5b7bd41cbee252824d803c96b28e6de1fc67e6020f57f97ea02d1"
+  },
+  "wife_142": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-142/",
+    "sha256": "222ea7fa847a3820039cb951be70071195023d34d396a6d5220943ac2369fac7"
+  },
+  "wife_143": {
+    "type": "diligent",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/leopolda/",
+    "sha256": "37005710106958d787cf75904ded96e4b21955503161c190ea8e5a03933f00f7"
+  },
+  "wife_152": {
+    "type": "informed",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pan-pan/",
+    "sha256": "867cb654bb12a9dc70cbd616d446da80c334bb9f57eb70c34ee165ab9e8cd084"
+  },
+  "wife_149": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mewi/",
+    "sha256": "1c17e60261c3cceb27a249bdf8943748d1d7aaccded7a19b6b15ca7e70b7efe6"
+  },
+  "wife_150": {
+    "type": "unfettered",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mercuria/",
+    "sha256": "ac596a0996266bd9798ccf049ee6a916798c42353dbfbedc97bf1f1c0e3c58f8"
+  },
+  "wife_151": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pengia/",
+    "sha256": "691ceb99058c2e12d83cffba3d5908a0b07bed2918155e3157f5626ed9b97c11"
+  },
+  "wife_155": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/futaba/",
+    "sha256": "0104293430992f461a4aeb121b68f2c393ad79479f5e997dd1a9d7281518f041"
+  },
+  "wife_154": {
+    "type": "brave",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/chitana/",
+    "sha256": "f995925ba1cfedcb66d6991c66aeba0531b9488189d0baf7918ca5ac560c4686"
+  },
+  "wife_157": {
+    "type": "inspiring",
+    "percent": 10,
+    "increment": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sylthiel/",
+    "sha256": "5fa3dd5463cf0304dcceab8c5eb63f376357c14f660eef69acb7116268f5f3d3"
+  }
+}

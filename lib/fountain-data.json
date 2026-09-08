@@ -1,0 +1,386 @@
+{
+  "provenance": {
+    "kind": "APK1.7702 readable English rule text",
+    "ruleSha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe",
+    "itemSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+    "checked": "2026-09-08",
+    "communityRecruit": "https://isekai-slow-life-mgame.fandom.com/wiki/Recruit",
+    "recruitEvidence": "acquaintance-recruits.json",
+    "communitySynthesis": "https://isekai.wiki/Acquaint_Stone"
+  },
+  "pool": [
+    {
+      "id": "Lottery_4",
+      "name": "Acquaint Stone",
+      "quantity": 1,
+      "weight": 1,
+      "itemId": "Item_Exchange_Hero_Universal",
+      "sourceKey": "Rule:text:Lottery_4"
+    },
+    {
+      "id": "Lottery_5",
+      "name": "Advanced Artifact Chest",
+      "quantity": 1,
+      "weight": 4,
+      "itemId": "Item_Box_Weapon_2",
+      "sourceKey": "Rule:text:Lottery_5"
+    },
+    {
+      "id": "Lottery_6",
+      "name": "Advanced Elixir",
+      "quantity": 1,
+      "weight": 7,
+      "itemId": "Item_Hero_Attribute_Increase_2",
+      "sourceKey": "Rule:text:Lottery_6"
+    },
+    {
+      "id": "Lottery_7",
+      "name": "Farmstead Upgrade Blueprint",
+      "quantity": 1,
+      "weight": 18,
+      "itemId": "Item_LvUp_Bank",
+      "sourceKey": "Rule:text:Lottery_7"
+    },
+    {
+      "id": "Lottery_8",
+      "name": "Acquaint Stone Fragment",
+      "quantity": 1,
+      "weight": 21,
+      "itemId": "Item_Piece_Hero_Universal",
+      "sourceKey": "Rule:text:Lottery_8"
+    },
+    {
+      "id": "Lottery_9",
+      "name": "Succubus Tonic",
+      "quantity": 1,
+      "weight": 54,
+      "itemId": "Item_GetDE_10",
+      "sourceKey": "Rule:text:Lottery_9"
+    },
+    {
+      "id": "Lottery_10",
+      "name": "Focus Candy",
+      "quantity": 5,
+      "weight": 91,
+      "itemId": "Item_GetCE_10",
+      "sourceKey": "Rule:text:Lottery_10"
+    },
+    {
+      "id": "Lottery_11",
+      "name": "Refining Oil",
+      "quantity": 1,
+      "weight": 91,
+      "itemId": null,
+      "sourceKey": "Rule:text:Lottery_11"
+    },
+    {
+      "id": "Lottery_12",
+      "name": "Study Notes",
+      "quantity": 3,
+      "weight": 127,
+      "itemId": "Item_HeroManagerment_Building",
+      "sourceKey": "Rule:text:Lottery_12"
+    },
+    {
+      "id": "Lottery_13",
+      "name": "Basic Elixir",
+      "quantity": 1,
+      "weight": 164,
+      "itemId": "Item_Hero_Attribute_Increase_1",
+      "sourceKey": "Rule:text:Lottery_13"
+    },
+    {
+      "id": "Lottery_14",
+      "name": "Building Upgrade Blueprint",
+      "quantity": 2,
+      "weight": 211,
+      "itemId": "Item_StarUp_Building_1_1",
+      "sourceKey": "Rule:text:Lottery_14"
+    },
+    {
+      "id": "Lottery_15",
+      "name": "Basic Earnings Card",
+      "quantity": 10,
+      "weight": 211,
+      "itemId": "Item_Gcoin_YieldPack_1",
+      "sourceKey": "Rule:text:Lottery_15"
+    }
+  ],
+  "rules": [
+    {
+      "id": "Rule:text:Lottery_1",
+      "en": "- Fountain of Wishes -"
+    },
+    {
+      "id": "Rule:text:Lottery_10",
+      "en": "   Focus Candy x5 9.1%"
+    },
+    {
+      "id": "Rule:text:Lottery_11",
+      "en": "   Refining Oil x1 9.1%"
+    },
+    {
+      "id": "Rule:text:Lottery_12",
+      "en": "   Study Notes x3 12.7%"
+    },
+    {
+      "id": "Rule:text:Lottery_13",
+      "en": "   Basic Elixir x1 16.4%"
+    },
+    {
+      "id": "Rule:text:Lottery_14",
+      "en": "   Building Upgrade Blueprint x2 21.1%"
+    },
+    {
+      "id": "Rule:text:Lottery_15",
+      "en": "   Basic Earnings Card x10 21.1%"
+    },
+    {
+      "id": "Rule:text:Lottery_16",
+      "en": "\u25c6 Fairy Bottle can be obtained from the shop, dailies, stages, and events, among other sources."
+    },
+    {
+      "id": "Rule:text:Lottery_17",
+      "en": "- Fairy Rewards -"
+    },
+    {
+      "id": "Rule:text:Lottery_18",
+      "en": "\u25c6 Release 1 Fairy each time players wish to the Fountain of Wishes."
+    },
+    {
+      "id": "Rule:text:Lottery_19",
+      "en": "\u25c6 Players can claim 1 reward for every 500 Fairies released. The unclaimed rewards can be accumulated."
+    },
+    {
+      "id": "Rule:text:Lottery_2",
+      "en": "\u25c6 Use Fairy Bottles to make wishes the Fountain of Wishes. A single wish requires 1 Fairy Bottle, while 10 consecutive wishes will spend 9 Fairy Bottles. Each time a wish is made, the fairies of the fountain will return with a random item."
+    },
+    {
+      "id": "Rule:text:Lottery_20",
+      "en": "- Acquaint Stone -"
+    },
+    {
+      "id": "Rule:text:Lottery_21",
+      "en": "\u25c6 Use Acquaint Stone to invite Fellows and Family to join you in Drakenberg."
+    },
+    {
+      "id": "Rule:text:Lottery_3",
+      "en": "\u25c6 Prize pool probabilities:"
+    },
+    {
+      "id": "Rule:text:Lottery_4",
+      "en": "   Acquaint Stone x1 0.1%"
+    },
+    {
+      "id": "Rule:text:Lottery_5",
+      "en": "   Advanced Artifact Chest x1 0.4%"
+    },
+    {
+      "id": "Rule:text:Lottery_6",
+      "en": "   Advanced Elixir x1 0.7%"
+    },
+    {
+      "id": "Rule:text:Lottery_7",
+      "en": "   Farmstead Upgrade Blueprint x1 1.8%"
+    },
+    {
+      "id": "Rule:text:Lottery_8",
+      "en": "   Acquaint Stone Fragment x1 2.1%"
+    },
+    {
+      "id": "Rule:text:Lottery_9",
+      "en": "   Succubus Tonic x1 5.4%"
+    }
+  ],
+  "recruits": [
+    {
+      "id": "hero_102",
+      "name": "Jewlry",
+      "kind": "fellows",
+      "cost": 2,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:102",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "cbb5ed7019b2abad7cc27fe77701756aaccf814bcef8332185a26c43ffe8dc2d",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/jewlry/index.html"
+    },
+    {
+      "id": "hero_104",
+      "name": "Loya",
+      "kind": "fellows",
+      "cost": 2,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:104",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "4ba72a901bc4ed4f6e7cc21c7b47eb740d2953b3e37bcd677c3f0d501c257894",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/loya/index.html"
+    },
+    {
+      "id": "hero_105",
+      "name": "Augustine",
+      "kind": "fellows",
+      "cost": 2,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:105",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "d23e7c1d04c3644d24b571d9a0dab651a0b5cbfba61d240eb96517a4baac2eab",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/augustine/index.html"
+    },
+    {
+      "id": "hero_103",
+      "name": "Anne",
+      "kind": "fellows",
+      "cost": 2,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:103",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "4f5aacd2fe493b336e4f528a32f71250a1711fd90fc5aa4d96663cc0df6884c3",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/anne/index.html"
+    },
+    {
+      "id": "hero_101",
+      "name": "Emosen",
+      "kind": "fellows",
+      "cost": 2,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:101",
+      "profileSource": "Seven-Day Goals,Recruit [Bonds Between Elites]",
+      "profileSha256": "34dbecbc3fb900512da89ce3fafd60fd3c37c49d65a2921b78f8a3ad3aef41d5",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/emosen/index.html"
+    },
+    {
+      "id": "hero_54",
+      "name": "Rani",
+      "kind": "fellows",
+      "cost": 1,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:54",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "8ea0cc1a778fd47d95169ffd25dad4cd84c0be96f84d3851480285a33fef3b41",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/rani/index.html"
+    },
+    {
+      "id": "hero_52",
+      "name": "Angie",
+      "kind": "fellows",
+      "cost": 1,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:52",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "c1b16ae0e8dbe452ff8cb06e7d65eedc73759083829e3bb3d2424e37adad0525",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/angie/index.html"
+    },
+    {
+      "id": "hero_56",
+      "name": "Liz",
+      "kind": "fellows",
+      "cost": 1,
+      "category": "Bonds Between Elites",
+      "localNameKey": "Hero:name:56",
+      "profileSource": "Recruit [Bonds Between Elites]",
+      "profileSha256": "2a3a0250cfb0f124390f65d3c30b15604d39989ff3b16e237047160babdaa3de",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/liz/index.html"
+    },
+    {
+      "id": "wife_101",
+      "name": "Kosuzu",
+      "kind": "family",
+      "cost": 2,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:101",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "762148845df684892d29786e26d5f72fdc9f4ace5d301230dcdb68a8539a22b6",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/kosuzu/index.html"
+    },
+    {
+      "id": "wife_105",
+      "name": "Baity",
+      "kind": "family",
+      "cost": 2,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:105",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "9d5a99d3adde9d705622054f81701e6ba9c9e90918469d5411624031ed267875",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/baity/index.html"
+    },
+    {
+      "id": "wife_102",
+      "name": "Sera",
+      "kind": "family",
+      "cost": 2,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:102",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "9b31b352da850f365999d565e31b7b4ce17aa634d5f7b0dfb4bbc460b1e005ad",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/sera/index.html"
+    },
+    {
+      "id": "wife_103",
+      "name": "Lina",
+      "kind": "family",
+      "cost": 2,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:103",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "a8488e93d138a0e7a7941b7275eae63346386bde2f0eb2b2d31b1166b82bbb2a",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/lina/index.html"
+    },
+    {
+      "id": "wife_104",
+      "name": "Denier",
+      "kind": "family",
+      "cost": 2,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:104",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "dd4939e2e77b941c7de8d83c3daa42d1b70648896976e3e236e429e53c1bc6f5",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/denier/index.html"
+    },
+    {
+      "id": "wife_106",
+      "name": "Lilith",
+      "kind": "family",
+      "cost": 2,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:106",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "d8f42703884502654667e67a55322eda53a463c81ec4b1400e31f30aaf1288d1",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/lilith/index.html"
+    },
+    {
+      "id": "wife_52",
+      "name": "Melody",
+      "kind": "family",
+      "cost": 1,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:52",
+      "profileSource": "Seven-Day Goals,Recruit [Fated Acquaintance]",
+      "profileSha256": "571450c83a8a8c033a417f9767435c449f47b77254dbc063177c1c9c27ded814",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/melody/index.html"
+    },
+    {
+      "id": "wife_60",
+      "name": "Wenreesa",
+      "kind": "family",
+      "cost": 1,
+      "category": "Fated Acquaintance",
+      "localNameKey": "Wife:name:60",
+      "profileSource": "Recruit [Fated Acquaintance]",
+      "profileSha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d",
+      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/wenreesa/index.html"
+    }
+  ],
+  "synthesis": {
+    "fragments": 20,
+    "stones": 1
+  },
+  "fairyReward": {
+    "every": 500,
+    "reward": "Lottery_4",
+    "quantity": 1,
+    "source": "https://isekai-slow-life-mgame.fandom.com/wiki/Fountain_of_Wishes",
+    "corroboration": "https://www.reddit.com/r/Isekai_Slow_Life/comments/1l3t2mu",
+    "kind": "community reference via search index; direct open unavailable; not version matched",
+    "checked": "2026-09-08"
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "boundary": "Complete active text; combatVersion5 timing, order, stacking and free unlock access authored locally.",
+  "skills": [
+    {
+      "id": "Pet_4251",
+      "name": "Wing Slash",
+      "text": "Deals damage equal to [ATK * 180%] to all enemies. Additionally, inflict [Damage Dealt -35%] and [Speed - 50%] to them for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 180,
+      "effects": [
+        {
+          "kind": "dealt",
+          "percent": -35,
+          "turns": 3,
+          "recipient": "primary"
+        },
+        {
+          "kind": "speed",
+          "percent": -50,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/taniadraco/index.html",
+      "sha256": "7c5cf1dc8c7e08d6d62a6b7bd1f86d3ce1a61f8283a60612f5dda26850575236"
+    },
+    {
+      "id": "Pet_4351",
+      "name": "Starlight Blessing",
+      "text": "Deals [ATK * 180%] damage to all enemies and applies to them [Damage Dealt -35%] & [Damage Taken +35%], lasting for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 180,
+      "effects": [
+        {
+          "kind": "dealt",
+          "percent": -35,
+          "turns": 3,
+          "recipient": "primary"
+        },
+        {
+          "kind": "vulnerable",
+          "percent": 35,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/ouro/index.html",
+      "sha256": "9ed8bec6514dc083a51ac603c8fff7c4f675237d7c655dce82f25af2e48bfd4a"
+    },
+    {
+      "id": "Pet_13131",
+      "name": "Claw Strike",
+      "text": "Deals damage equal to [ATK * 500%] to a random enemy in the front row and increases your [ATK +30%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "randomFront",
+      "targets": 1,
+      "percent": 500,
+      "effects": [
+        {
+          "kind": "attack",
+          "percent": 30,
+          "turns": 3,
+          "recipient": "self"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/califox/index.html",
+      "sha256": "5b28088aae934e02158940fcf48419e7a9d696bee6d21bd7870de2949e402b7f"
+    },
+    {
+      "id": "Pet_13141",
+      "name": "Teamwork",
+      "text": "Deals damage equal to [ATK * 220%] to 3 random enemies and reduces their [Damage Dealt -20%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "random",
+      "targets": 3,
+      "percent": 220,
+      "effects": [
+        {
+          "kind": "dealt",
+          "percent": -20,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/shibataro/index.html",
+      "sha256": "b419bfa2d0805320d9716dbe3da9aa561b26093cbb88a0607ec01b501168e29e"
+    },
+    {
+      "id": "Pet_21231",
+      "name": "Joyful Twisting",
+      "text": "Deals damage equal to [ATK * 400%] to a random enemy in the back row and reduces your [Damage Taken -15%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "randomBack",
+      "targets": 1,
+      "percent": 400,
+      "effects": [
+        {
+          "kind": "vulnerable",
+          "percent": -15,
+          "turns": 3,
+          "recipient": "self"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/jivebird/index.html",
+      "sha256": "a1c243e80b30d71e6757d12964da65102186737073b0b7d93dd35faf85b7d415"
+    },
+    {
+      "id": "Pet_21341",
+      "name": "Stylish Entrance",
+      "text": "Restores HP equal to [ATK * 270%] to all allies and increases [ATK +20%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "heal",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 270,
+      "effects": [
+        {
+          "kind": "attack",
+          "percent": 20,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/swagalpaca/index.html",
+      "sha256": "3d14e2e84af33e0b6214fc379064d1a77fab8dddb368b1dd8d419a36f0d0e26d"
+    },
+    {
+      "id": "Pet_32331",
+      "name": "Sustained Calm",
+      "text": "Increases [Attack +75%] to the 2 highest-ATK allies for 2 turns.",
+      "minVersion": 5,
+      "kind": "buff",
+      "targeting": "highestATK",
+      "targets": 2,
+      "percent": 0,
+      "effects": [
+        {
+          "kind": "attack",
+          "percent": 75,
+          "turns": 2,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/stackiebara/index.html",
+      "sha256": "02c744550090e274cc57dd28667da69155dedd7282631e784eeae8692d628177"
+    },
+    {
+      "id": "Pet_33131",
+      "name": "Snow Whirlwind",
+      "text": "Deals damage equal to [ATK * 200%] to all back-row enemies and decreases their [ATK -30%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "back",
+      "targets": 5,
+      "percent": 200,
+      "effects": [
+        {
+          "kind": "attack",
+          "percent": -30,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/frostmoth/index.html",
+      "sha256": "db62c3cc5c96209be5fc3541b0ecd242adc9b048bef29c6ab0a0688e1d016991"
+    },
+    {
+      "id": "Pet_8041502",
+      "name": "Furious Thunder",
+      "text": "Deals [ATK * 240%] DMG to 3 random enemies. Inflicts [Damage Taken +35%] on them for 3 turns. Increases own [ATK +25%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "random",
+      "targets": 3,
+      "percent": 240,
+      "effects": [
+        {
+          "kind": "vulnerable",
+          "percent": 35,
+          "turns": 3,
+          "recipient": "primary"
+        },
+        {
+          "kind": "attack",
+          "percent": 25,
+          "turns": 3,
+          "recipient": "self"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/thunderdrac/index.html",
+      "sha256": "68df74edc299480673f1de4d5fbee4f4ad49e2adc90dff797d638223c7c50f1c"
+    },
+    {
+      "id": "Pet_8041503",
+      "name": "Thunderstrike",
+      "text": "Deals [Attack * 500%] damage to 1 random target in the enemy's backline and increases own [Speed + 50%] for 3 turns. The target [takes +35% damage] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "randomBack",
+      "targets": 1,
+      "percent": 500,
+      "effects": [
+        {
+          "kind": "speed",
+          "percent": 50,
+          "turns": 3,
+          "recipient": "self"
+        },
+        {
+          "kind": "vulnerable",
+          "percent": 35,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/lightning-hawk/index.html",
+      "sha256": "caa11ee32c943fdc9a4c2deb23b56adeb5cb066e1cbd64d689b9b771759e1d01"
+    },
+    {
+      "id": "Pet_8042501",
+      "name": "Foxfire",
+      "text": "Deals [ATK * 180%] damage to all enemies, reducing their [ATK -25%] and [Damage Dealt -25%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 180,
+      "effects": [
+        {
+          "kind": "attack",
+          "percent": -25,
+          "turns": 3,
+          "recipient": "primary"
+        },
+        {
+          "kind": "dealt",
+          "percent": -25,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/seasonfox/index.html",
+      "sha256": "fb714d4b04193e557db10db485b0c6092a28ba534902c4dedd87c3c892d971f5"
+    },
+    {
+      "id": "Pet_8043502",
+      "name": "Devour Nightmares",
+      "text": "Applies Poison to all enemy targets, dealing [ATK \u00d7 150%] damage each turn for 3 turns. At the same time, reduces the targets\u2019 [ATK -25%] and [Speed -50%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "dot",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 0,
+      "effects": [
+        {
+          "kind": "poison",
+          "percent": 150,
+          "turns": 3,
+          "recipient": "primary"
+        },
+        {
+          "kind": "attack",
+          "percent": -25,
+          "turns": 3,
+          "recipient": "primary"
+        },
+        {
+          "kind": "speed",
+          "percent": -50,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/dream-eater/index.html",
+      "sha256": "eb69bb8ab0ed05c371b86a9d8d826b44f9cbaf45e6db349e5a1e76699f82c00f"
+    },
+    {
+      "id": "Pet_9041502",
+      "name": "Death Storm",
+      "text": "Deals [ATK * 300%] damage to enemy back-row targets and inflicts Bleed, dealing [ATK * 150%] damage per turn for 2 turns. Also increases the target's [DMG Taken +25%] for 3 turns.",
+      "minVersion": 5,
+      "kind": "damage",
+      "targeting": "back",
+      "targets": 5,
+      "percent": 300,
+      "effects": [
+        {
+          "kind": "bleed",
+          "percent": 150,
+          "turns": 2,
+          "recipient": "primary"
+        },
+        {
+          "kind": "vulnerable",
+          "percent": 25,
+          "turns": 3,
+          "recipient": "primary"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/ranga/index.html",
+      "sha256": "6c0d575fea4d708ca0ec08e6c738d6e7bb2ac967846d6c8e719eeffc5ef2bc43"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,re,html,hashlib
+root=Path(__file__).resolve().parents[1];base=root.parent.parent;local=base/'outputs/component-research/datasets';hub=base/'outputs/online-audit/public-reference/wiki/artifacts'
+skills={r['id']:r['en'] for r in json.loads((local/'SkillBase.json').read_text())};wives={r['id']:r['en'] for r in json.loads((local/'Wife.json').read_text())};records=[]
+for slug,weapon,wife in [('diablo-s-doll','Weapon_6_19','145'),('shuna-s-doll','Weapon_6_18','144'),('rica-s-plushie','Weapon_6_24','252')]:
+ p=hub/slug/'index.html';s=p.read_text();assert re.search(r'<p class="character-id">([^<]+)</p>',s)[1]==weapon
+ block=re.search(r'<div class="profile-field profile-echo-field">(.*?)</div>',s,re.S)[1];t=re.sub(r'\s+',' ',html.unescape(re.sub('<[^>]+>',' ',block))).strip();m=re.fullmatch(r'Echo (.*?) Equipped Fellow Aptitude \+(\d+) Equipped Fellow Power \+(\d+)%',t);assert m and wives['Wife:name:'+wife]==m[1]
+ skill=weapon+'_HeroSkill_W'+wife;assert skills['SkillBase:description:'+skill]=='Equipped Fellow Aptitude +{num}' and skills['SkillBase:description:'+skill+'_Link']=='Equipped Fellow Power +{num}'
+ records.append({'item':weapon.replace('Weapon_','Item_Weapon_Equipment_',1),'family':'wife_'+wife,'name':m[1],'skill':skill,'aptitude':int(m[2]),'percent':int(m[3]),'source':'https://zik-ascend.github.io/isl-tools/wiki/artifacts/'+slug+'/','pageSha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+(root/'lib/artifact-support-data.json').write_text(json.dumps({'snapshot':'b49c78d0c06d535f6e1c62bdc9d5d666cd96e954','scopeSource':'https://isekai-slow-life-mgame.fandom.com/wiki/Artifacts','localHashes':{n:hashlib.sha256((local/(n+'.json')).read_bytes()).hexdigest() for n in ['Wife','SkillBase']},'records':records,'limits':'Three explicit Family ownership prerequisites only. Any currently equipped Fellow benefits. Aura stacking and other support artifacts remain unresolved. Community quantities are not version-matched production formulas.'},indent=2)+'\n');print('Three Family ownership→equipped Fellow support joins')

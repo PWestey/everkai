@@ -1,0 +1,443 @@
+[
+  {
+    "id": "Item_Weapon_Equipment_5_5",
+    "name": "Giant Thermal Stone",
+    "aptitude": 16,
+    "description": "Aptitude +16. Special effects are not implemented.",
+    "originalDescription": "A unique resource in the Northrealm. It emits warm and yellow light. Such a big one is rarely seen even in the royal collection.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giant-thermal-stone/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_21",
+    "name": "Allucia's Sword",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "The sword Beryl gave to Allucia as a farewell gift when she left the dojo, symbolizing their deep bond and legacy.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/allucia-s-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_26",
+    "name": "Alvs Eustitia",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact. Modeled after Ryu's sword, the original boosts the user's magical power, making it extremely potent.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/alvs-eustitia/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_16",
+    "name": "Anti-Magic Mask",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A super limited edition Artifact from the [Camping with A Slime] event. A uniquely styled mask, it appears to embody both friendship and cherished memories.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/anti-magic-mask/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_25",
+    "name": "Desperate",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact. Modeled after Ais's sword, the original has indestructible properties, making it truly extraordinary.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/desperate/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_19",
+    "name": "Diablo's Doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A super limited edition Artifact from the [Camping with A Slime] event. A crossover event limited doll. It portrays Diablo's thoughtful preparation of coffee for Rimuru.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/diablo-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_17",
+    "name": "Dragon Knuckles (Replica)",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A super limited edition Artifact from the [Camping with A Slime] event.A replica of the Dragon Knuckles, crafted by the village chief with inspiration from a friend from Another World, pouring heart and soul into it.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-knuckles-replica/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_38",
+    "name": "Emiru Plushie",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Emiru's cute side.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/emiru-plushie/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_23",
+    "name": "Golden Microphone",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "The special microphone of a renowned opera star, adorned with angel and demon wings: her signature symbol.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/golden-microphone/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_27",
+    "name": "Hestia's Doll",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Hestia's exquisite beauty, truly stunning.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hestia-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_28",
+    "name": "Liliruca's Doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Liliruca's lively and adorable charm.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/liliruca-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_24",
+    "name": "Rica's Plushie",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A special edition toy from Hanamiya Rica's collaboration event showcasing Rica's naughty, devilish side.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/rica-s-plushie/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_18",
+    "name": "Shuna's Doll",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A super limited edition Artifact from the [Camping with A Slime] event. A crossover event limited doll. It captures Shuna's refined elegance, delightfully charming.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shuna-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_22",
+    "name": "Surena's Dragon Dual Blades",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Forged from the teeth of an immortal dragon, these two swords allow Surena to merge their powers, unleashing strength beyond that of a single blade.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/surena-s-twin-dragonblade/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_29",
+    "name": "Willful Dice",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A mysterious die imbued with an ancient god's aura. Greatly boosts your gambling luck\u2014but at what cost? No one knows.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/willful-dice/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_20",
+    "name": "Beryl's Sword",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Crafted by a renowned blacksmith, it can easily slice through any material, be it enemy armor or shields.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/beryl-s-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_7_4",
+    "name": "Dragon Summon Horn",
+    "aptitude": 55,
+    "description": "Aptitude +55. Special effects are not implemented.",
+    "originalDescription": "For the dragons in the Northrealm, this horn represents the supreme authority. No matter where they are, they must respond to the horn the moment they hear its sound.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-summon-horn/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_50",
+    "name": "Divine Vintage Wine",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A fine wine personally brewed by the goddess of wine. It is said that every drop contains her divine power\u2014just one sip can dispel fatigue and soothe all worries. A peerless elixir long sought after by the world.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/divine-vintage-wine/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H262",
+    "name": "Icefang Necklace",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A necklace inhabited by the spirit of ancestral wolves. The story says its pendant is the fallen tooth of an ancient Icewolf king when he was a baby\u2014a treasure of the Icewolf clan passed down to the present day.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/icefang-necklace/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_30",
+    "name": "Mushroom Staff",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event Artifact. A mushroom-shaped cane that seems to have a magical power to make people happy.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mushroom-staff/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H259",
+    "name": "True Love Trap",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A cage forged by the legendary \"most evil dragon.\" Legend has it that only a key formed from the sincere love between lovers can unlock it. Considered the ultimate treasure for testing true love in the world.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/true-love-trap/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_31",
+    "name": "Kuromi's doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Kuromi's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/kuromi-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_32",
+    "name": "Cinnamoroll's doll",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Cinnamoroll's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/cinnamoroll-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_33",
+    "name": "Pompompurin's doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Pompompurin's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/pompompurin-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_34",
+    "name": "Hello Kitty's doll",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Hello Kitty's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hello-kitty-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_35",
+    "name": "My Melody's doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures My Melody's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/my-melody-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_36",
+    "name": "Tuxedosam's doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Tuxedosam's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tuxedosam-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_37",
+    "name": "Pochacco's doll",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll. Captures Pochacco's wonderful memories in the Mushroom Land.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/pochacco-s-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_40",
+    "name": "Dragon-Scale Scarf",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after Natsu's scarf. The original was made from dragon scales and granted exceptional defensive power.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-scale-scarf/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_41",
+    "name": "Silver Necklace",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after Gray's silver necklace. The original was the very same one he always wore.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/silver-necklace/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_42",
+    "name": "Demon Blade Benizakura",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after Erza's weapons. The original was forged for raw power at the cost of armor, symbolizing Erza's unwavering resolve in battle.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/demon-blade-benizakura/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_43",
+    "name": "Lucy Doll",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event plushie. Captures Lucy's refined elegance and charm.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/lucy-doll/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_45",
+    "name": "Roxy's Wand",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after the wand Roxy commonly uses. The original was her trusted weapon and has been with her for many years.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/roxy-s-wand/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_46",
+    "name": "Paul's Sword",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after the sword of Norn's father. The original was her father's keepsake and Norn's most treasured possession.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/paul-s-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_47",
+    "name": "Hachigane",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after the head plate on Aisha's head. The original was a childhood gift from Rudeus, which Aisha cherishes dearly and has kept on ever since.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hachigane/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_48",
+    "name": "Aqua Heartia",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event artifact, modeled after the Rudeus's staff. The original was a gift he received on his tenth birthday, made from high-grade materials and extremely valuable.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/aqua-heartia/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_49",
+    "name": "Sylphiette Greyrat Figure",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event doll that showcases Sylphiette Greyrat's gentle temperament.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/sylphiette-greyrat-figure/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H260",
+    "name": "Aqua Plushie",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A limited-edition plushie of the crossover event, showing Aqua's energetic side.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/aqua-plushie/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_W174",
+    "name": "Megumin Plushie",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A limited-edition plushie of the crossover event, showing Megumin's cool side.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/megumin-plushie/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_51",
+    "name": "Veldora's Cloak",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A super limited-edition artifact from the [Camping with a Slime, Season 2] event. A replica of Veldora's Cloak, meticulously woven by the village chief and inspired by the attire of a friend from another world.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/veldora-s-cloak/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H184",
+    "name": "Chunchunmaru",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A limited-edition artifact of the crossover event, modeled after Kazuma's personal weapon. The original is an important partner that accompanies Kazuma through countless battles and is very dear to him.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/chunchunmaru/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_52",
+    "name": "Shion Plushie",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A super limited-edition artifact from the [Camping with a Slime, Season 2] event. A crossover-exclusive plushie that perfectly captures Shion's sharp, capable charm and heroic spirit.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shion-plushie/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H263",
+    "name": "Chisato Nishikigi's Pistol",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Event-exclusive artifact, modeled after Chisato's Pistol.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/chisato-nishikigi-s-pistol/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_W184",
+    "name": "Takina Inoue Plushie",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "Exclusive crossover event Plushie. Modeled after Takina's cool expression.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/takina-inoue-plushie/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H264",
+    "name": "Shinobu Kocho's Nichirin Sword",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shinobu-kocho-s-nichirin-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H301",
+    "name": "Giyu Tomioka's Nichirin Sword",
+    "aptitude": 60,
+    "description": "Aptitude +60. Special effects are not implemented.",
+    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giyu-tomioka-s-nichirin-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H302",
+    "name": "Tanjiro Kamado's Nichirin Sword",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tanjiro-kamado-s-nichirin-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H303",
+    "name": "Zenitsu Agatsuma's Nichirin Sword",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/zenitsu-agatsuma-s-nichirin-sword/",
+    "price": null
+  },
+  {
+    "id": "Item_Weapon_Equipment_6_H304",
+    "name": "Inosuke Hashibira's Nichirin Sword",
+    "aptitude": 50,
+    "description": "Aptitude +50. Special effects are not implemented.",
+    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/inosuke-hashibira-s-nichirin-sword/",
+    "price": null
+  }
+]

@@ -1,0 +1,2928 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "generatedAt": "2026-09-07 00:16 UTC",
+  "versionMatch": "Not verified against APK 1.7702",
+  "records": {
+    "hero_1": {
+      "name": "Fifi",
+      "rarity": "N",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/fifi/"
+    },
+    "hero_2": {
+      "name": "Maxim",
+      "rarity": "N",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/maxim/"
+    },
+    "hero_3": {
+      "name": "Reir",
+      "rarity": "N",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/reir/"
+    },
+    "hero_4": {
+      "name": "Knivi",
+      "rarity": "N",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/knivi/"
+    },
+    "hero_5": {
+      "name": "Pump",
+      "rarity": "N",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/pump/"
+    },
+    "hero_11": {
+      "name": "Björnson",
+      "rarity": "R",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/bjornson/"
+    },
+    "hero_12": {
+      "name": "Belle",
+      "rarity": "R",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/belle/"
+    },
+    "hero_13": {
+      "name": "Lincale",
+      "rarity": "R",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/lincale/"
+    },
+    "hero_14": {
+      "name": "Woolf",
+      "rarity": "R",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/woolf/"
+    },
+    "hero_15": {
+      "name": "Kaity",
+      "rarity": "R",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/kaity/"
+    },
+    "hero_16": {
+      "name": "Geast",
+      "rarity": "R",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/geast/"
+    },
+    "hero_17": {
+      "name": "Meaden",
+      "rarity": "R",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/meaden/"
+    },
+    "hero_18": {
+      "name": "Dr.Dotor",
+      "rarity": "R",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/dr-dotor/"
+    },
+    "hero_19": {
+      "name": "Prim",
+      "rarity": "R",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/prim/"
+    },
+    "hero_20": {
+      "name": "Guarg",
+      "rarity": "R",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/guarg/"
+    },
+    "hero_21": {
+      "name": "Mirac",
+      "rarity": "R",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mirac/"
+    },
+    "hero_22": {
+      "name": "Hawker",
+      "rarity": "R",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/hawker/"
+    },
+    "hero_23": {
+      "name": "Rogile",
+      "rarity": "R",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/rogile/"
+    },
+    "hero_24": {
+      "name": "Arake",
+      "rarity": "R",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/arake/"
+    },
+    "hero_25": {
+      "name": "Boatter",
+      "rarity": "R",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/boatter/"
+    },
+    "hero_51": {
+      "name": "Quenchy",
+      "rarity": "SR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/quenchy/"
+    },
+    "hero_52": {
+      "name": "Angie",
+      "rarity": "SR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/angie/"
+    },
+    "hero_53": {
+      "name": "Adeline",
+      "rarity": "SR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/adeline/"
+    },
+    "hero_54": {
+      "name": "Rani",
+      "rarity": "SR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/rani/"
+    },
+    "hero_55": {
+      "name": "Moork",
+      "rarity": "SR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/moork/"
+    },
+    "hero_56": {
+      "name": "Liz",
+      "rarity": "SR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/liz/"
+    },
+    "hero_58": {
+      "name": "Denisa",
+      "rarity": "SR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/denisa/"
+    },
+    "hero_59": {
+      "name": "Spipi",
+      "rarity": "SR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/spipi/"
+    },
+    "hero_61": {
+      "name": "Cimitir",
+      "rarity": "SR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/cimitir/"
+    },
+    "hero_62": {
+      "name": "Grayce",
+      "rarity": "SR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/grayce/"
+    },
+    "hero_65": {
+      "name": "Brotein",
+      "rarity": "SR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/brotein/"
+    },
+    "hero_66": {
+      "name": "Witty",
+      "rarity": "SR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/witty/"
+    },
+    "hero_67": {
+      "name": "Emma",
+      "rarity": "SR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/emma/"
+    },
+    "hero_68": {
+      "name": "Nalu",
+      "rarity": "SR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/nalu/"
+    },
+    "hero_69": {
+      "name": "Floaty",
+      "rarity": "SR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/floaty/"
+    },
+    "hero_71": {
+      "name": "Barbara",
+      "rarity": "SR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/barbara/"
+    },
+    "hero_72": {
+      "name": "Carrotte",
+      "rarity": "SR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/carrotte/"
+    },
+    "hero_73": {
+      "name": "Scorion",
+      "rarity": "SR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/scorion/"
+    },
+    "hero_77": {
+      "name": "Searin",
+      "rarity": "SR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/searin/"
+    },
+    "hero_74": {
+      "name": "Lucoa",
+      "rarity": "SR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/lucoa/"
+    },
+    "hero_76": {
+      "name": "Huowang Dade",
+      "rarity": "SR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/huowang-dade/"
+    },
+    "hero_181": {
+      "name": "Lucoa",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/lucoaa/"
+    },
+    "hero_75": {
+      "name": "Eros",
+      "rarity": "SR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/eros/"
+    },
+    "hero_78": {
+      "name": "Justitia",
+      "rarity": "SR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/justitia/"
+    },
+    "hero_79": {
+      "name": "Fawna",
+      "rarity": "SR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/fawna/"
+    },
+    "hero_81": {
+      "name": "Demiurge",
+      "rarity": "SR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/demiurge/"
+    },
+    "hero_190": {
+      "name": "Elise",
+      "rarity": "SR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/elise/"
+    },
+    "hero_101": {
+      "name": "Emosen",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/emosen/"
+    },
+    "hero_102": {
+      "name": "Jewlry",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/jewlry/"
+    },
+    "hero_103": {
+      "name": "Anne",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/anne/"
+    },
+    "hero_104": {
+      "name": "Loya",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/loya/"
+    },
+    "hero_105": {
+      "name": "Augustine",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/augustine/"
+    },
+    "hero_106": {
+      "name": "Ida",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/ida/"
+    },
+    "hero_111": {
+      "name": "Tigirl",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/tigirl/"
+    },
+    "hero_112": {
+      "name": "Iori",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/iori/"
+    },
+    "hero_119": {
+      "name": "Paat",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/paat/"
+    },
+    "hero_120": {
+      "name": "Eter & NAL",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/eter-nal/"
+    },
+    "hero_121": {
+      "name": "Tomoe",
+      "rarity": "SSR -> UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/tomoe/"
+    },
+    "hero_122": {
+      "name": "Mio",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mio/"
+    },
+    "hero_123": {
+      "name": "Shiki",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/shiki/"
+    },
+    "hero_124": {
+      "name": "Flos",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/flos/"
+    },
+    "hero_125": {
+      "name": "Onikiri",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/onikiri/"
+    },
+    "hero_126": {
+      "name": "Thalia",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/thalia/"
+    },
+    "hero_127": {
+      "name": "Myner",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/myner/"
+    },
+    "hero_129": {
+      "name": "Black",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/black/"
+    },
+    "hero_130": {
+      "name": "Healora",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/healora/"
+    },
+    "hero_170": {
+      "name": "Magellan",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/magellan/"
+    },
+    "hero_131": {
+      "name": "Hakuren",
+      "rarity": "SSR -> UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/hakuren/"
+    },
+    "hero_133": {
+      "name": "Bubo",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/bubo/"
+    },
+    "hero_136": {
+      "name": "Frogella",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/frogella/"
+    },
+    "hero_140": {
+      "name": "Elma",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/elma/"
+    },
+    "hero_141": {
+      "name": "Fafnir",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/fafnir/"
+    },
+    "hero_142": {
+      "name": "Kanna",
+      "rarity": "SSR -> SSR+ -> UR*",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/kanna/"
+    },
+    "hero_143": {
+      "name": "Milim Nava",
+      "rarity": "SSR -> SSR+ -> UR*",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/milim-nava/"
+    },
+    "hero_144": {
+      "name": "Benimaru",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/benimaru/"
+    },
+    "hero_146": {
+      "name": "Allucia",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/allucia/"
+    },
+    "hero_147": {
+      "name": "Surena",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/surena/"
+    },
+    "hero_149": {
+      "name": "Tigris",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/tigris/"
+    },
+    "hero_163": {
+      "name": "Stheno",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/stheno/"
+    },
+    "hero_151": {
+      "name": "Avril",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/avril/"
+    },
+    "hero_152": {
+      "name": "Stephanie",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/stephanie/"
+    },
+    "hero_153": {
+      "name": "Salvo",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/salvo/"
+    },
+    "hero_154": {
+      "name": "Kaye",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/kaye/"
+    },
+    "hero_155": {
+      "name": "Nip",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/nip/"
+    },
+    "hero_156": {
+      "name": "Lux",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/luxx/"
+    },
+    "hero_157": {
+      "name": "Super",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/superr/"
+    },
+    "hero_158": {
+      "name": "Ira",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/iraa/"
+    },
+    "hero_159": {
+      "name": "Acedia",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/acediaa/"
+    },
+    "hero_160": {
+      "name": "Avar",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/avarr/"
+    },
+    "hero_164": {
+      "name": "Crysta",
+      "rarity": "SSR -> SSR+",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/crysta/"
+    },
+    "hero_165": {
+      "name": "Ryu Lion",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/ryu-lion/"
+    },
+    "hero_166": {
+      "name": "Ais Wallenstein",
+      "rarity": "SSR+ -> UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/ais-wallenstein/"
+    },
+    "hero_167": {
+      "name": "Bell Cranel",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/bell-cranel/"
+    },
+    "hero_171": {
+      "name": "Gale",
+      "rarity": "SSR+ -> UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/gale/"
+    },
+    "hero_172": {
+      "name": "Umbra",
+      "rarity": "SSR+ -> UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/umbra/"
+    },
+    "hero_173": {
+      "name": "Erza",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/erza/"
+    },
+    "hero_174": {
+      "name": "Gray",
+      "rarity": "SSR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/gray/"
+    },
+    "hero_175": {
+      "name": "Thora",
+      "rarity": "SSR+ -> UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/thora/"
+    },
+    "hero_176": {
+      "name": "Rudeus Greyrat",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/rudeus-greyrat/"
+    },
+    "hero_177": {
+      "name": "Aisha Greyrat",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/aisha-greyrat/"
+    },
+    "hero_178": {
+      "name": "Norn Greyrat",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/norn-greyrat/"
+    },
+    "hero_179": {
+      "name": "Lokia",
+      "rarity": "SSR+ -> UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/lokia/"
+    },
+    "hero_180": {
+      "name": "Luminus Valentine",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/luminus-valentine/"
+    },
+    "hero_182": {
+      "name": "Kuku",
+      "rarity": "SSR+ -> UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/kuku/"
+    },
+    "hero_184": {
+      "name": "Kazuma",
+      "rarity": "SSR+",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/kazuma/"
+    },
+    "hero_185": {
+      "name": "Darkness",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/darkness/"
+    },
+    "hero_186": {
+      "name": "Liona",
+      "rarity": "SR -> SSR+ -> UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/liona/"
+    },
+    "hero_187": {
+      "name": "Ainz Ooal Gown",
+      "rarity": "SSR+",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/ainz-ooal-gown/"
+    },
+    "hero_188": {
+      "name": "Narberal Gamma",
+      "rarity": "SSR+",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/narberal-gamma/"
+    },
+    "hero_189": {
+      "name": "Verity",
+      "rarity": "SSR+ -> UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/verity/"
+    },
+    "hero_191": {
+      "name": "Trady",
+      "rarity": "SSR -> UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/trady/"
+    },
+    "hero_192": {
+      "name": "Mescal",
+      "rarity": "SSR -> UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mescal/"
+    },
+    "hero_193": {
+      "name": "Mammon",
+      "rarity": "SSR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mammon/"
+    },
+    "hero_194": {
+      "name": "Shlomo",
+      "rarity": "SSR -> UR*",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/shlomo/"
+    },
+    "hero_197": {
+      "name": "Fifi",
+      "rarity": "SSR+ -> UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/fifii/"
+    },
+    "hero_198": {
+      "name": "Future Maxim",
+      "rarity": "SSR+ -> UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/future-maxim/"
+    },
+    "hero_199": {
+      "name": "Aurora",
+      "rarity": "SSR+ -> UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/aurora/"
+    },
+    "hero_200": {
+      "name": "Lailah",
+      "rarity": "SSR+ -> UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/lailah/"
+    },
+    "hero_251": {
+      "name": "Rimuru Tempest",
+      "rarity": "SSR -> SSR+ -> UR* -> LR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/rimuru-tempest/"
+    },
+    "hero_255": {
+      "name": "Mushimi",
+      "rarity": "SSR -> SSR+ -> UR*",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mushimi/"
+    },
+    "hero_256": {
+      "name": "Natsu",
+      "rarity": "SSR -> SSR+ -> UR*",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/natsu/"
+    },
+    "hero_257": {
+      "name": "Roxy Migurdia",
+      "rarity": "SSR -> SSR+ -> UR*",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/roxy-migurdia/"
+    },
+    "hero_258": {
+      "name": "Dionysia",
+      "rarity": "SSR+ -> UR*",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/dionysia/"
+    },
+    "hero_259": {
+      "name": "Fafnyria",
+      "rarity": "SSR+ -> UR*",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/fafnyria/"
+    },
+    "hero_260": {
+      "name": "Aqua",
+      "rarity": "SSR+ -> UR -> LR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/aqua/"
+    },
+    "hero_261": {
+      "name": "Albedo",
+      "rarity": "SSR -> SSR+ -> UR -> LR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/albedo/"
+    },
+    "hero_262": {
+      "name": "Hattie",
+      "rarity": "SSR -> SSR+ -> UR*",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/hattie/"
+    },
+    "hero_263": {
+      "name": "Chisato Nishikigi",
+      "rarity": "SSR -> SSR+ -> UR -> LR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/chisato-nishikigi/"
+    },
+    "hero_264": {
+      "name": "Shinobu Kocho",
+      "rarity": "SSR+ -> UR -> LR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/shinobu-kocho/"
+    },
+    "hero_301": {
+      "name": "Giyu Tomioka",
+      "rarity": "SSR+ -> UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/giyu-tomioka/"
+    },
+    "hero_304": {
+      "name": "Inosuke Hashibira",
+      "rarity": "SSR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/inosuke-hashibira/"
+    },
+    "hero_303": {
+      "name": "Zenitsu Agatsuma",
+      "rarity": "SSR+",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/zenitsu-agatsuma/"
+    },
+    "hero_302": {
+      "name": "Tanjiro Kamado",
+      "rarity": "SSR+",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/tanjiro-kamado/"
+    },
+    "hero_305": {
+      "name": "Linlang",
+      "rarity": "SR -> SSR+ -> UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/linlang/"
+    },
+    "hero_308": {
+      "name": "Rissette",
+      "rarity": "SR -> SSR+ -> UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/rissette/"
+    },
+    "hero_183": {
+      "name": "Veldora Tempest",
+      "rarity": "SSR+",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/veldora-tempest/"
+    },
+    "hero_113": {
+      "name": "Leon",
+      "rarity": "UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/leon/"
+    },
+    "hero_114": {
+      "name": "Orivita",
+      "rarity": "UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/orivita/"
+    },
+    "hero_115": {
+      "name": "Kerr & Bel & Ross",
+      "rarity": "UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/kerr-bel-ross/"
+    },
+    "hero_116": {
+      "name": "Nierus",
+      "rarity": "UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/nierus/"
+    },
+    "hero_117": {
+      "name": "Amaterasu",
+      "rarity": "UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/amaterasu/"
+    },
+    "hero_118": {
+      "name": "Sunna",
+      "rarity": "UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/sunna/"
+    },
+    "hero_128": {
+      "name": "Beelsebub",
+      "rarity": "UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/beelsebub/"
+    },
+    "hero_132": {
+      "name": "Anpu",
+      "rarity": "UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/anpu/"
+    },
+    "hero_134": {
+      "name": "Freesia",
+      "rarity": "UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/freesia/"
+    },
+    "hero_135": {
+      "name": "Aegle",
+      "rarity": "UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/aegle/"
+    },
+    "hero_137": {
+      "name": "Phinphinx",
+      "rarity": "UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/phinphinx/"
+    },
+    "hero_138": {
+      "name": "Lula",
+      "rarity": "SSR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/lula/"
+    },
+    "hero_139": {
+      "name": "Tohru",
+      "rarity": "UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/tohru/"
+    },
+    "hero_148": {
+      "name": "Master Tongxuan",
+      "rarity": "UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/master-tongxuan/"
+    },
+    "hero_145": {
+      "name": "Heracles",
+      "rarity": "UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/heracles/"
+    },
+    "hero_162": {
+      "name": "Tamamo",
+      "rarity": "UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/tamamo/"
+    },
+    "hero_150": {
+      "name": "Mia",
+      "rarity": "UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mia/"
+    },
+    "hero_161": {
+      "name": "Mulberry",
+      "rarity": "SSR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/mulberry/"
+    },
+    "hero_169": {
+      "name": "Nyar",
+      "rarity": "UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/nyar/"
+    },
+    "hero_168": {
+      "name": "Athena",
+      "rarity": "UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/athena/"
+    },
+    "hero_196": {
+      "name": "Ixchel",
+      "rarity": "UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/ixchel/"
+    },
+    "hero_195": {
+      "name": "Neptune",
+      "rarity": "UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/neptune/"
+    },
+    "hero_211": {
+      "name": "Phanes",
+      "rarity": "UR",
+      "type": "Inspiring",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/phanes/"
+    },
+    "hero_212": {
+      "name": "Ao Li",
+      "rarity": "UR",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/ao-li/"
+    },
+    "hero_213": {
+      "name": "Andras",
+      "rarity": "UR",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/andras/"
+    },
+    "hero_214": {
+      "name": "Nemetona",
+      "rarity": "UR",
+      "type": "Diligent",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/nemetona/"
+    },
+    "hero_215": {
+      "name": "Hermes",
+      "rarity": "UR",
+      "type": "Unfettered",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/hermes/"
+    },
+    "hero_253": {
+      "name": "Beryl",
+      "rarity": "UR*",
+      "type": "Brave",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/beryl/"
+    },
+    "hero_254": {
+      "name": "Gabrael",
+      "rarity": "UR*",
+      "type": "Informed",
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/fellows/gabrael/"
+    },
+    "wife_1": {
+      "name": "Gina",
+      "rarity": "N",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/gina/",
+      "blessedFellows": [
+        "hero_1",
+        "hero_19"
+      ],
+      "pageSha256": "2527ba89f9cffda1c0e17c82c08becd778c27621b7c46a6cb8ab4accd2a7bf5c"
+    },
+    "wife_2": {
+      "name": "Charlotte",
+      "rarity": "N",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/charlotte/",
+      "blessedFellows": [
+        "hero_12",
+        "hero_5"
+      ],
+      "pageSha256": "44014706f0f383123aeea3ab37453e544aa47043b5eeb36b93a63dd7bbdeadef"
+    },
+    "wife_3": {
+      "name": "Epona",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/epona/",
+      "blessedFellows": [
+        "hero_104",
+        "hero_53",
+        "hero_73"
+      ],
+      "pageSha256": "a4f3cefd092346ee53cf406303aef69fc95cc1246dab672ae86c4b8912fc9ac3"
+    },
+    "wife_4": {
+      "name": "Nene",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nene/",
+      "blessedFellows": [
+        "hero_106",
+        "hero_69"
+      ],
+      "pageSha256": "53230b84b8070482d31a3e84cdf4630e79933e08afd9b4ea446c0a4014cbba4b"
+    },
+    "wife_5": {
+      "name": "Susie",
+      "rarity": "N",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/susie/",
+      "blessedFellows": [
+        "hero_2",
+        "hero_68"
+      ],
+      "pageSha256": "85f1fe3fa1c5455fbdcfcb08ba880d3942f789e30185e2af0bbdd83b601f7009"
+    },
+    "wife_6": {
+      "name": "Will",
+      "rarity": "N",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/will/",
+      "blessedFellows": [
+        "hero_1",
+        "hero_19"
+      ],
+      "pageSha256": "a5fea9e00d274e480f02c7d55c3110b8ca9e00ac3fcf94b7aea4085ee4380db5"
+    },
+    "wife_11": {
+      "name": "Ookami",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/ookami/",
+      "blessedFellows": [
+        "hero_59",
+        "hero_22"
+      ],
+      "pageSha256": "4ee16b2b51aabb6508d48330d635a98b1d54f521fed8f9d1d7f74cb148ed2238"
+    },
+    "wife_12": {
+      "name": "Rachel",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/rachel/",
+      "blessedFellows": [
+        "hero_157",
+        "hero_62"
+      ],
+      "pageSha256": "7d85df6b20e5a34938e67f73c58ed06d8dec861321a3c16d49ed1a4ce6da47cc"
+    },
+    "wife_13": {
+      "name": "Joyce",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/joyce/",
+      "blessedFellows": [
+        "hero_54",
+        "hero_67"
+      ],
+      "pageSha256": "08b44c27cc67092003165741cd383341eb860f23741bbdb3b4fccba443def799"
+    },
+    "wife_14": {
+      "name": "Sofia",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sofia/",
+      "blessedFellows": [
+        "hero_58",
+        "hero_16"
+      ],
+      "pageSha256": "d1120d522254f25671de65629be954d44691d2498dc7cd5f337d0fa21846fefb"
+    },
+    "wife_15": {
+      "name": "Chihaya",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/chihaya/",
+      "blessedFellows": [
+        "hero_23",
+        "hero_56"
+      ],
+      "pageSha256": "d8d6d1282dc2b047a97367792f4b482176b2cd61b8781d864d9c1ada477b7486"
+    },
+    "wife_16": {
+      "name": "Kaka",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/kaka/",
+      "blessedFellows": [
+        "hero_21",
+        "hero_24"
+      ],
+      "pageSha256": "66d5562486fbdb9035af11a9bbcfa43b4cd10fd99622332b8253038f76ece747"
+    },
+    "wife_17": {
+      "name": "Freyja",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/freyja/",
+      "blessedFellows": [
+        "hero_4",
+        "hero_18"
+      ],
+      "pageSha256": "b04eac25ce581b60cd4e5201bebba6223b330294479835233f20115b4de22bc2"
+    },
+    "wife_18": {
+      "name": "Catherine",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/catherine/",
+      "blessedFellows": [
+        "hero_52",
+        "hero_25"
+      ],
+      "pageSha256": "6b1e5186e526dde38f60e60a29ea961008180cc7913b91787a9b310db638a8eb"
+    },
+    "wife_19": {
+      "name": "Otherin",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/otherin/",
+      "blessedFellows": [
+        "hero_14",
+        "hero_20"
+      ],
+      "pageSha256": "c3d08236c6192534dc2ec8b7b320accaee48e0707c173e28766dff5f92f0b353"
+    },
+    "wife_20": {
+      "name": "Mater",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mater/",
+      "blessedFellows": [
+        "hero_53",
+        "hero_154",
+        "hero_127"
+      ],
+      "pageSha256": "c2aad87b756290de308135c22ac25b7d051ca9f8746bd8337e53eba4cc104f6e"
+    },
+    "wife_21": {
+      "name": "Dia",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/dia/",
+      "blessedFellows": [
+        "hero_156",
+        "hero_65"
+      ],
+      "pageSha256": "44b6055032958acda33a044e2b4ed688a2780b078d54aeada6b711ba721d3d1e"
+    },
+    "wife_22": {
+      "name": "Herna",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/herna/",
+      "blessedFellows": [
+        "hero_119",
+        "hero_62"
+      ],
+      "pageSha256": "1f0a90b032b4d3b880e51a43f864f3c6809e19d1e7004b31321a1ec7a4cfb6d6"
+    },
+    "wife_51": {
+      "name": "Selena",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/selena/",
+      "blessedFellows": [
+        "hero_112",
+        "hero_106",
+        "hero_3",
+        "hero_123",
+        "hero_308"
+      ],
+      "pageSha256": "0ca22301f637bb9d924e7e4832c2d18b2dfe7ef2eb6d02ee3ace4f6c6345a550"
+    },
+    "wife_52": {
+      "name": "Melody",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/melody/",
+      "blessedFellows": [
+        "hero_101",
+        "hero_51",
+        "hero_124",
+        "hero_136",
+        "hero_164"
+      ],
+      "pageSha256": "571450c83a8a8c033a417f9767435c449f47b77254dbc063177c1c9c27ded814"
+    },
+    "wife_53": {
+      "name": "Merry",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/merry/",
+      "blessedFellows": [
+        "hero_103",
+        "hero_55",
+        "hero_75"
+      ],
+      "pageSha256": "f495b85761fb6339585437fd13331d0e0a3cf4875eda763111b59a43761ace8e"
+    },
+    "wife_54": {
+      "name": "Ena",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/ena/",
+      "blessedFellows": [
+        "hero_105",
+        "hero_194",
+        "hero_74",
+        "hero_79",
+        "hero_181"
+      ],
+      "pageSha256": "e8f4a445dd0cc1465869a977344d9cb6a8cb1eb29b8481fc2e9553c7dc3683fe"
+    },
+    "wife_55": {
+      "name": "Lulu",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lulu/",
+      "blessedFellows": [
+        "hero_151",
+        "hero_158",
+        "hero_74",
+        "hero_181"
+      ],
+      "pageSha256": "f3300265b089928bead625ffc4bbe12aa71d8b099b2eebe2f6febc9d0a642633"
+    },
+    "wife_56": {
+      "name": "Maynard",
+      "rarity": "R",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/maynard/",
+      "blessedFellows": [
+        "hero_11",
+        "hero_120"
+      ],
+      "pageSha256": "9503f22262a2c09417a3c2a1d3c1848a70951ed8815c44a726dc724a6774849e"
+    },
+    "wife_57": {
+      "name": "Sadako",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sadako/",
+      "blessedFellows": [
+        "hero_102",
+        "hero_118",
+        "hero_123"
+      ],
+      "pageSha256": "e294dad11dd05ea15043fdced087cd23cdab9c30583088a12ae383de30a1e7c3"
+    },
+    "wife_58": {
+      "name": "Clarice",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/clarice/",
+      "blessedFellows": [
+        "hero_101",
+        "hero_122",
+        "hero_76"
+      ],
+      "pageSha256": "5d98d6c8545f6c749bf809738b9f4b3b926c2212c24c6b20ea0bf1ba1fb00a97"
+    },
+    "wife_59": {
+      "name": "Bullety",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/bullety/",
+      "blessedFellows": [
+        "hero_193",
+        "hero_157",
+        "hero_129"
+      ],
+      "pageSha256": "c66cb98a3c24c387b0568285a3760b746d475b96ec23d0e5d462252ba6c87ee3"
+    },
+    "wife_60": {
+      "name": "Wenreesa",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wenreesa/",
+      "blessedFellows": [
+        "hero_61",
+        "hero_66",
+        "hero_72"
+      ],
+      "pageSha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d"
+    },
+    "wife_61": {
+      "name": "Isatilra",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/isatilra/",
+      "blessedFellows": [
+        "hero_13",
+        "hero_15",
+        "hero_125"
+      ],
+      "pageSha256": "a56de7e0dcb4b878be55ce774adc0d7bac33e92a506c890fc47c1f6a80a23d18"
+    },
+    "wife_62": {
+      "name": "Nousa",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nousa/",
+      "blessedFellows": [
+        "hero_17",
+        "hero_195",
+        "hero_133",
+        "hero_161"
+      ],
+      "pageSha256": "7612f8b5a61d4d1ea7a2212c3b020cc2bc9098dd922503777c493ca6df076c96"
+    },
+    "wife_63": {
+      "name": "Pinor",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pinor/",
+      "blessedFellows": [
+        "hero_191",
+        "hero_61",
+        "hero_121",
+        "hero_78"
+      ],
+      "pageSha256": "602bf9bf2d2646b83b5898c7f51c62ce0dc226f49e17b948306a5053759b0497"
+    },
+    "wife_64": {
+      "name": "Vivian",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/vivian/",
+      "blessedFellows": [
+        "hero_155",
+        "hero_192",
+        "hero_71",
+        "hero_167"
+      ],
+      "pageSha256": "983814c16e4d6eb3e2737a232fbff90c0f6047e18e45f096dc906e439e77b305"
+    },
+    "wife_67": {
+      "name": "Ria",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/ria/",
+      "blessedFellows": [
+        "hero_131",
+        "hero_119"
+      ],
+      "pageSha256": "deb92a63363043f5f9b3a8611984d724966e9520905604971439f24816631423"
+    },
+    "wife_68": {
+      "name": "パピ",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-68/",
+      "blessedFellows": [
+        "hero_190",
+        "hero_24"
+      ],
+      "pageSha256": "c3b611a20d8cd462855d0da9bd11507afdd13d322f34d8f66fd39164f8224530"
+    },
+    "wife_70": {
+      "name": "Emily",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/emily/",
+      "blessedFellows": [
+        "hero_126",
+        "hero_77"
+      ],
+      "pageSha256": "68c741ad5502cec5f06bfdef4ac60f3858275c107accf7962ed725ea9ed1a4ff"
+    },
+    "wife_71": {
+      "name": "Orpheus",
+      "rarity": "SR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/orpheus/",
+      "blessedFellows": [
+        "hero_112",
+        "hero_106",
+        "hero_3",
+        "hero_123",
+        "hero_308"
+      ],
+      "pageSha256": "debee954f7b2eead31ac1f01f22bfbe3e4832720a8d49406fcff4ed877789dd7"
+    },
+    "wife_65": {
+      "name": "Elora",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/elora/",
+      "blessedFellows": [
+        "hero_104",
+        "hero_51",
+        "hero_133",
+        "hero_144",
+        "hero_167",
+        "hero_174",
+        "hero_181",
+        "hero_179",
+        "hero_186",
+        "hero_187"
+      ],
+      "pageSha256": "490d105f9b46b4b2e36aeaa6d279cac5c6cbe4fc6944e8570c9d1eb6a0d9b609"
+    },
+    "wife_66": {
+      "name": "Sachiko",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sachiko/",
+      "blessedFellows": [
+        "hero_106",
+        "hero_59",
+        "hero_133",
+        "hero_144",
+        "hero_176",
+        "hero_174",
+        "hero_142",
+        "hero_179",
+        "hero_199",
+        "hero_304"
+      ],
+      "pageSha256": "b3d8974c598fd15131202a22b82986e43aee47f7b848c6b6e9179252447041c1"
+    },
+    "wife_101": {
+      "name": "Kosuzu",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/kosuzu/",
+      "blessedFellows": [
+        "hero_160",
+        "hero_114",
+        "hero_195",
+        "hero_122",
+        "hero_211",
+        "hero_141",
+        "hero_255",
+        "hero_171",
+        "hero_197"
+      ],
+      "pageSha256": "762148845df684892d29786e26d5f72fdc9f4ace5d301230dcdb68a8539a22b6"
+    },
+    "wife_102": {
+      "name": "Sera",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sera/",
+      "blessedFellows": [
+        "hero_117",
+        "hero_152",
+        "hero_159",
+        "hero_214",
+        "hero_142",
+        "hero_254",
+        "hero_195",
+        "hero_256",
+        "hero_258"
+      ],
+      "pageSha256": "9b31b352da850f365999d565e31b7b4ce17aa634d5f7b0dfb4bbc460b1e005ad"
+    },
+    "wife_103": {
+      "name": "Lina",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lina/",
+      "blessedFellows": [
+        "hero_105",
+        "hero_102",
+        "hero_113",
+        "hero_212",
+        "hero_132",
+        "hero_251",
+        "hero_165",
+        "hero_259"
+      ],
+      "pageSha256": "a8488e93d138a0e7a7941b7275eae63346386bde2f0eb2b2d31b1166b82bbb2a"
+    },
+    "wife_104": {
+      "name": "Denier",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/denier/",
+      "blessedFellows": [
+        "hero_111",
+        "hero_104",
+        "hero_213",
+        "hero_128",
+        "hero_215",
+        "hero_139",
+        "hero_146",
+        "hero_177",
+        "hero_263",
+        "hero_198"
+      ],
+      "pageSha256": "dd4939e2e77b941c7de8d83c3daa42d1b70648896976e3e236e429e53c1bc6f5"
+    },
+    "wife_105": {
+      "name": "Baity",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/baity/",
+      "blessedFellows": [
+        "hero_153",
+        "hero_103",
+        "hero_215",
+        "hero_116",
+        "hero_214",
+        "hero_150",
+        "hero_164",
+        "hero_256",
+        "hero_178",
+        "hero_200",
+        "hero_264"
+      ],
+      "pageSha256": "9d5a99d3adde9d705622054f81701e6ba9c9e90918469d5411624031ed267875"
+    },
+    "wife_106": {
+      "name": "Lilith",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lilith/",
+      "blessedFellows": [
+        "hero_113",
+        "hero_159",
+        "hero_118",
+        "hero_121",
+        "hero_213",
+        "hero_140",
+        "hero_257",
+        "hero_308"
+      ],
+      "pageSha256": "d8f42703884502654667e67a55322eda53a463c81ec4b1400e31f30aaf1288d1"
+    },
+    "wife_111": {
+      "name": "Bren",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/bren/",
+      "blessedFellows": [
+        "hero_119",
+        "hero_152",
+        "hero_215",
+        "hero_118",
+        "hero_135",
+        "hero_164",
+        "hero_255",
+        "hero_196",
+        "hero_262"
+      ],
+      "pageSha256": "8d01218874d4607fe2ab85da49c83b86f570279093179e17c3ef00316fa6faf2"
+    },
+    "wife_112": {
+      "name": "Kagura",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/kagura/",
+      "blessedFellows": [
+        "hero_112",
+        "hero_153",
+        "hero_114",
+        "hero_127",
+        "hero_117",
+        "hero_139",
+        "hero_162",
+        "hero_171",
+        "hero_261",
+        "hero_303"
+      ],
+      "pageSha256": "f2ee8a8e713ac2510b91bd763c55e8d407dc01a400ef660200dd841b6bc366d6"
+    },
+    "wife_113": {
+      "name": "Willo",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/willo/",
+      "blessedFellows": [
+        "hero_154",
+        "hero_158",
+        "hero_213",
+        "hero_115",
+        "hero_113",
+        "hero_254",
+        "hero_173",
+        "hero_172",
+        "hero_263"
+      ],
+      "pageSha256": "a5eb7ed64eb9b2908c9a211d0840871e9b00b902dd3d2804f509aad8013def88"
+    },
+    "wife_114": {
+      "name": "Phetia",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/phetia/",
+      "blessedFellows": [
+        "hero_155",
+        "hero_157",
+        "hero_211",
+        "hero_128",
+        "hero_115",
+        "hero_144",
+        "hero_179",
+        "hero_305"
+      ],
+      "pageSha256": "23d25b47ef2adf801596b24bf8a89b82cddc5de776776cb47b5dc7cfc50e203d"
+    },
+    "wife_115": {
+      "name": "Holly",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/holly/",
+      "blessedFellows": [
+        "hero_111",
+        "hero_156",
+        "hero_113",
+        "hero_212",
+        "hero_114",
+        "hero_150",
+        "hero_174",
+        "hero_258",
+        "hero_172",
+        "hero_189"
+      ],
+      "pageSha256": "d0e040673a90fac828b3fd415828a12d59325ace5806ada6c6f344904bfd9a1c"
+    },
+    "wife_117": {
+      "name": "Vlad XIII",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/vlad-xiii/",
+      "blessedFellows": [
+        "hero_120",
+        "hero_160",
+        "hero_115",
+        "hero_129",
+        "hero_134",
+        "hero_147",
+        "hero_177",
+        "hero_200"
+      ],
+      "pageSha256": "796d269110eb859fc633175eba52c08b9a00dcec424ca385fc9ca6317e2b7619"
+    },
+    "wife_119": {
+      "name": "Alanna",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/alanna/",
+      "blessedFellows": [
+        "hero_116",
+        "hero_155",
+        "hero_156",
+        "hero_132",
+        "hero_141",
+        "hero_147",
+        "hero_258",
+        "hero_262"
+      ],
+      "pageSha256": "c97d402be280beb77b1ec70a03ecb3a9dfd0ccd0dc0028c101e373aa6da36ad4"
+    },
+    "wife_120": {
+      "name": "Connie",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/connie/",
+      "blessedFellows": [
+        "hero_159",
+        "hero_111",
+        "hero_214",
+        "hero_137",
+        "hero_143",
+        "hero_147",
+        "hero_178",
+        "hero_305"
+      ],
+      "pageSha256": "75adf9b1388a3195b25f03bbbaad36ccc9aebd2809836ca396402aff095c4d8f"
+    },
+    "wife_123": {
+      "name": "Puffair",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/puffair/",
+      "blessedFellows": [
+        "hero_160",
+        "hero_106",
+        "hero_114",
+        "hero_116",
+        "hero_125",
+        "hero_146",
+        "hero_257",
+        "hero_261",
+        "hero_262",
+        "hero_301"
+      ],
+      "pageSha256": "f8f993fa42d17bfec7e8d2151ee60809a9ef2d7bf43ae1d0f112b8a240da0e19"
+    },
+    "wife_125": {
+      "name": "Devileer",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/devileer/",
+      "blessedFellows": [
+        "hero_153",
+        "hero_191",
+        "hero_116",
+        "hero_124",
+        "hero_128",
+        "hero_259"
+      ],
+      "pageSha256": "b4198bf842230056e79a19d9c61c0e52ee5a96924b5e81ff6dd69e58edc9170b"
+    },
+    "wife_129": {
+      "name": "Tier",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/tier/",
+      "blessedFellows": [
+        "hero_131",
+        "hero_151",
+        "hero_105",
+        "hero_140",
+        "hero_165"
+      ],
+      "pageSha256": "91395bac3f2b5f774ca563932d5ea5c0e726f568bca9d1e3460e3e052ecaaf52"
+    },
+    "wife_130": {
+      "name": "Flora",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/flora/",
+      "blessedFellows": [
+        "hero_131",
+        "hero_192",
+        "hero_152",
+        "hero_141",
+        "hero_173"
+      ],
+      "pageSha256": "16a9db7bd25dc5cae47981294be5f12c604cb17436819c85d29eba2f3c10c15b"
+    },
+    "wife_131": {
+      "name": "Raphael",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/raphael/",
+      "blessedFellows": [
+        "hero_126",
+        "hero_132",
+        "hero_130",
+        "hero_140",
+        "hero_141",
+        "hero_162",
+        "hero_260",
+        "hero_199",
+        "hero_264"
+      ],
+      "pageSha256": "a22f1d6a1eea2111e978cb7c5ed5dd489b1a617d5108c10f04642a61db50961e"
+    },
+    "wife_133": {
+      "name": "Bathery",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/bathery/",
+      "blessedFellows": [
+        "hero_127",
+        "hero_190",
+        "hero_122",
+        "hero_144",
+        "hero_148",
+        "hero_175",
+        "hero_184",
+        "hero_200"
+      ],
+      "pageSha256": "ff4a013ee842c7dd91f3d6128c21fbc26425b345eb7bc4d4605bbc88bdcfdc22"
+    },
+    "wife_134": {
+      "name": "Jin Yu",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/jin-yu/",
+      "blessedFellows": [
+        "hero_133",
+        "hero_103",
+        "hero_193",
+        "hero_138",
+        "hero_135",
+        "hero_251",
+        "hero_259",
+        "hero_143"
+      ],
+      "pageSha256": "a108d617f9e5e9842646dcc31c02eedc8db5d877ef4485b1ccf75147fcfbb26f"
+    },
+    "wife_135": {
+      "name": "Lud",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lud/",
+      "blessedFellows": [
+        "hero_130",
+        "hero_134",
+        "hero_123",
+        "hero_142",
+        "hero_145",
+        "hero_179",
+        "hero_176"
+      ],
+      "pageSha256": "84a36e3f0fb1684a87b236fe61e78f19a59b47ede1ce5cdf2cf7a23405c21cde"
+    },
+    "wife_136": {
+      "name": "Squeaky",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/squeaky/",
+      "blessedFellows": [
+        "hero_135",
+        "hero_104",
+        "hero_142",
+        "hero_136",
+        "hero_253",
+        "hero_161",
+        "hero_164"
+      ],
+      "pageSha256": "1b0afcb3d4b4d7acaccf25af64cdddfbc51c9e368b278ab7cbe620b692118b80"
+    },
+    "wife_137": {
+      "name": "Lunaria",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lunaria/",
+      "blessedFellows": [
+        "hero_137",
+        "hero_126",
+        "hero_105",
+        "hero_138",
+        "hero_165",
+        "hero_182",
+        "hero_180"
+      ],
+      "pageSha256": "a313fc20e2321cf93e1b861b5547aac34b88eaed6983792265a8ab9d3729a51c"
+    },
+    "wife_140": {
+      "name": "ラクネラ",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-140/",
+      "blessedFellows": [
+        "hero_106",
+        "hero_117",
+        "hero_157",
+        "hero_150",
+        "hero_147",
+        "hero_173",
+        "hero_261"
+      ],
+      "pageSha256": "17997b54902a28d6c9dd67db8849c7cdfef49ef8a172eb96494dfbaf954ff094"
+    },
+    "wife_141": {
+      "name": "セントレア",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-141/",
+      "blessedFellows": [
+        "hero_215",
+        "hero_101",
+        "hero_156",
+        "hero_150",
+        "hero_146",
+        "hero_141"
+      ],
+      "pageSha256": "91ee952942d5b7bd41cbee252824d803c96b28e6de1fc67e6020f57f97ea02d1"
+    },
+    "wife_142": {
+      "name": "メロ",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wife-142/",
+      "blessedFellows": [
+        "hero_102",
+        "hero_155",
+        "hero_123",
+        "hero_150",
+        "hero_165",
+        "hero_140"
+      ],
+      "pageSha256": "222ea7fa847a3820039cb951be70071195023d34d396a6d5220943ac2369fac7"
+    },
+    "wife_143": {
+      "name": "Leopolda",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/leopolda/",
+      "blessedFellows": [
+        "hero_151",
+        "hero_214",
+        "hero_118",
+        "hero_120",
+        "hero_168",
+        "hero_255",
+        "hero_183"
+      ],
+      "pageSha256": "37005710106958d787cf75904ded96e4b21955503161c190ea8e5a03933f00f7"
+    },
+    "wife_145": {
+      "name": "Diablo",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/diablo/",
+      "blessedFellows": [
+        "hero_251",
+        "hero_154",
+        "hero_111",
+        "hero_143",
+        "hero_166",
+        "hero_183"
+      ],
+      "pageSha256": "f1d763871ba670935f53b52db09e0009f8be3df0d3589f6afa673af2b1207368"
+    },
+    "wife_152": {
+      "name": "Pan Pan",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pan-pan/",
+      "blessedFellows": [
+        "hero_138",
+        "hero_148",
+        "hero_158",
+        "hero_149",
+        "hero_168",
+        "hero_185",
+        "hero_180",
+        "hero_199"
+      ],
+      "pageSha256": "867cb654bb12a9dc70cbd616d446da80c334bb9f57eb70c34ee165ab9e8cd084"
+    },
+    "wife_148": {
+      "name": "Lucy",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lucy/",
+      "blessedFellows": [
+        "hero_253",
+        "hero_146",
+        "hero_147",
+        "hero_159",
+        "hero_177",
+        "hero_184",
+        "hero_302"
+      ],
+      "pageSha256": "89dab88f3fb4e009edd91986ed44a4f2213a35f61393dca18ef41fcc9ea5df15"
+    },
+    "wife_149": {
+      "name": "Mewi",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mewi/",
+      "blessedFellows": [
+        "hero_253",
+        "hero_146",
+        "hero_167",
+        "hero_180"
+      ],
+      "pageSha256": "1c17e60261c3cceb27a249bdf8943748d1d7aaccded7a19b6b15ca7e70b7efe6"
+    },
+    "wife_150": {
+      "name": "Mercuria",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mercuria/",
+      "blessedFellows": [
+        "hero_145",
+        "hero_149",
+        "hero_163",
+        "hero_169",
+        "hero_168",
+        "hero_183",
+        "hero_189"
+      ],
+      "pageSha256": "ac596a0996266bd9798ccf049ee6a916798c42353dbfbedc97bf1f1c0e3c58f8"
+    },
+    "wife_151": {
+      "name": "Pengia",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pengia/",
+      "blessedFellows": [
+        "hero_152",
+        "hero_213",
+        "hero_113",
+        "hero_124",
+        "hero_139",
+        "hero_258",
+        "hero_187",
+        "hero_262"
+      ],
+      "pageSha256": "691ceb99058c2e12d83cffba3d5908a0b07bed2918155e3157f5626ed9b97c11"
+    },
+    "wife_155": {
+      "name": "Futaba",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/futaba/",
+      "blessedFellows": [
+        "hero_162",
+        "hero_117",
+        "hero_112",
+        "hero_151",
+        "hero_178",
+        "hero_259",
+        "hero_198"
+      ],
+      "pageSha256": "0104293430992f461a4aeb121b68f2c393ad79479f5e997dd1a9d7281518f041"
+    },
+    "wife_154": {
+      "name": "Chitana",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/chitana/",
+      "blessedFellows": [
+        "hero_215",
+        "hero_137",
+        "hero_129",
+        "hero_156",
+        "hero_179",
+        "hero_196",
+        "hero_184",
+        "hero_200",
+        "hero_305"
+      ],
+      "pageSha256": "f995925ba1cfedcb66d6991c66aeba0531b9488189d0baf7918ca5ac560c4686"
+    },
+    "wife_156": {
+      "name": "Liliruca Arde",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/liliruca-arde/",
+      "blessedFellows": [
+        "hero_167",
+        "hero_165",
+        "hero_166",
+        "hero_160",
+        "hero_130",
+        "hero_188",
+        "hero_303"
+      ],
+      "pageSha256": "9da1ececfc3b5517ef18b7317234db73b9da1d8ee71279094f00c454c0f136d0"
+    },
+    "wife_157": {
+      "name": "Sylthiel",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sylthiel/",
+      "blessedFellows": [
+        "hero_169",
+        "hero_163",
+        "hero_157",
+        "hero_170",
+        "hero_171",
+        "hero_175",
+        "hero_197",
+        "hero_188"
+      ],
+      "pageSha256": "5fa3dd5463cf0304dcceab8c5eb63f376357c14f660eef69acb7116268f5f3d3"
+    },
+    "wife_180": {
+      "name": "Crysta",
+      "rarity": "SSR+",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/crysta/",
+      "blessedFellows": [
+        "hero_164",
+        "hero_163",
+        "hero_157",
+        "hero_137",
+        "hero_145",
+        "hero_212"
+      ],
+      "pageSha256": "ec464e3bbb0a94ee5cf71608c22c39fecc4d6398ab67ef1edb241ad6eed99151"
+    },
+    "wife_162": {
+      "name": "Wendy",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wendy/",
+      "blessedFellows": [
+        "hero_256",
+        "hero_173",
+        "hero_174",
+        "hero_185"
+      ],
+      "pageSha256": "e62be15bb35243c65edc2f5d23b929099878d3e1af620019c665dbf679d8b938"
+    },
+    "wife_163": {
+      "name": "Thubran",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/thubran/",
+      "blessedFellows": [
+        "hero_193",
+        "hero_104",
+        "hero_160",
+        "hero_117",
+        "hero_143",
+        "hero_188",
+        "hero_308"
+      ],
+      "pageSha256": "09f128cd61672303010f6a473c8140cb7c314bb0c53081e888dada2d6ad1da23"
+    },
+    "wife_164": {
+      "name": "Yunseul",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/yunseul/",
+      "blessedFellows": [
+        "hero_102",
+        "hero_153",
+        "hero_114",
+        "hero_191",
+        "hero_257",
+        "hero_263",
+        "hero_308"
+      ],
+      "pageSha256": "595b8938ca4906727751f0fad98c4687bcc44e5052fde2bf8dacfdc59e347b6e"
+    },
+    "wife_172": {
+      "name": "Sachiko",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sachikoo/",
+      "blessedFellows": [
+        "hero_102",
+        "hero_153",
+        "hero_114",
+        "hero_191"
+      ],
+      "pageSha256": "1d5e87727ceec377577f785f97f030104c404e8c11e5726affaef771ff8d26b3"
+    },
+    "wife_185": {
+      "name": "Shinobu Kocho",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/shinobu-kocho/",
+      "blessedFellows": [
+        "hero_264",
+        "hero_301",
+        "hero_302",
+        "hero_303",
+        "hero_304",
+        "hero_121",
+        "hero_186",
+        "hero_214"
+      ],
+      "pageSha256": "873badd8616ab8969fec539ed8a5a0e09bf895be9c6f6a4b431efaee0c21f715"
+    },
+    "wife_186": {
+      "name": "Nezuko Kamado",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nezuko-kamado/",
+      "blessedFellows": [
+        "hero_264",
+        "hero_301",
+        "hero_302",
+        "hero_303",
+        "hero_304"
+      ],
+      "pageSha256": "e277fdee1cbb83cd9575e4f2f7d4c5ff6faf95eed97bcf4d2686c796f39a80e3"
+    },
+    "wife_188": {
+      "name": "Loya",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/loya/",
+      "blessedFellows": [
+        "hero_104",
+        "hero_171",
+        "hero_127",
+        "hero_159",
+        "hero_211",
+        "hero_215"
+      ],
+      "pageSha256": "c9309a89e0dd449fee8f4d3926a49d2fe37b57dd6b7e7f96a92a3e8230a0c93c"
+    },
+    "wife_191": {
+      "name": "Bridget",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/bridget/",
+      "blessedFellows": [
+        "hero_190",
+        "hero_193",
+        "hero_117",
+        "hero_214",
+        "hero_118",
+        "hero_136",
+        "hero_256",
+        "hero_260",
+        "hero_302",
+        "hero_308"
+      ],
+      "pageSha256": "5c2944cd50ed2affb4a5c81d594cce1b6f6c0040e14eaea85d910a20f499da0f"
+    },
+    "wife_192": {
+      "name": "Nibel",
+      "rarity": "SSR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nibel/",
+      "blessedFellows": [
+        "hero_191",
+        "hero_192",
+        "hero_194",
+        "hero_212",
+        "hero_139",
+        "hero_172"
+      ],
+      "pageSha256": "e9afaac77fffc813837d1389868f7a974f8400e00d7fb98302494261de674fe6"
+    },
+    "wife_167": {
+      "name": "Mushimi",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mushimi/",
+      "blessedFellows": [
+        "hero_255",
+        "hero_215",
+        "hero_115",
+        "hero_138",
+        "hero_145",
+        "hero_155",
+        "hero_196",
+        "hero_197"
+      ],
+      "pageSha256": "8d4edd95e673f79a646135b7ec70d4ec3128a5711a8a321b9f104231679f7167"
+    },
+    "wife_159": {
+      "name": "Roxy Migurdia",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/roxy-migurdia/",
+      "blessedFellows": [
+        "hero_257",
+        "hero_177",
+        "hero_178",
+        "hero_176",
+        "hero_128",
+        "hero_132"
+      ],
+      "pageSha256": "5def766856d7bbfc415000f10f805cb86781cced0331f51ac41e08a02d7018ea"
+    },
+    "wife_170": {
+      "name": "Dionysia",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/dionysia/",
+      "blessedFellows": [
+        "hero_258",
+        "hero_103",
+        "hero_156",
+        "hero_213",
+        "hero_121",
+        "hero_171",
+        "hero_134",
+        "hero_189"
+      ],
+      "pageSha256": "f15ff14a1e2eccc270bb36e369b353e500383c88e33e783f7bdd9b23e13fa85d"
+    },
+    "wife_171": {
+      "name": "Fafnyria",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/fafnyria/",
+      "blessedFellows": [
+        "hero_259",
+        "hero_186",
+        "hero_159",
+        "hero_111",
+        "hero_135",
+        "hero_148",
+        "hero_253",
+        "hero_305"
+      ],
+      "pageSha256": "2d438b1a974e20ba9843ff467af02d985cc92dfc9f58b11b49525aa3ca8d2560"
+    },
+    "wife_173": {
+      "name": "Aqua",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/aqua/",
+      "blessedFellows": [
+        "hero_260",
+        "hero_184",
+        "hero_214",
+        "hero_119",
+        "hero_118",
+        "hero_162"
+      ],
+      "pageSha256": "cf874c99c581e8f667c85e3ae809746c47a88364fb7ae1c670d37716abdfbbbe"
+    },
+    "wife_176": {
+      "name": "Albedo",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/albedo/",
+      "blessedFellows": [
+        "hero_261",
+        "hero_187",
+        "hero_188",
+        "hero_254",
+        "hero_172"
+      ],
+      "pageSha256": "19eb82d502495067d43a636d5fffeab6b17edb0acc8d912aa2261b8d9f4c5edd"
+    },
+    "wife_183": {
+      "name": "Hattie",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/hattie/",
+      "blessedFellows": [
+        "hero_262",
+        "hero_254",
+        "hero_169",
+        "hero_113",
+        "hero_172",
+        "hero_161",
+        "hero_152",
+        "hero_264"
+      ],
+      "pageSha256": "061e5dc35a16ca3f15071f71e751f6c7a3930c27223d8d4357fc394557f5abc2"
+    },
+    "wife_116": {
+      "name": "Mia",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mia/",
+      "blessedFellows": [
+        "hero_193",
+        "hero_151",
+        "hero_113",
+        "hero_128",
+        "hero_140",
+        "hero_166",
+        "hero_196",
+        "hero_186",
+        "hero_259"
+      ],
+      "pageSha256": "e2e497c55f2d5754bba13e30dd61b6ba112313b1e4356a746d9d7836ade4ecde"
+    },
+    "wife_118": {
+      "name": "Pthahnil",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/pthahnil/",
+      "blessedFellows": [
+        "hero_120",
+        "hero_117",
+        "hero_115",
+        "hero_211",
+        "hero_142",
+        "hero_253",
+        "hero_254",
+        "hero_260",
+        "hero_263",
+        "hero_308"
+      ],
+      "pageSha256": "e8439218ddb3704144981802b3fdabb0e9902e092d7776bfcdf951e6e1876540"
+    },
+    "wife_121": {
+      "name": "Usuri",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/usuri/",
+      "blessedFellows": [
+        "hero_116",
+        "hero_215",
+        "hero_101",
+        "hero_132",
+        "hero_129",
+        "hero_254",
+        "hero_166",
+        "hero_257",
+        "hero_197",
+        "hero_261"
+      ],
+      "pageSha256": "45fe0b0fc6a2cde430036bf7973877efde923740345a10e62bf576e696fff415"
+    },
+    "wife_122": {
+      "name": "Tsukuyomi",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/tsukuyomi/",
+      "blessedFellows": [
+        "hero_112",
+        "hero_117",
+        "hero_212",
+        "hero_121",
+        "hero_139",
+        "hero_251",
+        "hero_162",
+        "hero_259",
+        "hero_261",
+        "hero_264",
+        "hero_302"
+      ],
+      "pageSha256": "b7cd5ce3ddfaed6d7f0db579b6affe2b08d00be9f8fa55bcd40d9894e5b4e415"
+    },
+    "wife_124": {
+      "name": "Namiko",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/namiko/",
+      "blessedFellows": [
+        "hero_124",
+        "hero_114",
+        "hero_103",
+        "hero_135",
+        "hero_125",
+        "hero_143",
+        "hero_255",
+        "hero_142",
+        "hero_260",
+        "hero_301"
+      ],
+      "pageSha256": "ec7f693621c3b7a617358034f64f1a0a51f074ebcc34855dcab75aa1a6ed61ef"
+    },
+    "wife_126": {
+      "name": "Skogul",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/skogul/",
+      "blessedFellows": [
+        "hero_126",
+        "hero_213",
+        "hero_158",
+        "hero_132",
+        "hero_121",
+        "hero_150",
+        "hero_162",
+        "hero_168",
+        "hero_255",
+        "hero_186",
+        "hero_263",
+        "hero_303"
+      ],
+      "pageSha256": "1b34b127c3603ff0844a62c8cd8718ae61376409ae0d9ce826109a02a451dde9"
+    },
+    "wife_127": {
+      "name": "Mors",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/mors/",
+      "blessedFellows": [
+        "hero_130",
+        "hero_154",
+        "hero_211",
+        "hero_134",
+        "hero_137",
+        "hero_254",
+        "hero_166",
+        "hero_175",
+        "hero_257",
+        "hero_198",
+        "hero_308"
+      ],
+      "pageSha256": "414c951abd40ee6fbf266df2fc1a30b86de5a0b5c618ef2736bc61fc11cca9cd"
+    },
+    "wife_128": {
+      "name": "Loo",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/loo/",
+      "blessedFellows": [
+        "hero_131",
+        "hero_118",
+        "hero_102",
+        "hero_139",
+        "hero_162",
+        "hero_166",
+        "hero_143",
+        "hero_264"
+      ],
+      "pageSha256": "657d4d3c59d2d749c2b0abb5812fd2cde60c7a80e7e7251d4e36a2ad1cb72a96"
+    },
+    "wife_132": {
+      "name": "Curren",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/curren/",
+      "blessedFellows": [
+        "hero_127",
+        "hero_128",
+        "hero_115",
+        "hero_135",
+        "hero_134",
+        "hero_253",
+        "hero_256",
+        "hero_179",
+        "hero_199",
+        "hero_264"
+      ],
+      "pageSha256": "bc063d6137a7482e0717699f56be3b6977ce04cdde82a86fea384020b16f863a"
+    },
+    "wife_138": {
+      "name": "Wadjetta",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wadjetta/",
+      "blessedFellows": [
+        "hero_134",
+        "hero_137",
+        "hero_138",
+        "hero_119",
+        "hero_148",
+        "hero_251",
+        "hero_258",
+        "hero_172",
+        "hero_189"
+      ],
+      "pageSha256": "41cbd15567c015aa67fa73902b27da1a4dce55d2b20f9cfcfe12e242f5ee4063"
+    },
+    "wife_139": {
+      "name": "Mia",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/miaa/",
+      "blessedFellows": [
+        "hero_150",
+        "hero_115",
+        "hero_114",
+        "hero_104",
+        "hero_121",
+        "hero_253",
+        "hero_166",
+        "hero_139",
+        "hero_143"
+      ],
+      "pageSha256": "9a016303b6802f4aca8de0a90c205f5d2d0a19a1050415f1fe1e4f878a70020f"
+    },
+    "wife_153": {
+      "name": "Cranelia",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/cranelia/",
+      "blessedFellows": [
+        "hero_137",
+        "hero_148",
+        "hero_149",
+        "hero_125",
+        "hero_145",
+        "hero_255",
+        "hero_175",
+        "hero_259",
+        "hero_198"
+      ],
+      "pageSha256": "39961f582e73121a1b4fcc3645b2853429ac01da92e9762b0d7f0957abb1da5f"
+    },
+    "wife_146": {
+      "name": "Athena",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/athena/",
+      "blessedFellows": [
+        "hero_145",
+        "hero_148",
+        "hero_163",
+        "hero_116",
+        "hero_169",
+        "hero_168",
+        "hero_182",
+        "hero_172",
+        "hero_262"
+      ],
+      "pageSha256": "458e967e398a7f7971feb2a04ff3dbc10258f9516681f05f17a0ec330640e342"
+    },
+    "wife_144": {
+      "name": "Shuna",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/shuna/",
+      "blessedFellows": [
+        "hero_251",
+        "hero_143",
+        "hero_144",
+        "hero_212",
+        "hero_128",
+        "hero_168",
+        "hero_142",
+        "hero_258"
+      ],
+      "pageSha256": "dbd0d010e4eeff8b3e4adfc076b0f65016e5364533dd18a5546b015cd406f66c"
+    },
+    "wife_158": {
+      "name": "Nyar",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nyar/",
+      "blessedFellows": [
+        "hero_169",
+        "hero_145",
+        "hero_170",
+        "hero_134",
+        "hero_122",
+        "hero_171",
+        "hero_256",
+        "hero_182",
+        "hero_261"
+      ],
+      "pageSha256": "cbb4c9acb88c50cc748533189314cac38ac916ee6e13d82b1ca0a6ac20444b9b"
+    },
+    "wife_179": {
+      "name": "Kerr & Bel & Ross",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/kerr-bel-ross/",
+      "blessedFellows": [
+        "hero_115",
+        "hero_120",
+        "hero_136",
+        "hero_131",
+        "hero_162",
+        "hero_169",
+        "hero_175",
+        "hero_150",
+        "hero_301"
+      ],
+      "pageSha256": "026aabcce2c4927d9a7f3473eca7082dac8bf3ce63746cda8a7a53da88f29b6d"
+    },
+    "wife_160": {
+      "name": "Sylphiette Greyrat",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/sylphiette-greyrat/",
+      "blessedFellows": [
+        "hero_257",
+        "hero_177",
+        "hero_178",
+        "hero_176",
+        "hero_214",
+        "hero_253",
+        "hero_260",
+        "hero_301"
+      ],
+      "pageSha256": "fc3481b7b5997370ae2b7c07765e55198627b950e76205daf53d2bc25d26d886"
+    },
+    "wife_161": {
+      "name": "Lucy",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lucyy/",
+      "blessedFellows": [
+        "hero_256",
+        "hero_174",
+        "hero_211",
+        "hero_115",
+        "hero_173",
+        "hero_262"
+      ],
+      "pageSha256": "addca1cebe89d014aa07ca3a0428210e6e2348ddf032df3af9058a1de645a6c3"
+    },
+    "wife_165": {
+      "name": "Lancelot",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lancelot/",
+      "blessedFellows": [
+        "hero_170",
+        "hero_102"
+      ],
+      "pageSha256": "8871c86639456fa177d171694f6d8d36ce82551ecd728f616ce31354dde7825e"
+    },
+    "wife_166": {
+      "name": "Zenow",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/zenow/",
+      "blessedFellows": [
+        "hero_170",
+        "hero_102"
+      ],
+      "pageSha256": "421c770503c8baf12cf75dae19626933d8ae9d9cea7104f39d8f86743974bba1"
+    },
+    "wife_168": {
+      "name": "Shion",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/shion/",
+      "blessedFellows": [
+        "hero_143",
+        "hero_183",
+        "hero_180",
+        "hero_251",
+        "hero_116",
+        "hero_187",
+        "hero_263",
+        "hero_305"
+      ],
+      "pageSha256": "4eaf1120cee0115c9edf73e854815484e96afdc750a6ed4985a5844e32aaa3a2"
+    },
+    "wife_169": {
+      "name": "Ixchel",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/ixchel/",
+      "blessedFellows": [
+        "hero_182",
+        "hero_169",
+        "hero_175",
+        "hero_171",
+        "hero_149",
+        "hero_258",
+        "hero_196",
+        "hero_186",
+        "hero_262",
+        "hero_301"
+      ],
+      "pageSha256": "e2e2f839793411a90a8e9dd9fe640b941bc20d4e78d5d79449bd4a3b565fb7a0"
+    },
+    "wife_174": {
+      "name": "Megumin",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/megumin/",
+      "blessedFellows": [
+        "hero_260",
+        "hero_184",
+        "hero_185",
+        "hero_212",
+        "hero_113",
+        "hero_169",
+        "hero_251"
+      ],
+      "pageSha256": "4fd818ab59b4b9b801347f4fa9c7c0c64355e073dd961e3114084abc24d40edf"
+    },
+    "wife_175": {
+      "name": "Philo",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/philo/",
+      "blessedFellows": [
+        "hero_196",
+        "hero_182",
+        "hero_186",
+        "hero_126",
+        "hero_149",
+        "hero_197",
+        "hero_189",
+        "hero_200",
+        "hero_264"
+      ],
+      "pageSha256": "64824815ddcc44722af155c1768a876d9b6386009685515e4e01bfb34319660b"
+    },
+    "wife_177": {
+      "name": "Shalltear Bloodfallen",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/shalltear-bloodfallen/",
+      "blessedFellows": [
+        "hero_261",
+        "hero_187",
+        "hero_188",
+        "hero_81",
+        "hero_148",
+        "hero_257"
+      ],
+      "pageSha256": "be6db53188e0671b5a131f8bd8828da37255fcf486fde977e3d51d31fd18b59c"
+    },
+    "wife_178": {
+      "name": "Genessa",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/genessa/",
+      "blessedFellows": [
+        "hero_186",
+        "hero_189",
+        "hero_101",
+        "hero_198",
+        "hero_179",
+        "hero_197",
+        "hero_199",
+        "hero_263",
+        "hero_305"
+      ],
+      "pageSha256": "95135af62ae2c6231e45e4ba8ff8a83c2f92cb4a9ce234fb9f2b3ded56b96ed5"
+    },
+    "wife_181": {
+      "name": "Dante",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/dante/",
+      "blessedFellows": [
+        "hero_163",
+        "hero_101"
+      ],
+      "pageSha256": "db832b57b201067e989de99228a2052827639c0658f472a06ff95ecd1f951353"
+    },
+    "wife_182": {
+      "name": "Nonnette",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nonnette/",
+      "blessedFellows": [
+        "hero_163",
+        "hero_101"
+      ],
+      "pageSha256": "c87de57206a3798e306d966d0d9a77f3eb56e6c801b5c967b296befc017996da"
+    },
+    "wife_184": {
+      "name": "Takina Inoue",
+      "rarity": "SSR+ -> UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/takina-inoue/",
+      "blessedFellows": [
+        "hero_263",
+        "hero_121",
+        "hero_198",
+        "hero_211",
+        "hero_154",
+        "hero_105",
+        "hero_168"
+      ],
+      "pageSha256": "327b107c11d7b1b93d2c03843ec9983955694cccf3e98f6df201a9fcafeb128e"
+    },
+    "wife_187": {
+      "name": "Amaterasu",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/amaterasu/",
+      "blessedFellows": [
+        "hero_117",
+        "hero_182",
+        "hero_139",
+        "hero_255",
+        "hero_125",
+        "hero_133",
+        "hero_213"
+      ],
+      "pageSha256": "a01a9dc1508af82449470f1e55d39c4c441be936ca725d7a1d0e91d63e347e85"
+    },
+    "wife_201": {
+      "name": "Nirvana",
+      "rarity": "UR",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/nirvana/",
+      "blessedFellows": [
+        "hero_194",
+        "hero_195",
+        "hero_211",
+        "hero_254",
+        "hero_263"
+      ],
+      "pageSha256": "792f46493b5ed697264ef6e957719c7db0074e169cebc431c5d066c920bdde8b"
+    },
+    "wife_251": {
+      "name": "Hina",
+      "rarity": "UR*",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/hina/",
+      "blessedFellows": [],
+      "pageSha256": "0783514858942fc3aa2e0182e11bcec11224e7a3778841868641e95a553cbb12"
+    },
+    "wife_252": {
+      "name": "Hanamiya Rica",
+      "rarity": "SSR+ -> UR*",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/hanamiya-rica/",
+      "blessedFellows": [
+        "hero_153",
+        "hero_132",
+        "hero_114"
+      ],
+      "pageSha256": "8087c0d844206fef36e4080ba52fd61c12972e5b3356e1a1ab248012b63f58c6"
+    },
+    "wife_253": {
+      "name": "Hestia",
+      "rarity": "SSR+ -> UR*",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/hestia/",
+      "blessedFellows": [
+        "hero_254",
+        "hero_135",
+        "hero_166",
+        "hero_167",
+        "hero_165"
+      ],
+      "pageSha256": "4f04ef515f8b97f996126d45c515c46337176526abab1c44c14fd3cb4fd45aa4"
+    },
+    "wife_254": {
+      "name": "Emiru",
+      "rarity": "SSR+ -> UR*",
+      "type": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/emiru/",
+      "blessedFellows": [
+        "hero_118",
+        "hero_148",
+        "hero_158"
+      ],
+      "pageSha256": "e04f620d6b71190ef084b786ab42af5c9a0ee38d51ebd5ae54ade8a83b62ab80"
+    }
+  }
+}

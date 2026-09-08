@@ -1,0 +1,545 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "localHashes": {
+    "Hero": "3c66ace4184f87aacfd4d29ab3536621edbf657cdf5dfdd1d662a92191260b35",
+    "SkillBase": "9c5c2d7a3b0355a7657c46276b298419dcd1e06676379628c40b8962a73e4a25"
+  },
+  "records": [
+    {
+      "item": "Item_Weapon_Equipment_6_21",
+      "fellow": "hero_146",
+      "name": "Allucia",
+      "skill": "Weapon_6_21_HeroSkill_146",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/allucia-s-sword/",
+      "pageSha256": "97aff99ac2fe3ca4677505a97a8ee094e1e4ba950cd82a3acad9bae10b54f936"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_16",
+      "fellow": "hero_251",
+      "name": "Rimuru Tempest",
+      "skill": "Weapon_6_16_HeroSkill_251",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/anti-magic-mask/",
+      "pageSha256": "f7bad80e76f2f25e0498a2ce31e3704bb01c5e97cc714a748634d04fce6a9cfa"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_48",
+      "fellow": "hero_176",
+      "name": "Rudeus Greyrat",
+      "skill": "Weapon_6_48_HeroSkill_176",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/aqua-heartia/",
+      "pageSha256": "5c598dc3873b345c690bf07143a202049dee1cadbbe2eae4b53e737eb8453f93"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H260",
+      "fellow": "hero_260",
+      "name": "Aqua",
+      "skill": "Weapon_6_H260_HeroSkill_260",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/aqua-plushie/",
+      "pageSha256": "2be26853030005d267b3748c11c5312f3ce4adbf57ff8ceb200d7491049ee18b"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_20",
+      "fellow": "hero_253",
+      "name": "Beryl",
+      "skill": "Weapon_6_20_HeroSkill_253",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/beryl-s-sword/",
+      "pageSha256": "8c5b06523b8ce252af09ba545596c1f7bdffad56790ef7124a1bfa3c40e6aede"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H184",
+      "fellow": "hero_184",
+      "name": "Kazuma",
+      "skill": "Weapon_6_H184_HeroSkill_184",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/chunchunmaru/",
+      "pageSha256": "c510ff83413199b12914c9254a29edf348dfab166a7ddb81ca1029eec4425789"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_42",
+      "fellow": "hero_173",
+      "name": "Erza",
+      "skill": "Weapon_6_42_HeroSkill_173",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/demon-blade-benizakura/",
+      "pageSha256": "722c0f758ee68eacbe71208e36bcec44a70aeab147d8464a1764c2e0e931eb21"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_50",
+      "fellow": "hero_258",
+      "name": "Dionysia",
+      "skill": "Weapon_6_50_HeroSkill_258",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/divine-vintage-wine/",
+      "pageSha256": "bcb8b1505449c8fad08674b8126f2738adaa249ef7d0931d3ede7c03a4cb036a"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_17",
+      "fellow": "hero_143",
+      "name": "Milim Nava",
+      "skill": "Weapon_6_17_HeroSkill_143",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-knuckles-replica/",
+      "pageSha256": "f06a0c30130cf080d5aeaf3329f28eb8eec7b2f6f43bff190df47609a4b1e4a9"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_40",
+      "fellow": "hero_256",
+      "name": "Natsu",
+      "skill": "Weapon_6_40_HeroSkill_256",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-scale-scarf/",
+      "pageSha256": "a0830397f2f2d4e7c88c56ea6dcbed0115ed2a38b80e7b19df5f49457553793b"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_13",
+      "fellow": "hero_140",
+      "name": "Elma",
+      "skill": "Weapon_6_13_HeroSkill_140",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/elma-plush/",
+      "pageSha256": "e94012ca308a1d008f911dcb04893c69f0dbed2358a68360d0e02b24ad75a90e"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_14",
+      "fellow": "hero_141",
+      "name": "Fafnir",
+      "skill": "Weapon_6_14_HeroSkill_141",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/fafnir-plush/",
+      "pageSha256": "bb630ab5f10004638abfd48c0a855a76d16a43900562691877c59807b5425977"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H301",
+      "fellow": "hero_301",
+      "name": "Giyu Tomioka",
+      "skill": "Weapon_6_H301_HeroSkill_301",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giyu-tomioka-s-nichirin-sword/",
+      "pageSha256": "08d80f449406c9ad72047d2401c089f8b4033907a94a160b6d74e3331cee6ccb"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_23",
+      "fellow": "hero_254",
+      "name": "Gabrael",
+      "skill": "Weapon_6_23_HeroSkill_254",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/golden-microphone/",
+      "pageSha256": "c3151fb10cee694e0b5d6db27ff885dd34d033ef3f6b587aa68e62174ddf342c"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_47",
+      "fellow": "hero_177",
+      "name": "Aisha Greyrat",
+      "skill": "Weapon_6_47_HeroSkill_177",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hachigane/",
+      "pageSha256": "3c2672281a96f8162c7a61554e522a2eeceb6cb062750220f22a416b5f4d7bb7"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H262",
+      "fellow": "hero_262",
+      "name": "Hattie",
+      "skill": "Weapon_6_H262_HeroSkill_262",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/icefang-necklace/",
+      "pageSha256": "047158f062bacfac3a450b1223deb8bd01bcce12e409b6030895403986789bb7"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H304",
+      "fellow": "hero_304",
+      "name": "Inosuke Hashibira",
+      "skill": "Weapon_6_H304_HeroSkill_304",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/inosuke-hashibira-s-nichirin-sword/",
+      "pageSha256": "a4cb24dc85016bb8466bff66d5b4b84fab70daa039e74e0dc8a70fa453070908"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_12",
+      "fellow": "hero_142",
+      "name": "Kanna",
+      "skill": "Weapon_6_12_HeroSkill_142",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/kanna-plush/",
+      "pageSha256": "15e15faf075e659681a77346a3868e40a8f6cbdbf21a658ddd7b86a3758540e1"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_9",
+      "fellow": "hero_122",
+      "name": "Mio",
+      "skill": "Weapon_6_9_HeroSkill_122",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mio-s-iron-fan/",
+      "pageSha256": "fb864d0dbcd0d06601b371f57f59bd964caf0826ab9307e19e38e27c4f26d2c9"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_30",
+      "fellow": "hero_255",
+      "name": "Mushimi",
+      "skill": "Weapon_6_30_HeroSkill_255",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mushroom-staff/",
+      "pageSha256": "01a09003e9b2267ddeb2a332f217296c895f41e6d8bb4e15f050b16ae0161dce"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_46",
+      "fellow": "hero_178",
+      "name": "Norn Greyrat",
+      "skill": "Weapon_6_46_HeroSkill_178",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/paul-s-sword/",
+      "pageSha256": "e07090804ccccb4cc346d9d6490d40b63f0278011a83f579c27466235c98f979"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_45",
+      "fellow": "hero_257",
+      "name": "Roxy Migurdia",
+      "skill": "Weapon_6_45_HeroSkill_257",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/roxy-s-wand/",
+      "pageSha256": "f2e2239b33b647feb98f32e0c479130fe5d0ff5310c1f7fa50dec00d57e1dc28"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_10",
+      "fellow": "hero_123",
+      "name": "Shiki",
+      "skill": "Weapon_6_10_HeroSkill_123",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shiki-s-crown/",
+      "pageSha256": "21bcf15eb71558d3bcf97f9595686fa0f405a2a4c3e84d8827acb31e2c448e62"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H264",
+      "fellow": "hero_264",
+      "name": "Shinobu Kocho",
+      "skill": "Weapon_6_H264_HeroSkill_264",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shinobu-kocho-s-nichirin-sword/",
+      "pageSha256": "daa1be73c1e8b3fbc733d8e2ea63baaf80c33d8dd608f5f7e6a929cd958f0f90"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_41",
+      "fellow": "hero_174",
+      "name": "Gray",
+      "skill": "Weapon_6_41_HeroSkill_174",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/silver-necklace/",
+      "pageSha256": "b2dcbe90918be28c919b15511af8ff5190b8ba87aec774e307069baeef465e7e"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_22",
+      "fellow": "hero_147",
+      "name": "Surena",
+      "skill": "Weapon_6_22_HeroSkill_147",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/surena-s-twin-dragonblade/",
+      "pageSha256": "4adbf812812360df25501b5fded76a94683ee3d8f73574a944ee0a67835a63e5"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H302",
+      "fellow": "hero_302",
+      "name": "Tanjiro Kamado",
+      "skill": "Weapon_6_H302_HeroSkill_302",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tanjiro-kamado-s-nichirin-sword/",
+      "pageSha256": "d3a10b49478068903b87e4722d52476f3788591cc5a26613f03261d7676b17de"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_15",
+      "fellow": "hero_139",
+      "name": "Tohru",
+      "skill": "Weapon_6_15_HeroSkill_139",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tohru-plush/",
+      "pageSha256": "ef10fdd4411aec41bc5cdb0803f70c283006894b5add87f21c9d9fed0f8ee919"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_8",
+      "fellow": "hero_121",
+      "name": "Tomoe",
+      "skill": "Weapon_6_8_HeroSkill_121",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tomoe-s-katana/",
+      "pageSha256": "cd8d02c912dc71da5d3d55b2a032181176864c945057b3778840f94a80427c85"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H259",
+      "fellow": "hero_259",
+      "name": "Fafnyria",
+      "skill": "Weapon_6_H259_HeroSkill_259",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/true-love-trap/",
+      "pageSha256": "e079b9d7fddd310e8443e3f4c644a58ed227518b62cc25e42cc370a7a9d1be79"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_51",
+      "fellow": "hero_183",
+      "name": "Veldora Tempest",
+      "skill": "Weapon_6_51_HeroSkill_183",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/veldora-s-cloak/",
+      "pageSha256": "319bc07e281560def3743c54e9ac9f7dcec38e80c6c4e2cafbfea99ec72cb0d2"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_29",
+      "fellow": "hero_169",
+      "name": "Nyar",
+      "skill": "Weapon_6_29_HeroSkill_169",
+      "aptitude": 150,
+      "percent": 30,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/willful-dice/",
+      "pageSha256": "e472b25902d836963dd198bb4bc24d00932283bfb829f425a32a3aa0b499983b"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_H303",
+      "fellow": "hero_303",
+      "name": "Zenitsu Agatsuma",
+      "skill": "Weapon_6_H303_HeroSkill_303",
+      "aptitude": 100,
+      "percent": 20,
+      "orePerLevel": 70,
+      "aptitudePerLevel": 7,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/zenitsu-agatsuma-s-nichirin-sword/",
+      "pageSha256": "279885fda50feaeca3ef5b2a35f9e47d1dcfac94b89be351d0db046aae80e95d"
+    }
+  ],
+  "deferred": [
+    {
+      "weapon": "Weapon_6_H261",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Albedo Aptitude of Echoing Fellow +150 Power of Echoing Fellow +30%"
+    },
+    {
+      "weapon": "Weapon_6_26",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Ryu Lion Exclusive Fellow Aptitude +100 Exclusive Fellow Power +20%"
+    },
+    {
+      "weapon": "Weapon_6_H263",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Chisato Nishikigi Exclusive Fellow's Aptitude +150 Exclusive Fellow's Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_32",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura Cinnamoroll's doll Aptitude of all UR and above quality Fellows+30 Power of all UR and above quality Fellows+6%"
+    },
+    {
+      "weapon": "Weapon_6_25",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Ais Wallenstein Exclusive Fellow Aptitude +150 Exclusive Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_19",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Diablo Equipped Fellow Aptitude +100 Equipped Fellow Power +20%"
+    },
+    {
+      "weapon": "Weapon_6_17M1",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Milim Nava Aptitude of Echoing Fellow +200 Power of Echoing Fellow +40%"
+    },
+    {
+      "weapon": "Weapon_6_38",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Emiru Equipped Fellow Aptitude +150 Equipped Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_34",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura Hello Kitty's doll All Fellow Aptitude +10 Power of all Fellows +2%"
+    },
+    {
+      "weapon": "Weapon_6_27",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Hestia Equipped Fellow Aptitude +150 Equipped Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_12M1",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Kanna Aptitude of Echoing Fellow +200 Power of Echoing Fellow +40%"
+    },
+    {
+      "weapon": "Weapon_6_31",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura Kuromi's doll All Inspiring Fellow Aptitude +30 All Inspiring Fellow Power +6%"
+    },
+    {
+      "weapon": "Weapon_6_28",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Liliruca Arde Equipped Fellow Aptitude +100 Equipped Fellow Power +20%"
+    },
+    {
+      "weapon": "Weapon_6_43",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Lucy Equipped Fellow Aptitude +150 Equipped Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_W174",
+      "reason": "Nonunique or missing exact local Hero name",
+      "name": "Megumin",
+      "ids": []
+    },
+    {
+      "weapon": "Weapon_6_35",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura My Melody's doll All Unfettered Fellow Aptitude +30 All Unfettered Fellow Power +6%"
+    },
+    {
+      "weapon": "Weapon_6_H188",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Narberal Gamma Aptitude of Echoing Fellow +100 Power of Echoing Fellow +20%"
+    },
+    {
+      "weapon": "Weapon_6_37",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura Pochacco's doll All Brave Fellow Aptitude +30 All Brave Fellow Power +6%"
+    },
+    {
+      "weapon": "Weapon_6_33",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura Pompompurin's doll All Diligent Fellow Aptitude +30 All Diligent Fellow Power +6%"
+    },
+    {
+      "weapon": "Weapon_6_24",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Hanamiya Rica Equipped Fellow Aptitude +150 Equipped Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_W177",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Shalltear Bloodfallen Aptitude of Echoing Fellow +150 Power of Echoing Fellow +30%"
+    },
+    {
+      "weapon": "Weapon_6_52",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Shion Equipped Fellow Aptitude +150 Equipped Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_18",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Shuna Equipped Fellow Aptitude +150 Equipped Fellow Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_H187",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Ainz Ooal Gown Aptitude of Echoing Fellow +100 Power of Echoing Fellow +20%"
+    },
+    {
+      "weapon": "Weapon_6_49",
+      "reason": "Nonunique or missing exact local Hero name",
+      "name": "Sylphiette Greyrat",
+      "ids": []
+    },
+    {
+      "weapon": "Weapon_6_W184",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Echo Takina Inoue Exclusive Fellow's Aptitude +150 Exclusive Fellow's Power +30%"
+    },
+    {
+      "weapon": "Weapon_6_36",
+      "reason": "Not literal echo scope or no existing artifact identity",
+      "description": "Aura Tuxedosam's doll All Informed Fellow Aptitude +30 All Informed Fellow Power +6%"
+    }
+  ],
+  "limits": "Literal named-Hero echoes only; Family support, auras, ambiguous names and missing local skill pairs excluded. Quantities/costs community, not APK version-matched."
+}

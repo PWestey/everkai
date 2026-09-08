@@ -1,0 +1,126 @@
+{
+  "policyVersion": 1,
+  "source": "https://isekai.wiki/index.php?title=Golemore_Mines&oldid=6634",
+  "rows": [
+    {
+      "order": 1,
+      "name": "Rock Baby",
+      "power": 225000,
+      "mineCoin": 100,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2500,
+      "cumulativePower": 225000,
+      "cumulativeMineCoin": 100,
+      "cumulativeGold": 15000,
+      "cumulativeFellowEXP": 2500
+    },
+    {
+      "order": 2,
+      "name": "Rock Elf",
+      "power": 262000,
+      "mineCoin": 110,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2500,
+      "cumulativePower": 487000,
+      "cumulativeMineCoin": 210,
+      "cumulativeGold": 30000,
+      "cumulativeFellowEXP": 5000
+    },
+    {
+      "order": 3,
+      "name": "Fang Jieshi",
+      "power": 322000,
+      "mineCoin": 120,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2600,
+      "cumulativePower": 809000,
+      "cumulativeMineCoin": 330,
+      "cumulativeGold": 45000,
+      "cumulativeFellowEXP": 7600
+    },
+    {
+      "order": 4,
+      "name": "The Fluorite Monster",
+      "power": 345000,
+      "mineCoin": 130,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2600,
+      "cumulativePower": 1154000,
+      "cumulativeMineCoin": 460,
+      "cumulativeGold": 60000,
+      "cumulativeFellowEXP": 10200
+    },
+    {
+      "order": 5,
+      "name": "Iron Larva",
+      "power": 487000,
+      "mineCoin": 140,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2700,
+      "cumulativePower": 1641000,
+      "cumulativeMineCoin": 600,
+      "cumulativeGold": 75000,
+      "cumulativeFellowEXP": 12900
+    },
+    {
+      "order": 6,
+      "name": "Iron Beetle",
+      "power": 517000,
+      "mineCoin": 150,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2700,
+      "cumulativePower": 2158000,
+      "cumulativeMineCoin": 750,
+      "cumulativeGold": 90000,
+      "cumulativeFellowEXP": 15600
+    },
+    {
+      "order": 7,
+      "name": "Coal Bat Ball",
+      "power": 585000,
+      "mineCoin": 160,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2800,
+      "cumulativePower": 2743000,
+      "cumulativeMineCoin": 910,
+      "cumulativeGold": 105000,
+      "cumulativeFellowEXP": 18400
+    },
+    {
+      "order": 8,
+      "name": "Great Coal Bat",
+      "power": 787000,
+      "mineCoin": 170,
+      "golemoreGoldCoin": 0,
+      "gold": 15000,
+      "fellowEXP": 2800,
+      "cumulativePower": 3530000,
+      "cumulativeMineCoin": 1080,
+      "cumulativeGold": 120000,
+      "cumulativeFellowEXP": 21200
+    }
+  ],
+  "shop": {
+    "itemId": "Item_Strengthen_Equipment_1",
+    "name": "Magic Ore",
+    "mineCoinCost": 300,
+    "dailyLimit": 5,
+    "destination": "Existing artifactState.ore; source Item description establishes artifact upgrading."
+  },
+  "sandbox": {
+    "combat": "Snapshot Fellow effectivePower on explicit deploy; subtract from remaining encounterPower; overflow may continue to next encounter in same saved action. This is authored until independently verified.",
+    "daily": "UTCmidnight resets encounters/usedFellows/shop quotas; old receipts retained. No server timezone claim.",
+    "eligibility": "Owned Fellow once/day; no guild hire, rerolls or extra-deploy character skills in initial slice.",
+    "rewards": "Admit complete killed-encounter rewards and usedFellow state atomically. Retain source per-encounter values in immutable receipts; cumulative columns audit only, never extra rewards.",
+    "capacity": "Refuse entire operation if wallet/storage/history capacity insufficient; no partial mutation.",
+    "entry": "Free access; existing free roster/supplies unchanged.",
+    "presentation": "Mine modal through Explore; selected Fellow\u2192preview of deterministic result\u2192explicit deploy\u2192encounter/reward receipt; shop routes to Equipment."
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "boundary": "Source-informed combat9; maximumHP snapshot, outgoing scaling, timing, stacking, formation fallback and DR-to-vulnerability conversion are local policy. Snowbear uses recovered Bleed2/Speed3 despite community2turn text.",
+  "skills": [
+    {
+      "id": "Pet_1191",
+      "sourceSkill": "1191_1",
+      "name": "Rainbow Breath",
+      "text": "Deals damage equal to [ATK * 150%] and applies Bleed and Poison to all enemies for 3 turns. Bleed deals damage equal to the [Target\u2019s maximum HP * 10%] per turn; Poison deals damage equal to [ATK * 75%] per turn.",
+      "sourceText": "Deals damage equal to [ATK * 150%] and applies Bleed and Poison to all enemies for 3 turns. Bleed deals damage equal to the [Target's HP * 10%] per turn; Poison deals damage equal to [ATK * 75%] per turn.",
+      "minVersion": 9,
+      "kind": "damage",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 150.0,
+      "effects": [
+        {
+          "sourceBuff": "1191_1_1",
+          "recipient": "primary",
+          "kind": "bleed",
+          "basis": "targetMaxHP",
+          "percent": 10.0,
+          "turns": 3
+        },
+        {
+          "sourceBuff": "1191_1_2",
+          "recipient": "primary",
+          "kind": "poison",
+          "basis": "casterATK",
+          "percent": 75.0,
+          "turns": 3
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/rainbel/index.html",
+      "sha256": "352c271c327f56b3ca4e336349ec03f0b9a7d9b93ff8de1e18202dae62cb9b0b"
+    },
+    {
+      "id": "Pet_12141",
+      "sourceSkill": "12141_1",
+      "name": "Extreme Cuteness",
+      "text": "Applies Bleed and Poison to all enemies in the front row for 3 turns. Bleed deals damage equal to the [Target\u2019s maximum HP * 10%] per turn; Poison deals damage equal to [ATK * 75%] per turn.",
+      "sourceText": "Applies Bleed and Poison to all enemies in the front row for 3 turns. Bleed deals damage equal to the [Target's HP * 10%] per turn; Poison deals damage equal to [ATK * 75%] per turn.",
+      "minVersion": 9,
+      "kind": "debuff",
+      "targeting": "front",
+      "targets": 3,
+      "percent": 0.0,
+      "effects": [
+        {
+          "sourceBuff": "12141_1_1",
+          "recipient": "primary",
+          "kind": "bleed",
+          "basis": "targetMaxHP",
+          "percent": 10.0,
+          "turns": 3
+        },
+        {
+          "sourceBuff": "12141_1_2",
+          "recipient": "primary",
+          "kind": "poison",
+          "basis": "casterATK",
+          "percent": 75.0,
+          "turns": 3
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/wumeow/index.html",
+      "sha256": "a9c0072ae32c92d6efb0c955492c2f730228fd6743a331a397f0aadaa7a3958e"
+    },
+    {
+      "id": "Pet_32341",
+      "sourceSkill": "32341_1",
+      "name": "Furry Ball",
+      "text": "Deals 200% ATK damage to 3 random enemies, applies Bleed for 5% maximum HP for 2 turns, and reduces Speed by 40% for 3 turns.",
+      "sourceText": "Deals damage equal to [ATK * 200%] to 3 random enemies, inflicts Bleed on them, dealing damage equal to [5% their Max HP] per turn, and reduces their [SPD -40%] for 2 turns.",
+      "minVersion": 9,
+      "kind": "damage",
+      "targeting": "random",
+      "targets": 3,
+      "percent": 200.0,
+      "effects": [
+        {
+          "sourceBuff": "32341_1_1",
+          "recipient": "primary",
+          "kind": "bleed",
+          "basis": "targetMaxHP",
+          "percent": 5.0,
+          "turns": 2
+        },
+        {
+          "sourceBuff": "32341_1_2",
+          "recipient": "primary",
+          "kind": "speed",
+          "basis": "casterATK",
+          "percent": -40.0,
+          "turns": 3
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/snowbear/index.html",
+      "sha256": "1e2e85c33c25787c55d3a062f2366bc7bc47b619f06ac1250ca036fedfd9d03b"
+    },
+    {
+      "id": "Pet_42141",
+      "sourceSkill": "42141_1",
+      "name": "Leaf Charge",
+      "text": "Deals [ATK*420%] damage to a single enemy and inflicts Bleed, dealing [ATK*75%] damage per turn for 2 turns.",
+      "sourceText": "Deals [ATK*420%] damage to a single enemy and inflicts Bleed, dealing [ATK*75%] damage per turn for 2 turns.",
+      "minVersion": 9,
+      "kind": "damage",
+      "targeting": "front",
+      "targets": 1,
+      "percent": 420.0,
+      "effects": [
+        {
+          "sourceBuff": "42141_1_1",
+          "recipient": "primary",
+          "kind": "bleed",
+          "basis": "casterATK",
+          "percent": 75.0,
+          "turns": 2
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/treeraffe/index.html",
+      "sha256": "8064bbc435343bf5ed697f057f99bb100a75b04a8c0bab82f1e4526f679e8dc9"
+    },
+    {
+      "id": "Pet_8041504",
+      "sourceSkill": "8041504_1",
+      "name": "Shadow Strike",
+      "text": "Deals [ATK*300%] DMG to 1 random target and inflicts Poison for 2 turns. Poison deals [ATK*150%] DMG each turn and reduces the target's [SPD by 50%] while increasing [DMG Taken by 35%].",
+      "sourceText": "Deals [ATK*300%] DMG to 1 random target and inflicts Poison for 2 turns. Poison deals [ATK*150%] DMG each turn and reduces the target's [SPD by 50%] while increasing [DMG Taken by 35%].",
+      "minVersion": 9,
+      "kind": "damage",
+      "targeting": "random",
+      "targets": 1,
+      "percent": 300.0,
+      "effects": [
+        {
+          "sourceBuff": "8041504_1_1",
+          "recipient": "primary",
+          "kind": "poison",
+          "basis": "casterATK",
+          "percent": 150.0,
+          "turns": 2
+        },
+        {
+          "sourceBuff": "8041504_1_2",
+          "recipient": "primary",
+          "kind": "speed",
+          "basis": "casterATK",
+          "percent": -50.0,
+          "turns": 2
+        },
+        {
+          "sourceBuff": "8041504_1_3",
+          "recipient": "primary",
+          "kind": "vulnerable",
+          "basis": "casterATK",
+          "percent": 35.0,
+          "turns": 2
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/umbradrake/index.html",
+      "sha256": "6e50637993b470b1579c107dee5a120a36593e62ee1a0633f540605d843623a4"
+    }
+  ]
+}

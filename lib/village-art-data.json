@@ -1,0 +1,85 @@
+{
+  "provenance": "Readable UnityFS payload at offset32; static Texture2D extraction only",
+  "records": [
+    {
+      "texture": "Scene_MainCity_Building_2_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_2/scene_maincity_building_2_1_1743a69ae2b7bc4a3b2f8977683748f6.mmc",
+      "sourceSha256": "fefeb26e2adcc2945ef8fbee519fc8aa4514fe528a2ba3e6ed95373e4910eb20",
+      "asset": "village/Scene_MainCity_Building_2_1.webp",
+      "size": [
+        454,
+        367
+      ],
+      "alphaCrop": [
+        0,
+        0,
+        454,
+        367
+      ]
+    },
+    {
+      "texture": "Scene_MainCity_Building_3_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_3/scene_maincity_building_3_1_b69edca717666228b9b5c3609e18f83d.mmc",
+      "sourceSha256": "869a501d60f81b48a87518f8908a5b258df072f8e716437d2bf8c742613c037c",
+      "asset": "village/Scene_MainCity_Building_3_1.webp",
+      "size": [
+        512,
+        512
+      ],
+      "alphaCrop": [
+        76,
+        160,
+        457,
+        456
+      ]
+    },
+    {
+      "texture": "Scene_MainCity_Building_4_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_4/scene_maincity_building_4_1_5b0f7a82734b4938b39b97c9d142a80b.mmc",
+      "sourceSha256": "27034fb51f3861c195589790ac3de2068a99d9ce3345500954b572669b4e831f",
+      "asset": "village/Scene_MainCity_Building_4_1.webp",
+      "size": [
+        512,
+        512
+      ],
+      "alphaCrop": [
+        6,
+        103,
+        384,
+        406
+      ]
+    },
+    {
+      "texture": "Scene_MainCity_Building_5_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_5/scene_maincity_building_5_1_72e488d7291e8530cf2093fa851aed5d.mmc",
+      "sourceSha256": "70de83c37bab9d4f25ced83395e91e380f91a580ad03529229635188e6aaf74f",
+      "asset": "village/Scene_MainCity_Building_5_1.webp",
+      "size": [
+        512,
+        512
+      ],
+      "alphaCrop": [
+        147,
+        67,
+        444,
+        396
+      ]
+    },
+    {
+      "texture": "Scene_MainCity_Building_6_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_6/scene_maincity_building_6_1_2cbd6e5d13a82d671c5a1005a9711481.mmc",
+      "sourceSha256": "2d6c12e88567f00ac99b2a7893c3d226d623196cc9723ef17b5bcfaf0b8aa256",
+      "asset": "village/Scene_MainCity_Building_6_1.webp",
+      "size": [
+        1024,
+        1024
+      ],
+      "alphaCrop": [
+        0,
+        0,
+        838,
+        554
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "boundary": "Whole community active descriptions; combatVersion6 timing, rounding, refresh, targeting and unlock access authored locally.",
+  "skills": [
+    {
+      "id": "Pet_22241",
+      "name": "Absorption",
+      "text": "Grants shields that absorb damage up to [ATK * 400%] to all front-row allies for 2 turns and restores their HP equal to [ATK * 50%] per turn for 2 turns.",
+      "minVersion": 6,
+      "kind": "shield",
+      "targeting": "front",
+      "targets": 5,
+      "percent": 0,
+      "basis": "atk",
+      "effects": [
+        {
+          "kind": "shield",
+          "percent": 400,
+          "turns": 2,
+          "recipient": "primary",
+          "basis": "atk"
+        },
+        {
+          "kind": "regen",
+          "percent": 50,
+          "turns": 2,
+          "recipient": "primary",
+          "basis": "atk"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/forestme/index.html",
+      "sha256": "e3259ae9e5424539537d3f74a25c520e109ac43443f9ab2ba6b8a3e3dd60e2ac"
+    },
+    {
+      "id": "Pet_23341",
+      "name": "Fluffy Healing",
+      "text": "Restores the HP of the 3 lowest-HP allies in [20% Max HP] and adds a regen effect that restores their HP in [5% Max HP] per turn for 2 turns.",
+      "minVersion": 6,
+      "kind": "heal",
+      "targeting": "lowest",
+      "targets": 3,
+      "percent": 20,
+      "basis": "targetMaxHP",
+      "effects": [
+        {
+          "kind": "regen",
+          "percent": 5,
+          "turns": 2,
+          "recipient": "primary",
+          "basis": "targetMaxHP"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/nestsparrow/index.html",
+      "sha256": "34d5a6bd5bad379df21da1da2c32303a4b44de4b6d46ffe6cf233fe9ea4364ce"
+    },
+    {
+      "id": "Pet_33231",
+      "name": "Defense Shell",
+      "text": "Deals damage equal to [ATK * 300%] to all front-row enemies and grants you a shield that absorbs damage in [10% Max HP] for 2 turns.",
+      "minVersion": 6,
+      "kind": "damage",
+      "targeting": "front",
+      "targets": 5,
+      "percent": 300,
+      "basis": "atk",
+      "effects": [
+        {
+          "kind": "shield",
+          "percent": 10,
+          "turns": 2,
+          "recipient": "self",
+          "basis": "casterMaxHP"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/furcrab/index.html",
+      "sha256": "bab172c70e758f6c23aa423956a149da3197c9bcbc543f1c6dc80594ce61a773"
+    },
+    {
+      "id": "Pet_43231",
+      "name": "Rolling Mud",
+      "text": "Deals [ATK*220%] damage to a random enemy in the front row, and grants itself a healing effect, restoring [ATK*100%] HP each turn for 2 turns.",
+      "minVersion": 6,
+      "kind": "damage",
+      "targeting": "randomFront",
+      "targets": 1,
+      "percent": 220,
+      "basis": "atk",
+      "effects": [
+        {
+          "kind": "regen",
+          "percent": 100,
+          "turns": 2,
+          "recipient": "self",
+          "basis": "atk"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/rolling-beetle/index.html",
+      "sha256": "6415efa543f7e707e6dc64529bb75afe3c237965c3eed1ceac2827a3975134a7"
+    },
+    {
+      "id": "Pet_8043501",
+      "name": "Island's Shelter",
+      "text": "Restores HP equal to [ATK * 300%] to all allies and reduces their damage taken equal to [DMG - 35%] for 3 turns, restoring HP each turn by [ATK * 75%] for 2 turns.",
+      "minVersion": 6,
+      "kind": "heal",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 300,
+      "basis": "atk",
+      "effects": [
+        {
+          "kind": "vulnerable",
+          "percent": -35,
+          "turns": 3,
+          "recipient": "primary",
+          "basis": "atk"
+        },
+        {
+          "kind": "regen",
+          "percent": 75,
+          "turns": 2,
+          "recipient": "primary",
+          "basis": "atk"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/ness/index.html",
+      "sha256": "63a99db9fdadc09e57b88c42eb6883b9e640a019636d42445bd061406e8cc679"
+    },
+    {
+      "id": "Pet_9013901",
+      "name": "Soft Bounce",
+      "text": "Restores HP equal to [ATK * 250%] to all allies and restores HP equal to [ATK * 60%] every turn for 2 turns.",
+      "minVersion": 6,
+      "kind": "heal",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 250,
+      "basis": "atk",
+      "effects": [
+        {
+          "kind": "regen",
+          "percent": 60,
+          "turns": 2,
+          "recipient": "primary",
+          "basis": "atk"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/slumberbear/index.html",
+      "sha256": "680d9a761c4e8dbb051b16c650c3c940c3cdb0a50932fd42d95aab23a234124c"
+    },
+    {
+      "id": "Pet_9023401",
+      "name": "Aera",
+      "text": "Heals 2 lowest-HP% allies for [ATK * 300%] HP and reduces their [Damage Taken -20%] for 2 turns.",
+      "minVersion": 6,
+      "kind": "heal",
+      "targeting": "lowestPercent",
+      "targets": 2,
+      "percent": 300,
+      "basis": "atk",
+      "effects": [
+        {
+          "kind": "vulnerable",
+          "percent": -20,
+          "turns": 2,
+          "recipient": "primary",
+          "basis": "atk"
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/happy/index.html",
+      "sha256": "3705fff5e49a3cc6f6ac54330e2ea9403ff8d508e178132da1fbe1772835c2d4"
+    }
+  ]
+}

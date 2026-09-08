@@ -1,0 +1,33 @@
+{
+  "itemId": "Item_Strengthen_Equipment_1",
+  "name": "Magic Ore",
+  "description": "A magic ore commonly used in the forge. Used to upgrade Artifacts.",
+  "itemSourceKey": "Item:description:Item_Strengthen_Equipment_1",
+  "itemSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+  "milestones": [
+    {
+      "threshold": 390,
+      "itemId": "Item_Strengthen_Equipment_1",
+      "name": "Magic Ore",
+      "quantity": 25
+    },
+    {
+      "threshold": 1200,
+      "itemId": "Item_Strengthen_Equipment_1",
+      "name": "Magic Ore",
+      "quantity": 50
+    }
+  ],
+  "milestoneSource": "raphael-progress-data.json",
+  "proofArtifact": "Item_Weapon_Equipment_1_1",
+  "artifactRule": {
+    "initial": 2,
+    "perLevel": 1,
+    "ore": 10,
+    "recycle": 5,
+    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/goblin-club/",
+    "pageSha256": "927bf7abf7e2c98f63a816760d95782246886c99eadb0bb069582bb2d2c58f4d",
+    "rarity": "N"
+  },
+  "boundary": "Same Magic Ore identity moved from earned locker to existing Forge storage, one for one. Existing local event execution and cap20 remain; historical claims/investments not repriced."
+}

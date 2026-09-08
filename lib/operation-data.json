@@ -1,0 +1,94 @@
+{
+  "provenance": "Community descriptions inspected 2026-09-07; not version-matched APK formulas. Additive stacking is a bounded reconstruction. No inferred operation upgrade costs.",
+  "records": [
+    {
+      "fellow": "hero_1",
+      "source": "https://isekai.wiki/index.php?title=Fifi&oldid=7915",
+      "effects": [
+        {
+          "minLevel": 1,
+          "type": "Diligent",
+          "percent": 30
+        },
+        {
+          "minLevel": 50,
+          "building": "Building_101",
+          "percent": 20
+        },
+        {
+          "minLevel": 200,
+          "type": "Diligent",
+          "percent": 30
+        }
+      ]
+    },
+    {
+      "fellow": "hero_117",
+      "source": "https://isekai.wiki/index.php?title=Amaterasu&oldid=7893",
+      "effects": [
+        {
+          "minLevel": 1,
+          "type": "Inspiring",
+          "percent": 150
+        }
+      ],
+      "unresolved": "Further 20% and 30% effects lack unlock levels and are excluded."
+    },
+    {
+      "fellow": "hero_3",
+      "name": "Reir",
+      "source": "https://isekai.wiki/index.php?title=Reir&oldid=7979",
+      "effects": [
+        {
+          "minLevel": 1,
+          "type": "Inspiring",
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Base_1"
+        },
+        {
+          "minLevel": 50,
+          "building": "Building_401",
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building04Extra_1"
+        },
+        {
+          "minLevel": 200,
+          "type": "Inspiring",
+          "percent": 30,
+          "candidateSkillIds": [
+            "Hero_Appoint_Country1Extra_1",
+            "Hero_Appoint_Country1Extra_2"
+          ]
+        }
+      ]
+    },
+    {
+      "fellow": "hero_5",
+      "name": "Pump",
+      "source": "https://isekai.wiki/Pump",
+      "effects": [
+        {
+          "minLevel": 1,
+          "type": "Unfettered",
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Base_1"
+        },
+        {
+          "minLevel": 50,
+          "building": "Building_501",
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building05Extra_1"
+        },
+        {
+          "minLevel": 200,
+          "type": "Unfettered",
+          "percent": 30,
+          "candidateSkillIds": [
+            "Hero_Appoint_Country5Extra_1",
+            "Hero_Appoint_Country5Extra_2"
+          ]
+        }
+      ]
+    }
+  ]
+}

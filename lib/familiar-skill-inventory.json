@@ -1,0 +1,5285 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "profiles": [
+    {
+      "id": "Pet_1191",
+      "name": "Rainbel",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/rainbel/index.html",
+      "sha256": "352c271c327f56b3ca4e336349ec03f0b9a7d9b93ff8de1e18202dae62cb9b0b",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "480",
+        "HP": "3,400",
+        "SPD": "80",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Rainbow Breath",
+          "text": "Deals damage equal to [ATK * 150%] and applies Bleed and Poison to all enemies for 3 turns. Bleed deals damage equal to the [Target's HP * 10%] per turn; Poison deals damage equal to [ATK * 75%] per turn.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Brilliant Sparkle",
+          "text": "When any ally lands a crit, your [Damage Dealt +20%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_2391",
+      "name": "Everwool",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/everwool/index.html",
+      "sha256": "34e9e9a1599562be9003ea200ee949c6e860f073a0c459f754babe8c39bf8928",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "400",
+        "HP": "4,000",
+        "SPD": "96",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Guardian Butterfly",
+          "text": "Grants shields that absorb damage equal to [ATK * 270%] to all allies and reduces their [Damage Taken -25%] for 3 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Everbloom",
+          "text": "When any ally's HP falls below 50%, restores the HP of the lowest-HP ally in [50% their Max HP]. Triggers every 2 turns.",
+          "groups": [
+            "heal",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_3191",
+      "name": "Cake Horse",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/cake-horse/index.html",
+      "sha256": "1160aaabc9d328f446f387f77517ee39bb1b46a7f0619aab8d2f74d11c50da20",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "480",
+        "HP": "3,400",
+        "SPD": "80",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Sweet Aroma",
+          "text": "Deals damage equal to [ATK * 150%] to all enemies. Additionally, increases their [Damage Taken +25%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Creamy Smoothie",
+          "text": "After any ally lands a basic attack, deals extra damage equal to [ATK * 25%]. Can be triggered up to 5 times per turn.",
+          "groups": [
+            "damageOverTime",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "DMG +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_4151",
+      "name": "Fenrir",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/fenrir/index.html",
+      "sha256": "43dbef65b62c1c768bae858d9ce48b1da73180b4420df968475184d23a8bbacf",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "600",
+        "HP": "4,250",
+        "SPD": "90",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Frostbite",
+          "text": "Deals damage equal to [ATK * 180%] and inflicts [Damage Taken Up + 35%] to all enemies. Additionally, grants self [Crit Rate +50%] for 3 turns",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Freezing",
+          "text": "After landing a crit, there's a 50% chance to inflict Bleed on a target, dealing damage equal to [ATK * 80%] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_4251",
+      "name": "Taniadraco",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/taniadraco/index.html",
+      "sha256": "7c5cf1dc8c7e08d6d62a6b7bd1f86d3ce1a61f8283a60612f5dda26850575236",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "600",
+        "HP": "4,250",
+        "SPD": "90",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Wing Slash",
+          "text": "Deals damage equal to [ATK * 180%] to all enemies. Additionally, inflict [Damage Dealt -35%] and [Speed - 50%] to them for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Max HP +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Hypnotic Scales",
+          "text": "When any ally takes damage, your [Attack +50%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_4351",
+      "name": "Ouro",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/ouro/index.html",
+      "sha256": "9ed8bec6514dc083a51ac603c8fff7c4f675237d7c655dce82f25af2e48bfd4a",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "500",
+        "HP": "5,000",
+        "SPD": "108",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Starlight Blessing",
+          "text": "Deals [ATK * 180%] damage to all enemies and applies to them [Damage Dealt -35%] & [Damage Taken +35%], lasting for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Wings of the Star",
+          "text": "At the start of the turn, grants all allies a shield that absorbs [ATK * 150%] damage and applies to the target [Damage Taken -20%], lasting for 1 turn. This skill activates every 2 turns, starting from turn 2.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_11111",
+      "name": "Poundme",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/poundme/index.html",
+      "sha256": "37acd48829684c2687db29f8a846a046ff0140d38bb7d47c36176fe59780599c",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "72",
+        "HP": "510",
+        "SPD": "15",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Heavy Battering",
+          "text": "Deals damage equal to [ATK * 300%] to a random enemy in the front row.",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_11131",
+      "name": "Grimacat",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/grimacat/index.html",
+      "sha256": "a1c2a0372a91f673aa28f484ca1fa30253dc1d2902b5ea1a9c6f6ed56421371c",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Surprise!",
+          "text": "Deals damage equal to [ATK * 450%] to a random enemy in the back row and increases the enemy's [Damage Taken +15%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_11141",
+      "name": "Umbranther",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/umbranther/index.html",
+      "sha256": "dad759ebe9513cecca7a3ef854d4b014bbffb8df3e62797eceb67e89297da721",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "3,060",
+        "SPD": "70",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Ghost Fire Chase",
+          "text": "Deals damage equal to [ATK * 400%] to the 2 enemies with the lowest HP.",
+          "groups": [
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Swift Shadow",
+          "text": "On basic attacks, your [Crit Rate +30%] and [Speed +30%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_11321",
+      "name": "Scruffpuppy",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/scruffpuppy/index.html",
+      "sha256": "7f03b4ef43b2e2045c27124ac0508bf25f1406de700e8135d369ef58afaa0eb8",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "120",
+        "HP": "1,200",
+        "SPD": "33",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Furry Ball",
+          "text": "Restores HP equal to [ATK * 300%] to the ally with the lowest HP.",
+          "groups": [
+            "heal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_11331",
+      "name": "Heartcoon",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/heartcoon/index.html",
+      "sha256": "594a80a3a5fd4c465ca97612309e75938c1b8a7710300de7331027a778a12280",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "300",
+        "HP": "3,000",
+        "SPD": "72",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Chivalry",
+          "text": "Restores HP equal to [ATK * 400%] to the ally with the lowest HP and increases their [Crit Rate +30%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "heal"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_12111",
+      "name": "Snipme",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/snipme/index.html",
+      "sha256": "b2cc0d71a6b8850e4ee70f48acb8ffa3e4d0f4084beaac21216047b0a86220b5",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "72",
+        "HP": "510",
+        "SPD": "15",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Super Snipping",
+          "text": "Deals damage equal to [ATK * 300%] to a random enemy in the front row.",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_12131",
+      "name": "Glutizard",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/glutizard/index.html",
+      "sha256": "d9fdcba46aefc8d6bca5fbabdc4de664d8fdb20ae9cda33fda6e162399325e83",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Angry Hunger",
+          "text": "Deals damage equal to [ATK * 500%] to a random enemy in the front row and increases the enemy's [Damage Taken +15%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_12141",
+      "name": "Wumeow",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/wumeow/index.html",
+      "sha256": "a9c0072ae32c92d6efb0c955492c2f730228fd6743a331a397f0aadaa7a3958e",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "3,060",
+        "SPD": "70",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Extreme Cuteness",
+          "text": "Applies Bleed and Poison to all enemies in the front row for 3 turns. Bleed deals damage equal to the [Target's HP * 10%] per turn; Poison deals damage equal to [ATK * 75%] per turn.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Oops, Gotcha!",
+          "text": "On basic attacks, inflicts Bleed on attacking enemy, dealing damage equal to [3% their Max HP] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_12221",
+      "name": "Charmeye",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/charmeye/index.html",
+      "sha256": "384d40a4016c2b5c8d837a21f387abfb781a266782e2d09f89059c642752190f",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "90",
+        "HP": "1,620",
+        "SPD": "22",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Wink",
+          "text": "Grants a shield that absorbs damage up to [ATK * 240%].",
+          "groups": [
+            "shield",
+            "damage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_12231",
+      "name": "Goodychest",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/goodychest/index.html",
+      "sha256": "d50cb9a11828938b22a34f96ea3f501dfd145c96056895b1f493c3a20c3bafdd",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "225",
+        "HP": "4,050",
+        "SPD": "48",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Treasure in the Box",
+          "text": "Deals damage equal to [ATK * 500%] to a random enemy in the front row and increases [Block Chance +30%] for all front-row allies for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_13111",
+      "name": "Clapme",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/clapme/index.html",
+      "sha256": "86fc6693ba975ed1f686d0f2329bfd6bab67a5d17d6dc3dd8c2f1acfdc816674",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "72",
+        "HP": "510",
+        "SPD": "15",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Slaps",
+          "text": "Deals damage equal to [ATK * 300%] to a random enemy in the front row.",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_13131",
+      "name": "Califox",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/califox/index.html",
+      "sha256": "5b28088aae934e02158940fcf48419e7a9d696bee6d21bd7870de2949e402b7f",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Claw Strike",
+          "text": "Deals damage equal to [ATK * 500%] to a random enemy in the front row and increases your [ATK +30%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_13141",
+      "name": "Shibataro",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/shibataro/index.html",
+      "sha256": "b419bfa2d0805320d9716dbe3da9aa561b26093cbb88a0607ec01b501168e29e",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "3,060",
+        "SPD": "70",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Teamwork",
+          "text": "Deals damage equal to [ATK * 220%] to 3 random enemies and reduces their [Damage Dealt -20%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Accuracy +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Heroic Bark",
+          "text": "When any ally blocks, deals damage equal to [Max HP * 5% ] to the attacker.",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_13221",
+      "name": "Spikiehog",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/spikiehog/index.html",
+      "sha256": "d7334d619ae72eead236357d27f72db1d4af570bea5c13d6ac8d4d06e57c0bd2",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "90",
+        "HP": "1,620",
+        "SPD": "22",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Hard Shell",
+          "text": "Grants a buff that increases [Block Chance +25%] for 3 turns.",
+          "groups": [
+            "timedBuff"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_21121",
+      "name": "Aubersprite",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/aubersprite/index.html",
+      "sha256": "98b92d010ba66f916b4b3962ecbb6d9341d218991aac1d607e4669880feb42eb",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "144",
+        "HP": "1,020",
+        "SPD": "27",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Curse",
+          "text": "Inflicts Bleed on the enemy with the highest HP, dealing damage equal to [ATK * 200%] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_21131",
+      "name": "Nightscout",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/nightscout/index.html",
+      "sha256": "ad43ded7490d0adb6008b1eb9501263a73562258ff0eb610d5603b42ba622725",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Sharp Beak",
+          "text": "Deals damage equal to [ATK * 300%] to all front-row enemies and inflicts Bleed, dealing damage equal to [ATK * 25%] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Accuracy +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_21231",
+      "name": "Jivebird",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/jivebird/index.html",
+      "sha256": "a1c243e80b30d71e6757d12964da65102186737073b0b7d93dd35faf85b7d415",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "225",
+        "HP": "4,050",
+        "SPD": "48",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Joyful Twisting",
+          "text": "Deals damage equal to [ATK * 400%] to a random enemy in the back row and reduces your [Damage Taken -15%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_21341",
+      "name": "Swagalpaca",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/swagalpaca/index.html",
+      "sha256": "3d14e2e84af33e0b6214fc379064d1a77fab8dddb368b1dd8d419a36f0d0e26d",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "3,600",
+        "SPD": "84",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Stylish Entrance",
+          "text": "Restores HP equal to [ATK * 270%] to all allies and increases [ATK +20%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "heal"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Loyal Aid",
+          "text": "When any ally lands a crit, increases the ally's [Attack +30%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_22121",
+      "name": "Chatterfrog",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/chatterfrog/index.html",
+      "sha256": "1c067181e2424db395c4c8a804df902a0501455cedb51816884cb6f648859859",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "144",
+        "HP": "1,020",
+        "SPD": "27",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Ultra-Croak",
+          "text": "Deals damage equal to [ATK * 350%] to a random enemy in the back row.",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_22131",
+      "name": "Arachnidmeow",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/arachnidmeow/index.html",
+      "sha256": "c3d47f9f24788a9ec0fe84ba9eeeb88111cbdea7fe0d72ed8cfab618e9bc8ce1",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Web Blast",
+          "text": "Deals damage equal to [ATK * 220%] to 3 random enemies.",
+          "groups": [
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Accuracy +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_22241",
+      "name": "Forestme",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/forestme/index.html",
+      "sha256": "e3259ae9e5424539537d3f74a25c520e109ac43443f9ab2ba6b8a3e3dd60e2ac",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "270",
+        "HP": "4,860",
+        "SPD": "56",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Absorption",
+          "text": "Grants shields that absorb damage up to [ATK * 400%] to all front-row allies for 2 turns and restores their HP equal to [ATK * 50%] per turn for 2 turns.",
+          "groups": [
+            "shield",
+            "damageOverTime",
+            "timedBuff",
+            "heal",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Rebound",
+          "text": "When taking damage, inflicts Poison to the attacker, dealing damage equal to [ATK * 20%] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_23121",
+      "name": "Flaremouse",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/flaremouse/index.html",
+      "sha256": "d086fd34f4afe82045fbdcb3942747941cfa1464423eb468bab6825bf65a1277",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "144",
+        "HP": "1,020",
+        "SPD": "27",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Mega-Spicy",
+          "text": "Deals damage equal to [ATK * 240%] to all front-row enemies.",
+          "groups": [
+            "damage",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_23131",
+      "name": "Honeybat",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/honeybat/index.html",
+      "sha256": "4e54520794523f5289435c48b19f84f6bd5d0f44be9a94344f190cf030254d73",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Sonic Wave",
+          "text": "Deals damage equal to [ATK * 450%] to a random enemy in the back row and increases the enemy's [Damage Taken +15%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_23331",
+      "name": "Thiefomyini",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/thiefomyini/index.html",
+      "sha256": "0d16c9e3419089c8cba67a76c23446ef13243e571eb31f3186edfc66064b8c74",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "300",
+        "HP": "3,000",
+        "SPD": "72",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Glide Shield",
+          "text": "Grants shields that absorb damage up to [ATK * 300%] to all front-row allies for 2 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_23341",
+      "name": "Nestsparrow",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/nestsparrow/index.html",
+      "sha256": "34d5a6bd5bad379df21da1da2c32303a4b44de4b6d46ffe6cf233fe9ea4364ce",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "3,600",
+        "SPD": "84",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Fluffy Healing",
+          "text": "Restores the HP of the 3 lowest-HP allies in [20% Max HP] and adds a regen effect that restores their HP in [5% Max HP] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "heal"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Max HP +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Loving Care",
+          "text": "At the end of the turn, heals the lowest-HP ally in an amount equal to [ATK * 110%] and increases their [CRIT RES +30%].",
+          "groups": [
+            "heal",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_31121",
+      "name": "Legbunny",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/legbunny/index.html",
+      "sha256": "539b4167f94a0fcc390279c900454f53ff23e0574c352fdb7a0bcd9fc5e91231",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "144",
+        "HP": "1,020",
+        "SPD": "27",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Leggy Kick",
+          "text": "Inflicts Bleed on the enemy with the lowest HP, dealing damage equal to [ATK * 200%] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_31131",
+      "name": "Scarfmink",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/scarfmink/index.html",
+      "sha256": "84dd189b91b42b8fc53a0e590ce85ea92ef25f956cd08509759871286009c546",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Entangling Strike",
+          "text": "Deals damage equal to [ATK * 450%] to the enemy with the lowest HP and decreases the enemy's [CRIT RES -30%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_31241",
+      "name": "Icyowl",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/icyowl/index.html",
+      "sha256": "ca4f8d3e102119e869f29730257e678ed7c5655150b340250ab17a52b0c07083",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "270",
+        "HP": "4,860",
+        "SPD": "56",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Ice Feather Armor",
+          "text": "Grants shields that absorb damage up to [ATK * 350%] to the 2 highest-ATK allies and increases their [Crit Rate +40%] for 2 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Crystal Feather Scatter",
+          "text": "When attacked, deals damage equal to [ATK * 50%] to a target and increases their [Damage Taken +15%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_32121",
+      "name": "Knockotter",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/knockotter/index.html",
+      "sha256": "04beb1f31ffd28481a97cdfee5a1d71e909b9074f838b3877eb50dd9b72fd264",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "144",
+        "HP": "1,020",
+        "SPD": "27",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Carefree Knocking",
+          "text": "Deals damage equal to [ATK * 400%] to a random enemy in the front row.",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_32131",
+      "name": "Eggypenguin",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/eggypenguin/index.html",
+      "sha256": "7957c2ff166de21171c81af8a159eef9cdda8fd609263bd791e0574f91ece0ba",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "High-Load Sneeze",
+          "text": "Deals damage equal to [ATK * 450%] to all front-row enemies.",
+          "groups": [
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Accuracy +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_32331",
+      "name": "Stackiebara",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/stackiebara/index.html",
+      "sha256": "02c744550090e274cc57dd28667da69155dedd7282631e784eeae8692d628177",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "300",
+        "HP": "3,000",
+        "SPD": "72",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Sustained Calm",
+          "text": "Increases [Attack +75%] to the 2 highest-ATK allies for 2 turns.",
+          "groups": [
+            "timedBuff"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_32341",
+      "name": "Snowbear",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/snowbear/index.html",
+      "sha256": "1e2e85c33c25787c55d3a062f2366bc7bc47b619f06ac1250ca036fedfd9d03b",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "3,600",
+        "SPD": "84",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Furry Ball",
+          "text": "Deals damage equal to [ATK * 200%] to 3 random enemies, inflicts Bleed on them, dealing damage equal to [5% their Max HP] per turn, and reduces their [SPD -40%] for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Into My Fluff!",
+          "text": "At the start of the turn, grants shields that absorb damage equal to up to [8% Max HP] to the 2 highest-ATK allies, lasting 1 turn.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_33121",
+      "name": "Roundseal",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/roundseal/index.html",
+      "sha256": "e20db8996fdbd527958fd35656b18635788c3355bb578d6a878d07378e3c239b",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "144",
+        "HP": "1,020",
+        "SPD": "27",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Seal Charge",
+          "text": "Deals damage equal to [ATK * 350%] to a random enemy in the back row.",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_33131",
+      "name": "Frostmoth",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/frostmoth/index.html",
+      "sha256": "db62c3cc5c96209be5fc3541b0ecd242adc9b048bef29c6ab0a0688e1d016991",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Snow Whirlwind",
+          "text": "Deals damage equal to [ATK * 200%] to all back-row enemies and decreases their [ATK -30%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Accuracy +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_33231",
+      "name": "Furcrab",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/furcrab/index.html",
+      "sha256": "bab172c70e758f6c23aa423956a149da3197c9bcbc543f1c6dc80594ce61a773",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "225",
+        "HP": "4,050",
+        "SPD": "48",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Defense Shell",
+          "text": "Deals damage equal to [ATK * 300%] to all front-row enemies and grants you a shield that absorbs damage in [10% Max HP] for 2 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_33241",
+      "name": "Grandstag",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/grandstag/index.html",
+      "sha256": "25c691a687d1aa0375e4e4a16d00f0d5e27fac06a930583d573f18f065a9492f",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "270",
+        "HP": "4,860",
+        "SPD": "56",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Gift Delivery",
+          "text": "Grants shields that absorb damage equal to [ATK * 400%] to all front-row allies. Additionally, reduces their [Damage Taken -20%] and increases their [Block Chance +40%] for 3 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Max HP +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Antler Rub",
+          "text": "Each time you take damage, [Block Chance increases +30%]. Lasts 3 turns.",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_41121",
+      "name": "Meerbaws",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/meerbaws/index.html",
+      "sha256": "e6357e41054afac88cd0e371f387275b5d7685c07f64cc3b6da506f9d462bd4a",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "288",
+        "HP": "2,040",
+        "SPD": "55",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Boss's Composure",
+          "text": "Deals [ATK*320%] damage to the enemy with the lowest HP.",
+          "groups": [
+            "damage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_41131",
+      "name": "Porcagave",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/porcagave/index.html",
+      "sha256": "096ac7250ae0910e50caea0398d676e4bf8e62b27d02466cd32f33bdd892c1df",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Careful of Back!",
+          "text": "Deals [ATK*180%] damage to all enemy back-row targets, increasing their damage taken by 15% for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_41141",
+      "name": "Meteostrich",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/meteostrich/index.html",
+      "sha256": "89e20d6a95c67884e3f3f75d66dbc4d867c618b5e121e10346b21448e2644f3b",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "3,060",
+        "SPD": "70",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Meteor Blessing",
+          "text": "Deals [ATK*300%] damage to 2 random enemies in the back row, and increases own [CRIT Rate by 40%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Swift Strike",
+          "text": "At the start of the turn, deals [ATK*100%] damage to the enemy with the lowest HP, and increases their [Damage Taken by 15%] for 3 turns. Won't trigger counter attack.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_42121",
+      "name": "Jumpouse",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/jumpouse/index.html",
+      "sha256": "2a0c47f2d3b6e39f223c742a07a2e7f9cdac2ee3b1233558691e501107f14ee5",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "288",
+        "HP": "2,040",
+        "SPD": "55",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Coward Counterattack",
+          "text": "Inflicts Bleed on 2 random enemies, dealing [ATK*90%] damage per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_42131",
+      "name": "Tristones",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/tristones/index.html",
+      "sha256": "cf55246d8579d03f176f5c43552f0d54d6a151816595e41a13e605909423a749",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Silent Disguise",
+          "text": "Inflicts Bleed on 3 random enemies, dealing [ATK*75%] damage per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_42141",
+      "name": "Treeraffe",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/treeraffe/index.html",
+      "sha256": "8064bbc435343bf5ed697f057f99bb100a75b04a8c0bab82f1e4526f679e8dc9",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "3,060",
+        "SPD": "70",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Leaf Charge",
+          "text": "Deals [ATK*420%] damage to a single enemy and inflicts Bleed, dealing [ATK*75%] damage per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Edible? Lick!",
+          "text": "When performing a Basic Attack, inflicts Bleed on the target, dealing [ATK*125%] damage per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_42331",
+      "name": "Cactora",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/cactora/index.html",
+      "sha256": "cdcb2cd435c89f42dd5f44e65a232b1b15f27e3dd622e765614fa0e18b37180b",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "300",
+        "HP": "3,000",
+        "SPD": "72",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Pointed Guardian",
+          "text": "Grants a shield to all front-row allies, absorbing up to [ATK*250%] damage and increasing their [Crit Resistance by 30%] for 3 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_43121",
+      "name": "Maracanake",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/maracanake/index.html",
+      "sha256": "3e585c4017edb016aa25941aaaeef6b3e4786b17029f37c1ce3556e0b6c8844c",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "288",
+        "HP": "2,040",
+        "SPD": "55",
+        "Crit": "0%",
+        "Crit Resistance": "0%",
+        "Block": "0%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Why Not Dance",
+          "text": "Deals [ATK*160%] damage to 3 random enemies.",
+          "groups": [
+            "damage",
+            "randomTarget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_43131",
+      "name": "Charcozard",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/charcozard/index.html",
+      "sha256": "05cf379691ef1a65755147fba563df23be401dd3cd71472a131978179ac67b12",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "2,550",
+        "SPD": "60",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Fiery Grilled",
+          "text": "Deals [ATK*450%] damage to a random enemy in the back row, and reduces their [Crit by 30%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Accuracy +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_43141",
+      "name": "Rhinocryst",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/rhinocryst/index.html",
+      "sha256": "5dedede5e6430c3c577c22f3ea3f23637736c0450d5ccca8404c1940aa2617aa",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "3,060",
+        "SPD": "70",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Clang Crystal",
+          "text": "Deals [ATK*270%] damage to all front row enemies and reduces their [Crit Resistance] by 40% for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Sturdy Counterattack",
+          "text": "Whenever it takes damage, deals [ATK*10%] damage to all enemies and has a 10% chance to increase their [Damage Taken] by 15% for 3 turns. Won't trigger counter attack.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_43231",
+      "name": "Rolling Beetle",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/rolling-beetle/index.html",
+      "sha256": "6415efa543f7e707e6dc64529bb75afe3c237965c3eed1ceac2827a3975134a7",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "225",
+        "HP": "4,050",
+        "SPD": "48",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Rolling Mud",
+          "text": "Deals [ATK*220%] damage to a random enemy in the front row, and grants itself a healing effect, restoring [ATK*100%] HP each turn for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "heal",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +20%",
+          "groups": [
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8012901",
+      "name": "Bubble Axolotl",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/bubble-axolotl/index.html",
+      "sha256": "6362cc15f0e9ea6dafdc994e6d929662f4aa84611f3457f019bfc35af135f1e1",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "300",
+        "HP": "5,400",
+        "SPD": "64",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Colorful Bubble",
+          "text": "Grants a shield that absorb damage equal to [ATK * 400%] to self and the ally with lowest HP, and increases their [Block Chance +50%] for 3 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Puffy Cheeks",
+          "text": "If any ally's HP drops below 50%, a shield is immediately added to the one with lowest HP, absorbing damage equal to [ATK * 130%], lasting 1 turn. This skill can only be triggered once per turn.",
+          "groups": [
+            "shield",
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8021901",
+      "name": "Brushcat",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/brushcat/index.html",
+      "sha256": "6acd72c542c5ff603eb9ac289a9d6cba78ddfdc8c5e4c463269848bd2d2d6258",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "480",
+        "HP": "3,400",
+        "SPD": "80",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Meow Brush",
+          "text": "Deals damage equal to [ATK * 220%] to all enemies in backrow and inflicts [Bleed], dealing damage equal to [ATK * 50%] per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Cameowlation",
+          "text": "At the end of the turn, attacks the enemy with the lowest HP%, dealing [ATK * 50%] damage. This skill does not trigger counterattack.",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8031901",
+      "name": "Jewel Serploom",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/jewel-serploom/index.html",
+      "sha256": "0cdc284b7b8a6e3c8dc46318cca02676e5192a33afa9d6871f192863e795bfa8",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "480",
+        "HP": "3,400",
+        "SPD": "80",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Sprouting",
+          "text": "Inflicts [Poison] on all enemies, dealing [ATK*150%] damage for 3 rounds.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Sun Bath",
+          "text": "A normal attack also applies [Poison], dealing [ATK*50%] damage for 2 rounds.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8041501",
+      "name": "Winged Firelion",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/winged-firelion/index.html",
+      "sha256": "9fee93b3079a780aef77b05863b9046d21593efa9b6afd1327be12517396bf0c",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "600",
+        "HP": "4,250",
+        "SPD": "90",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Heatwave",
+          "text": "Deals [ATK*500%] damage to the enemy with the lowest HP and increases the enemy's [Damage Taken +25%] for 3 rounds.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Blazing Fire",
+          "text": "When HP falls below 35%, restores HP by [25% of the Max HP] and grants buffs of [ATK +35%] and [Accuracy +35%] lasting 5 rounds. This skill can only trigger once in a battle.",
+          "groups": [
+            "timedBuff",
+            "heal",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8041502",
+      "name": "Thunderdrac",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/thunderdrac/index.html",
+      "sha256": "68df74edc299480673f1de4d5fbee4f4ad49e2adc90dff797d638223c7c50f1c",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "500",
+        "HP": "5,000",
+        "SPD": "108",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Furious Thunder",
+          "text": "Deals [ATK * 240%] DMG to 3 random enemies. Inflicts [Damage Taken +35%] on them for 3 turns. Increases own [ATK +25%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Dark Clouds",
+          "text": "On basic attacks, deals damage equal to [ATK * 80%] to 3 random enemies",
+          "groups": [
+            "damage",
+            "randomTarget",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8041503",
+      "name": "Lightning Hawk",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/lightning-hawk/index.html",
+      "sha256": "caa11ee32c943fdc9a4c2deb23b56adeb5cb066e1cbd64d689b9b771759e1d01",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "600",
+        "HP": "4,250",
+        "SPD": "90",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Thunderstrike",
+          "text": "Deals [Attack * 500%] damage to 1 random target in the enemy's backline and increases own [Speed + 50%] for 3 turns. The target [takes +35% damage] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Electric Feathers",
+          "text": "When dealing damage, additionally deal [Attack * 180%] damage to the current target.",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8041504",
+      "name": "Umbradrake",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/umbradrake/index.html",
+      "sha256": "6e50637993b470b1579c107dee5a120a36593e62ee1a0633f540605d843623a4",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "600",
+        "HP": "4,250",
+        "SPD": "90",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Shadow Strike",
+          "text": "Deals [ATK*300%] DMG to 1 random target and inflicts Poison for 2 turns. Poison deals [ATK*150%] DMG each turn and reduces the target's [SPD by 50%] while increasing [DMG Taken by 35%].",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Nether Chillfire",
+          "text": "When dealing damage, inflicts Poison on 3 random targets for 2 turns, dealing [ATK*50%] DMG each turn.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8041505",
+      "name": "Phoenix",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/phoenix/index.html",
+      "sha256": "b7f5f270d17b57408e777d5f4c9caca20f09df9635463002b174a408197ac5ea",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "600",
+        "HP": "4,250",
+        "SPD": "90",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Bathed in Fire",
+          "text": "Deals [ATK * 180%] damage to all enemies and inflicts Bleed, dealing [ATK * 100%] damage per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Nirvana",
+          "text": "When HP falls below 25%, recovers HP by [Max HP * 20%] per turn and increases all enemies' [DMG Taken +35%] for 5 turns. This skill can only trigger once in a battle.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8042501",
+      "name": "Seasonfox",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/seasonfox/index.html",
+      "sha256": "fb714d4b04193e557db10db485b0c6092a28ba534902c4dedd87c3c892d971f5",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "375",
+        "HP": "6,750",
+        "SPD": "72",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Foxfire",
+          "text": "Deals [ATK * 180%] damage to all enemies, reducing their [ATK -25%] and [Damage Dealt -25%] for 3 turns.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Max HP +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Change of Seasons",
+          "text": "Releases an energy burst at the start of the battle, reducing the Familiar's [Damage Taken -50%] and [Damage Dealt -20%]. This effect will change with each turn ([Damage Taken +10%] and [Damage Dealt +10%] per turn) until turn 9, when it reaches the maximum values, expiring after turn 13.",
+          "groups": [
+            "damageOverTime",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8042502",
+      "name": "Hellhound",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/hellhound/index.html",
+      "sha256": "e3bed67f0a0358e5a167f910561b08924f7bcb5576216008f00c534655e1b28e",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "375",
+        "HP": "6,750",
+        "SPD": "72",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Hellfire",
+          "text": "Deals [ATK * 150%] damage to 3 random targets and inflicts Bleed on them, dealing [ATK * 50%] damage per turn for 2 turns. Additionally, increases its own [Block Rate +50%] and decreases [DMG Taken -25%] for 3 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Max HP +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Sin Judgment",
+          "text": "When it blocks damage, deals [ATK * 100%] damage to the target and reduces that target's [DMG dealt -20%] for 3 rounds.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8043501",
+      "name": "Ness",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/ness/index.html",
+      "sha256": "63a99db9fdadc09e57b88c42eb6883b9e640a019636d42445bd061406e8cc679",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "500",
+        "HP": "5,000",
+        "SPD": "108",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Island's Shelter",
+          "text": "Restores HP equal to [ATK * 300%] to all allies and reduces their damage taken equal to [DMG - 35%] for 3 turns, restoring HP each turn by [ATK * 75%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "heal",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Max HP +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Pulse of the Ocean",
+          "text": "Restores HP equal to [Maximum HP * 15%] to the ally with the lowest HP during basic attacks.",
+          "groups": [
+            "heal",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_8043502",
+      "name": "Dream Eater",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/dream-eater/index.html",
+      "sha256": "eb69bb8ab0ed05c371b86a9d8d826b44f9cbaf45e6db349e5a1e76699f82c00f",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "500",
+        "HP": "5,000",
+        "SPD": "108",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Devour Nightmares",
+          "text": "Applies Poison to all enemy targets, dealing [ATK \u00d7 150%] damage each turn for 3 turns. At the same time, reduces the targets\u2019 [ATK -25%] and [Speed -50%] for 3 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Sweet Dreams",
+          "text": "When performing a Basic Attack, heals all allied targets, restoring HP equal to [ATK \u00d7 75%].",
+          "groups": [
+            "heal",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_9011901",
+      "name": "Carla",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/carla/index.html",
+      "sha256": "4ae6df5ae60b80582afec118a30b6be68f139220cdb9f1af76071e5b519358d7",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "576",
+        "HP": "4,080",
+        "SPD": "96",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "White Moon",
+          "text": "Deals [ATK*450%] damage to the enemy with the lowest HP and increases the enemy's [Damage Taken +25%] for 3 rounds.",
+          "groups": [
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Divination Magic",
+          "text": "When dealing damage to enemies, increases [own ATK by 50%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_9013901",
+      "name": "Slumberbear",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/slumberbear/index.html",
+      "sha256": "680d9a761c4e8dbb051b16c650c3c940c3cdb0a50932fd42d95aab23a234124c",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "480",
+        "HP": "4,800",
+        "SPD": "115",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Soft Bounce",
+          "text": "Restores HP equal to [ATK * 250%] to all allies and restores HP equal to [ATK * 60%] every turn for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "heal"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Crit Resistance +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Cloud-Soft Sleep",
+          "text": "At the start of the turn, all allies gain [Crit Rate +30%] for 1 turn.",
+          "groups": [
+            "timedBuff",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_9023401",
+      "name": "Happy",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/happy/index.html",
+      "sha256": "3705fff5e49a3cc6f6ac54330e2ea9403ff8d508e178132da1fbe1772835c2d4",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "432",
+        "HP": "4,320",
+        "SPD": "100",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Aera",
+          "text": "Heals 2 lowest-HP% allies for [ATK * 300%] HP and reduces their [Damage Taken -20%] for 2 turns.",
+          "groups": [
+            "timedBuff",
+            "heal",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Speed MAX",
+          "text": "At battle start, increases SPD and ATK by 25% for all allies for 5 turns.",
+          "groups": [
+            "timedBuff",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_9032901",
+      "name": "Bread Dog",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/bread-dog/index.html",
+      "sha256": "dd3c188d3c24b2d37cd256409fc1130c9392d38db21fd1c89f49abf131c6480a",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "360",
+        "HP": "6,480",
+        "SPD": "76",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Fluffy and Soft",
+          "text": "Grants a shield to all front-row allies that absorbs [ATK * 400%] damage. Additionally, increases both sides' [Block Rate +50%] for 3 turns.",
+          "groups": [
+            "shield",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Block +25%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Fully Risen",
+          "text": "When HP drops below 50%, restores [ATK * 150%] HP and applies Healing Over Time, restoring [ATK * 75%] HP per turn for 2 turns. This effect triggers at most once every 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "heal",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Reduction +25%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_9041501",
+      "name": "Igneel",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/igneel/index.html",
+      "sha256": "fbb56dec08d26e7ae77132eba2a0bfab0906a67c7758bce98ab3d8fe6f858045",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "720",
+        "HP": "5,100",
+        "SPD": "108",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Fire Dragon King's Roar",
+          "text": "Deals [ATK * 200%] damage to all enemies and inflicts Bleed, dealing [ATK * 150%] damage per turn for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "ATK +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Fire Dragon King",
+          "text": "Normal attacks inflict Bleed on 2 random enemies, dealing [ATK * 90%] damage per turn for 2 turns and reducing their [ATK - 30%] for 2 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "randomTarget",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pet_9041502",
+      "name": "Ranga",
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/ranga/index.html",
+      "sha256": "6c0d575fea4d708ca0ec08e6c738d6e7bb2ac967846d6c8e719eeffc5ef2bc43",
+      "simulatorFields": [
+        "ACC",
+        "ATK",
+        "ActiveSkill",
+        "Block",
+        "CRIT",
+        "CRIT_RES",
+        "DI",
+        "DR",
+        "ExternalAdd",
+        "HP",
+        "PassiveSkill1",
+        "PassiveSkill2",
+        "PassiveSkill3",
+        "SPD",
+        "classMax",
+        "id",
+        "rarity"
+      ],
+      "displayAttributes": {
+        "ATK": "720",
+        "HP": "5,100",
+        "SPD": "108",
+        "Crit": "5%",
+        "Crit Resistance": "0%",
+        "Block": "5%",
+        "Accuracy": "0%",
+        "Damage Increase": "0%",
+        "Damage Reduction": "0%"
+      },
+      "htmlDataFields": [
+        "data-category",
+        "data-current-path",
+        "data-pet-out",
+        "data-pet-sim",
+        "data-preview-alt",
+        "data-preview-description",
+        "data-preview-description-mode",
+        "data-preview-label",
+        "data-preview-src",
+        "data-search-index"
+      ],
+      "skills": [
+        {
+          "slot": "A",
+          "name": "Death Storm",
+          "text": "Deals [ATK * 300%] damage to enemy back-row targets and inflicts Bleed, dealing [ATK * 150%] damage per turn for 2 turns. Also increases the target's [DMG Taken +25%] for 3 turns.",
+          "groups": [
+            "damageOverTime",
+            "timedBuff",
+            "damage",
+            "rowTarget"
+          ]
+        },
+        {
+          "slot": "P1",
+          "name": "Attribute Boost",
+          "text": "Speed +30%",
+          "groups": [
+            "passive"
+          ]
+        },
+        {
+          "slot": "P2",
+          "name": "Alpha Wolf",
+          "text": "At the start of the turn, all allies gain [ATK +20%] and [DMG Dealt +20%] for 1 turn.",
+          "groups": [
+            "timedBuff",
+            "damage",
+            "passive"
+          ]
+        },
+        {
+          "slot": "P3",
+          "name": "Attribute Boost",
+          "text": "Damage Increase +30%",
+          "groups": [
+            "damage",
+            "passive"
+          ]
+        }
+      ]
+    }
+  ]
+}

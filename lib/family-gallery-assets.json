@@ -1,0 +1,3032 @@
+{
+  "sourceMapSha256": "44cb95072508dc4448e18e6bf42d949136eb019c5ab96f8c3121233f6df94256",
+  "imageBytes": 10107470,
+  "images": [
+    {
+      "event": "Wife1_DateDialogue3",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W01_1.png",
+      "sourceSha256": "5ec40041cbdcf7593181679994eecbc74ddaee69c5ce2d789b6311de704a7256",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife1_DateDialogue3.webp",
+      "sha256": "65190883efbcac6171b8337d2d4fe2e87e5a1e2edbf6420c484b37dd50f071f8",
+      "bytes": 41452,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife1_DateDialogue4",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W01_2.png",
+      "sourceSha256": "16c66af71be63f187ed8fc801eed181c9413760b6e991f5b58291b6bcc9624ce",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife1_DateDialogue4.webp",
+      "sha256": "92e8cf1e0c0d328b9e6769bdc4cabbec17d9d0e9c80c9412b5a9ee52b04ab5b1",
+      "bytes": 35524,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife1_DateDialogue5",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W01_3.png",
+      "sourceSha256": "0d27bea68cc44aa697640341b63406f083e2dc53e7d0d773064e48f8c975b0d8",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife1_DateDialogue5.webp",
+      "sha256": "d22df2cea300132b72737efeec67dc3092c7c0a14fa06d51539d04d658f96245",
+      "bytes": 49304,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife1_DateDialogue6",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W01_4.png",
+      "sourceSha256": "d3c116aa63723b9a8d99c4408326b10693e1b10d9bdb95e6920b17b448d55a15",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife1_DateDialogue6.webp",
+      "sha256": "478004ea20936796af75d748ecbd536e3d76f5bfc940ebb13b8596fba8af877a",
+      "bytes": 43400,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife2_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W02_1.png",
+      "sourceSha256": "312448790b14a234a1004300e2be5d0868bde8b8c1ac568e455caf80233af33e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife2_DateDialogue2.webp",
+      "sha256": "02ca072f222bc4ba434a4a5c02ef9229a2bc4c8537d3d57f6d85faf921508a66",
+      "bytes": 61388,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife2_DateDialogue3",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W02_2.png",
+      "sourceSha256": "31cf7b9df11297761acd72be696808666ba090bdbaf032dce2d18e1f6cc36926",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife2_DateDialogue3.webp",
+      "sha256": "3ac9e4df5ccb5f8aaaca84e49d1fdfa56af7ca3446caad2837ec23fa8576fa03",
+      "bytes": 57286,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife2_DateDialogue4",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W02_3.png",
+      "sourceSha256": "e186b3fde5181f5877c75fc96d22aad8ee858e681d69f5d9d1d172afb5c3fa4d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife2_DateDialogue4.webp",
+      "sha256": "c16b9cf8149c1f5ba56da5859c0f6a6963a79686b93e20b96e7141141746bafb",
+      "bytes": 43418,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife3_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W03_1.png",
+      "sourceSha256": "b05e38b80371e8b03d45cc2ae6db8328b493337a0e7a24de1ee5e4da3e74c4f1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife3_DateDialogue2.webp",
+      "sha256": "90a7bc5fec862e1a942b4c300fabe7726a0146ceba14a4ae301db0bd8d54b07f",
+      "bytes": 59476,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife11_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W11_1.png",
+      "sourceSha256": "ff597b8eabb562449934396e7329041498bb67b5ffa24e1f2e1cdc8af67e7998",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife11_DateDialogue2.webp",
+      "sha256": "7bdbb2ebd2d1318500da0e5ebfb6dacb61a56cac0868efbeedf4c00f728d476c",
+      "bytes": 43034,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife13_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W13_1.png",
+      "sourceSha256": "f9d339301b57f8ad480f6955e741e5b192e840c30864ad61778aac0d7f45fe49",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife13_DateDialogue2.webp",
+      "sha256": "680a1bd807b856a9b9cadc700fd65607621055978c1f0a1c3b77197f2d25d552",
+      "bytes": 43230,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife105_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W105_1.png",
+      "sourceSha256": "d9368f2304d364568a14ac171b3e46e42695816bc86de6c2fdcb94b243e076fe",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife105_DateDialogue2.webp",
+      "sha256": "bcb1967dcd453ff79ae6b3f3d940a417110bf6030d63f27fcd6ab30c7ec3e1f5",
+      "bytes": 39220,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife52_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W52_1.png",
+      "sourceSha256": "098f2243ae1ac7035c77c13537b63039f837a78fe5d5bffdb2a2334898c774aa",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife52_DateDialogue2.webp",
+      "sha256": "33094d2e1435b719e40b7300083eff68b379046326889a8134902603c1ad24a5",
+      "bytes": 71122,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife17_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W17_1.png",
+      "sourceSha256": "4e2081a2baa4a25a6993141691c8d6b2d95953952b17ca22fa82e1dd862dd251",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife17_DateDialogue2.webp",
+      "sha256": "74ebc112bd6bd4fa3f0f0b712e5a5b261fbc46a84c9b15cb2a67373909d25e66",
+      "bytes": 31128,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife51_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W51_1.png",
+      "sourceSha256": "42c6ce99c4a33758b4364bf588c937c8514e2fbf156e6956498e10abad6d07d7",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife51_DateDialogue2.webp",
+      "sha256": "4828713b7f0c6c2073db01de6ed79a791643770e77accec6b979ad34923f1e77",
+      "bytes": 53056,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife57_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W57_1.png",
+      "sourceSha256": "b42a34a05a83a51311f7053bbe4610b0d94ebb61445461283cccbf8fe946db3d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife57_DateDialogue2.webp",
+      "sha256": "fd58f3e9c377d6e4249a359130b9d1c09b2eb2238277827cd8b1975022d58c06",
+      "bytes": 57254,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife58_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W58_1.png",
+      "sourceSha256": "ebb60ff85f135b84fb6ff36b19d6ddc9152f0600f595a2d0b9d923dd398b60b2",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife58_DateDialogue2.webp",
+      "sha256": "2ea05ebc9a540dd91b56b8249321ab070b5ff6e5c770712bc4b33256ec4c95be",
+      "bytes": 55430,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife59_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W59_1.png",
+      "sourceSha256": "9bc19ad916d185b34d06442ca9a009a166d7aeb0f7c407ab30567baaebb367cf",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife59_DateDialogue2.webp",
+      "sha256": "896a806000404d756cf5542cf9706bccb5b47e689ce64a3ef6ae57d1b1368f9d",
+      "bytes": 49584,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife61_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W61_1.png",
+      "sourceSha256": "d000b53a07c00bff1f38bb2f8daa9d433abfa418b4f46521a9f05242c841425e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife61_DateDialogue2.webp",
+      "sha256": "d993362773cb864e281fec5c54b7fbbe142e088f58c1db72174ed1c3341c0960",
+      "bytes": 50704,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife62_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W62_1.png",
+      "sourceSha256": "bd93d56c1ca0be81ec7904700ba2b935c155338aceb1627301beac90ea2160e6",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife62_DateDialogue2.webp",
+      "sha256": "4b251462ac41521a4170d9490d3025049340c2df0abb5d4ee70485fcb6e221df",
+      "bytes": 39282,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife64_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W64_1.png",
+      "sourceSha256": "0d2b10065d14108c3c7fa39df424ab0c552b903c8ec93b16e0a36f81f59530cc",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife64_DateDialogue2.webp",
+      "sha256": "ca073f7635029d4cb3aaba3378980152076cdaf92531106d80cd06ef2c2b4377",
+      "bytes": 40046,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife101_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W101_1.png",
+      "sourceSha256": "e4eb79baa01df5dbb210412c5303d4cc95373137bbdc6b80c3d2abe50a7b21f9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife101_DateDialogue2.webp",
+      "sha256": "c22f2a3728a8516eed291d03cb15ad4fd61364a1fd428447effa0761f94af820",
+      "bytes": 52622,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife102_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W102_1.png",
+      "sourceSha256": "980727a60bd1d90afb9ad914d311161a0c3808da04bfc8ae7f00e510f9faa0a5",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife102_DateDialogue2.webp",
+      "sha256": "f3c2bc51c5b7b9e540f049c312759ba852d56c85b0b31c8db86df7c71ad0c597",
+      "bytes": 43836,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife103_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W103_1.png",
+      "sourceSha256": "2402f465003d656bc0e866c22f216646350abd09a5c90847565f65a2e559ef43",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife103_DateDialogue2.webp",
+      "sha256": "4b3b93024c88e9e1d07d1ec0d2ad5ded93a51211b362470d2f38230886e9ab0e",
+      "bytes": 60186,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife104_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-01/Date_W104_1.png",
+      "sourceSha256": "3b7eea8dfddbf23f01724099482c57560de59e04e570d2ff2b6d6d8526614106",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife104_DateDialogue2.webp",
+      "sha256": "8aee9345156b3ada0bcce3b68d6df4159f1f01e5abbb3b01f74cef1c76d744f1",
+      "bytes": 34182,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife112_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W112_1.png",
+      "sourceSha256": "18d2c163dfb2b4c84bc02d08f132c56ff7cbe7bdebc697162dea3ca9605b6da2",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife112_DateDialogue2.webp",
+      "sha256": "5863a95e3d50303c98699f81f48d4c46c3235c8ee9554dcedc8d10e29413f208",
+      "bytes": 53924,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife115_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W115_1.png",
+      "sourceSha256": "7c005dddc1e7934b51eb0e1e6b9805b8e5b82777ef3d06dd32ed966710052be7",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife115_DateDialogue2.webp",
+      "sha256": "3596f9f3ae8163e268fa1638c7682712cb3df2b08af4be07a8be2be449b3456a",
+      "bytes": 52902,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife191_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W191_1.png",
+      "sourceSha256": "c58e488d3848fc134db35826c55388fe51196b2f0c0aa9f5d7971e1b34084457",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife191_DateDialogue2.webp",
+      "sha256": "6b866f392127a64a6b8e8635f8302e6e2d2ea71460f7763d9e21a8f89fb330a3",
+      "bytes": 54248,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife192_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W192_1.png",
+      "sourceSha256": "7e4b9e2c62c2ae572e89cc5108b48311dee0f302e8fa72e5107238544593f937",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife192_DateDialogue2.webp",
+      "sha256": "9531ab49670549f2a4ed247e804e8a892e4b50abfb383c23a42f819661df12da",
+      "bytes": 60380,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife55_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W55_1.png",
+      "sourceSha256": "8428c7c0ca6c95f8e4f18e9ea0e3b79e23a52308eae0a5696f68f1874ef3c5c1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife55_DateDialogue2.webp",
+      "sha256": "f1f5ce15909b4b2ad784eaab0906ee982c1daed795c435b538bb1e7112462b1d",
+      "bytes": 86550,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife21_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W21_1.png",
+      "sourceSha256": "5f8289b8b87f6d0ae6806c408a4c093cc5f0a6ca6b394ecef1407b5d86c736ea",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife21_DateDialogue2.webp",
+      "sha256": "c886fbd7d45e53fbcd492eb8e185395dd81b03b74a6f66d78938d3f31c0b2ef9",
+      "bytes": 46620,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife14_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W14_1.png",
+      "sourceSha256": "a7c7d552a328252fa868093d5a97d19eb1fa3153ee12e0e2360b884e6ae3c407",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife14_DateDialogue2.webp",
+      "sha256": "958be1f2f64b13a8f17aa05f774ed8992306864947950d109939705aff1a88f8",
+      "bytes": 41894,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife56_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W56_1.png",
+      "sourceSha256": "b327ef9950609b76830198d50a30fd1e798712378c11ec9bc88913aff72827ff",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife56_DateDialogue2.webp",
+      "sha256": "ee92554a00aa6b5da1f4446be9a7d3a6ace39da06a5a3999fa4f7b8d685eac09",
+      "bytes": 44948,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife4_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W04_1.png",
+      "sourceSha256": "02afad186e392b508c9eee9b4eb92ca93d28b8db84b2af98356ca2d4ca7c044b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife4_DateDialogue2.webp",
+      "sha256": "6c720fd616f77b7c7c7ea5fcad0930650f8f1817603cb03929bc321739b0b27f",
+      "bytes": 51896,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife12_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W12_1.png",
+      "sourceSha256": "15aadf7e12b90c4c3772e32f24dbbba4dc72ac2c8a41c7741e88bf76465f37a6",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife12_DateDialogue2.webp",
+      "sha256": "7225061236fa74d9f2966abcd703478229e1dbe326fe18f182ac9dad26e69b02",
+      "bytes": 57638,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife18_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W18_1.png",
+      "sourceSha256": "290d83e8674084e412679017f05a5115657b7548f88c6dc095d9634a37875ebb",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife18_DateDialogue2.webp",
+      "sha256": "5e4b09af048734a15f0660307a302717ac70d1f455e9671f09803e2f9c572c07",
+      "bytes": 44984,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife15_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W15_1.png",
+      "sourceSha256": "c66f6ffab800bdc3c81a11dc565857ccec0b3134385286e1600c014f3af5d81e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife15_DateDialogue2.webp",
+      "sha256": "e6654d0713c1e2422f1dc75c2da48386099c93346311cdccc45ee758590f5163",
+      "bytes": 39380,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife51C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W51C1_1.png",
+      "sourceSha256": "a24dbef6c79e9e101578f9c25da3c2b8b9c580255e30c85830e81a0caa2708cb",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife51C1_DateDialogue1.webp",
+      "sha256": "96d02a18389154a2f38dfcc042ffdb1e493c230b383e334f35099786517e6e68",
+      "bytes": 70464,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife191C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W191C1_1.png",
+      "sourceSha256": "9274207d31713d29bd13ece3fffadfac1b7529ebaec1d3a16c7618a6b5792500",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife191C1_DateDialogue1.webp",
+      "sha256": "6fe169c92ca4de19a935cd1d3011639491f7e286df05976abfc1f639195a1c41",
+      "bytes": 43670,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife5_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W05_1.png",
+      "sourceSha256": "2601b43168a9be4dd0025f949dd715caf1eb0dd6464f48784a82e94c5d1f3583",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife5_DateDialogue2.webp",
+      "sha256": "4b6fe0cd22c96824b7c888813ae781100027c9c1e1193ef49ef57193c94de293",
+      "bytes": 50748,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife20_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W20_1.png",
+      "sourceSha256": "b88bf340f52ff9cddaad57cd62601e7dfc1ecbff1d3178e14134e0f6668865f9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife20_DateDialogue2.webp",
+      "sha256": "c6558e4e84b970562ba2d304b164271cac9e63f5bb15d24abde312107c3cf4d7",
+      "bytes": 43648,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife16_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W16_1.png",
+      "sourceSha256": "d2d0d1ca51662501c0c1e3983a4119cebf0173a15488e4e53cc84e8a414f0819",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife16_DateDialogue2.webp",
+      "sha256": "e3a38ea738c1297b66181b35411adaef740937c4be6bfacdf8a394ad1254e110",
+      "bytes": 44038,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife63_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W63_1.png",
+      "sourceSha256": "f4dd27ebaa05d1266556e2164a3e186646d6284d96897156049df9010079c951",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife63_DateDialogue2.webp",
+      "sha256": "f225de22fafc7203bf4f6a9eeb1e26c99b778274d8a8d0e3926a955eadc62406",
+      "bytes": 43738,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife19_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W19_1.png",
+      "sourceSha256": "858f2697386243613f90902a67df075f31bb3ed0c25d6f3981c3b17ea0311bf4",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife19_DateDialogue2.webp",
+      "sha256": "4e2b884e9704cfd78329e38b2250ab8350c9be91d790def5d416b3e0fbb9a4ce",
+      "bytes": 60268,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife101C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W101C1_1.png",
+      "sourceSha256": "ed434bb19a95111bd80d6f0587e3d7dbcccbdaaa4d51dfb8102b287ff48cda05",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife101C1_DateDialogue1.webp",
+      "sha256": "ca71c86a895d73a2cecaee745ccfc7a0c6842c1650ed250cf546296e472c6d79",
+      "bytes": 52840,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife106_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W106_1.png",
+      "sourceSha256": "e9e126a3209cf9b74ddb61d64b5a72c72436e25a0f19650c147c19aaa3cb66c7",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife106_DateDialogue1.webp",
+      "sha256": "2c04e4564e7b7dc48f4ef99a5359eeb7d520c129dbdf0b1d4cb8b2ac699b2606",
+      "bytes": 31690,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife54_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W54_1.png",
+      "sourceSha256": "6f2109a4c91a968647b03c568a650239237dca7e571b2b0697a4e4dfa58c78a1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife54_DateDialogue1.webp",
+      "sha256": "1d8022b64183f5ce942776e2535d05051f780e39cc34a64df8575314e046a920",
+      "bytes": 47526,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife53_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W53_1.png",
+      "sourceSha256": "612b536a198ea035aaafab6eece5f1f22bc2fdbd43134ab16a6f50e495e292c1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife53_DateDialogue1.webp",
+      "sha256": "870f7045232fefaf3378a434a6b12f7de7172f78452c6630bf35a3bdb00866a9",
+      "bytes": 34796,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife103C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W103C1_1.png",
+      "sourceSha256": "0915c61bce2cd3e4cd2944d877c25e2280af91f292c93b9706fd827014113558",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife103C1_DateDialogue1.webp",
+      "sha256": "6207ddc9f567aa6bdbd9632ea3288f756cd22441966cf84718b27cd9f1a90bc8",
+      "bytes": 54580,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife104C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W104C1_1.png",
+      "sourceSha256": "4327a84d11be32adf22dde16bb065b8f37c09ca992489d3347998396a3ee0a4b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife104C1_DateDialogue1.webp",
+      "sha256": "0d185043f5db6868df12bc3bb24c553a39c79fafa03d096aa4cbca338d5c5ed3",
+      "bytes": 32704,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife113_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W113_1.png",
+      "sourceSha256": "198fe65561f26e2c176bef4dae74a21ee1dce8ec7404990eb7d7e120bc57b442",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife113_DateDialogue1.webp",
+      "sha256": "0422924f737b04736fc18cd186530e09fbe6ce02f0d580e84ab8298ca5c87203",
+      "bytes": 54688,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife22_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W22_1.png",
+      "sourceSha256": "8b9724e44a0b33c23c75e24cfc2d3ee5241a7589d384da2dc2684ee33dd47e20",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife22_DateDialogue1.webp",
+      "sha256": "6facec8937c94473f3aeb010d188d4f7e4e772f086c5d001b171e39e114c8c6e",
+      "bytes": 45068,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife60_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W60_1.png",
+      "sourceSha256": "da359562b2ccf31d61ce7b62dcf0c760b402ff9a52733a7567025498fe0c8f8b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife60_DateDialogue1.webp",
+      "sha256": "c5addb6c5ba86f1a9c1f0205e654b25647083141e9aefbd262a577cf903d50e7",
+      "bytes": 38726,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife111_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W111_1.png",
+      "sourceSha256": "e707fc87d7e59549f8f3c5e98a883ee24173b5d8eb5552e7574065841a25226a",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife111_DateDialogue1.webp",
+      "sha256": "b70c9372f38a40565af74aa600b1dab7cd77284d29d75bb0f46be4cb6918c4bb",
+      "bytes": 47304,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife111C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W111C1_1.png",
+      "sourceSha256": "732d87f380fcab4eff53d84cabf331efa5ab98e3633bc880cc14919838d13cfe",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife111C1_DateDialogue1.webp",
+      "sha256": "a87343b5bf42953119612237b0c570177e5efaeebc3fc5311777b79f14be9446",
+      "bytes": 46020,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife102C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W102C1_1.png",
+      "sourceSha256": "495a3d030dd5ed33ef8cb85f183abc7802cbea11226594a41f83002e5cc48d8c",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife102C1_DateDialogue1.webp",
+      "sha256": "a0102c97b3e8b36baa0599e8c6251f344764b93e463683bd3724037c929d8dd6",
+      "bytes": 55414,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife63C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W63C1_1.png",
+      "sourceSha256": "2fdcdeb73f3179d6e82e2c6403dfaf71ff29f722c105d1eee343729a60257f5c",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife63C1_DateDialogue1.webp",
+      "sha256": "fad7c5c6bb2cf4301fe2398a1d793fdcdda9e40e00edd341d609a1b8f87e3dce",
+      "bytes": 49346,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife114_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W114_1.png",
+      "sourceSha256": "07f21d7e202e57d753be7ef781970d1366209efcc73655c3f7182698499428d1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife114_DateDialogue1.webp",
+      "sha256": "383f5de194e37be5e25632dd2e329d508073312a106bddaa4abf43381b1d7bac",
+      "bytes": 49886,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife106C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W106C1_1.png",
+      "sourceSha256": "d59ca3a7a8310793010a7c969dd8a3b4f234f54afaf5cf2c903d78215f916623",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife106C1_DateDialogue1.webp",
+      "sha256": "3d9dd484668cd69d8a07c52b70e5589453e9813062bf7c7436825e0d27db9374",
+      "bytes": 60972,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife105C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W105C1_1.png",
+      "sourceSha256": "8bc8ef04dbed163d81942a0542a21e094d906baed66374fe0386c51b15e89566",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife105C1_DateDialogue1.webp",
+      "sha256": "61cf8e90c7686184e76ff64cdc912d266804bd69b42bb3a1785f98e80e1f0e74",
+      "bytes": 72912,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife60C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W60C1_1.png",
+      "sourceSha256": "b806ffbc28c56781d49541ad5ef04f03115dc521887a3d474d7f378bc16ceec1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife60C1_DateDialogue1.webp",
+      "sha256": "dcb1bfb6920c0c09616b0236ee245f28360750d20c17750172d3484338902afe",
+      "bytes": 46748,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife64C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W64C1_1.png",
+      "sourceSha256": "b10f018fa48f099f8610862e42d167332dd1870dcf045e72797e28e42e7e7744",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife64C1_DateDialogue1.webp",
+      "sha256": "5ea93735f7704ab47abb72011804aa2c44bf63537ee329000c79ad9e5b3f275f",
+      "bytes": 40660,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife57C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W57C1_1.png",
+      "sourceSha256": "b72ef54ce4eca809d0a073243f1e67f8a2b5cd87900863253e5aeabc7748716e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife57C1_DateDialogue1.webp",
+      "sha256": "f460e9d2e17ca4566790108a383b97c2e74ed50c04d5336fd111f4feafad1157",
+      "bytes": 49752,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife116_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W116_1.png",
+      "sourceSha256": "924311d233cc3c49b52405322aed0f1b0e05911e54a6e7ef929375d0c5d6038b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife116_DateDialogue1.webp",
+      "sha256": "58dfca9cd128efcac7a54f1c910580ca4aff67844dc4f4a05dc7366afc715c7e",
+      "bytes": 52110,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife118_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-02/Date_W118_1.png",
+      "sourceSha256": "0961a79683f27e272f088e4fc547d8fcc0c2d7e07654fd2ffb3de969756e0f17",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife118_DateDialogue1.webp",
+      "sha256": "4e00f124e801f4eab3124af7e55a6c25d9c8cd1639079c05070f507d43cc51c7",
+      "bytes": 73698,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife65_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W65_1.png",
+      "sourceSha256": "2676e666f34f167f09a3da16c854ac37081bf3f9730a1dbe35b18d4bed565ce9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife65_DateDialogue1.webp",
+      "sha256": "c71d288f19ca5c18de3906a873de4ea8b2ac73dc940370e26403841889d3250a",
+      "bytes": 63936,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife66_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W66_1.png",
+      "sourceSha256": "1a67e09e824f9394d85d8f45063b18d07774e09310f85046f849b90ebb236547",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife66_DateDialogue1.webp",
+      "sha256": "7909d42acf6c719f77b4eb7ae6b179dd012a051b9e9b166235ecf9a699e28a6b",
+      "bytes": 48406,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife117_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W117_1.png",
+      "sourceSha256": "273bca5154954ebcf4aaa336f4a054549b8dd0bbb9fc595d6eadcdd643fdcbb1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife117_DateDialogue1.webp",
+      "sha256": "c26e0b9bcc50a56f79b38439d891c95ad680aa8646215c439e72944310864f8a",
+      "bytes": 46110,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife120_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W120_1.png",
+      "sourceSha256": "40b39e66c3c76ea3153001bb4006008686e66af4b8fa045e93d49e8bc7539ae0",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife120_DateDialogue1.webp",
+      "sha256": "630a466f9ab89abfa2b75462e22c8834a64adbce59cd939e7996ec65688cff90",
+      "bytes": 44532,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife119_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W119_1.png",
+      "sourceSha256": "729b1bc7d33ebcebf87e46a0b704e319f7d9fc5574533d2e5b816b9f525c8b66",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife119_DateDialogue1.webp",
+      "sha256": "af60aab88c81ef6a8e5c9b054ed2c34fa9a4e2a357edbf082008df9a03aef86f",
+      "bytes": 89982,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife122_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W122_1.png",
+      "sourceSha256": "94d20b42689a50f85d77b08bc268ecf5ed0560be4e53a3ee224c04687704f928",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife122_DateDialogue1.webp",
+      "sha256": "be3e3de97e64607b2a078d16d9152a043ca2de80bad82fbcb11431247e9c1dea",
+      "bytes": 70226,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife54C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W54C2_1.png",
+      "sourceSha256": "bf77fd2e235ae152b87876fc9c955820728f4f8afd8b93fdbff92972ef70d60c",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife54C2_DateDialogue1.webp",
+      "sha256": "aa9eedd3afe6823ecf025e5b83f5eea138f206c787c1cdeb8097a0007fd98436",
+      "bytes": 59902,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife112C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W112C1_1.png",
+      "sourceSha256": "3498e2d63b939cc0b9b21cf0c911855cdeb5fd3d630af64af26db7a513e41d54",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife112C1_DateDialogue1.webp",
+      "sha256": "54e91d11fdbcf7a925b6b7fb2e76cb7633be4128901c7cceac307819deb87524",
+      "bytes": 62302,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife121_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W121_1.png",
+      "sourceSha256": "5ee6b198a1c51663c53e125d8697eba610e0d5804bd2cbaceab201d58b70f9cf",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife121_DateDialogue1.webp",
+      "sha256": "5bbad508a65a4837a90023a0519ebc4661a19f455dcf0e9885e02a82bffb0fc6",
+      "bytes": 58468,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife123_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W123_1.png",
+      "sourceSha256": "146f1cebea015f8bb6f2ab1c0a2fd23c887c509743329b9402aaeb891948b25d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife123_DateDialogue1.webp",
+      "sha256": "86a8b9f8cbb4aa5a41f3076aacb97ff105c646a12af483688677537dd84543b0",
+      "bytes": 64674,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife102C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W102C2_1.png",
+      "sourceSha256": "a7599585ba9c7b70950a2d19ac7eecc52b1bb0c61989cb40c7b46933dfb87729",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife102C2_DateDialogue1.webp",
+      "sha256": "aabe6f7afa27bf5c8738f89e2ce19e19a48fe17fe7d036d830c854496766d3bc",
+      "bytes": 65482,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife191C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W191C2_1.png",
+      "sourceSha256": "391a7712ccd18eda64f078775994433fa82832c5c444f09a063a46a19ee1aac4",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife191C2_DateDialogue1.webp",
+      "sha256": "deca6a36328a121d8f5e01083e809a8553abd868bf1be71ee286c62d185765b3",
+      "bytes": 60528,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife105C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W105C2_1.png",
+      "sourceSha256": "e0f4b100078aa53bd28ab06950712a0dde51fd69d1f5b126bac500cd9341cc6f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife105C2_DateDialogue1.webp",
+      "sha256": "4302717ec5342f5b378134f48ea60a5a305da7d3efeed970e891864b6cfc689d",
+      "bytes": 51326,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife11C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W11C1_1.png",
+      "sourceSha256": "b289cfa602b87c3e6ea9ab9588c52b967922efb0236c0d8e2edb62048a7705fa",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife11C1_DateDialogue1.webp",
+      "sha256": "af14d2fb3c917df3fcd474e83c0a433f5a0668cd01cfc5e7ecd4a0ed889a3afc",
+      "bytes": 41176,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife124_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W124_1.png",
+      "sourceSha256": "39849b9b15e00c6753a7533c5fd8396d8e35ad608c3601cc5d46696bbaf2693f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife124_DateDialogue1.webp",
+      "sha256": "c7dfc39f31dfb475b5d5557c8b7026fab44f4a882e3ff8ac21ad1600268c7f9f",
+      "bytes": 60206,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife126_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W126_1.png",
+      "sourceSha256": "91ae13b85bc19da8e9dd1770a8d25f3409b4fb3a0bfef5bd8a05d24c042cc0cf",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife126_DateDialogue1.webp",
+      "sha256": "94abb8081c9b77fb06c763623f5b0ba449e2e26ff5f351d71434c65385cc5759",
+      "bytes": 70214,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife70_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W70_1.png",
+      "sourceSha256": "2ac17689739aa238079f2402ef29ad69ece9f8263c4a5b609508aa41291bcc7d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife70_DateDialogue1.webp",
+      "sha256": "ffa45bba34ab4c1649a018dff95ac3a44d081b243c540cf1f1bdad40fd00a8f9",
+      "bytes": 45074,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife115C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W115C1_1.png",
+      "sourceSha256": "2b069b550e9f6681bd44c61e0488e74ea2162035ac6c6e982aac977167b5c618",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife115C1_DateDialogue1.webp",
+      "sha256": "0ecf8945bb1a3ef115eddd0164dc49b4ef82898b951e27fcff7b9cc7fe63a333",
+      "bytes": 52004,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife103C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W103C2_1.png",
+      "sourceSha256": "2373232462b5b9820551cfada67633ea2a941d8ae53fbb5cc30e57c020e8893a",
+      "sourceDimensions": [
+        750,
+        1401
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife103C2_DateDialogue1.webp",
+      "sha256": "876e509a246677a9e98e0b289cb9cb57f6ab9f9a283b0802e300c9f4072dea76",
+      "bytes": 63230,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife52C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W52C2_1.png",
+      "sourceSha256": "f05180708827083e36831b1563bd25ec2529d210a8213beccc3bb6bd00733d8d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife52C2_DateDialogue1.webp",
+      "sha256": "9c1d105ad32f38241607830f9ed859f929c86c15d3f09cf4dc43d0eaa67a4570",
+      "bytes": 59218,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife102C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W102C3_1.png",
+      "sourceSha256": "fe1ce2410bdfe96fe2ab61bd21008c9eb455ccc767c1f4ce6095d0bf584fc7ec",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife102C3_DateDialogue1.webp",
+      "sha256": "9c6e3f2389f6147755ec6921c81ee480bb9371d0243cf8b09bdad957c809c23f",
+      "bytes": 39346,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife125_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W125_1.png",
+      "sourceSha256": "bce013f522ec31a0de300808cdee418993c5b819eddeb443bf05ac142269a1e9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife125_DateDialogue1.webp",
+      "sha256": "54ace1663b415ef1ed4806c7e7c7d2b47ad939d2bc3d51d52600cb08b6de66fc",
+      "bytes": 63796,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife134_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W134_1.png",
+      "sourceSha256": "67c4a523a788f49aa8c8bd05778325259dc43d6cd93f872e6a661b6a15dd61f5",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife134_DateDialogue1.webp",
+      "sha256": "34da870b5a096b53d6a179e5d4dee73cf2aa472c09b1029ffe66b7c8c7659067",
+      "bytes": 65596,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife131_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W131_1.png",
+      "sourceSha256": "ca2f4574bb74fb45268a0cdd9e41e5cbc9ff910f4351d95a3c0c92cd1099396d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife131_DateDialogue1.webp",
+      "sha256": "34fd63ac7cc007ae40f81ed14f0034dbd77ffdcf87626747405eb7a0ef7ecd5b",
+      "bytes": 58488,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife132_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W132_1.png",
+      "sourceSha256": "dccb8937f769859f8e24e14e9b329fd3cf104a5f0f74aacd078b1de320dea40a",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife132_DateDialogue1.webp",
+      "sha256": "1b21c510645d6f322a5b5987dae46bac3fc7a5d71b8fc03edd8ed86500ea0fd0",
+      "bytes": 72016,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife133_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W133_1.png",
+      "sourceSha256": "0578838cb79a3e88f7bca97c4443cd2a1731f21640e0b96062f1e7acd2c8cd8c",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife133_DateDialogue1.webp",
+      "sha256": "ec268ea1aa98ba83475cc34f8a7b78fe7cab5612686dc0dff0b67df4a3e3ade9",
+      "bytes": 82054,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife128_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W128_1.png",
+      "sourceSha256": "6fbea0ad8dc575d6234dc649b5092a75198e0e6a89d78794660d840092d6030c",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife128_DateDialogue1.webp",
+      "sha256": "c7ebcc6977af4559bee49487eceb3f6e2322775c5caf4ed259edf91342393f85",
+      "bytes": 56156,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife129_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W129_1.png",
+      "sourceSha256": "5e719a2cd0af20a6ec38262361768bc752c333616a0ac34a830f0f515890706d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife129_DateDialogue1.webp",
+      "sha256": "5cfcbbe3960fd2d033849195b45feebee1a0ecde4d4faa91fd2e38bc18f8505a",
+      "bytes": 48488,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife130_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W130_1.png",
+      "sourceSha256": "f55f0b51bcd12193c8bc584ee2a46db54f893d20b07dc9769f7db1c2c42e8093",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife130_DateDialogue1.webp",
+      "sha256": "3d72d30ad4ca0fa6730b3cce7fde0cd411c8bdf8b73c1e2ec11d39352ae9c5ca",
+      "bytes": 53166,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife67_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W67_1.png",
+      "sourceSha256": "726ea4a111fb0a535c290cf535803d245878e6e7d97656bcd96182d79ec770a3",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife67_DateDialogue1.webp",
+      "sha256": "e0f32dabab264faec2887a810a85dd72aa37a86179929879b7f2cf3d4092e1a9",
+      "bytes": 50528,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife106C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W106C2_1.png",
+      "sourceSha256": "1b06c456afc1ab114c9b473b540b590533f6079c4ff427d74a8918ddcdce553d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife106C2_DateDialogue1.webp",
+      "sha256": "f4f679762af1aff2e6087eb4c767f491c95ce215d7e4608f0d9ec6e894fc81af",
+      "bytes": 68820,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife101C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W101C2_1.png",
+      "sourceSha256": "846d3108817538b050ad9c6f5bd931ddd19efc13c7f1174cf774a2380bd15a2a",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife101C2_DateDialogue1.webp",
+      "sha256": "50cb10b52cceaff700fb988701962fa0141b78cd938dcb9a49f65d86c57c5431",
+      "bytes": 61798,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife127_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W127_1.png",
+      "sourceSha256": "c72b75b564cc11eff54dc676755be9dc54c34564a2ab0165a4b6bf72dfe93e1f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife127_DateDialogue1.webp",
+      "sha256": "d1dd65e5ea115fbb6afbdbb40b2918586bac79c56623efa56bdf6b3c7c60bb77",
+      "bytes": 40890,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife136_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W136_1.png",
+      "sourceSha256": "a30fce7d79c6f4c922ff912e4f793318d3f41100d36ea76f457903bf593e1a79",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife136_DateDialogue1.webp",
+      "sha256": "07f6e648b99330c5853192a17caef2ecad83d677cd2aa1f7e26efca78c544ae9",
+      "bytes": 55670,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife104C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W104C2_1.png",
+      "sourceSha256": "de68873c0563fb1b3aa949f58222ab02a52c08d99131a799c58e97a912ab7d36",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife104C2_DateDialogue1.webp",
+      "sha256": "47dab85fecb008351e50b255c838963787fab1c839971ec6e3cf2e4ca6086204",
+      "bytes": 73938,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife135_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W135_1.png",
+      "sourceSha256": "8cd2770a62935f865c00f9b408db32181a6adf6c980c865015354cde21bf61d5",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife135_DateDialogue1.webp",
+      "sha256": "20c02d0f781f91f5d609a344514402a002d05665f196cc289e0d346bf1cc8ea0",
+      "bytes": 59768,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife251_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W251_1.png",
+      "sourceSha256": "fbb2b02c1f996aff0839b0aa3b1f7f4f4834805e0179145aee3a872877ca6bdf",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife251_DateDialogue1.webp",
+      "sha256": "5a719b10b22ffb928d4d331445b8bf6c8fa970a8aa9bc7108fc318d2d2acfced",
+      "bytes": 75266,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife64C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W64C2_1.png",
+      "sourceSha256": "42c1f3c58b5d479df858ef2a4fd65837cb737eb63463050cf6be9dadd6adcacf",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife64C2_DateDialogue1.webp",
+      "sha256": "08e6b1bc6808156f4465181329a294040c6e0f7c8609330dc4e4a422bff35f97",
+      "bytes": 58490,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife191C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W191C3_1.png",
+      "sourceSha256": "7fdab15eb752d5886f5fa8f0cc963cbadde4cee38fb484b8f1e0602b1a58cbfa",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife191C3_DateDialogue1.webp",
+      "sha256": "563d348a3085799693059371e2d813e7654ea71db347edb65a6159111383a3ed",
+      "bytes": 72794,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife201_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W201_1.png",
+      "sourceSha256": "003667dc9d236ab5bfec1ae0074f412bd1b9e15d9a160853e717c3682229148b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife201_DateDialogue1.webp",
+      "sha256": "8fc14b136055893af63db112621442301294e1d3c7af0985f589f080cebc28ae",
+      "bytes": 67372,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife137_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W137_1.png",
+      "sourceSha256": "5e94071e9106c55cda2f5c149df38910e74054d7670a3850f7459d59ea1c51de",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife137_DateDialogue1.webp",
+      "sha256": "f0624f197f846e0fee4cb24854899d9065c423c54e5fee344e8253ad335cfe01",
+      "bytes": 68496,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife105C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W105C3_1.png",
+      "sourceSha256": "a55871b9cf89e63628d2da272075c8c26a92709e2a22715a9e6189fcded2ce45",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife105C3_DateDialogue1.webp",
+      "sha256": "0bdf8eb30f82bc3f6a71c07f2d69c1cdc744f7c78b3555649af584c6ecf33bb7",
+      "bytes": 61958,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife102C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W102C4_1.png",
+      "sourceSha256": "02cf223a71355ba4f2f841f9b383c3bd44033b2424832ceb8219728f9d288b04",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife102C4_DateDialogue1.webp",
+      "sha256": "14851b0f2b1cdc6a294221cf3c23edc21abb432ba6bae63e13419f150f76ac04",
+      "bytes": 76694,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife103C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W103C3_1.png",
+      "sourceSha256": "507406660967131cf7243119ff82e1305dd900a04cb8d132f051fe0f22300abe",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife103C3_DateDialogue1.webp",
+      "sha256": "2d5bccb96f365886e8c2bdb2d7e7b22bb15fff133e29292115e960a85b4a9171",
+      "bytes": 73832,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife138_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W138_1.png",
+      "sourceSha256": "25d17b51a635e309514642b109bf908eb4e24cb2226fc70ec15d4b6224a352c9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife138_DateDialogue1.webp",
+      "sha256": "0d7df98af93ccfdd0f5fd257cd5629f04a51cdb8ee3e8e42e23a5ef0ddc2bd9c",
+      "bytes": 70670,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife143_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W143_1.png",
+      "sourceSha256": "e0b0e8466c1e2096c6fa68e9805f269842be0c83edc5247e83d3f2e08b9d0b66",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife143_DateDialogue1.webp",
+      "sha256": "1fb7ccb42b33533f9af836819eae230145b58498163e35dc3d3de42f8ee5b80d",
+      "bytes": 56188,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife112C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-03/Date_W112C2_1.png",
+      "sourceSha256": "cc919f276a8fd6804be3c4dc6a1401736430b6e73043e1e8304e04fb02896396",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife112C2_DateDialogue1.webp",
+      "sha256": "184ece1a2663094e864f24ceb5ee34ddbf4eb19747d5d21c719c9cc8a431ca84",
+      "bytes": 75768,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife55C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W55C2_1.png",
+      "sourceSha256": "31d1e736c3920331e4c729f28b37fdfe51722638c67ee467460ed76965634e37",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife55C2_DateDialogue1.webp",
+      "sha256": "93bc646ef6b3462fea04f3708f8f7627bcea7d5b1cef29f688fe91bd4655de95",
+      "bytes": 68354,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife111C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W111C2_1.png",
+      "sourceSha256": "d5c31f20566f6cb703afdb3e523db9bb37885c90cf99dd09944ee9b69f70773b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife111C2_DateDialogue1.webp",
+      "sha256": "9400435f33bc3fa262ec51be4ba2bf356fb2bb4e01e192d6d57dd1e26518d204",
+      "bytes": 75796,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife6_DateDialogue3",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W06_1.png",
+      "sourceSha256": "da39be86441e42d52bc8496dbc9a5367a46a403add9782fdd5e809e8d54c7660",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife6_DateDialogue3.webp",
+      "sha256": "f8cdfd57460d337bbb4a2beb5e4ee7bf454904ce3717e7d610618615ab5a8491",
+      "bytes": 44824,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife145_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W145_1.png",
+      "sourceSha256": "659fff7700d96e9aabc0f4c70ca5d514ec0eb519d87218354175474fe2feda00",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife145_DateDialogue1.webp",
+      "sha256": "058b7374f647e2d7ec5e161985c602b22be4cf8d223a5885d3e110362e589111",
+      "bytes": 42072,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife144_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W144_1.png",
+      "sourceSha256": "a57b9ce9bcd8d308819ff87cb638624bdfcb1b2c43a3724868160c132af812d0",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife144_DateDialogue1.webp",
+      "sha256": "b1767e4c67f07c772fcdb8c9835e444afe1e9e8be4319a6a2e53ee15a1c42f0b",
+      "bytes": 59496,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife151_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W151_1.png",
+      "sourceSha256": "d7075ddf96f5f3940e0e4b07b746c9bd8ad6c5fcf4a12cadc654e35b947d55fa",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife151_DateDialogue1.webp",
+      "sha256": "83cb3257120f998e0606b04fbfd7cac4fae834aaac513d376a9f597ff0f4d7cf",
+      "bytes": 57186,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife152_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W152_1.png",
+      "sourceSha256": "dd7c3c038c0703ed96d1c1e39f47dfd2058c916c29788ccca0b43e9431b8052d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife152_DateDialogue1.webp",
+      "sha256": "77b9cb830bea7d01479c1ff74e16cf5271a1668396c189e0052d53794fd98d1f",
+      "bytes": 66270,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife148_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W148_1.png",
+      "sourceSha256": "15d5b762e6bde8cc9584899ae5be8595ef09fc675d29708e541b9d1dd1fc9b8b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife148_DateDialogue1.webp",
+      "sha256": "35ae0eda7c4831a54bc350d17b85c2aee82e9709e343c33ffa668dcadbaddb85",
+      "bytes": 52784,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife149_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W149_1.png",
+      "sourceSha256": "c743e4658b0637d123c22ecdfc468378a1f5d451086f802a333c548a521ad56b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife149_DateDialogue1.webp",
+      "sha256": "f774336171e78c7f7e6ed7c2eb6283b4f90b8d7fd0458eb9dda375c3f68fd75c",
+      "bytes": 55236,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife153_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W153_1.png",
+      "sourceSha256": "52ed8b82046cfb5de15554cd1ce354f6e40e690df92fccd8172afd4bb95b6347",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife153_DateDialogue1.webp",
+      "sha256": "46343c55950a55cfe3c56a397d3a235ab4e716ac2f02d60da6b08a583a7458fb",
+      "bytes": 76036,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife154_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W154_1.png",
+      "sourceSha256": "170988098781e2bcb34632285e515637c2dc140ae3e3990d11435ca15b0e7fde",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife154_DateDialogue1.webp",
+      "sha256": "4d1f3385a97c33f0a082bdfc72553e6358c25c9c57409be27b19bf2347b266c7",
+      "bytes": 80698,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife150_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W150_1.png",
+      "sourceSha256": "10d65e242e05b0680b9e9eb18765e7a15ce0faa53ace14a43da478c7d44c1c44",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife150_DateDialogue1.webp",
+      "sha256": "78203a3fd75fee3dffe8fbdfb605730a8147c947a9b32d67a442b8db4dd4b364",
+      "bytes": 73634,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife252_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W252_1.png",
+      "sourceSha256": "3cf0f28690e9d4af32db9f12716f47c3bbfd8e0bb68032d02960f665d33de4d9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife252_DateDialogue1.webp",
+      "sha256": "43e6175f33529f70e4fea4fe7d34611cb87306130f438f26e186b58e93cbf3b9",
+      "bytes": 82164,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife106C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W106C3_1.png",
+      "sourceSha256": "458a5b3e07b5bc14bfd28600965e6d8518f4ab386da2dd299e0cc778737d3ad5",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife106C3_DateDialogue1.webp",
+      "sha256": "76886227580fac4bc7473beb2596bc24ea23300d7e2a27156766fda6d4adf41a",
+      "bytes": 68526,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife101C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W101C3_1.png",
+      "sourceSha256": "e11cf422d6b07cc9d107a94f0f40687f6c29f21c45a0895e934fdef7c0c47fa4",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife101C3_DateDialogue1.webp",
+      "sha256": "6d677fe3522fbb8082cc878aee60805b970361166b4c827c58bd5873953a81ad",
+      "bytes": 55666,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife155_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W155_1.png",
+      "sourceSha256": "534a173d219bead4d2c0f7b21cffb04c36ae61d8d51bb04651cb702bfcf8fcb6",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife155_DateDialogue1.webp",
+      "sha256": "28d69d02c755ef6d2417b4aeb6e1ee9fdc42568ea5743342ece3830c38ad443d",
+      "bytes": 68284,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife115C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W115C2_1.png",
+      "sourceSha256": "0ca04132649ad29e82505385322b6551c3e9753c325ff56d79fb300ddf08e23c",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife115C2_DateDialogue1.webp",
+      "sha256": "e7cea2d2ee8b7ee27c0240b2a5f5306dd553a506d195422cf9edd035eba8aa2f",
+      "bytes": 52790,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife253_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W253_1.png",
+      "sourceSha256": "060fdebaa7a5a32885cdfaf8141426b444a9856782f3162768dcb14f5a2b7401",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife253_DateDialogue1.webp",
+      "sha256": "fd9a1827faf34f19f3c41aee582d9dca8c20cfed759599a7844746701f20632d",
+      "bytes": 70396,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife156_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W156_1.png",
+      "sourceSha256": "fc659b4e12ccbfd12e824a7da828962081f32556215f727dc93918d84f2d75d6",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife156_DateDialogue1.webp",
+      "sha256": "a6dfa0516ca6ff2cf173ee572cccde883934385aa775f3423eba8c84fee73bef",
+      "bytes": 43884,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife146_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W146_1.png",
+      "sourceSha256": "94fbadc2b2e00a286a2ebf0014b9197c0e04bcd05939b8adcee3d2e7a9f3341f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife146_DateDialogue1.webp",
+      "sha256": "1774684966a749dcf0e88d839f34166dd9aa644fae76dcf12697308b79716c34",
+      "bytes": 84420,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife157_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W157_1.png",
+      "sourceSha256": "c63debae3c9afb0066515ecf2ea8f60fd4c4dff54477c5dc5cae592bccf0cce9",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife157_DateDialogue1.webp",
+      "sha256": "b578fcc1523124cf9ff710e607d1bd7b48f4444c46ac30042f5486844672d12c",
+      "bytes": 52160,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife134C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W134C1_1.png",
+      "sourceSha256": "44397392b2502ddd881c4989758bde9b8971436614f1a4013ff2fca3b4a387f6",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife134C1_DateDialogue1.webp",
+      "sha256": "478250b41675a4427cbf279489eabe969cdecd11830dc51add643ee8175ea208",
+      "bytes": 70302,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife136C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W136C1_1.png",
+      "sourceSha256": "44132ea057a3359fb1019416df258827f033d02381aa92d8449183a62dcea72b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife136C1_DateDialogue1.webp",
+      "sha256": "d5f2ce025b00af389360c4f05d5d1d8336833625eac596eb28eb56c36af46460",
+      "bytes": 44772,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife158_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W158_1.png",
+      "sourceSha256": "ac0ca6c5f92b363bfb009d334faa4270b9e94f6b882745c30ff45b8ab2e4d60a",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife158_DateDialogue1.webp",
+      "sha256": "913f2d44a149c8256658edef25dcd08ae4fa59f3a5761b52ba01e5da1fba5111",
+      "bytes": 76878,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife254_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W254_1.png",
+      "sourceSha256": "3159af8cef8d3eba86ffcfc7189992f0777da40821a989672448d767128695d3",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife254_DateDialogue1.webp",
+      "sha256": "0dd8b83c85b1030f3569ec247f5e5211b660bf5aee8ef931859a9e016e660b6e",
+      "bytes": 77110,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife167_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W167_1.png",
+      "sourceSha256": "ab69d71e742b44a1c1923f6afa5caabb8a1f04d2078e30109668cdcfa4f47b01",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife167_DateDialogue1.webp",
+      "sha256": "39b57dc7b35e3214375d300d623683d650152d2c742c7a2f2fcb6b587bee9359",
+      "bytes": 78556,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife105C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W105C4_1.png",
+      "sourceSha256": "d13cef3b184b2a2f350a21ec7f973ac2b815ca300f911ece6479af9b468d1eb2",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife105C4_DateDialogue1.webp",
+      "sha256": "20bde3ffb79302d9902acbee73a2155756e6135fa1848d44201fb4501485f7b8",
+      "bytes": 68406,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife21C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W21C2_1.png",
+      "sourceSha256": "48a5c836fdd4aa55cd28e1636fcd3880e49c840de920453e576144704c8cd69b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife21C2_DateDialogue1.webp",
+      "sha256": "5cbc26ec9758e0236f44b32672a867d9fb4b179a4488224ab58197a3292f7b52",
+      "bytes": 65350,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife71_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W71_1.png",
+      "sourceSha256": "920c53280cc9a41c8c3b1e20500f1cc0fdb5742aa575317d9e1edab030a65a0f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife71_DateDialogue2.webp",
+      "sha256": "edd7d244b8ef65addc4f0c1d2b371fbceb38d8728cd54587c8b523799c8925c4",
+      "bytes": 66140,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife114C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W114C1_1.png",
+      "sourceSha256": "8c42704e62b13b7099a4960a3327899a5c0e7579aabd3cec18dd2f69d7191433",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife114C1_DateDialogue1.webp",
+      "sha256": "323c1ae4add66a26a5e90a5e39c6a9e3a80f345beee50aedd2d72f910edc995d",
+      "bytes": 45762,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife18C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W18C3_1.png",
+      "sourceSha256": "a821f16d21ea1892306bdf28b74306baf24491dc23cfede4c05061da73da8b01",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife18C3_DateDialogue1.webp",
+      "sha256": "33ac42041cb0333a32146f17ed1d6bb4498603f91380538d5cad5c18a675ab0e",
+      "bytes": 43898,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife163_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W163_1.png",
+      "sourceSha256": "daa3cc3241fc7d44cac4d9f4a9934ad7deb7d04bf89ff79e857c3d2e9534e6cc",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife163_DateDialogue2.webp",
+      "sha256": "9895f32fce3fd361e33197678b1e7f3afa0895b0caecb2698af39650ab8f3651",
+      "bytes": 63582,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife165_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W165_1.png",
+      "sourceSha256": "d592e3d7331b23e12703429375196501dd2e57bbfb511444b6ac3c2f36f01392",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife165_DateDialogue1.webp",
+      "sha256": "c6462ebc7c507c9caf399db7c2ad0bfc5c4493b89bb9d86106133b2836fdc981",
+      "bytes": 64416,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife166_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W166_1.png",
+      "sourceSha256": "3d304a0aae0f656f4469157c34fc8e946d4431706fcbbf629d67145395ae64f1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife166_DateDialogue1.webp",
+      "sha256": "ec704400dd1615c7538f383abb723ed8b86773308f0c418b41c902b2319b9cf6",
+      "bytes": 60358,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife71C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W71C1_1.png",
+      "sourceSha256": "2c757cdb1c05afe2dbd2569cfc70c664288c836f91e5bb647312515381a4c70e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife71C1_DateDialogue1.webp",
+      "sha256": "7c832b0daad45a0fafb25561ef7ce23888ebd006aa34883b9a05192d01559ab6",
+      "bytes": 76048,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife165_CGImage_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W165_2.png",
+      "sourceSha256": "15b4847832254cea47885f603ee27e5dbdad254bd1f108448f05e7fdd016f73d",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife165_CGImage_DateDialogue1.webp",
+      "sha256": "58ad9b6ffc5e6ff0906f7741657e8c5638b28b870d3df8e237c21562d89101c0",
+      "bytes": 68514,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife166_CGImage_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W166_2.png",
+      "sourceSha256": "afe04890cbbae9aca9133ecc2b336d747934b663e391e85d171d70c8776f3e11",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife166_CGImage_DateDialogue1.webp",
+      "sha256": "5ed748947b3e8deee715ad81d9454599ece0fdc27b429f44ef9b85e1e9ac6017",
+      "bytes": 48384,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife161_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W161_1.png",
+      "sourceSha256": "8f1d1d28bf1bdfb400d09e6bb1fac366a4ff37dd367db28089e7f58ef3cc39f6",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife161_DateDialogue1.webp",
+      "sha256": "c15980862702c50c5e455eb8aab2f18b553d94934e128b8ec9a688cd59843f90",
+      "bytes": 61298,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife162_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W162_1.png",
+      "sourceSha256": "5eab405a0e3c0ca4d97a79271efbaafe1a346601211b53af4f040d44d0dd602b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife162_DateDialogue1.webp",
+      "sha256": "9d16e674439a70f78c901789346776617f4f7ef4cf3dc77f9262d5cd84c8d591",
+      "bytes": 57792,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife102C5_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W102C5_1.png",
+      "sourceSha256": "4bb0bae09b43ab990b813002451ee5e98b4980247d39f8f291e989eb61e97531",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife102C5_DateDialogue1.webp",
+      "sha256": "caf2e0a08bc486a2ec635dc3d1b846b95272d635ae38e93d11d850b3f6cddf2e",
+      "bytes": 94544,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife15C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W15C4_1.png",
+      "sourceSha256": "171f042b0c3eb88b69d6237cd1af1add9a4fb6f178a94a34c758ff53a6e3f642",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife15C4_DateDialogue1.webp",
+      "sha256": "da342b6b7b97945f8bbc6d35f24d816de11528b94ff711f9169bcb81598f448d",
+      "bytes": 58656,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife169_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W169_1.png",
+      "sourceSha256": "5022cfc32280aada4037c7fa0c4e5326387db4397ed9427d5dd7dcc7360a7de1",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife169_DateDialogue1.webp",
+      "sha256": "6a9415ea734110073cfa0ff52ef217c44ab28cb6968d19c1626137876f238c2b",
+      "bytes": 52036,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife160_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W160_1.png",
+      "sourceSha256": "59f8f58d4ed73af9aa53bd77601b70b1d86e23193c246b3f3a8d522f4a91f392",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife160_DateDialogue1.webp",
+      "sha256": "470ca624f5759ede325536b01a6a39f1c8f886b2f5bfffc97cfdca7a7faaa4da",
+      "bytes": 64418,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife159_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-en/Date_W159_1.png",
+      "sourceSha256": "5c22b7bd0ef7a62854c4da11c71f34ab01f49cb94902dfe52e92322307b037c4",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife159_DateDialogue1.webp",
+      "sha256": "2d7d63ee49fe363ad793cf36d0f942c75e41b69a338f0a8d6558fc88c0adc166",
+      "bytes": 40912,
+      "package": "Illust_EN"
+    },
+    {
+      "event": "Wife113C2_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W113C2_1.png",
+      "sourceSha256": "1e1117890892e8462acb1200fa35b7fa4623719691ed966f46b082e8900aabd8",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife113C2_DateDialogue1.webp",
+      "sha256": "9a086a31dd453ca717a3a92829faa1123e9ce0369b173a9442975aaea744b709",
+      "bytes": 69112,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife111C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W111C3_1.png",
+      "sourceSha256": "52a3b63729bd46d20434786feb96dac090fe85e0da5000f210eca47e95a7e82b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife111C3_DateDialogue1.webp",
+      "sha256": "4dbde421d9b7ebf64b0b208af73663865ec4c89b31f6f938a896033b6aeac150",
+      "bytes": 64760,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife163C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W163C1_1.png",
+      "sourceSha256": "014b1cca1c432af5f02bfc352c3f3d330c51596e8a318d83a339e077f56800fa",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife163C1_DateDialogue1.webp",
+      "sha256": "709877f36a4035a6a36af32cb343e1526f0dd1fc43b6aae340af6cb73af19529",
+      "bytes": 44164,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife170_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W170_1.png",
+      "sourceSha256": "0d9ec6401a4a3b30e861024f850bda83773218d63cf1efe79e4941c96febda2e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife170_DateDialogue1.webp",
+      "sha256": "290272d52c3e5460d77dbb990cc9166babc311cf336e16929329f4dcef2a2348",
+      "bytes": 78442,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife06_CGImage_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W06_2.png",
+      "sourceSha256": "b204d6c4222e7b5ba44199085c3f51a9a3e7528b466caf8dd5ed6fed3077da68",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife06_CGImage_DateDialogue1.webp",
+      "sha256": "402a6e886e18d01144d39963245923a33d4601a14e5c5321f33ddbb08530a4c0",
+      "bytes": 56346,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife115C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W115C3_1.png",
+      "sourceSha256": "ccff902b0591b09a0cfb99490f4be9ed7d5f01660d18981545cccd2890c68975",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife115C3_DateDialogue1.webp",
+      "sha256": "967f7ca998a53b2740d3e141a07e3d70d7a2a4548da36be5bd68335ec8d1802e",
+      "bytes": 68452,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife54C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W54C4_1.png",
+      "sourceSha256": "f38f8dacf2cfd320bdccc923ee18c2be1ae2ea44d552be254533c4538b0da63b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife54C4_DateDialogue1.webp",
+      "sha256": "145c1d90be249e287a1c19d209926055eb78a689d5c900d50f6f89dde615be14",
+      "bytes": 65966,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife175_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W175_1.png",
+      "sourceSha256": "393785571e49b3dab6a88978d63b8b0bb8436b72428ee86d6e4e5152c27b9188",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife175_DateDialogue1.webp",
+      "sha256": "6eaff0c7514b1e894f7a66b8d82e84358be9e3bf2a16cc82801b3a3d208e2877",
+      "bytes": 49560,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife171_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-04/Date_W171_1.png",
+      "sourceSha256": "e2a3ac4d50826c877d0f8524c2a297891515811fbc9a9961a798c71961548f66",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife171_DateDialogue1.webp",
+      "sha256": "ece1e7213e54675d8a81312b3401a5847d83e1cba38f20915cff6cc7bf92ce84",
+      "bytes": 70912,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife179_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W179_1.png",
+      "sourceSha256": "b88ab47065f57c6fcacd696bf5594806b065361ce9fccc15760170a4a7ba18ed",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife179_DateDialogue1.webp",
+      "sha256": "8d46bf89eb96f3e9f2368ff630a5f2c02199d0a2d94b8ed5cae9b966e9cc7614",
+      "bytes": 40052,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife180_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W180_1.png",
+      "sourceSha256": "55d811d71d12fc52d7ec180c7f8e658333340bb0b722b55296130e758755ef79",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife180_DateDialogue1.webp",
+      "sha256": "9df8949ac2dcb59766d6e1197d663f394193bb706ec740b2da774926922b04f2",
+      "bytes": 43352,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife104C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W104C4_1.png",
+      "sourceSha256": "605fa8be4cd2c501964c8e9a8014f617169d6b068b450d37c4584755eab83c20",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife104C4_DateDialogue1.webp",
+      "sha256": "a2db3df4d25115a134e1f13ff142cfe88f7d68bd0c9492fb4d6f18c8b853baac",
+      "bytes": 40390,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife53C3_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W53C3_1.png",
+      "sourceSha256": "e6ef6d6386a0516004ed0079469a5834fb9a6d2adf5b15643e6bb71bcc937d9e",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife53C3_DateDialogue1.webp",
+      "sha256": "70be7e0881814607e0e57548dca4153f8c845be937efcc327d7eb2546a511342",
+      "bytes": 58266,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife178_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W178_1.png",
+      "sourceSha256": "3c4cbbf86dd39215b312d7ef16ed1a953069283b638b517d95828751a4858e3f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife178_DateDialogue1.webp",
+      "sha256": "a700116aab5ee9319f8d18a270877ab11b2f6480ebefd46f8f380955a75cc5d4",
+      "bytes": 57534,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife112C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W112C4_1.png",
+      "sourceSha256": "26e5ab895f54187f3a16f83a8a57f2abb193f4e542fa83ea8b919a9502b39fd4",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife112C4_DateDialogue1.webp",
+      "sha256": "8bc217810e147318d512dceee41445dc1295da5a672887e3cae519bb405233eb",
+      "bytes": 48252,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife155C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W155C1_1.png",
+      "sourceSha256": "53783aaaa24d15eeed60875e0734e83c8d452e95dc33407698189d4f1b0e8f7f",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife155C1_DateDialogue1.webp",
+      "sha256": "ad5b1225f43f59172de91c3051c2a0bc9c65dcc37356c73ddbc30cd63bf18874",
+      "bytes": 57498,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife181_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W181_1.png",
+      "sourceSha256": "517ef37aea806d4eae9b7ae6d19afe58f560e7d08c989ad8ad4d85b623d9827b",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife181_DateDialogue1.webp",
+      "sha256": "d5ccbd0c1665c6e8d8a220c1f9e5f974acb84804c5312d63011ec06402866ef5",
+      "bytes": 36516,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife182_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W182_1.png",
+      "sourceSha256": "14fa0fc093002ad3af65ef76d0125aee77c332e6a39b58d5c9468e176e825d53",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife182_DateDialogue1.webp",
+      "sha256": "fdf8fdfb0672c4b580f814c1c8fc5c110e63c8bffa00a0f7cc89ba8a05272097",
+      "bytes": 42186,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife52C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W52C4_1.png",
+      "sourceSha256": "6e028182c500a5a950d18d478c05b573e34a743e8c9484e4dc2b673e93be13d4",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife52C4_DateDialogue1.webp",
+      "sha256": "f6201135f011fdc010dc4ad6bfd42e2faaade0940327f039c4182c869e700282",
+      "bytes": 60956,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife60C4_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W60C4_1.png",
+      "sourceSha256": "adf246ec18ccee95fba7b4ecbd16b2bffe95de49d9bad3d9bf98f8ce6a0ecbca",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife60C4_DateDialogue1.webp",
+      "sha256": "1457df9d82ca2a5e0b37738edfb399b176356f3ef1d93963c52c0f2b6b8df53c",
+      "bytes": 58912,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife183_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W183_1.png",
+      "sourceSha256": "b008b8a69952e1b7f24f6de0fbfc0edabe3e1254f5bd14c4afd41a757abee819",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife183_DateDialogue1.webp",
+      "sha256": "fa7638005f334881061129ba8e077b2b865c86d15520360adcf0b10e82a3f73c",
+      "bytes": 45634,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife188_DateDialogue2",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W188_1.png",
+      "sourceSha256": "a78e6919b53a2f8cd32eaf64d98c342e9e171f5ee9d9439fd5fb2adfda886cc2",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife188_DateDialogue2.webp",
+      "sha256": "292c181b81b74affba077d6f804d63d22f70b9c43ca342e6d798038ac3bf506c",
+      "bytes": 46220,
+      "package": "Illust"
+    },
+    {
+      "event": "Wife143C1_DateDialogue1",
+      "sourcePath": "/Users/westmanfamily/Documents/Codex/2026-09-08/isekai-source-research/outputs/cg-batch-05/Date_W143C1_1.png",
+      "sourceSha256": "b661b05fb209389033eb116f3c7df0d92ebb5066d256a2ef1bf88a24b89092cf",
+      "sourceDimensions": [
+        750,
+        1400
+      ],
+      "dimensions": [
+        514,
+        960
+      ],
+      "path": "assets/family-gallery/Wife143C1_DateDialogue1.webp",
+      "sha256": "11f29655babe5ea3b4e8ea0f27c6fb83b1415135e811b8843ecbd356c3466962",
+      "bytes": 55596,
+      "package": "Illust"
+    }
+  ]
+}

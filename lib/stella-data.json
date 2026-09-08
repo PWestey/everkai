@@ -1,0 +1,1026 @@
+{
+  "policyVersion": 1,
+  "profiles": [
+    {
+      "id": "hero_52",
+      "name": "Angie",
+      "type": "Informed",
+      "itemId": "Item_Owner_HeroPiece_52",
+      "levels": [
+        {
+          "level": 1,
+          "cost": 20,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 500000,
+          "percent": 5
+        },
+        {
+          "level": 2,
+          "cost": 30,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 1000000,
+          "percent": 8
+        },
+        {
+          "level": 3,
+          "cost": 40,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 1500000,
+          "percent": 11
+        },
+        {
+          "level": 4,
+          "cost": 50,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 2000000,
+          "percent": 14
+        },
+        {
+          "level": 5,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 2500000,
+          "percent": 17
+        },
+        {
+          "level": 6,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 3000000,
+          "percent": 20
+        },
+        {
+          "level": 7,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 3500000,
+          "percent": 23
+        },
+        {
+          "level": 8,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 4000000,
+          "percent": 26
+        },
+        {
+          "level": 9,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 4500000,
+          "percent": 29
+        },
+        {
+          "level": 10,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 5300000,
+          "percent": 32
+        },
+        {
+          "level": 11,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 6300000,
+          "percent": 35
+        },
+        {
+          "level": 12,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 7300000,
+          "percent": 38
+        },
+        {
+          "level": 13,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 8300000,
+          "percent": 41
+        },
+        {
+          "level": 14,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 9300000,
+          "percent": 44
+        },
+        {
+          "level": 15,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 10300000,
+          "percent": 47
+        },
+        {
+          "level": 16,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 11300000,
+          "percent": 50
+        },
+        {
+          "level": 17,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 12300000,
+          "percent": 53
+        },
+        {
+          "level": 18,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 13300000,
+          "percent": 56
+        },
+        {
+          "level": 19,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 14300000,
+          "percent": 59
+        },
+        {
+          "level": 20,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 15300000,
+          "percent": 62
+        },
+        {
+          "level": 21,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 16300000,
+          "percent": 65
+        },
+        {
+          "level": 22,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 17300000,
+          "percent": 68
+        },
+        {
+          "level": 23,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 18300000,
+          "percent": 71
+        },
+        {
+          "level": 24,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 19300000,
+          "percent": 74
+        },
+        {
+          "level": 25,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 20300000,
+          "percent": 77
+        },
+        {
+          "level": 26,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 21300000,
+          "percent": 80
+        },
+        {
+          "level": 27,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 22300000,
+          "percent": 83
+        },
+        {
+          "level": 28,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 23300000,
+          "percent": 86
+        },
+        {
+          "level": 29,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 24300000,
+          "percent": 89
+        },
+        {
+          "level": 30,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 25300000,
+          "percent": 92
+        },
+        {
+          "level": 31,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 26300000,
+          "percent": 95
+        },
+        {
+          "level": 32,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 27300000,
+          "percent": 98
+        },
+        {
+          "level": 33,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 28300000,
+          "percent": 101
+        },
+        {
+          "level": 34,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 29300000,
+          "percent": 104
+        },
+        {
+          "level": 35,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 30300000,
+          "percent": 107
+        },
+        {
+          "level": 36,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 31300000,
+          "percent": 110
+        },
+        {
+          "level": 37,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 32300000,
+          "percent": 113
+        },
+        {
+          "level": 38,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 33300000,
+          "percent": 116
+        },
+        {
+          "level": 39,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 34300000,
+          "percent": 119
+        },
+        {
+          "level": 40,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_52",
+          "flat": 35300000,
+          "percent": 122
+        }
+      ],
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/angie/index.html",
+      "sha256": "c1b16ae0e8dbe452ff8cb06e7d65eedc73759083829e3bb3d2424e37adad0525"
+    },
+    {
+      "id": "hero_190",
+      "name": "Elise",
+      "type": "Inspiring",
+      "itemId": "Item_Owner_HeroPiece_190",
+      "levels": [
+        {
+          "level": 1,
+          "cost": 20,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 500000,
+          "percent": 5
+        },
+        {
+          "level": 2,
+          "cost": 30,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 1000000,
+          "percent": 8
+        },
+        {
+          "level": 3,
+          "cost": 40,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 1500000,
+          "percent": 11
+        },
+        {
+          "level": 4,
+          "cost": 50,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 2000000,
+          "percent": 14
+        },
+        {
+          "level": 5,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 2500000,
+          "percent": 17
+        },
+        {
+          "level": 6,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 3000000,
+          "percent": 20
+        },
+        {
+          "level": 7,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 3500000,
+          "percent": 23
+        },
+        {
+          "level": 8,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 4000000,
+          "percent": 26
+        },
+        {
+          "level": 9,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 4500000,
+          "percent": 29
+        },
+        {
+          "level": 10,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 5300000,
+          "percent": 32
+        },
+        {
+          "level": 11,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 6300000,
+          "percent": 35
+        },
+        {
+          "level": 12,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 7300000,
+          "percent": 38
+        },
+        {
+          "level": 13,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 8300000,
+          "percent": 41
+        },
+        {
+          "level": 14,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 9300000,
+          "percent": 44
+        },
+        {
+          "level": 15,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 10300000,
+          "percent": 47
+        },
+        {
+          "level": 16,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 11300000,
+          "percent": 50
+        },
+        {
+          "level": 17,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 12300000,
+          "percent": 53
+        },
+        {
+          "level": 18,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 13300000,
+          "percent": 56
+        },
+        {
+          "level": 19,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 14300000,
+          "percent": 59
+        },
+        {
+          "level": 20,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_190",
+          "flat": 15300000,
+          "percent": 62
+        }
+      ],
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/elise/index.html",
+      "sha256": "65b656b03c0f3a06ec1029c4be1230c623f81bb9f47181a52fc916e08756f31a"
+    },
+    {
+      "id": "hero_56",
+      "name": "Liz",
+      "type": "Diligent",
+      "itemId": "Item_Owner_HeroPiece_56",
+      "levels": [
+        {
+          "level": 1,
+          "cost": 20,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 500000,
+          "percent": 5
+        },
+        {
+          "level": 2,
+          "cost": 30,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 1000000,
+          "percent": 8
+        },
+        {
+          "level": 3,
+          "cost": 40,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 1500000,
+          "percent": 11
+        },
+        {
+          "level": 4,
+          "cost": 50,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 2000000,
+          "percent": 14
+        },
+        {
+          "level": 5,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 2500000,
+          "percent": 17
+        },
+        {
+          "level": 6,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 3000000,
+          "percent": 20
+        },
+        {
+          "level": 7,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 3500000,
+          "percent": 23
+        },
+        {
+          "level": 8,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 4000000,
+          "percent": 26
+        },
+        {
+          "level": 9,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 4500000,
+          "percent": 29
+        },
+        {
+          "level": 10,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 5300000,
+          "percent": 32
+        },
+        {
+          "level": 11,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 6300000,
+          "percent": 35
+        },
+        {
+          "level": 12,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 7300000,
+          "percent": 38
+        },
+        {
+          "level": 13,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 8300000,
+          "percent": 41
+        },
+        {
+          "level": 14,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 9300000,
+          "percent": 44
+        },
+        {
+          "level": 15,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 10300000,
+          "percent": 47
+        },
+        {
+          "level": 16,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 11300000,
+          "percent": 50
+        },
+        {
+          "level": 17,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 12300000,
+          "percent": 53
+        },
+        {
+          "level": 18,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 13300000,
+          "percent": 56
+        },
+        {
+          "level": 19,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 14300000,
+          "percent": 59
+        },
+        {
+          "level": 20,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 15300000,
+          "percent": 62
+        },
+        {
+          "level": 21,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 16300000,
+          "percent": 65
+        },
+        {
+          "level": 22,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 17300000,
+          "percent": 68
+        },
+        {
+          "level": 23,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 18300000,
+          "percent": 71
+        },
+        {
+          "level": 24,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 19300000,
+          "percent": 74
+        },
+        {
+          "level": 25,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 20300000,
+          "percent": 77
+        },
+        {
+          "level": 26,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 21300000,
+          "percent": 80
+        },
+        {
+          "level": 27,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 22300000,
+          "percent": 83
+        },
+        {
+          "level": 28,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 23300000,
+          "percent": 86
+        },
+        {
+          "level": 29,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 24300000,
+          "percent": 89
+        },
+        {
+          "level": 30,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 25300000,
+          "percent": 92
+        },
+        {
+          "level": 31,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 26300000,
+          "percent": 95
+        },
+        {
+          "level": 32,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 27300000,
+          "percent": 98
+        },
+        {
+          "level": 33,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 28300000,
+          "percent": 101
+        },
+        {
+          "level": 34,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 29300000,
+          "percent": 104
+        },
+        {
+          "level": 35,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 30300000,
+          "percent": 107
+        },
+        {
+          "level": 36,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 31300000,
+          "percent": 110
+        },
+        {
+          "level": 37,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 32300000,
+          "percent": 113
+        },
+        {
+          "level": 38,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 33300000,
+          "percent": 116
+        },
+        {
+          "level": 39,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 34300000,
+          "percent": 119
+        },
+        {
+          "level": 40,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_56",
+          "flat": 35300000,
+          "percent": 122
+        }
+      ],
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/liz/index.html",
+      "sha256": "2a3a0250cfb0f124390f65d3c30b15604d39989ff3b16e237047160babdaa3de"
+    },
+    {
+      "id": "hero_54",
+      "name": "Rani",
+      "type": "Inspiring",
+      "itemId": "Item_Owner_HeroPiece_54",
+      "levels": [
+        {
+          "level": 1,
+          "cost": 20,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 500000,
+          "percent": 5
+        },
+        {
+          "level": 2,
+          "cost": 30,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 1000000,
+          "percent": 8
+        },
+        {
+          "level": 3,
+          "cost": 40,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 1500000,
+          "percent": 11
+        },
+        {
+          "level": 4,
+          "cost": 50,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 2000000,
+          "percent": 14
+        },
+        {
+          "level": 5,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 2500000,
+          "percent": 17
+        },
+        {
+          "level": 6,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 3000000,
+          "percent": 20
+        },
+        {
+          "level": 7,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 3500000,
+          "percent": 23
+        },
+        {
+          "level": 8,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 4000000,
+          "percent": 26
+        },
+        {
+          "level": 9,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 4500000,
+          "percent": 29
+        },
+        {
+          "level": 10,
+          "cost": 60,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 5300000,
+          "percent": 32
+        },
+        {
+          "level": 11,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 6300000,
+          "percent": 35
+        },
+        {
+          "level": 12,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 7300000,
+          "percent": 38
+        },
+        {
+          "level": 13,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 8300000,
+          "percent": 41
+        },
+        {
+          "level": 14,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 9300000,
+          "percent": 44
+        },
+        {
+          "level": 15,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 10300000,
+          "percent": 47
+        },
+        {
+          "level": 16,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 11300000,
+          "percent": 50
+        },
+        {
+          "level": 17,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 12300000,
+          "percent": 53
+        },
+        {
+          "level": 18,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 13300000,
+          "percent": 56
+        },
+        {
+          "level": 19,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 14300000,
+          "percent": 59
+        },
+        {
+          "level": 20,
+          "cost": 100,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 15300000,
+          "percent": 62
+        },
+        {
+          "level": 21,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 16300000,
+          "percent": 65
+        },
+        {
+          "level": 22,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 17300000,
+          "percent": 68
+        },
+        {
+          "level": 23,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 18300000,
+          "percent": 71
+        },
+        {
+          "level": 24,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 19300000,
+          "percent": 74
+        },
+        {
+          "level": 25,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 20300000,
+          "percent": 77
+        },
+        {
+          "level": 26,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 21300000,
+          "percent": 80
+        },
+        {
+          "level": 27,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 22300000,
+          "percent": 83
+        },
+        {
+          "level": 28,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 23300000,
+          "percent": 86
+        },
+        {
+          "level": 29,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 24300000,
+          "percent": 89
+        },
+        {
+          "level": 30,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 25300000,
+          "percent": 92
+        },
+        {
+          "level": 31,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 26300000,
+          "percent": 95
+        },
+        {
+          "level": 32,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 27300000,
+          "percent": 98
+        },
+        {
+          "level": 33,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 28300000,
+          "percent": 101
+        },
+        {
+          "level": 34,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 29300000,
+          "percent": 104
+        },
+        {
+          "level": 35,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 30300000,
+          "percent": 107
+        },
+        {
+          "level": 36,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 31300000,
+          "percent": 110
+        },
+        {
+          "level": 37,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 32300000,
+          "percent": 113
+        },
+        {
+          "level": 38,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 33300000,
+          "percent": 116
+        },
+        {
+          "level": 39,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 34300000,
+          "percent": 119
+        },
+        {
+          "level": 40,
+          "cost": 150,
+          "itemId": "Item_Owner_HeroPiece_54",
+          "flat": 35300000,
+          "percent": 122
+        }
+      ],
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fellows/rani/index.html",
+      "sha256": "8ea0cc1a778fd47d95169ffd25dad4cd84c0be96f84d3851480285a33fef3b41"
+    }
+  ],
+  "boundary": "Community cumulative paid upgrade rows only. Activation is separate authored policy; local final flat-then-percent stacking and free fragment supply."
+}

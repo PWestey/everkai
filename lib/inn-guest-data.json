@@ -1,0 +1,78 @@
+{
+  "source": "https://zik-ascend.github.io/isl-tools/wiki/inn/",
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "sha256": "a2be0554b8136a1399e026d0da4b80dd6da36d16f49bff5f2308e4ac9dd8aa07",
+  "rules": [
+    {
+      "id": "Collection_2",
+      "name": "Cool tea beverage machine",
+      "rating": 2,
+      "dish": "2",
+      "dishName": "Kitty Sandwich",
+      "fellow": "hero_2",
+      "type": "Informed",
+      "percent": 25
+    },
+    {
+      "id": "Collection_4",
+      "name": "Twin Dragon",
+      "rating": 3,
+      "dish": "5",
+      "dishName": "Spicy Chimera Wings",
+      "fellow": null,
+      "type": "Diligent",
+      "percent": 25
+    },
+    {
+      "id": "Collection_6",
+      "name": "Tou's Affinity Umbrella",
+      "rating": 4,
+      "dish": "6",
+      "dishName": "Kimchi",
+      "fellow": null,
+      "type": "Unfettered",
+      "percent": 25
+    },
+    {
+      "id": "Collection_8",
+      "name": "Lavish Doghouse",
+      "rating": 5,
+      "dish": "12",
+      "dishName": "Oatmeal Porridge",
+      "fellow": null,
+      "type": "Inspiring",
+      "percent": 25
+    },
+    {
+      "id": "Collection_9",
+      "name": "Golden Camel",
+      "rating": 6,
+      "dish": "13",
+      "dishName": "Beef Stew",
+      "fellow": null,
+      "type": "Brave",
+      "percent": 25
+    },
+    {
+      "id": "Collection_3",
+      "name": "Noble Lamp",
+      "rating": 7,
+      "dish": "10",
+      "dishName": "Slime Supreme",
+      "fellow": null,
+      "kind": "graduationFlat",
+      "amount": 500
+    },
+    {
+      "id": "Collection_10",
+      "name": "Hunter's Hat",
+      "rating": 7,
+      "dish": "15",
+      "dishName": "Onion Rings",
+      "fellow": null,
+      "kind": "teachAllXP",
+      "amount": 100
+    }
+  ],
+  "scope": "Five typed gifts plus two School treasures; initial values only; cross-source Inn level/rating adapter and visit timing local"
+}

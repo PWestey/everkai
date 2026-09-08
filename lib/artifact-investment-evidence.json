@@ -1,0 +1,13 @@
+{
+  "source": "Readable English UnityFS translation / APK1.7702 source set",
+  "records": [
+    {
+      "id": "Rule:text:Equipment_17",
+      "en": "\u25c6 When recycling Artifacts that have already been leveled up, all of the materials used to upgrade them will be returned."
+    },
+    {
+      "id": "Rule:text:Equipment_18",
+      "en": "\u25c6 When recycling Artifacts that have already Ascended, all of the materials used to upgrade them will be returned."
+    }
+  ]
+}

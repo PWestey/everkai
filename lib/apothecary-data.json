@@ -1,0 +1,188 @@
+{
+  "provenance": {
+    "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+    "sha256": "c65be3a38ecab6e4a52c17ba6a169a78e7fc3cb849d56f56cd58e55d995e09d9",
+    "ruleSha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe",
+    "type": "community counts + local rule text; not version-matched formulas"
+  },
+  "records": [
+    {
+      "id": "1001",
+      "name": "Healing Potion",
+      "soldGate": 1,
+      "skillText": "Inspiring Fellow Power +0.5% (+0.5%)",
+      "unlockText": "Unlocked after 1 stock sold"
+    },
+    {
+      "id": "1002",
+      "name": "Hair Growth Solution",
+      "soldGate": 36,
+      "skillText": "Brave Fellow Power +1% (+1%)",
+      "unlockText": "Unlocked after 36 stock sold"
+    },
+    {
+      "id": "1003",
+      "name": "Poison Antidote",
+      "soldGate": 50,
+      "skillText": "Diligent Fellow Power +0.5% (+0.5%)",
+      "unlockText": "Unlocked after 50 stock sold"
+    },
+    {
+      "id": "1004",
+      "name": "Cooling Potion",
+      "soldGate": 100,
+      "skillText": "Inspiring Fellow Power +1% (+1%)",
+      "unlockText": "Unlocked after 100 stock sold"
+    },
+    {
+      "id": "1005",
+      "name": "Antiburn Potion",
+      "soldGate": 150,
+      "skillText": "Diligent Fellow Aptitude +1 (+1)",
+      "unlockText": "Unlocked after 150 stock sold"
+    },
+    {
+      "id": "1006",
+      "name": "Skin Care Gel",
+      "soldGate": 200,
+      "skillText": "Unfettered Fellow Power +0.5% (+0.5%)",
+      "unlockText": "Unlocked after 200 stock sold"
+    },
+    {
+      "id": "1007",
+      "name": "Monster Repellent",
+      "soldGate": 300,
+      "skillText": "Unfettered Fellow Power +1% (+1%)",
+      "unlockText": "Unlocked after 300 stock sold"
+    },
+    {
+      "id": "1008",
+      "name": "Detergent",
+      "soldGate": 400,
+      "skillText": "Brave Fellow Aptitude +1 (+1)",
+      "unlockText": "Unlocked after 400 stock sold"
+    },
+    {
+      "id": "1009",
+      "name": "Sleeping Pills",
+      "soldGate": 500,
+      "skillText": "Unfettered Fellow Power +1.5% (+1.5%)",
+      "unlockText": "Unlocked after 500 stock sold"
+    },
+    {
+      "id": "1010",
+      "name": "Deodorant",
+      "soldGate": 600,
+      "skillText": "Informed Fellow Aptitude +2 (+2)",
+      "unlockText": "Unlocked after 600 stock sold"
+    },
+    {
+      "id": "10001",
+      "name": "Universal Slime",
+      "soldGate": null,
+      "skillText": "Brave Fellow Power +1.5% (+1.5%)",
+      "unlockText": "Unlocked in Apothecary: Proud Mentor & Rebellious Apprentice event."
+    },
+    {
+      "id": "10002",
+      "name": "Appetite Booster",
+      "soldGate": null,
+      "skillText": "Inspiring Fellow Aptitude +1 (+1)",
+      "unlockText": "Unlocked in Apothecary: Proud Mentor & Rebellious Apprentice event."
+    },
+    {
+      "id": "10003",
+      "name": "Antidote Potion",
+      "soldGate": null,
+      "skillText": "Informed Fellow Power +2% (+2%)",
+      "unlockText": "Unlocked in Apothecary: Proud Mentor & Rebellious Apprentice event."
+    },
+    {
+      "id": "10004",
+      "name": "Super Charisma Potion",
+      "soldGate": null,
+      "skillText": "Unfettered Fellow Power +2.5% (+2.5%)",
+      "unlockText": "Unlocked in Apothecary: Proud Mentor & Rebellious Apprentice event."
+    },
+    {
+      "id": "10005",
+      "name": "Super Luck Potion",
+      "soldGate": null,
+      "skillText": "Diligent Fellow Aptitude +3 (+3)",
+      "unlockText": "Unlocked in Apothecary: Proud Mentor & Rebellious Apprentice event."
+    },
+    {
+      "id": "20001",
+      "name": "Translation Potion",
+      "soldGate": null,
+      "skillText": "Informed Fellow Aptitude +2 (+2)",
+      "unlockText": "Unlocked in Apothecary: Kind Mentor and Sour Apprentice event."
+    },
+    {
+      "id": "20002",
+      "name": "Emo-Stabilize Perfume",
+      "soldGate": null,
+      "skillText": "Brave Fellow Aptitude +3 (+3)",
+      "unlockText": "Unlocked in Apothecary: Kind Mentor and Sour Apprentice event."
+    },
+    {
+      "id": "20003",
+      "name": "Auto-Walk Shoe Polish",
+      "soldGate": null,
+      "skillText": "Diligent Fellow Power +1.5% (+1.5%)",
+      "unlockText": "Unlocked in Apothecary: Kind Mentor and Sour Apprentice event."
+    },
+    {
+      "id": "20004",
+      "name": "Photographic Memory Eyedrops",
+      "soldGate": null,
+      "skillText": "Unfettered Fellow Aptitude +2 (+2)",
+      "unlockText": "Unlocked in Apothecary: Kind Mentor and Sour Apprentice event."
+    },
+    {
+      "id": "20005",
+      "name": "Lark Potion",
+      "soldGate": null,
+      "skillText": "Inspiring Fellow Power +2.5% (+2.5%)",
+      "unlockText": "Unlocked in Apothecary: Kind Mentor and Sour Apprentice event."
+    }
+  ],
+  "rules": [
+    {
+      "id": "Rule:text:Medicine_01",
+      "en": "- Receiving Customers -"
+    },
+    {
+      "id": "Rule:text:Medicine_02",
+      "en": "Once you put the potions on the shelves, customers will automatically start visiting the Apothecary to purchase them."
+    },
+    {
+      "id": "Rule:text:Medicine_03",
+      "en": "The Apothecary will still operate while you are offline."
+    },
+    {
+      "id": "Rule:text:Medicine_04",
+      "en": "- Special Customers -"
+    },
+    {
+      "id": "Rule:text:Medicine_05",
+      "en": "Special customer events will trigger after certain conditions are met. Managing those events will unlock new potions."
+    },
+    {
+      "id": "Rule:text:Medicine_06",
+      "en": "- Earnings -"
+    },
+    {
+      "id": "Rule:text:Medicine_07",
+      "en": "The earnings from each potion are affected by the current earning speed and the number of unlocked potions."
+    },
+    {
+      "id": "Rule:text:Medicine_08",
+      "en": "Apothecary earnings will temporarily be stored in the Deposit Box. The earnings limit is determined by the number of potions on the shelf."
+    },
+    {
+      "id": "Rule:text:Medicine_09",
+      "en": "The Apothecary will still operate while you are offline."
+    }
+  ]
+}

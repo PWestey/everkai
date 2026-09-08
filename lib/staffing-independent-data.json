@@ -1,0 +1,699 @@
+{
+  "method": "Independent Decimal90 range scan; no original audit imports",
+  "all23Match": true,
+  "discount": 0,
+  "quotes": [
+    {
+      "staff": 0,
+      "one": 8,
+      "ten": 247,
+      "tenSingles": 244
+    },
+    {
+      "staff": 1,
+      "one": 10,
+      "ten": 300,
+      "tenSingles": 296
+    },
+    {
+      "staff": 4,
+      "one": 19,
+      "ten": 518,
+      "tenSingles": 513
+    },
+    {
+      "staff": 5,
+      "one": 24,
+      "ten": 616,
+      "tenSingles": 611
+    },
+    {
+      "staff": 6,
+      "one": 29,
+      "ten": 730,
+      "tenSingles": 725
+    },
+    {
+      "staff": 9,
+      "one": 50,
+      "ten": 1210,
+      "tenSingles": 1203
+    },
+    {
+      "staff": 10,
+      "one": 60,
+      "ten": 1428,
+      "tenSingles": 1422
+    },
+    {
+      "staff": 11,
+      "one": 71,
+      "ten": 1686,
+      "tenSingles": 1679
+    },
+    {
+      "staff": 19,
+      "one": 269,
+      "ten": 4587,
+      "tenSingles": 4582
+    },
+    {
+      "staff": 20,
+      "one": 317,
+      "ten": 5067,
+      "tenSingles": 5062
+    },
+    {
+      "staff": 21,
+      "one": 349,
+      "ten": 5574,
+      "tenSingles": 5569
+    },
+    {
+      "staff": 34,
+      "one": 1207,
+      "ten": 14428,
+      "tenSingles": 14425
+    },
+    {
+      "staff": 35,
+      "one": 1328,
+      "ten": 14879,
+      "tenSingles": 14876
+    },
+    {
+      "staff": 36,
+      "one": 1361,
+      "ten": 15251,
+      "tenSingles": 15248
+    },
+    {
+      "staff": 99,
+      "one": 12384,
+      "ten": 133766,
+      "tenSingles": 133762
+    },
+    {
+      "staff": 100,
+      "one": 12595,
+      "ten": 136040,
+      "tenSingles": 136036
+    },
+    {
+      "staff": 199,
+      "one": 58748,
+      "ten": 630203,
+      "tenSingles": 630198
+    },
+    {
+      "staff": 200,
+      "one": 59659,
+      "ten": 639971,
+      "tenSingles": 639966
+    },
+    {
+      "staff": 499,
+      "one": 1204538,
+      "ten": 12488401,
+      "tenSingles": 12488397
+    },
+    {
+      "staff": 500,
+      "one": 1214174,
+      "ten": 12588308,
+      "tenSingles": 12588304
+    },
+    {
+      "staff": 999,
+      "one": 16825258,
+      "ten": 171313661,
+      "tenSingles": 171313656
+    },
+    {
+      "staff": 1000,
+      "one": 16892559,
+      "ten": 171998915,
+      "tenSingles": 171998910
+    },
+    {
+      "staff": 4999,
+      "one": 17403725800,
+      "ten": 174822517775,
+      "tenSingles": 174822517771
+    }
+  ],
+  "discountComparisons": [
+    {
+      "staff": 0,
+      "discountBasisPoints": 0,
+      "twoStage": 247,
+      "oneStage": 247
+    },
+    {
+      "staff": 0,
+      "discountBasisPoints": 137,
+      "twoStage": 243,
+      "oneStage": 243
+    },
+    {
+      "staff": 0,
+      "discountBasisPoints": 2500,
+      "twoStage": 185,
+      "oneStage": 185
+    },
+    {
+      "staff": 0,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 1,
+      "discountBasisPoints": 0,
+      "twoStage": 300,
+      "oneStage": 300
+    },
+    {
+      "staff": 1,
+      "discountBasisPoints": 137,
+      "twoStage": 295,
+      "oneStage": 295
+    },
+    {
+      "staff": 1,
+      "discountBasisPoints": 2500,
+      "twoStage": 225,
+      "oneStage": 225
+    },
+    {
+      "staff": 1,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 4,
+      "discountBasisPoints": 0,
+      "twoStage": 518,
+      "oneStage": 518
+    },
+    {
+      "staff": 4,
+      "discountBasisPoints": 137,
+      "twoStage": 510,
+      "oneStage": 510
+    },
+    {
+      "staff": 4,
+      "discountBasisPoints": 2500,
+      "twoStage": 388,
+      "oneStage": 388
+    },
+    {
+      "staff": 4,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 5,
+      "discountBasisPoints": 0,
+      "twoStage": 616,
+      "oneStage": 616
+    },
+    {
+      "staff": 5,
+      "discountBasisPoints": 137,
+      "twoStage": 607,
+      "oneStage": 607
+    },
+    {
+      "staff": 5,
+      "discountBasisPoints": 2500,
+      "twoStage": 462,
+      "oneStage": 462
+    },
+    {
+      "staff": 5,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 6,
+      "discountBasisPoints": 0,
+      "twoStage": 730,
+      "oneStage": 730
+    },
+    {
+      "staff": 6,
+      "discountBasisPoints": 137,
+      "twoStage": 719,
+      "oneStage": 720
+    },
+    {
+      "staff": 6,
+      "discountBasisPoints": 2500,
+      "twoStage": 547,
+      "oneStage": 548
+    },
+    {
+      "staff": 6,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 9,
+      "discountBasisPoints": 0,
+      "twoStage": 1210,
+      "oneStage": 1210
+    },
+    {
+      "staff": 9,
+      "discountBasisPoints": 137,
+      "twoStage": 1193,
+      "oneStage": 1193
+    },
+    {
+      "staff": 9,
+      "discountBasisPoints": 2500,
+      "twoStage": 907,
+      "oneStage": 907
+    },
+    {
+      "staff": 9,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 10,
+      "discountBasisPoints": 0,
+      "twoStage": 1428,
+      "oneStage": 1428
+    },
+    {
+      "staff": 10,
+      "discountBasisPoints": 137,
+      "twoStage": 1408,
+      "oneStage": 1409
+    },
+    {
+      "staff": 10,
+      "discountBasisPoints": 2500,
+      "twoStage": 1071,
+      "oneStage": 1071
+    },
+    {
+      "staff": 10,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 11,
+      "discountBasisPoints": 0,
+      "twoStage": 1686,
+      "oneStage": 1686
+    },
+    {
+      "staff": 11,
+      "discountBasisPoints": 137,
+      "twoStage": 1662,
+      "oneStage": 1663
+    },
+    {
+      "staff": 11,
+      "discountBasisPoints": 2500,
+      "twoStage": 1264,
+      "oneStage": 1264
+    },
+    {
+      "staff": 11,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 19,
+      "discountBasisPoints": 0,
+      "twoStage": 4587,
+      "oneStage": 4587
+    },
+    {
+      "staff": 19,
+      "discountBasisPoints": 137,
+      "twoStage": 4524,
+      "oneStage": 4524
+    },
+    {
+      "staff": 19,
+      "discountBasisPoints": 2500,
+      "twoStage": 3440,
+      "oneStage": 3440
+    },
+    {
+      "staff": 19,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 20,
+      "discountBasisPoints": 0,
+      "twoStage": 5067,
+      "oneStage": 5067
+    },
+    {
+      "staff": 20,
+      "discountBasisPoints": 137,
+      "twoStage": 4997,
+      "oneStage": 4997
+    },
+    {
+      "staff": 20,
+      "discountBasisPoints": 2500,
+      "twoStage": 3800,
+      "oneStage": 3800
+    },
+    {
+      "staff": 20,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 21,
+      "discountBasisPoints": 0,
+      "twoStage": 5574,
+      "oneStage": 5574
+    },
+    {
+      "staff": 21,
+      "discountBasisPoints": 137,
+      "twoStage": 5497,
+      "oneStage": 5497
+    },
+    {
+      "staff": 21,
+      "discountBasisPoints": 2500,
+      "twoStage": 4180,
+      "oneStage": 4180
+    },
+    {
+      "staff": 21,
+      "discountBasisPoints": 9999,
+      "twoStage": 0,
+      "oneStage": 0
+    },
+    {
+      "staff": 34,
+      "discountBasisPoints": 0,
+      "twoStage": 14428,
+      "oneStage": 14428
+    },
+    {
+      "staff": 34,
+      "discountBasisPoints": 137,
+      "twoStage": 14230,
+      "oneStage": 14230
+    },
+    {
+      "staff": 34,
+      "discountBasisPoints": 2500,
+      "twoStage": 10821,
+      "oneStage": 10821
+    },
+    {
+      "staff": 34,
+      "discountBasisPoints": 9999,
+      "twoStage": 1,
+      "oneStage": 1
+    },
+    {
+      "staff": 35,
+      "discountBasisPoints": 0,
+      "twoStage": 14879,
+      "oneStage": 14879
+    },
+    {
+      "staff": 35,
+      "discountBasisPoints": 137,
+      "twoStage": 14675,
+      "oneStage": 14675
+    },
+    {
+      "staff": 35,
+      "discountBasisPoints": 2500,
+      "twoStage": 11159,
+      "oneStage": 11159
+    },
+    {
+      "staff": 35,
+      "discountBasisPoints": 9999,
+      "twoStage": 1,
+      "oneStage": 1
+    },
+    {
+      "staff": 36,
+      "discountBasisPoints": 0,
+      "twoStage": 15251,
+      "oneStage": 15251
+    },
+    {
+      "staff": 36,
+      "discountBasisPoints": 137,
+      "twoStage": 15042,
+      "oneStage": 15042
+    },
+    {
+      "staff": 36,
+      "discountBasisPoints": 2500,
+      "twoStage": 11438,
+      "oneStage": 11438
+    },
+    {
+      "staff": 36,
+      "discountBasisPoints": 9999,
+      "twoStage": 1,
+      "oneStage": 1
+    },
+    {
+      "staff": 99,
+      "discountBasisPoints": 0,
+      "twoStage": 133766,
+      "oneStage": 133766
+    },
+    {
+      "staff": 99,
+      "discountBasisPoints": 137,
+      "twoStage": 131933,
+      "oneStage": 131934
+    },
+    {
+      "staff": 99,
+      "discountBasisPoints": 2500,
+      "twoStage": 100324,
+      "oneStage": 100325
+    },
+    {
+      "staff": 99,
+      "discountBasisPoints": 9999,
+      "twoStage": 13,
+      "oneStage": 13
+    },
+    {
+      "staff": 100,
+      "discountBasisPoints": 0,
+      "twoStage": 136040,
+      "oneStage": 136040
+    },
+    {
+      "staff": 100,
+      "discountBasisPoints": 137,
+      "twoStage": 134176,
+      "oneStage": 134176
+    },
+    {
+      "staff": 100,
+      "discountBasisPoints": 2500,
+      "twoStage": 102030,
+      "oneStage": 102030
+    },
+    {
+      "staff": 100,
+      "discountBasisPoints": 9999,
+      "twoStage": 13,
+      "oneStage": 13
+    },
+    {
+      "staff": 199,
+      "discountBasisPoints": 0,
+      "twoStage": 630203,
+      "oneStage": 630203
+    },
+    {
+      "staff": 199,
+      "discountBasisPoints": 137,
+      "twoStage": 621569,
+      "oneStage": 621569
+    },
+    {
+      "staff": 199,
+      "discountBasisPoints": 2500,
+      "twoStage": 472652,
+      "oneStage": 472652
+    },
+    {
+      "staff": 199,
+      "discountBasisPoints": 9999,
+      "twoStage": 63,
+      "oneStage": 63
+    },
+    {
+      "staff": 200,
+      "discountBasisPoints": 0,
+      "twoStage": 639971,
+      "oneStage": 639971
+    },
+    {
+      "staff": 200,
+      "discountBasisPoints": 137,
+      "twoStage": 631203,
+      "oneStage": 631204
+    },
+    {
+      "staff": 200,
+      "discountBasisPoints": 2500,
+      "twoStage": 479978,
+      "oneStage": 479978
+    },
+    {
+      "staff": 200,
+      "discountBasisPoints": 9999,
+      "twoStage": 63,
+      "oneStage": 63
+    },
+    {
+      "staff": 499,
+      "discountBasisPoints": 0,
+      "twoStage": 12488401,
+      "oneStage": 12488401
+    },
+    {
+      "staff": 499,
+      "discountBasisPoints": 137,
+      "twoStage": 12317309,
+      "oneStage": 12317310
+    },
+    {
+      "staff": 499,
+      "discountBasisPoints": 2500,
+      "twoStage": 9366300,
+      "oneStage": 9366301
+    },
+    {
+      "staff": 499,
+      "discountBasisPoints": 9999,
+      "twoStage": 1248,
+      "oneStage": 1248
+    },
+    {
+      "staff": 500,
+      "discountBasisPoints": 0,
+      "twoStage": 12588308,
+      "oneStage": 12588308
+    },
+    {
+      "staff": 500,
+      "discountBasisPoints": 137,
+      "twoStage": 12415848,
+      "oneStage": 12415848
+    },
+    {
+      "staff": 500,
+      "discountBasisPoints": 2500,
+      "twoStage": 9441231,
+      "oneStage": 9441231
+    },
+    {
+      "staff": 500,
+      "discountBasisPoints": 9999,
+      "twoStage": 1258,
+      "oneStage": 1258
+    },
+    {
+      "staff": 999,
+      "discountBasisPoints": 0,
+      "twoStage": 171313661,
+      "oneStage": 171313661
+    },
+    {
+      "staff": 999,
+      "discountBasisPoints": 137,
+      "twoStage": 168966663,
+      "oneStage": 168966663
+    },
+    {
+      "staff": 999,
+      "discountBasisPoints": 2500,
+      "twoStage": 128485245,
+      "oneStage": 128485245
+    },
+    {
+      "staff": 999,
+      "discountBasisPoints": 9999,
+      "twoStage": 17131,
+      "oneStage": 17131
+    },
+    {
+      "staff": 1000,
+      "discountBasisPoints": 0,
+      "twoStage": 171998915,
+      "oneStage": 171998915
+    },
+    {
+      "staff": 1000,
+      "discountBasisPoints": 137,
+      "twoStage": 169642529,
+      "oneStage": 169642530
+    },
+    {
+      "staff": 1000,
+      "discountBasisPoints": 2500,
+      "twoStage": 128999186,
+      "oneStage": 128999186
+    },
+    {
+      "staff": 1000,
+      "discountBasisPoints": 9999,
+      "twoStage": 17199,
+      "oneStage": 17199
+    },
+    {
+      "staff": 4999,
+      "discountBasisPoints": 0,
+      "twoStage": 174822517775,
+      "oneStage": 174822517775
+    },
+    {
+      "staff": 4999,
+      "discountBasisPoints": 137,
+      "twoStage": 172427449281,
+      "oneStage": 172427449282
+    },
+    {
+      "staff": 4999,
+      "discountBasisPoints": 2500,
+      "twoStage": 131116888331,
+      "oneStage": 131116888331
+    },
+    {
+      "staff": 4999,
+      "discountBasisPoints": 9999,
+      "twoStage": 17482251,
+      "oneStage": 17482251
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "scopeSource": "https://isekai-slow-life-mgame.fandom.com/wiki/Artifacts",
+  "localHashes": {
+    "Wife": "0608147f0f63d22afde3884480a37f141448904e7e4aed8a058f74831d2aa67b",
+    "SkillBase": "9c5c2d7a3b0355a7657c46276b298419dcd1e06676379628c40b8962a73e4a25"
+  },
+  "records": [
+    {
+      "item": "Item_Weapon_Equipment_6_19",
+      "family": "wife_145",
+      "name": "Diablo",
+      "skill": "Weapon_6_19_HeroSkill_W145",
+      "aptitude": 100,
+      "percent": 20,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/diablo-s-doll/",
+      "pageSha256": "4120b5569af335c90d721bb37f0e2ab57879d1e744072ce451adea148e88a142"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_18",
+      "family": "wife_144",
+      "name": "Shuna",
+      "skill": "Weapon_6_18_HeroSkill_W144",
+      "aptitude": 150,
+      "percent": 30,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shuna-s-doll/",
+      "pageSha256": "8b4a9344ff10318e02b381280acfa4d343b2e46b058f8bb227931661ae246fb2"
+    },
+    {
+      "item": "Item_Weapon_Equipment_6_24",
+      "family": "wife_252",
+      "name": "Hanamiya Rica",
+      "skill": "Weapon_6_24_HeroSkill_W252",
+      "aptitude": 150,
+      "percent": 30,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/rica-s-plushie/",
+      "pageSha256": "770b97769d266fb499d706f73d2706d9b6d9f032191d45d10184e589bf93e776"
+    }
+  ],
+  "limits": "Three explicit Family ownership prerequisites only. Any currently equipped Fellow benefits. Aura stacking and other support artifacts remain unresolved. Community quantities are not version-matched production formulas."
+}

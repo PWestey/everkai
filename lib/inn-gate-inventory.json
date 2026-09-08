@@ -1,0 +1,817 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/inn/index.html",
+  "sha256": "a2be0554b8136a1399e026d0da4b80dd6da36d16f49bff5f2308e4ac9dd8aa07",
+  "gates": [
+    {
+      "category": "stations",
+      "id": "1",
+      "data-character-requirement": "",
+      "data-unlock-type": "immediate",
+      "data-unlock-sort": "0",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "2",
+      "data-character-requirement": "",
+      "data-unlock-type": "immediate",
+      "data-unlock-sort": "0",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "3",
+      "data-character-requirement": "",
+      "data-unlock-type": "immediate",
+      "data-unlock-sort": "0",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "4",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "10",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "5",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "20",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "6",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "40",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "7",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "60",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "8",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "80",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "9",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "120",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "stations",
+      "id": "10",
+      "data-character-requirement": "",
+      "data-unlock-type": "guest-milestone",
+      "data-unlock-sort": "200",
+      "data-station-id": "",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "dishes",
+      "id": "57",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "__guest__",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "dishes",
+      "id": "56",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "__guest__",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "dishes",
+      "id": "54",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "__guest__",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "dishes",
+      "id": "45",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "__guest__",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "dishes",
+      "id": "30",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "__guest__",
+      "data-level-sort": "0"
+    },
+    {
+      "category": "dishes",
+      "id": "1",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "2",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "3",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "4",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "5",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "6",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "7",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "8",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "9",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "10",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "1"
+    },
+    {
+      "category": "dishes",
+      "id": "11",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "12",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "13",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "14",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "15",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "16",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "17",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "18",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "19",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "20",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "3"
+    },
+    {
+      "category": "dishes",
+      "id": "21",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "22",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "23",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "24",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "25",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "26",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "27",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "28",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "29",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "5"
+    },
+    {
+      "category": "dishes",
+      "id": "31",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "32",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "33",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "34",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "35",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "36",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "37",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "38",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "39",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "40",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "7"
+    },
+    {
+      "category": "dishes",
+      "id": "41",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "42",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "43",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "44",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "46",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "47",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "48",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "49",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "50",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "10"
+    },
+    {
+      "category": "dishes",
+      "id": "51",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "52",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "53",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "55",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "58",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "59",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "60",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "13"
+    },
+    {
+      "category": "dishes",
+      "id": "61",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "62",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "63",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "64",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "65",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "66",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "67",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "68",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "69",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "70",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "16"
+    },
+    {
+      "category": "dishes",
+      "id": "71",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "1",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "72",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "2",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "73",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "3",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "74",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "4",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "75",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "5",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "76",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "6",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "77",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "7",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "78",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "8",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "79",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "9",
+      "data-level-sort": "20"
+    },
+    {
+      "category": "dishes",
+      "id": "80",
+      "data-character-requirement": "",
+      "data-unlock-type": "",
+      "data-unlock-sort": "0",
+      "data-station-id": "10",
+      "data-level-sort": "20"
+    }
+  ]
+}

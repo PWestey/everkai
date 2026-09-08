@@ -1,0 +1,150 @@
+{
+  "source": {
+    "ruleSha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe",
+    "itemSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+    "community": "https://isekai-slow-life-mgame.fandom.com/wiki/Trading_Post",
+    "access": "search-index content; first shop tier only; dated2024-01-23, not version matched",
+    "checked": "2026-09-08"
+  },
+  "rules": [
+    {
+      "id": "Rule:text:CommercialWar_1",
+      "en": "- Negotiation -"
+    },
+    {
+      "id": "Rule:text:CommercialWar_10",
+      "en": "\u25c6 If the negotiation results meet the requirements, they will be published in the Prestige List for other Transcenders to conduct Designated Negotiation."
+    },
+    {
+      "id": "Rule:text:CommercialWar_11",
+      "en": "\u25c6 Designated Negotiation requires a Negotiation Notice and 1 Designated Negotiation Energy. Each Fellow can designate negotiations up to 20 times every day. The Prestige List and Designated Negotiation Energy will reset at 00:00 every day."
+    },
+    {
+      "id": "Rule:text:CommercialWar_12",
+      "en": "- Negotiation Reports -"
+    },
+    {
+      "id": "Rule:text:CommercialWar_13",
+      "en": "\u25c6 Each time other players issue a challenge, the details of the match will be recorded in Reports."
+    },
+    {
+      "id": "Rule:text:CommercialWar_14",
+      "en": "\u25c6 Transcenders can spend Negotiation Notice to launch a Counter Attack in the Opponent page in Reports. Resets at 00:00 every day."
+    },
+    {
+      "id": "Rule:text:CommercialWar_15",
+      "en": "- Bounties -"
+    },
+    {
+      "id": "Rule:text:CommercialWar_16",
+      "en": "\u25c6 Transcenders can spend Bounty Orders to put a bounty on a player in the leaderboard. After bounties have been posted, other players can undertake the bounty and initiate Negotiations. Undertaking does not consume anything and players will obtain Crystals and Trading Post Influence if negotiation succeeded."
+    },
+    {
+      "id": "Rule:text:CommercialWar_17",
+      "en": "\u25c6 After the number of people responding to a bounty reaches the limit, other players who take on the bounty will no longer deduct Trading Post Influence from the target."
+    },
+    {
+      "id": "Rule:text:CommercialWar_18",
+      "en": "- Exchange Shop -"
+    },
+    {
+      "id": "Rule:text:CommercialWar_19",
+      "en": "\u25c6 Negotiations will reward a large amount of Trading Post Coins. They can be exchanged for rare items in the Exchange Shop."
+    },
+    {
+      "id": "Rule:text:CommercialWar_2",
+      "en": "\u25c6 Assign up to 6 Fellows for each Negotiation. For each Fellow who takes part in 1 Negotiation, 1 Negotiation Energy of each will be consumed."
+    },
+    {
+      "id": "Rule:text:CommercialWar_20",
+      "en": "- Quick Negotiation -"
+    },
+    {
+      "id": "Rule:text:CommercialWar_21",
+      "en": "\u25c6 After the player has reached Rank 16 or VIP 6, the Quick Negotiation will be available for use."
+    },
+    {
+      "id": "Rule:text:CommercialWar_22",
+      "en": "\u25c6 During Quick Negotiations, each team will do Negotiations in order of the Fellows who have fought the fewest times (Fellows without Energy won't be counted)."
+    },
+    {
+      "id": "Rule:text:CommercialWar_23",
+      "en": "4. Players can only undertake a bounty once."
+    },
+    {
+      "id": "Rule:text:CommercialWar_24",
+      "en": "5. After a bounty is complete, the player that posted the bounty will receive Trading Post Influence and Trading Post Coins. Trading Post Coins will be sent via mail."
+    },
+    {
+      "id": "Rule:text:CommercialWar_25",
+      "en": "VI. Exchange Shop"
+    },
+    {
+      "id": "Rule:text:CommercialWar_26",
+      "en": "1. Negotiations will reward a large amount of Trading Post Coins. They can be exchanged for rare items in the Exchange Shop."
+    },
+    {
+      "id": "Rule:text:CommercialWar_27",
+      "en": "VII. Quick Negotiation"
+    },
+    {
+      "id": "Rule:text:CommercialWar_28",
+      "en": "1. After the player has reached Rank 30 or VIP 6, the Quick Negotiation will be available for use."
+    },
+    {
+      "id": "Rule:text:CommercialWar_29",
+      "en": "2. During Quick Negotiations, each team will do Negotiations in order of the Fellows who have fought the fewest times (Fellows without Energy won't be counted)."
+    },
+    {
+      "id": "Rule:text:CommercialWar_3",
+      "en": "\u25c6 After a Fellow's Negotiation Energy have been used up, a 60-minute cooldown will begin, after which the Fellow will restore all Negotiation Energy. Each Fellow can recover Negotiation chances up to 3 times every day. Negotiation Energy will reset at 00:00 every day."
+    },
+    {
+      "id": "Rule:text:CommercialWar_4",
+      "en": "\u25c6 During the Preparation stage, Transcenders can spend Gold to Motivate the team and temporarily improve their Power."
+    },
+    {
+      "id": "Rule:text:CommercialWar_5",
+      "en": "\u25c6 Trading Post Influence: Each time a Fellow defeats an opponent, Trading Post Influence will increase by 2, and the opponent's Trading Post Influence will decrease by 1. Transcenders will be ranked based on Trading Post Influence."
+    },
+    {
+      "id": "Rule:text:CommercialWar_6",
+      "en": "- My Counter -"
+    },
+    {
+      "id": "Rule:text:CommercialWar_7",
+      "en": "\u25c6 My Counter is a building that continuously accumulates Gold. It will constantly receive Gold as time goes by, but won't be able to receive any more once it reaches full capacity."
+    },
+    {
+      "id": "Rule:text:CommercialWar_8",
+      "en": "\u25c6 Consume Goodwill Vouchers to Level Up the Counter to increase its gold production speed and capacity. The counter's max capacity will be reached automatically after upgrading."
+    },
+    {
+      "id": "Rule:text:CommercialWar_9",
+      "en": "- Prestige List -"
+    }
+  ],
+  "shop": {
+    "id": "Item_Gcoin_YieldPack_1",
+    "name": "Basic Earnings Card",
+    "price": 30,
+    "dailyLimit": 10
+  },
+  "localOpponents": [
+    {
+      "id": "learner",
+      "name": "Apprentice merchant",
+      "power": 50
+    },
+    {
+      "id": "trader",
+      "name": "Market merchant",
+      "power": 250
+    },
+    {
+      "id": "veteran",
+      "name": "Veteran merchant",
+      "power": 1000
+    }
+  ]
+}

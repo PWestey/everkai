@@ -1,0 +1,26 @@
+{
+  "provenance": {
+    "itemSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
+    "kind": "APK1.7702 readable Item literals",
+    "checked": "2026-09-08",
+    "stacking": "local final unmultiplied component; original order unresolved"
+  },
+  "items": [
+    {
+      "id": "Item_Hero_Attribute_Increase_1",
+      "ledger": "Lottery_13",
+      "name": "Basic Elixir",
+      "amount": 3000,
+      "sourceKey": "Item:description:Item_Hero_Attribute_Increase_1",
+      "description": "A potion that partially awakens one's potential. Used to increase a designated Fellow's Power by 3,000."
+    },
+    {
+      "id": "Item_Hero_Attribute_Increase_2",
+      "ledger": "Lottery_6",
+      "name": "Advanced Elixir",
+      "amount": 30000,
+      "sourceKey": "Item:description:Item_Hero_Attribute_Increase_2",
+      "description": "A potion that awakens one's full potential. Used to increase a designated Fellow's Power by 30,000."
+    }
+  ]
+}

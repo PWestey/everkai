@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "id": "F1101",
+      "name": "Aquafrog",
+      "location": "Village River",
+      "type": "Inspiring",
+      "flat": 15000,
+      "increment": 5000,
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/aquafrog/index.html",
+      "sha256": "b8942be2f5c1b8127832f735396f2076c57367af69c0f8b86069df80bb21de40"
+    },
+    {
+      "id": "F1102",
+      "name": "Snakehead",
+      "location": "Village River",
+      "type": "Diligent",
+      "flat": 15000,
+      "increment": 5000,
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/snakehead/index.html",
+      "sha256": "1010c6ef91813dc8973031f0beaaef1ba8def6f46962d2da5a05f6b7af4a113a"
+    },
+    {
+      "id": "F1103",
+      "name": "Carp",
+      "location": "Village River",
+      "type": null,
+      "flat": 3000,
+      "increment": 1000,
+      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/fishing/carp/index.html",
+      "sha256": "34f82929d1d78014049f9a7ba9f4ba988eafdbaa2981c60b944058f8b4c72845"
+    }
+  ],
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "sourceRules": [
+    "SimGame4Main_2",
+    "SimGame4Main_7",
+    "SimGame4Main_11",
+    "SimGame4Main_12",
+    "SimGame4Book_3",
+    "SimGame4Book_12",
+    "SimGame4Book_14"
+  ],
+  "localPolicy": {
+    "version": 1,
+    "speciesSelection": "round-robin three Village River fish",
+    "baitPerCast": 1,
+    "freeSupply": 20,
+    "researchPerDuplicate": 1,
+    "researchUpgradeCost": "2 * current skill level",
+    "skillLevelCap": 3,
+    "catchHistoryCap": 1000,
+    "displayRemoval": "Bonus applies only while displayed; remove pauses it, redisplay restores it. Original removal permanence unknown.",
+    "powerComposition": "Add flat bonus before existing final percent multiplier; reconstructed ordering."
+  },
+  "unimplemented": [
+    "catch probabilities",
+    "length ranges/crowns/length rewards",
+    "antiques",
+    "combinations",
+    "other grounds",
+    "bait regeneration",
+    "fishing level curves"
+  ]
+}

@@ -1,0 +1,3520 @@
+[
+  {
+    "id": "hero_1",
+    "kind": "fellow",
+    "name": "Fifi",
+    "title": "Neko Maid",
+    "artGroups": [
+      "hero_01",
+      "hero_01c1",
+      "hero_01c2",
+      "hero_01c3",
+      "hero_01c4",
+      "hero_01c5",
+      "npc_japananniversary_hero_01",
+      "small_hero_01"
+    ]
+  },
+  {
+    "id": "hero_101",
+    "kind": "fellow",
+    "name": "Emosen",
+    "title": "Polar Explorer",
+    "artGroups": [
+      "cutin_hero_101c2",
+      "cutin_hero_101c3",
+      "hero_101",
+      "hero_101c1",
+      "hero_101c2",
+      "hero_101c3",
+      "hero_101c4",
+      "small_hero_101"
+    ]
+  },
+  {
+    "id": "hero_102",
+    "kind": "fellow",
+    "name": "Jewlry",
+    "title": "Pretty Collector",
+    "artGroups": [
+      "cutin_hero_102c3",
+      "cutin_hero_102c4",
+      "hero_102",
+      "hero_102c1",
+      "hero_102c2",
+      "hero_102c3",
+      "hero_102c4",
+      "hero_102c5",
+      "npc_japananniversary_hero_102",
+      "small_hero_102"
+    ]
+  },
+  {
+    "id": "hero_103",
+    "kind": "fellow",
+    "name": "Anne",
+    "title": "Gorgon Captain",
+    "artGroups": [
+      "cutin_hero_103c2",
+      "hero_103",
+      "hero_103c1",
+      "hero_103c2",
+      "hero_103c3",
+      "small_hero_103"
+    ]
+  },
+  {
+    "id": "hero_104",
+    "kind": "fellow",
+    "name": "Loya",
+    "title": "Perpetual Secretary",
+    "artGroups": [
+      "cutin_hero_104c3",
+      "cutin_hero_104c4",
+      "hero_104",
+      "hero_104c1",
+      "hero_104c2",
+      "hero_104c3",
+      "hero_104c4",
+      "hero_104c5",
+      "hero_104c6",
+      "small_hero_104"
+    ]
+  },
+  {
+    "id": "hero_105",
+    "kind": "fellow",
+    "name": "Augustine",
+    "title": "Former Necromancer",
+    "artGroups": [
+      "hero_105",
+      "hero_105c1",
+      "small_hero_105"
+    ]
+  },
+  {
+    "id": "hero_106",
+    "kind": "fellow",
+    "name": "Ida",
+    "title": "Former Philosopher",
+    "artGroups": [
+      "cutin_hero_106c2",
+      "hero_106",
+      "hero_106c1",
+      "hero_106c2",
+      "small_hero_106"
+    ]
+  },
+  {
+    "id": "hero_11",
+    "kind": "fellow",
+    "name": "Bj\u00f6rnson",
+    "title": "White Hunter",
+    "artGroups": [
+      "hero_11",
+      "hero_11c1",
+      "small_hero_11"
+    ]
+  },
+  {
+    "id": "hero_111",
+    "kind": "fellow",
+    "name": "Tigirl",
+    "title": "Veteran for Adventure",
+    "artGroups": [
+      "hero_111",
+      "hero_111c1",
+      "hero_111c2",
+      "small_hero_111"
+    ]
+  },
+  {
+    "id": "hero_112",
+    "kind": "fellow",
+    "name": "Iori",
+    "title": "The Hero of Tou",
+    "artGroups": [
+      "hero_112",
+      "hero_112c1",
+      "hero_112c2",
+      "npc_escreborn_hero_112_l",
+      "npc_escreborn_hero_112_r",
+      "npc_japananniversary_hero_112",
+      "npc_scene_hero_112_r",
+      "small_hero_112"
+    ]
+  },
+  {
+    "id": "hero_113",
+    "kind": "fellow",
+    "name": "Leon",
+    "title": "Legend of the Sand",
+    "artGroups": [
+      "hero_113",
+      "npc_japananniversary_hero_113",
+      "small_hero_113"
+    ]
+  },
+  {
+    "id": "hero_114",
+    "kind": "fellow",
+    "name": "Orivita",
+    "title": "Origin of the World",
+    "artGroups": [
+      "cutin_hero_114c1",
+      "hero_114",
+      "hero_114c1",
+      "small_hero_114"
+    ]
+  },
+  {
+    "id": "hero_115",
+    "kind": "fellow",
+    "name": "Kerr & Bel & Ross",
+    "title": "Hell Vindicator",
+    "artGroups": [
+      "cutin_hero_115c1",
+      "hero_115",
+      "hero_115c1",
+      "npc_japananniversary_hero_115",
+      "small_hero_115"
+    ]
+  },
+  {
+    "id": "hero_116",
+    "kind": "fellow",
+    "name": "Nierus",
+    "title": "Radiant Guardian",
+    "artGroups": [
+      "cutin_hero_116c1",
+      "hero_116",
+      "hero_116c1",
+      "npc_japananniversary_hero_116",
+      "small_hero_116"
+    ]
+  },
+  {
+    "id": "hero_117",
+    "kind": "fellow",
+    "name": "Amaterasu",
+    "title": "Incarnation of Sun",
+    "artGroups": [
+      "cutin_hero_117c1",
+      "cutin_hero_117c2",
+      "cutin_hero_117c3",
+      "hero_117",
+      "hero_117c1",
+      "hero_117c2",
+      "hero_117c3",
+      "npc_escreborn_hero_117_l",
+      "npc_escreborn_hero_117_r",
+      "npc_japananniversary_hero_117",
+      "small_hero_117"
+    ]
+  },
+  {
+    "id": "hero_118",
+    "kind": "fellow",
+    "name": "Sunna",
+    "title": "The Northrealm Guardian",
+    "artGroups": [
+      "cutin_hero_118c1",
+      "cutin_hero_118c2",
+      "hero_118",
+      "hero_118c1",
+      "hero_118c2",
+      "npc_dungeon_hero_118",
+      "npc_japananniversary_hero_118",
+      "small_hero_118"
+    ]
+  },
+  {
+    "id": "hero_119",
+    "kind": "fellow",
+    "name": "Paat",
+    "title": "White Fang",
+    "artGroups": [
+      "cutin_hero_119c2",
+      "hero_119",
+      "hero_119c1",
+      "hero_119c2",
+      "npc_dungeon_hero_119",
+      "small_hero_119"
+    ]
+  },
+  {
+    "id": "hero_12",
+    "kind": "fellow",
+    "name": "Belle",
+    "title": "Fierce Maid",
+    "artGroups": [
+      "hero_12",
+      "hero_12c1",
+      "hero_12c2",
+      "npc_japananniversary_hero_12",
+      "small_hero_12"
+    ]
+  },
+  {
+    "id": "hero_120",
+    "kind": "fellow",
+    "name": "Eter & NAL",
+    "title": "A Song of Shadow and Light",
+    "artGroups": [
+      "hero_120",
+      "hero_120c1",
+      "hero_120c2",
+      "small_hero_120"
+    ]
+  },
+  {
+    "id": "hero_124",
+    "kind": "fellow",
+    "name": "Flos",
+    "title": "Nature Researcher",
+    "artGroups": [
+      "hero_124",
+      "hero_124c1",
+      "small_hero_124"
+    ]
+  },
+  {
+    "id": "hero_125",
+    "kind": "fellow",
+    "name": "Onikiri",
+    "title": "Oni Guardian",
+    "artGroups": [
+      "hero_125",
+      "small_hero_125"
+    ]
+  },
+  {
+    "id": "hero_126",
+    "kind": "fellow",
+    "name": "Thalia",
+    "title": "1001 Days",
+    "artGroups": [
+      "cutin_hero_126c1",
+      "hero_126",
+      "hero_126c1",
+      "small_hero_126"
+    ]
+  },
+  {
+    "id": "hero_127",
+    "kind": "fellow",
+    "name": "Myner",
+    "title": "The Flawless",
+    "artGroups": [
+      "cutin_hero_127c1",
+      "hero_127",
+      "hero_127c1",
+      "small_hero_127"
+    ]
+  },
+  {
+    "id": "hero_128",
+    "kind": "fellow",
+    "name": "Beelsebub",
+    "title": "The Devourer",
+    "artGroups": [
+      "cutin_hero_128c1",
+      "cutin_hero_128c2",
+      "hero_128",
+      "hero_128c1",
+      "hero_128c2",
+      "npc_gveveins_hero_128_l",
+      "npc_gveveins_hero_128_r",
+      "npc_japananniversary_hero_128",
+      "small_hero_128"
+    ]
+  },
+  {
+    "id": "hero_129",
+    "kind": "fellow",
+    "name": "Black",
+    "title": "\"Unlicensed\" Dentist",
+    "artGroups": [
+      "hero_129",
+      "small_hero_129"
+    ]
+  },
+  {
+    "id": "hero_13",
+    "kind": "fellow",
+    "name": "Lincale",
+    "title": "Calm Researcher",
+    "artGroups": [
+      "hero_13",
+      "hero_13c1",
+      "hero_13c2",
+      "small_hero_13"
+    ]
+  },
+  {
+    "id": "hero_130",
+    "kind": "fellow",
+    "name": "Healora",
+    "title": "Gentle Healer",
+    "artGroups": [
+      "cutin_hero_130c1",
+      "hero_130",
+      "hero_130c1",
+      "small_hero_130"
+    ]
+  },
+  {
+    "id": "hero_132",
+    "kind": "fellow",
+    "name": "Anpu",
+    "title": "Avatar of Justice",
+    "artGroups": [
+      "cutin_hero_132c1",
+      "hero_132",
+      "hero_132c1",
+      "small_hero_132"
+    ]
+  },
+  {
+    "id": "hero_133",
+    "kind": "fellow",
+    "name": "Bubo",
+    "title": "Museum Phantom",
+    "artGroups": [
+      "hero_133",
+      "hero_133c1",
+      "npc_japananniversary_hero_133",
+      "small_hero_133"
+    ]
+  },
+  {
+    "id": "hero_134",
+    "kind": "fellow",
+    "name": "Freesia",
+    "title": "Nurturer of the Forest",
+    "artGroups": [
+      "cutin_hero_134c1",
+      "hero_134",
+      "hero_134c1",
+      "small_hero_134"
+    ]
+  },
+  {
+    "id": "hero_135",
+    "kind": "fellow",
+    "name": "Aegle",
+    "title": "Golden Touch",
+    "artGroups": [
+      "cutin_hero_135c1",
+      "hero_135",
+      "hero_135c1",
+      "small_hero_135"
+    ]
+  },
+  {
+    "id": "hero_136",
+    "kind": "fellow",
+    "name": "Frogella",
+    "title": "Protector of Travelers",
+    "artGroups": [
+      "hero_136",
+      "small_hero_136"
+    ]
+  },
+  {
+    "id": "hero_137",
+    "kind": "fellow",
+    "name": "Phinphinx",
+    "title": "Puzzle of Wisdom",
+    "artGroups": [
+      "cutin_hero_137c1",
+      "hero_137",
+      "hero_137c1",
+      "npc_japananniversary_hero_137",
+      "small_hero_137"
+    ]
+  },
+  {
+    "id": "hero_14",
+    "kind": "fellow",
+    "name": "Woolf",
+    "title": "Purebred Shepherd",
+    "artGroups": [
+      "hero_14",
+      "hero_14c1",
+      "npc_japananniversary_hero_14",
+      "small_hero_14"
+    ]
+  },
+  {
+    "id": "hero_143",
+    "kind": "fellow",
+    "name": "Milim Nava",
+    "title": "The Destroyer",
+    "artGroups": [
+      "hero_143m1",
+      "hero_143m2",
+      "small_hero_143"
+    ]
+  },
+  {
+    "id": "hero_144",
+    "kind": "fellow",
+    "name": "Benimaru",
+    "title": "Samurai General of the Ogres",
+    "artGroups": [
+      "hero_144",
+      "small_hero_144"
+    ]
+  },
+  {
+    "id": "hero_146",
+    "kind": "fellow",
+    "name": "Allucia",
+    "title": "Godspeed Knight",
+    "artGroups": [
+      "hero_146",
+      "small_hero_146"
+    ]
+  },
+  {
+    "id": "hero_147",
+    "kind": "fellow",
+    "name": "Surena",
+    "title": "Black Rank Elite",
+    "artGroups": [
+      "hero_147",
+      "small_hero_147"
+    ]
+  },
+  {
+    "id": "hero_15",
+    "kind": "fellow",
+    "name": "Kaity",
+    "title": "Never Skunked",
+    "artGroups": [
+      "card_hero_15",
+      "hero_15",
+      "hero_15c1",
+      "small_hero_15"
+    ]
+  },
+  {
+    "id": "hero_150",
+    "kind": "fellow",
+    "name": "Mia",
+    "title": "MomocaMusume",
+    "artGroups": []
+  },
+  {
+    "id": "hero_151",
+    "kind": "fellow",
+    "name": "Avril",
+    "title": "Summoned Melody",
+    "artGroups": [
+      "cutin_hero_151c1",
+      "cutin_hero_151c2",
+      "hero_151",
+      "hero_151c1",
+      "hero_151c2",
+      "small_hero_151"
+    ]
+  },
+  {
+    "id": "hero_152",
+    "kind": "fellow",
+    "name": "Stephanie",
+    "title": "Summoned Magic",
+    "artGroups": [
+      "hero_152",
+      "hero_152c1",
+      "hero_152c2",
+      "hero_152c3",
+      "npc_japananniversary_hero_152",
+      "small_hero_152"
+    ]
+  },
+  {
+    "id": "hero_153",
+    "kind": "fellow",
+    "name": "Salvo",
+    "title": "Summoned Bravery",
+    "artGroups": [
+      "hero_153",
+      "hero_153c1",
+      "small_hero_153"
+    ]
+  },
+  {
+    "id": "hero_154",
+    "kind": "fellow",
+    "name": "Kaye",
+    "title": "Summoned Shield",
+    "artGroups": [
+      "hero_154",
+      "hero_154c1",
+      "small_hero_154"
+    ]
+  },
+  {
+    "id": "hero_155",
+    "kind": "fellow",
+    "name": "Nip",
+    "title": "Summoned Arrow",
+    "artGroups": [
+      "cutin_hero_155c3",
+      "hero_155",
+      "hero_155c1",
+      "hero_155c2",
+      "hero_155c3",
+      "small_hero_155"
+    ]
+  },
+  {
+    "id": "hero_156",
+    "kind": "fellow",
+    "name": "Lux",
+    "title": "Archdemon of Lust",
+    "artGroups": [
+      "cutin_hero_156c1",
+      "hero_156",
+      "hero_156c1",
+      "hero_156c2",
+      "small_hero_156"
+    ]
+  },
+  {
+    "id": "hero_157",
+    "kind": "fellow",
+    "name": "Super",
+    "title": "Archdemon of Pride",
+    "artGroups": [
+      "cutin_hero_157c2",
+      "hero_157",
+      "hero_157_pre",
+      "hero_157c1",
+      "hero_157c2",
+      "small_hero_157"
+    ]
+  },
+  {
+    "id": "hero_158",
+    "kind": "fellow",
+    "name": "Ira",
+    "title": "Archdemon of Wrath",
+    "artGroups": [
+      "cutin_hero_158c1",
+      "cutin_hero_158c2",
+      "hero_158",
+      "hero_158_pre",
+      "hero_158c1",
+      "hero_158c2",
+      "npc_japananniversary_hero_158",
+      "small_hero_158"
+    ]
+  },
+  {
+    "id": "hero_159",
+    "kind": "fellow",
+    "name": "Acedia",
+    "title": "Archdemon of Sloth",
+    "artGroups": [
+      "cutin_hero_159c1",
+      "cutin_hero_159c3",
+      "hero_159",
+      "hero_159c1",
+      "hero_159c2",
+      "hero_159c3",
+      "npc_japananniversary_hero_159",
+      "small_hero_159"
+    ]
+  },
+  {
+    "id": "hero_16",
+    "kind": "fellow",
+    "name": "Geast",
+    "title": "Woofing Baker",
+    "artGroups": [
+      "hero_16",
+      "hero_16c1",
+      "hero_16c2",
+      "npc_japananniversary_hero_16",
+      "small_hero_16"
+    ]
+  },
+  {
+    "id": "hero_160",
+    "kind": "fellow",
+    "name": "Avar",
+    "title": "Archdemon of Greed",
+    "artGroups": [
+      "cutin_hero_160c1",
+      "hero_160",
+      "hero_160c1",
+      "hero_160c2",
+      "small_hero_160"
+    ]
+  },
+  {
+    "id": "hero_165",
+    "kind": "fellow",
+    "name": "Ryu Lion",
+    "title": "Gale Wind",
+    "artGroups": [
+      "hero_165",
+      "small_hero_165"
+    ]
+  },
+  {
+    "id": "hero_166",
+    "kind": "fellow",
+    "name": "Ais Wallenstein",
+    "title": "Sword Princess",
+    "artGroups": [
+      "hero_166",
+      "small_hero_166"
+    ]
+  },
+  {
+    "id": "hero_167",
+    "kind": "fellow",
+    "name": "Bell Cranel",
+    "title": "Rabbit Foot",
+    "artGroups": [
+      "hero_167",
+      "small_hero_167"
+    ]
+  },
+  {
+    "id": "hero_169",
+    "kind": "fellow",
+    "name": "Nyar",
+    "title": "The Undefeated Gambler",
+    "artGroups": [
+      "cutin_hero_169c1",
+      "hero_169",
+      "hero_169c1",
+      "npc_gvecruisecasino_hero_169_l",
+      "npc_gvecruisecasino_hero_169_r",
+      "small_hero_169"
+    ]
+  },
+  {
+    "id": "hero_17",
+    "kind": "fellow",
+    "name": "Meaden",
+    "title": "Vintage Fairy",
+    "artGroups": [
+      "hero_17",
+      "hero_17c1",
+      "hero_17c2",
+      "small_hero_17"
+    ]
+  },
+  {
+    "id": "hero_173",
+    "kind": "fellow",
+    "name": "Erza",
+    "title": "Fairy Queen",
+    "artGroups": [
+      "hero_173",
+      "small_hero_173"
+    ]
+  },
+  {
+    "id": "hero_174",
+    "kind": "fellow",
+    "name": "Gray",
+    "title": "Absolute Ice Extermination",
+    "artGroups": [
+      "hero_174",
+      "small_hero_174"
+    ]
+  },
+  {
+    "id": "hero_18",
+    "kind": "fellow",
+    "name": "Dr.Dotor",
+    "title": "Suture Doctor",
+    "artGroups": [
+      "hero_18",
+      "hero_18c1",
+      "small_hero_18"
+    ]
+  },
+  {
+    "id": "hero_180",
+    "kind": "fellow",
+    "name": "Luminus Valentine",
+    "title": "Queen of Nightmares",
+    "artGroups": [
+      "hero_180",
+      "small_hero_180"
+    ]
+  },
+  {
+    "id": "hero_182",
+    "kind": "fellow",
+    "name": "Kuku",
+    "title": "The Newborn Sun",
+    "artGroups": [
+      "hero_182",
+      "hero_182m1",
+      "npc_gvegoldenrealm_hero_182_l",
+      "small_hero_182"
+    ]
+  },
+  {
+    "id": "hero_183",
+    "kind": "fellow",
+    "name": "Veldora Tempest",
+    "title": "Storm Dragon",
+    "artGroups": [
+      "hero_183",
+      "small_hero_183"
+    ]
+  },
+  {
+    "id": "hero_184",
+    "kind": "fellow",
+    "name": "Kazuma",
+    "title": "Average Adventurer",
+    "artGroups": [
+      "hero_184",
+      "small_hero_184"
+    ]
+  },
+  {
+    "id": "hero_185",
+    "kind": "fellow",
+    "name": "Darkness",
+    "title": "Resolute Knight",
+    "artGroups": [
+      "hero_185",
+      "small_hero_185"
+    ]
+  },
+  {
+    "id": "hero_19",
+    "kind": "fellow",
+    "name": "Prim",
+    "title": "Little Merchant",
+    "artGroups": [
+      "hero_19",
+      "hero_19c1",
+      "hero_19c2",
+      "hero_19c3",
+      "npc_japananniversary_hero_19",
+      "small_hero_19"
+    ]
+  },
+  {
+    "id": "hero_190",
+    "kind": "fellow",
+    "name": "Elise",
+    "title": "Cupidity Devourer",
+    "artGroups": [
+      "hero_190",
+      "hero_190c1",
+      "small_hero_190"
+    ]
+  },
+  {
+    "id": "hero_191",
+    "kind": "fellow",
+    "name": "Trady",
+    "title": "MonoFoxy",
+    "artGroups": [
+      "hero_191",
+      "hero_191c1",
+      "hero_191c2",
+      "hero_191c3",
+      "hero_191c4",
+      "npc_japananniversary_hero_191",
+      "small_hero_191"
+    ]
+  },
+  {
+    "id": "hero_192",
+    "kind": "fellow",
+    "name": "Mescal",
+    "title": "Dragonfather",
+    "artGroups": [
+      "hero_192",
+      "hero_192c1",
+      "hero_192c2",
+      "small_hero_192"
+    ]
+  },
+  {
+    "id": "hero_193",
+    "kind": "fellow",
+    "name": "Mammon",
+    "title": "Scarlet Geek",
+    "artGroups": [
+      "hero_193",
+      "hero_193c1",
+      "hero_193c2",
+      "hero_193c3",
+      "small_hero_193"
+    ]
+  },
+  {
+    "id": "hero_194",
+    "kind": "fellow",
+    "name": "Shlomo",
+    "title": "Wisdom from the Sand",
+    "artGroups": [
+      "hero_194",
+      "hero_194c1",
+      "small_hero_194"
+    ]
+  },
+  {
+    "id": "hero_195",
+    "kind": "fellow",
+    "name": "Neptune",
+    "title": "Ocean Guardian",
+    "artGroups": [
+      "hero_195",
+      "small_hero_195"
+    ]
+  },
+  {
+    "id": "hero_2",
+    "kind": "fellow",
+    "name": "Maxim",
+    "title": "Explosive Potion",
+    "artGroups": [
+      "hero_02",
+      "hero_02c1",
+      "hero_02c2",
+      "npc_japananniversary_hero_02",
+      "small_hero_02"
+    ]
+  },
+  {
+    "id": "hero_20",
+    "kind": "fellow",
+    "name": "Guarg",
+    "title": "Immobile Night",
+    "artGroups": [
+      "hero_20",
+      "hero_20c1",
+      "small_hero_20"
+    ]
+  },
+  {
+    "id": "hero_21",
+    "kind": "fellow",
+    "name": "Mirac",
+    "title": "Bunny Magic",
+    "artGroups": [
+      "hero_21",
+      "hero_21c1",
+      "hero_21c2",
+      "small_hero_21"
+    ]
+  },
+  {
+    "id": "hero_211",
+    "kind": "fellow",
+    "name": "Phanes",
+    "title": "Magus of Inspiring",
+    "artGroups": [
+      "hero_211",
+      "small_hero_211"
+    ]
+  },
+  {
+    "id": "hero_213",
+    "kind": "fellow",
+    "name": "Andras",
+    "title": "Magus of Brave",
+    "artGroups": [
+      "hero_213",
+      "small_hero_213"
+    ]
+  },
+  {
+    "id": "hero_214",
+    "kind": "fellow",
+    "name": "Nemetona",
+    "title": "Magus of Diligent",
+    "artGroups": [
+      "hero_214",
+      "small_hero_214"
+    ]
+  },
+  {
+    "id": "hero_215",
+    "kind": "fellow",
+    "name": "Hermes",
+    "title": "Magus of Unfettered",
+    "artGroups": [
+      "cutin_hero_215c1",
+      "hero_215",
+      "hero_215c1",
+      "small_hero_215"
+    ]
+  },
+  {
+    "id": "hero_22",
+    "kind": "fellow",
+    "name": "Hawker",
+    "title": "Eagle Eye",
+    "artGroups": [
+      "hero_22",
+      "hero_22c1",
+      "small_hero_22"
+    ]
+  },
+  {
+    "id": "hero_23",
+    "kind": "fellow",
+    "name": "Rogile",
+    "title": "Street Flash",
+    "artGroups": [
+      "hero_23",
+      "hero_23c1",
+      "hero_23c2",
+      "npc_japananniversary_hero_23",
+      "small_hero_23"
+    ]
+  },
+  {
+    "id": "hero_24",
+    "kind": "fellow",
+    "name": "Arake",
+    "title": "Sunny Smile",
+    "artGroups": [
+      "hero_24",
+      "hero_24c1",
+      "hero_24c2",
+      "hero_24c3",
+      "small_hero_24"
+    ]
+  },
+  {
+    "id": "hero_25",
+    "kind": "fellow",
+    "name": "Boatter",
+    "title": "Young Gondolier",
+    "artGroups": [
+      "hero_25",
+      "hero_25c1",
+      "hero_25c2",
+      "small_hero_25"
+    ]
+  },
+  {
+    "id": "hero_251",
+    "kind": "fellow",
+    "name": "Rimuru Tempest",
+    "title": "Slime",
+    "artGroups": [
+      "cutin_hero_251c1",
+      "hero_251",
+      "hero_251c1",
+      "hero_251m1",
+      "hero_251m2",
+      "hero_251m3",
+      "small_hero_251",
+      "small_hero_251m1",
+      "small_hero_251m2"
+    ]
+  },
+  {
+    "id": "hero_253",
+    "kind": "fellow",
+    "name": "Beryl",
+    "title": "Countryside Master Swordsman",
+    "artGroups": [
+      "hero_253",
+      "small_hero_253"
+    ]
+  },
+  {
+    "id": "hero_254",
+    "kind": "fellow",
+    "name": "Gabrael",
+    "title": "Millennium Beauty",
+    "artGroups": [
+      "hero_254",
+      "hero_254m1",
+      "hero_254m2",
+      "small_hero_254"
+    ]
+  },
+  {
+    "id": "hero_255",
+    "kind": "fellow",
+    "name": "Mushimi",
+    "title": "Princess of Joy",
+    "artGroups": [
+      "cutin_hero_255c1",
+      "hero_255",
+      "hero_255c1",
+      "hero_255m1",
+      "hero_255m2",
+      "hero_255m2_back",
+      "hero_255s1",
+      "hero_255s2",
+      "npc_japananniversary_hero_255",
+      "small_hero_255"
+    ]
+  },
+  {
+    "id": "hero_256",
+    "kind": "fellow",
+    "name": "Natsu",
+    "title": "Son of the Fire Dragon",
+    "artGroups": [
+      "cutin_hero_256c1",
+      "hero_256",
+      "hero_256c1",
+      "hero_256m1",
+      "hero_256m2",
+      "hero_256m2_back",
+      "small_hero_256"
+    ]
+  },
+  {
+    "id": "hero_260",
+    "kind": "fellow",
+    "name": "Aqua",
+    "title": "Goddess of Water",
+    "artGroups": [
+      "hero_260",
+      "hero_260m2",
+      "hero_260m2_back",
+      "small_hero_260"
+    ]
+  },
+  {
+    "id": "hero_263",
+    "kind": "fellow",
+    "name": "Chisato Nishikigi",
+    "title": "The Strongest Lycoris",
+    "artGroups": [
+      "hero_263",
+      "hero_263m3",
+      "hero_263m3_back",
+      "small_hero_263"
+    ]
+  },
+  {
+    "id": "hero_264",
+    "kind": "fellow",
+    "name": "Shinobu Kocho",
+    "title": "Insect Hashira",
+    "artGroups": [
+      "hero_264",
+      "hero_264m2",
+      "hero_264m2_back",
+      "small_hero_264"
+    ]
+  },
+  {
+    "id": "hero_3",
+    "kind": "fellow",
+    "name": "Reir",
+    "title": "Indecent Poetry",
+    "artGroups": [
+      "hero_03",
+      "hero_03c1",
+      "hero_03c2",
+      "hero_03c3",
+      "hero_03c4",
+      "npc_japananniversary_hero_03",
+      "small_hero_03"
+    ]
+  },
+  {
+    "id": "hero_301",
+    "kind": "fellow",
+    "name": "Giyu Tomioka",
+    "title": "Water Hashira",
+    "artGroups": [
+      "hero_301",
+      "small_hero_301"
+    ]
+  },
+  {
+    "id": "hero_302",
+    "kind": "fellow",
+    "name": "Tanjiro Kamado",
+    "title": "Practitioner of Hinokami Kagura",
+    "artGroups": [
+      "hero_302",
+      "small_hero_302"
+    ]
+  },
+  {
+    "id": "hero_303",
+    "kind": "fellow",
+    "name": "Zenitsu Agatsuma",
+    "title": "Thunder Breathing Inheritor",
+    "artGroups": [
+      "hero_303",
+      "small_hero_303"
+    ]
+  },
+  {
+    "id": "hero_304",
+    "kind": "fellow",
+    "name": "Inosuke Hashibira",
+    "title": "Beast Breathing Creator",
+    "artGroups": [
+      "hero_304",
+      "hero_304m1",
+      "small_hero_304"
+    ]
+  },
+  {
+    "id": "hero_4",
+    "kind": "fellow",
+    "name": "Knivi",
+    "title": "Lone Wolf",
+    "artGroups": [
+      "hero_04",
+      "hero_04c1",
+      "hero_04c2",
+      "hero_04c3",
+      "hero_04c4",
+      "npc_japananniversary_hero_04",
+      "small_hero_04"
+    ]
+  },
+  {
+    "id": "hero_5",
+    "kind": "fellow",
+    "name": "Pump",
+    "title": "Gourmet Farmer",
+    "artGroups": [
+      "hero_05",
+      "hero_05c1",
+      "small_hero_05"
+    ]
+  },
+  {
+    "id": "hero_51",
+    "kind": "fellow",
+    "name": "Quenchy",
+    "title": "Molten Craft",
+    "artGroups": [
+      "hero_51",
+      "hero_51c1",
+      "small_hero_51"
+    ]
+  },
+  {
+    "id": "hero_52",
+    "kind": "fellow",
+    "name": "Angie",
+    "title": "Secret Florist",
+    "artGroups": [
+      "hero_52",
+      "hero_52c1",
+      "hero_52c2",
+      "hero_52c3",
+      "small_hero_52"
+    ]
+  },
+  {
+    "id": "hero_53",
+    "kind": "fellow",
+    "name": "Adeline",
+    "title": "Mystery Acarpelous",
+    "artGroups": [
+      "hero_53",
+      "hero_53c1",
+      "hero_53c2",
+      "small_hero_53"
+    ]
+  },
+  {
+    "id": "hero_54",
+    "kind": "fellow",
+    "name": "Rani",
+    "title": "Meditating Serpent",
+    "artGroups": [
+      "hero_54",
+      "hero_54c1",
+      "small_hero_54"
+    ]
+  },
+  {
+    "id": "hero_55",
+    "kind": "fellow",
+    "name": "Moork",
+    "title": "Taste of Life",
+    "artGroups": [
+      "hero_55",
+      "hero_55c1",
+      "small_hero_55"
+    ]
+  },
+  {
+    "id": "hero_56",
+    "kind": "fellow",
+    "name": "Liz",
+    "title": "Natural Perfume",
+    "artGroups": [
+      "hero_56",
+      "hero_56c1",
+      "hero_56c2",
+      "small_hero_56"
+    ]
+  },
+  {
+    "id": "hero_58",
+    "kind": "fellow",
+    "name": "Denisa",
+    "title": "Nonovertime-ism",
+    "artGroups": [
+      "hero_58",
+      "hero_58c1",
+      "npc_djdemoncastle_hero_58",
+      "small_hero_58"
+    ]
+  },
+  {
+    "id": "hero_59",
+    "kind": "fellow",
+    "name": "Spipi",
+    "title": "Spinning Tailor",
+    "artGroups": [
+      "hero_59",
+      "hero_59c1",
+      "small_hero_59"
+    ]
+  },
+  {
+    "id": "hero_61",
+    "kind": "fellow",
+    "name": "Cimitir",
+    "title": "Blood Architect",
+    "artGroups": [
+      "hero_61",
+      "hero_61c1",
+      "hero_61c2",
+      "hero_61c3",
+      "npc_djdemoncastle_hero_61",
+      "small_hero_61"
+    ]
+  },
+  {
+    "id": "hero_62",
+    "kind": "fellow",
+    "name": "Grayce",
+    "title": "Gray Butler",
+    "artGroups": [
+      "hero_62",
+      "hero_62c1",
+      "npc_japananniversary_hero_62",
+      "small_hero_62"
+    ]
+  },
+  {
+    "id": "hero_65",
+    "kind": "fellow",
+    "name": "Brotein",
+    "title": "MUSCLE MAN",
+    "artGroups": [
+      "hero_65",
+      "hero_65c1",
+      "small_hero_65"
+    ]
+  },
+  {
+    "id": "hero_66",
+    "kind": "fellow",
+    "name": "Witty",
+    "title": "Little Gossiper",
+    "artGroups": [
+      "hero_66",
+      "hero_66c1",
+      "npc_dungeon_hero_66",
+      "small_hero_66"
+    ]
+  },
+  {
+    "id": "hero_69",
+    "kind": "fellow",
+    "name": "Floaty",
+    "title": "Progress Every Day",
+    "artGroups": [
+      "hero_69",
+      "npc_japananniversary_hero_69",
+      "small_hero_69"
+    ]
+  },
+  {
+    "id": "hero_71",
+    "kind": "fellow",
+    "name": "Barbara",
+    "title": "Clumsy Guide",
+    "artGroups": [
+      "hero_71",
+      "hero_71c1",
+      "hero_71c2",
+      "npc_japananniversary_hero_71",
+      "small_hero_71"
+    ]
+  },
+  {
+    "id": "hero_72",
+    "kind": "fellow",
+    "name": "Carrotte",
+    "title": "Little Guard",
+    "artGroups": [
+      "hero_72",
+      "hero_72c1",
+      "small_hero_72"
+    ]
+  },
+  {
+    "id": "hero_73",
+    "kind": "fellow",
+    "name": "Scorion",
+    "title": "Lurking Iron Fist",
+    "artGroups": [
+      "hero_73",
+      "npc_japananniversary_hero_73",
+      "small_hero_73"
+    ]
+  },
+  {
+    "id": "hero_77",
+    "kind": "fellow",
+    "name": "Searin",
+    "title": "Leisurely Bartender",
+    "artGroups": [
+      "hero_77",
+      "npc_gvecruisecasino_hero_77",
+      "small_hero_77"
+    ]
+  },
+  {
+    "id": "hero_121",
+    "kind": "fellow",
+    "name": "Tomoe",
+    "title": "Moonlit Samurai",
+    "artGroups": [
+      "cutin_hero_121c1",
+      "hero_121",
+      "hero_121c1",
+      "small_hero_121"
+    ]
+  },
+  {
+    "id": "hero_122",
+    "kind": "fellow",
+    "name": "Mio",
+    "title": "Moonlit Obsession",
+    "artGroups": [
+      "hero_122",
+      "small_hero_122"
+    ]
+  },
+  {
+    "id": "hero_123",
+    "kind": "fellow",
+    "name": "Shiki",
+    "title": "Moonlit Erudition",
+    "artGroups": [
+      "hero_123",
+      "small_hero_123"
+    ]
+  },
+  {
+    "id": "hero_131",
+    "kind": "fellow",
+    "name": "Hakuren",
+    "title": "Lazy Dragon",
+    "artGroups": [
+      "hero_131",
+      "small_hero_131"
+    ]
+  },
+  {
+    "id": "hero_138",
+    "kind": "fellow",
+    "name": "Lula",
+    "title": "Beauty Enthusiast",
+    "artGroups": [
+      "hero_138",
+      "small_hero_138"
+    ]
+  },
+  {
+    "id": "hero_139",
+    "kind": "fellow",
+    "name": "Tohru",
+    "title": "Earth-Shattering Dragon Maid",
+    "artGroups": [
+      "hero_139",
+      "small_hero_139"
+    ]
+  },
+  {
+    "id": "hero_140",
+    "kind": "fellow",
+    "name": "Elma",
+    "title": "Endless Appetite",
+    "artGroups": [
+      "hero_140",
+      "small_hero_140"
+    ]
+  },
+  {
+    "id": "hero_141",
+    "kind": "fellow",
+    "name": "Fafnir",
+    "title": "Unsleeping Strategist",
+    "artGroups": [
+      "hero_141",
+      "small_hero_141"
+    ]
+  },
+  {
+    "id": "hero_142",
+    "kind": "fellow",
+    "name": "Kanna",
+    "title": "Self-paced Young Dragon",
+    "artGroups": [
+      "hero_142",
+      "hero_142m1",
+      "hero_142m2",
+      "hero_142m2_back",
+      "small_hero_142"
+    ]
+  },
+  {
+    "id": "hero_145",
+    "kind": "fellow",
+    "name": "Heracles",
+    "title": "Goddess of Strength",
+    "artGroups": [
+      "hero_145",
+      "npc_cloudkingdom_hero_145",
+      "small_hero_145"
+    ]
+  },
+  {
+    "id": "hero_148",
+    "kind": "fellow",
+    "name": "Master Tongxuan",
+    "title": "Carefree Herbalist Immortal",
+    "artGroups": [
+      "cutin_hero_148c1",
+      "hero_148",
+      "hero_148c1",
+      "npc_gveplimmortal_hero_148",
+      "small_hero_148"
+    ]
+  },
+  {
+    "id": "hero_149",
+    "kind": "fellow",
+    "name": "Tigris",
+    "title": "Martial Arts Rising Star",
+    "artGroups": [
+      "hero_149",
+      "npc_gveplimmortal_hero_149",
+      "small_hero_149"
+    ]
+  },
+  {
+    "id": "hero_161",
+    "kind": "fellow",
+    "name": "Mulberry",
+    "title": "The Proud Monster Tamer",
+    "artGroups": [
+      "hero_161",
+      "hero_161c1",
+      "npc_japananniversary_hero_161",
+      "small_hero_161"
+    ]
+  },
+  {
+    "id": "hero_162",
+    "kind": "fellow",
+    "name": "Tamamo",
+    "title": "Great Onmyoji",
+    "artGroups": [
+      "hero_162",
+      "npc_escreborn_hero_162_l",
+      "npc_escreborn_hero_162_r",
+      "small_hero_162"
+    ]
+  },
+  {
+    "id": "hero_163",
+    "kind": "fellow",
+    "name": "Stheno",
+    "title": "Passionate Sculptor",
+    "artGroups": [
+      "hero_163",
+      "npc_cloudkingdom_hero_163",
+      "small_hero_163"
+    ]
+  },
+  {
+    "id": "hero_164",
+    "kind": "fellow",
+    "name": "Crysta",
+    "title": "Crystal Empress",
+    "artGroups": [
+      "cutin_hero_164c1",
+      "hero_164",
+      "hero_164c1",
+      "hero_164c2",
+      "hero_164m1",
+      "small_hero_164"
+    ]
+  },
+  {
+    "id": "hero_168",
+    "kind": "fellow",
+    "name": "Athena",
+    "title": "The Goddess of Blessings",
+    "artGroups": [
+      "hero_168",
+      "small_hero_168"
+    ]
+  },
+  {
+    "id": "hero_170",
+    "kind": "fellow",
+    "name": "Magellan",
+    "title": "Wandering Vagabond",
+    "artGroups": [
+      "hero_170",
+      "npc_gvecruisecasino_hero_170",
+      "small_hero_170"
+    ]
+  },
+  {
+    "id": "hero_171",
+    "kind": "fellow",
+    "name": "Gale",
+    "title": "Blazing Comet",
+    "artGroups": [
+      "hero_171",
+      "hero_171m1",
+      "small_hero_171"
+    ]
+  },
+  {
+    "id": "hero_172",
+    "kind": "fellow",
+    "name": "Umbra",
+    "title": "Elegant Sophist",
+    "artGroups": [
+      "hero_172",
+      "hero_172m1",
+      "small_hero_172"
+    ]
+  },
+  {
+    "id": "hero_175",
+    "kind": "fellow",
+    "name": "Thora",
+    "title": "Goddess of Thunder",
+    "artGroups": [
+      "hero_175",
+      "hero_175m1",
+      "small_hero_175"
+    ]
+  },
+  {
+    "id": "hero_176",
+    "kind": "fellow",
+    "name": "Rudeus Greyrat",
+    "title": "Grand Mage",
+    "artGroups": [
+      "hero_176",
+      "small_hero_176"
+    ]
+  },
+  {
+    "id": "hero_177",
+    "kind": "fellow",
+    "name": "Aisha Greyrat",
+    "title": "Little Genius Maid",
+    "artGroups": [
+      "hero_177",
+      "small_hero_177"
+    ]
+  },
+  {
+    "id": "hero_178",
+    "kind": "fellow",
+    "name": "Norn Greyrat",
+    "title": "Strong Little Striver",
+    "artGroups": [
+      "hero_178",
+      "small_hero_178"
+    ]
+  },
+  {
+    "id": "hero_179",
+    "kind": "fellow",
+    "name": "Lokia",
+    "title": "Veiled Feather Goddess",
+    "artGroups": [
+      "hero_179",
+      "hero_179m1",
+      "small_hero_179"
+    ]
+  },
+  {
+    "id": "hero_181",
+    "kind": "fellow",
+    "name": "Lucoa",
+    "title": "Strange-Eyed Dragon Mystic",
+    "artGroups": []
+  },
+  {
+    "id": "hero_186",
+    "kind": "fellow",
+    "name": "Liona",
+    "title": "Warrior of Excalibur",
+    "artGroups": [
+      "hero_186",
+      "hero_186m1",
+      "hero_186m2",
+      "small_hero_186"
+    ]
+  },
+  {
+    "id": "hero_189",
+    "kind": "fellow",
+    "name": "Verity",
+    "title": "Solitary Genius",
+    "artGroups": [
+      "hero_189",
+      "hero_189m1",
+      "small_hero_189"
+    ]
+  },
+  {
+    "id": "hero_196",
+    "kind": "fellow",
+    "name": "Ixchel",
+    "title": "Listener of Oracle",
+    "artGroups": [
+      "hero_196",
+      "small_hero_196"
+    ]
+  },
+  {
+    "id": "hero_197",
+    "kind": "fellow",
+    "name": "Fifi",
+    "title": "Magical Chef",
+    "artGroups": [
+      "hero_197",
+      "hero_197m1",
+      "small_hero_197"
+    ]
+  },
+  {
+    "id": "hero_198",
+    "kind": "fellow",
+    "name": "Future Maxim",
+    "title": "Composed Grandmaster",
+    "artGroups": [
+      "hero_198",
+      "hero_198m1",
+      "small_hero_198"
+    ]
+  },
+  {
+    "id": "hero_199",
+    "kind": "fellow",
+    "name": "Aurora",
+    "title": "Ancestor Slayer",
+    "artGroups": [
+      "hero_199",
+      "hero_199m1",
+      "npc_djdemoncastle_hero_199",
+      "small_hero_199"
+    ]
+  },
+  {
+    "id": "hero_200",
+    "kind": "fellow",
+    "name": "Lailah",
+    "title": "Sovereign of Blood",
+    "artGroups": [
+      "hero_200",
+      "hero_200m1",
+      "small_hero_200"
+    ]
+  },
+  {
+    "id": "hero_201",
+    "kind": "fellow",
+    "name": "[vip10]",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "hero_212",
+    "kind": "fellow",
+    "name": "Ao Li",
+    "title": "Magus of Informed",
+    "artGroups": [
+      "hero_212",
+      "small_hero_212"
+    ]
+  },
+  {
+    "id": "hero_257",
+    "kind": "fellow",
+    "name": "Roxy Migurdia",
+    "title": "Outstanding Master",
+    "artGroups": [
+      "hero_257",
+      "hero_257m1",
+      "hero_257m2",
+      "hero_257m2_back",
+      "small_hero_257"
+    ]
+  },
+  {
+    "id": "hero_258",
+    "kind": "fellow",
+    "name": "Dionysia",
+    "title": "Goddess of Revelry",
+    "artGroups": [
+      "hero_258",
+      "hero_258m1",
+      "hero_258m1_back",
+      "small_hero_258"
+    ]
+  },
+  {
+    "id": "hero_259",
+    "kind": "fellow",
+    "name": "Fafnyria",
+    "title": "The Most Evil Dragon in History!",
+    "artGroups": [
+      "hero_259",
+      "hero_259m1",
+      "hero_259m1_back",
+      "small_hero_259"
+    ]
+  },
+  {
+    "id": "hero_262",
+    "kind": "fellow",
+    "name": "Hattie",
+    "title": "Unyielding Runner",
+    "artGroups": [
+      "hero_262",
+      "hero_262m1",
+      "hero_262m2",
+      "hero_262m2_back",
+      "small_hero_262"
+    ]
+  },
+  {
+    "id": "hero_305",
+    "kind": "fellow",
+    "name": "Linlang",
+    "title": "Immense Wealth",
+    "artGroups": [
+      "hero_305",
+      "hero_305m1",
+      "hero_305m2",
+      "small_hero_305"
+    ]
+  },
+  {
+    "id": "hero_308",
+    "kind": "fellow",
+    "name": "Rissette",
+    "title": "Reincarnated Goddess",
+    "artGroups": [
+      "cutin_hero_308c2",
+      "hero_308",
+      "hero_308c1",
+      "hero_308c2",
+      "hero_308m1",
+      "hero_308m2",
+      "small_hero_308"
+    ]
+  },
+  {
+    "id": "hero_501",
+    "kind": "fellow",
+    "name": "Lux",
+    "title": " Archdemon of Lust",
+    "artGroups": []
+  },
+  {
+    "id": "hero_502",
+    "kind": "fellow",
+    "name": "Super",
+    "title": "Archdemon of Pride",
+    "artGroups": []
+  },
+  {
+    "id": "hero_503",
+    "kind": "fellow",
+    "name": "Ira",
+    "title": "Archdemon of Wrath",
+    "artGroups": []
+  },
+  {
+    "id": "hero_504",
+    "kind": "fellow",
+    "name": "Acedia",
+    "title": "Archdemon of Sloth",
+    "artGroups": []
+  },
+  {
+    "id": "hero_505",
+    "kind": "fellow",
+    "name": "Avar",
+    "title": "Archdemon of Greed",
+    "artGroups": []
+  },
+  {
+    "id": "hero_506",
+    "kind": "fellow",
+    "name": "Avril",
+    "title": "Summoned Melody",
+    "artGroups": []
+  },
+  {
+    "id": "hero_507",
+    "kind": "fellow",
+    "name": "Stephanie",
+    "title": "Summoned Magic",
+    "artGroups": []
+  },
+  {
+    "id": "hero_508",
+    "kind": "fellow",
+    "name": "Salvo",
+    "title": "Summoned Bravery",
+    "artGroups": []
+  },
+  {
+    "id": "hero_509",
+    "kind": "fellow",
+    "name": "Kaye",
+    "title": "Summoned Shield",
+    "artGroups": []
+  },
+  {
+    "id": "hero_510",
+    "kind": "fellow",
+    "name": "Nip",
+    "title": "Summoned Arrow",
+    "artGroups": []
+  },
+  {
+    "id": "hero_57",
+    "kind": "fellow",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "hero_60",
+    "kind": "fellow",
+    "name": "Kamakura",
+    "title": "",
+    "artGroups": [
+      "hero_60",
+      "small_hero_60"
+    ]
+  },
+  {
+    "id": "hero_63",
+    "kind": "fellow",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "hero_64",
+    "kind": "fellow",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "hero_67",
+    "kind": "fellow",
+    "name": "Emma",
+    "title": "Moonlit Normality",
+    "artGroups": [
+      "hero_67",
+      "small_hero_67"
+    ]
+  },
+  {
+    "id": "hero_68",
+    "kind": "fellow",
+    "name": "Nalu",
+    "title": "Leaper of the Sea",
+    "artGroups": [
+      "hero_68",
+      "hero_68c1",
+      "small_hero_68"
+    ]
+  },
+  {
+    "id": "hero_74",
+    "kind": "fellow",
+    "name": "Lucoa",
+    "title": "Strange-Eyed Dragon Mystic",
+    "artGroups": [
+      "hero_74",
+      "small_hero_74"
+    ]
+  },
+  {
+    "id": "hero_75",
+    "kind": "fellow",
+    "name": "Eros",
+    "title": "Love Arrow",
+    "artGroups": [
+      "hero_75",
+      "npc_cloudkingdom_hero_75",
+      "small_hero_75"
+    ]
+  },
+  {
+    "id": "hero_76",
+    "kind": "fellow",
+    "name": "Huowang Dade",
+    "title": "Master of Tofu",
+    "artGroups": [
+      "hero_76",
+      "npc_gveplimmortal_hero_76",
+      "npc_japananniversary_hero_76",
+      "small_hero_76"
+    ]
+  },
+  {
+    "id": "hero_78",
+    "kind": "fellow",
+    "name": "Justitia",
+    "title": "Justice Envoy",
+    "artGroups": [
+      "hero_78",
+      "small_hero_78"
+    ]
+  },
+  {
+    "id": "hero_79",
+    "kind": "fellow",
+    "name": "Fawna",
+    "title": "Treasure Hunter",
+    "artGroups": [
+      "hero_79",
+      "small_hero_79"
+    ]
+  },
+  {
+    "id": "hero_10001",
+    "kind": "fellow",
+    "name": "hero_10001",
+    "title": "(Stay tuned)",
+    "artGroups": []
+  },
+  {
+    "id": "wife_254",
+    "kind": "family",
+    "name": "Emiru",
+    "title": "The Heart-Reading Cat",
+    "artGroups": [
+      "small_wife_254",
+      "wife_254",
+      "wife_254m1",
+      "wife_254m1_back",
+      "wife_254m2"
+    ]
+  },
+  {
+    "id": "wife_1",
+    "kind": "family",
+    "name": "Gina",
+    "title": "Rescued Inu Girl",
+    "artGroups": [
+      "npc_japananniversary_wife_01",
+      "small_wife_01",
+      "small_wife_01_pre",
+      "small_wife_01c1",
+      "wife_01",
+      "wife_01_pre",
+      "wife_01c1",
+      "wife_01c2",
+      "wife_01c3"
+    ]
+  },
+  {
+    "id": "wife_101",
+    "kind": "family",
+    "name": "Kosuzu",
+    "title": "Cat's Paw",
+    "artGroups": [
+      "cutin_wife_101c2",
+      "small_wife_101",
+      "wife_101",
+      "wife_101c1",
+      "wife_101c2",
+      "wife_101c3"
+    ]
+  },
+  {
+    "id": "wife_102",
+    "kind": "family",
+    "name": "Sera",
+    "title": "Heaven's Falling",
+    "artGroups": [
+      "cutin_wife_102c3",
+      "cutin_wife_102c4",
+      "cutin_wife_102c5",
+      "small_wife_102",
+      "wife_102",
+      "wife_102c1",
+      "wife_102c2",
+      "wife_102c3",
+      "wife_102c4",
+      "wife_102c5"
+    ]
+  },
+  {
+    "id": "wife_103",
+    "kind": "family",
+    "name": "Lina",
+    "title": "Shining Idol",
+    "artGroups": [
+      "cutin_wife_103c3",
+      "npc_japananniversary_wife_103",
+      "small_wife_103",
+      "wife_103",
+      "wife_103c1",
+      "wife_103c2",
+      "wife_103c3",
+      "wife_103c4"
+    ]
+  },
+  {
+    "id": "wife_104",
+    "kind": "family",
+    "name": "Denier",
+    "title": "Devil Dom",
+    "artGroups": [
+      "cutin_wife_104c2",
+      "cutin_wife_104c4",
+      "small_wife_104",
+      "wife_104",
+      "wife_104c1",
+      "wife_104c2",
+      "wife_104c3",
+      "wife_104c4"
+    ]
+  },
+  {
+    "id": "wife_105",
+    "kind": "family",
+    "name": "Baity",
+    "title": "Vampiric Nurse",
+    "artGroups": [
+      "cutin_wife_105c3",
+      "cutin_wife_105c4",
+      "npc_djdemoncastle_wife_105",
+      "small_wife_105",
+      "wife_105",
+      "wife_105c1",
+      "wife_105c2",
+      "wife_105c3",
+      "wife_105c4"
+    ]
+  },
+  {
+    "id": "wife_106",
+    "kind": "family",
+    "name": "Lilith",
+    "title": "Dreamweaver",
+    "artGroups": [
+      "cutin_wife_106c2",
+      "cutin_wife_106c3",
+      "small_wife_106",
+      "wife_106",
+      "wife_106c1",
+      "wife_106c2",
+      "wife_106c3"
+    ]
+  },
+  {
+    "id": "wife_11",
+    "kind": "family",
+    "name": "Ookami",
+    "title": "Apparition landlady",
+    "artGroups": [
+      "small_wife_11",
+      "wife_11",
+      "wife_11c1",
+      "wife_11c2",
+      "wife_11c3"
+    ]
+  },
+  {
+    "id": "wife_111",
+    "kind": "family",
+    "name": "Bren",
+    "title": "Flawless White",
+    "artGroups": [
+      "cutin_wife_111c2",
+      "cutin_wife_111c3",
+      "npc_dungeon_wife_111",
+      "npc_japananniversary_wife_111",
+      "small_wife_111",
+      "wife_111",
+      "wife_111c1",
+      "wife_111c2",
+      "wife_111c3"
+    ]
+  },
+  {
+    "id": "wife_112",
+    "kind": "family",
+    "name": "Kagura",
+    "title": "Foxy Miko",
+    "artGroups": [
+      "cutin_wife_112c1",
+      "cutin_wife_112c2",
+      "cutin_wife_112c4",
+      "npc_escreborn_wife_112_l",
+      "npc_escreborn_wife_112_r",
+      "small_wife_112",
+      "small_wife_112c1",
+      "wife_112",
+      "wife_112c1",
+      "wife_112c2",
+      "wife_112c3",
+      "wife_112c4"
+    ]
+  },
+  {
+    "id": "wife_113",
+    "kind": "family",
+    "name": "Willo",
+    "title": "Lingering Light",
+    "artGroups": [
+      "cutin_wife_113c2",
+      "small_wife_113",
+      "wife_113",
+      "wife_113c1",
+      "wife_113c2"
+    ]
+  },
+  {
+    "id": "wife_114",
+    "kind": "family",
+    "name": "Phetia",
+    "title": "Dark Prophet",
+    "artGroups": [
+      "cutin_wife_114c1",
+      "small_wife_114",
+      "wife_114",
+      "wife_114c1"
+    ]
+  },
+  {
+    "id": "wife_115",
+    "kind": "family",
+    "name": "Holly",
+    "title": "Salvation Virgin",
+    "artGroups": [
+      "cutin_wife_115c1",
+      "cutin_wife_115c2",
+      "cutin_wife_115c3",
+      "npc_japananniversary_wife_115",
+      "small_wife_115",
+      "wife_115",
+      "wife_115c1",
+      "wife_115c1_pre",
+      "wife_115c2",
+      "wife_115c3"
+    ]
+  },
+  {
+    "id": "wife_116",
+    "kind": "family",
+    "name": "Mia",
+    "title": "Hot Pharaoh",
+    "artGroups": [
+      "small_wife_116",
+      "wife_116"
+    ]
+  },
+  {
+    "id": "wife_118",
+    "kind": "family",
+    "name": "Pthahnil",
+    "title": "Rebelled Dark Angel",
+    "artGroups": [
+      "small_wife_118",
+      "wife_118"
+    ]
+  },
+  {
+    "id": "wife_119",
+    "kind": "family",
+    "name": "Alanna",
+    "title": "Dazzling Performer",
+    "artGroups": [
+      "npc_japananniversary_wife_119",
+      "small_wife_119",
+      "wife_119"
+    ]
+  },
+  {
+    "id": "wife_12",
+    "kind": "family",
+    "name": "Rachel",
+    "title": "Chicken the Kitchen",
+    "artGroups": [
+      "small_wife_12",
+      "wife_12",
+      "wife_12c1"
+    ]
+  },
+  {
+    "id": "wife_120",
+    "kind": "family",
+    "name": "Connie",
+    "title": "Steel Rose",
+    "artGroups": [
+      "small_wife_120",
+      "wife_120"
+    ]
+  },
+  {
+    "id": "wife_121",
+    "kind": "family",
+    "name": "Usuri",
+    "title": "Fortune Spender",
+    "artGroups": [
+      "small_wife_121",
+      "wife_121"
+    ]
+  },
+  {
+    "id": "wife_122",
+    "kind": "family",
+    "name": "Tsukuyomi",
+    "title": "Artist of Moonlight",
+    "artGroups": [
+      "small_wife_122",
+      "wife_122"
+    ]
+  },
+  {
+    "id": "wife_123",
+    "kind": "family",
+    "name": "Puffair",
+    "title": "Ghost Pastry Chef",
+    "artGroups": [
+      "small_wife_123",
+      "wife_123"
+    ]
+  },
+  {
+    "id": "wife_124",
+    "kind": "family",
+    "name": "Namiko",
+    "title": "Heir of Shuten Co.",
+    "artGroups": [
+      "small_wife_124",
+      "wife_124"
+    ]
+  },
+  {
+    "id": "wife_125",
+    "kind": "family",
+    "name": "Devileer",
+    "title": "Runaway Princess",
+    "artGroups": [
+      "small_wife_125",
+      "wife_125"
+    ]
+  },
+  {
+    "id": "wife_126",
+    "kind": "family",
+    "name": "Skogul",
+    "title": "Reclusive Valkyrie",
+    "artGroups": [
+      "npc_japananniversary_wife_126",
+      "small_wife_126",
+      "wife_126"
+    ]
+  },
+  {
+    "id": "wife_127",
+    "kind": "family",
+    "name": "Mors",
+    "title": "Soul Ferrier",
+    "artGroups": [
+      "npc_japananniversary_wife_127",
+      "small_wife_127",
+      "wife_127"
+    ]
+  },
+  {
+    "id": "wife_13",
+    "kind": "family",
+    "name": "Joyce",
+    "title": "Slime Drinks",
+    "artGroups": [
+      "small_wife_13",
+      "wife_13",
+      "wife_13c1"
+    ]
+  },
+  {
+    "id": "wife_131",
+    "kind": "family",
+    "name": "Raphael",
+    "title": "Forest Light",
+    "artGroups": [
+      "small_wife_131",
+      "wife_131"
+    ]
+  },
+  {
+    "id": "wife_132",
+    "kind": "family",
+    "name": "Curren",
+    "title": "Primordial Current",
+    "artGroups": [
+      "small_wife_132",
+      "wife_132"
+    ]
+  },
+  {
+    "id": "wife_133",
+    "kind": "family",
+    "name": "Bathery",
+    "title": "Primordial Battery",
+    "artGroups": [
+      "small_wife_133",
+      "wife_133"
+    ]
+  },
+  {
+    "id": "wife_134",
+    "kind": "family",
+    "name": "Jin Yu",
+    "title": "Princess of Good Luck",
+    "artGroups": [
+      "card_wife_134",
+      "cutin_wife_134c1",
+      "npc_japananniversary_wife_134",
+      "small_wife_134",
+      "wife_134",
+      "wife_134c1"
+    ]
+  },
+  {
+    "id": "wife_135",
+    "kind": "family",
+    "name": "Lud",
+    "title": "Medicine Shaman",
+    "artGroups": [
+      "small_wife_135",
+      "wife_135"
+    ]
+  },
+  {
+    "id": "wife_136",
+    "kind": "family",
+    "name": "Squeaky",
+    "title": "Pioneer of Treasure Hunter",
+    "artGroups": [
+      "npc_japananniversary_wife_136",
+      "small_wife_136",
+      "wife_136",
+      "wife_136c1"
+    ]
+  },
+  {
+    "id": "wife_137",
+    "kind": "family",
+    "name": "Lunaria",
+    "title": "Dungeon Descendant",
+    "artGroups": [
+      "small_wife_137",
+      "wife_137"
+    ]
+  },
+  {
+    "id": "wife_139",
+    "kind": "family",
+    "name": "Mia",
+    "title": "MomocaMusume",
+    "artGroups": []
+  },
+  {
+    "id": "wife_14",
+    "kind": "family",
+    "name": "Sofia",
+    "title": "Signboard of Guild",
+    "artGroups": [
+      "small_wife_14",
+      "wife_14",
+      "wife_14c1",
+      "wife_14c2"
+    ]
+  },
+  {
+    "id": "wife_140",
+    "kind": "family",
+    "name": "MomocaMusume",
+    "title": "MomocaMusume",
+    "artGroups": []
+  },
+  {
+    "id": "wife_141",
+    "kind": "family",
+    "name": "MomocaMusume",
+    "title": "MomocaMusume",
+    "artGroups": []
+  },
+  {
+    "id": "wife_142",
+    "kind": "family",
+    "name": "MomocaMusume",
+    "title": "MomocaMusume",
+    "artGroups": []
+  },
+  {
+    "id": "wife_144",
+    "kind": "family",
+    "name": "Shuna",
+    "title": "Holy Princess of the Ogres",
+    "artGroups": [
+      "small_wife_144",
+      "wife_144"
+    ]
+  },
+  {
+    "id": "wife_145",
+    "kind": "family",
+    "name": "Diablo",
+    "title": "Primal Noir",
+    "artGroups": [
+      "small_wife_145",
+      "wife_145"
+    ]
+  },
+  {
+    "id": "wife_148",
+    "kind": "family",
+    "name": "Lucy",
+    "title": "Principal of the Magic Corps",
+    "artGroups": [
+      "small_wife_148",
+      "wife_148"
+    ]
+  },
+  {
+    "id": "wife_149",
+    "kind": "family",
+    "name": "Mewi",
+    "title": "Wandering Bud",
+    "artGroups": [
+      "small_wife_149",
+      "wife_149"
+    ]
+  },
+  {
+    "id": "wife_15",
+    "kind": "family",
+    "name": "Chihaya",
+    "title": "Girl Next Door",
+    "artGroups": [
+      "card_wife_15",
+      "small_wife_15",
+      "wife_15",
+      "wife_15c1",
+      "wife_15c2",
+      "wife_15c3",
+      "wife_15c4"
+    ]
+  },
+  {
+    "id": "wife_156",
+    "kind": "family",
+    "name": "Liliruca Arde",
+    "title": "Little Supporter",
+    "artGroups": [
+      "small_wife_156",
+      "wife_156"
+    ]
+  },
+  {
+    "id": "wife_157",
+    "kind": "family",
+    "name": "Sylthiel",
+    "title": "The Fallen Elf",
+    "artGroups": [
+      "npc_gvecruisecasino_wife_157_l",
+      "npc_gvecruisecasino_wife_157_r",
+      "small_wife_157",
+      "wife_157"
+    ]
+  },
+  {
+    "id": "wife_158",
+    "kind": "family",
+    "name": "Nyar",
+    "title": "The Undefeated Gambler",
+    "artGroups": [
+      "small_wife_158",
+      "wife_158"
+    ]
+  },
+  {
+    "id": "wife_16",
+    "kind": "family",
+    "name": "Kaka",
+    "title": "Growing Beast",
+    "artGroups": [
+      "small_wife_16",
+      "wife_16",
+      "wife_16c1"
+    ]
+  },
+  {
+    "id": "wife_161",
+    "kind": "family",
+    "name": "Lucy",
+    "title": "Celestial Spirit Wizard",
+    "artGroups": [
+      "small_wife_161",
+      "wife_161"
+    ]
+  },
+  {
+    "id": "wife_162",
+    "kind": "family",
+    "name": "Wendy",
+    "title": "Sky Maiden",
+    "artGroups": [
+      "small_wife_162",
+      "wife_162"
+    ]
+  },
+  {
+    "id": "wife_167",
+    "kind": "family",
+    "name": "Mushimi",
+    "title": "Princess of Joy",
+    "artGroups": [
+      "small_wife_167",
+      "wife_167",
+      "wife_167s1"
+    ]
+  },
+  {
+    "id": "wife_168",
+    "kind": "family",
+    "name": "Shion",
+    "title": "Master Chef",
+    "artGroups": [
+      "small_wife_168",
+      "wife_168"
+    ]
+  },
+  {
+    "id": "wife_169",
+    "kind": "family",
+    "name": "Ixchel",
+    "title": "Listener of Oracle",
+    "artGroups": [
+      "npc_gvegoldenrealm_wife_169_l",
+      "small_wife_169",
+      "wife_169",
+      "wife_169m1"
+    ]
+  },
+  {
+    "id": "wife_17",
+    "kind": "family",
+    "name": "Freyja",
+    "title": "Forest Guide",
+    "artGroups": [
+      "small_wife_17",
+      "wife_17",
+      "wife_17c1"
+    ]
+  },
+  {
+    "id": "wife_173",
+    "kind": "family",
+    "name": "Aqua",
+    "title": "Goddess of Water",
+    "artGroups": [
+      "small_wife_173",
+      "wife_173"
+    ]
+  },
+  {
+    "id": "wife_174",
+    "kind": "family",
+    "name": "Megumin",
+    "title": "Explosion Magic Wielder",
+    "artGroups": [
+      "small_wife_174",
+      "wife_174"
+    ]
+  },
+  {
+    "id": "wife_179",
+    "kind": "family",
+    "name": "Kerr & Bel & Ross",
+    "title": "Hell Vindicator",
+    "artGroups": [
+      "wife_179"
+    ]
+  },
+  {
+    "id": "wife_18",
+    "kind": "family",
+    "name": "Catherine",
+    "title": "Leisurely Witch",
+    "artGroups": [
+      "small_wife_18",
+      "wife_18",
+      "wife_18c1",
+      "wife_18c2",
+      "wife_18c3"
+    ]
+  },
+  {
+    "id": "wife_180",
+    "kind": "family",
+    "name": "Crysta",
+    "title": "Crystal Empress",
+    "artGroups": [
+      "wife_180"
+    ]
+  },
+  {
+    "id": "wife_184",
+    "kind": "family",
+    "name": "Takina Inoue",
+    "title": "LycoReco Accountant",
+    "artGroups": [
+      "small_wife_184",
+      "wife_184"
+    ]
+  },
+  {
+    "id": "wife_185",
+    "kind": "family",
+    "name": "Shinobu Kocho",
+    "title": "Insect Hashira",
+    "artGroups": [
+      "wife_185"
+    ]
+  },
+  {
+    "id": "wife_186",
+    "kind": "family",
+    "name": "Nezuko Kamado",
+    "title": "Eldest Daughter of the Kamado Family",
+    "artGroups": [
+      "small_wife_186",
+      "wife_186"
+    ]
+  },
+  {
+    "id": "wife_187",
+    "kind": "family",
+    "name": "Amaterasu",
+    "title": "Incarnation of Sun",
+    "artGroups": []
+  },
+  {
+    "id": "wife_188",
+    "kind": "family",
+    "name": "Loya",
+    "title": "Perpetual Secretary",
+    "artGroups": [
+      "wife_188"
+    ]
+  },
+  {
+    "id": "wife_19",
+    "kind": "family",
+    "name": "Otherin",
+    "title": "Sealed Loving",
+    "artGroups": [
+      "small_wife_19",
+      "wife_19",
+      "wife_19c1",
+      "wife_19c2"
+    ]
+  },
+  {
+    "id": "wife_191",
+    "kind": "family",
+    "name": "Bridget",
+    "title": "Knight Hime",
+    "artGroups": [
+      "small_wife_191",
+      "wife_191",
+      "wife_191c1",
+      "wife_191c2",
+      "wife_191c3",
+      "wife_191c4"
+    ]
+  },
+  {
+    "id": "wife_192",
+    "kind": "family",
+    "name": "Nibel",
+    "title": "Bondage Darkness",
+    "artGroups": [
+      "small_wife_192",
+      "wife_192"
+    ]
+  },
+  {
+    "id": "wife_2",
+    "kind": "family",
+    "name": "Charlotte",
+    "title": "Miss Goblin",
+    "artGroups": [
+      "small_wife_02",
+      "wife_02",
+      "wife_02c1"
+    ]
+  },
+  {
+    "id": "wife_20",
+    "kind": "family",
+    "name": "Mater",
+    "title": "Mother Cow",
+    "artGroups": [
+      "small_wife_20",
+      "wife_20",
+      "wife_20c1"
+    ]
+  },
+  {
+    "id": "wife_201",
+    "kind": "family",
+    "name": "Nirvana",
+    "title": "Flaming Rebirth",
+    "artGroups": [
+      "small_wife_201",
+      "wife_201",
+      "wife_201_pre",
+      "wife_201m1"
+    ]
+  },
+  {
+    "id": "wife_21",
+    "kind": "family",
+    "name": "Dia",
+    "title": "Spiritual Index",
+    "artGroups": [
+      "small_wife_21",
+      "wife_21",
+      "wife_21c1",
+      "wife_21c2"
+    ]
+  },
+  {
+    "id": "wife_22",
+    "kind": "family",
+    "name": "Herna",
+    "title": "Snowland Hoarder",
+    "artGroups": [
+      "npc_dungeon_wife_22",
+      "small_wife_22",
+      "wife_22",
+      "wife_22c1"
+    ]
+  },
+  {
+    "id": "wife_251",
+    "kind": "family",
+    "name": "Hina",
+    "title": "The Omni-Shapeshifter",
+    "artGroups": [
+      "small_wife_251",
+      "wife_251",
+      "wife_251m1",
+      "wife_251m1_pre",
+      "wife_251m2",
+      "wife_251m2_pre"
+    ]
+  },
+  {
+    "id": "wife_252",
+    "kind": "family",
+    "name": "Hanamiya Rica",
+    "title": "Genius Devil Maid",
+    "artGroups": [
+      "small_wife_252",
+      "wife_252",
+      "wife_252m1",
+      "wife_252m1_back"
+    ]
+  },
+  {
+    "id": "wife_253",
+    "kind": "family",
+    "name": "Hestia",
+    "title": "The Goddess of the Furnace",
+    "artGroups": [
+      "small_wife_253",
+      "wife_253",
+      "wife_253m1",
+      "wife_253m1_back"
+    ]
+  },
+  {
+    "id": "wife_3",
+    "kind": "family",
+    "name": "Epona",
+    "title": "Galloping Post",
+    "artGroups": [
+      "small_wife_03",
+      "wife_03",
+      "wife_03c1"
+    ]
+  },
+  {
+    "id": "wife_4",
+    "kind": "family",
+    "name": "Nene",
+    "title": "Innumerable Changes",
+    "artGroups": [
+      "small_wife_04",
+      "wife_04",
+      "wife_04c1",
+      "wife_04c2",
+      "wife_04c3"
+    ]
+  },
+  {
+    "id": "wife_5",
+    "kind": "family",
+    "name": "Susie",
+    "title": "Horn Waiter",
+    "artGroups": [
+      "small_wife_05",
+      "wife_05",
+      "wife_05c1",
+      "wife_05c2",
+      "wife_05c3"
+    ]
+  },
+  {
+    "id": "wife_51",
+    "kind": "family",
+    "name": "Selena",
+    "title": "Celebrity Siren",
+    "artGroups": [
+      "small_wife_51",
+      "wife_51",
+      "wife_51c1"
+    ]
+  },
+  {
+    "id": "wife_52",
+    "kind": "family",
+    "name": "Melody",
+    "title": "Gentle Vine",
+    "artGroups": [
+      "npc_japananniversary_wife_52",
+      "small_wife_52",
+      "wife_52",
+      "wife_52c1",
+      "wife_52c2",
+      "wife_52c3",
+      "wife_52c4"
+    ]
+  },
+  {
+    "id": "wife_53",
+    "kind": "family",
+    "name": "Merry",
+    "title": "Hidden Masterpiece",
+    "artGroups": [
+      "small_wife_53",
+      "wife_53",
+      "wife_53c1",
+      "wife_53c2",
+      "wife_53c3"
+    ]
+  },
+  {
+    "id": "wife_54",
+    "kind": "family",
+    "name": "Ena",
+    "title": "Infinite Eye",
+    "artGroups": [
+      "small_wife_54",
+      "wife_54",
+      "wife_54c1",
+      "wife_54c2",
+      "wife_54c3",
+      "wife_54c4"
+    ]
+  },
+  {
+    "id": "wife_55",
+    "kind": "family",
+    "name": "Lulu",
+    "title": "Caged Princess",
+    "artGroups": [
+      "small_wife_55",
+      "wife_55",
+      "wife_55c1",
+      "wife_55c2"
+    ]
+  },
+  {
+    "id": "wife_56",
+    "kind": "family",
+    "name": "Maynard",
+    "title": "Succubus Dancer",
+    "artGroups": [
+      "small_wife_56",
+      "wife_56",
+      "wife_56c1",
+      "wife_56c2"
+    ]
+  },
+  {
+    "id": "wife_57",
+    "kind": "family",
+    "name": "Sadako",
+    "title": "Ghost Portrait",
+    "artGroups": [
+      "small_wife_57",
+      "wife_57",
+      "wife_57c1"
+    ]
+  },
+  {
+    "id": "wife_58",
+    "kind": "family",
+    "name": "Clarice",
+    "title": "Lady Spider",
+    "artGroups": [
+      "small_wife_58",
+      "wife_58",
+      "wife_58c1"
+    ]
+  },
+  {
+    "id": "wife_59",
+    "kind": "family",
+    "name": "Bullety",
+    "title": "Miss Never",
+    "artGroups": [
+      "small_wife_59",
+      "wife_59",
+      "wife_59c1",
+      "wife_59c2"
+    ]
+  },
+  {
+    "id": "wife_61",
+    "kind": "family",
+    "name": "Isatilra",
+    "title": "Lily Dancer",
+    "artGroups": [
+      "small_wife_61",
+      "wife_61",
+      "wife_61c1"
+    ]
+  },
+  {
+    "id": "wife_62",
+    "kind": "family",
+    "name": "Nousa",
+    "title": "Octoteacher",
+    "artGroups": [
+      "small_wife_62",
+      "wife_62",
+      "wife_62c1"
+    ]
+  },
+  {
+    "id": "wife_63",
+    "kind": "family",
+    "name": "Pinor",
+    "title": "Vintage Wine",
+    "artGroups": [
+      "small_wife_63",
+      "wife_63",
+      "wife_63c1",
+      "wife_63c2"
+    ]
+  },
+  {
+    "id": "wife_64",
+    "kind": "family",
+    "name": "Vivian",
+    "title": "Mrs.Rabbit",
+    "artGroups": [
+      "cutin_wife_64c2",
+      "small_wife_64",
+      "wife_64",
+      "wife_64c1",
+      "wife_64c2"
+    ]
+  },
+  {
+    "id": "wife_65",
+    "kind": "family",
+    "name": "Elora",
+    "title": "Anecdote Enthusiast",
+    "artGroups": [
+      "small_wife_65",
+      "wife_65"
+    ]
+  },
+  {
+    "id": "wife_68",
+    "kind": "family",
+    "name": "MomocaMusume",
+    "title": "MomocaMusume",
+    "artGroups": []
+  },
+  {
+    "id": "wife_70",
+    "kind": "family",
+    "name": "Emily",
+    "title": "The Undying Actress",
+    "artGroups": [
+      "small_wife_70",
+      "wife_70",
+      "wife_70c1"
+    ]
+  },
+  {
+    "id": "wife_117",
+    "kind": "family",
+    "name": "Vlad XIII",
+    "title": "Dark Night Count",
+    "artGroups": [
+      "small_wife_117",
+      "wife_117",
+      "wife_117c1"
+    ]
+  },
+  {
+    "id": "wife_128",
+    "kind": "family",
+    "name": "Loo",
+    "title": "Researcher",
+    "artGroups": [
+      "small_wife_128",
+      "wife_128"
+    ]
+  },
+  {
+    "id": "wife_129",
+    "kind": "family",
+    "name": "Tier",
+    "title": "Angel of Annihilation",
+    "artGroups": [
+      "small_wife_129",
+      "wife_129"
+    ]
+  },
+  {
+    "id": "wife_130",
+    "kind": "family",
+    "name": "Flora",
+    "title": "Explosion Magician",
+    "artGroups": [
+      "small_wife_130",
+      "wife_130"
+    ]
+  },
+  {
+    "id": "wife_138",
+    "kind": "family",
+    "name": "Wadjetta",
+    "title": "Goddess of Healing",
+    "artGroups": [
+      "small_wife_138",
+      "wife_138"
+    ]
+  },
+  {
+    "id": "wife_143",
+    "kind": "family",
+    "name": "Leopolda",
+    "title": "Crybaby",
+    "artGroups": [
+      "cutin_wife_143c1",
+      "small_wife_143",
+      "wife_143",
+      "wife_143c1"
+    ]
+  },
+  {
+    "id": "wife_146",
+    "kind": "family",
+    "name": "Athena",
+    "title": "The Goddess of Blessings",
+    "artGroups": [
+      "npc_cloudkingdom_wife_146",
+      "small_wife_146",
+      "wife_146"
+    ]
+  },
+  {
+    "id": "wife_150",
+    "kind": "family",
+    "name": "Mercuria",
+    "title": "Journalist on a Cloud",
+    "artGroups": [
+      "npc_cloudkingdom_wife_150",
+      "small_wife_150",
+      "wife_150"
+    ]
+  },
+  {
+    "id": "wife_151",
+    "kind": "family",
+    "name": "Pengia",
+    "title": "Yakuza Girl",
+    "artGroups": [
+      "small_wife_151",
+      "wife_151"
+    ]
+  },
+  {
+    "id": "wife_152",
+    "kind": "family",
+    "name": "Pan Pan",
+    "title": "Immortal in Progress",
+    "artGroups": [
+      "npc_gveplimmortal_wife_152",
+      "npc_japananniversary_wife_152",
+      "small_wife_152",
+      "wife_152"
+    ]
+  },
+  {
+    "id": "wife_153",
+    "kind": "family",
+    "name": "Cranelia",
+    "title": "Distant Chrysanthemum",
+    "artGroups": [
+      "npc_gveplimmortal_wife_153",
+      "small_wife_153",
+      "wife_153"
+    ]
+  },
+  {
+    "id": "wife_154",
+    "kind": "family",
+    "name": "Chitana",
+    "title": "Dance in Shadow",
+    "artGroups": [
+      "small_wife_154",
+      "wife_154"
+    ]
+  },
+  {
+    "id": "wife_155",
+    "kind": "family",
+    "name": "Futaba",
+    "title": "Transformed Twin Tails",
+    "artGroups": [
+      "npc_escreborn_wife_155_l",
+      "npc_escreborn_wife_155_r",
+      "small_wife_155",
+      "wife_155",
+      "wife_155c1"
+    ]
+  },
+  {
+    "id": "wife_159",
+    "kind": "family",
+    "name": "Roxy Migurdia",
+    "title": "Outstanding Master",
+    "artGroups": [
+      "small_wife_159",
+      "wife_159"
+    ]
+  },
+  {
+    "id": "wife_160",
+    "kind": "family",
+    "name": "Sylphiette Greyrat",
+    "title": "Gentle Wind Mage",
+    "artGroups": [
+      "small_wife_160",
+      "wife_160"
+    ]
+  },
+  {
+    "id": "wife_163",
+    "kind": "family",
+    "name": "Thubran",
+    "title": "Drakenberg Noble",
+    "artGroups": [
+      "small_wife_163",
+      "wife_163",
+      "wife_163c1"
+    ]
+  },
+  {
+    "id": "wife_164",
+    "kind": "family",
+    "name": "Yunseul",
+    "title": "Tiger Goddess",
+    "artGroups": [
+      "small_wife_164",
+      "wife_164"
+    ]
+  },
+  {
+    "id": "wife_165",
+    "kind": "family",
+    "name": "Lancelot",
+    "title": "Wings of Light",
+    "artGroups": [
+      "small_wife_165",
+      "wife_165",
+      "wife_165m1"
+    ]
+  },
+  {
+    "id": "wife_166",
+    "kind": "family",
+    "name": "Zenow",
+    "title": "Genius of Snow",
+    "artGroups": [
+      "small_wife_166",
+      "wife_166",
+      "wife_166m1"
+    ]
+  },
+  {
+    "id": "wife_170",
+    "kind": "family",
+    "name": "Dionysia",
+    "title": "Goddess of Revelry",
+    "artGroups": [
+      "small_wife_170",
+      "wife_170"
+    ]
+  },
+  {
+    "id": "wife_171",
+    "kind": "family",
+    "name": "Fafnyria",
+    "title": "The Most Evil Dragon in History!",
+    "artGroups": [
+      "small_wife_171",
+      "wife_171"
+    ]
+  },
+  {
+    "id": "wife_172",
+    "kind": "family",
+    "name": "Sachiko",
+    "title": "Happiness Bringer",
+    "artGroups": []
+  },
+  {
+    "id": "wife_175",
+    "kind": "family",
+    "name": "Philo",
+    "title": "Book Lover",
+    "artGroups": [
+      "npc_gvekingarthur_wife_175_l",
+      "small_wife_175",
+      "wife_175",
+      "wife_175m1"
+    ]
+  },
+  {
+    "id": "wife_178",
+    "kind": "family",
+    "name": "Genessa",
+    "title": "Rebellious Prodigy",
+    "artGroups": [
+      "small_wife_178",
+      "wife_178",
+      "wife_178m1"
+    ]
+  },
+  {
+    "id": "wife_181",
+    "kind": "family",
+    "name": "Dante",
+    "title": "Archdemon of Gluttony",
+    "artGroups": [
+      "small_wife_181",
+      "wife_181",
+      "wife_181m1"
+    ]
+  },
+  {
+    "id": "wife_182",
+    "kind": "family",
+    "name": "Nonnette",
+    "title": "Healing Wind",
+    "artGroups": [
+      "small_wife_182",
+      "wife_182",
+      "wife_182m1"
+    ]
+  },
+  {
+    "id": "wife_6",
+    "kind": "family",
+    "name": "Will",
+    "title": "Loyal Dog",
+    "artGroups": [
+      "npc_japananniversary_wife_06",
+      "small_wife_06",
+      "small_wife_06_pre",
+      "wife_06",
+      "wife_06_pre"
+    ]
+  },
+  {
+    "id": "wife_60",
+    "kind": "family",
+    "name": "Wenreesa",
+    "title": "Windtraveler",
+    "artGroups": [
+      "small_wife_60",
+      "wife_60",
+      "wife_60c1",
+      "wife_60c2",
+      "wife_60c3",
+      "wife_60c4"
+    ]
+  },
+  {
+    "id": "wife_66",
+    "kind": "family",
+    "name": "Sachiko",
+    "title": "Happiness Bringer",
+    "artGroups": [
+      "small_wife_66",
+      "wife_66"
+    ]
+  },
+  {
+    "id": "wife_67",
+    "kind": "family",
+    "name": "Ria",
+    "title": "Diligent High Elf",
+    "artGroups": [
+      "small_wife_67",
+      "wife_67"
+    ]
+  },
+  {
+    "id": "wife_69",
+    "kind": "family",
+    "name": "momocakr",
+    "title": "momocakr",
+    "artGroups": []
+  },
+  {
+    "id": "wife_71",
+    "kind": "family",
+    "name": "Orpheus",
+    "title": "Echo of the Sea",
+    "artGroups": [
+      "small_wife_71",
+      "wife_71",
+      "wife_71c1"
+    ]
+  },
+  {
+    "id": "wife_183",
+    "kind": "family",
+    "name": "Hattie",
+    "title": "",
+    "artGroups": [
+      "wife_183"
+    ]
+  },
+  {
+    "id": "wife_211",
+    "kind": "family",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "wife_212",
+    "kind": "family",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "wife_213",
+    "kind": "family",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "wife_214",
+    "kind": "family",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "wife_215",
+    "kind": "family",
+    "name": "TBD",
+    "title": "",
+    "artGroups": []
+  },
+  {
+    "id": "hero_261",
+    "kind": "fellow",
+    "name": "hero_261",
+    "title": "",
+    "artGroups": [
+      "hero_261m3_back"
+    ]
+  },
+  {
+    "id": "wife_147",
+    "kind": "family",
+    "name": "wife_147",
+    "title": "",
+    "artGroups": [
+      "small_wife_147"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "policyVersion": 1,
+  "source": "Recovered APK1.7702 BuildingBase.yield.count; five source hashes in staffing-cost-audit",
+  "rates": {
+    "Building_101": 1,
+    "Building_201": 2,
+    "Building_301": 3,
+    "Building_401": 4,
+    "Building_501": 6,
+    "Building_601": 8,
+    "Building_701": 10,
+    "Building_801": 15,
+    "Building_901": 20,
+    "Building_1001": 25,
+    "Building_1101": 30,
+    "Building_1201": 35,
+    "Building_1301": 40,
+    "Building_1401": 50,
+    "Building_1501": 60,
+    "Building_1601": 70,
+    "Building_1701": 80
+  }
+}

@@ -1,0 +1,818 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "records": {
+    "Item_Weapon_Equipment_1_1": {
+      "initial": 2,
+      "perLevel": 1,
+      "ore": 10,
+      "recycle": 5,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/goblin-club/",
+      "pageSha256": "927bf7abf7e2c98f63a816760d95782246886c99eadb0bb069582bb2d2c58f4d",
+      "rarity": "N"
+    },
+    "Item_Weapon_Equipment_1_2": {
+      "initial": 2,
+      "perLevel": 1,
+      "ore": 10,
+      "recycle": 5,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dwarf-hammer/",
+      "pageSha256": "cd8da42ffb9c80af3c273f320893cc4749110ea0042a1fee6c7d35e4866a9d20",
+      "rarity": "N"
+    },
+    "Item_Weapon_Equipment_1_3": {
+      "initial": 2,
+      "perLevel": 1,
+      "ore": 10,
+      "recycle": 5,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/kemono-drum/",
+      "pageSha256": "04408d09e6d664eacc9f33b68c2bd09b82911188626e651206990ed2679494cb",
+      "rarity": "N"
+    },
+    "Item_Weapon_Equipment_2_1": {
+      "initial": 4,
+      "perLevel": 2,
+      "ore": 20,
+      "recycle": 10,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/felling-axe/",
+      "pageSha256": "3be575050c37002912fe0b3259e733bf60ae78fd992a05411430a75b4d0a917a",
+      "rarity": "R"
+    },
+    "Item_Weapon_Equipment_2_2": {
+      "initial": 4,
+      "perLevel": 2,
+      "ore": 20,
+      "recycle": 10,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/herbalist-s-mortar/",
+      "pageSha256": "c586a596146c255e96deab39e65b0b30f6fc05da12c7cdea4a905132f517fbac",
+      "rarity": "R"
+    },
+    "Item_Weapon_Equipment_2_3": {
+      "initial": 4,
+      "perLevel": 2,
+      "ore": 20,
+      "recycle": 10,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/snow-boots/",
+      "pageSha256": "b7ca71535f3c23ad223f301ac6ce4258fb78ea3f862555eede6cd48b11ee7a38",
+      "rarity": "R"
+    },
+    "Item_Weapon_Equipment_3_1": {
+      "initial": 6,
+      "perLevel": 3,
+      "ore": 30,
+      "recycle": 15,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/nocturnal-lantern/",
+      "pageSha256": "48daafc1a254fdc250f53573a0576b0965eac5d920dd510f4a866c3d26e1f789",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_3_2": {
+      "initial": 6,
+      "perLevel": 3,
+      "ore": 30,
+      "recycle": 15,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/preliminary-textbook/",
+      "pageSha256": "21b30e22a3f0323958f467696ea9efe08db0fdca613e952e5a1aa5c941cb8371",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_3_3": {
+      "initial": 6,
+      "perLevel": 3,
+      "ore": 30,
+      "recycle": 15,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/refined-anvil/",
+      "pageSha256": "6c8f6729cb294f4a3c68c14f08ebb533e5548b72ea48706d0f24dcf09c723a9f",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_3_4": {
+      "initial": 6,
+      "perLevel": 3,
+      "ore": 30,
+      "recycle": 15,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/maid-bell/",
+      "pageSha256": "d3b232e4ca8ab2c4626b0acb01ceb5368b836d2ff8c9aff587feb1e0e35f9ecf",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_4_1": {
+      "initial": 8,
+      "perLevel": 4,
+      "ore": 40,
+      "recycle": 20,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/craftsman-s-goggles/",
+      "pageSha256": "450ceb3fc3c75da1d1db3c2c9df21ba33789f7793dd083905be6631cd90aeaec",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_4_2": {
+      "initial": 8,
+      "perLevel": 4,
+      "ore": 40,
+      "recycle": 20,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/infinite-quiver/",
+      "pageSha256": "21fb8615293559bd18b05c388e17fd7102ca3bff9459456973a9f43f4f48f0c3",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_4_3": {
+      "initial": 8,
+      "perLevel": 4,
+      "ore": 40,
+      "recycle": 20,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/ancient-slate/",
+      "pageSha256": "20794a5f0124cdab16e7f32b022a2cbacebdc613a60161fd758b77153dfe3fd8",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_4_4": {
+      "initial": 8,
+      "perLevel": 4,
+      "ore": 40,
+      "recycle": 20,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/invigorating-harp/",
+      "pageSha256": "95cc04d681b0980ceeff4cd44c17be7ca271c49d706caeb6a879022cad09dd85",
+      "rarity": "SR"
+    },
+    "Item_Weapon_Equipment_5_1": {
+      "initial": 10,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 25,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/master-key/",
+      "pageSha256": "17dda9af0f894b2840e1f4d7a3815ada52431b131738251caa4d467b9a5777a2",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_5_2": {
+      "initial": 12,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 30,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/magic-pendant/",
+      "pageSha256": "55e15ee92cdac8c2dbe41f0381f286a60c8ba9c061736f1b1a97f83a7d0ffb89",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_5_3": {
+      "initial": 14,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 35,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/lucky-horseshoe/",
+      "pageSha256": "edafb8e60115629e5db631afd1303548578eb1b301f9b465ef8d72aacb4c1c96",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_5_4": {
+      "initial": 16,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 40,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/psychical-orbuculum/",
+      "pageSha256": "4bfa36d98bc981d4f2418d06ad71a8c12b1c89c3d3ab8a7aea9c7e1ca161667c",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_5_5": {
+      "initial": 16,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 50,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giant-thermal-stone/",
+      "pageSha256": "f968e50ce139d1db90eec62a7293cac147797b76a7185a4f064442f9fee53f64",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_5_7": {
+      "initial": 16,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 40,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/space-portal/",
+      "pageSha256": "126d2b2130c7a68a4d3d5bbeb6b10bd0f3c59c3df2ad020820c0313a5bfc818b",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_5_6": {
+      "initial": 16,
+      "perLevel": 5,
+      "ore": 50,
+      "recycle": 40,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/uchine/",
+      "pageSha256": "d60903d34274f14ee20005327ce0a41ac98f641e083520fa12188652340b0976",
+      "rarity": "SSR"
+    },
+    "Item_Weapon_Equipment_6_1": {
+      "initial": 20,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 200,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/meowna-lisa/",
+      "pageSha256": "e79d1cfa3fa7d83172793dcf63cec808c651f6136d96c2736c0b4c85f2594023",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_2": {
+      "initial": 25,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 250,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/cloak-of-levitation/",
+      "pageSha256": "7a3629a7bf0031d0d3b9412cada7ef87546450d82eb17692b794fe5edced3abf",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_3": {
+      "initial": 30,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 300,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mask-of-nobility/",
+      "pageSha256": "4ba5d5df8d766a7379f2e2463f8576b0b671541f32509da26269039235e2bf30",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_4": {
+      "initial": 35,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 350,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mermaid-s-tear/",
+      "pageSha256": "e10db67a65d8456f33114f0beaef5f9093ee83961b5de79ce129667de58bfa87",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_5": {
+      "initial": 45,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": null,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/sapphire-crown/",
+      "pageSha256": "2a597f2050ff1a0e01d0985ac6d668ff6f02019fee0fcc15283a69a0eb760c52",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_6": {
+      "initial": 20,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 200,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/draupnir/",
+      "pageSha256": "489c905135814c0f20d9c5376ece7f2fe79de605d164b555e986ff9a0282ab5a",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_7": {
+      "initial": 25,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 250,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/cane-of-abundance/",
+      "pageSha256": "b7c917df394e0ba4fca2db129643ee450c73dee58f6643f2d8ee74361b01739f",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_11": {
+      "initial": 25,
+      "perLevel": 6,
+      "ore": 60,
+      "recycle": 250,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/universal-farming-tool/",
+      "pageSha256": "60a754319b562fa69f4d9d5f8ae0785f4580e3a6920e48a37d33e10b26975c52",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_21": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/allucia-s-sword/",
+      "pageSha256": "97aff99ac2fe3ca4677505a97a8ee094e1e4ba950cd82a3acad9bae10b54f936",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_26": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/alvs-eustitia/",
+      "pageSha256": "cc047b32f2fd244cce4462902022420c0401440418d1268c5db25ba28dafa762",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_16": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/anti-magic-mask/",
+      "pageSha256": "f7bad80e76f2f25e0498a2ce31e3704bb01c5e97cc714a748634d04fce6a9cfa",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_25": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/desperate/",
+      "pageSha256": "bfb5df267edf9fc3a8272c8f921d2833f1b583f798321f425fedf2f4ce8dab84",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_19": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/diablo-s-doll/",
+      "pageSha256": "4120b5569af335c90d721bb37f0e2ab57879d1e744072ce451adea148e88a142",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_17": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-knuckles-replica/",
+      "pageSha256": "f06a0c30130cf080d5aeaf3329f28eb8eec7b2f6f43bff190df47609a4b1e4a9",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_13": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/elma-plush/",
+      "pageSha256": "e94012ca308a1d008f911dcb04893c69f0dbed2358a68360d0e02b24ad75a90e",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_38": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/emiru-plushie/",
+      "pageSha256": "75bcde41207b3abe1658c5481b98390e287df698c6be596e09c6d909ee7f2dab",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_14": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/fafnir-plush/",
+      "pageSha256": "bb630ab5f10004638abfd48c0a855a76d16a43900562691877c59807b5425977",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_7_1": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/golden-apple/",
+      "pageSha256": "eb758c675eea1527fb682f42b5b10f546febabedd76ed84ee698d8da244a2454",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_23": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/golden-microphone/",
+      "pageSha256": "c3151fb10cee694e0b5d6db27ff885dd34d033ef3f6b587aa68e62174ddf342c",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_27": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hestia-s-doll/",
+      "pageSha256": "248936996f7cec69da5c686cf25ad133f26586366891f6ca4a378b3116d557fd",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_12": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/kanna-plush/",
+      "pageSha256": "15e15faf075e659681a77346a3868e40a8f6cbdbf21a658ddd7b86a3758540e1",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_28": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/liliruca-s-doll/",
+      "pageSha256": "610fe3caf0eb6d993d38e617eeb15306d3f849b7c65e7d86a4e39a566e062968",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_9": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mio-s-iron-fan/",
+      "pageSha256": "fb864d0dbcd0d06601b371f57f59bd964caf0826ab9307e19e38e27c4f26d2c9",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_24": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/rica-s-plushie/",
+      "pageSha256": "770b97769d266fb499d706f73d2706d9b6d9f032191d45d10184e589bf93e776",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_10": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shiki-s-crown/",
+      "pageSha256": "21bcf15eb71558d3bcf97f9595686fa0f405a2a4c3e84d8827acb31e2c448e62",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_18": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shuna-s-doll/",
+      "pageSha256": "8b4a9344ff10318e02b381280acfa4d343b2e46b058f8bb227931661ae246fb2",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_22": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/surena-s-twin-dragonblade/",
+      "pageSha256": "4adbf812812360df25501b5fded76a94683ee3d8f73574a944ee0a67835a63e5",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_15": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tohru-plush/",
+      "pageSha256": "ef10fdd4411aec41bc5cdb0803f70c283006894b5add87f21c9d9fed0f8ee919",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_8": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tomoe-s-katana/",
+      "pageSha256": "cd8d02c912dc71da5d3d55b2a032181176864c945057b3778840f94a80427c85",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_29": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/willful-dice/",
+      "pageSha256": "e472b25902d836963dd198bb4bc24d00932283bfb829f425a32a3aa0b499983b",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_7_2": {
+      "initial": 55,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 550,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/horn-of-plenty/",
+      "pageSha256": "450a174bbf93b63eecd8e6ab3e90d18fe33a7f4b0a6be97e4f5053eae1514bc4",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_20": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/beryl-s-sword/",
+      "pageSha256": "8c5b06523b8ce252af09ba545596c1f7bdffad56790ef7124a1bfa3c40e6aede",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_7_3": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/magic-lamp/",
+      "pageSha256": "c1a65148b0be998a72f2a154544ac9fa22cb3e896114d8827f042ed801f7c531",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_7_4": {
+      "initial": 55,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 550,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-summon-horn/",
+      "pageSha256": "c7e16e1b173e33db1050cc2df6ec9fe75483b2b588763c6ee262847764cf201b",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_7_5": {
+      "initial": 70,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 700,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-tamer-s-scepter/",
+      "pageSha256": "cc304f1b1e303c3d648ee49c45e4ba5623bc9894aacf1418cc3d5bb79c14bb03",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_7_6": {
+      "initial": 70,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 700,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/ring-of-spirit-submission/",
+      "pageSha256": "1a9c849b3600478d0982009762ff4a9d78dbc2cc5d1603621da62d2d6352efcd",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_50": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/divine-vintage-wine/",
+      "pageSha256": "bcb8b1505449c8fad08674b8126f2738adaa249ef7d0931d3ede7c03a4cb036a",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H262": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/icefang-necklace/",
+      "pageSha256": "047158f062bacfac3a450b1223deb8bd01bcce12e409b6030895403986789bb7",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_30": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/mushroom-staff/",
+      "pageSha256": "01a09003e9b2267ddeb2a332f217296c895f41e6d8bb4e15f050b16ae0161dce",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H259": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/true-love-trap/",
+      "pageSha256": "e079b9d7fddd310e8443e3f4c644a58ed227518b62cc25e42cc370a7a9d1be79",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_31": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/kuromi-s-doll/",
+      "pageSha256": "b47bdea9eaf9277c899a9421b45db6f70556c4706eccf3f3b6a28430d589125d",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_32": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/cinnamoroll-s-doll/",
+      "pageSha256": "b826efd989c736fffb718a1bf2552c7128c7994d216e1b9df64371b82d3f439a",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_33": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/pompompurin-s-doll/",
+      "pageSha256": "efc446f98c6fd957ba15618d112c22b39322ce2cb4417df8e6240995b12f1902",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_34": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hello-kitty-s-doll/",
+      "pageSha256": "65355c926dd262de92f62bf3b7dc19657c0de3a9aeea1f7bf6fc0e6505ef0699",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_35": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/my-melody-s-doll/",
+      "pageSha256": "ad11a94c2ed9c893abcc3e4b941752d717fbbe2445c90704964fd2476c4a20aa",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_36": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tuxedosam-s-doll/",
+      "pageSha256": "c1cc9a05283f9ec0d5dc2f93e454832db17debc207bbdc4952bfe39b669d9ded",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_37": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/pochacco-s-doll/",
+      "pageSha256": "3ed700fca1a6ae1578d1c281f56dddef6867ccf1469109d610d4a338cb65be4e",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_40": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/dragon-scale-scarf/",
+      "pageSha256": "a0830397f2f2d4e7c88c56ea6dcbed0115ed2a38b80e7b19df5f49457553793b",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_41": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/silver-necklace/",
+      "pageSha256": "b2dcbe90918be28c919b15511af8ff5190b8ba87aec774e307069baeef465e7e",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_42": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/demon-blade-benizakura/",
+      "pageSha256": "722c0f758ee68eacbe71208e36bcec44a70aeab147d8464a1764c2e0e931eb21",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_43": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/lucy-doll/",
+      "pageSha256": "0a31deb263b71b17f31bb830c884aaa34df08652a75b4626a43789059453bfaa",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_45": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/roxy-s-wand/",
+      "pageSha256": "f2e2239b33b647feb98f32e0c479130fe5d0ff5310c1f7fa50dec00d57e1dc28",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_46": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/paul-s-sword/",
+      "pageSha256": "e07090804ccccb4cc346d9d6490d40b63f0278011a83f579c27466235c98f979",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_47": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/hachigane/",
+      "pageSha256": "3c2672281a96f8162c7a61554e522a2eeceb6cb062750220f22a416b5f4d7bb7",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_48": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/aqua-heartia/",
+      "pageSha256": "5c598dc3873b345c690bf07143a202049dee1cadbbe2eae4b53e737eb8453f93",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_49": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/sylphiette-greyrat-figure/",
+      "pageSha256": "4795b5a0c1ece7796d7c2ac1e232724463ed1ee1a48346933a3387b9dc6ba572",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H260": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/aqua-plushie/",
+      "pageSha256": "2be26853030005d267b3748c11c5312f3ce4adbf57ff8ceb200d7491049ee18b",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_W174": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/megumin-plushie/",
+      "pageSha256": "a066b3d5f939513b2c2ec3b4b64b2e87636e5d4b013a4f770e6b831745a5b870",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_51": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/veldora-s-cloak/",
+      "pageSha256": "319bc07e281560def3743c54e9ac9f7dcec38e80c6c4e2cafbfea99ec72cb0d2",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H184": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/chunchunmaru/",
+      "pageSha256": "c510ff83413199b12914c9254a29edf348dfab166a7ddb81ca1029eec4425789",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_52": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shion-plushie/",
+      "pageSha256": "5e774a6037282636467c45c24b76baa850c10048d73bb3c40161c87356f4cac3",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H263": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/chisato-nishikigi-s-pistol/",
+      "pageSha256": "ea3c991b3b116bd57166b4c7526e33febf29345419e4cf76cfed831b76c0b671",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_W184": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/takina-inoue-plushie/",
+      "pageSha256": "f09bc358b9eeec831f82eb9faeb0a0c5b4a9407f6ef25e50b6f5c03371d25ddc",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H264": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shinobu-kocho-s-nichirin-sword/",
+      "pageSha256": "daa1be73c1e8b3fbc733d8e2ea63baaf80c33d8dd608f5f7e6a929cd958f0f90",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H301": {
+      "initial": 60,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 600,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giyu-tomioka-s-nichirin-sword/",
+      "pageSha256": "08d80f449406c9ad72047d2401c089f8b4033907a94a160b6d74e3331cee6ccb",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H302": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tanjiro-kamado-s-nichirin-sword/",
+      "pageSha256": "d3a10b49478068903b87e4722d52476f3788591cc5a26613f03261d7676b17de",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H303": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/zenitsu-agatsuma-s-nichirin-sword/",
+      "pageSha256": "279885fda50feaeca3ef5b2a35f9e47d1dcfac94b89be351d0db046aae80e95d",
+      "rarity": "UR"
+    },
+    "Item_Weapon_Equipment_6_H304": {
+      "initial": 50,
+      "perLevel": 7,
+      "ore": 70,
+      "recycle": 500,
+      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/inosuke-hashibira-s-nichirin-sword/",
+      "pageSha256": "a4cb24dc85016bb8466bff66d5b4b84fab70daa039e74e0dc8a70fa453070908",
+      "rarity": "UR"
+    }
+  },
+  "excludedWithoutLocalIdentity": [
+    "Item_Weapon_Equipment_6_17M1",
+    "Item_Weapon_Equipment_6_12M1",
+    "Item_Weapon_Equipment_6_H261",
+    "Item_Weapon_Equipment_6_H187",
+    "Item_Weapon_Equipment_6_H188",
+    "Item_Weapon_Equipment_6_W177",
+    "LegendaryItem_Weapon_Equipment_1_4",
+    "LegendaryItem_Weapon_Equipment_1_3",
+    "LegendaryItem_Weapon_Equipment_1_1",
+    "LegendaryItem_Weapon_Equipment_1_2"
+  ]
+}

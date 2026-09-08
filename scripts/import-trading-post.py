@@ -1,0 +1,5 @@
+from pathlib import Path
+import json,hashlib
+app=Path(__file__).resolve().parents[1];w=app.parents[1];p=w/'outputs/component-research/datasets/Rule.json';ip=w/'outputs/component-research/datasets/Item.json';items={r['id']:r['en'] for r in json.loads(ip.read_text())};id='Item_Gcoin_YieldPack_1';assert items['Item:name:'+id]=='Basic Earnings Card'
+out={'source':{'ruleSha256':hashlib.sha256(p.read_bytes()).hexdigest(),'itemSha256':hashlib.sha256(ip.read_bytes()).hexdigest(),'community':'https://isekai-slow-life-mgame.fandom.com/wiki/Trading_Post','access':'search-index content; first shop tier only; dated2024-01-23, not version matched','checked':'2026-09-08'},'rules':[r for r in json.loads(p.read_text()) if r['id'].startswith('Rule:text:CommercialWar_')],'shop':{'id':id,'name':items['Item:name:'+id],'price':30,'dailyLimit':10},'localOpponents':[{'id':'learner','name':'Apprentice merchant','power':50},{'id':'trader','name':'Market merchant','power':250},{'id':'veteran','name':'Veteran merchant','power':1000}]}
+(app/'lib/trading-post-data.json').write_text(json.dumps(out,indent=2)+'\n')

@@ -1,0 +1,644 @@
+{
+  "snapshot": "b49c78d0c06d535f6e1c62bdc9d5d666cd96e954",
+  "boundary": "Declared config initialization, signed-BP chance/subtraction/clamp, deterministic per-hit rolls and damage order are localcombat10policy. Icyowl recovered3turns overrides community2. No additional passives.",
+  "guardians": {
+    "critBP": 500,
+    "resistanceBP": 0,
+    "provenance": "authored local enemy balance"
+  },
+  "bases": [
+    {
+      "id": "Pet_1191",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_2391",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_3191",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_4151",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_4251",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_4351",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_11111",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_11131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_11141",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_11321",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_11331",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_12111",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_12131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_12141",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_12221",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_12231",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_13111",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_13131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_13141",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_13221",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_21121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_21131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_21231",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_21341",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_22121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_22131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_22241",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_23121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_23131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_23331",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_23341",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_31121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_31131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_31241",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_32121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_32131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_32331",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_32341",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_33121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_33131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_33231",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_33241",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_41121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_41131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_41141",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_42121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_42131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_42141",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_42331",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_43121",
+      "critBP": 0,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_43131",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_43141",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_43231",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8012901",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8021901",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8031901",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8041501",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8041502",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8041503",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8041504",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8041505",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "pinned community only"
+    },
+    {
+      "id": "Pet_8042501",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8042502",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8043501",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_8043502",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_9011901",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_9013901",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_9023401",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_9032901",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_9041501",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    },
+    {
+      "id": "Pet_9041502",
+      "critBP": 500,
+      "resistanceBP": 0,
+      "provenance": "recovered config corroborated by pinned community"
+    }
+  ],
+  "skills": [
+    {
+      "id": "Pet_4151",
+      "sourceSkill": "4151_1",
+      "name": "Frostbite",
+      "text": "Deals damage equal to [ATK * 180%] and inflicts [Damage Taken Up + 35%] to all enemies. Additionally, grants self [Crit Rate +50%] for 3 turns",
+      "sourceText": "Deals damage equal to [ATK * 180%] and inflicts [Damage Taken Up + 35%] to all enemies. Additionally, grants self [Crit Rate +50%] for 3 turns",
+      "minVersion": 10,
+      "kind": "damage",
+      "targeting": "all",
+      "targets": 5,
+      "percent": 180.0,
+      "effects": [
+        {
+          "sourceBuff": "4151_1_1",
+          "recipient": "self",
+          "kind": "crit",
+          "turns": 3,
+          "basisPoints": 5000
+        },
+        {
+          "sourceBuff": "4151_1_2",
+          "recipient": "primary",
+          "kind": "vulnerable",
+          "turns": 3,
+          "percent": 35.0
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/fenrir/index.html",
+      "sha256": "43dbef65b62c1c768bae858d9ce48b1da73180b4420df968475184d23a8bbacf"
+    },
+    {
+      "id": "Pet_11331",
+      "sourceSkill": "11331_1",
+      "name": "Chivalry",
+      "text": "Restores HP equal to [ATK * 400%] to the ally with the lowest HP and increases their [Crit Rate +30%] for 3 turns.",
+      "sourceText": "Restores HP equal to [ATK * 400%] to the ally with the lowest HP and increases their [Crit Rate +30%] for 3 turns.",
+      "minVersion": 10,
+      "kind": "heal",
+      "targeting": "lowest",
+      "targets": 1,
+      "percent": 400.0,
+      "effects": [
+        {
+          "sourceBuff": "11331_1_1",
+          "recipient": "primary",
+          "kind": "crit",
+          "turns": 3,
+          "basisPoints": 3000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/heartcoon/index.html",
+      "sha256": "594a80a3a5fd4c465ca97612309e75938c1b8a7710300de7331027a778a12280"
+    },
+    {
+      "id": "Pet_31131",
+      "sourceSkill": "31131_1",
+      "name": "Entangling Strike",
+      "text": "Deals damage equal to [ATK * 450%] to the enemy with the lowest HP and decreases the enemy's [CRIT RES -30%] for 3 turns.",
+      "sourceText": "Deals damage equal to [ATK * 450%] to the enemy with the lowest HP and decreases the enemy's [CRIT RES -30%] for 3 turns.",
+      "minVersion": 10,
+      "kind": "damage",
+      "targeting": "lowest",
+      "targets": 1,
+      "percent": 450.0,
+      "effects": [
+        {
+          "sourceBuff": "31131_1_1",
+          "recipient": "primary",
+          "kind": "critRes",
+          "turns": 3,
+          "basisPoints": -3000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/scarfmink/index.html",
+      "sha256": "84dd189b91b42b8fc53a0e590ce85ea92ef25f956cd08509759871286009c546"
+    },
+    {
+      "id": "Pet_31241",
+      "sourceSkill": "31241_1",
+      "name": "Ice Feather Armor",
+      "text": "Shields the 2 highest-Attack allies for 350% of caster Attack and grants them +40 percentage points of critical chance for 3 turns.",
+      "sourceText": "Grants shields that absorb damage up to [ATK * 350%] to the 2 highest-ATK allies and increases their [Crit Rate +40%] for 2 turns.",
+      "minVersion": 10,
+      "kind": "shield",
+      "targeting": "highestatk",
+      "targets": 2,
+      "percent": 0.0,
+      "effects": [
+        {
+          "sourceBuff": "31241_1_1",
+          "recipient": "primary",
+          "kind": "shield",
+          "turns": 3,
+          "percent": 350.0
+        },
+        {
+          "sourceBuff": "31241_1_2",
+          "recipient": "primary",
+          "kind": "crit",
+          "turns": 3,
+          "basisPoints": 4000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/icyowl/index.html",
+      "sha256": "ca4f8d3e102119e869f29730257e678ed7c5655150b340250ab17a52b0c07083"
+    },
+    {
+      "id": "Pet_41141",
+      "sourceSkill": "41141_1",
+      "name": "Meteor Blessing",
+      "text": "Deals [ATK*300%] damage to 2 random enemies in the back row, and increases own [CRIT Rate by 40%] for 3 turns.",
+      "sourceText": "Deals [ATK*300%] damage to 2 random enemies in the back row, and increases own [CRIT Rate by 40%] for 3 turns.",
+      "minVersion": 10,
+      "kind": "damage",
+      "targeting": "randomBack",
+      "targets": 2,
+      "percent": 300.0,
+      "effects": [
+        {
+          "sourceBuff": "41141_1_1",
+          "recipient": "self",
+          "kind": "crit",
+          "turns": 3,
+          "basisPoints": 4000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/meteostrich/index.html",
+      "sha256": "89e20d6a95c67884e3f3f75d66dbc4d867c618b5e121e10346b21448e2644f3b"
+    },
+    {
+      "id": "Pet_42331",
+      "sourceSkill": "42331_1",
+      "name": "Pointed Guardian",
+      "text": "Grants a shield to all front-row allies, absorbing up to [ATK*250%] damage and increasing their [Crit Resistance by 30%] for 3 turns.",
+      "sourceText": "Grants a shield to all front-row allies, absorbing up to [ATK*250%] damage and increasing their [Crit Resistance by 30%] for 3 turns.",
+      "minVersion": 10,
+      "kind": "shield",
+      "targeting": "front",
+      "targets": 3,
+      "percent": 0.0,
+      "effects": [
+        {
+          "sourceBuff": "42331_1_1",
+          "recipient": "primary",
+          "kind": "shield",
+          "turns": 3,
+          "percent": 250.0
+        },
+        {
+          "sourceBuff": "42331_1_2",
+          "recipient": "primary",
+          "kind": "critRes",
+          "turns": 3,
+          "basisPoints": 3000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/cactora/index.html",
+      "sha256": "cdcb2cd435c89f42dd5f44e65a232b1b15f27e3dd622e765614fa0e18b37180b"
+    },
+    {
+      "id": "Pet_43131",
+      "sourceSkill": "43131_1",
+      "name": "Fiery Grilled",
+      "text": "Deals [ATK*450%] damage to a random enemy in the back row, and reduces their [Crit by 30%] for 3 turns.",
+      "sourceText": "Deals [ATK*450%] damage to a random enemy in the back row, and reduces their [Crit by 30%] for 3 turns.",
+      "minVersion": 10,
+      "kind": "damage",
+      "targeting": "randomBack",
+      "targets": 1,
+      "percent": 450.0,
+      "effects": [
+        {
+          "sourceBuff": "43131_1_1",
+          "recipient": "primary",
+          "kind": "crit",
+          "turns": 3,
+          "basisPoints": -3000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/charcozard/index.html",
+      "sha256": "05cf379691ef1a65755147fba563df23be401dd3cd71472a131978179ac67b12"
+    },
+    {
+      "id": "Pet_43141",
+      "sourceSkill": "43141_1",
+      "name": "Clang Crystal",
+      "text": "Deals 270% Attack damage to up to 2 front-row enemies and reduces their critical resistance by 40 percentage points for 3 turns.",
+      "sourceText": "Deals [ATK*270%] damage to all front row enemies and reduces their [Crit Resistance] by 40% for 3 turns.",
+      "minVersion": 10,
+      "kind": "damage",
+      "targeting": "front",
+      "targets": 2,
+      "percent": 270.0,
+      "effects": [
+        {
+          "sourceBuff": "43141_1_1",
+          "recipient": "primary",
+          "kind": "critRes",
+          "turns": 3,
+          "basisPoints": -4000
+        }
+      ],
+      "source": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/familiars/rhinocryst/index.html",
+      "sha256": "5dedede5e6430c3c577c22f3ea3f23637736c0450d5ccca8404c1940aa2617aa"
+    }
+  ]
+}

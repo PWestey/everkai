@@ -1,0 +1,5109 @@
+{
+  "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/expo/index.html",
+  "sha256": "eb767ee1447324bb22eb42a4352a50599a1cc102781e40b7b014a1c0820c2a01",
+  "limits": "Community rows; not verified version-matched formulas. Only stages1\u20135 playable. Customer simulation, progression gating and coin upgrades local.",
+  "stalls": [
+    {
+      "id": "Stall402",
+      "name": "Time String Melody",
+      "goods": "Gifts",
+      "base": 15.0,
+      "step": 1.5,
+      "maxLevel": 100,
+      "evidence": "Time String Melody Gifts SSR+ Stall402 Time String Melody Stall402 \u00b7 Gifts \u00b7 SSR+ Stats Attack CD: 1s Max level: 100 Max power bonus: 163.5% Special Buff When assigning Tigirl, Sales Ability +25%. Sources Kemomimi Village Ceremony Stall gacha Lv 12; Featured Level Growth Power bonus 15% (+1.5%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall801",
+      "name": "Slime-Chewed Coffee",
+      "goods": "Beverage",
+      "base": 15.0,
+      "step": 1.5,
+      "maxLevel": 100,
+      "evidence": "Slime-Chewed Coffee Beverage SSR+ Stall801 Slime-Chewed Coffee Stall801 \u00b7 Beverage \u00b7 SSR+ Stats Attack CD: 1s Max level: 100 Max power bonus: 163.5% Special Buff Slime Coffee Stall Bond When assigning Fellows of [Visitor of Tempest], Sales Ability +25% Sources Camping with A Slime Stall gacha Lv 10; Stall gacha Lv 15; Stall gacha Lv 20; Featured Level Growth Power bonus 15% (+1.5%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall403",
+      "name": "Ceremony Cake Shop",
+      "goods": "Food",
+      "base": 15.0,
+      "step": 1.5,
+      "maxLevel": 100,
+      "evidence": "Ceremony Cake Shop Food SSR+ Stall403 Ceremony Cake Shop Stall403 \u00b7 Food \u00b7 SSR+ Stats Attack CD: 1s Max level: 100 Max power bonus: 163.5% Special Buff When assigning Jewlry, Sales Ability +25%. Sources Kemomimi Village Ceremony Stall gacha Lv 15; Featured Level Growth Power bonus 15% (+1.5%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall502",
+      "name": "Fruit platter shop",
+      "goods": "Food",
+      "base": 15.0,
+      "step": 1.5,
+      "maxLevel": 100,
+      "evidence": "Fruit platter shop Food SSR+ Stall502 Fruit platter shop Stall502 \u00b7 Food \u00b7 SSR+ Stats Attack CD: 1s Max level: 100 Max power bonus: 163.5% Special Buff When assigning Hakuren, Sales Ability +25%. Sources Build! A Leisurely Countryside Village! Event unlock; Stall gacha Lv 15; Stall gacha Lv 20; Featured Leisurely Village! Stall gacha Lv 15; Stall gacha Lv 20; Featured Level Growth Power bonus 15% (+1.5%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall602",
+      "name": "Hiemspresent Dryad",
+      "goods": "Food",
+      "base": 15.0,
+      "step": 1.5,
+      "maxLevel": 100,
+      "evidence": "Hiemspresent Dryad Food SSR+ Stall602 Hiemspresent Dryad Stall602 \u00b7 Food \u00b7 SSR+ Stats Attack CD: 1s Max level: 100 Max power bonus: 163.5% Special Buff 602\u5854\u7d46 When assigning Fellows of Dragons of Friendship, Sales Ability +25%. Sources Dragon Maid on Hiemspresent Event unlock; Stall gacha Lv 10; Stall gacha Lv 15; Stall gacha Lv 20; Featured Level Growth Power bonus 15% (+1.5%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall702",
+      "name": "Mermaid Seafood",
+      "goods": "Food",
+      "base": 15.0,
+      "step": 1.5,
+      "maxLevel": 100,
+      "evidence": "Mermaid Seafood Food SSR+ Stall702 Mermaid Seafood Stall702 \u00b7 Food \u00b7 SSR+ Stats Attack CD: 1s Max level: 100 Max power bonus: 163.5% Special Buff Mermaid Seafood When assigning Fellows of Divine Gospel, Sales Ability +25%. Sources \u6c37\u96ea\u306e\u753a\u6821\u5916\u5b9f\u7fd2\uff5e\u9811\u5f35\u308c\uff01\u30e2\u30f3\u30b9\u30bf\u30fc\u5a18\uff01 Stall gacha Lv 10; Stall gacha Lv 15; Stall gacha Lv 20; Featured Level Growth Power bonus 15% (+1.5%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall206",
+      "name": "Adventurer's Potion",
+      "goods": "Beverage",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Adventurer's Potion Beverage SSR Stall206 Adventurer's Potion Stall206 \u00b7 Beverage \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Diligent Dynamo, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall207",
+      "name": "Isekai Drinks",
+      "goods": "Beverage",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Isekai Drinks Beverage SSR Stall207 Isekai Drinks Stall207 \u00b7 Beverage \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Otherworld Valiants, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall208",
+      "name": "Archdemon Wine & Restaurant",
+      "goods": "Beverage",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Archdemon Wine & Restaurant Beverage SSR Stall208 Archdemon Wine & Restaurant Stall208 \u00b7 Beverage \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Archdemon, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall106",
+      "name": "Adventurer BBQ",
+      "goods": "Food",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Adventurer BBQ Food SSR Stall106 Adventurer BBQ Stall106 \u00b7 Food \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Diligent Dynamo, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall107",
+      "name": "Isekai Noodles",
+      "goods": "Food",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Isekai Noodles Food SSR Stall107 Isekai Noodles Stall107 \u00b7 Food \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Otherworld Valiants, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall108",
+      "name": "Archdemon\u2019s Mille-Feuille",
+      "goods": "Food",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Archdemon\u2019s Mille-Feuille Food SSR Stall108 Archdemon\u2019s Mille-Feuille Stall108 \u00b7 Food \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Archdemon, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall306",
+      "name": "Adventurer's Firearm",
+      "goods": "Gifts",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Adventurer's Firearm Gifts SSR Stall306 Adventurer's Firearm Stall306 \u00b7 Gifts \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Diligent Dynamo, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall307",
+      "name": "Fantastic Arcade",
+      "goods": "Gifts",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Fantastic Arcade Gifts SSR Stall307 Fantastic Arcade Stall307 \u00b7 Gifts \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Otherworld Valiants, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall308",
+      "name": "Dragon Scale Shield",
+      "goods": "Gifts",
+      "base": 11.0,
+      "step": 0.55,
+      "maxLevel": 200,
+      "evidence": "Dragon Scale Shield Gifts SSR Stall308 Dragon Scale Shield Stall308 \u00b7 Gifts \u00b7 SSR Stats Attack CD: 1s Max level: 200 Max power bonus: 120.5% Special Buff When assigning Fellows of Archdemon, Sales Ability +20%. Sources Standard stall gacha Level Growth Power bonus 11% (+0.55%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall401",
+      "name": "Dream Fountain",
+      "goods": "Beverage",
+      "base": 12.0,
+      "step": 1.2,
+      "maxLevel": 100,
+      "evidence": "Dream Fountain Beverage SSR Stall401 Dream Fountain Stall401 \u00b7 Beverage \u00b7 SSR Stats Attack CD: 1s Max level: 100 Max power bonus: 130.8% Special Buff When assigning Fellows of Ancient Magi, Sales Ability +20%. Sources Kemomimi Village Ceremony Stall gacha Lv 8; Featured Level Growth Power bonus 12% (+1.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall501",
+      "name": "Angel Night Light",
+      "goods": "Gifts",
+      "base": 12.0,
+      "step": 1.2,
+      "maxLevel": 100,
+      "evidence": "Angel Night Light Gifts SSR Stall501 Angel Night Light Stall501 \u00b7 Gifts \u00b7 SSR Stats Attack CD: 1s Max level: 100 Max power bonus: 130.8% Special Buff When assigning Fellows of Ancient Magi, Sales Ability +20%. Sources Build! A Leisurely Countryside Village! Stall gacha Lv 8; Featured Leisurely Village! Stall gacha Lv 8; Featured Level Growth Power bonus 12% (+1.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall601",
+      "name": "Lava Giant's Turkey",
+      "goods": "Gifts",
+      "base": 12.0,
+      "step": 1.2,
+      "maxLevel": 100,
+      "evidence": "Lava Giant's Turkey Gifts SSR Stall601 Lava Giant's Turkey Stall601 \u00b7 Gifts \u00b7 SSR Stats Attack CD: 1s Max level: 100 Max power bonus: 130.8% Special Buff 601\u5854\u7d46 When assigning Fellows of Dragons of Friendship, Sales Ability +20%. Sources Dragon Maid on Hiemspresent Event unlock; Stall gacha Lv 5; Featured Level Growth Power bonus 12% (+1.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall701",
+      "name": "Frost Monster Shaved Ice",
+      "goods": "Beverage",
+      "base": 12.0,
+      "step": 1.2,
+      "maxLevel": 100,
+      "evidence": "Frost Monster Shaved Ice Beverage SSR Stall701 Frost Monster Shaved Ice Stall701 \u00b7 Beverage \u00b7 SSR Stats Attack CD: 1s Max level: 100 Max power bonus: 130.8% Special Buff Frost Monster Shaved Ice When assigning Fellows of Followers, Sales Ability +20%. Sources \u6c37\u96ea\u306e\u753a\u6821\u5916\u5b9f\u7fd2\uff5e\u9811\u5f35\u308c\uff01\u30e2\u30f3\u30b9\u30bf\u30fc\u5a18\uff01 Stall gacha Lv 5; Featured Level Growth Power bonus 12% (+1.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall203",
+      "name": "Pirate Pub",
+      "goods": "Beverage",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Pirate Pub Beverage SR Stall203 Pirate Pub Stall203 \u00b7 Beverage \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Anne, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall204",
+      "name": "Maid Caf\u00e9",
+      "goods": "Beverage",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Maid Caf\u00e9 Beverage SR Stall204 Maid Caf\u00e9 Stall204 \u00b7 Beverage \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Loya, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall205",
+      "name": "Pearl Milk Tea Shop",
+      "goods": "Beverage",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Pearl Milk Tea Shop Beverage SR Stall205 Pearl Milk Tea Shop Stall205 \u00b7 Beverage \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Trady, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall103",
+      "name": "Igloo Biscuit Shop",
+      "goods": "Food",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Igloo Biscuit Shop Food SR Stall103 Igloo Biscuit Shop Stall103 \u00b7 Food \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Emosen, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall104",
+      "name": "Jewel Chocolate Shop",
+      "goods": "Food",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Jewel Chocolate Shop Food SR Stall104 Jewel Chocolate Shop Stall104 \u00b7 Food \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Jewlry, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall105",
+      "name": "Dragonfire Steak",
+      "goods": "Food",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Dragonfire Steak Food SR Stall105 Dragonfire Steak Stall105 \u00b7 Food \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Mescal, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall303",
+      "name": "Self-Moving Quill Shop",
+      "goods": "Gifts",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Self-Moving Quill Shop Gifts SR Stall303 Self-Moving Quill Shop Stall303 \u00b7 Gifts \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Ida, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall304",
+      "name": "Eternal Flowers Shop",
+      "goods": "Gifts",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Eternal Flowers Shop Gifts SR Stall304 Eternal Flowers Shop Stall304 \u00b7 Gifts \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Augustine, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall305",
+      "name": "Magic Ore Shop",
+      "goods": "Gifts",
+      "base": 7.6,
+      "step": 0.38,
+      "maxLevel": 200,
+      "evidence": "Magic Ore Shop Gifts SR Stall305 Magic Ore Shop Stall305 \u00b7 Gifts \u00b7 SR Stats Attack CD: 1s Max level: 200 Max power bonus: 83.22% Special Buff When assigning Mammon, Sales Ability +10%. Sources Standard stall gacha Level Growth Power bonus 7.6% (+0.38%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall202",
+      "name": "Slime Juice Shop",
+      "goods": "Beverage",
+      "base": 5.0,
+      "step": 0.25,
+      "maxLevel": 200,
+      "evidence": "Slime Juice Shop Beverage R Stall202 Slime Juice Shop Stall202 \u00b7 Beverage \u00b7 R Stats Attack CD: 1s Max level: 200 Max power bonus: 54.75% Sources Standard stall gacha Level Growth Power bonus 5% (+0.25%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall102",
+      "name": "Takoyaki Mochi Shop",
+      "goods": "Food",
+      "base": 5.0,
+      "step": 0.25,
+      "maxLevel": 200,
+      "evidence": "Takoyaki Mochi Shop Food R Stall102 Takoyaki Mochi Shop Stall102 \u00b7 Food \u00b7 R Stats Attack CD: 1s Max level: 200 Max power bonus: 54.75% Sources Standard stall gacha Level Growth Power bonus 5% (+0.25%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall302",
+      "name": "Fire Seed Shop",
+      "goods": "Gifts",
+      "base": 5.0,
+      "step": 0.25,
+      "maxLevel": 200,
+      "evidence": "Fire Seed Shop Gifts R Stall302 Fire Seed Shop Stall302 \u00b7 Gifts \u00b7 R Stats Attack CD: 1s Max level: 200 Max power bonus: 54.75% Sources Standard stall gacha Level Growth Power bonus 5% (+0.25%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall201",
+      "name": "Lemonade Treehouse",
+      "goods": "Beverage",
+      "base": 4.0,
+      "step": 0.2,
+      "maxLevel": 200,
+      "evidence": "Lemonade Treehouse Beverage N Stall201 Lemonade Treehouse Stall201 \u00b7 Beverage \u00b7 N Stats Attack CD: 1s Max level: 200 Max power bonus: 43.8% Sources Standard stall gacha Level Growth Power bonus 4% (+0.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall101",
+      "name": "Fifi Burger Shop",
+      "goods": "Food",
+      "base": 4.0,
+      "step": 0.2,
+      "maxLevel": 200,
+      "evidence": "Fifi Burger Shop Food N Stall101 Fifi Burger Shop Stall101 \u00b7 Food \u00b7 N Stats Attack CD: 1s Max level: 200 Max power bonus: 43.8% Sources Standard stall gacha Level Growth Power bonus 4% (+0.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall301",
+      "name": "Spider Silk Yarn Shop",
+      "goods": "Gifts",
+      "base": 4.0,
+      "step": 0.2,
+      "maxLevel": 200,
+      "evidence": "Spider Silk Yarn Shop Gifts N Stall301 Spider Silk Yarn Shop Stall301 \u00b7 Gifts \u00b7 N Stats Attack CD: 1s Max level: 200 Max power bonus: 43.8% Sources Standard stall gacha Level Growth Power bonus 4% (+0.2%) Upgrade cost: Lv 1\u20139 = level \u2212 1; Lv 10\u201372 = 8 + ceil((level \u2212 9) / 3); Lv 73\u2013Max = 30"
+    },
+    {
+      "id": "Stall001",
+      "name": "Grocery Shop",
+      "goods": "All types",
+      "base": 4.0,
+      "step": 0.0,
+      "maxLevel": 1,
+      "evidence": "Grocery Shop All types N Stall001 Grocery Shop Stall001 \u00b7 All types \u00b7 N Stats Attack CD: 1s Max level: 1 Max power bonus: 4% Sources Starter stall Level Growth Power bonus 4% Upgrade cost: none"
+    }
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "slots": 1,
+      "power": 14000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "None",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slots": 1,
+      "power": 18500,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "None",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slots": 2,
+      "power": 23000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "None",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slots": 2,
+      "power": 29000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 29000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "None",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        },
+        {
+          "id": "item_TowerDefense_4",
+          "name": "Expo Popularity",
+          "amount": 90
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slots": 2,
+      "power": 34000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 34000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "None",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slots": 2,
+      "power": 40000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 40000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 40000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slots": 2,
+      "power": 45000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 45000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 45000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slots": 3,
+      "power": 59000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 59000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 59000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slots": 3,
+      "power": 60500,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 60500
+        },
+        {
+          "goods": "Beverage",
+          "amount": 60500
+        },
+        {
+          "goods": "Gifts",
+          "amount": 60500
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slots": 3,
+      "power": 62000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 62000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 124000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 200
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 200
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 2
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slots": 3,
+      "power": 70000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 70000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 70000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 70000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slots": 3,
+      "power": 78000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 156000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 78000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slots": 3,
+      "power": 113000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 226000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 113000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slots": 3,
+      "power": 127000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 127000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 254000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "slots": 3,
+      "power": 142000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 142000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 284000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "slots": 4,
+      "power": 149000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 298000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 149000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "slots": 4,
+      "power": 156000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 468000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "slots": 4,
+      "power": 198000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 198000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 396000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "slots": 4,
+      "power": 242000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 242000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 242000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 242000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "slots": 4,
+      "power": 272000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 816000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "slots": 4,
+      "power": 302000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 302000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 604000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "slots": 4,
+      "power": 309000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 309000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 309000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 309000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "slots": 4,
+      "power": 316000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 948000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "slots": 4,
+      "power": 360000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 360000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 360000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 360000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "slots": 5,
+      "power": 350000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 700000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 350000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "slots": 5,
+      "power": 340000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 680000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 340000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "slots": 5,
+      "power": 370000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 1110000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "slots": 5,
+      "power": 390000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 390000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 780000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "slots": 5,
+      "power": 410000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 410000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 410000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 410000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "slots": 5,
+      "power": 420000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 420000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 840000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 300
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 300
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 3
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "slots": 5,
+      "power": 460000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 460000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 460000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 460000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "slots": 5,
+      "power": 475000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 475000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 950000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "slots": 5,
+      "power": 490000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 490000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 980000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "slots": 5,
+      "power": 510000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 510000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1020000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "slots": 5,
+      "power": 530000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 530000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1060000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "slots": 5,
+      "power": 670000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 670000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 1340000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "slots": 5,
+      "power": 740000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 1480000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 740000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "slots": 5,
+      "power": 750000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 750000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1500000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "slots": 5,
+      "power": 830000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 830000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1660000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "slots": 6,
+      "power": 825000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 3300000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1650000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 1500
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 500
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 500
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 5
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "slots": 6,
+      "power": 820000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 1640000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 1640000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1640000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "slots": 6,
+      "power": 880000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 1760000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 1760000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1760000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "slots": 6,
+      "power": 930000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 1860000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 3720000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "slots": 6,
+      "power": 980000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 1960000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 1960000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 1960000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "slots": 6,
+      "power": 1020000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 4080000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 2040000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "slots": 6,
+      "power": 1140000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 4560000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 2280000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "slots": 6,
+      "power": 1190000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 4760000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 2380000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "slots": 6,
+      "power": 1230000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 2460000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 4920000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "slots": 6,
+      "power": 1280000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 2560000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 2560000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 2560000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "slots": 6,
+      "power": 1340000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 2680000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 2680000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 2680000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "slots": 6,
+      "power": 1400000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 8400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "slots": 6,
+      "power": 1490000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 2980000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 5960000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "slots": 6,
+      "power": 1580000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 6320000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 3160000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "slots": 6,
+      "power": 1650000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 6600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 3300000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "slots": 6,
+      "power": 1830000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 7320000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 3660000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "slots": 6,
+      "power": 1910000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 3820000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 7640000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "slots": 6,
+      "power": 2010000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 8040000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 4020000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "slots": 6,
+      "power": 2120000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 4240000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 8480000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "slots": 6,
+      "power": 2180000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 8720000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 4360000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "slots": 6,
+      "power": 2280000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 4560000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 9120000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "slots": 6,
+      "power": 2330000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 9320000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 4660000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "slots": 6,
+      "power": 2500000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 10000000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 5000000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "slots": 6,
+      "power": 2600000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 10400000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 5200000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "slots": 6,
+      "power": 2700000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 5400000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 10800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "slots": 6,
+      "power": 2800000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 11200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 5600000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "slots": 6,
+      "power": 2900000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 11600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 5800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "slots": 6,
+      "power": 3200000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 6400000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 6400000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 6400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "slots": 6,
+      "power": 3300000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 13200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 6600000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "slots": 6,
+      "power": 3400000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 20400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "slots": 6,
+      "power": 3450000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 13800000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 6900000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "slots": 6,
+      "power": 3500000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 14000000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 7000000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "slots": 6,
+      "power": 3550000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 14200000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 7100000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "slots": 6,
+      "power": 3600000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 7200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 14400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "slots": 6,
+      "power": 3800000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 22800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "slots": 6,
+      "power": 3900000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 7800000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 7800000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 7800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "slots": 6,
+      "power": 4000000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 8000000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 16000000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "slots": 6,
+      "power": 4200000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 8400000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 16800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "slots": 6,
+      "power": 4300000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 25800000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "slots": 6,
+      "power": 4500000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 27000000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "slots": 6,
+      "power": 4800000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 9600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 9600000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 9600000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "slots": 6,
+      "power": 5100000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 10200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 20400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "slots": 6,
+      "power": 5600000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 11200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 11200000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 11200000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "slots": 6,
+      "power": 5900000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 11800000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 23600000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "slots": 6,
+      "power": 6200000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 12400000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 12400000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 12400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "slots": 6,
+      "power": 6400000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 25600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 12800000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "slots": 6,
+      "power": 6800000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 27200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 13600000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "slots": 6,
+      "power": 7500000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 45000000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "slots": 6,
+      "power": 7800000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 31200000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 15600000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "slots": 6,
+      "power": 8300000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 16600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 33200000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "slots": 6,
+      "power": 8500000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 17000000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 34000000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "slots": 6,
+      "power": 9000000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 36000000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 18000000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "slots": 6,
+      "power": 9600000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 19200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 19200000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 19200000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "slots": 6,
+      "power": 10100000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 20200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 20200000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 20200000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "slots": 6,
+      "power": 10400000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 41600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 20800000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "slots": 6,
+      "power": 10900000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": null
+        },
+        {
+          "goods": "Beverage",
+          "amount": 43600000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 21800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "slots": 6,
+      "power": 11200000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 44800000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 22400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "slots": 6,
+      "power": 11400000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 45600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 22800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "slots": 6,
+      "power": 11900000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 47600000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 23800000
+        },
+        {
+          "goods": "Gifts",
+          "amount": null
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "slots": 6,
+      "power": 12600000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 25200000
+        },
+        {
+          "goods": "Beverage",
+          "amount": null
+        },
+        {
+          "goods": "Gifts",
+          "amount": 50400000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "slots": 6,
+      "power": 13400000,
+      "satisfaction": 5,
+      "types": [
+        {
+          "goods": "Food",
+          "amount": 26800000
+        },
+        {
+          "goods": "Beverage",
+          "amount": 26800000
+        },
+        {
+          "goods": "Gifts",
+          "amount": 26800000
+        }
+      ],
+      "flags": "Verify, Confirm",
+      "rewards": [
+        {
+          "id": "item_TowerDefense_3",
+          "name": "Expo EXP",
+          "amount": 3000
+        },
+        {
+          "id": "item_TowerDefense_1",
+          "name": "Satisfaction Card",
+          "amount": 1000
+        },
+        {
+          "id": "item_TowerDefense_2",
+          "name": "Expo Coins",
+          "amount": 1000
+        },
+        {
+          "id": "Item_Talent_Hero_1",
+          "name": "Skill Pearl",
+          "amount": 8
+        },
+        {
+          "id": "Item_Breach_ItemPack_1",
+          "name": "Unprocessed Druse",
+          "amount": 15
+        }
+      ]
+    }
+  ]
+}

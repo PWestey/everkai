@@ -1,0 +1,62 @@
+{
+  "source": "local readable Rule.json",
+  "sha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe",
+  "records": [
+    {
+      "id": "Rule:text:SimGame5_01",
+      "en": "- Enjoy Treasure Hunting -"
+    },
+    {
+      "id": "Rule:text:SimGame5_02",
+      "en": "\u25c6 The Transcenders can explore different ruin sites, guided by their radar in search of mysterious gemstones."
+    },
+    {
+      "id": "Rule:text:SimGame5_03",
+      "en": "\u25c6 While exploring, Transcenders can excavate within the ruins using the Steeltooth, which spends its Stamina to dig in the ground."
+    },
+    {
+      "id": "Rule:text:SimGame5_04",
+      "en": "\u25c6 Besides gemstones, many interesting events or rewards can also be encountered during exploration."
+    },
+    {
+      "id": "Rule:text:SimGame5_05",
+      "en": "\u25c6 Stones that are excavated are stored inside the Steeltooth. When players return to camp, these stones are converted into experience for the Steeltooth to make it stronger."
+    },
+    {
+      "id": "Rule:text:SimGame5_06",
+      "en": "\u25c6 As Steeltooth levels up, it becomes capable of excavating harder stones and finding rarer gemstones in the ruins."
+    },
+    {
+      "id": "Rule:text:SimGame5_07",
+      "en": "\u25c6 Making progress while exploring the ruins sites can unlock more locations. Visit more sites and discover more gemstones!"
+    },
+    {
+      "id": "Rule:text:SimGame5_08",
+      "en": "- Gemstone Appraisal -"
+    },
+    {
+      "id": "Rule:text:SimGame5_09",
+      "en": "\u25c6 Transcender can appraise the gemstones they find in the Appraisal menu."
+    },
+    {
+      "id": "Rule:text:SimGame5_10",
+      "en": "\u25c6 Depending on the origin of the gemstones, different mysterious exhibits can be revealed. The higher the level of the gemstone, the higher the probability of obtaining rare exhibits."
+    },
+    {
+      "id": "Rule:text:SimGame5_11",
+      "en": "\u25c6 Exhibits can be donated or displayed in the museum. Once on display, they will provide special enhancements to the Transcenders and make them stronger!"
+    },
+    {
+      "id": "Rule:text:SimGame5_12",
+      "en": "\u25c6 Duplicate exhibits will be converted into materials that can be used to upgrade the specific exhibit and improve its bonus effects."
+    },
+    {
+      "id": "Rule:text:SimGame5_13",
+      "en": "- Stamina Supply -"
+    },
+    {
+      "id": "Rule:text:SimGame5_14",
+      "en": "\u25c6 The stamina of Steeltooth will recover automatically every day, but be aware that the total amount of stamina has a limit. Once the limit has been reached, Steeltooth will no longer recover stamina on its own."
+    }
+  ]
+}

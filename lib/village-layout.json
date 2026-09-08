@@ -1,0 +1,8 @@
+{
+ "policyVersion":1,
+ "provenance":"Authored neighborhood geometry and visual art-to-destination mapping; texture numeric IDs are not business IDs. Destination identities from existing business-data.json.",
+ "districts":[
+  {"name":"Market Lane","buildings":[{"id":"Building_101","label":"Inn","texture":2,"spot":"west"},{"id":"Building_201","label":"Apothecary","texture":3,"spot":"northeast"},{"id":"Building_301","label":"Workshop","texture":4,"spot":"southeast"}]},
+  {"name":"Garden Walk","buildings":[{"id":"Building_401","label":"Scroll Shop","texture":5,"spot":"west"},{"id":"Building_501","label":"Hot Spring","texture":6,"spot":"northeast"}]}
+ ]
+}

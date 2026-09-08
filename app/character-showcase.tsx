@@ -1,0 +1,5 @@
+import FamilyArtStage from './family-art-stage';
+import {useState} from 'react';
+import {Button} from '@/components/ui/button';
+import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
+export default function CharacterShowcase({person}:any){const [open,setOpen]=useState(false),family=person.id.startsWith('wife_');return <><div className="character-showcase">{family?<FamilyArtStage key={person.id} person={person}/>:<img src={'./assets/'+person.art} alt={person.name+' full character art'}/>}<Button variant="outline" onClick={()=>setOpen(true)}>View {person.name} artwork</Button></div><Dialog open={open} onOpenChange={setOpen}><DialogContent className="save-dialog character-art-view"><DialogTitle>{person.name}</DialogTitle><DialogDescription>{person.title} · Static character artwork</DialogDescription>{family?<FamilyArtStage key={person.id} person={person} large/>:<img src={'./assets/'+person.art} alt={person.name+' full character art'}/>}</DialogContent></Dialog></>}
