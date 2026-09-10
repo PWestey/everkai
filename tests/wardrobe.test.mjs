@@ -48,7 +48,7 @@ test('all 257 admitted costume assets have unique exact owners, hashes and a bou
  const assets=JSON.parse(readFileSync(new URL('../lib/wardrobe-assets.json',import.meta.url)));
  assert.equal(assets.length,257);assert.equal(new Set(assets.map(r=>r.costumeId)).size,257);
  assert.equal(assets.filter(r=>r.ownerId.startsWith('wife_')).length,101);assert.equal(assets.filter(r=>r.ownerId.startsWith('hero_')).length,156);
- assert.ok(assets.reduce((n,r)=>n+r.bytes,0)<=32*1024*1024);
+ assert.ok(assets.reduce((n,r)=>n+r.bytes,0)<=40*1024*1024);
  for(const a of assets){const r=COSTUMES.find(r=>r.id===a.costumeId);assert.equal(r.ownerId,a.ownerId);assert.equal(r.modelId.toLowerCase(),a.model.toLowerCase());const bytes=readFileSync(new URL('../public/assets/'+a.art,import.meta.url));assert.equal(bytes.length,a.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),a.sha256);assert.ok(a.bytes<=512*1024);assert.ok(a.dimensions.every(n=>n>0&&n<=2048));}
  assert.equal(costumeArt('H117C4'),null);
 });

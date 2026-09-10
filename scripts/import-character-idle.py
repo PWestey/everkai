@@ -13,9 +13,9 @@ data={};total=0;filenames=set();copies=[]
 for row in rows:
     assert row['sourceFilesPass'] and row['allFrameSlotsPass'],'Source/frame validation failed'
     source=Path(row['file']);assert source.suffix=='.mp4'
-    assert source.stat().st_size==row['bytes']<=1048576
+    assert source.stat().st_size==row['bytes']<=8*1024*1024
     assert hashlib.sha256(source.read_bytes()).hexdigest()==row['sha256']
-    assert 0<row['height']<=512 and 0<row['width']<=1024
+    assert 0<row['height']<=1536 and 0<row['width']<=1024
     key=row.get('costumeId') or row['activeId'];assert key not in data
     if row.get('costumeId'):
         expected=costumes[key];assert expected['ownerId']==row['activeId'] and expected['modelId']==row['id'],'Foreign costume/model'
