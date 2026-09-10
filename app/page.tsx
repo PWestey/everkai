@@ -69,12 +69,36 @@ export default function App(){
  async function cacheGame(){
   if(!('serviceWorker' in navigator)){setOffline('Offline download unavailable in this browser');return}
   setOffline('Downloading for offline play…');
+  // Ask a specific worker how much of its own bundle it has cached. The installing worker
+  // owns the new bundle; the active one still answers for the version already installed.
+  const ask=(worker:ServiceWorker)=>new Promise<any>((resolve,reject)=>{
+   const channel=new MessageChannel();
+   const timeout=setTimeout(()=>reject(Error('timeout')),15000);
+   channel.port1.onmessage=e=>{clearTimeout(timeout);resolve(e.data)};
+   worker.postMessage({type:'CHECK_OFFLINE'},[channel.port2]);
+  });
+  const pct=(n:number,total:number)=>Math.min(99,Math.floor(n/total*100));
   try{
-   const registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});await Promise.race([navigator.serviceWorker.ready,new Promise((_,reject)=>setTimeout(()=>reject(Error('Offline installation timed out')),45000))]);
-   const worker=registration.active||navigator.serviceWorker.controller;
-   if(!worker)throw Error();
-   const result=await new Promise<boolean>((resolve,reject)=>{const channel=new MessageChannel();const timeout=setTimeout(()=>reject(Error('timeout')),45000);channel.port1.onmessage=e=>{clearTimeout(timeout);resolve(e.data?.ready===true)};worker.postMessage({type:'CHECK_OFFLINE'},[channel.port2])});
-   if(!result)throw Error();setOffline('Ready for offline play');
+   const registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
+   let seen=-1,since=Date.now();
+   for(;;){
+    const pending=registration.installing||registration.waiting;
+    const worker=pending||registration.active||navigator.serviceWorker.controller;
+    if(!worker){await new Promise(r=>setTimeout(r,2000));continue}
+    let status:any=null;
+    try{status=await ask(worker)}catch{}
+    if(status&&typeof status.files==='number'&&typeof status.total==='number'){
+     if(status.ready&&!pending){setOffline('Ready for offline play');return}
+     // A large update is downloaded in full before it takes over, so report real progress
+     // instead of failing on a timeout.
+     if(pending)setOffline(`Downloading update · ${pct(status.files,status.total)}% (${status.files.toLocaleString()} of ${status.total.toLocaleString()} files) — keep this open`);
+     else if(status.ready)setOffline('Ready for offline play');
+     if(status.files!==seen){seen=status.files;since=Date.now()}
+    }
+    if(worker.state==='redundant'){setOffline('Offline download interrupted — reopen to resume');return}
+    if(Date.now()-since>600000){setOffline('Offline download stalled — tap to retry');return}
+    await new Promise(r=>setTimeout(r,2000));
+   }
   }catch{setOffline('Offline download incomplete — tap to retry')}
  }
  useEffect(()=>{let refreshing=false;const changed=()=>{if(!refreshing){refreshing=true;window.location.reload()}};navigator.serviceWorker?.addEventListener('controllerchange',changed);if(import.meta.env.PROD)cacheGame();else setOffline('Preview · offline download available in installed build');return()=>navigator.serviceWorker?.removeEventListener('controllerchange',changed)},[]);
