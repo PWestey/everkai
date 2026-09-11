@@ -1,0 +1,36 @@
+{
+  "provenance": "Readable UnityFS payload at offset32; static Texture2D extraction only. Sky layer composited under the town layer and cropped to the town layer alpha bounds.",
+  "layers": [
+    {
+      "texture": "Scene_DragonCity_Backround",
+      "source": "assets/Android/prefab/level/images_dragoncity/scene_dragoncity_backround_f3ccf50e8d6dc559d0bcd5a41a3a4109.mmc",
+      "sourceSha256": "0b8a5330585ff449bbc978a7c95ba191474c4e58ca11d3461dc9ed5d92547b66",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "texture": "Scene_DragonCity_Front",
+      "source": "assets/Android/prefab/level/images_dragoncity/scene_dragoncity_front_e78a5729110c09927c14bcb24d8283c9.mmc",
+      "sourceSha256": "67039736aa9179f67a3c0a0a5ca6026e4615b9e80725ff93c071d8f61f351370",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "crop": [
+    60,
+    124,
+    1987,
+    1924
+  ],
+  "asset": {
+    "src": "drakenberg/town.webp",
+    "width": 1927,
+    "height": 1800,
+    "bytes": 546418,
+    "sha256": "1b40c62760bf4d84900a9a793d2ebef9f22c6aa6d7678b44e5ad9000d6c54281"
+  }
+}
