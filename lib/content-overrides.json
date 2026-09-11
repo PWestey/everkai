@@ -8,5 +8,101 @@
     {"id": "hero_304", "name": "Inosuke Hashibira", "reason": "Demon Slayer crossover"},
     {"id": "wife_185", "name": "Shinobu Kocho", "reason": "Demon Slayer crossover; Family version of hero_264"},
     {"id": "wife_186", "name": "Nezuko Kamado", "reason": "Demon Slayer crossover"}
-  ]
+  ],
+  "textNote": "Rewritten character text. The original game's infernal cast becomes a celestial one: the courts, offices and law-keepers of Hell become those of the Empyrean, and the five Archdemons of the deadly sins become Archangels of the answering virtues. Their Latin names are kept (Lux, Super, Ira, Acedia, Avar are ordinary Latin words, not demon names). Four proper demon names are replaced: Beelsebub, Mammon and Lilith are scriptural demons, and Devileer is built on 'devil'. Characters who were never infernal get neutral wording rather than angelic wording, so they are not misrepresented: Megumin's clan is a KonoSuba name, Tamamo is Japanese folklore, and Otherin's whole story is that she reformed.",
+  "text": {
+    "hero_115": {
+      "occupation": "Judge of the Celestial Court",
+      "title": "Vindicator of the Just",
+      "introduce": "The Judges of the Celestial Court, who weigh whether a soul has strayed. Those found wanting are taken into their keeping and restored, until the soul is made clean and sent on its way again. Bel and Ross often have different opinions, while the reserved Kerr, as the final arbiter, can absorb both views and make the most justified judgment. The three sisters' contrasting personalities complement each other, leading to their outstanding achievements in their work."
+    },
+    "hero_128": {
+      "name": "Beryl",
+      "race": "Angel",
+      "introduce": "A powerful angel who opened a way from the Empyrean down into the underground with her devouring power, founding the Shadow Kingdom and becoming its ruler. She later established links between the heights and the surface world."
+    },
+    "hero_156": {"occupation": "Archangel", "title": "Archangel of Chastity"},
+    "hero_157": {
+      "occupation": "Archangel",
+      "title": "Archangel of Humility",
+      "introduce": "The all-knowing Archangel who understands the past, present, and future. He has lost interest in his own life due to knowing everything so he enjoys observing others. If there are any errors beyond his predictions, it would pique his interest."
+    },
+    "hero_158": {
+      "occupation": "Archangel",
+      "title": "Archangel of Patience",
+      "introduce": "The Archangel with the strongest physical strength. She loves to fight and no one can match her in battle. However, her ideas are often quite simple and she is very easy to persuade. Giving her good food can easily make her happy."
+    },
+    "hero_159": {"occupation": "Archangel", "title": "Archangel of Diligence"},
+    "hero_160": {"occupation": "Archangel", "title": "Archangel of Charity"},
+    "hero_162": {
+      "introduce": "The Great Onmyoji of Touno Island, powerful in magic and revered by humans, onis, and spirits alike. However, she is a mischievous girl, often surprising others with her unexpected words and actions."
+    },
+    "hero_171": {
+      "introduce": "A rider from the Empyrean who loves racing. Free-spirited and untamed, Gale makes her living by taking commissions from the high courts. When money runs low, she challenges thugs to street races and wins back their stolen gold—fair and square. Feared by every criminal she has ever outrun, yet untouchable to them."
+    },
+    "hero_172": {
+      "occupation": "President of the Empyrean",
+      "introduce": "The president of the Empyrean, who oversees countless laws and statutes. Her words are graceful, yet usually carry hidden motives. She excels at entangling her opponents in layers of convoluted bureaucratic language. When negotiating with her, be extremely cautious—devastating costs may hide deep within the most inconspicuous contract clauses."
+    },
+    "hero_180": {
+      "introduce": "A seraph from another world who rules the Holy Empire of Lubelius as a living deity. Noble and elegant with immense power, she holds a surprising fondness for maid outfits under her cold outlook."
+    },
+    "hero_193": {"name": "Maren", "race": "Angel"},
+    "hero_198": {
+      "race": "Seraphic",
+      "introduce": "A mature seraphic apothecary who has studied under Verity for years and has become a renowned grandmaster in elixir craft. Though he is still a little absentminded in daily life, his gentle and composed nature has earned him the deep affection of his students."
+    },
+    "hero_2": {
+      "race": "Seraphic",
+      "introduce": "A young seraphic potion maker. Although he is quite ambitious, he is also a bit clumsy and often causes explosions while developing potions. This often leads to trouble between him and his neighbors, not to mention the injuries he sustains."
+    },
+    "hero_211": {
+      "introduce": "One of the ancient magi who created illusion magic. Its true form is a mirror that can transform into appearance, thus becoming the most famous performer. In the recent hundred years, it often appears in the images of Archangel and Saintess, bringing countless enjoyable plays that are full of a feeling of taboos."
+    },
+    "hero_254": {
+      "race": "Half-Angel/Half-Mortal",
+      "introduce": "A renowned actress from the Shadow and Cloud Kingdoms, known to the high courts and the common stage alike. She can play the tempter or the saint with equal conviction, captivating her audience with her unpredictable aura."
+    },
+    "hero_65": {
+      "race": "Angel",
+      "introduce": "Crimson-winged muscle fanatic with a perfect body. His fierce face makes him seem unapproachable, but he is actually soft inside and loves kittens."
+    },
+    "hero_78": {
+      "occupation": "Empyrean Sheriff",
+      "race": "Angel",
+      "introduce": "An angel who chooses to be a sheriff. Though she could slack off, Justitia devotes herself to punishing evil and protecting the innocent. Every step she takes is a sprint toward the light of justice burning in her heart."
+    },
+    "wife_104": {
+      "race": "Angel",
+      "title": "Radiant Dom",
+      "info": "An angel who came to the surface to live under the disguise of an ordinary employee. Her working abilities and efficiency are beyond comparison. Back in the Empyrean, she was actually a judge who strongly punished wrongdoers for their crimes."
+    },
+    "wife_106": {"name": "Lilia", "race": "Seraph"},
+    "wife_121": {"race": "Seraph"},
+    "wife_125": {
+      "name": "Angeleer",
+      "race": "Half-Angel",
+      "info": "The illegitimate daughter of a human king and an angel, Angeleer may be a princess, but her mixed bloodline has caused her to be despised by all and treated as a maid by the royal family. Despite this mistreatment, she has never held a grudge against anyone."
+    },
+    "wife_157": {
+      "info": "An elf maiden who infiltrated the cruise ship to save her kin, possessing a strikingly alluring appearance. She tries hard to disguise herself as a siren but can't let go of her elven modesty, making her seem awkward. However, this bashful demeanor unexpectedly becomes a favorite among the gamblers."
+    },
+    "wife_174": {
+      "race": "Crimson Magic Clan",
+      "info": "An Arch Wizard of the Crimson Magic Clan, blessed with exceptional magic power and talent. As a proud, Chunibyo girl, she has devoted herself to mastering the overwhelmingly destructive art of Explosion Magic to the point of learning nothing else. She is, quite literally, a wizard who became one for the sole purpose of casting Explosion Magic."
+    },
+    "wife_179": {
+      "title": "Vindicator of the Just",
+      "info": "The Judges of the Celestial Court, who weigh whether a soul has strayed. Those found wanting are taken into their keeping and restored, until the soul is made clean and sent on its way again. Bel and Ross often have different opinions, while the reserved Kerr, as the final arbiter, can absorb both views and make the most justified judgment. The three sisters' contrasting personalities complement each other, leading to their outstanding achievements in their work."
+    },
+    "wife_19": {
+      "info": "Locked in the depths of the labyrinth, this matriarch of moths was once an extremely dangerous creature. Yet after years of solitude, she has now become beset by a depressing sense of loneliness. If she could be liberated, she would surely give up her destructive ways."
+    },
+    "wife_252": {
+      "race": "Angel",
+      "title": "Genius Feathered Maid",
+      "info": "A captivating girl from another world who actively streams to soothe lonely nights with her enchanting voice. Her boundless curiosity drives her to seek new experiences. Her impish nature will come with surprises, so be ready for some playful teasing."
+    },
+    "wife_59": {"race": "Seraphic"}
+  }
 }

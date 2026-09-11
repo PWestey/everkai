@@ -1,10 +1,10 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {fresh,act,decode,valid} from '../lib/game.mjs';import {FELLOWS,FAMILY} from '../lib/catalog.mjs';import {WISH_RECRUITS,fountainState} from '../lib/fountain.mjs';import {createPersistence} from '../lib/persistence.mjs';
+import {fresh,act,decode,valid} from '../lib/game.mjs';import {FELLOWS,FAMILY} from '../lib/catalog.mjs';import {WISH_RECRUITS,fountainState} from '../lib/fountain.mjs';import {originalCharacter} from '../lib/original-catalog.mjs';import {createPersistence} from '../lib/persistence.mjs';
 const result=(s,id)=>act(s,'wishRecruit',s.lastAt,id,{seq:fountainState(s).seq});
 const fixture=stones=>{let s=act(fresh(1000),'wishSupply',1000,null,{seq:0}).state;s.fountain.ledger.Lottery_4=stones;return s;};
 test('all16 referenced targets charge their exact community cost and join correct owned category',()=>{
  assert.equal(WISH_RECRUITS.length,15);assert.equal(WISH_RECRUITS.filter(r=>r.kind==='fellows').length,8);assert.equal(WISH_RECRUITS.filter(r=>r.cost===1).length,4);
- for(const p of WISH_RECRUITS){const roster=p.kind==='fellows'?FELLOWS:FAMILY;assert.equal(roster.find(x=>x.id===p.id).name,p.name);let s=fixture(p.cost-1);assert.ok(result(s,p.id).error);assert.equal(s[p.kind][p.id],undefined);s=fixture(p.cost);const r=result(s,p.id);assert.equal(r.error,undefined);assert.ok(valid(r.state));assert.equal(r.state.fountain.ledger.Lottery_4,0);assert.equal(r.state.fountain.recruited[0].paid,p.cost);assert.ok(r.state[p.kind][p.id]);assert.deepEqual(decode(JSON.stringify(r.state)),r.state);}
+ for(const p of WISH_RECRUITS){const roster=p.kind==='fellows'?FELLOWS:FAMILY;assert.ok(roster.find(x=>x.id===p.id));assert.equal(originalCharacter(p.id).fields.name,p.name);let s=fixture(p.cost-1);assert.ok(result(s,p.id).error);assert.equal(s[p.kind][p.id],undefined);s=fixture(p.cost);const r=result(s,p.id);assert.equal(r.error,undefined);assert.ok(valid(r.state));assert.equal(r.state.fountain.ledger.Lottery_4,0);assert.equal(r.state.fountain.recruited[0].paid,p.cost);assert.ok(r.state[p.kind][p.id]);assert.deepEqual(decode(JSON.stringify(r.state)),r.state);}
  assert.ok(WISH_RECRUITS.some(r=>r.id==='hero_104'&&r.name==='Loya'));assert.ok(!WISH_RECRUITS.some(r=>r.id==='wife_188'));assert.ok(result(fixture(100),'wife_188').error);
 });
 test('old three receipts and trained owners remain unchanged while welcoming remaining13',()=>{
