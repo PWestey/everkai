@@ -1,3 +1,9 @@
+## New journey — September 2026
+
+**New journey** in Offline & saves starts the village over while keeping the habit journal. `newJourney(state,now)` in `lib/game.mjs` returns a fresh save carrying the `habits` subtree unchanged (tasks, history, settings), so nothing else survives: Fellows, Family, buildings, gold, roaming and every other subtree reset. It goes through the normal restore path, so the previous save is kept on the device as `<save key>-before-restore`, and the confirmation tells the player to export a copy first. Tests: `tests/new-journey.test.mjs`.
+
+This is the starting point for the planned progression rework, where characters are unlocked with habit-earned currency instead of being free.
+
 ## Character art corrections — September 2026
 
 The Family portraits come from an earlier humanization pass, which places generated clothing pieces (for example, human boots in place of paws) as rigid quads on the original bones. A visual review of all 524 portraits and costume portraits found two clear misplacements, plus a few framing oddities that are recorded but unchanged.
