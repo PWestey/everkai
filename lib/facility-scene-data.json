@@ -1,0 +1,212 @@
+{
+  "provenance": "Readable UnityFS payload at offset32; static Texture2D extraction only. Facility-to-backdrop matching is local; crossover-event art was not used.",
+  "scenes": {
+    "habits": {
+      "src": "facility-scenes/habits.webp",
+      "texture": "Guild_atlas_be6g1nupjj3",
+      "source": "assets/Android/ui/guild/guild_atlas_be6g1nupjj3_60a3c8385d6a1f160e77a089add4704b.mmc",
+      "sourceSha256": "b438a42e1e9d527e103b9a253762136fa0c2fa91e237ba76be4d80e946600b5b",
+      "crop": null,
+      "width": 1125,
+      "height": 1800,
+      "bytes": 186356,
+      "sha256": "c62837ec167d0f5a3a743ad3a8dc9b2a6be63c31540e74f17e1d8bc249d91908",
+      "note": "guild hall interior"
+    },
+    "businesses": {
+      "src": "facility-scenes/businesses.webp",
+      "texture": "Bg_City_02_Boss",
+      "source": "assets/Android/img/battle/bg/bg_city_02/bg_city_02_boss_d8ca16332f8c158f30a3496220af911d.mmc",
+      "sourceSha256": "8e72ebc672777b29f47d2f6d068796ddc3948cd0f8b929f9d9c28f1b02d9adcd",
+      "crop": null,
+      "width": 563,
+      "height": 1350,
+      "bytes": 97362,
+      "sha256": "225ca34b44303d1cef9d34419159cb4128cb926d53eebffeba0940ea77f7f5ef",
+      "note": "market town street"
+    },
+    "school": {
+      "src": "facility-scenes/school.webp",
+      "texture": "Story_atlas10",
+      "source": "assets/Android/ui/story/story_atlas10_dbd037ea090efcfb5657a03692573b14.mmc",
+      "sourceSha256": "86376d6b674be9e8c464e1fb9cde671c2e2e7b65f7adf1adf00ea38c839c7bf9",
+      "crop": [
+        752,
+        0,
+        1502,
+        1800
+      ],
+      "width": 750,
+      "height": 1800,
+      "bytes": 108980,
+      "sha256": "e25aeb144adc343e678e8e70c6c0f4ee4e254bdda4c1e1274a743aa22afd9ede",
+      "note": "academy hall"
+    },
+    "stories": {
+      "src": "facility-scenes/stories.webp",
+      "texture": "Story_atlas_euhp309",
+      "source": "assets/Android/ui/story/story_atlas_euhp309_3a847e2003cb7450a57d3c5d6576b4a9.mmc",
+      "sourceSha256": "2c386fbaeca7717ac730102a27c3d84a94237f35d111d204229721f537ee5350",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 98876,
+      "sha256": "63b17b204337cdede3a6b46e2c2e8d98f7b5bb6c8750cd0cd0be0b7c6025b4a8",
+      "note": "story screen village backdrop"
+    },
+    "mine": {
+      "src": "facility-scenes/mine.webp",
+      "texture": "Challenge_atlas_m38i1nupjfs",
+      "source": "assets/Android/ui/challenge/challenge_atlas_m38i1nupjfs_15e0bc5b87eaa585ceef44f3e63bc0c0.mmc",
+      "sourceSha256": "8572cdd10b77acaefa5e27bc9daafaa8a0a7cd994b8b8f9808976cbaeb3356de",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 75292,
+      "sha256": "4bf6cbc0671fa3d134847fef00a716ebf2b4880b2b90e990dbe26ea251fd45a7",
+      "note": "crystal mine track"
+    },
+    "northern": {
+      "src": "facility-scenes/northern.webp",
+      "texture": "DJNorthrealm_atlas_snj985h",
+      "source": "assets/Android/art_djnorthrealm/ui/djnorthrealm/djnorthrealm_atlas_snj985h_54418c0c23166ac0751e6cbfa1183352.mmc",
+      "sourceSha256": "889d2cc5862965acccb0523c393657f68214fa2ca200903c6c8fe1c05619cb82",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 194952,
+      "sha256": "95caf65f7ed6825931ca73bf13efaefe6cf911ad1f14af4192163ff07eb9354b",
+      "note": "snowy northern village"
+    },
+    "trading": {
+      "src": "facility-scenes/trading.webp",
+      "texture": "TradeFes_atlas0",
+      "source": "assets/Android/ui/tradefes/tradefes_atlas0_b0a738dd638d4f6603e5070079fbdba2.mmc",
+      "sourceSha256": "d8fbcec0d758cd694b8916235a7e040d202bae9a6f263d84aa5cbe34cfd7b248",
+      "crop": [
+        752,
+        0,
+        1502,
+        1800
+      ],
+      "width": 750,
+      "height": 1800,
+      "bytes": 95280,
+      "sha256": "ce97eeeccd8ac8dc938e422325316eb5923df8c53efb9f42246aa34f04fbce93",
+      "note": "trade festival market street"
+    },
+    "fountain": {
+      "src": "facility-scenes/fountain.webp",
+      "texture": "Lottery_atlas_qrymf",
+      "source": "assets/Android/ui/lottery/lottery_atlas_qrymf_ec48c094973dc49803a251d7d9cdc2d4.mmc",
+      "sourceSha256": "113f670bf048df0134369b08fa42695b3036fef2ea277842269991c5035c35dc",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 100872,
+      "sha256": "7b13ff10de0109c85a66ec5ddf3f27e662b0f7d2a59c25f455fcd3382d2663d4",
+      "note": "magic spring"
+    },
+    "banquets": {
+      "src": "facility-scenes/banquets.webp",
+      "texture": "Ceremony_atlas_l8wo1nupism",
+      "source": "assets/Android/ui/ceremony/ceremony_atlas_l8wo1nupism_e91e9e3c52f5f38180fa965573456ed8.mmc",
+      "sourceSha256": "964a00b5556d92745ca3ce97959319c8eb863bdf9ba1766bc84062f4bb2132ab",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 122312,
+      "sha256": "c67d2c81229b778ba78bd9266bf39236726762da15a4e8aba70db2454aa397ed",
+      "note": "hall with banquet tables"
+    },
+    "apothecary": {
+      "src": "facility-scenes/apothecary.webp",
+      "texture": "SimGame6_atlas_eeit1nupl3c",
+      "source": "assets/Android/art_simgame6/ui/simgame6/simgame6_atlas_eeit1nupl3c_946d714eb29d1896533d298aed1eb567.mmc",
+      "sourceSha256": "c28814d8b88ad33638401d03ee5fa34f04b6867c5fc5dff0b39e7133bc58b7e6",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 190922,
+      "sha256": "10b726994139006af40d2547a5234f82c90eef9079274877d396cd9051e41fc3",
+      "note": "alchemy shop interior"
+    },
+    "museum": {
+      "src": "facility-scenes/museum.webp",
+      "texture": "Museum_atlas_k6bq1nupmzp",
+      "source": "assets/Android/ui/museum/museum_atlas_k6bq1nupmzp_e466ca6a71e0a60a575218c5ff779a8b.mmc",
+      "sourceSha256": "8f1a5839c86db50fb3e62985ccdbaa2659e220d8c744f5f1da0c4625c48be6d8",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 55774,
+      "sha256": "0bd5a2b03f9dfda7dd0465293ea761ec7e1e80f5ecd51104a2bc6fddf3f2328c",
+      "note": "museum display case"
+    },
+    "treasure": {
+      "src": "facility-scenes/treasure.webp",
+      "texture": "Challenge_atlas_yh7x1nupjfr",
+      "source": "assets/Android/ui/challenge/challenge_atlas_yh7x1nupjfr_e4ff410b071e5e1e55d384c639fe8023.mmc",
+      "sourceSha256": "4ce03ded15cbfa6ac5d56d5b8aefc2c33aa671f8af7fc8e0fc000f647ef7f82b",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 62158,
+      "sha256": "ad84db768d2f677ef31981445f26e4346e739495dd1c190e02eaed394beca3f9",
+      "note": "desert oasis ruins"
+    },
+    "fishing": {
+      "src": "facility-scenes/fishing.webp",
+      "texture": "Lottery_atlas_tty31nupo0u",
+      "source": "assets/Android/ui/lottery/lottery_atlas_tty31nupo0u_f1f16d3d1549816295c444d14c1a6e25.mmc",
+      "sourceSha256": "f33c4c81eee7773b8966fb18f11944e00e620adee965efeafe71edaa508c82ef",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 88608,
+      "sha256": "597a3512f648793e495b1eabbd2141e77629111febba4d3bc524badea74e6b79",
+      "note": "beach with pier"
+    },
+    "expo": {
+      "src": "facility-scenes/expo.webp",
+      "texture": "Lottery_atlas_n6ea1nupkuy",
+      "source": "assets/Android/ui/lottery/lottery_atlas_n6ea1nupkuy_030678e50048506c61661ad7dcd5c14a.mmc",
+      "sourceSha256": "6380480a0cc0e58238097f7ae1acbfae1ad5e480dda4cc41615cc17a23d17b0f",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 80860,
+      "sha256": "468187cbb4ba7a9c58ea5eac04467674ae320aec38f2ccfed49eed6130485f06",
+      "note": "forest glade"
+    },
+    "journey": {
+      "src": "facility-scenes/journey.webp",
+      "texture": "Bg_Mountain_01_Boss",
+      "source": "assets/Android/img/battle/bg/bg_mountain_01/bg_mountain_01_boss_f8d4b44d9eb325a5331749360bc00af4.mmc",
+      "sourceSha256": "ccbaa6afc27211973867b6d8cb68b5d009da65bde3cea98611ad8d9763c443da",
+      "crop": null,
+      "width": 563,
+      "height": 1350,
+      "bytes": 49802,
+      "sha256": "b07419bab8d88c10f4d9ddc308ae59a6c5e381c02ad378e84d47763228c2b76c",
+      "note": "mountain road"
+    },
+    "raphael": {
+      "src": "facility-scenes/raphael.webp",
+      "texture": "RaphaelStage_atlas1",
+      "source": "assets/Android/ui/raphaelstage/raphaelstage_atlas1_e51471f196f52dc155cfa027548bf08a.mmc",
+      "sourceSha256": "d4d9f097f45aa16e3335c0427b69de204c2ca5a465caa8c8fa2dcbf2ccd9d1ec",
+      "crop": [
+        0,
+        0,
+        750,
+        1800
+      ],
+      "width": 750,
+      "height": 1800,
+      "bytes": 101024,
+      "sha256": "4b4c17195de39658a591de08deb0a4c4582944dd89d0ce34aed3816feeeac21d",
+      "note": "Raphael stage"
+    }
+  }
+}
