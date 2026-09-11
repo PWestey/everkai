@@ -353,3 +353,12 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .roam-records{display:grid;gap:6px}.roam-records p{margin:0;padding:6px 8px;border-bottom:1px solid #d9c7a2;font-size:13px}.roam-records small{display:block;font-size:10px;color:#7a5a36}
 .roam-card blockquote{margin:2px 0;padding:4px 8px;border-left:3px solid #c9a86a;font:italic 13px/1.35 Georgia,serif;color:#5a3f24;background:#fff7e6}.roam-watch,.roam-stories{min-height:36px!important;font-size:12px;padding:4px 8px;justify-self:start}.roam-story-pick{display:flex;align-items:center;gap:8px;font-size:13px}.roam-story-pick select{flex:1;min-height:36px;border:1px solid #a68651;border-radius:5px;background:#fff8e8;color:#49321e}.roam-story .story-stage img{object-position:top}
 .roam-member .roam-stories{white-space:nowrap;padding:3px 10px;min-height:32px!important;margin-top:2px}
+
+/* The name sits in the lower band with the stats, so it never covers the character's face */
+.character-lower-stats{padding-top:22px;background:linear-gradient(transparent,#332317b8 38%,#332317e0)}
+.character-lower-stats .character-nameplate{display:block;background:none;clip-path:none;border:0;padding:0 0 3px;text-align:left}
+.character-lower-stats .character-nameplate small{display:block;font:700 12px/1.15 Georgia,serif;color:#f4d18b}
+.character-lower-stats .character-nameplate h2{font:700 clamp(24px,6.5vw,32px)/1.05 Georgia,serif;margin:1px 0 2px;color:#fff3d1;text-shadow:0 2px 3px #1d1208}
+@media(max-height:480px) and (min-width:520px){.character-lower-stats .character-nameplate h2{font-size:18px}.character-lower-stats .character-nameplate small{font-size:10px}.character-lower-stats{padding-top:12px}}
+.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:132px}
+@media(max-height:480px) and (min-width:520px){.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:84px}}
