@@ -6,7 +6,7 @@ UnityPy.config.FALLBACK_UNITY_VERSION='2021.3.57f2'
 # The village map: the four ground tiles of the original main city laid left to right (their edges match), with the built-state texture of each of the 17 businesses.
 APK='/Users/westmanfamily/Desktop/ISEKAI/UnityDataAssetPack.apk';SCALE=.75
 GROUND=['Scene_MainCity_Backround_1_New','Scene_MainCity_Backround_2_New','Scene_MainCity_Backround_3_New','Scene_MainCity_Backround_4_New']
-BUILDINGS={'Building_101':'2_1','Building_201':'3_1','Building_301':'4_1','Building_401':'5_1','Building_501':'6_1','Building_601':'7_1_3','Building_701':'8_1','Building_801':'9_1','Building_901':'15_1','Building_1001':'11_1_1','Building_1101':'12_1','Building_1201':'13_1','Building_1301':'14_1','Building_1401':'10_1','Building_1501':'16_1','Building_1601':'17_1','Building_1701':'18_1'}
+BUILDINGS={'habits':'School_1','Building_101':'2_1','Building_201':'3_1','Building_301':'4_1','Building_401':'5_1','Building_501':'6_1','Building_601':'7_1_3','Building_701':'8_1','Building_801':'9_1','Building_901':'15_1','Building_1001':'11_1_1','Building_1101':'12_1','Building_1201':'13_1','Building_1301':'14_1','Building_1401':'10_1','Building_1501':'16_1','Building_1601':'17_1','Building_1701':'18_1'}
 root=Path(__file__).resolve().parents[1];out=root/'public/assets/village';out.mkdir(exist_ok=True)
 wanted=set(GROUND)|{'Scene_MainCity_Building_'+t for t in BUILDINGS.values()};found={}
 with zipfile.ZipFile(APK) as z:

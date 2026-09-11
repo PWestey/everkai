@@ -32,6 +32,16 @@
     "lastTileWidth": 496
   },
   "buildings": {
+    "habits": {
+      "src": "village/habits.webp",
+      "width": 601,
+      "height": 419,
+      "bytes": 76346,
+      "sha256": "263d2340364f809b8d75140a06ad9d5e04055af1491975004f85165b8b7c7052",
+      "texture": "Scene_MainCity_Building_School_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_school/scene_maincity_building_school_1_0c945d4ee59f697cb01ef8333e13ea3d.mmc",
+      "sourceSha256": "d16703ff864e97a6df65714f24834093dae5d076c417450e9cabd89a5ab1f9d0"
+    },
     "Building_101": {
       "src": "village/Building_101.webp",
       "width": 340,

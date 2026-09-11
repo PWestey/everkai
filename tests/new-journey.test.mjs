@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,decode,valid,settle,newJourney,SAVE_KEY} from '../lib/game.mjs';import {createPersistence} from '../lib/persistence.mjs';
+import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,decode,valid,settle,newJourney,SAVE_KEY} from '../lib/game.mjs';import {createPersistence} from '../lib/persistence.mjs';import {starterHabits} from '../lib/habits.mjs';
 const T=new Date('2026-09-10T09:00:00').getTime();
 const play=()=>{let s=fresh(T);let r=act(s,'habitSave',T,null,{title:'Morning walk',freq:'daily',domain:'health'});assert(!r.error,r.error);s=r.state;
  r=act(s,'habitComplete',T,s.habits.items.at(-1).id);assert(!r.error,r.error);s=r.state;
@@ -7,11 +7,12 @@ const play=()=>{let s=fresh(T);let r=act(s,'habitSave',T,null,{title:'Morning wa
 
 test('a new journey keeps the habit journal and resets everything else',()=>{const played=play(),base=fresh(T+1000),next=newJourney(played,T+1000);
  assert.deepEqual(next.habits,played.habits);
- assert.deepEqual({...next,habits:undefined},{...base,habits:undefined});
+ const strip=x=>{const {habits,...rest}=x;return rest};
+ assert.deepEqual(strip(next),strip(base));
  assert.equal(next.roaming,undefined);assert.deepEqual(next.family,{});assert.deepEqual(Object.keys(next.fellows),Object.keys(base.fellows));
  assert.equal(next.gold,base.gold);assert.equal(next.lastAt,T+1000);
  assert.ok(valid(next));assert.deepEqual(decode(JSON.stringify(next)),next);
- assert.deepEqual(newJourney(fresh(T),T+1000),fresh(T+1000));});
+ assert.deepEqual(newJourney(fresh(T),T+1000),{...fresh(T+1000),habits:starterHabits(T+1000)});});
 
 test('a new journey settles and persists, keeping the previous save as a backup',()=>{const played=play(),store=new Map([[SAVE_KEY,JSON.stringify(played)]]);
  const storage={getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>{store.set(k,v)}},p=createPersistence(()=>storage);

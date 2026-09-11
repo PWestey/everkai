@@ -1,107 +1,23 @@
 {
- "provenance": "Local placement of the 17 businesses on the original village ground; x is the building centre and y its base, as percentages of the ground image. Business identities come from business-data.json.",
- "buildings": [
-  {
-   "id": "Building_101",
-   "label": "Inn",
-   "x": 6,
-   "y": 56.5
-  },
-  {
-   "id": "Building_201",
-   "label": "Apothecary",
-   "x": 12,
-   "y": 77.6
-  },
-  {
-   "id": "Building_301",
-   "label": "Workshop",
-   "x": 17,
-   "y": 49.7
-  },
-  {
-   "id": "Building_401",
-   "label": "Scroll Shop",
-   "x": 23,
-   "y": 70.0
-  },
-  {
-   "id": "Building_501",
-   "label": "Spring Resort",
-   "x": 28,
-   "y": 46.8
-  },
-  {
-   "id": "Building_601",
-   "label": "Central Station",
-   "x": 33,
-   "y": 81.1
-  },
-  {
-   "id": "Building_701",
-   "label": "Patisserie",
-   "x": 38,
-   "y": 54.1
-  },
-  {
-   "id": "Building_801",
-   "label": "Archery Range",
-   "x": 43,
-   "y": 78.9
-  },
-  {
-   "id": "Building_1401",
-   "label": "Clinic",
-   "x": 47,
-   "y": 49.0
-  },
-  {
-   "id": "Building_1001",
-   "label": "Market Street",
-   "x": 52,
-   "y": 76.1
-  },
-  {
-   "id": "Building_1101",
-   "label": "Bank",
-   "x": 57,
-   "y": 47.1
-  },
-  {
-   "id": "Building_1201",
-   "label": "Tailor Shop",
-   "x": 62,
-   "y": 71.9
-  },
-  {
-   "id": "Building_1301",
-   "label": "Sports Park",
-   "x": 66,
-   "y": 51.4
-  },
-  {
-   "id": "Building_901",
-   "label": "Museum",
-   "x": 71,
-   "y": 77.6
-  },
-  {
-   "id": "Building_1501",
-   "label": "Theater",
-   "x": 75,
-   "y": 55.1
-  },
-  {
-   "id": "Building_1601",
-   "label": "Airship",
-   "x": 85,
-   "y": 64.2
-  },
-  {
-   "id": "Building_1701",
-   "label": "Magic Academy",
-   "x": 78,
-   "y": 40.0
-  }
- ]
+  "provenance": "Local placement of the 17 businesses on the original village ground; x is the building centre and y its base, as percentages of the ground image. Business identities come from business-data.json. The habit journal is an Everkai addition using the original schoolhouse texture.",
+  "buildings": [
+    {"id": "Building_101", "label": "Inn", "x": 6, "y": 56.5},
+    {"id": "Building_201", "label": "Apothecary", "x": 12, "y": 77.6},
+    {"id": "Building_301", "label": "Workshop", "x": 17, "y": 49.7},
+    {"id": "Building_401", "label": "Scroll Shop", "x": 23, "y": 70.0},
+    {"id": "Building_501", "label": "Spring Resort", "x": 28, "y": 46.8},
+    {"id": "Building_601", "label": "Central Station", "x": 33, "y": 81.1},
+    {"id": "Building_701", "label": "Patisserie", "x": 38, "y": 54.1},
+    {"id": "Building_801", "label": "Archery Range", "x": 43, "y": 78.9},
+    {"id": "Building_1401", "label": "Clinic", "x": 47, "y": 49.0},
+    {"id": "Building_1001", "label": "Market Street", "x": 52, "y": 76.1},
+    {"id": "Building_1101", "label": "Bank", "x": 57, "y": 47.1},
+    {"id": "Building_1201", "label": "Tailor Shop", "x": 62, "y": 71.9},
+    {"id": "Building_1301", "label": "Sports Park", "x": 66, "y": 51.4},
+    {"id": "Building_901", "label": "Museum", "x": 71, "y": 77.6},
+    {"id": "Building_1501", "label": "Theater", "x": 75, "y": 55.1},
+    {"id": "Building_1601", "label": "Airship", "x": 85, "y": 64.2},
+    {"id": "Building_1701", "label": "Magic Academy", "x": 78, "y": 40.0},
+    {"id": "habits", "label": "Habit journal", "module": "habits", "x": 36, "y": 36}
+  ]
 }
