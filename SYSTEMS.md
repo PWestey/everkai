@@ -1,3 +1,18 @@
+## Character art corrections — September 2026
+
+The Family portraits come from an earlier humanization pass, which places generated clothing pieces (for example, human boots in place of paws) as rigid quads on the original bones. A visual review of all 524 portraits and costume portraits found two clear misplacements, plus a few framing oddities that are recorded but unchanged.
+
+- **Mia (`wife_116`):** her boots floated over the shin and ankle. The raised leg's boot is now rotated 25° to follow the shin and moved up over the ankle, and the lower boot is moved up onto its ankle. Both hold at the start and middle of the idle animation. The still and idle clip were re-rendered with the fitted framing.
+- **Otherin's costume (`wife_19c1`):** the back leg's boot sat apart from its fur leg-warmer. It is moved up to meet the warmer, and the costume portrait and clip were re-rendered.
+- **Recorded but not changed:**
+  - `wife_112c2`: the hand and cup reach past the picture frame, which reads as intentional.
+  - `wife_131`: small, placed on the windowsill.
+  - `wife_173`, `wife_159` and `wife_103c2`: small card framing.
+  - `wife_115c3`: jagged card edges.
+  - `wife_18c1`: an offset background layer.
+
+The adjustments are bone-space transforms applied to a copy of the humanization recipes used for rendering; the original recipe files are unchanged. Character names now sit in the lower band of the character screen instead of across the top of the portrait.
+
 ## Roaming — September 2026
 
 Roaming is the original Drakenberg building where Family members are met and invited (`lib/roaming.mjs`, `lib/roaming-data.mjs`, `app/roaming-panel.tsx`). Its backdrop is the original shop-street story background, and in the town it sits at the canal boathouse the original labels Roaming.
