@@ -1,3 +1,9 @@
+## Habits drive village earnings — September 2026
+
+Everkai is single-player, and the habit journal is its engine. Passive village Gold accrues at `totalRate × multiplier`, where multiplier = `1 + 0.5 × (life areas with a completion this week) / 8 + min(0.5, 0.07 × daily tasks completed today)`. It ranges from 1.0× (no habits, never a penalty) to 2.0×. The eight life areas are every journal domain except Uncategorized; Uncategorized dailies still count toward the daily term. Weeks start Monday 00:00 local time.
+
+The multiplier is applied during accrual in `settle` (`lib/game.mjs`, `habitEarnings` in `lib/habits.mjs`), never retroactively. Away time is split at each local midnight, so today's dailies stop counting at 00:00 and the life areas reset at Monday midnight. A completion only boosts Gold earned after it, because every action settles before it applies. The per-completion Gold reward and its daily cap are unchanged. Item values that scale with income (consumables, apothecary prices, opening requirements) use the base rate, so habits cannot inflate them. The HUD shows the boosted rate and multiplier, and the journal shows the multiplier with this week's areas and today's dailies. Tests: `tests/habit-earnings.test.mjs`.
+
 ## Character art, idle clips and habit journal layout — September 2026
 
 Every character asset is now one shape. Base portraits (278) and costume portraits (257) are 1280×1920 WebP; idle clips (516) are 1024×1536 H.264 at 12 fps with each clip's original frame count (16–384). All share 2:3 framing rendered with the Spine player's default 10% viewport padding. Earlier commit messages describe a 4% padding; that setting was never applied, because padding only takes effect when the viewport is recomputed.

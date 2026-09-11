@@ -307,3 +307,5 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
  .character-screen-art .character-art-backdrop{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(18px) brightness(.7) saturate(1.1);transform:scale(1.12);pointer-events:none}
  .character-screen-art .character-idle video{position:relative}
 }
+
+.resource-pill .habit-boost{font-size:10px;color:#9be58b;font-weight:700;white-space:nowrap}.habit-boost-line strong{color:#2f7a2a}
