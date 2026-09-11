@@ -1904,18 +1904,8 @@
       "nameKey": "WifeClothes:name:W105C1",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W60C1",
-      "kind": "wife",
-      "ownerId": "wife_60",
-      "ownerName": "Wenreesa",
-      "modelId": "wife_60c1",
-      "name": "An Unexpected Outfit",
-      "nameKey": "WifeClothes:name:W60C1",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    ,
     {
       "id": "W64C1",
       "kind": "wife",
@@ -1992,18 +1982,8 @@
       "nameKey": "WifeClothes:name:W52C1",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W56C1",
-      "kind": "wife",
-      "ownerId": "wife_56",
-      "ownerName": "Maynard",
-      "modelId": "wife_56c1",
-      "name": "Dreamy Bubbles",
-      "nameKey": "WifeClothes:name:W56C1",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    ,
     {
       "id": "W14C1",
       "kind": "wife",
@@ -2157,18 +2137,8 @@
       "nameKey": "WifeClothes:name:W17C1",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W16C1",
-      "kind": "wife",
-      "ownerId": "wife_16",
-      "ownerName": "Kaka",
-      "modelId": "wife_16c1",
-      "name": "Not So Relaxing Holiday",
-      "nameKey": "WifeClothes:name:W16C1",
-      "rarity": 2,
-      "collectionScore": 50
-    },
+    }
+    ,
     {
       "id": "W115C1",
       "kind": "wife",
@@ -2223,29 +2193,9 @@
       "nameKey": "WifeClothes:name:W2C1",
       "rarity": 2,
       "collectionScore": 50
-    },
-    {
-      "id": "W60C2",
-      "kind": "wife",
-      "ownerId": "wife_60",
-      "ownerName": "Wenreesa",
-      "modelId": "wife_60c2",
-      "name": "The Silent Dealer",
-      "nameKey": "WifeClothes:name:W60C2",
-      "rarity": 3,
-      "collectionScore": 100
-    },
-    {
-      "id": "W117C1",
-      "kind": "wife",
-      "ownerId": "wife_117",
-      "ownerName": "Vlad XIII",
-      "modelId": "wife_117c1",
-      "name": "The Noble Escort",
-      "nameKey": "WifeClothes:name:W117C1",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    
+    ,
     {
       "id": "W106C2",
       "kind": "wife",
@@ -2575,18 +2525,8 @@
       "nameKey": "WifeClothes:name:W52C3",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W60C3",
-      "kind": "wife",
-      "ownerId": "wife_60",
-      "ownerName": "Wenreesa",
-      "modelId": "wife_60c3",
-      "name": "Cool Time",
-      "nameKey": "WifeClothes:name:W60C3",
-      "rarity": 2,
-      "collectionScore": 50
-    },
+    }
+    ,
     {
       "id": "W104C3",
       "kind": "wife",
@@ -2619,18 +2559,8 @@
       "nameKey": "WifeClothes:name:W21C2",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W71C1",
-      "kind": "wife",
-      "ownerId": "wife_71",
-      "ownerName": "Orpheus",
-      "modelId": "wife_71c1",
-      "name": "Deep Sea Tea Party",
-      "nameKey": "WifeClothes:name:W71C1",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    ,
     {
       "id": "W114C1",
       "kind": "wife",
@@ -2718,18 +2648,8 @@
       "nameKey": "WifeClothes:name:W111C3",
       "rarity": 4,
       "collectionScore": 200
-    },
-    {
-      "id": "W163C1",
-      "kind": "wife",
-      "ownerId": "wife_163",
-      "ownerName": "Thubran",
-      "modelId": "wife_163c1",
-      "name": "Gilded Sweet Affection",
-      "nameKey": "WifeClothes:name:W163C1",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    ,
     {
       "id": "W59C2",
       "kind": "wife",
@@ -2795,18 +2715,8 @@
       "nameKey": "WifeClothes:name:W54C4",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W56C2",
-      "kind": "wife",
-      "ownerId": "wife_56",
-      "ownerName": "Maynard",
-      "modelId": "wife_56c2",
-      "name": "Sweet Incubus",
-      "nameKey": "WifeClothes:name:W56C2",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    ,
     {
       "id": "W191C4",
       "kind": "wife",
@@ -2905,18 +2815,8 @@
       "nameKey": "WifeClothes:name:W52C4",
       "rarity": 3,
       "collectionScore": 100
-    },
-    {
-      "id": "W60C4",
-      "kind": "wife",
-      "ownerId": "wife_60",
-      "ownerName": "Wenreesa",
-      "modelId": "wife_60c4",
-      "name": "Sakura Breeze",
-      "nameKey": "WifeClothes:name:W60C4",
-      "rarity": 3,
-      "collectionScore": 100
-    },
+    }
+    ,
     {
       "id": "W11C3",
       "kind": "wife",

@@ -357,18 +357,8 @@
       "profileSource": "Seven-Day Goals,Recruit [Fated Acquaintance]",
       "profileSha256": "571450c83a8a8c033a417f9767435c449f47b77254dbc063177c1c9c27ded814",
       "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/melody/index.html"
-    },
-    {
-      "id": "wife_60",
-      "name": "Wenreesa",
-      "kind": "family",
-      "cost": 1,
-      "category": "Fated Acquaintance",
-      "localNameKey": "Wife:name:60",
-      "profileSource": "Recruit [Fated Acquaintance]",
-      "profileSha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d",
-      "profileUrl": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/wenreesa/index.html"
     }
+    
   ],
   "synthesis": {
     "fragments": 20,

@@ -2384,17 +2384,8 @@
       "wife_13",
       "wife_13c1"
     ]
-  },
-  {
-    "id": "wife_131",
-    "kind": "family",
-    "name": "Raphael",
-    "title": "Forest Light",
-    "artGroups": [
-      "small_wife_131",
-      "wife_131"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_132",
     "kind": "family",
@@ -2428,17 +2419,8 @@
       "wife_134",
       "wife_134c1"
     ]
-  },
-  {
-    "id": "wife_135",
-    "kind": "family",
-    "name": "Lud",
-    "title": "Medicine Shaman",
-    "artGroups": [
-      "small_wife_135",
-      "wife_135"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_136",
     "kind": "family",
@@ -2510,17 +2492,8 @@
       "small_wife_144",
       "wife_144"
     ]
-  },
-  {
-    "id": "wife_145",
-    "kind": "family",
-    "name": "Diablo",
-    "title": "Primal Noir",
-    "artGroups": [
-      "small_wife_145",
-      "wife_145"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_148",
     "kind": "family",
@@ -2587,18 +2560,8 @@
       "small_wife_158",
       "wife_158"
     ]
-  },
-  {
-    "id": "wife_16",
-    "kind": "family",
-    "name": "Kaka",
-    "title": "Growing Beast",
-    "artGroups": [
-      "small_wife_16",
-      "wife_16",
-      "wife_16c1"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_161",
     "kind": "family",
@@ -2992,19 +2955,8 @@
       "wife_55c1",
       "wife_55c2"
     ]
-  },
-  {
-    "id": "wife_56",
-    "kind": "family",
-    "name": "Maynard",
-    "title": "Succubus Dancer",
-    "artGroups": [
-      "small_wife_56",
-      "wife_56",
-      "wife_56c1",
-      "wife_56c2"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_57",
     "kind": "family",
@@ -3113,18 +3065,8 @@
       "wife_70",
       "wife_70c1"
     ]
-  },
-  {
-    "id": "wife_117",
-    "kind": "family",
-    "name": "Vlad XIII",
-    "title": "Dark Night Count",
-    "artGroups": [
-      "small_wife_117",
-      "wife_117",
-      "wife_117c1"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_128",
     "kind": "family",
@@ -3274,18 +3216,8 @@
       "small_wife_160",
       "wife_160"
     ]
-  },
-  {
-    "id": "wife_163",
-    "kind": "family",
-    "name": "Thubran",
-    "title": "Drakenberg Noble",
-    "artGroups": [
-      "small_wife_163",
-      "wife_163",
-      "wife_163c1"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_164",
     "kind": "family",
@@ -3295,18 +3227,8 @@
       "small_wife_164",
       "wife_164"
     ]
-  },
-  {
-    "id": "wife_165",
-    "kind": "family",
-    "name": "Lancelot",
-    "title": "Wings of Light",
-    "artGroups": [
-      "small_wife_165",
-      "wife_165",
-      "wife_165m1"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_166",
     "kind": "family",
@@ -3367,18 +3289,8 @@
       "wife_178",
       "wife_178m1"
     ]
-  },
-  {
-    "id": "wife_181",
-    "kind": "family",
-    "name": "Dante",
-    "title": "Archdemon of Gluttony",
-    "artGroups": [
-      "small_wife_181",
-      "wife_181",
-      "wife_181m1"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_182",
     "kind": "family",
@@ -3389,34 +3301,9 @@
       "wife_182",
       "wife_182m1"
     ]
-  },
-  {
-    "id": "wife_6",
-    "kind": "family",
-    "name": "Will",
-    "title": "Loyal Dog",
-    "artGroups": [
-      "npc_japananniversary_wife_06",
-      "small_wife_06",
-      "small_wife_06_pre",
-      "wife_06",
-      "wife_06_pre"
-    ]
-  },
-  {
-    "id": "wife_60",
-    "kind": "family",
-    "name": "Wenreesa",
-    "title": "Windtraveler",
-    "artGroups": [
-      "small_wife_60",
-      "wife_60",
-      "wife_60c1",
-      "wife_60c2",
-      "wife_60c3",
-      "wife_60c4"
-    ]
-  },
+  }
+  
+  ,
   {
     "id": "wife_66",
     "kind": "family",
@@ -3443,18 +3330,8 @@
     "name": "momocakr",
     "title": "momocakr",
     "artGroups": []
-  },
-  {
-    "id": "wife_71",
-    "kind": "family",
-    "name": "Orpheus",
-    "title": "Echo of the Sea",
-    "artGroups": [
-      "small_wife_71",
-      "wife_71",
-      "wife_71c1"
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_183",
     "kind": "family",

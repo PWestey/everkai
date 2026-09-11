@@ -20,7 +20,7 @@ test('Blessing Point Insight supplies 10000 points without altering power, intim
  s.family.wife_2.points=1e9-15000;const capped=act(s,'useConsumable',0,insight,{count:'all',recipient:'wife_2'});assert.equal(capped.state.family.wife_2.points,1e9-5000);assert.equal(capped.state.inventory[insight],9);
 });
 test('recovered extensionless JSON characters recruit and integrate with work, gifts, bonds and reload',()=>{
- let s=fresh(0);for(const id of ['hero_13','hero_54'])s=act(s,'recruit',0,id).state;s=act(s,'welcome',0,'wife_56').state;s=act(s,'assign',0,'fish','hero_13').state;s=act(s,'bondAssign',0,'wife_56','hero_54').state;s=act(s,'gift',0,'wife_56','gift1').state;assert.equal(s.buildings.fish.fellow,'hero_13');assert.equal(s.bonds.wife_56.fellow,'hero_54');assert.equal(s.family.wife_56.intimacy,1);assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);
+ let s=fresh(0);for(const id of ['hero_13','hero_54'])s=act(s,'recruit',0,id).state;s=act(s,'welcome',0,'wife_3').state;s=act(s,'assign',0,'fish','hero_13').state;s=act(s,'bondAssign',0,'wife_3','hero_54').state;s=act(s,'gift',0,'wife_3','gift1').state;assert.equal(s.buildings.fish.fellow,'hero_13');assert.equal(s.bonds.wife_3.fellow,'hero_54');assert.equal(s.family.wife_3.intimacy,1);assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 
 test('Focus Candy restores full Education Points without losing fractional recovery or spending at capacity',()=>{

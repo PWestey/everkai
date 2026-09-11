@@ -1,3 +1,11 @@
+## Roster: male Family members removed — September 2026
+
+At the owner's request the Family roster is women only. Twelve members and their variants were removed: Will, Kaka, Maynard, Wenreesa, Orpheus, Vlad XIII, Raphael, Lud, Diablo, Thubran, Lancelot and Dante.
+
+Removed across 18 data files: roster availability and batch evidence, humanized stills, the source character index, public roster, skill guide and inventory, both blessing recipient maps, graduation bonds (5), family gallery rows (18) , costumes (10), the Acquaint Stone and Fountain recruit entries (Wenreesa), one artifact support record (Diablo), Kaka's Roaming entry with his 13 encounter stories, and Will's opening story scene. Twelve portrait files were deleted (1.99 MB); none of the twelve had idle clips or costume art, so those totals are unchanged. Album records in `original-content.mjs` are kept, because `originalProfile()` resolves every scene's character through them.
+
+Two behaviours changed with it: the opening's second Family branch now grants Epona instead of Will, and that branch's story link points at the surviving `CityEventB3-1` scene. Counts moved accordingly: base compositions 278 → 266, Family 119 → 107, gallery rows 195 → 177 (160 with art), Acquaint Stone recruits 16 → 15 (26 stones for the full set), roaming Family 10 → 9 with 104 → 91 encounter stories, opening story scenes 55 → 54, and artifact supports 3 → 2.
+
 ## New journey — September 2026
 
 **New journey** in Offline & saves starts the village over while keeping the habit journal. `newJourney(state,now)` in `lib/game.mjs` returns a fresh save carrying the `habits` subtree unchanged (tasks, history, settings), so nothing else survives: Fellows, Family, buildings, gold, roaming and every other subtree reset. It goes through the normal restore path, so the previous save is kept on the device as `<save key>-before-restore`, and the confirmation tells the player to export a copy first. Tests: `tests/new-journey.test.mjs`.

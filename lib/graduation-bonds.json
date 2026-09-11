@@ -20,13 +20,7 @@
     "source": "https://zik-ascend.github.io/isl-tools/wiki/family/susie/",
     "sha256": "85f1fe3fa1c5455fbdcfcb08ba880d3942f789e30185e2af0bbdd83b601f7009"
   },
-  "wife_6": {
-    "type": "brave",
-    "percent": 10,
-    "increment": 5,
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/will/",
-    "sha256": "a5fea9e00d274e480f02c7d55c3110b8ca9e00ac3fcf94b7aea4085ee4380db5"
-  },
+  
   "wife_12": {
     "type": "inspiring",
     "percent": 10,
@@ -69,13 +63,7 @@
     "source": "https://zik-ascend.github.io/isl-tools/wiki/family/merry/",
     "sha256": "f495b85761fb6339585437fd13331d0e0a3cf4875eda763111b59a43761ace8e"
   },
-  "wife_60": {
-    "type": "brave",
-    "percent": 10,
-    "increment": 5,
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wenreesa/",
-    "sha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d"
-  },
+  
   "wife_63": {
     "type": "diligent",
     "percent": 10,
@@ -132,13 +120,7 @@
     "source": "https://zik-ascend.github.io/isl-tools/wiki/family/holly/",
     "sha256": "d0e040673a90fac828b3fd415828a12d59325ace5806ada6c6f344904bfd9a1c"
   },
-  "wife_117": {
-    "type": "inspiring",
-    "percent": 10,
-    "increment": 5,
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/vlad-xiii/",
-    "sha256": "796d269110eb859fc633175eba52c08b9a00dcec424ca385fc9ca6317e2b7619"
-  },
+  
   "wife_119": {
     "type": "informed",
     "percent": 10,
@@ -181,13 +163,7 @@
     "source": "https://zik-ascend.github.io/isl-tools/wiki/family/flora/",
     "sha256": "16a9db7bd25dc5cae47981294be5f12c604cb17436819c85d29eba2f3c10c15b"
   },
-  "wife_131": {
-    "type": "diligent",
-    "percent": 10,
-    "increment": 5,
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/raphael/",
-    "sha256": "a22f1d6a1eea2111e978cb7c5ed5dd489b1a617d5108c10f04642a61db50961e"
-  },
+  
   "wife_133": {
     "type": "brave",
     "percent": 10,
@@ -202,13 +178,7 @@
     "source": "https://zik-ascend.github.io/isl-tools/wiki/family/jin-yu/",
     "sha256": "a108d617f9e5e9842646dcc31c02eedc8db5d877ef4485b1ccf75147fcfbb26f"
   },
-  "wife_135": {
-    "type": "brave",
-    "percent": 10,
-    "increment": 5,
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lud/",
-    "sha256": "84a36e3f0fb1684a87b236fe61e78f19a59b47ede1ce5cdf2cf7a23405c21cde"
-  },
+  
   "wife_136": {
     "type": "informed",
     "percent": 10,

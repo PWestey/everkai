@@ -1049,17 +1049,7 @@
       ],
       "pageSha256": "85f1fe3fa1c5455fbdcfcb08ba880d3942f789e30185e2af0bbdd83b601f7009"
     },
-    "wife_6": {
-      "name": "Will",
-      "rarity": "N",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/will/",
-      "blessedFellows": [
-        "hero_1",
-        "hero_19"
-      ],
-      "pageSha256": "a5fea9e00d274e480f02c7d55c3110b8ca9e00ac3fcf94b7aea4085ee4380db5"
-    },
+    
     "wife_11": {
       "name": "Ookami",
       "rarity": "R",
@@ -1115,17 +1105,7 @@
       ],
       "pageSha256": "d8d6d1282dc2b047a97367792f4b482176b2cd61b8781d864d9c1ada477b7486"
     },
-    "wife_16": {
-      "name": "Kaka",
-      "rarity": "R",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/kaka/",
-      "blessedFellows": [
-        "hero_21",
-        "hero_24"
-      ],
-      "pageSha256": "66d5562486fbdb9035af11a9bbcfa43b4cd10fd99622332b8253038f76ece747"
-    },
+    
     "wife_17": {
       "name": "Freyja",
       "rarity": "R",
@@ -1260,17 +1240,7 @@
       ],
       "pageSha256": "f3300265b089928bead625ffc4bbe12aa71d8b099b2eebe2f6febc9d0a642633"
     },
-    "wife_56": {
-      "name": "Maynard",
-      "rarity": "R",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/maynard/",
-      "blessedFellows": [
-        "hero_11",
-        "hero_120"
-      ],
-      "pageSha256": "9503f22262a2c09417a3c2a1d3c1848a70951ed8815c44a726dc724a6774849e"
-    },
+    
     "wife_57": {
       "name": "Sadako",
       "rarity": "SR",
@@ -1307,18 +1277,7 @@
       ],
       "pageSha256": "c66cb98a3c24c387b0568285a3760b746d475b96ec23d0e5d462252ba6c87ee3"
     },
-    "wife_60": {
-      "name": "Wenreesa",
-      "rarity": "SR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/wenreesa/",
-      "blessedFellows": [
-        "hero_61",
-        "hero_66",
-        "hero_72"
-      ],
-      "pageSha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d"
-    },
+    
     "wife_61": {
       "name": "Isatilra",
       "rarity": "SR",
@@ -1403,20 +1362,7 @@
       ],
       "pageSha256": "68c741ad5502cec5f06bfdef4ac60f3858275c107accf7962ed725ea9ed1a4ff"
     },
-    "wife_71": {
-      "name": "Orpheus",
-      "rarity": "SR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/orpheus/",
-      "blessedFellows": [
-        "hero_112",
-        "hero_106",
-        "hero_3",
-        "hero_123",
-        "hero_308"
-      ],
-      "pageSha256": "debee954f7b2eead31ac1f01f22bfbe3e4832720a8d49406fcff4ed877789dd7"
-    },
+    
     "wife_65": {
       "name": "Elora",
       "rarity": "SSR",
@@ -1655,23 +1601,7 @@
       ],
       "pageSha256": "d0e040673a90fac828b3fd415828a12d59325ace5806ada6c6f344904bfd9a1c"
     },
-    "wife_117": {
-      "name": "Vlad XIII",
-      "rarity": "SSR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/vlad-xiii/",
-      "blessedFellows": [
-        "hero_120",
-        "hero_160",
-        "hero_115",
-        "hero_129",
-        "hero_134",
-        "hero_147",
-        "hero_177",
-        "hero_200"
-      ],
-      "pageSha256": "796d269110eb859fc633175eba52c08b9a00dcec424ca385fc9ca6317e2b7619"
-    },
+    
     "wife_119": {
       "name": "Alanna",
       "rarity": "SSR",
@@ -1768,24 +1698,7 @@
       ],
       "pageSha256": "16a9db7bd25dc5cae47981294be5f12c604cb17436819c85d29eba2f3c10c15b"
     },
-    "wife_131": {
-      "name": "Raphael",
-      "rarity": "SSR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/raphael/",
-      "blessedFellows": [
-        "hero_126",
-        "hero_132",
-        "hero_130",
-        "hero_140",
-        "hero_141",
-        "hero_162",
-        "hero_260",
-        "hero_199",
-        "hero_264"
-      ],
-      "pageSha256": "a22f1d6a1eea2111e978cb7c5ed5dd489b1a617d5108c10f04642a61db50961e"
-    },
+    
     "wife_133": {
       "name": "Bathery",
       "rarity": "SSR",
@@ -1820,22 +1733,7 @@
       ],
       "pageSha256": "a108d617f9e5e9842646dcc31c02eedc8db5d877ef4485b1ccf75147fcfbb26f"
     },
-    "wife_135": {
-      "name": "Lud",
-      "rarity": "SSR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lud/",
-      "blessedFellows": [
-        "hero_130",
-        "hero_134",
-        "hero_123",
-        "hero_142",
-        "hero_145",
-        "hero_179",
-        "hero_176"
-      ],
-      "pageSha256": "84a36e3f0fb1684a87b236fe61e78f19a59b47ede1ce5cdf2cf7a23405c21cde"
-    },
+    
     "wife_136": {
       "name": "Squeaky",
       "rarity": "SSR",
@@ -1930,21 +1828,7 @@
       ],
       "pageSha256": "37005710106958d787cf75904ded96e4b21955503161c190ea8e5a03933f00f7"
     },
-    "wife_145": {
-      "name": "Diablo",
-      "rarity": "SSR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/diablo/",
-      "blessedFellows": [
-        "hero_251",
-        "hero_154",
-        "hero_111",
-        "hero_143",
-        "hero_166",
-        "hero_183"
-      ],
-      "pageSha256": "f1d763871ba670935f53b52db09e0009f8be3df0d3589f6afa673af2b1207368"
-    },
+    
     "wife_152": {
       "name": "Pan Pan",
       "rarity": "SSR",
@@ -2119,22 +2003,7 @@
       ],
       "pageSha256": "e62be15bb35243c65edc2f5d23b929099878d3e1af620019c665dbf679d8b938"
     },
-    "wife_163": {
-      "name": "Thubran",
-      "rarity": "SSR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/thubran/",
-      "blessedFellows": [
-        "hero_193",
-        "hero_104",
-        "hero_160",
-        "hero_117",
-        "hero_143",
-        "hero_188",
-        "hero_308"
-      ],
-      "pageSha256": "09f128cd61672303010f6a473c8140cb7c314bb0c53081e888dada2d6ad1da23"
-    },
+    
     "wife_164": {
       "name": "Yunseul",
       "rarity": "SSR",
@@ -2685,17 +2554,7 @@
       ],
       "pageSha256": "addca1cebe89d014aa07ca3a0428210e6e2348ddf032df3af9058a1de645a6c3"
     },
-    "wife_165": {
-      "name": "Lancelot",
-      "rarity": "SSR+ -> UR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/lancelot/",
-      "blessedFellows": [
-        "hero_170",
-        "hero_102"
-      ],
-      "pageSha256": "8871c86639456fa177d171694f6d8d36ce82551ecd728f616ce31354dde7825e"
-    },
+    
     "wife_166": {
       "name": "Zenow",
       "rarity": "SSR+ -> UR",
@@ -2810,17 +2669,7 @@
       ],
       "pageSha256": "95135af62ae2c6231e45e4ba8ff8a83c2f92cb4a9ce234fb9f2b3ded56b96ed5"
     },
-    "wife_181": {
-      "name": "Dante",
-      "rarity": "SSR+ -> UR",
-      "type": null,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/family/dante/",
-      "blessedFellows": [
-        "hero_163",
-        "hero_101"
-      ],
-      "pageSha256": "db832b57b201067e989de99228a2052827639c0658f472a06ff95ecd1f951353"
-    },
+    
     "wife_182": {
       "name": "Nonnette",
       "rarity": "SSR+ -> UR",

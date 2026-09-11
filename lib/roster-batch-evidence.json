@@ -3931,30 +3931,8 @@
       293,
       392
     ]
-  },
-  {
-    "id": "wife_117",
-    "name": "Vlad XIII",
-    "status": "verified-base",
-    "model": "wife_117",
-    "art": "roster/wife_117.webp",
-    "source_portrait_sha256": "f65576b21796895adf381f83ebccac565250d7cd030c679f249169ca2a511c1c",
-    "render_evidence": {
-      "id": "wife_117",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      33,
-      40,
-      287,
-      440
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_118",
     "name": "Pthahnil",
@@ -4299,30 +4277,8 @@
       287,
       440
     ]
-  },
-  {
-    "id": "wife_131",
-    "name": "Raphael",
-    "status": "verified-base",
-    "model": "wife_131",
-    "art": "roster/wife_131.webp",
-    "source_portrait_sha256": "5773eb5ff9beeaa129af344776b7aef26839be10be398e4ff10d8aedc2bb1bfe",
-    "render_evidence": {
-      "id": "wife_131",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      89,
-      40,
-      231,
-      440
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_132",
     "name": "Curren",
@@ -4391,30 +4347,8 @@
       293,
       423
     ]
-  },
-  {
-    "id": "wife_135",
-    "name": "Lud",
-    "status": "verified-base",
-    "model": "wife_135",
-    "art": "roster/wife_135.webp",
-    "source_portrait_sha256": "6704f121e4e2ddf8a03c47d3953aedcb923fc4ac9c36b6310057ac6f615a8922",
-    "render_evidence": {
-      "id": "wife_135",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      62,
-      40,
-      256,
-      440
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_136",
     "name": "Squeaky",
@@ -4552,30 +4486,8 @@
       279,
       440
     ]
-  },
-  {
-    "id": "wife_145",
-    "name": "Diablo",
-    "status": "verified-base",
-    "model": "wife_145",
-    "art": "roster/wife_145.webp",
-    "source_portrait_sha256": "297594690ce878c6d7ff58aefef58113485c24a2d3a981776326357897b43c23",
-    "render_evidence": {
-      "id": "wife_145",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      45,
-      48,
-      266,
-      440
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_146",
     "name": "Athena",
@@ -4897,30 +4809,8 @@
       221,
       361
     ]
-  },
-  {
-    "id": "wife_16",
-    "name": "Kaka",
-    "status": "verified-base",
-    "model": "wife_16",
-    "art": "roster/wife_16.webp",
-    "source_portrait_sha256": "9ae87bf92513c83c6493a5564cb10f9df59bf3d3c4d297c8cf56dde7a539ab34",
-    "render_evidence": {
-      "id": "wife_16",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      57,
-      42,
-      261,
-      440
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_160",
     "name": "Sylphiette Greyrat",
@@ -4989,30 +4879,8 @@
       289,
       440
     ]
-  },
-  {
-    "id": "wife_163",
-    "name": "Thubran",
-    "status": "verified-base",
-    "model": "wife_163",
-    "art": "roster/wife_163.webp",
-    "source_portrait_sha256": "b3b6f9c4743535c7eb696fc9a774f4b5d4f4c404d4fe374fa6c86c8bcaccc3b6",
-    "render_evidence": {
-      "id": "wife_163",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      26,
-      66,
-      294,
-      414
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_164",
     "name": "Yunseul",
@@ -5035,30 +4903,8 @@
       291,
       433
     ]
-  },
-  {
-    "id": "wife_165",
-    "name": "Lancelot",
-    "status": "verified-base",
-    "model": "wife_165",
-    "art": "roster/wife_165.webp",
-    "source_portrait_sha256": "59a0fa4b90678a8bfe92adf4463b749c0fb234413463d50b49015a17abae4874",
-    "render_evidence": {
-      "id": "wife_165",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      40,
-      52,
-      282,
-      428
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_166",
     "name": "Zenow",
@@ -5380,30 +5226,8 @@
       289,
       439
     ]
-  },
-  {
-    "id": "wife_181",
-    "name": "Dante",
-    "status": "verified-base",
-    "model": "wife_181",
-    "art": "roster/wife_181.webp",
-    "source_portrait_sha256": "ac3a66e7e23e90f7315b2083ea1d86b17fff3bef3daa34ac6b5e5ab63d80e490",
-    "render_evidence": {
-      "id": "wife_181",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      33,
-      43,
-      284,
-      438
-    ]
-  },
+  }
+  ,
   {
     "id": "wife_182",
     "name": "Nonnette",
@@ -6070,53 +5894,9 @@
       248,
       440
     ]
-  },
-  {
-    "id": "wife_6",
-    "name": "Will",
-    "status": "verified-base",
-    "model": "wife_06",
-    "art": "roster/wife_6.webp",
-    "source_portrait_sha256": "14181d8612a54f2090ab36961690569cd595aed9d2dda934b4f44cddbaeb0c61",
-    "render_evidence": {
-      "id": "wife_6",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      80,
-      40,
-      240,
-      440
-    ]
-  },
-  {
-    "id": "wife_60",
-    "name": "Wenreesa",
-    "status": "verified-base",
-    "model": "wife_60",
-    "art": "roster/wife_60.webp",
-    "source_portrait_sha256": "9b07f26b97024416041dfc4f7f9e2512edca63bb4422a59204b84087de606ee4",
-    "render_evidence": {
-      "id": "wife_60",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      26,
-      87,
-      294,
-      394
-    ]
-  },
+  }
+  
+  ,
   {
     "id": "wife_61",
     "name": "Isatilra",
@@ -6300,30 +6080,8 @@
       239,
       440
     ]
-  },
-  {
-    "id": "wife_71",
-    "name": "Orpheus",
-    "status": "verified-base",
-    "model": "wife_71",
-    "art": "roster/wife_71.webp",
-    "source_portrait_sha256": "73451fa4bd85c3495809d1a6da8221cf678a372f5ecce2981c90f58840cb856a",
-    "render_evidence": {
-      "id": "wife_71",
-      "base": true,
-      "pass": true
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      66,
-      40,
-      260,
-      440
-    ]
-  },
+  }
+  ,
   {
     "id": "hero_13",
     "name": "Lincale",
@@ -6417,52 +6175,6 @@
       291,
       411
     ]
-  },
-  {
-    "id": "wife_56",
-    "name": "Maynard",
-    "status": "verified-base",
-    "model": "wife_56",
-    "art": "roster/wife_56.webp",
-    "source_portrait_sha256": "f5f7e244afa73715a977e6db6c84bb1b8b8aefcd6da393ec89a2ef5001c3cc9b",
-    "render_evidence": {
-      "id": "wife_56",
-      "base": true,
-      "model": "wife_56",
-      "pass": true,
-      "bones": 137,
-      "animation": "Idle",
-      "finite": true,
-      "lost": false,
-      "errors": []
-    },
-    "skeleton_evidence": {
-      "group": "assets/Android/spine/wife/wife_56",
-      "path": "/Users/westmanfamily/Desktop/ISEKAI/character_asset_exports/bundles/UnityStreamingAssetsPack/wife_56_skel_f2a462ab6f81aa85703e6ab45aabfb85/files/Wife_56",
-      "version": "4.1.10",
-      "bones": 137,
-      "id": "wife_56",
-      "base": true,
-      "skeleton_sha256": "1dc11660ca61b705b1fcc7b260153b8b8a6ecff3c46f271be18f908f88d6ec14",
-      "atlas": {
-        "type": "TextAsset",
-        "path_id": 1794646415679706799,
-        "name": "Wife_56.atlas",
-        "export": "bundles/UnityStreamingAssetsPack/wife_56_skel_f2a462ab6f81aa85703e6ab45aabfb85/files/Wife_56.atlas"
-      },
-      "textures": {
-        "Wife_56.png": "bundles/UnityStreamingAssetsPack/wife_56_atlas_d7b0163765445309b73358424e24c9d0/files/Wife_56.png"
-      }
-    },
-    "dimensions": [
-      320,
-      480
-    ],
-    "alpha_bounds": [
-      46,
-      47,
-      283,
-      440
-    ]
   }
+  
 ]

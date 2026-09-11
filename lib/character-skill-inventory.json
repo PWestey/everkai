@@ -23168,29 +23168,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_6",
-      "name": "Will",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/will/index.html",
-      "sha256": "a5fea9e00d274e480f02c7d55c3110b8ca9e00ac3fcf94b7aea4085ee4380db5",
-      "sections": [
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_11",
       "name": "Ookami",
@@ -23305,30 +23284,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_16",
-      "name": "Kaka",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/kaka/index.html",
-      "sha256": "66d5562486fbdb9035af11a9bbcfa43b4cd10fd99622332b8253038f76ece747",
-      "sections": [
-        "Costumes",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_17",
       "name": "Freyja",
@@ -23582,30 +23539,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_56",
-      "name": "Maynard",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/maynard/index.html",
-      "sha256": "9503f22262a2c09417a3c2a1d3c1848a70951ed8815c44a726dc724a6774849e",
-      "sections": [
-        "Costumes",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_57",
       "name": "Sadako",
@@ -23674,31 +23609,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_60",
-      "name": "Wenreesa",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/wenreesa/index.html",
-      "sha256": "c3e06fd043913aeb95216ba26c4ef24ba9ceef17daac815d99596d17707d3a5d",
-      "sections": [
-        "Costumes",
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_61",
       "name": "Isatilra",
@@ -23857,30 +23769,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_71",
-      "name": "Orpheus",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/orpheus/index.html",
-      "sha256": "debee954f7b2eead31ac1f01f22bfbe3e4832720a8d49406fcff4ed877789dd7",
-      "sections": [
-        "Costumes",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_65",
       "name": "Elora",
@@ -24188,31 +24078,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_117",
-      "name": "Vlad XIII",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/vlad-xiii/index.html",
-      "sha256": "796d269110eb859fc633175eba52c08b9a00dcec424ca385fc9ca6317e2b7619",
-      "sections": [
-        "Costumes",
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_119",
       "name": "Alanna",
@@ -24350,30 +24217,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_131",
-      "name": "Raphael",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/raphael/index.html",
-      "sha256": "a22f1d6a1eea2111e978cb7c5ed5dd489b1a617d5108c10f04642a61db50961e",
-      "sections": [
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_133",
       "name": "Bathery",
@@ -24420,30 +24265,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_135",
-      "name": "Lud",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/lud/index.html",
-      "sha256": "84a36e3f0fb1684a87b236fe61e78f19a59b47ede1ce5cdf2cf7a23405c21cde",
-      "sections": [
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_136",
       "name": "Squeaky",
@@ -24583,30 +24406,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_145",
-      "name": "Diablo",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/diablo/index.html",
-      "sha256": "f1d763871ba670935f53b52db09e0009f8be3df0d3589f6afa673af2b1207368",
-      "sections": [
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_152",
       "name": "Pan Pan",
@@ -24858,31 +24659,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_163",
-      "name": "Thubran",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/thubran/index.html",
-      "sha256": "09f128cd61672303010f6a473c8140cb7c314bb0c53081e888dada2d6ad1da23",
-      "sections": [
-        "Costumes",
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_164",
       "name": "Yunseul",
@@ -25746,46 +25524,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_165",
-      "name": "Lancelot",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/lancelot/index.html",
-      "sha256": "8871c86639456fa177d171694f6d8d36ce82551ecd728f616ce31354dde7825e",
-      "sections": [
-        "Rarity Upgrade Track",
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [
-        {
-          "id": null,
-          "name": "SSR+",
-          "lines": []
-        },
-        {
-          "id": null,
-          "name": "UR",
-          "lines": []
-        }
-      ],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-image-viewer-alt",
-        "data-image-viewer-description",
-        "data-image-viewer-label",
-        "data-image-viewer-src",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_166",
       "name": "Zenow",
@@ -26058,46 +25798,8 @@
         "data-preview-src",
         "data-search-index"
       ]
-    },
-    {
-      "id": "wife_181",
-      "name": "Dante",
-      "category": "family",
-      "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/family/dante/index.html",
-      "sha256": "db832b57b201067e989de99228a2052827639c0658f472a06ff95ecd1f951353",
-      "sections": [
-        "Rarity Upgrade Track",
-        "Stella Rewards",
-        "Blessed Fellows"
-      ],
-      "skills": [
-        {
-          "id": null,
-          "name": "SSR+",
-          "lines": []
-        },
-        {
-          "id": null,
-          "name": "UR",
-          "lines": []
-        }
-      ],
-      "dataFields": [
-        "data-category",
-        "data-current-path",
-        "data-image-viewer-alt",
-        "data-image-viewer-description",
-        "data-image-viewer-label",
-        "data-image-viewer-src",
-        "data-preview-alt",
-        "data-preview-description",
-        "data-preview-description-mode",
-        "data-preview-group-key",
-        "data-preview-label",
-        "data-preview-src",
-        "data-search-index"
-      ]
-    },
+    }
+    ,
     {
       "id": "wife_182",
       "name": "Nonnette",

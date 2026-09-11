@@ -6,16 +6,7 @@
     "SkillBase": "9c5c2d7a3b0355a7657c46276b298419dcd1e06676379628c40b8962a73e4a25"
   },
   "records": [
-    {
-      "item": "Item_Weapon_Equipment_6_19",
-      "family": "wife_145",
-      "name": "Diablo",
-      "skill": "Weapon_6_19_HeroSkill_W145",
-      "aptitude": 100,
-      "percent": 20,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/diablo-s-doll/",
-      "pageSha256": "4120b5569af335c90d721bb37f0e2ab57879d1e744072ce451adea148e88a142"
-    },
+    
     {
       "item": "Item_Weapon_Equipment_6_18",
       "family": "wife_144",

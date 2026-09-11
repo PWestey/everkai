@@ -5900,92 +5900,12 @@
    "roster/hero_54.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_117",
-  "model": "wife_117",
-  "art": "humanized/wife_117.webp",
-  "sha256": "9c1cab65ba9be3e5b20dd416038ab44607e1afa6566bd00b2271c00505dc9845",
-  "bytes": 140056,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_117.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_131",
-  "model": "wife_131",
-  "art": "humanized/wife_131.webp",
-  "sha256": "9398afdf4da2f8ecbafd7d628d44d35d5beb060b1fb8bb0b4b22bff76122a783",
-  "bytes": 163588,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_131.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_135",
-  "model": "wife_135",
-  "art": "humanized/wife_135.webp",
-  "sha256": "0fa8949c284730bc56c5ee7b1ecb6a79a36facd97adc3134ce0ad9e899097382",
-  "bytes": 182198,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_135.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_145",
-  "model": "wife_145",
-  "art": "humanized/wife_145.webp",
-  "sha256": "db250a044bedc0b54a3b48d5e472d26afcfd29363de1a9eb7b62ae0b6e48df5a",
-  "bytes": 156202,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_145.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_16",
-  "model": "wife_16",
-  "art": "humanized/wife_16.webp",
-  "sha256": "73e7083410474761ae35a3aa95b0baf685749717755cd7dd2587f8b93b4e15c2",
-  "bytes": 144878,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_16.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
+ }
+ 
+ 
+ 
+ 
+ ,
  {
   "id": "wife_160",
   "model": "wife_160",
@@ -6019,41 +5939,9 @@
    "roster/wife_161.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_163",
-  "model": "wife_163",
-  "art": "humanized/wife_163.webp",
-  "sha256": "f4923119a137991fd2cc576670d701eb6e32c2653b54614c7581323f7c499ee9",
-  "bytes": 180348,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_163.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_165",
-  "model": "wife_165",
-  "art": "humanized/wife_165.webp",
-  "sha256": "71746a50e5496def50b4effa764c9ca6fc1c1f56971e5abf67f7366330435f5f",
-  "bytes": 307042,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_165.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
+ }
+ 
+ ,
  {
   "id": "wife_168",
   "model": "wife_168",
@@ -6087,24 +5975,8 @@
    "roster/wife_174.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_181",
-  "model": "wife_181",
-  "art": "humanized/wife_181.webp",
-  "sha256": "c9360207e86a415c6f5e124930e445ccac8649422dced3f0cc755388de29d6ee",
-  "bytes": 171042,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_181.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
+ }
+ ,
  {
   "id": "wife_184",
   "model": "wife_184",
@@ -6121,73 +5993,9 @@
    "roster/wife_184.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_56",
-  "model": "wife_56",
-  "art": "humanized/wife_56.webp",
-  "sha256": "6b0b1733631a697cc02dd9954b9ae955145ff4a4cc4bd13d186fe7b7cce40e4e",
-  "bytes": 99584,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_56.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_6",
-  "model": "wife_06",
-  "art": "humanized/wife_06.webp",
-  "sha256": "75941612bef57ceb86e2dbdb27d765cf8f61adc5b84924bada0468bdc6e4ee07",
-  "bytes": 125664,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_6.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_60",
-  "model": "wife_60",
-  "art": "humanized/wife_60.webp",
-  "sha256": "9ff45e8b3c36343df465c60ea4e0f9c44d3d6df2796d0f61a50d9e590a49b7d1",
-  "bytes": 145800,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_60.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
-  "id": "wife_71",
-  "model": "wife_71",
-  "art": "humanized/wife_71.webp",
-  "sha256": "b90cd8dd3b2f38a274cbdca2150517bb5fcc610d8235fb338e316af42ea73610",
-  "bytes": 174530,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_71.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
  }
+ 
+ 
+ 
+ 
 ]
