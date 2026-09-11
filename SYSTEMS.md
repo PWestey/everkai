@@ -20,8 +20,9 @@ Roaming is the original Drakenberg building where Family members are met and inv
 
 **Joining and saves.** A member whose bond reaches the goal joins with the same starting values as a free welcome. The save gains an optional `roaming` subtree (sequence-guarded and fully validated), so existing saves load unchanged.
 
+**Encounter stories.** Each roaming member's original numbered meeting stories (104 in all, about 190 KB of text loaded separately from the main bundle) play as you roam. The original text doesn't give the bond level for each meeting, so as a local rule the meetings are spread evenly across the bond goal and the joining meeting plays the last one. The after-joining line plays when an invited roaming member is met. Result cards show one-line meetings inline and offer longer ones to watch, and Encounters replays every story already reached (all of them for members who joined some other way).
+
 **Not yet implemented.**
-- The illustrated multi-part encounter stories: the original has about 60–150 lines per member across numbered meetings.
 - Per-location backdrops.
 - Fame counting toward player rank; Everkai's rank still comes from milestones.
 - Stamina Potions.

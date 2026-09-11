@@ -126,7 +126,7 @@ The unlock list names Home (15), Drakenberg (16), Fellow & Fellow Assignment (13
   - Related sources: "Roaming Tavern", "Old Friend Gift"; Stamina Potion item.
 - **Unlock:** clear a stage. **MP:** none.
 - **SP:** as-is; a natural habit-stamina sink and the original Family acquisition route.
-- **Everkai: PARTIAL** (September 2026: stamina, Fame, bond-to-join, Intimacy and Fellow events are built; the illustrated encounter stories, per-location backdrops and Fame toward player rank are not. Free welcome still exists).
+- **Everkai: PARTIAL** (September 2026: stamina, Fame, bond-to-join, Intimacy and Fellow events are built; its numbered encounter stories play as you build bond; per-location backdrops and Fame toward player rank are not. Free welcome still exists).
 
 ### B9 Bazaar (`project`; rule `Project`; SystemUnlock 19)
 - **Hosting:** use a permit for one of five bazaars. Cuisine/Handicraft/Weaponry/Grimoire/Travel yield Inspiring/Diligent/Brave/Informed/Unfettered Proficiency per minute, and Proficiency upgrades Fellow **Aptitude Skills**. Host rank and title raise output.

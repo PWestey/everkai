@@ -340,7 +340,7 @@ Grep across `app/*.tsx`, `lib/*.mjs` (excluding biography text) and SYSTEMS.md.
 
 | System | Status | Evidence |
 |---|---|---|
-| **Roaming / strolling town encounters** (Family acquisition, drink events, item drops) | **PARTIAL** | Built September 2026: stamina (1/30 min, rank cap), Fame, bond-to-join for 10 Family members, Intimacy, 44 Fellow events (`lib/roaming.mjs`). Missing: illustrated encounter stories, per-location backdrops, Fame → player rank. |
+| **Roaming / strolling town encounters** (Family acquisition, drink events, item drops) | **PARTIAL** | Built September 2026: stamina (1/30 min, rank cap), Fame, bond-to-join for 10 Family members, Intimacy, 44 Fellow events (`lib/roaming.mjs`). Missing: per-location backdrops, Fame → player rank (encounter stories added). |
 | **Recruit building / summon pools** (Hero Summon, fragments, duplicates, pity) | **SHELL** | Free recruit buttons plus 16 Acquaint-Stone recruits in the Fountain. The opening token is "Local catalog-order recruitment, no random odds" (`lib/opening.mjs`). No duplicate or fragment conversion. |
 | **Golemore Mine** (Drakenberg building; Golemore Excavation live event) | **ABSENT** | event-catalog.md:69 "Everkai: absent". Memory: personal escalating boss adaptation. |
 | **Archdemon's Temple Challenge** (WeekBoss, type emblems, Shelter Runes) | **ABSENT** | event-catalog.md:195. |
@@ -370,7 +370,7 @@ Grep across `app/*.tsx`, `lib/*.mjs` (excluding biography text) and SYSTEMS.md.
 
 | # | System | Depth | Biggest gaps | Key files |
 |---|---|---|---|---|
-| 1 | Roaming / strolling encounters | PARTIAL | Core loop built; encounter stories and Fame→rank missing | lib/roaming.mjs |
+| 1 | Roaming / strolling encounters | PARTIAL | Loop and encounter stories built; Fame→rank missing | lib/roaming.mjs |
 | 2 | Guild, Bazaar, Hall of Fame, Challenge tower, Arena | ABSENT | Need single-player adaptations or explicit removal | drakenberg-layout.json |
 | 3 | Archdemon's Temple, Golemore Mine | ABSENT | Weekly and daily bosses | event-catalog.md:195, :62 |
 | 4 | Statues/Runes, building appearance, avatars, Little Helper | ABSENT | Cosmetic and QoL layers | event-catalog.md:309 |
