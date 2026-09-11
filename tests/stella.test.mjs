@@ -14,7 +14,7 @@ test('authored activation is limited and versioned; unmarked v86 receipts keep e
 });
 test('all159 owned Fellows receive each latest typed contribution exactly once',async()=>{
  const {FELLOWS}=await import('../lib/catalog.mjs');let s=fresh(1000);for(const f of FELLOWS)s.fellows[f.id]=newFellow();const base=structuredClone(s);for(const p of STELLA_PROFILES){s=go(s,'stellaActivate',p.id);s=go(s,'stellaSupply',p.id);s=go(s,'stellaUpgrade',p.id,5);}
- assert.equal(Object.keys(s.fellows).length,159);for(const f of FELLOWS){const owner=STELLA_PROFILES.find(p=>p.id===f.id),typed=STELLA_PROFILES.filter(p=>p.type===f.type),flat=owner?2500000:0,percent=typed.length*17;assert.equal(bondedPower(s,f.id),Math.floor((bondedPower(base,f.id)+flat)*(1+percent/100)),f.id);}
+ assert.equal(Object.keys(s.fellows).length,154);for(const f of FELLOWS){const owner=STELLA_PROFILES.find(p=>p.id===f.id),typed=STELLA_PROFILES.filter(p=>p.type===f.type),flat=owner?2500000:0,percent=typed.length*17;assert.equal(bondedPower(s,f.id),Math.floor((bondedPower(base,f.id)+flat)*(1+percent/100)),f.id);}
 });
 test('Elise has separate zero activation, 1500 paid total, cap20 and mixed historical owners',()=>{
  let s=setup();s=go(s,'stellaActivate','hero_54');delete s.stella.history[0].activationPolicy;s.stella.history[0].percent=3;const legacy=structuredClone(s.stella.history);

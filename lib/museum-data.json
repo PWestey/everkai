@@ -245,15 +245,6 @@
       "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-anniversary-en3"
     },
     {
-      "id": "Collection_DemonSlayer",
-      "name": "Statue of Shinobu",
-      "description": "A woman who once briefly crossed paths with a sculptor. Struck by her remarkable beauty and elegance, the sculptor created this statue based only on faint memories of her.",
-      "effect": null,
-      "sourceKey": "Item:description:Collection_DemonSlayer",
-      "hall": "Hall1",
-      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-demonslayer"
-    },
-    {
       "id": "Collection_DJDemonCastle",
       "name": "Bloodline Puppet",
       "description": "A puppet forged from the lingering power of an ancient bloodline after the disappearance of the True Ancestor, Lailah. Aurora entrusted it to you as a keepsake of that vanished legacy.",

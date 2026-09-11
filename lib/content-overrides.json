@@ -1,0 +1,12 @@
+{
+  "note": "Everkai content decisions layered over the faithful APK extraction. lib/original-content.mjs, the render-verification records (roster-availability, roster-batch-evidence, source-character-index, public-roster) and the research docs stay exactly as extracted, so provenance keeps describing the original game. This file records what the app actually ships, and survives regeneration of any of those.",
+  "removed": [
+    {"id": "hero_264", "name": "Shinobu Kocho", "reason": "Demon Slayer crossover"},
+    {"id": "hero_301", "name": "Giyu Tomioka", "reason": "Demon Slayer crossover"},
+    {"id": "hero_302", "name": "Tanjiro Kamado", "reason": "Demon Slayer crossover"},
+    {"id": "hero_303", "name": "Zenitsu Agatsuma", "reason": "Demon Slayer crossover"},
+    {"id": "hero_304", "name": "Inosuke Hashibira", "reason": "Demon Slayer crossover"},
+    {"id": "wife_185", "name": "Shinobu Kocho", "reason": "Demon Slayer crossover; Family version of hero_264"},
+    {"id": "wife_186", "name": "Nezuko Kamado", "reason": "Demon Slayer crossover"}
+  ]
+}

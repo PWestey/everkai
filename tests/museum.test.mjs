@@ -8,7 +8,7 @@ test('existing saves have no Museum effects until keepsakes are accepted',()=>{
  const old=fresh(1000),before=bondedPower(old,'hero_15');
  assert.deepEqual(decode(JSON.stringify(old)),old);
  let s=run(old,'claimMuseum').state;
- assert.equal(KEEPSAKES.length,32);assert.equal(KEEPSAKES.filter(k=>k.effect).length,6);
+ assert.equal(KEEPSAKES.length,31);assert.equal(KEEPSAKES.filter(k=>k.effect).length,6);
  assert.equal(bondedPower(s,'hero_15'),before);
  assert.deepEqual(s.fellows,old.fellows);assert.deepEqual(s.inventory,old.inventory);
  assert.ok(run(s,'claimMuseum').error);assert.ok(run(s,'claimKeepsake','Collection_28').error);

@@ -376,19 +376,6 @@
   "costumeId": null,
   "src": "idle/hero_254-idle.mp4"
  },
- "hero_264": {
-  "id": "hero_264",
-  "sha256": "fc1b8653b28fe532560ee8cd0992d79b8e122f0226935d8540aa1de9d45b1572",
-  "bytes": 2026916,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 80,
-  "encodedDuration": 6.666667,
-  "owner": "hero_264",
-  "costumeId": null,
-  "src": "idle/hero_264-idle.mp4"
- },
  "wife_17": {
   "id": "wife_17",
   "sha256": "686c430abe51e674364002589104704192d91f162c09e83ecec6dbc8a40437a7",
@@ -740,19 +727,6 @@
   "costumeId": null,
   "src": "idle/hero_258-idle.mp4"
  },
- "hero_304": {
-  "id": "hero_304",
-  "sha256": "541241cbce516551ebff735f5e81d8c16d8b9899444f9b2534b9e6bb6539dc80",
-  "bytes": 260483,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 32,
-  "encodedDuration": 2.666667,
-  "owner": "hero_304",
-  "costumeId": null,
-  "src": "idle/hero_304-idle.mp4"
- },
  "wife_52": {
   "id": "wife_52",
   "sha256": "3b0d7ffff4183ffd089cf09ef1323eb6eb5118aeb978c3bd6d5e322d66b81f24",
@@ -869,19 +843,6 @@
   "owner": "wife_167",
   "costumeId": null,
   "src": "idle/wife_167-idle.mp4"
- },
- "wife_185": {
-  "id": "wife_185",
-  "sha256": "2009ad526e3f87ff2a0e1b51a1ab0a3463346e979e9c5721fec0f56e1411bbbe",
-  "bytes": 917665,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 96,
-  "encodedDuration": 8.0,
-  "owner": "wife_185",
-  "costumeId": null,
-  "src": "idle/wife_185-idle.mp4"
  },
  "wife_254": {
   "id": "wife_254",
@@ -1103,19 +1064,6 @@
   "owner": "hero_256",
   "costumeId": null,
   "src": "idle/hero_256-idle.mp4"
- },
- "hero_302": {
-  "id": "hero_302",
-  "sha256": "be368a8b9ca77d5c6d4bae946ecf0a008b0f624009fdc2ec38cb20d02e38fd2b",
-  "bytes": 434635,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 32,
-  "encodedDuration": 2.666667,
-  "owner": "hero_302",
-  "costumeId": null,
-  "src": "idle/hero_302-idle.mp4"
  },
  "H2C1": {
   "id": "hero_02c1",
@@ -2611,19 +2559,6 @@
   "owner": "hero_257",
   "costumeId": null,
   "src": "idle/hero_257-idle.mp4"
- },
- "hero_303": {
-  "id": "hero_303",
-  "sha256": "4a32e58cfa0cc5216e1a9ba7af1ac911c6d8543a8c86501540e3d035dcfca7b6",
-  "bytes": 805176,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 32,
-  "encodedDuration": 2.666667,
-  "owner": "hero_303",
-  "costumeId": null,
-  "src": "idle/hero_303-idle.mp4"
  },
  "wife_20": {
   "id": "wife_20",
@@ -4601,19 +4536,6 @@
   "costumeId": null,
   "src": "idle/wife_173-idle.mp4"
  },
- "wife_186": {
-  "id": "wife_186",
-  "sha256": "1b11451eacbaba1a433337f7a96b880ff8af047492b4cd014570389624eae9d7",
-  "bytes": 715833,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 32,
-  "encodedDuration": 2.666667,
-  "owner": "wife_186",
-  "costumeId": null,
-  "src": "idle/wife_186-idle.mp4"
- },
  "hero_4": {
   "id": "hero_04",
   "sha256": "0c2ac390c53bc239e6aaea4af567f5d6a0f120742f751f2af9d5ed6413578028",
@@ -5185,19 +5107,6 @@
   "owner": "hero_255",
   "costumeId": null,
   "src": "idle/hero_255-idle.mp4"
- },
- "hero_301": {
-  "id": "hero_301",
-  "sha256": "e54c117b948bee53cc6ec1aa3ce918b6d98ef2e3b92ae005e5ea5a282b19b726",
-  "bytes": 656073,
-  "width": 1024,
-  "height": 1536,
-  "fps": 12.0,
-  "frames": 44,
-  "encodedDuration": 3.666667,
-  "owner": "hero_301",
-  "costumeId": null,
-  "src": "idle/hero_301-idle.mp4"
  },
  "wife_21": {
   "id": "wife_21",

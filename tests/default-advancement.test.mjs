@@ -7,7 +7,7 @@ const go=(s,a,id='hero_15',v=null)=>{const r=act(s,a,s.lastAt,id,v);assert.ok(!r
 test('all158 exact talent identities spend only their supported cost and add only their effect',()=>{
  let s=fresh(1000);for(const f of FELLOWS)s.fellows[f.id]=newFellow();s.inventory.Item_Talent_Hero_1=10000;let count=0,spent=0;
  for(const f of FELLOWS){const r=talentRule(f.id);if(!r)continue;count++;const before=s.fellows[f.id].aptitude;s=go(s,'trainTalent',f.id,'max');assert.equal(s.fellows[f.id].talentLevel,r.cap);assert.equal(s.fellows[f.id].aptitude,before+r.amount*r.cap);spent+=r.cost*r.cap;assert.equal(talentTrainingPlan(s,f.id,'max').count,0);}
- assert.equal(count,158);assert.equal(s.inventory.Item_Talent_Hero_1,10000-spent);assert.equal(talentRule('hero_60'),null);assert.deepEqual(decode(JSON.stringify(s)),s);
+ assert.equal(count,153);assert.equal(s.inventory.Item_Talent_Hero_1,10000-spent);assert.equal(talentRule('hero_60'),null);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('UR and rarity-advance labels use the exact default node, while ambiguous and costume nodes refuse',()=>{
  for(const id of ['hero_113','hero_121','hero_142'])assert.equal(talentRule(id).amount,3);assert.equal(talentRule('hero_186').amount,2);

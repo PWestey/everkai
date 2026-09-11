@@ -686,25 +686,6 @@
   ]
  },
  {
-  "id": "wife_186",
-  "model": "wife_186",
-  "art": "humanized/wife_186.webp",
-  "sourceSha256": "8c1f570ebe5a087772c49f8ce70335209380b6e804e145401f2d212b760864d3",
-  "sha256": "5c89ff6df49dfa66b628e3bc4e3ae39e3201cb51ca23eef110257687d8bc350f",
-  "bytes": 138872,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "d135d7ca7e3ad4991fd40963371ddbf551af32756281906ea8f288b4978d0c0a",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  },
-  "aliases": [
-   "roster/wife_186.webp"
-  ]
- },
- {
   "id": "wife_192",
   "model": "wife_192",
   "art": "humanized/wife_192.webp",
@@ -2000,53 +1981,6 @@
   },
   "aliases": [
    "roster/hero_260.webp"
-  ]
- },
- {
-  "id": "hero_264",
-  "model": "hero_264",
-  "art": "humanized/hero_264.webp",
-  "sourceSha256": "fc7b67bc57421528f21917a6da1a8588b44ccd2ff9ad07fbc21331e059d5f697",
-  "sha256": "c83139785bf8ac782373aa5a0c3c792b1f4afd33cf5b99c21e42acee0c89dd5b",
-  "bytes": 208328,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "5ae550dd84c9acdb8eea6a3349317f2e93997b0025128860b32a42b589810c1a",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-30.jpg",
-    "label": "Moonlit flower garden",
-    "donor": "hero_134c1",
-    "sourceRegion": "awn_263",
-    "mode": "reused-scene",
-    "aspect": 0.607940446650124
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-30.jpg"
-  },
-  "aliases": [
-   "roster/hero_264.webp"
-  ]
- },
- {
-  "id": "hero_303",
-  "model": "hero_303",
-  "art": "humanized/hero_303.webp",
-  "sourceSha256": "d154218c6839d1c803892e85f04f52d59b0b325ee3e24fa882f277e5e4c551d4",
-  "sha256": "abc118c4c77b8a68ec0f8df340c2e0459f9b3b0793381fb2543301ed9bbf9535",
-  "bytes": 118444,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_303.webp"
   ]
  },
  {
@@ -3878,46 +3812,6 @@
   ]
  },
  {
-  "id": "hero_301",
-  "model": "hero_301",
-  "art": "humanized/hero_301.webp",
-  "sourceSha256": "b52444e006695b6392074452488ef6e97e2f8d325227f22e371860e79edab480",
-  "sha256": "23958a36f45d3c2cd2d3914c4731aa76868c326d2c1b70ab087ab196ecbda97b",
-  "bytes": 193182,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_301.webp"
-  ]
- },
- {
-  "id": "hero_304",
-  "model": "hero_304",
-  "art": "humanized/hero_304.webp",
-  "sourceSha256": "2b08612a99fdbf2e60fc107b4662790705ee81e077ee5c7631fefadea5708b0b",
-  "sha256": "65461d311487e796e02b65188ee950af76adbf65892f29a62339bcca43b30c2e",
-  "bytes": 101766,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_304.webp"
-  ]
- },
- {
   "id": "wife_18",
   "model": "wife_18",
   "art": "humanized/wife_18.webp",
@@ -4466,25 +4360,6 @@
   },
   "aliases": [
    "roster/wife_178.webp"
-  ]
- },
- {
-  "id": "wife_185",
-  "model": "wife_185",
-  "art": "humanized/wife_185.webp",
-  "sourceSha256": "d35f02e00350c665469b0cc7f1010fc050ea92655308f9015136df88b0f9e503",
-  "sha256": "2361baceab7013f0c3326750b543455ad73f9ea5cdb4a4c3bd1f92bc7e4f43b1",
-  "bytes": 147942,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "d135d7ca7e3ad4991fd40963371ddbf551af32756281906ea8f288b4978d0c0a",
-  "background": {
-   "mode": "selected-game-background",
-   "path": null
-  },
-  "aliases": [
-   "roster/wife_185.webp"
   ]
  },
  {
@@ -5818,26 +5693,6 @@
   },
   "aliases": [
    "roster/hero_263.webp"
-  ]
- },
- {
-  "id": "hero_302",
-  "model": "hero_302",
-  "art": "humanized/hero_302.webp",
-  "sourceSha256": "1d88de72e73157ebc5181d4786c82c47e5ae9c4976117a2559a8ac00387d7c90",
-  "sha256": "6f1ce87671940e0525537c4d8d489581e72d944a3f7a976d68c0dca18d5fe82c",
-  "bytes": 163390,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_302.webp"
   ]
  },
  {
