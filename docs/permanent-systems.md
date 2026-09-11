@@ -126,7 +126,7 @@ The unlock list names Home (15), Drakenberg (16), Fellow & Fellow Assignment (13
   - Related sources: "Roaming Tavern", "Old Friend Gift"; Stamina Potion item.
 - **Unlock:** clear a stage. **MP:** none.
 - **SP:** as-is; a natural habit-stamina sink and the original Family acquisition route.
-- **Everkai: ABSENT** (Family acquisition is free welcome).
+- **Everkai: PARTIAL** (September 2026: stamina, Fame, bond-to-join, Intimacy and Fellow events are built; the illustrated encounter stories, per-location backdrops and Fame toward player rank are not. Free welcome still exists).
 
 ### B9 Bazaar (`project`; rule `Project`; SystemUnlock 19)
 - **Hosting:** use a permit for one of five bazaars. Cuisine/Handicraft/Weaponry/Grimoire/Travel yield Inspiring/Diligent/Brave/Informed/Unfettered Proficiency per minute, and Proficiency upgrades Fellow **Aptitude Skills**. Host rank and title raise output.
@@ -576,7 +576,7 @@ Familiar companions: see E5–E10.
 - **PARTIAL:** A1, A4, B1, B7, B15, C2, C3, C7, C8, C10, D1–D5, E1, E2, E4, E6, E9, E12–E16, F4, F15, F16.
 - **ABSENT:** B2, B3, B4, B6, B8–B14, B17–B21, C4, C5, C6, C12, E5, E7, E8, E10, E17–E20, F5–F10, F12, F18–F20.
 
-**Highest-leverage ABSENT systems with MP = none (portable as-is):** Roaming (B8), Demon's Blessing statues (B19, fully specified formula), Archdemon Challenge (B18), Drakenberg Challenge with NPC floors (B3), Family trips → pupils (F18), Farmstead (C4), Village Events (C5), Field Trip (C12), Study Tour (F20), Familiar exploration/contracts/dispatch/metamorphosis/compendium (E5, E7, E8, E10), Fellow Awakening/Rarity/Aura/Bond Compendium (F5–F8), Artifact skills/reforge/Materia (F12), Figures (E20), Titles (E18).
+**Highest-leverage ABSENT systems with MP = none (portable as-is):** Demon's Blessing statues (B19, fully specified formula), Archdemon Challenge (B18), Drakenberg Challenge with NPC floors (B3), Family trips → pupils (F18), Farmstead (C4), Village Events (C5), Field Trip (C12), Study Tour (F20), Familiar exploration/contracts/dispatch/metamorphosis/compendium (E5, E7, E8, E10), Fellow Awakening/Rarity/Aura/Bond Compendium (F5–F8), Artifact skills/reforge/Materia (F12), Figures (E20), Titles (E18).
 
 **ABSENT with high MP (need NPC substitutes):** Ranking, Hall of Fame, Arena, Bazaar, Guild (core/commissions/Head Office/requests), Magi Challenge, Golemore Excavation, Union Hall.
 

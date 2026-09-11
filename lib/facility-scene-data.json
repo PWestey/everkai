@@ -207,6 +207,23 @@
       "bytes": 101024,
       "sha256": "4b4c17195de39658a591de08deb0a4c4582944dd89d0ce34aed3816feeeac21d",
       "note": "Raphael stage"
+    },
+    "roaming": {
+      "src": "facility-scenes/roaming.webp",
+      "texture": "Story_atlas36",
+      "source": "assets/Android/ui/story/story_atlas36_643ff02708389f53e005c2c1f79f02cc.mmc",
+      "sourceSha256": "8c3497135b467f6efadcaa537d8e2a17c86655723680aee14a4aa3a0eadceb4c",
+      "crop": [
+        0,
+        0,
+        750,
+        1800
+      ],
+      "width": 750,
+      "height": 1800,
+      "bytes": 117500,
+      "sha256": "642a013239378ebc521bc55ba4265f28b4b7af27b86c646d5f69d8e0298e3935",
+      "note": "Drakenberg shop street"
     }
   }
 }

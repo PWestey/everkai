@@ -1,3 +1,32 @@
+## Roaming — September 2026
+
+Roaming is the original Drakenberg building where Family members are met and invited (`lib/roaming.mjs`, `lib/roaming-data.mjs`, `app/roaming-panel.tsx`). Its backdrop is the original shop-street story background, and in the town it sits at the canal boathouse the original labels Roaming.
+
+**From the original.**
+- Rules text: each roam costs 1 stamina; stamina recovers 1 point every 30 minutes up to a limit that rises with rank; roams give Fame and random rewards. Meeting an uninvited Family member raises your bond with them; meeting an invited one raises Intimacy; Fellow events give rewards.
+- Content: 11 locations, 44 Fellow encounter lines (four event titles excluded) and 10 roaming Family members with their own encounter lines.
+- Observed on the original client: 24 Fame per roam, +1 bond per meeting, Kaka's bond goal of 35 and Ena's of 50, and six members' locations.
+- Two further locations come from the members' own encounter text: Catherine at the Coffee Shop, Merry at the Art Gallery.
+
+**Local rules.**
+- Stamina cap: 20, plus 2 per player rank above 1, up to 60.
+- Assigned locations: Chihaya at Maze Park, Lulu at the Casino.
+- Bond goals for the other members follow the two observed goals by rarity: N 20, R 35, SR 50.
+- Encounter odds: 45% an uninvited roaming Family member (while any remain), 25% an invited Family member, otherwise a Fellow event.
+- Intimacy +5 per meeting with an invited member.
+- Fellow-event items: Gold Ring, Gemstone Ring, Flower Necklace, Jewel Necklace or Focus Candy.
+- Quick Roaming makes up to 10 roams at once.
+- Habit refill: once a day, +1 stamina per daily habit completed today (up to 6), never above the cap.
+
+**Joining and saves.** A member whose bond reaches the goal joins with the same starting values as a free welcome. The save gains an optional `roaming` subtree (sequence-guarded and fully validated), so existing saves load unchanged.
+
+**Not yet implemented.**
+- The illustrated multi-part encounter stories: the original has about 60–150 lines per member across numbered meetings.
+- Per-location backdrops.
+- Fame counting toward player rank; Everkai's rank still comes from milestones.
+- Stamina Potions.
+- Free Family welcome remains available alongside Roaming.
+
 ## Drakenberg town, facility scenes and the full village map — September 2026
 
 Drakenberg is the original town painting (the readable `Scene_DragonCity` sky and town layers, composited and cropped; `scripts/import-drakenberg-art.py`). It pans like the game, with a parchment plate over a building for each of the 16 facilities and a List view for accessibility. The facility-to-building placement in `lib/drakenberg-layout.json` is local.

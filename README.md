@@ -37,6 +37,7 @@ Open an HTTPS deployment in Safari, choose Share → Add to Home Screen, and ope
 
 - A scrollable village with all 17 business buildings on the original ground, and a Drakenberg town where each facility opens on its own original scene; guided objectives and guarded quest rewards.
 - A habit journal (daily, weekly, monthly, one-off and review tasks) that drives village earnings: passive Gold is multiplied by 1.0×–2.0× based on life areas touched this week and dailies completed today.
+- Roaming: spend stamina strolling Drakenberg to meet Family members and Fellows; bonds built through meetings invite new Family members.
 - Fellows and Family, village businesses, training, inventory, battles, dates, School and additional progression activities.
 - A 136-task opening implementation and 126 encounters; independent fresh-browser testing covered a representative 42-encounter route, with accelerated waits, rather than every quest at natural pacing.
 - Persistent Family picture discovery and 178 offline illustrations. All 278 playable characters have 1280×1920 base portraits; 257 costume portraits and 516 idle clips (1024×1536) share the same 2:3 framing. Eleven costume art exceptions remain unavailable.
