@@ -1,0 +1,206 @@
+{
+  "provenance": "Readable UnityFS payloads at offset32; static Texture2D extraction only. Tile order is from matching tile edges; building placement is a local layout.",
+  "scale": 0.75,
+  "ground": {
+    "src": "village/ground.webp",
+    "width": 4980,
+    "height": 1536,
+    "bytes": 1504602,
+    "sha256": "6389a47b5a72666501a9d2fb7dc2d329283c3a39b42194e288c32e72c023c86a",
+    "tiles": [
+      {
+        "texture": "Scene_MainCity_Backround_1_New",
+        "source": "assets/Android/prefab/level/images_maincity/background/scene_maincity_backround_1_new_cac6c75130b0bf8db9c5e10eb2e35a5e.mmc",
+        "sourceSha256": "74218d0d9430c285141b0e7ef143e98f3c8022fce0f17b9e04bb63d6a9c0d463"
+      },
+      {
+        "texture": "Scene_MainCity_Backround_2_New",
+        "source": "assets/Android/prefab/level/images_maincity/background/scene_maincity_backround_2_new_4fa29fbe7eda43be41884bf0ce02b406.mmc",
+        "sourceSha256": "6adb10bc62dfb8a9c4a722df60554b09b3546bcd4745b9131ef7867235d85078"
+      },
+      {
+        "texture": "Scene_MainCity_Backround_3_New",
+        "source": "assets/Android/prefab/level/images_maincity/background/scene_maincity_backround_3_new_16d8c3e2bad3569bd0e0399e6413f789.mmc",
+        "sourceSha256": "52f2dbe5d031e3338e05ba1deeb8723789a417705c9eef6024bff86391b3dca6"
+      },
+      {
+        "texture": "Scene_MainCity_Backround_4_New",
+        "source": "assets/Android/prefab/level/images_maincity/background/scene_maincity_backround_4_new_c110477941bd1f718900e0c060f5a28c.mmc",
+        "sourceSha256": "b3892dd840a3ea12f291fae8ea4ebd7fdf28c7cacde0948a2863448351d87ee7"
+      }
+    ],
+    "lastTileWidth": 496
+  },
+  "buildings": {
+    "Building_101": {
+      "src": "village/Building_101.webp",
+      "width": 340,
+      "height": 275,
+      "bytes": 33002,
+      "sha256": "d168ac5293d8ab9bb82e44f6832ac8294f71d3fdd01010cc4d2abfd6abf95fc6",
+      "texture": "Scene_MainCity_Building_2_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_2/scene_maincity_building_2_1_1743a69ae2b7bc4a3b2f8977683748f6.mmc",
+      "sourceSha256": "fefeb26e2adcc2945ef8fbee519fc8aa4514fe528a2ba3e6ed95373e4910eb20"
+    },
+    "Building_201": {
+      "src": "village/Building_201.webp",
+      "width": 286,
+      "height": 222,
+      "bytes": 22346,
+      "sha256": "a294637eadabb8ae82941d73c87ec5d61104b22a1eeebe7320daafa1a827b964",
+      "texture": "Scene_MainCity_Building_3_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_3/scene_maincity_building_3_1_b69edca717666228b9b5c3609e18f83d.mmc",
+      "sourceSha256": "869a501d60f81b48a87518f8908a5b258df072f8e716437d2bf8c742613c037c"
+    },
+    "Building_301": {
+      "src": "village/Building_301.webp",
+      "width": 284,
+      "height": 227,
+      "bytes": 20764,
+      "sha256": "88e311a0d143306236b7a74d23bf8017bdc261a4afc05523c23e0165e4acf222",
+      "texture": "Scene_MainCity_Building_4_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_4/scene_maincity_building_4_1_5b0f7a82734b4938b39b97c9d142a80b.mmc",
+      "sourceSha256": "27034fb51f3861c195589790ac3de2068a99d9ce3345500954b572669b4e831f"
+    },
+    "Building_401": {
+      "src": "village/Building_401.webp",
+      "width": 223,
+      "height": 247,
+      "bytes": 24316,
+      "sha256": "80dfcae14ea0e6351dc1f4928fc14b2cad680ffb5a414a6ad8bff589835ac192",
+      "texture": "Scene_MainCity_Building_5_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_5/scene_maincity_building_5_1_72e488d7291e8530cf2093fa851aed5d.mmc",
+      "sourceSha256": "70de83c37bab9d4f25ced83395e91e380f91a580ad03529229635188e6aaf74f"
+    },
+    "Building_501": {
+      "src": "village/Building_501.webp",
+      "width": 628,
+      "height": 416,
+      "bytes": 111682,
+      "sha256": "cfb33aa6316f4af4b8d51cb8ee4db70fa01c79d8989e87e29a963cdfef9c194d",
+      "texture": "Scene_MainCity_Building_6_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_6/scene_maincity_building_6_1_2cbd6e5d13a82d671c5a1005a9711481.mmc",
+      "sourceSha256": "2d6c12e88567f00ac99b2a7893c3d226d623196cc9723ef17b5bcfaf0b8aa256"
+    },
+    "Building_601": {
+      "src": "village/Building_601.webp",
+      "width": 332,
+      "height": 314,
+      "bytes": 37942,
+      "sha256": "19ca68036347f96717f1f1d43290807e93024247276a05f845caab0bb6f8539c",
+      "texture": "Scene_MainCity_Building_7_1_3",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_7/scene_maincity_building_7_1_3_5d8ae8f4ce5fc9399c040f2687fa3859.mmc",
+      "sourceSha256": "8223b6aebea872cf08aa80a05a3a63e4232af0cff1b81962589b4d76bb1b7a8b"
+    },
+    "Building_701": {
+      "src": "village/Building_701.webp",
+      "width": 384,
+      "height": 254,
+      "bytes": 33464,
+      "sha256": "387795a7e6412d33be80401ace1dddb32499c25a6c026310edf840960116c2b0",
+      "texture": "Scene_MainCity_Building_8_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_8/scene_maincity_building_8_1_76fcfd6dfd74211112c8d4692e15bc30.mmc",
+      "sourceSha256": "701d9fddfdea01987380e56797f7ddb758d246ecd85569f923d4dc07d7673034"
+    },
+    "Building_801": {
+      "src": "village/Building_801.webp",
+      "width": 767,
+      "height": 364,
+      "bytes": 99004,
+      "sha256": "cb5ed2bbc7259863efeedefdb9efeb03b6a35492149ece5f327e5ddc6884db6c",
+      "texture": "Scene_MainCity_Building_9_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_9/scene_maincity_building_9_1_096705e59511439935b374586f846da0.mmc",
+      "sourceSha256": "7afbb4a5f1037cec2336787e05f89eeab245992f29214f126c774c25df48a7f4"
+    },
+    "Building_901": {
+      "src": "village/Building_901.webp",
+      "width": 697,
+      "height": 470,
+      "bytes": 80148,
+      "sha256": "f8087e0fb1d2870b43072ff6a2771abeb7d0bf3618de4b7c04a5aef15c8e973f",
+      "texture": "Scene_MainCity_Building_15_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_15/scene_maincity_building_15_1_e9970a038c9f77b358cab71592adbc7c.mmc",
+      "sourceSha256": "55fdbb179709776a182c3900358042217119af03aa757b05d119e44019cafd96"
+    },
+    "Building_1001": {
+      "src": "village/Building_1001.webp",
+      "width": 732,
+      "height": 373,
+      "bytes": 76668,
+      "sha256": "30e94fa99c8e594034a4078fc70a6496f0d09a76a88bd2a2cccbe070395ce2d1",
+      "texture": "Scene_MainCity_Building_11_1_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_11/scene_maincity_building_11_1_1_4e26629c1a23a0206f06a742e2b31889.mmc",
+      "sourceSha256": "7e2558daa532e23e24d5a6a4b4272840658ec35fe607514ae16a0e612aa4dca2"
+    },
+    "Building_1101": {
+      "src": "village/Building_1101.webp",
+      "width": 398,
+      "height": 252,
+      "bytes": 38806,
+      "sha256": "6379a428fbab2096d8779656e0d54b16e71bf021a555980e32d2b6be64c5de5f",
+      "texture": "Scene_MainCity_Building_12_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_12/scene_maincity_building_12_1_78955e5a5d61d75a042777237528e22d.mmc",
+      "sourceSha256": "8805f8fb7c8ed61ecb72d5a5d64946ec31e0489cb020bc82e189b56ad23eb3e7"
+    },
+    "Building_1201": {
+      "src": "village/Building_1201.webp",
+      "width": 314,
+      "height": 238,
+      "bytes": 24110,
+      "sha256": "93f87d36d110c790422c9ee84215cf44752618041cee9e36468f798328496e5f",
+      "texture": "Scene_MainCity_Building_13_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_13/scene_maincity_building_13_1_ac77c45949a05dc0d394cb2b2da45b60.mmc",
+      "sourceSha256": "8f59332b90ddd9921bcad9a8fb75445a13f5169201528b132eaa29fb6fb6299d"
+    },
+    "Building_1301": {
+      "src": "village/Building_1301.webp",
+      "width": 506,
+      "height": 332,
+      "bytes": 56766,
+      "sha256": "b74f4851bb36a07fb17c6b58aac2183efa8596aa3868e62b1818dad22cfe5afc",
+      "texture": "Scene_MainCity_Building_14_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_14/scene_maincity_building_14_1_267923984a20281e79664eba96387eca.mmc",
+      "sourceSha256": "aa4c0a2ff751ece208fc93eafa99fcda79b50cf42626537a913068ee694f1453"
+    },
+    "Building_1401": {
+      "src": "village/Building_1401.webp",
+      "width": 372,
+      "height": 248,
+      "bytes": 32690,
+      "sha256": "bf7166e6f55ec5da85806fe53ce0a217760bf57799ca60f8a9425d0afa4d06b9",
+      "texture": "Scene_MainCity_Building_10_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_10/scene_maincity_building_10_1_08365f1f6a0835ac3fb1736f134a9181.mmc",
+      "sourceSha256": "bc37eb7ab795a915101fcc10f7eea0a52dc32f665b165f52c6015ddda2a14624"
+    },
+    "Building_1501": {
+      "src": "village/Building_1501.webp",
+      "width": 375,
+      "height": 310,
+      "bytes": 35420,
+      "sha256": "bdb4914cbdb3ed25597b2bff7cdf007d3363130ffe3b2d1d9195ea8528eea3a4",
+      "texture": "Scene_MainCity_Building_16_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_16/scene_maincity_building_16_1_6955c4a9e62b93094904bba7dcf0fc7f.mmc",
+      "sourceSha256": "f58e6cfb99d9d9b3d6e62cc953d78facc8ceb5bf08b630e5617643cd0abdc08b"
+    },
+    "Building_1601": {
+      "src": "village/Building_1601.webp",
+      "width": 654,
+      "height": 504,
+      "bytes": 80476,
+      "sha256": "b5a0a35909b51b9692f5277dbf8ea82d30907e1adc6bd4595d21138aaa1725da",
+      "texture": "Scene_MainCity_Building_17_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_17/scene_maincity_building_17_1_b8884a5f3fc79d25c24619cd955a3898.mmc",
+      "sourceSha256": "f3295f3813f1c6d4fb0beda16b17fef36929828b433e2145bc31649047e13c44"
+    },
+    "Building_1701": {
+      "src": "village/Building_1701.webp",
+      "width": 768,
+      "height": 616,
+      "bytes": 115480,
+      "sha256": "c309503149b48e06508479a63f4ecb82b96530650c0062a9facde424abb9f806",
+      "texture": "Scene_MainCity_Building_18_1",
+      "source": "assets/Android/prefab/level/images_maincity/building/images_scene_maincity_building_18/scene_maincity_building_18_1_94c4c9b12e0702501619dbf0b178a38f.mmc",
+      "sourceSha256": "e0ac09939b82eeca9dc68b21bc5bb9a4be4f0adecc8bbf8746cb1fbc4745e6a5"
+    }
+  }
+}

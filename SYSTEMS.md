@@ -1,3 +1,11 @@
+## Drakenberg town, facility scenes and the full village map — September 2026
+
+Drakenberg is the original town painting (the readable `Scene_DragonCity` sky and town layers, composited and cropped; `scripts/import-drakenberg-art.py`). It pans like the game, with a parchment plate over a building for each of the 16 facilities and a List view for accessibility. The facility-to-building placement in `lib/drakenberg-layout.json` is local.
+
+Each facility opens on its own original backdrop (`scripts/import-facility-scenes.py`, `lib/facility-scene-data.json`): guild hall, market street, academy hall, story village, crystal mine, snowy north, trade festival street, magic spring, banquet hall, alchemy shop, museum case, desert ruins, beach, forest glade, mountain road and Raphael's stage. Together they are 1.7 MB. Crossover-event art and backdrops with painted characters were not used, and the backdrop-to-facility matching is local. Facilities with activity pages show the backdrop full-screen with their activities as plates and open pages on tap. Others show it as a header.
+
+The village is one continuous map that pans left and right. It uses the four original main-city ground tiles, ordered by matching tile edges, at 0.75 scale (4980×1536, 1.5 MB). All 17 business buildings use their built-state textures at the same scale (0.92 MB) (`scripts/import-village-map.py`, `lib/village-map-data.json`). Placement in `lib/village-layout.json` is local. Tapping a building opens that business directly. The map stays at least 540 px tall so the signs never crowd, and short landscape screens pan vertically too. It replaces the two-district, five-building map, so `import-village-art.py`, `village-art-data.json`, `village.webp` and the five old building textures were retired.
+
 ## Habits drive village earnings — September 2026
 
 Everkai is single-player, and the habit journal is its engine. Passive village Gold accrues at `totalRate × multiplier`, where multiplier = `1 + 0.5 × (life areas with a completion this week) / 8 + min(0.5, 0.07 × daily tasks completed today)`. It ranges from 1.0× (no habits, never a penalty) to 2.0×. The eight life areas are every journal domain except Uncategorized; Uncategorized dailies still count toward the daily term. Weeks start Monday 00:00 local time.
