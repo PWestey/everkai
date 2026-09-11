@@ -31,15 +31,15 @@ The independent private backup remains at https://isekai-private-village-pw.west
 
 ## Install on iPhone
 
-Open an HTTPS deployment in Safari, choose Share → Add to Home Screen, and open the installed app online. Wait for **Ready for offline play** in save settings before disconnecting. Then close and reopen in airplane mode to check your device. Safari and the Home Screen app can have different storage; export/restore can move saves. Saves remain in local browser storage, not GitHub. Clearing website data removes saves and cached content. Moving to another hosting domain does not automatically transfer a save.
+Open an HTTPS deployment in Safari, choose Share → Add to Home Screen, and open the installed app online. Wait for **Ready for offline play** in save settings before disconnecting. Later updates download only the files that changed; **Offline & saves** shows their progress, and the app reloads itself when an update takes over. Then close and reopen in airplane mode to check your device. Safari and the Home Screen app can have different storage; export/restore can move saves. Saves remain in local browser storage, not GitHub. Clearing website data removes saves and cached content. Moving to another hosting domain does not automatically transfer a save.
 
 ## Included gameplay
 
 - A fixed village screen with buttons and activity modals, guided objectives and guarded quest rewards.
 - Fellows and Family, village businesses, training, inventory, battles, dates, School and additional progression activities.
 - A 136-task opening implementation and 126 encounters; independent fresh-browser testing covered a representative 42-encounter route, with accelerated waits, rather than every quest at natural pacing.
-- Persistent Family picture discovery, 178 offline illustrations and 259 selected base character compositions. Some art remains fallback; costumes and animation are incomplete.
-- Local save export/restore, write-failure recovery and a versioned offline cache. Physical iPhone Safari installation is not independently certified.
+- Persistent Family picture discovery and 178 offline illustrations. All 278 playable characters have 1280×1920 base portraits; 257 costume portraits and 516 idle clips (1024×1536) share the same 2:3 framing. Eleven costume art exceptions remain unavailable.
+- Local save export/restore, write-failure recovery and a versioned offline cache. The app has been installed and used on the owner's iPhone; it is not independently certified on other devices.
 
 ## Source and scope
 
@@ -53,4 +53,4 @@ Artwork derives from the user's supplied Isekai files and selected locally prepa
 
 Family and Fellow details now offer Wardrobe: explicitly collect costumes for free after welcoming/recruiting the exact character, then wear one or restore the base appearance. This cosmetic policy changes no stats or collection rewards. There are 268 active-owner costume records and 257 verified static costume images; 11 art exceptions remain unavailable. Unique-owned collection score uses the source score under a local rule.
 
-57 explicit costume-linked Family picture routes require exact costume ownership, the recorded Intimacy threshold and a later successful date. Wearing the costume is not required. Collect/equip never grants a picture directly. One missing source unlock type and other unsupported gates remain locked. The extra costume art adds about 10 MB to the offline download. Base roster portraits and story art remain unchanged.
+57 explicit costume-linked Family picture routes require exact costume ownership, the recorded Intimacy threshold and a later successful date. Wearing the costume is not required. Collect/equip never grants a picture directly. One missing source unlock type and other unsupported gates remain locked. Costume portraits are 1280×1920 renders, about 33 MB of the offline download.

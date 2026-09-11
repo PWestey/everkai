@@ -1,3 +1,19 @@
+## Character art, idle clips and habit journal layout — September 2026
+
+Every character asset is now one shape. Base portraits (278) and costume portraits (257) are 1280×1920 WebP; idle clips (516) are 1024×1536 H.264 at 12 fps with each clip's original frame count (16–384). All share 2:3 framing rendered with the Spine player's default 10% viewport padding. Earlier commit messages describe a 4% padding; that setting was never applied, because padding only takes effect when the viewport is recomputed.
+
+Clips are rendered by freezing the player and stepping `trackTime` per frame, drawing and copying each frame within one task because the WebGL buffer clears on composite. Scenes painted as a CSS background on the viewer (Family) are composited into each frame; without that, 203 Family clips had encoded black backgrounds. Encoding uses AVFoundation (VideoToolbox) at 2200 kbps with a 3× one-second peak ceiling, 1.399 bits per pixel per second against 1.334 for the original 344–552×512 clips. On the busiest clip, raising the rate to 5000 kbps reduced the measured blocking only slightly, and CABAC, a longer GOP or B-frames changed it by less; none justified the size. At native resolution the clip centres show no visible blocking.
+
+The portrait character screen fills its frame (`object-fit: cover`, 7.6% horizontal crop, no vertical crop). Phone landscape keeps `contain`, because the art column is wider than 2:3, and fills the side bars with a blurred copy of the still.
+
+Known issue, not yet resolved: about 258 renders, mostly costumes, draw their art inside a flat viewer surround, because the camera fits the animation's sampled bounds rather than the visible art. On a phone the art can occupy as little as a third of the frame. Re-rendering with an explicit viewport fitted to the visible art was tested on three models: the art went from 35–59% to 69–73% of the frame height and from 45–75% to 87–95% of its width.
+
+Retired assets: `public/assets/roster` (8.4 MB) and `public/assets/family-scenes` (1.6 MB) with `lib/family-scene-data.json`. No playable character referenced the roster cutouts after the base renders shipped, which left the Family-scene fallback unreachable. Roster paths in story data still resolve to current art through the static-art aliases.
+
+Habit journal: task tabs render one list grouped under sticky headers (time of day for Daily, schedule for the other tabs), with no pagination. Daily, Weekly, Monthly, One-off and Reviews all support multi-select. Weekly and Monthly also list their review tasks under separate "· Review" headers.
+
+Offline updates: the service worker keeps one shared cache (`isekai-village-files`) plus a ledger of every file's 32-hex SHA-256 fingerprint from the build manifest. An update leaves unchanged files alone, downloads only new or changed files, and stages files whose content changed at an existing URL until activation, so the running version keeps working and storage never holds two copies of the bundle. On its first run over a pre-ledger versioned cache it verifies each file by content and moves it across. Installs resume after interruption and retry a failed download twice. Verified in a real browser over an 832 MB copy of the deployed version: updating to this build downloaded only the three changed files, finished in under 3 seconds, peaked at 834 MB of storage and worked offline afterwards. A first design that copied files into a new versioned cache failed in the same browser with QuotaExceededError.
+
 ## v109 — eight complete critical-system actives
 
 Fenrir,Heartcoon,Scarfmink,Icyowl,Meteostrich,Cactora,Charcozard,Rhinocryst join futurecombat10 (63/71catalog activehandlers). New deterministic direct-hit critical policy uses explicit declared71basepairs and authoredguardian5%/0res; final signed-BPclamp,1.5damagefactor and version-salted per-hitroll. Initialization/probability/RNG/order are local, not original-engine parity. All11buffs retained; Icyowl source3turns and Rhinocryst2targetcap override ambiguous community wording; selfbuffsonce aftercast. No newpassives/block/dispel. Old1–9evaluators preserved.451tests/typecheck/build pass,96independentv9hashes unchanged plusolderhistoricaltests. Bothfreshphone layouts showall8descriptions andFenrir/Heartcoonbattle with2criticalhits, rewardonce,offline identicalreplay; other6kits syntheticengine-only. Independent exactcandidate QA pending beforepublish.
@@ -47,7 +63,10 @@ Source: the unprotected English translation TextAsset at `assets/Android/config/
 
 The term `family.skill` currently means only the provisional earnings skill. It must expand into skills keyed by original IDs after verified definitions are available. `intimacy`, `blessingPower`, `points`, ownership and inventory remain independent so formulas can be replaced without discarding progress.
 
-## Full-system integration order
+## Full-system integration order (original plan, now historical)
+
+This table records the plan written when the sandbox had three Fellows. Pupils, School, Fellow training, Adventure, stages and many activities have since shipped; see the entries above it and **Remaining original-fidelity dependencies** for what is still missing.
+
 
 | System | Present | Remaining work and dependency |
 |---|---|---|
@@ -65,7 +84,7 @@ The term `family.skill` currently means only the provisional earnings skill. It 
 | VIP / recharge | No purchases | Recreate relevant progression benefits as play unlocks or sandbox options; no payment validation |
 | Social-dependent systems | Not implemented | Omit production chat/PvP/rankings; design local equivalents only where needed for single-player progression |
 
-Next: pupil caretaker → education → graduation, followed by separate Fellow Power/Aptitude and stage progression. First verify additional readable rule texts and table schemas; do not invent original formulas from labels. Large art batches should be optional offline packs, not one ever-growing mandatory download. The authoring index has 311 character records; availability and fidelity must be checked per batch.
+Original next step (since completed): pupil caretaker → education → graduation, followed by separate Fellow Power/Aptitude and stage progression. First verify additional readable rule texts and table schemas; do not invent original formulas from labels. Large art batches should be optional offline packs, not one ever-growing mandatory download. The authoring index has 311 character records; availability and fidelity must be checked per batch.
 
 ## Pupil implementation update (save version 4)
 
