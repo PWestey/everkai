@@ -387,7 +387,7 @@ Grep across `app/*.tsx`, `lib/*.mjs` (excluding biography text) and SYSTEMS.md.
 | 4 | Statues/Runes, building appearance, avatars, Little Helper | ABSENT | Cosmetic and QoL layers | event-catalog.md:309 |
 | 5 | Family trips/children, unions, relationship skills | ABSENT | Pupil acquisition via trips; relationship tiers only | SYSTEMS.md:74–75, :263 |
 | 6 | Tasks / achievements / Journey milestones | SHELL | 11 local milestones; no main/daily/achievement chains or rank rewards | lib/progression.mjs |
-| 7 | Recruit / summon | SHELL | Free roster; 16 stone recruits; no pools, fragments, duplicates or pity | lib/game.mjs, lib/fountain.mjs |
+| 7 | Recruit / summon | PARTIAL (was SHELL) | **Superseded 2026-09-12.** A deterministic exchange counter now sells every shipped, priced character for habit-earned currency, with its own Drakenberg facility, and stars spend the leftover shards. No pools, duplicates or pity — deliberately, since the original's own exchange is the real route and this game is offline and single-player. Remaining: duplicate conversion has no meaning here, and `hero_60` is unpriced. | lib/summon.mjs, app/recruit-panel.tsx |
 | 8 | Northern Odyssey | SHELL | 3 authored floors; original map, scaling, seasons, buildings, talents | lib/northern.mjs |
 | 9 | Trading Post | SHELL | 3 NPCs, Power compare; no motivate/counter/bounty/prestige; 1 shop item | lib/trading-post.mjs |
 | 10 | Banquets | SHELL | Simulated guests, fixed rewards, free materials; no invitations or character bonuses | lib/banquets.mjs |

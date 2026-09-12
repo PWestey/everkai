@@ -321,6 +321,24 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .town-list{flex:1;overflow:auto;padding:12px;background:#f3eddc}
 .facility-scene{position:relative;flex:none;height:clamp(120px,26dvh,230px);overflow:hidden;background:#6f9fd3;border-bottom:3px solid #c6a158}.facility-scene>img{position:absolute;left:50%;top:50%;max-width:none;height:auto;pointer-events:none}
 .facility-plate{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);padding:4px 16px;font-size:17px}
+/* How finished a facility is, so play time goes where it is safe to spend. Plates carry only a dot
+   because they are absolutely positioned and nowrap; the roomier surfaces carry the word. */
+.maturity-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:7px;vertical-align:middle;border:1px solid #0000003d}
+.maturity-ready .maturity-dot,.maturity-dot.ready{background:#3f8f56}
+.maturity-limited .maturity-dot,.maturity-dot.limited{background:#c7972a}
+.maturity-early .maturity-dot,.maturity-dot.early{background:#b4603a}
+.maturity-badge{display:inline-block;font:700 11px system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#3c2d1c;border-radius:999px;padding:2px 9px;border:1px solid #00000026;white-space:nowrap}
+.maturity-ready .maturity-badge{background:#cfe8d5}
+.maturity-limited .maturity-badge{background:#f6e4b4}
+.maturity-early .maturity-badge{background:#f2d2c4}
+.maturity-line{font:400 12px system-ui,sans-serif;color:#5d4a34;line-height:1.35}
+.facility-maturity{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:8px 12px 0;margin:0}
+/* The list panel is cream, but destination-menu buttons inherit light-on-dark text, so the facility
+   name rendered cream-on-cream and was invisible. These rows also hold two lines, so the button's
+   fixed height had the name and the badge colliding on one row. */
+.town-list button{flex-direction:column;align-items:flex-start;height:auto;min-height:44px;padding:8px 12px;color:#3c2d1c;white-space:normal;text-align:left}
+.town-list button>span:first-child{font:700 15px Georgia,serif;color:#3c2d1c}
+.town-list .maturity-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:3px}
 @media(max-height:480px){.facility-scene{height:84px}.facility-plate{font-size:14px;bottom:6px;padding:2px 12px}}
 /* Facilities with activity pages: the building scene fills the screen and the activities sit on it as parchment plates, like the original facility screens */
 .game-modal:has(.facility-scene):has(.system-menu){position:fixed}

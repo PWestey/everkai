@@ -1,0 +1,28 @@
+{
+  "note": "How finished each Drakenberg facility is, shown on its plate so play time goes where it is safe to spend. Statuses answer 'is progress here safe to keep?', not 'how polished is this'. Every count below was read from the shipped module or data file, never from docs/parity-gaps.md, which has drifted from the code more than once.",
+  "statuses": {
+    "ready": "Complete for its scope. Invest freely.",
+    "limited": "Works and keeps your progress, but the content is thin.",
+    "early": "Still being built. Progress here may be reworked."
+  },
+  "facilities": {
+    "habits": { "status": "ready", "note": "78 starter tasks across 9 life areas" },
+    "recruit": { "status": "ready", "note": "257 characters, bought with habit-earned currency" },
+    "fountain": { "status": "limited", "note": "12 wish rewards, 15 characters" },
+    "businesses": { "status": "limited", "note": "17 businesses; service levels and operation training pending" },
+    "school": { "status": "limited", "note": "3 lesson methods; original pupil acquisition pending" },
+    "mine": { "status": "limited", "note": "8 depth rows, one deployment per Fellow per day" },
+    "museum": { "status": "limited", "note": "31 keepsakes; Hall 1 only" },
+    "treasure": { "status": "limited", "note": "4 areas, 45 relics; dig pattern is fixed" },
+    "fishing": { "status": "limited", "note": "86 fish, 22 combinations; odds and lengths pending" },
+    "apothecary": { "status": "limited", "note": "10 of 20 potions; potion skills not applied yet" },
+    "raphael": { "status": "limited", "note": "56 support milestones" },
+    "roaming": { "status": "limited", "note": "44 encounters across 11 locations; Fame rank pending" },
+    "stories": { "status": "limited", "note": "54 scenes; replay only, no triggers or rewards" },
+    "northern": { "status": "early", "note": "3 authored floors; original map and seasons pending" },
+    "trading": { "status": "early", "note": "3 opponents, 4 shop items; simulated" },
+    "banquets": { "status": "early", "note": "2 party types; guests are simulated" },
+    "expo": { "status": "early", "note": "5 of 100 stages" },
+    "journey": { "status": "early", "note": "11 milestones; the quest chain ends at chapter 6" }
+  }
+}
