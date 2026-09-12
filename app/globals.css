@@ -338,6 +338,10 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
    fixed height had the name and the badge colliding on one row. */
 .town-list button{flex-direction:column;align-items:flex-start;height:auto;min-height:44px;padding:8px 12px;color:#3c2d1c;white-space:normal;text-align:left}
 .town-list button>span:first-child{font:700 15px Georgia,serif;color:#3c2d1c}
+/* Known defect, see docs/backlog.md: the row is pinned at 44px whatever its children need, so the
+   longest five notes are clipped here. Stacking the note under the badge made it worse (all 18
+   clipped), so this stays wrapped. The real fix is to stop reusing the shadcn Button for these rows.
+   The full text is on every facility header and in each plate's aria-label, so nothing is lost. */
 .town-list .maturity-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:3px}
 @media(max-height:480px){.facility-scene{height:84px}.facility-plate{font-size:14px;bottom:6px;padding:2px 12px}}
 /* Facilities with activity pages: the building scene fills the screen and the activities sit on it as parchment plates, like the original facility screens */
