@@ -157,6 +157,22 @@ Pinned at `e9ef386` and already wrong in places — its §12 Recruit row describ
 cycle replaced, and its Museum count says 32 where the data says 31. It carries a dated status note
 now. Treat per-row detail as stale until re-verified against the code, and prefer the live modules.
 
+## Resolved
+
+### "Buildings are still free to open" was a label, not an economy hole
+Reported 2026-09-12. `app/village-map.tsx` rendered every tile as `Build · Free` — a hardcoded string
+in the `<small>` ternary that **never called `businessCost`** — while `openEnterprise` had been
+charging the original's prices correctly since `businessCost` landed. Verified in the running app:
+`businessCost('Building_101')` returns 50 and `businessCost('Building_1701')` returns 75,000,000,000.
+
+So the report described a real, visible problem whose cause was the opposite of what it looked like.
+Worth keeping for two reasons: a user-facing string can impersonate an economy bug convincingly, and
+the fix is in a different layer from where the bug appears to live.
+
+Tiles now read `Build · 50 gold` … `Build · 75,000,000,000 gold`. All 17 mapped tiles have a recorded
+price (checked before the change, because `businessCost` returns `null` for unpriced ids and a
+`null.toLocaleString()` in the map would have blanked the village).
+
 ## Process notes worth keeping
 
 - **Measure, do not infer.** Six CSS diagnoses failed from reading source; one browser probe of the
