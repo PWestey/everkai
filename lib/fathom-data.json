@@ -1,0 +1,372 @@
+{
+  "provenance": "Imported from the original WifeQuenchingUnlock and WifeQuenchingWight tables by scripts/import-fathoms.py. Slot order, intimacy gates and per-slot country are the original's own values. Country is mapped to this project's business type via BuildingBase.country (1 Inspiring, 2 Diligent, 3 Brave, 4 Informed, 5 Unfettered), verified 1:1 in lib/business-data.json typeSource; country '0' becomes a null type meaning every business.",
+  "sources": [
+    {
+      "file": "WifeQuenchingUnlock.json",
+      "sha256": "361f81e24b1d1014c59bfe4a49a6bb9442c116245e318da713e725007ddd927c",
+      "field": "intimacy, buildingCountry, skillQuality"
+    },
+    {
+      "file": "WifeQuenchingWight.json",
+      "sha256": "014b5cfa45cb47f54b9afd4bf4c923a567c6b1d5623a1223503b06ae17da03ae",
+      "field": "outputRise"
+    }
+  ],
+  "limits": "Only the tier VALUES are imported. The original rolls a slot against WeightNormal or WeightHigh with per-tier success rates and a keep-or-discard replace step; Everkai advances slots through habits and elapsed time instead, so those weights and success rates are deliberately not carried over. Slot advancement is monotonic in both designs. See docs/slice-buildings.md 5c.",
+  "slots": [
+    {
+      "slot": 1,
+      "intimacy": 50,
+      "type": "Diligent",
+      "sourceCountry": "2",
+      "premium": false
+    },
+    {
+      "slot": 2,
+      "intimacy": 60,
+      "type": "Informed",
+      "sourceCountry": "4",
+      "premium": false
+    },
+    {
+      "slot": 3,
+      "intimacy": 70,
+      "type": "Brave",
+      "sourceCountry": "3",
+      "premium": false
+    },
+    {
+      "slot": 4,
+      "intimacy": 80,
+      "type": "Inspiring",
+      "sourceCountry": "1",
+      "premium": false
+    },
+    {
+      "slot": 5,
+      "intimacy": 90,
+      "type": "Unfettered",
+      "sourceCountry": "5",
+      "premium": false
+    },
+    {
+      "slot": 6,
+      "intimacy": 100,
+      "type": null,
+      "sourceCountry": "0",
+      "premium": true
+    },
+    {
+      "slot": 7,
+      "intimacy": 125,
+      "type": "Diligent",
+      "sourceCountry": "2",
+      "premium": false
+    },
+    {
+      "slot": 8,
+      "intimacy": 150,
+      "type": "Informed",
+      "sourceCountry": "4",
+      "premium": false
+    },
+    {
+      "slot": 9,
+      "intimacy": 175,
+      "type": "Brave",
+      "sourceCountry": "3",
+      "premium": false
+    },
+    {
+      "slot": 10,
+      "intimacy": 200,
+      "type": "Inspiring",
+      "sourceCountry": "1",
+      "premium": false
+    },
+    {
+      "slot": 11,
+      "intimacy": 225,
+      "type": "Unfettered",
+      "sourceCountry": "5",
+      "premium": false
+    },
+    {
+      "slot": 12,
+      "intimacy": 250,
+      "type": null,
+      "sourceCountry": "0",
+      "premium": true
+    },
+    {
+      "slot": 13,
+      "intimacy": 300,
+      "type": "Diligent",
+      "sourceCountry": "2",
+      "premium": false
+    },
+    {
+      "slot": 14,
+      "intimacy": 350,
+      "type": "Informed",
+      "sourceCountry": "4",
+      "premium": false
+    },
+    {
+      "slot": 15,
+      "intimacy": 400,
+      "type": "Brave",
+      "sourceCountry": "3",
+      "premium": false
+    },
+    {
+      "slot": 16,
+      "intimacy": 450,
+      "type": "Inspiring",
+      "sourceCountry": "1",
+      "premium": false
+    },
+    {
+      "slot": 17,
+      "intimacy": 500,
+      "type": "Unfettered",
+      "sourceCountry": "5",
+      "premium": false
+    },
+    {
+      "slot": 18,
+      "intimacy": 550,
+      "type": null,
+      "sourceCountry": "0",
+      "premium": true
+    },
+    {
+      "slot": 19,
+      "intimacy": 625,
+      "type": "Diligent",
+      "sourceCountry": "2",
+      "premium": false
+    },
+    {
+      "slot": 20,
+      "intimacy": 700,
+      "type": "Informed",
+      "sourceCountry": "4",
+      "premium": false
+    },
+    {
+      "slot": 21,
+      "intimacy": 775,
+      "type": "Brave",
+      "sourceCountry": "3",
+      "premium": false
+    },
+    {
+      "slot": 22,
+      "intimacy": 850,
+      "type": "Inspiring",
+      "sourceCountry": "1",
+      "premium": false
+    },
+    {
+      "slot": 23,
+      "intimacy": 925,
+      "type": "Unfettered",
+      "sourceCountry": "5",
+      "premium": false
+    },
+    {
+      "slot": 24,
+      "intimacy": 1000,
+      "type": null,
+      "sourceCountry": "0",
+      "premium": true
+    },
+    {
+      "slot": 25,
+      "intimacy": 1150,
+      "type": "Diligent",
+      "sourceCountry": "2",
+      "premium": false
+    },
+    {
+      "slot": 26,
+      "intimacy": 1300,
+      "type": "Informed",
+      "sourceCountry": "4",
+      "premium": false
+    },
+    {
+      "slot": 27,
+      "intimacy": 1450,
+      "type": "Brave",
+      "sourceCountry": "3",
+      "premium": false
+    },
+    {
+      "slot": 28,
+      "intimacy": 1600,
+      "type": "Inspiring",
+      "sourceCountry": "1",
+      "premium": false
+    },
+    {
+      "slot": 29,
+      "intimacy": 1750,
+      "type": "Unfettered",
+      "sourceCountry": "5",
+      "premium": false
+    },
+    {
+      "slot": 30,
+      "intimacy": 2000,
+      "type": null,
+      "sourceCountry": "0",
+      "premium": true
+    },
+    {
+      "slot": 31,
+      "intimacy": 2500,
+      "type": "Diligent",
+      "sourceCountry": "2",
+      "premium": false
+    },
+    {
+      "slot": 32,
+      "intimacy": 3000,
+      "type": "Informed",
+      "sourceCountry": "4",
+      "premium": false
+    },
+    {
+      "slot": 33,
+      "intimacy": 3500,
+      "type": "Brave",
+      "sourceCountry": "3",
+      "premium": false
+    },
+    {
+      "slot": 34,
+      "intimacy": 4000,
+      "type": "Inspiring",
+      "sourceCountry": "1",
+      "premium": false
+    },
+    {
+      "slot": 35,
+      "intimacy": 4500,
+      "type": "Unfettered",
+      "sourceCountry": "5",
+      "premium": false
+    },
+    {
+      "slot": 36,
+      "intimacy": 5000,
+      "type": null,
+      "sourceCountry": "0",
+      "premium": true
+    }
+  ],
+  "steps": [
+    {
+      "tier": 1,
+      "percent": 1
+    },
+    {
+      "tier": 2,
+      "percent": 2
+    },
+    {
+      "tier": 3,
+      "percent": 3
+    },
+    {
+      "tier": 4,
+      "percent": 4
+    },
+    {
+      "tier": 5,
+      "percent": 5
+    },
+    {
+      "tier": 6,
+      "percent": 6
+    },
+    {
+      "tier": 7,
+      "percent": 7
+    },
+    {
+      "tier": 8,
+      "percent": 8
+    },
+    {
+      "tier": 9,
+      "percent": 9
+    },
+    {
+      "tier": 10,
+      "percent": 10
+    },
+    {
+      "tier": 11,
+      "percent": 11
+    },
+    {
+      "tier": 12,
+      "percent": 12
+    },
+    {
+      "tier": 13,
+      "percent": 13
+    },
+    {
+      "tier": 14,
+      "percent": 14
+    },
+    {
+      "tier": 15,
+      "percent": 15
+    },
+    {
+      "tier": 16,
+      "percent": 16
+    },
+    {
+      "tier": 17,
+      "percent": 17
+    },
+    {
+      "tier": 18,
+      "percent": 18
+    },
+    {
+      "tier": 19,
+      "percent": 19
+    },
+    {
+      "tier": 20,
+      "percent": 20
+    },
+    {
+      "tier": 21,
+      "percent": 21
+    },
+    {
+      "tier": 22,
+      "percent": 22
+    },
+    {
+      "tier": 23,
+      "percent": 23
+    },
+    {
+      "tier": 24,
+      "percent": 24
+    },
+    {
+      "tier": 25,
+      "percent": 25
+    }
+  ]
+}
