@@ -29,8 +29,8 @@ export default function RecruitPanel({game,action,locked}:any){
 
  return <section className="treasure-panel" aria-label="Recruit">
   <h2>Recruit</h2>
-  <p>{r.stones} Acquaint Stones · {r.stoneFragments} fragments · {r.insignias??0} insignias</p>
-  <p className="small-note">Finish daily habits to earn fragments; ten make a stone. Characters are chosen, not drawn — pick who you want and pay their price.</p>
+  <p>{r.stones} Acquaint Stones · {r.stoneFragments} fragments · {r.insignias??0} insignias · {r.starShards??0} star shards</p>
+  <p className="small-note">Finish daily habits to earn fragments; ten make a stone. Characters are chosen, not drawn — pick who you want and pay their price. Perfect days also pay star shards, spent on a Fellow’s stars in their own training panel.</p>
 
   <div className="business-actions">
    <Button variant="outline" aria-pressed={!family} onClick={()=>{setTab('fellows');setSelected(null)}}>Fellows</Button>
