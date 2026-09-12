@@ -423,12 +423,25 @@ hiring — carries none of it.
    **The remaining strands of the web (§5d), cheapest first.** None is large alone; together they are
    the connective tissue the "everything touches everything" principle asks for.
 
-3a. **Family potential** — `sum(potentialCount)` over owned family. Trivial once a potential counter
-    exists.
-3b. **Farm → building yield** — one NPC level lookup (`NPC5` → `buildingYieldPercent`). `farm.mjs`
-    exists and exports no bonus today.
+3a. **Family potential** — `sum(potentialCount)` over owned family. **Not trivial; corrected
+    2026-09-12.** An earlier revision called this "trivial once a potential counter exists", which
+    hid the whole job in a subordinate clause. `potentialCount` is not a counter but the output of a
+    `potentialLevel` ladder, each step adding `outputRiseFixed` up to `outputRiseRandomMax` from its
+    own config table — a progression system of the same shape as Fathoms. The live save shows 13,400
+    across 40 owned members (max 6,800 each), so it is a substantial ladder, not a tally. Everkai's
+    family members carry only `{intimacy, blessingPower, points, skill, relationship}`.
+3b. **Farm → building yield** — the cheapest real strand, and **fully deterministic**. The source is
+    `SimGame3Yield`: `buildingYieldPercent` runs 0, 500, 1000, 1500, 2000, 2500 (+0% → +25%) against
+    a `consume` cost per level, with no weights and no rolls anywhere. The original reads it as
+    `NPC5`'s level. Everkai's `farm.mjs` exports no bonus and has no NPC or level concept, so this
+    needs a small farm-side ladder, then one lookup into `businessBonus`.
 3c. **Medicine → city bonus** — sum of completed medicines whose skill targets all/country.
-    `apothecary.mjs` exists and exports no bonus today.
+    **Larger than it looks; corrected 2026-09-12.** Everkai's 10 potions carry their effects as
+    *prose only* — `skillText: "Inspiring Fellow Power +0.5% (+0.5%)"` — with **zero structured
+    effect fields and nothing anywhere reading `skillText`**. So potion effects are decorative today:
+    they do not reach Fellow Power, let alone city yield. This strand therefore means giving potions
+    real effects first (a defect in its own right, logged in `docs/backlog.md`), and only then
+    pointing the city-scoped ones at `businessBonus`.
 3d. **Inn city bonus** — dish collections targeting `city`. Everkai's inn currently reaches income
     only through the employee rate, not the bonus stack.
 3e. **Family growth** — owned family `wifeSkill` rows with `_NewHalo_` ids.

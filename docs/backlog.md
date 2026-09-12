@@ -87,6 +87,21 @@ Building_1701 (Magic Academy → Diligent). And `operation-data.json` has no pro
 every Everkai fellow id maps onto an original hero id that has `operationSkill`, so this is an
 import job, not an authoring one.
 
+### Potion effects are decorative — nothing reads them
+`lib/apothecary.mjs` ships 10 potions whose effects exist only as prose:
+`skillText: "Inspiring Fellow Power +0.5% (+0.5%)"`. There is **no structured effect field on any of
+the 10**, and a repo-wide search finds **no consumer of `skillText` at all** — not in `lib/`, not in
+`app/`. So selling potions advertises Fellow Power bonuses that are never applied to anything.
+
+Found 2026-09-12 while mapping the building bonus web: the original's Apothecary contributes a
+city-yield bonus per completed medicine whose skill targets all/country, and Everkai cannot wire that
+strand until potions have real effects. Note the two are different effect *kinds* — Everkai's text
+describes Fellow Power, the original's medicine term targets building yield — so this needs a
+decision about which the potions are, not just a parser.
+
+**Why it is here and not in the slice doc:** the buildings slice only noticed it. The defect is that
+a shipped, sellable system makes a numeric promise it never keeps, which stands on its own.
+
 ### hero_60 has no price
 Kamakura ships with art and an extraction record but is absent from the public roster snapshot, so
 `summonCost` returns null and the Recruit counter refuses it. 257 of 259 are buyable. Needs either a
