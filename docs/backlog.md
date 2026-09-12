@@ -75,7 +75,7 @@ the original's `BuildingQuality` rows) — only the gate is wrong. See `docs/sli
 **But it is not the big lever, and that was measured rather than guessed.** Decomposing the original
 Inn's live +20,638% bonus: appoint skills **51.1%**, family skills **30.4%**, quality `yieldRise`
 only **14.1%**, everything else 4.4%. So the ranked building work is (1) appoint-skill coverage —
-Everkai models 4 fellows of 259 against the original's 180 of 181, capping the term at +30% versus
+Everkai models 4 fellows of 154 against the original's 180 of 181, capping the term at +30% versus
 +10,550%; (2) the **`country` dimension**, which 94% of the original's 540 appoint-skill instances
 target and which Everkai does not have at all — no country field on a business, no module reading
 one; (3) family skills feeding building yield; and only then quality.

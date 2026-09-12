@@ -159,7 +159,7 @@ Three things this pins down:
    where they are ~0.5%. The power term is structurally present (`rosterOperation` is already
    `Σ bondedPower/1000`, the same divisor as `HeroConversionRate/10000`) but is swamped the moment
    staff is bought.
-2. **`bonus` caps at +0.30.** `operation-data.json` holds records for **4 fellows of 259**
+2. **`bonus` caps at +0.30.** `operation-data.json` holds records for **4 fellows of 154**
    (`hero_1`, `hero_3`, `hero_5`, `hero_117`), and only effects whose `type` matches the business
    apply — `hero_117` and `hero_3` are `Inspiring` and contribute nothing to the `Diligent` Inn, so
    assigning them changed nothing. The original's comparable figure on the live save is between
@@ -190,7 +190,7 @@ neither of which Everkai models at parity:
 
 - **Appoint skills.** 180 of the original's 181 heroes (99.4%) carry `operationSkill` entries, across
   57 distinct skills worth **+20% to +200% each** at level 1 (median +30%). Everkai's
-  `operation-data.json` covers **4 fellows of 259**, capping the whole term at +30%.
+  `operation-data.json` covers **4 fellows of 154**, capping the whole term at +30%.
 - **The `country` dimension is absent from Everkai entirely.** Of the original's 540 appoint-skill
   instances, `targetCondition.conditionType` is `country` 510 times, `building` 21, `all` 9 — so
   **94% target country**. `BuildingBase` gives every building a `country` of 1–5; Everkai's
@@ -208,7 +208,7 @@ Ordered by **measured leverage** (§5b), not by how visible each one is. The fir
 the original's multiplier between them; the item that looked most urgent before measuring — repricing
 hiring — carries none of it.
 
-1. **Broaden appoint-skill coverage.** 51.1% of the multiplier. Everkai models 4 fellows of 259
+1. **Broaden appoint-skill coverage.** 51.1% of the multiplier. Everkai models 4 fellows of 154
    against the original's 180 of 181. This is the single largest lever in the slice.
 2. **Add the `country` dimension.** 94% of the original's appoint skills target country, and Everkai
    has no country field on a business and no module that reads one. Without it, most of item 1
