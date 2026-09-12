@@ -21,6 +21,7 @@ PICKS={
  'journey':('assets/Android/img/battle/bg/bg_mountain_01/bg_mountain_01_boss_f8d4b44d9eb325a5331749360bc00af4.mmc','Bg_Mountain_01_Boss',None,'mountain road'),
  'raphael':('assets/Android/ui/raphaelstage/raphaelstage_atlas1_e51471f196f52dc155cfa027548bf08a.mmc','RaphaelStage_atlas1',(0,0,750,1800),'Raphael stage'),
  'roaming':('assets/Android/ui/story/story_atlas36_643ff02708389f53e005c2c1f79f02cc.mmc','Story_atlas36',(0,0,750,1800),'Drakenberg shop street'),
+ 'recruit':('assets/Android/ui/lottery/lottery_atlas_k01o1nupmzg_b8c99e0563986c28ed0375c61053b514.mmc','Lottery_atlas_k01o1nupmzg',None,'lantern-lit square with a crest banner'),
 }
 root=Path(__file__).resolve().parents[1];out=root/'public/assets/facility-scenes';out.mkdir(exist_ok=True)
 rows={}

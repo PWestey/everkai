@@ -224,6 +224,18 @@
       "bytes": 117500,
       "sha256": "642a013239378ebc521bc55ba4265f28b4b7af27b86c646d5f69d8e0298e3935",
       "note": "Drakenberg shop street"
+    },
+    "recruit": {
+      "src": "facility-scenes/recruit.webp",
+      "texture": "Lottery_atlas_k01o1nupmzg",
+      "source": "assets/Android/ui/lottery/lottery_atlas_k01o1nupmzg_b8c99e0563986c28ed0375c61053b514.mmc",
+      "sourceSha256": "abf7f3dd86ae23687f927e5a089d19064dbfce2918906cc255840812fafad139",
+      "crop": null,
+      "width": 750,
+      "height": 1800,
+      "bytes": 43088,
+      "sha256": "afa1a4fb6cf6b8e0d8ee47cd97ddf16eaf1e088efaa0a2f676991414bb73aeaf",
+      "note": "lantern-lit square with a crest banner"
     }
   }
 }
