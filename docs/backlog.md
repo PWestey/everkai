@@ -45,7 +45,35 @@ familiars at no cost, the same hole that was closed for characters in `54ced87` 
 Left alone deliberately rather than swept into a fix about characters: the parity audit lists
 familiar acquisition as missing entirely, so this needs a designed source, not just a removed button.
 
-### Hiring is free, and that is a specified contract — not an oversight
+### Hiring is free — measured 2026-09-12, and smaller than twice claimed
+**User-reported twice** ("hiring workers is still free", "free building upgrades is still in the game").
+Confirmed live on the deployed site, which is current: all commits ship, and the building panel renders
+"Hire 1 · Free".
+
+What the measurement changed:
+
+- **The fix is a gate, not new machinery.** `staffingAction` refuses every paid action with one line —
+  `if(!originalProgression(s))return fail('Choose APK growth in Fellow Training Rules first.')` — while
+  `staffPrice` is already verified correct against the original (worker #2,000 = 408,406,219, matching
+  the live client's "408.4M"). `addStaff` already takes a `free` flag and `recordStaff` already journals
+  paid cost.
+- **One assumption of mine was wrong.** The contract test's "never grants quality income" clause reads as
+  though free hiring silently raises quality. Measured: hiring 800 free workers left quality at 1 and
+  bonus at 0, because `coverage(n)` is `ceil(n/1000)`. The quality jump only bites past 1,000 staff.
+- **The cap must stay at 5,000 for now.** The original caps staff by `BuildingQuality.levelLimit`
+  (1,000 at quality 1 → 26,000 at 26), and `staffingRule` already returns those. Coupling capacity to
+  quality is the faithful design, but quality is blocked behind the blueprint shop (§6 item 5), so
+  coupling now would strand play at 1,000 workers with no way to lift it — worse than today. Keeping a
+  flat 5,000 while charging original prices is a deliberate mismatch, recorded rather than buried.
+- **Blast radius is 20 fixtures + 2 contracts**, not 27 unknowns. Of 22 test call sites, 20 use
+  `hireEmployees` to stock a business before measuring something else and need funding or direct
+  seeding (the `gear-fixtures.mjs` precedent). Only `businesses.test.mjs` and `staffing.test.mjs:14`
+  assert free-ness as behaviour, and those get rewritten to assert pricing.
+- **The curve is why income had to come first:** 247 gold for 10 workers, 35,594 for 50, 3.37M for 200,
+  then 1.23bn at 800 and 17.9tn at 5,000. A starting village earns ~2/s, so everything past ~200 staff
+  is unreachable until the bonus web compounds.
+
+### The original entry, kept for the reasoning it records
 `lib/businesses.mjs` `hireEmployees` grants staff free up to 5,000 while `paidStaffHire` charges the
 original's own prices for the same workers. Repricing it is a **design change, not a bug fix**:
 `tests/staffing.test.mjs:14` is titled "free and Hire Card coverage never charges, reduces cap or
