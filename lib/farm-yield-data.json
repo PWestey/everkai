@@ -1,0 +1,1017 @@
+{
+  "provenance": "Imported from the original SimGame3Yield table by scripts/import-farm-yield.py. Levels, percentages and costs are the table's own values. The original reads this as farm NPC5's level (the Magic Tree) and adds buildingYieldPercent to every building. Percent is buildingYieldPercent/100, a whole number.",
+  "sources": [
+    {
+      "file": "SimGame3Yield.json",
+      "sha256": "f8fe6310a70224d5c849c7346b8816a0c9fc9177ac915e4bf978a8f961ab4421",
+      "field": "buildingYieldPercent, consume"
+    }
+  ],
+  "limits": "Cost is denominated in the farm knowledge score, which Everkai already tracks as farm.knowledge; no currency is invented. The first step costs 20,000, then the ladder restarts at 10,000 and climbs 2,500 a level to 505,000 -- that anomalous first row is the original's, not a transcription error. Nothing here is random: the original has no weights or rolls on this ladder.",
+  "levels": [
+    {
+      "level": 0,
+      "percent": 0,
+      "consume": 20000
+    },
+    {
+      "level": 1,
+      "percent": 5,
+      "consume": 10000
+    },
+    {
+      "level": 2,
+      "percent": 10,
+      "consume": 12500
+    },
+    {
+      "level": 3,
+      "percent": 15,
+      "consume": 15000
+    },
+    {
+      "level": 4,
+      "percent": 20,
+      "consume": 17500
+    },
+    {
+      "level": 5,
+      "percent": 25,
+      "consume": 20000
+    },
+    {
+      "level": 6,
+      "percent": 30,
+      "consume": 22500
+    },
+    {
+      "level": 7,
+      "percent": 35,
+      "consume": 25000
+    },
+    {
+      "level": 8,
+      "percent": 40,
+      "consume": 27500
+    },
+    {
+      "level": 9,
+      "percent": 45,
+      "consume": 30000
+    },
+    {
+      "level": 10,
+      "percent": 50,
+      "consume": 32500
+    },
+    {
+      "level": 11,
+      "percent": 55,
+      "consume": 35000
+    },
+    {
+      "level": 12,
+      "percent": 60,
+      "consume": 37500
+    },
+    {
+      "level": 13,
+      "percent": 65,
+      "consume": 40000
+    },
+    {
+      "level": 14,
+      "percent": 70,
+      "consume": 42500
+    },
+    {
+      "level": 15,
+      "percent": 75,
+      "consume": 45000
+    },
+    {
+      "level": 16,
+      "percent": 80,
+      "consume": 47500
+    },
+    {
+      "level": 17,
+      "percent": 85,
+      "consume": 50000
+    },
+    {
+      "level": 18,
+      "percent": 90,
+      "consume": 52500
+    },
+    {
+      "level": 19,
+      "percent": 95,
+      "consume": 55000
+    },
+    {
+      "level": 20,
+      "percent": 100,
+      "consume": 57500
+    },
+    {
+      "level": 21,
+      "percent": 105,
+      "consume": 60000
+    },
+    {
+      "level": 22,
+      "percent": 110,
+      "consume": 62500
+    },
+    {
+      "level": 23,
+      "percent": 115,
+      "consume": 65000
+    },
+    {
+      "level": 24,
+      "percent": 120,
+      "consume": 67500
+    },
+    {
+      "level": 25,
+      "percent": 125,
+      "consume": 70000
+    },
+    {
+      "level": 26,
+      "percent": 130,
+      "consume": 72500
+    },
+    {
+      "level": 27,
+      "percent": 135,
+      "consume": 75000
+    },
+    {
+      "level": 28,
+      "percent": 140,
+      "consume": 77500
+    },
+    {
+      "level": 29,
+      "percent": 145,
+      "consume": 80000
+    },
+    {
+      "level": 30,
+      "percent": 150,
+      "consume": 82500
+    },
+    {
+      "level": 31,
+      "percent": 155,
+      "consume": 85000
+    },
+    {
+      "level": 32,
+      "percent": 160,
+      "consume": 87500
+    },
+    {
+      "level": 33,
+      "percent": 165,
+      "consume": 90000
+    },
+    {
+      "level": 34,
+      "percent": 170,
+      "consume": 92500
+    },
+    {
+      "level": 35,
+      "percent": 175,
+      "consume": 95000
+    },
+    {
+      "level": 36,
+      "percent": 180,
+      "consume": 97500
+    },
+    {
+      "level": 37,
+      "percent": 185,
+      "consume": 100000
+    },
+    {
+      "level": 38,
+      "percent": 190,
+      "consume": 102500
+    },
+    {
+      "level": 39,
+      "percent": 195,
+      "consume": 105000
+    },
+    {
+      "level": 40,
+      "percent": 200,
+      "consume": 107500
+    },
+    {
+      "level": 41,
+      "percent": 205,
+      "consume": 110000
+    },
+    {
+      "level": 42,
+      "percent": 210,
+      "consume": 112500
+    },
+    {
+      "level": 43,
+      "percent": 215,
+      "consume": 115000
+    },
+    {
+      "level": 44,
+      "percent": 220,
+      "consume": 117500
+    },
+    {
+      "level": 45,
+      "percent": 225,
+      "consume": 120000
+    },
+    {
+      "level": 46,
+      "percent": 230,
+      "consume": 122500
+    },
+    {
+      "level": 47,
+      "percent": 235,
+      "consume": 125000
+    },
+    {
+      "level": 48,
+      "percent": 240,
+      "consume": 127500
+    },
+    {
+      "level": 49,
+      "percent": 245,
+      "consume": 130000
+    },
+    {
+      "level": 50,
+      "percent": 250,
+      "consume": 132500
+    },
+    {
+      "level": 51,
+      "percent": 255,
+      "consume": 135000
+    },
+    {
+      "level": 52,
+      "percent": 260,
+      "consume": 137500
+    },
+    {
+      "level": 53,
+      "percent": 265,
+      "consume": 140000
+    },
+    {
+      "level": 54,
+      "percent": 270,
+      "consume": 142500
+    },
+    {
+      "level": 55,
+      "percent": 275,
+      "consume": 145000
+    },
+    {
+      "level": 56,
+      "percent": 280,
+      "consume": 147500
+    },
+    {
+      "level": 57,
+      "percent": 285,
+      "consume": 150000
+    },
+    {
+      "level": 58,
+      "percent": 290,
+      "consume": 152500
+    },
+    {
+      "level": 59,
+      "percent": 295,
+      "consume": 155000
+    },
+    {
+      "level": 60,
+      "percent": 300,
+      "consume": 157500
+    },
+    {
+      "level": 61,
+      "percent": 305,
+      "consume": 160000
+    },
+    {
+      "level": 62,
+      "percent": 310,
+      "consume": 162500
+    },
+    {
+      "level": 63,
+      "percent": 315,
+      "consume": 165000
+    },
+    {
+      "level": 64,
+      "percent": 320,
+      "consume": 167500
+    },
+    {
+      "level": 65,
+      "percent": 325,
+      "consume": 170000
+    },
+    {
+      "level": 66,
+      "percent": 330,
+      "consume": 172500
+    },
+    {
+      "level": 67,
+      "percent": 335,
+      "consume": 175000
+    },
+    {
+      "level": 68,
+      "percent": 340,
+      "consume": 177500
+    },
+    {
+      "level": 69,
+      "percent": 345,
+      "consume": 180000
+    },
+    {
+      "level": 70,
+      "percent": 350,
+      "consume": 182500
+    },
+    {
+      "level": 71,
+      "percent": 355,
+      "consume": 185000
+    },
+    {
+      "level": 72,
+      "percent": 360,
+      "consume": 187500
+    },
+    {
+      "level": 73,
+      "percent": 365,
+      "consume": 190000
+    },
+    {
+      "level": 74,
+      "percent": 370,
+      "consume": 192500
+    },
+    {
+      "level": 75,
+      "percent": 375,
+      "consume": 195000
+    },
+    {
+      "level": 76,
+      "percent": 380,
+      "consume": 197500
+    },
+    {
+      "level": 77,
+      "percent": 385,
+      "consume": 200000
+    },
+    {
+      "level": 78,
+      "percent": 390,
+      "consume": 202500
+    },
+    {
+      "level": 79,
+      "percent": 395,
+      "consume": 205000
+    },
+    {
+      "level": 80,
+      "percent": 400,
+      "consume": 207500
+    },
+    {
+      "level": 81,
+      "percent": 405,
+      "consume": 210000
+    },
+    {
+      "level": 82,
+      "percent": 410,
+      "consume": 212500
+    },
+    {
+      "level": 83,
+      "percent": 415,
+      "consume": 215000
+    },
+    {
+      "level": 84,
+      "percent": 420,
+      "consume": 217500
+    },
+    {
+      "level": 85,
+      "percent": 425,
+      "consume": 220000
+    },
+    {
+      "level": 86,
+      "percent": 430,
+      "consume": 222500
+    },
+    {
+      "level": 87,
+      "percent": 435,
+      "consume": 225000
+    },
+    {
+      "level": 88,
+      "percent": 440,
+      "consume": 227500
+    },
+    {
+      "level": 89,
+      "percent": 445,
+      "consume": 230000
+    },
+    {
+      "level": 90,
+      "percent": 450,
+      "consume": 232500
+    },
+    {
+      "level": 91,
+      "percent": 455,
+      "consume": 235000
+    },
+    {
+      "level": 92,
+      "percent": 460,
+      "consume": 237500
+    },
+    {
+      "level": 93,
+      "percent": 465,
+      "consume": 240000
+    },
+    {
+      "level": 94,
+      "percent": 470,
+      "consume": 242500
+    },
+    {
+      "level": 95,
+      "percent": 475,
+      "consume": 245000
+    },
+    {
+      "level": 96,
+      "percent": 480,
+      "consume": 247500
+    },
+    {
+      "level": 97,
+      "percent": 485,
+      "consume": 250000
+    },
+    {
+      "level": 98,
+      "percent": 490,
+      "consume": 252500
+    },
+    {
+      "level": 99,
+      "percent": 495,
+      "consume": 255000
+    },
+    {
+      "level": 100,
+      "percent": 500,
+      "consume": 257500
+    },
+    {
+      "level": 101,
+      "percent": 505,
+      "consume": 260000
+    },
+    {
+      "level": 102,
+      "percent": 510,
+      "consume": 262500
+    },
+    {
+      "level": 103,
+      "percent": 515,
+      "consume": 265000
+    },
+    {
+      "level": 104,
+      "percent": 520,
+      "consume": 267500
+    },
+    {
+      "level": 105,
+      "percent": 525,
+      "consume": 270000
+    },
+    {
+      "level": 106,
+      "percent": 530,
+      "consume": 272500
+    },
+    {
+      "level": 107,
+      "percent": 535,
+      "consume": 275000
+    },
+    {
+      "level": 108,
+      "percent": 540,
+      "consume": 277500
+    },
+    {
+      "level": 109,
+      "percent": 545,
+      "consume": 280000
+    },
+    {
+      "level": 110,
+      "percent": 550,
+      "consume": 282500
+    },
+    {
+      "level": 111,
+      "percent": 555,
+      "consume": 285000
+    },
+    {
+      "level": 112,
+      "percent": 560,
+      "consume": 287500
+    },
+    {
+      "level": 113,
+      "percent": 565,
+      "consume": 290000
+    },
+    {
+      "level": 114,
+      "percent": 570,
+      "consume": 292500
+    },
+    {
+      "level": 115,
+      "percent": 575,
+      "consume": 295000
+    },
+    {
+      "level": 116,
+      "percent": 580,
+      "consume": 297500
+    },
+    {
+      "level": 117,
+      "percent": 585,
+      "consume": 300000
+    },
+    {
+      "level": 118,
+      "percent": 590,
+      "consume": 302500
+    },
+    {
+      "level": 119,
+      "percent": 595,
+      "consume": 305000
+    },
+    {
+      "level": 120,
+      "percent": 600,
+      "consume": 307500
+    },
+    {
+      "level": 121,
+      "percent": 605,
+      "consume": 310000
+    },
+    {
+      "level": 122,
+      "percent": 610,
+      "consume": 312500
+    },
+    {
+      "level": 123,
+      "percent": 615,
+      "consume": 315000
+    },
+    {
+      "level": 124,
+      "percent": 620,
+      "consume": 317500
+    },
+    {
+      "level": 125,
+      "percent": 625,
+      "consume": 320000
+    },
+    {
+      "level": 126,
+      "percent": 630,
+      "consume": 322500
+    },
+    {
+      "level": 127,
+      "percent": 635,
+      "consume": 325000
+    },
+    {
+      "level": 128,
+      "percent": 640,
+      "consume": 327500
+    },
+    {
+      "level": 129,
+      "percent": 645,
+      "consume": 330000
+    },
+    {
+      "level": 130,
+      "percent": 650,
+      "consume": 332500
+    },
+    {
+      "level": 131,
+      "percent": 655,
+      "consume": 335000
+    },
+    {
+      "level": 132,
+      "percent": 660,
+      "consume": 337500
+    },
+    {
+      "level": 133,
+      "percent": 665,
+      "consume": 340000
+    },
+    {
+      "level": 134,
+      "percent": 670,
+      "consume": 342500
+    },
+    {
+      "level": 135,
+      "percent": 675,
+      "consume": 345000
+    },
+    {
+      "level": 136,
+      "percent": 680,
+      "consume": 347500
+    },
+    {
+      "level": 137,
+      "percent": 685,
+      "consume": 350000
+    },
+    {
+      "level": 138,
+      "percent": 690,
+      "consume": 352500
+    },
+    {
+      "level": 139,
+      "percent": 695,
+      "consume": 355000
+    },
+    {
+      "level": 140,
+      "percent": 700,
+      "consume": 357500
+    },
+    {
+      "level": 141,
+      "percent": 705,
+      "consume": 360000
+    },
+    {
+      "level": 142,
+      "percent": 710,
+      "consume": 362500
+    },
+    {
+      "level": 143,
+      "percent": 715,
+      "consume": 365000
+    },
+    {
+      "level": 144,
+      "percent": 720,
+      "consume": 367500
+    },
+    {
+      "level": 145,
+      "percent": 725,
+      "consume": 370000
+    },
+    {
+      "level": 146,
+      "percent": 730,
+      "consume": 372500
+    },
+    {
+      "level": 147,
+      "percent": 735,
+      "consume": 375000
+    },
+    {
+      "level": 148,
+      "percent": 740,
+      "consume": 377500
+    },
+    {
+      "level": 149,
+      "percent": 745,
+      "consume": 380000
+    },
+    {
+      "level": 150,
+      "percent": 750,
+      "consume": 382500
+    },
+    {
+      "level": 151,
+      "percent": 755,
+      "consume": 385000
+    },
+    {
+      "level": 152,
+      "percent": 760,
+      "consume": 387500
+    },
+    {
+      "level": 153,
+      "percent": 765,
+      "consume": 390000
+    },
+    {
+      "level": 154,
+      "percent": 770,
+      "consume": 392500
+    },
+    {
+      "level": 155,
+      "percent": 775,
+      "consume": 395000
+    },
+    {
+      "level": 156,
+      "percent": 780,
+      "consume": 397500
+    },
+    {
+      "level": 157,
+      "percent": 785,
+      "consume": 400000
+    },
+    {
+      "level": 158,
+      "percent": 790,
+      "consume": 402500
+    },
+    {
+      "level": 159,
+      "percent": 795,
+      "consume": 405000
+    },
+    {
+      "level": 160,
+      "percent": 800,
+      "consume": 407500
+    },
+    {
+      "level": 161,
+      "percent": 805,
+      "consume": 410000
+    },
+    {
+      "level": 162,
+      "percent": 810,
+      "consume": 412500
+    },
+    {
+      "level": 163,
+      "percent": 815,
+      "consume": 415000
+    },
+    {
+      "level": 164,
+      "percent": 820,
+      "consume": 417500
+    },
+    {
+      "level": 165,
+      "percent": 825,
+      "consume": 420000
+    },
+    {
+      "level": 166,
+      "percent": 830,
+      "consume": 422500
+    },
+    {
+      "level": 167,
+      "percent": 835,
+      "consume": 425000
+    },
+    {
+      "level": 168,
+      "percent": 840,
+      "consume": 427500
+    },
+    {
+      "level": 169,
+      "percent": 845,
+      "consume": 430000
+    },
+    {
+      "level": 170,
+      "percent": 850,
+      "consume": 432500
+    },
+    {
+      "level": 171,
+      "percent": 855,
+      "consume": 435000
+    },
+    {
+      "level": 172,
+      "percent": 860,
+      "consume": 437500
+    },
+    {
+      "level": 173,
+      "percent": 865,
+      "consume": 440000
+    },
+    {
+      "level": 174,
+      "percent": 870,
+      "consume": 442500
+    },
+    {
+      "level": 175,
+      "percent": 875,
+      "consume": 445000
+    },
+    {
+      "level": 176,
+      "percent": 880,
+      "consume": 447500
+    },
+    {
+      "level": 177,
+      "percent": 885,
+      "consume": 450000
+    },
+    {
+      "level": 178,
+      "percent": 890,
+      "consume": 452500
+    },
+    {
+      "level": 179,
+      "percent": 895,
+      "consume": 455000
+    },
+    {
+      "level": 180,
+      "percent": 900,
+      "consume": 457500
+    },
+    {
+      "level": 181,
+      "percent": 905,
+      "consume": 460000
+    },
+    {
+      "level": 182,
+      "percent": 910,
+      "consume": 462500
+    },
+    {
+      "level": 183,
+      "percent": 915,
+      "consume": 465000
+    },
+    {
+      "level": 184,
+      "percent": 920,
+      "consume": 467500
+    },
+    {
+      "level": 185,
+      "percent": 925,
+      "consume": 470000
+    },
+    {
+      "level": 186,
+      "percent": 930,
+      "consume": 472500
+    },
+    {
+      "level": 187,
+      "percent": 935,
+      "consume": 475000
+    },
+    {
+      "level": 188,
+      "percent": 940,
+      "consume": 477500
+    },
+    {
+      "level": 189,
+      "percent": 945,
+      "consume": 480000
+    },
+    {
+      "level": 190,
+      "percent": 950,
+      "consume": 482500
+    },
+    {
+      "level": 191,
+      "percent": 955,
+      "consume": 485000
+    },
+    {
+      "level": 192,
+      "percent": 960,
+      "consume": 487500
+    },
+    {
+      "level": 193,
+      "percent": 965,
+      "consume": 490000
+    },
+    {
+      "level": 194,
+      "percent": 970,
+      "consume": 492500
+    },
+    {
+      "level": 195,
+      "percent": 975,
+      "consume": 495000
+    },
+    {
+      "level": 196,
+      "percent": 980,
+      "consume": 497500
+    },
+    {
+      "level": 197,
+      "percent": 985,
+      "consume": 500000
+    },
+    {
+      "level": 198,
+      "percent": 990,
+      "consume": 502500
+    },
+    {
+      "level": 199,
+      "percent": 995,
+      "consume": 505000
+    },
+    {
+      "level": 200,
+      "percent": 1000
+    }
+  ]
+}

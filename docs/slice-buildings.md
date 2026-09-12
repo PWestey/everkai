@@ -462,10 +462,14 @@ hiring — carries none of it.
     the quality strand (§6 item 5), this one genuinely carries the part of the ladder players will
     reach.
 
-    Still genuinely deterministic — no weights, no rolls — which keeps it the most portable strand.
-    The original reads it as `NPC5`'s level (the Magic Tree). Everkai's `farm.mjs` exports no bonus
-    and has no NPC or level concept, and `validFarm` accepts `{knowledge, harvests, plots}` without
-    an exhaustive key count, so a `yieldLevel` field can be added the way `s.fathoms` was.
+    Still genuinely deterministic — no weights, no rolls — which kept it the most portable strand.
+
+    **DONE 2026-09-12.** `scripts/import-farm-yield.py` → `lib/farm-yield-data.json` (201 levels,
+    pinned by sha), a `farmYieldUpgrade` action and a `yieldLevel` field on the farm subtree, wired
+    through `businessBonus` and covered by `tests/farm-yield.test.mjs`. Unlike the type-scoped
+    strands, the Magic Tree pays **every** business. `actCore` settles income before dispatch, so the
+    new rate never applies retroactively and no explicit settle was needed — the original's
+    `village.settle()` call has no Everkai counterpart to write.
 3c. **Medicine → city bonus** — sum of completed medicines whose skill targets all/country.
     **Larger than it looks; corrected 2026-09-12.** Everkai's 10 potions carry their effects as
     *prose only* — `skillText: "Inspiring Fellow Power +0.5% (+0.5%)"` — with **zero structured

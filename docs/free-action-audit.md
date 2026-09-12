@@ -10,9 +10,10 @@ Everything below marked **observed** was produced by importing `lib/game.mjs` in
 (`harness.mjs`, `probe2.mjs`, `focus.mjs`, `focus3.mjs`, `focus4.mjs`, `focus5.mjs`, `focus6.mjs`).
 
 1. **Action enumeration** — parsed all 57 `lib/*.mjs` for `action==='x'`, `[...].includes(action)`,
-   `switch(action){case 'x'}` and `action!=='x'`. **229 distinct action strings.** (**230 since 2026-09-12:** `fathomAdvance` was added with
-`lib/fathoms.mjs`. It is not a faucet — it spends a daily allowance capped by how many daily habits
-were actually completed, and grants no item.) The naive
+   `switch(action){case 'x'}` and `action!=='x'`. **229 distinct action strings.** (**231 since 2026-09-12:** `fathomAdvance` was added with
+`lib/fathoms.mjs` — not a faucet, it spends a daily allowance capped by how many daily habits were
+actually completed and grants no item. `farmYieldUpgrade` was added with the Magic Tree ladder — also
+not a faucet, it *spends* farm Knowledge from the original's own `SimGame3Yield` cost column.) The naive
    `action==='` grep alone returns 178, so 51 actions ride in `includes()` guards or the
    `opening.mjs` switch — including `banquetPrepare`, `potionStock`, `useConsumable`,
    `trainBlessingsMax`, `starFamiliar`, `northTile`, `wishRecruit`, `toggleKeepsake`,
