@@ -30,8 +30,15 @@ test('invalid quantities, missing recipients, empty bags and unknown IDs cannot 
  const s=fresh(0),xp=CONSUMABLES[0],gift=CONSUMABLES.find(i=>i.target==='family');s.inventory[xp.id]=10;s.inventory[gift.id]=10;
  for(const [id,value] of [[xp.id,{count:0}],[xp.id,{count:-1}],[xp.id,{count:1.5}],[xp.id,{count:1e9}],[gift.id,{count:1,recipient:'wife_2'}],['unknown',{count:1}],[xp.id,null]]){const r=act(s,'useConsumable',0,id,value);assert.ok(r.error);assert.deepEqual(r.state,s);}
  s.inventory[xp.id]=0;assert.ok(act(s,'useConsumable',0,xp.id,{count:1}).error);
- const malformed=structuredClone(s);delete malformed.inventory[xp.id];assert.throws(()=>decode(JSON.stringify(malformed)));
- const extra=structuredClone(s);extra.inventory.unknown=1;assert.throws(()=>decode(JSON.stringify(extra)));
+ // These used to require an exact inventory key set at load. That is what made every save written
+ // before the Nichirin Swords were removed permanently unloadable, so decode now reconciles the id
+ // set instead of refusing the save. Values are still judged: only which ids exist is repaired.
+ const missing=structuredClone(s);delete missing.inventory[xp.id];
+ assert.equal(decode(JSON.stringify(missing)).inventory[xp.id],0,'an item added since the save was written comes back at zero');
+ const extra=structuredClone(s);extra.inventory.unknown=1;
+ assert.equal(decode(JSON.stringify(extra)).inventory.unknown,undefined,'an item the game no longer has is dropped');
+ const corrupt=structuredClone(s);corrupt.inventory[xp.id]=-1;
+ assert.throws(()=>decode(JSON.stringify(corrupt)),'a bad count on a real item is still refused');
 });
 test('numeric effects remain linked to the literal original text, with no random ranges or event Energy',()=>{
  for(const i of CONSUMABLES){assert.ok(i.sourceKeys.includes('Item:description:'+i.id));assert.ok(!i.description.includes('{'));const pattern=i.target==='player'?/Used to obtain ([\d,]+) Fellow EXP\./:/(?:Intimacy|Blessing Power).*? by (\d+)\./i;assert.equal(Number(i.description.match(pattern)[1].replaceAll(',','')),i.amount);}
