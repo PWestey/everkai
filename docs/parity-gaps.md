@@ -11,6 +11,17 @@ House caveat from the ledger itself: "Do not label a whole system reproduced mer
 
 ## 0. Cross-cutting findings (these affect every system)
 
+> **Status note 2026-09-12.** This audit is a snapshot at `e9ef386` and is kept as a dated record,
+> but findings 1 and 3 below, and items 2 and 3 of the top-ten list in §13, have since been
+> substantially addressed. Do not plan from them without checking:
+> - **Earned economy:** all thirty grant-shaped actions are now classified, eight converted and four
+>   deleted outright (`claimAllGear`, `claimGear`, `sandboxAdventure`, `refillEducation`). No
+>   tractable faucet remains; every still-free one fails the recovery test. See `docs/faucet-map.md`.
+> - **Recruitment:** Recruit is a deterministic exchange counter — you pick and pay, no pools, no
+>   pity, no luck — priced per rarity, with its own Drakenberg facility. Artifacts are forged from
+>   Magic Ore. The roster is no longer free.
+> - **VIP-locked characters:** see `docs/vip-roster.md`. **Star shards:** see `docs/star-track.md`.
+
 1. **Acquisition mostly comes from free sandbox grants, not an earned economy.** Examples: bait (`claimBait` +20), Fairy Bottles (`wishSupply` +100), Magic Ore (`claimOre` +1000), Stella fragments (+1000), Insight (+1000), Blessing Points (fill to 1B, `specialBlessingSupply`), building materials (+100), breakthrough supplies (10M EXP, `claimOriginalSupplies`), keepsakes (`claimMuseum`), Expo stalls (`claimExpoStall`), familiars (`adoptFamiliars`), costumes (`wardrobeCollect`), banquet materials (`banquetPrepare`), Inn stamina refill, Workshop restock and finish, Farm "Mature now", Treasure refill, Northern supplies, Raphael stamina, Hire Cards, consumables (`claimConsumable`), and the free Fellow/Family recruit-all buttons. Earned routes exist in places (opening journey, Mine Clearance → Ore, Banquet/Trading Post/Northern shops → cards/pearls/ore, Workshop → pearls, Raphael milestones), but they are thin. Most original daily and reward loops that feed these systems are missing.
 2. **Two parallel growth modes.** "Classic sandbox growth" and opt-in "APK growth" (Training Rules; `lib/original-progression.mjs`, `training-costs.mjs`). Some features only work in APK mode: paid staffing, recipe visitors, blessing rows 37–700, Special Blessing, 299 talents.
 3. **Power is reconstructed.** `bondedPower` in `lib/adventure.mjs` builds a local ordering of Aptitude × coefficient × bonds/blessings/museum/familiar/fishing/echo/Stella/elixir. SYSTEMS.md:297 says "Roster Power itself remains reconstructed". Every Power gate and business roster contribution inherits this.
