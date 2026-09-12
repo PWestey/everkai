@@ -1,92 +1,3877 @@
 {
-  "provenance": "Community descriptions inspected 2026-09-07; not version-matched APK formulas. Additive stacking is a bounded reconstruction. No inferred operation upgrade costs.",
+  "provenance": "Imported from the original Hero.operationSkill and SkillBase tables by scripts/import-operations.py, replacing a four-fellow community reconstruction. Percent is skillProp_Initial/100 at skill level 1; minLevel is the AppointSkill_HeroLevel unlock, or 1 when the skill has no unlock condition. country targeting is mapped to this project business type via BuildingBase.country (1 Inspiring, 2 Diligent, 3 Brave, 4 Informed, 5 Unfettered), verified 1:1 in lib/business-data.json typeSource. Effects with neither type nor building are the original's conditionType 'all' and apply everywhere.",
+  "sources": [
+    {
+      "file": "Hero.json",
+      "sha256": "5219480b90d734bf4e5cc24eb0a049b306108c684956c8df4a090b9f0fa7a052",
+      "field": "operationSkill"
+    },
+    {
+      "file": "SkillBase.json",
+      "sha256": "a04ba18bdf0c18d12f1ab2f2e1c6cbfad6afeb9a19c4e6b99296e979a0a5ad75",
+      "field": "skillProp.id == 'appoint'"
+    }
+  ],
+  "limits": "Rarity-gated appoint skills are excluded and flagged per record, because an Everkai effect has a level gate only. Skill levels above 1 are not modelled, so skillProp_Level growth is not applied. Characters listed in content-overrides.removed are omitted.",
   "records": [
     {
       "fellow": "hero_1",
-      "source": "https://isekai.wiki/index.php?title=Fifi&oldid=7915",
       "effects": [
         {
           "minLevel": 1,
-          "type": "Diligent",
-          "percent": 30
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Base_1",
+          "type": "Diligent"
         },
         {
           "minLevel": 50,
-          "building": "Building_101",
-          "percent": 20
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building01Extra_1",
+          "building": "Building_101"
         },
         {
           "minLevel": 200,
-          "type": "Diligent",
-          "percent": 30
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
         }
       ]
     },
     {
-      "fellow": "hero_117",
-      "source": "https://isekai.wiki/index.php?title=Amaterasu&oldid=7893",
+      "fellow": "hero_2",
       "effects": [
         {
           "minLevel": 1,
-          "type": "Inspiring",
-          "percent": 150
-        }
-      ],
-      "unresolved": "Further 20% and 30% effects lack unlock levels and are excluded."
-    },
-    {
-      "fellow": "hero_3",
-      "name": "Reir",
-      "source": "https://isekai.wiki/index.php?title=Reir&oldid=7979",
-      "effects": [
-        {
-          "minLevel": 1,
-          "type": "Inspiring",
           "percent": 30,
-          "skillId": "Hero_Appoint_Country1Base_1"
+          "skillId": "Hero_Appoint_Country4Base_1",
+          "type": "Informed"
         },
         {
           "minLevel": 50,
-          "building": "Building_401",
           "percent": 20,
-          "skillId": "Hero_Appoint_Building04Extra_1"
+          "skillId": "Hero_Appoint_Building02Extra_1",
+          "building": "Building_201"
         },
         {
           "minLevel": 200,
-          "type": "Inspiring",
           "percent": 30,
-          "candidateSkillIds": [
-            "Hero_Appoint_Country1Extra_1",
-            "Hero_Appoint_Country1Extra_2"
-          ]
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_3",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Base_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building04Extra_1",
+          "building": "Building_401"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_4",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Base_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building03Extra_1",
+          "building": "Building_301"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
         }
       ]
     },
     {
       "fellow": "hero_5",
-      "name": "Pump",
-      "source": "https://isekai.wiki/Pump",
       "effects": [
         {
           "minLevel": 1,
-          "type": "Unfettered",
           "percent": 30,
-          "skillId": "Hero_Appoint_Country5Base_1"
+          "skillId": "Hero_Appoint_Country5Base_1",
+          "type": "Unfettered"
         },
         {
           "minLevel": 50,
-          "building": "Building_501",
           "percent": 20,
-          "skillId": "Hero_Appoint_Building05Extra_1"
+          "skillId": "Hero_Appoint_Building05Extra_1",
+          "building": "Building_501"
         },
         {
           "minLevel": 200,
-          "type": "Unfettered",
           "percent": 30,
-          "candidateSkillIds": [
-            "Hero_Appoint_Country5Extra_1",
-            "Hero_Appoint_Country5Extra_2"
-          ]
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_11",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country3Base_2",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building08Extra_1",
+          "building": "Building_801"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_12",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country2Base_2",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building07Extra_1",
+          "building": "Building_701"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_13",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country4Base_2",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building02Extra_1",
+          "building": "Building_201"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_14",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country1Base_2",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building06Extra_1",
+          "building": "Building_601"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_15",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country5Base_2",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building05Extra_1",
+          "building": "Building_501"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_16",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country2Base_2",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building01Extra_1",
+          "building": "Building_101"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_17",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country1Base_2",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_18",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country4Base_2",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building09Extra_1",
+          "building": "Building_901"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_19",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country5Base_2",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building10Extra_1",
+          "building": "Building_1001"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_20",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country3Base_2",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_21",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country1Base_2",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building04Extra_1",
+          "building": "Building_401"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_22",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country3Base_2",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_23",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country4Base_2",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_24",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country2Base_2",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_25",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 50,
+          "skillId": "Hero_Appoint_Country5Base_2",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building15Extra_1",
+          "building": "Building_1501"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_51",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country3Base_3",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building03Extra_1",
+          "building": "Building_301"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_52",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_53",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country6Base_3"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country6Extra_1"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country6Extra_2"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_54",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country1Base_3",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_55",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country5Base_3",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_56",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country2Base_3",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_57",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country3Base_3",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_58",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country2Base_3",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_59",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country2Base_3",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building12Extra_1",
+          "building": "Building_1201"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_60",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country5Base_3",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_61",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building14Extra_1",
+          "building": "Building_1401"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_62",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country1Base_3",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building11Extra_1",
+          "building": "Building_1101"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_63",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_64",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country1Base_3",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_65",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country3Base_3",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building13Extra_1",
+          "building": "Building_1301"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_66",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country5Base_3",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Building05Extra_1",
+          "building": "Building_501"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_67",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country2Base_3",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_68",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country1Base_3",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_69",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_71",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_72",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country2Base_3",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_73",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country3Base_3",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_74",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_75",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country5Base_3",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_76",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country3Base_3",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_77",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country5Base_3",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_78",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country1Base_3",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_79",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country3Base_3",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_81",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_101",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_102",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_103",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_104",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_105",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_106",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_111",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_112",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_113",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country3Base_5",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_114",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country5Base_5",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_115",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country1Base_5",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_116",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country4Base_5",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_117",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country1Base_5",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_118",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country2Base_5",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_119",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_120",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_121",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_122",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_123",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_124",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_125",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_126",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_127",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_128",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country5Base_5",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_129",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_130",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_131",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_132",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country2Base_5",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_133",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_134",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country3Base_5",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_135",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country4Base_5",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_136",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_137",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country1Base_5",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_138",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_139",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country2Base_5",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_140",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_141",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_142",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country1Base_4"
+    },
+    {
+      "fellow": "hero_143",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_144",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_145",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country3Base_5",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_146",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_147",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_148",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country2Base_5",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_149",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_150",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country5Base_5",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_151",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_152",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_153",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_154",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_155",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_156",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_157",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_158",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_159",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_160",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_161",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_162",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country1Base_5",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_163",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_164",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_165",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_166",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country3Base_4"
+    },
+    {
+      "fellow": "hero_167",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_168",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country4Base_5",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_169",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country3Base_5",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_170",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_171",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_172",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country4Base_4"
+    },
+    {
+      "fellow": "hero_173",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_174",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_175",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_176",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country3Base_4"
+    },
+    {
+      "fellow": "hero_177",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_178",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_179",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_180",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_181",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_182",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_183",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_184",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_185",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_186",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country4Base_3",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_187",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_188",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_189",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country3Base_4"
+    },
+    {
+      "fellow": "hero_190",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 70,
+          "skillId": "Hero_Appoint_Country1Base_3",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_191",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_192",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_193",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country6Base_4"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country6Extra_1"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country6Extra_2"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_194",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country1Base_4"
+    },
+    {
+      "fellow": "hero_195",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country4Base_5",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_196",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country1Base_5",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_197",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_198",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country4Base_4"
+    },
+    {
+      "fellow": "hero_199",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country3Base_4"
+    },
+    {
+      "fellow": "hero_200",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country1Base_4"
+    },
+    {
+      "fellow": "hero_201",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country6Base_5"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country6Extra_1"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country6Extra_2"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_211",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country1Base_5",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_212",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country4Base_5",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_213",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country3Base_5",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_214",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country2Base_5",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_215",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 150,
+          "skillId": "Hero_Appoint_Country5Base_5",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_251",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_253",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 200,
+          "skillId": "Hero_Appoint_Country3Base_6",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_254",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 200,
+          "skillId": "Hero_Appoint_Country4Base_6",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_255",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country1Base_4"
+    },
+    {
+      "fellow": "hero_256",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_257",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country4Base_4"
+    },
+    {
+      "fellow": "hero_258",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country3Base_4"
+    },
+    {
+      "fellow": "hero_259",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country2Base_4"
+    },
+    {
+      "fellow": "hero_260",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country1Base_4"
+    },
+    {
+      "fellow": "hero_261",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country3Base_4"
+    },
+    {
+      "fellow": "hero_262",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country4Base_4"
+    },
+    {
+      "fellow": "hero_263",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_4"
+    },
+    {
+      "fellow": "hero_305",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country4Base_3"
+    },
+    {
+      "fellow": "hero_308",
+      "effects": [
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ],
+      "unresolved": "Rarity-gated appoint skill excluded; Everkai effects carry a level gate only: Hero_Appoint_Country5Base_3"
+    },
+    {
+      "fellow": "hero_501",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_502",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_503",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_504",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_505",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_506",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country1Base_4",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country1Extra_1",
+          "type": "Inspiring"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country1Extra_2",
+          "type": "Inspiring"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_507",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country4Base_4",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country4Extra_1",
+          "type": "Informed"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country4Extra_2",
+          "type": "Informed"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_508",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country3Base_4",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country3Extra_1",
+          "type": "Brave"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country3Extra_2",
+          "type": "Brave"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_509",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country2Base_4",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country2Extra_1",
+          "type": "Diligent"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country2Extra_2",
+          "type": "Diligent"
+        }
+      ]
+    },
+    {
+      "fellow": "hero_510",
+      "effects": [
+        {
+          "minLevel": 1,
+          "percent": 100,
+          "skillId": "Hero_Appoint_Country5Base_4",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 50,
+          "percent": 20,
+          "skillId": "Hero_Appoint_Country5Extra_1",
+          "type": "Unfettered"
+        },
+        {
+          "minLevel": 200,
+          "percent": 30,
+          "skillId": "Hero_Appoint_Country5Extra_2",
+          "type": "Unfettered"
         }
       ]
     }
