@@ -278,8 +278,50 @@ and costs `20*(level+1)` Blessing Points earned from dates. Mapping 36 intimacy 
 onto a 0–10 ladder is a rescaling decision, and copying the reroll grind directly would import exactly
 the kind of loop the single-player design rule exists to adapt.
 
-So this item is **measured and specified, but deliberately not built** — it needs a design decision
-first, not more research.
+### The Everkai side, measured — and the porting problem is not what it looked like
+
+An earlier revision of this section said the blocker was rescaling 36 intimacy gates onto a bond
+ladder capped at 10. That was wrong twice over.
+
+**Everkai already has `intimacy`.** Family members are created as
+`{intimacy, blessingPower, points, skill, relationship}` (`game.mjs:82`) and `intimacy` is validated
+as a non-negative integer up to **1e6**, so the original's 50 → 5000 gates fit natively. No rescaling
+is required, the bond ladder is not involved, and the Fellow Power side effect of raising the bond cap
+(`bondFactor` is `1 + level*0.02`, feeding `bondedPower`) never arises. The two systems even share
+vocabulary already: `openingFathoms` spends 10 Blessing Points for intimacy, and the original's
+quenching handler is literally named for Fathoms ("Family intimacy50 required").
+
+**The real problem is the currency.** In practice Everkai's intimacy runs on a 0–100 scale —
+`relationRequired` is `tier*20`, so all five relationship tiers gate at 20/40/60/80/100 — and intimacy
+is *bought*: gift1 +1 at 100 gold, gift2 +2 at 200, gift5 +5 at 500. That prices intimacy at roughly
+**100 gold per point**, so the original's 5000-intimacy final gate costs about 500,000 gold, which a
+village earning thousands per second clears almost immediately. Gating 36 slots on purchasable
+intimacy would unlock the entire ladder at once and produce no progression at all.
+
+That is verified, not assumed: `buyGift` has **no daily gate and no rate limit** — its only refusals
+are insufficient gold and a 1e6 per-gift storage ceiling — and `giftBatch` applies up to 1e6 gifts in
+a single action, bounded only by inventory and the 1e6 stat ceiling. So 5000 intimacy is two actions:
+buy 1,000 Diamond Rings for 500,000 gold, then batch-apply them.
+
+**Direction (user decision, 2026-09-12): closest to mirroring the original, without a massive grind —
+"some grind is okay… less RNG and more progression based on time and habits".** So:
+
+- **Keep from the original:** the 36 slots, their fixed country cycle (2, 4, 3, 1, 5, 0), the +1% → +25%
+  tier range, and the never-decreasing rule.
+- **Replace:** the weighted reroll, and the purchasable unlock. Slot advancement should come from
+  habits and elapsed time, following the established `roamRefill` idiom — a `refillDay` field guarded
+  by `habitDay(s.lastAt)` plus `habitEarnings(s.habits, s.lastAt).dailies`, the same pattern used by
+  roaming, the fountain, banquets and insight.
+- **Shape:** an optional per-member `fathomSlots` array. This is safe to add — no validator counts
+  family-member keys exhaustively (unlike `inventory`, which `validFamily` does count), and
+  `f.apkBlessings` is the precedent for an optional per-member subtree validated in its own module
+  with its own `decode()` error message.
+
+**Pacing reference from the original's live save:** intimacy 110–5057 (median 1013), with most members
+at 24 of 36 slots after months of play. That is the shape to aim at — a ladder that keeps moving for a
+long time and never stalls punitively.
+
+Measured and specified; the build is the next step.
 
 ## 6. Everkai work this slice implies
 
