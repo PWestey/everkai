@@ -15,6 +15,12 @@
     ],
     "localSourceKey": "UI_Lobby_Panel_PanelBuildingTips_n25"
   },
+  "costSource": {
+    "file": "BuildingBase.json",
+    "sha256": "147f9b73e7a69b664f466e36131bc4fc4e6b5707cb2052895e66767138e58491",
+    "field": "consume where item id 3 (Gold)",
+    "note": "Opening prices, order and cityLandId are the original table's own values. The campaign packet behind lib/opening-data.json carries only the four opening-chapter buildings."
+  },
   "slotThresholds": [
     0,
     50,
@@ -29,7 +35,10 @@
       "description": "The beautiful and cozy Inn embodies Fifi and Belle's painstaking efforts. It will provide travelers with food and shelter.",
       "type": "Diligent",
       "employeeRate": 1,
-      "sourceKey": "BuildingBase:name:Building_101"
+      "sourceKey": "BuildingBase:name:Building_101",
+      "cost": 50,
+      "order": 1,
+      "cityLandId": "2"
     },
     {
       "id": "Building_201",
@@ -37,7 +46,10 @@
       "description": "All kinds of potions are sold in the Apothecary. Besides common medicines, new mixtures are researched here, so don't mind if you hear any explosions.",
       "type": "Informed",
       "employeeRate": 2,
-      "sourceKey": "BuildingBase:name:Building_201"
+      "sourceKey": "BuildingBase:name:Building_201",
+      "cost": 100,
+      "order": 2,
+      "cityLandId": "3"
     },
     {
       "id": "Building_301",
@@ -45,7 +57,10 @@
       "description": "No matter what you’re commissioned to make, everything from kitchen utensils to deadly weapons can be forged in the Workshop.",
       "type": "Brave",
       "employeeRate": 3,
-      "sourceKey": "BuildingBase:name:Building_301"
+      "sourceKey": "BuildingBase:name:Building_301",
+      "cost": 400,
+      "order": 3,
+      "cityLandId": "4"
     },
     {
       "id": "Building_401",
@@ -53,7 +68,10 @@
       "description": "The Scroll Shop is not only responsible for selling magic scrolls, it also sells magical items, lends spell books, and undertakes magic-related tasks. It sometimes works in collaboration with the Apothecary as well.",
       "type": "Inspiring",
       "employeeRate": 4,
-      "sourceKey": "BuildingBase:name:Building_401"
+      "sourceKey": "BuildingBase:name:Building_401",
+      "cost": 4000,
+      "order": 4,
+      "cityLandId": "5"
     },
     {
       "id": "Building_501",
@@ -61,7 +79,10 @@
       "description": "This outdoor resort was constructed on a natural hot springs in a traditional Eastern style. The resort provides drinks and refreshments, among other services, and is the ideal place for relaxing the mind and body.",
       "type": "Unfettered",
       "employeeRate": 6,
-      "sourceKey": "BuildingBase:name:Building_501"
+      "sourceKey": "BuildingBase:name:Building_501",
+      "cost": 10000,
+      "order": 5,
+      "cityLandId": "6"
     },
     {
       "id": "Building_601",
@@ -69,7 +90,10 @@
       "description": "The transportation hub uses carriages as the main means of transport and it connects all the village. It will always arrive in time, rain or shine.",
       "type": "Inspiring",
       "employeeRate": 8,
-      "sourceKey": "BuildingBase:name:Building_601"
+      "sourceKey": "BuildingBase:name:Building_601",
+      "cost": 70000,
+      "order": 6,
+      "cityLandId": "7"
     },
     {
       "id": "Building_701",
@@ -77,7 +101,10 @@
       "description": "A dessert shop opened by Fifi featuring Kemonomimi maids. Here, you can enjoy delicious snacks as well good service, which always make people linger.",
       "type": "Diligent",
       "employeeRate": 10,
-      "sourceKey": "BuildingBase:name:Building_701"
+      "sourceKey": "BuildingBase:name:Building_701",
+      "cost": 200000,
+      "order": 7,
+      "cityLandId": "8"
     },
     {
       "id": "Building_801",
@@ -85,7 +112,10 @@
       "description": "A open field for having fun. Aim at target with a bow and arrow to test your accuracy. Accurate enough, and you'll take rewards. Very popurlar among young people recently.",
       "type": "Brave",
       "employeeRate": 15,
-      "sourceKey": "BuildingBase:name:Building_801"
+      "sourceKey": "BuildingBase:name:Building_801",
+      "cost": 700000,
+      "order": 8,
+      "cityLandId": "9"
     },
     {
       "id": "Building_1401",
@@ -93,7 +123,10 @@
       "description": "A place for receiving medical treatment surrounded by the pungent smell of disinfectant, feared by children. It offers high-quality treatment, curing every illness, no matter the complexity.",
       "type": "Informed",
       "employeeRate": 20,
-      "sourceKey": "BuildingBase:name:Building_1401"
+      "sourceKey": "BuildingBase:name:Building_1401",
+      "cost": 900000000,
+      "order": 14,
+      "cityLandId": "15"
     },
     {
       "id": "Building_1001",
@@ -101,7 +134,10 @@
       "description": "A market street illuminated by candlelight where you can find \"special services” that make this place way more amusing than others. However, children are best not coming here.",
       "type": "Unfettered",
       "employeeRate": 25,
-      "sourceKey": "BuildingBase:name:Building_1001"
+      "sourceKey": "BuildingBase:name:Building_1001",
+      "cost": 9500000,
+      "order": 10,
+      "cityLandId": "11"
     },
     {
       "id": "Building_1101",
@@ -109,7 +145,10 @@
       "description": "A secure bank responsible for solving various financial issues. It also has reliable protection measures to ensure everyone's property safety.",
       "type": "Inspiring",
       "employeeRate": 30,
-      "sourceKey": "BuildingBase:name:Building_1101"
+      "sourceKey": "BuildingBase:name:Building_1101",
+      "cost": 30000000,
+      "order": 11,
+      "cityLandId": "12"
     },
     {
       "id": "Building_1201",
@@ -117,7 +156,10 @@
       "description": "A tailor shop that both accepts custom orders and sells ready-made clothing. It could satisfy everyone's pursuit of fashion while ensuring the quality of craftsmanship.",
       "type": "Diligent",
       "employeeRate": 35,
-      "sourceKey": "BuildingBase:name:Building_1201"
+      "sourceKey": "BuildingBase:name:Building_1201",
+      "cost": 80000000,
+      "order": 12,
+      "cityLandId": "13"
     },
     {
       "id": "Building_1301",
@@ -125,7 +167,10 @@
       "description": "A sports park built in the central area, convenient for residents to exercise. It also holds various sports events regularly.",
       "type": "Brave",
       "employeeRate": 40,
-      "sourceKey": "BuildingBase:name:Building_1301"
+      "sourceKey": "BuildingBase:name:Building_1301",
+      "cost": 250000000,
+      "order": 13,
+      "cityLandId": "14"
     },
     {
       "id": "Building_901",
@@ -133,7 +178,10 @@
       "description": "A museum with many cultural relics collected. It can attract tourists from other places and it's a good place to improve cultural literacy.",
       "type": "Informed",
       "employeeRate": 50,
-      "sourceKey": "BuildingBase:name:Building_901"
+      "sourceKey": "BuildingBase:name:Building_901",
+      "cost": 2000000,
+      "order": 9,
+      "cityLandId": "10"
     },
     {
       "id": "Building_1501",
@@ -141,7 +189,10 @@
       "description": "Theater with the function of cultural and artistic performances, is the most popular form of entertainment recently, deeply loved by residents. In addition to rehearsing classic plays, new works are also shown periodically.",
       "type": "Unfettered",
       "employeeRate": 60,
-      "sourceKey": "BuildingBase:name:Building_1501"
+      "sourceKey": "BuildingBase:name:Building_1501",
+      "cost": 3500000000,
+      "order": 15,
+      "cityLandId": "16"
     },
     {
       "id": "Building_1601",
@@ -149,7 +200,10 @@
       "description": "A means of transportation flying in the sky, using the most advanced technology, more flexible and free than traditional land transportation, can go to farther places.",
       "type": null,
       "employeeRate": 70,
-      "sourceKey": "BuildingBase:name:Building_1601"
+      "sourceKey": "BuildingBase:name:Building_1601",
+      "cost": 15000000000,
+      "order": 16,
+      "cityLandId": "17"
     },
     {
       "id": "Building_1701",
@@ -157,7 +211,10 @@
       "description": "An academy teaching magic knowledge. It aims at cultivating excellent magic users. With many ancient magic books collected here, students can enjoy their studying and researching freely.",
       "type": null,
       "employeeRate": 80,
-      "sourceKey": "BuildingBase:name:Building_1701"
+      "sourceKey": "BuildingBase:name:Building_1701",
+      "cost": 75000000000,
+      "order": 17,
+      "cityLandId": "18"
     }
   ]
 }

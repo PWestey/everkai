@@ -1,7 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
 import {fresh,act,valid,decode,totalRate} from '../lib/game.mjs';import {BUSINESSES,enterpriseBreakdown} from '../lib/businesses.mjs';import {staffPrice,staffCoefficient,staffingStatus,staffingRule,staffingPlan,STAFFING} from '../lib/staffing.mjs';import {HIRE_CARDS} from '../lib/hire-cards.mjs';import {createPersistence} from '../lib/persistence.mjs';
+import {funded,costOf} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);assert.ok(valid(r.state),a);return r.state};
-const begin=(id='Building_101',n=0)=>{let s=run(fresh(1000),'openEnterprise',id);s.enterprises[id].employees=n;s=run(s,'activateOriginalProgression');return run(s,'startPaidStaffing',id)};
+const begin=(id='Building_101',n=0)=>{let s=run(funded(fresh(1000),costOf(id)),'openEnterprise',id);s.enterprises[id].employees=n;s=run(s,'activateOriginalProgression');return run(s,'startPaidStaffing',id)};
 const evidence=JSON.parse(readFileSync(new URL('../lib/staffing-independent-data.json',import.meta.url)));
 const raw=JSON.parse(readFileSync(new URL('../lib/staffing-data.json',import.meta.url)));
 test('independent Decimal90 source fixtures: actual batch prices differ from summed singles',()=>{for(const x of evidence.quotes){assert.equal(staffPrice('Building_101',x.staff,1),x.one);assert.equal(staffPrice('Building_101',x.staff,10),x.ten);let singles=0;for(let j=0;j<10;j++)singles+=staffPrice('Building_101',x.staff+j,1);assert.equal(singles,x.tenSingles);assert.notEqual(singles,x.ten);}});

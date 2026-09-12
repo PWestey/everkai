@@ -4,6 +4,18 @@
 // Routing them through the forge would break a dozen unrelated files every time a forge price moves.
 // The forge has its own coverage in artifact-forge.test.mjs.
 import {GEAR,EXTRA_ITEMS} from '../lib/adventure.mjs';
+import {BUSINESSES,businessCost} from '../lib/businesses.mjs';
+
+/** Enough gold to open businesses, for tests that are about what a business does rather than about
+ *  affording it. Opening costs the original's own prices -- 50 for the Inn up to 75,000,000,000 for
+ *  the last building -- so a 250-gold fresh() save cannot reach past the Apothecary.
+ *  tests/business-opening-cost.test.mjs is what guards the prices themselves. */
+export const WHOLE_LADDER=BUSINESSES.reduce((n,b)=>n+(businessCost(b.id)||0),0);
+export const funded=(s,gold=WHOLE_LADDER)=>({...s,gold:s.gold+gold});
+/** Exactly what the named businesses cost to open. Prefer this over the whole ladder wherever a test
+ *  asserts an absolute gold balance, or spends gold as part of what it measures: adding only what is
+ *  about to be spent leaves every downstream figure exactly as it was before opening cost anything. */
+export const costOf=(...ids)=>ids.reduce((n,id)=>n+(businessCost(id)||0),0);
 
 /** One more copy of every artifact, exactly as claimAllGear gave. */
 export const stockAll=s=>({...s,inventory:{...s.inventory,...Object.fromEntries(GEAR.map(g=>[g.id,Math.min(1e6,(s.inventory[g.id]||0)+1)]))}});

@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createPersistence} from '../lib/persistence.mjs';
 import {fresh,act,SAVE_KEY,decode,settle} from '../lib/game.mjs';
+import {funded,costOf} from './gear-fixtures.mjs';
 function fixture(raw=JSON.stringify(fresh(1000))){const values=new Map(raw===null?[]:[[SAVE_KEY,raw]]);let fail=false,writes=0;
  return {values,get writes(){return writes},set fail(v){fail=v},getItem:k=>values.get(k)??null,setItem(k,v){if(fail)throw new DOMException('Full','QuotaExceededError');values.set(k,v);writes++}};
 }
@@ -38,7 +39,7 @@ test('corrupt saves are preserved and recovery cannot silently replace them',()=
  store.restore(fresh(1000),1000);assert.equal(disk.getItem(SAVE_KEY+'-before-restore'),'{broken');
 });
 test('Inn queued rewards and collection survive refusal/reload without duplicates',()=>{
- const disk=fixture(),store=createPersistence(()=>disk);let s=store.load(1000);
+ const disk=fixture(JSON.stringify(funded(fresh(1000),costOf('Building_101')))),store=createPersistence(()=>disk);let s=store.load(1000);
  for(const [action,target,value] of [['openEnterprise','Building_101'],['openInnService'],['developInnRecipe','57'],['receiveInnGuests','57',5]]){s=act(s,action,1000,target,value).state;store.commit(s);}
  const raw=disk.getItem(SAVE_KEY);disk.fail=true;assert.throws(()=>store.commit(settle(s,51000)));assert.equal(disk.getItem(SAVE_KEY),raw);assert.equal(store.current.inn.served,0);
  disk.fail=false;const recovered=store.load(51000);assert.equal(recovered.inn.served,5);assert.equal(recovered.inn.deposit,250);
@@ -47,7 +48,7 @@ test('Inn queued rewards and collection survive refusal/reload without duplicate
  const final=createPersistence(()=>disk).load(61000);assert.equal(final.gold,recovered.gold+250);assert.equal(final.inn.served,5);assert.equal(final.inn.deposit,0);
 });
 test('Workshop failed completion and wallet collection recover without duplicated coins or Sales EXP',()=>{
- const disk=fixture(),store=createPersistence(()=>disk);let s=store.load(1000);
+ const disk=fixture(JSON.stringify(funded(fresh(1000),costOf('Building_301')))),store=createPersistence(()=>disk);let s=store.load(1000);
  for(const [a,t,v] of [['openEnterprise','Building_301'],['openWorkshop'],['recruit','hero_1'],['startWorkshop','2001',{fellow:'hero_1',count:1}]]){s=act(s,a,1000,t,v).state;store.commit(s);}
  disk.fail=true;assert.throws(()=>store.commit(settle(s,301000)));assert.equal(store.current.workshop.deposit,0);disk.fail=false;
  const done=store.load(301000);assert.equal(done.workshop.deposit,3600);assert.equal(done.workshop.salesXP.hero_1,36);

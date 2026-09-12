@@ -2,7 +2,8 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,settle,totalRate} from '../lib/game.mjs';
 import {WORKSHOP_PRODUCTS,workshopHot,workshopUnlocked} from '../lib/workshop.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
-function setup(){let s=fresh(1000);for(const [a,t] of [['openEnterprise','Building_301'],['openWorkshop'],['recruit','hero_1']])s=run(s,a,t);return s;}
+import {funded} from './gear-fixtures.mjs';
+function setup(){let s=funded(fresh(1000));for(const [a,t] of [['openEnterprise','Building_301'],['openWorkshop'],['recruit','hero_1']])s=run(s,a,t);return s;}
 test('50 complete local numeric rows and declared matching policy gate manufacturing',()=>{
  assert.equal(WORKSHOP_PRODUCTS.length,50);assert.ok(WORKSHOP_PRODUCTS.every(p=>Number.isInteger(p.salesXP*1.2)&&p.seconds>0&&p.coinsPerSecond>0));
  let s=setup();assert.ok(act(s,'startWorkshop',1000,'2001',{fellow:'hero_15',count:1}).error);

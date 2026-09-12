@@ -1,8 +1,9 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,decode,valid,settle,totalRate} from '../lib/game.mjs';
 import {INN_STATIONS,INN_DISHES,innRecipeReady} from '../lib/inn.mjs';
+import {funded,costOf} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
-const setup=()=>run(run(fresh(1000),'openEnterprise','Building_101'),'openInnService');
+const setup=()=>run(run(funded(fresh(1000),costOf('Building_101')),'openEnterprise','Building_101'),'openInnService');
 test('station and recipe unlocks follow source gates, with complete loop to upgrades',()=>{
  let s=setup();assert.equal(INN_STATIONS.length,10);assert.equal(INN_DISHES.length,80);
  assert.ok(act(s,'buildInnStation',1000,'4').error);assert.ok(act(s,'developInnRecipe',1000,'1').error);

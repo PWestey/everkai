@@ -56,6 +56,21 @@ so deleting it strands content — a source must be built first:
 `refillInnStamina`, `stageSupply`, `claimStaffingMaterials`, `claimConsumable`, `stellaSupply`,
 `specialBlessingSupply`, `claimOriginalSupplies`.
 
+### Six importers cannot run: broken base path
+`import-elixirs.py`, `import-fountain.py`, `import-museum.py`, `import-tonic.py` and
+`import-treasure-hunt.py` resolve their source as `app.parents[1]/'outputs/...'`, which is two levels
+above the repo and lands on `/Users/outputs/...`. They fail immediately with `FileNotFoundError`.
+`import-businesses.py` had the same fault and was pointed at the verified absolute path when the
+building costs were added.
+
+This matters beyond convenience: the standing rule is to re-run `scripts/apply-content-overrides.py`
+after any importer, and an importer nobody can run is one whose output cannot be regenerated or
+checked against its source. Four importers already use absolute `/Users/westmanfamily/Documents/Codex`
+paths and work.
+
+**Fix:** point the five at their real sources, verified by the `localSha256` each already records, so
+a wrong file fails loudly instead of silently.
+
 ## Records that drift
 
 ### docs/parity-gaps.md is a dated snapshot

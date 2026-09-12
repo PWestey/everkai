@@ -2,8 +2,9 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,decode,settle,totalRate} from '../lib/game.mjs';
 import {BUSINESSES,enterpriseBreakdown,enterpriseRate} from '../lib/businesses.mjs';
 import {fellowOperation} from '../lib/operations.mjs';
+import {funded} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
-function setup(){let s=fresh(1000);for(const f of ['hero_1','hero_117'])s=run(s,'recruit',f);for(const id of ['Building_101','Building_701','Building_401'])s=run(s,'openEnterprise',id);return s;}
+function setup(){let s=funded(fresh(1000));for(const f of ['hero_1','hero_117'])s=run(s,'recruit',f);for(const id of ['Building_101','Building_701','Building_401'])s=run(s,'openEnterprise',id);return s;}
 test('Fifi operation matches type and level 50 Inn bonus without guessing other variants',()=>{
  const s=setup(),inn=BUSINESSES.find(b=>b.id==='Building_101'),cake=BUSINESSES.find(b=>b.id==='Building_701'),scroll=BUSINESSES.find(b=>b.id==='Building_401');
  s.fellows.hero_1.level=49;assert.equal(fellowOperation(s,'hero_1',inn).percent,30);
@@ -28,7 +29,7 @@ test('assigning Operations settles earlier income before new bonus applies',()=>
 });
 test('Reir/Pump exact building and type scopes stack only while assigned; earlier income stays at old rate',()=>{
  let s=setup();for(const id of ['hero_3','hero_5']){s=run(s,'recruit',id);s.fellows[id].level=50;s.fellows[id].breaks=3;}
- for(const id of ['Building_501','Building_1001','Building_601'])s=run(s,'openEnterprise',id);
+ s=funded(s);for(const id of ['Building_501','Building_1001','Building_601'])s=run(s,'openEnterprise',id);
  const definition=id=>BUSINESSES.find(b=>b.id===id);
  for(const [f,named,other,wrong] of [['hero_3','Building_401','Building_601','Building_501'],['hero_5','Building_501','Building_1001','Building_401']]){
   assert.equal(fellowOperation(s,f,definition(named)).percent,50);assert.equal(fellowOperation(s,f,definition(other)).percent,30);assert.equal(fellowOperation(s,f,definition(wrong)).percent,0);
