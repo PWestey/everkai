@@ -80,6 +80,12 @@
       "name": "Basic Earnings Card",
       "price": 2,
       "dailyLimit": 50
+    },
+    {
+      "id": "Item_Building_Recruit_Increase_1",
+      "name": "Basic Hire Card",
+      "price": 150,
+      "dailyLimit": 5
     }
   ],
   "rules": [
