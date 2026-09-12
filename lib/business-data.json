@@ -21,6 +21,12 @@
     "field": "consume where item id 3 (Gold)",
     "note": "Opening prices, order and cityLandId are the original table's own values. The campaign packet behind lib/opening-data.json carries only the four opening-chapter buildings."
   },
+  "typeSource": {
+    "file": "BuildingBase.json",
+    "sha256": "147f9b73e7a69b664f466e36131bc4fc4e6b5707cb2052895e66767138e58491",
+    "field": "country",
+    "note": "The 15 typed rows came from the translation TextAsset, which does not carry country. Building_1601 (Airship) and Building_1701 (Magic Academy) were left null there and are filled from BuildingBase.country, which maps 1:1 onto this file's type across all 15 already-typed rows: 1 Inspiring, 2 Diligent, 3 Brave, 4 Informed, 5 Unfettered. Airship is country 1, Magic Academy country 2. This matters because the original targets 510 of its 540 appoint-skill instances at country, and fellowOperation matches on this field."
+  },
   "slotThresholds": [
     0,
     50,
@@ -198,7 +204,7 @@
       "id": "Building_1601",
       "name": "Airship",
       "description": "A means of transportation flying in the sky, using the most advanced technology, more flexible and free than traditional land transportation, can go to farther places.",
-      "type": null,
+      "type": "Inspiring",
       "employeeRate": 70,
       "sourceKey": "BuildingBase:name:Building_1601",
       "cost": 15000000000,
@@ -209,7 +215,7 @@
       "id": "Building_1701",
       "name": "Magic Academy",
       "description": "An academy teaching magic knowledge. It aims at cultivating excellent magic users. With many ancient magic books collected here, students can enjoy their studying and researching freely.",
-      "type": null,
+      "type": "Diligent",
       "employeeRate": 80,
       "sourceKey": "BuildingBase:name:Building_1701",
       "cost": 75000000000,

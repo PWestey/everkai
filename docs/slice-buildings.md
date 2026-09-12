@@ -201,9 +201,11 @@ neither of which Everkai models at parity:
 
   Of the original's 540 appoint-skill instances, `targetCondition.conditionType` is `country` 510
   times, `building` 21, `all` 9 — and Everkai's `fellowOperation` already matches on both `type` and
-  `building`, so it can express 98% of them today. Two gaps remain: **Building_1601 (Airship) and
-  Building_1701 (Magic Academy) have `type: None`** where the original gives them countries 1 and 2,
-  i.e. Inspiring and Diligent; and the original's `self` conditionType has no Everkai equivalent.
+  `building`, so it can express 98% of them today. **Both missing types are now filled** (2026-09-12):
+  Building_1601 (Airship) → Inspiring and Building_1701 (Magic Academy) → Diligent, from
+  `BuildingBase.country` 1 and 2, recorded under a new `typeSource` block in `business-data.json`
+  beside the existing `costSource`. All 17 rows are typed; 633/633 tests and `tsc` stay green. The
+  only modelling gap left is the original's `self` conditionType, which has no Everkai equivalent.
 
 - **The community data was right, not a misreading.** Hero `1`'s real skills are
   `Hero_Appoint_Country2Base_1` (+30%), `Hero_Appoint_Building01Extra_1` (+20%, unlock level 50) and
@@ -230,10 +232,10 @@ hiring — carries none of it.
 
 1. **Broaden appoint-skill coverage.** 51.1% of the multiplier. Everkai models 4 fellows of 154
    against the original's 180 of 181. This is the single largest lever in the slice.
-2. **Fill the two missing business types.** Superseded 2026-09-12 — this item previously read "add the
-   country dimension", which was wrong: Everkai's `type` *is* country (§5b). All that is actually
-   missing is `type` on Building_1601 (Airship → Inspiring) and Building_1701 (Magic Academy →
-   Diligent), plus a decision on the original's `self` conditionType. Small.
+2. ~~**Fill the two missing business types.**~~ **DONE 2026-09-12.** This item previously read "add the
+   country dimension", which was wrong: Everkai's `type` *is* country (§5b). Airship → Inspiring and
+   Magic Academy → Diligent are filled from `BuildingBase.country`, with a `typeSource` provenance
+   block. Remaining from this item: a decision on the original's `self` conditionType.
 3. **Family skills into building yield.** 30.4% of the multiplier, and currently absent from
    Everkai's business income entirely.
 4. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. Structurally Everkai is

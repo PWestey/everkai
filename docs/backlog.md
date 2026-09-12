@@ -121,6 +121,20 @@ paths and work.
 **Fix:** point the five at their real sources, verified by the `localSha256` each already records, so
 a wrong file fails loudly instead of silently.
 
+### The roadmap Sheet lags the findings that produced it
+The parity catalog and roadmap live at
+`docs.google.com/spreadsheets/d/1KG3NpZDSLEGmRNvOGVl_Q7ewE1pERDOpMDeeFaAXz3U` (293 rows, created
+2026-09-12). It was generated *before* the last three building findings and is stale on all of them:
+appoint skills are 51.1% of the original's multiplier rather than quality; Everkai's `type` already
+**is** the original's `country`, so the "missing country dimension" row is wrong; and Airship /
+Magic Academy types are no longer unknown.
+
+**No available Drive tool can write cells into an existing file** — `update_file` supports title and
+parent only — so the Sheet cannot be patched in place. Updating it means regenerating the CSV and
+creating a new Sheet, which sprawls documents. Best done once per slice rather than per finding.
+The original `ISEKAI_SLOW_LIFE_SYSTEM_CATALOG.xlsx` is untouched and still accurate: it describes the
+original game neutrally and by its own scope carries no status columns.
+
 ## Records that drift
 
 ### docs/parity-gaps.md is a dated snapshot
