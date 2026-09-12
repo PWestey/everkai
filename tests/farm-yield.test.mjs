@@ -2,13 +2,14 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {startingSave,act,valid,decode} from '../lib/game.mjs';
 import {enterpriseBreakdown,enterpriseRate} from '../lib/businesses.mjs';
 import {FARM_YIELD,farmYieldLevel,farmYieldBonus} from '../lib/farm.mjs';
+import {staffed} from './gear-fixtures.mjs';
 const NOW=1767225600000;
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,String(r.error));return r.state};
 /** An open business with staff, an open farm, and enough Knowledge for `steps` Magic Tree levels. */
 function ready(steps=1){
  let s=startingSave(NOW);s={...s,gold:s.gold+1_000_000};
  s=run(s,'openEnterprise','Building_101');
- s=run(s,'hireEmployees','Building_101',200);
+ s=staffed(s,'Building_101',200);
  s=run(s,'openFarm');
  const need=FARM_YIELD.slice(0,steps).reduce((n,l)=>n+(l.consume||0),0);
  return [{...s,farm:{...s.farm,knowledge:need}},need];
@@ -49,7 +50,7 @@ test('growing spends exactly the listed Knowledge and adds exactly +5%',()=>{
 test('the Magic Tree pays every business, unlike the type-scoped strands',()=>{
  let [s]=ready(1);
  s=run(s,'openEnterprise','Building_301');   // Brave, not the Inn's Diligent
- s=run(s,'hireEmployees','Building_301',200);
+ s=staffed(s,'Building_301',200);
  s=run(s,'farmYieldUpgrade');
  assert.equal(enterpriseBreakdown(s,'Building_101').farmBonus,0.05);
  assert.equal(enterpriseBreakdown(s,'Building_301').farmBonus,0.05);

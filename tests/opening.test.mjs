@@ -3,6 +3,7 @@ import {fresh,act,valid,decode,totalRate,settle} from '../lib/game.mjs';
 import {OPENING,OPENING_STAGES,openingTask,openingRequirement,openingPower,openingQuote,openingItemCount,openingReward,openingBossReady} from '../lib/opening.mjs';
 import {recipeKnown} from '../lib/medicine-discovery.mjs';
 import {assignedOperation} from '../lib/operations.mjs';import {BUSINESSES} from '../lib/businesses.mjs';
+import {staffPrice} from '../lib/staffing.mjs';
 export function runOpening(){
  let s=fresh(0),now=0,actions=0;const log=[];
  const go=(a,t=null,v=null,wait=0)=>{now+=wait;const r=act(s,a,now,t,v);assert.equal(r.error,undefined,`${a} ${t}: ${r.error}; quest ${openingTask(s)?._id}`);assert.ok(valid(r.state),a+' invalid');s=decode(JSON.stringify(r.state));actions++;return r;};
@@ -19,14 +20,16 @@ export function runOpening(){
    switch(r.type){
    case 'CollectBuildingMoneyCount':bank();break;
    case 'BuildingUnlock':if(s.gold<1000)money();go('openingBuild',r.id);break;
-   case 'BuildingLvup':go('hireEmployees',r.id,(r.count-(s.enterprises[r.id]?.employees||0))>=10?10:1);break;
+   // Hiring charges the original's curve now, so it needs the same gold guard every other paid step
+   // in this script already uses.
+   case 'BuildingLvup':{const n=(r.count-(s.enterprises[r.id]?.employees||0))>=10?10:1;while(s.gold<staffPrice(r.id,s.enterprises[r.id]?.employees||0,n))money();go('hireEmployees',r.id,n);break;}
    case 'BuildingLvupCount':if(s.gold<10000)money();go('buildingUpgrade','fish');break;
    case 'BuildingStar':case 'BuildingTotalStar':go('openingStar','Building_101');break;
    case 'BuildingDispatch':{const assigned=new Set([...Object.values(s.enterprises).flatMap(x=>x.fellows),...Object.values(s.buildings).map(x=>x.fellow).filter(Boolean)]),id=h.find(x=>!assigned.has(x));assert.ok(id,'earned Fellow needed');const b=Object.keys(s.enterprises).find(x=>s.enterprises[x].fellows.length===0);go('assignOperator',b,id);break;}
    case 'AppointLvupCount':go('openingOperation',h.find(id=>(s.opening.operations[id]||0)<1)||h[0]);break;
    case 'HeroLvupMulti':train(h.find(id=>s.fellows[id].level<r.count));break;
    case 'HeroTotalLv':train(h.sort((a,b)=>s.fellows[a].level-s.fellows[b].level)[0]);break;
-   case 'PlayerLvUpNum':while(s.opening.fame<OPENING.ranks[s.opening.rank-1].expNeed)battle();while(totalRate(s)+100*Object.values(s.opening.stars).reduce((a,b)=>a+b,0)<OPENING.ranks[s.opening.rank-1].prosperityNeed)go('hireEmployees','Building_101',10);go('openingPromote');{const e=OPENING.cityEncounters.find(e=>e.condition.type==='PlayerLvUpNum'&&e.condition.count===s.opening.rank);go('openingRecruit',e._id);}break;
+   case 'PlayerLvUpNum':while(s.opening.fame<OPENING.ranks[s.opening.rank-1].expNeed)battle();while(totalRate(s)+100*Object.values(s.opening.stars).reduce((a,b)=>a+b,0)<OPENING.ranks[s.opening.rank-1].prosperityNeed){while(s.gold<staffPrice('Building_101',s.enterprises.Building_101?.employees||0,10))money();go('hireEmployees','Building_101',10);}go('openingPromote');{const e=OPENING.cityEncounters.find(e=>e.condition.type==='PlayerLvUpNum'&&e.condition.count===s.opening.rank);go('openingRecruit',e._id);}break;
    case 'StageClear':battle();break;
    case 'SimGame1RecipeUnlockSpecify':go('openingRecipe',r.id);break;
    case 'MedicineUnlock':if(!s.apothecary)go('apothecaryOpen');else {const shelf=s.apothecary.shelves[0];if(shelf.units)go('collect',null,null,400000);if(s.apothecary.deposit)go('potionCollect',null,{seq:s.apothecary.seq});if(!recipeKnown(s,r.id))go('potionStock','1001',{seq:s.apothecary.seq,quantity:20});}break;
@@ -45,7 +48,7 @@ export function runOpening(){
   }
   go('openingClaim',t._id);log.push(t._id);
  }
- while(s.opening.cleared<126)battle();while(s.opening.rank<5){while(s.opening.fame<OPENING.ranks[s.opening.rank-1].expNeed)assert.fail('Fame insufficient at final rank');while(totalRate(s)+100*Object.values(s.opening.stars).reduce((a,b)=>a+b,0)<1500)go('hireEmployees','Building_101',10);go('openingPromote');go('openingRecruit','B5');}
+ while(s.opening.cleared<126)battle();while(s.opening.rank<5){while(s.opening.fame<OPENING.ranks[s.opening.rank-1].expNeed)assert.fail('Fame insufficient at final rank');while(totalRate(s)+100*Object.values(s.opening.stars).reduce((a,b)=>a+b,0)<1500){while(s.gold<staffPrice('Building_101',s.enterprises.Building_101?.employees||0,10))money();go('hireEmployees','Building_101',10);}go('openingPromote');go('openingRecruit','B5');}
  for(const id of [...s.opening.events]){const e=OPENING.stageEvents.find(x=>x._id===id);go('openingEvent',id,e.eventType==='choose'?1:e.eventType==='appoint'?'hero_1':null);}
  assert.ok(openingItemCount(s,'Item_Building_Recruit_Increase_1')>0);go('openingUse','Item_Building_Recruit_Increase_1','Building_101');assert.ok(openingItemCount(s,'Item_LvUp_Bank')>0);go('openingUse','Item_LvUp_Bank');return {state:s,actions,log};
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,totalRate,settle} from '../lib/game.mjs';
 import {BUSINESSES,operationSlots,enterpriseBreakdown} from '../lib/businesses.mjs';
-import {funded} from './gear-fixtures.mjs';
+import {funded,staffed} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>act(s,a,s.lastAt,t,v),inn='Building_101',shop='Building_301';
 test('17 local business identities retain documented employee rates and old saves remain unchanged',()=>{
  assert.equal(BUSINESSES.length,17);assert.equal(new Set(BUSINESSES.map(b=>b.id)).size,17);
@@ -9,7 +9,9 @@ test('17 local business identities retain documented employee rates and old save
  const old=fresh(1000);assert.deepEqual(decode(JSON.stringify(old)),old);
  let s=funded(old);for(const b of BUSINESSES)s=run(s,'openEnterprise',b.id).state;
  assert.deepEqual(s.buildings,old.buildings);assert.ok(Math.abs(totalRate(s)-totalRate(old)-1.7)<1e-9);
- for(const b of BUSINESSES)s=run(s,'hireEmployees',b.id,10).state;
+ // Seeded rather than hired: this asserts the per-employee rate, and ten workers at the Magic Academy
+ // alone cost about 195 million. tests/staffing.test.mjs guards the prices themselves.
+ for(const b of BUSINESSES)s=staffed(s,b.id,10);
  assert.ok(Math.abs(totalRate(s)-(totalRate(old)+1.7+BUSINESSES.reduce((n,b)=>n+10*b.employeeRate,0)))<1e-9);
  assert.deepEqual(decode(JSON.stringify(s)),s);assert.ok(valid(s));
 });
@@ -18,10 +20,13 @@ test('staff thresholds open five slots, cap grants safely, and failed assignment
  let s=run(funded(fresh(1000)),'openEnterprise',inn).state;s=run(s,'assignOperator',inn,'hero_15').state;
  assert.equal(s.buildings.fish.fellow,null);s=run(s,'recruit','hero_1').state;
  assert.ok(run(s,'assignOperator',inn,'hero_1').error);
- s=run(s,'hireEmployees',inn,50).state;s=run(s,'assignOperator',inn,'hero_1').state;
+ s=staffed(s,inn,50);s=run(s,'assignOperator',inn,'hero_1').state;
+ assert.equal(s.enterprises[inn].employees,50);
  assert.equal(s.enterprises[inn].fellows.length,2);
- s=run(s,'hireEmployees',inn,5000).state;assert.equal(s.enterprises[inn].employees,5000);
- assert.ok(run(s,'hireEmployees',inn,1).error);assert.ok(valid(s));
+ // Staff is seeded because this is about slot thresholds and the cap, not about affording workers.
+ s=staffed(s,inn,5000);assert.equal(s.enterprises[inn].employees,5000);
+ // At the cap the refusal is the cap itself, before any price is quoted.
+ assert.match(String(act({...s,gold:1e12},'hireEmployees',s.lastAt,inn,1).error),/limit reached/);assert.ok(valid(s));
 });
 test('moves across original and starter businesses preserve unique assignments',()=>{
  let s=run(funded(fresh(1000)),'openEnterprise',inn).state;s=run(s,'openEnterprise',shop).state;

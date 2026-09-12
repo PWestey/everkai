@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {NativeSelect,NativeSelectOption} from '@/components/ui/native-select';
-import {BUSINESSES,businessCost,enterpriseState,enterpriseBreakdown,operationSlots,employeeCap} from '@/lib/businesses.mjs';
+import {BUSINESSES,businessCost,enterpriseState,enterpriseBreakdown,operationSlots,hireQuote} from '@/lib/businesses.mjs';
 import {staffingStatus,staffingPlan} from '@/lib/staffing.mjs';
 import {fellowById} from '@/lib/catalog.mjs';
 import {wardrobeAppearance} from '@/lib/wardrobe.mjs';
@@ -34,7 +34,7 @@ export default function BusinessScene({game,action,locked,management,id='Buildin
    </div>
    {!b
     ? <Button disabled={locked||cost===null||game.gold<cost} onClick={()=>action('openEnterprise',id)}>{cost===null?'No opening price recorded':`Open ${definition.name} · ${cost.toLocaleString()} gold`}</Button>
-    : <><div className="inn-hire-row">{[1,10].map(n=>{const plan=paid?staffingPlan(game,id,n):null;return <Button key={n} disabled={locked||(paid?(!plan?.count||(plan?.cost||0)>game.gold):(b.employees>=employeeCap))} onClick={()=>action(paid?'paidStaffHire':'hireEmployees',id,n)}>Hire {paid?plan?.count:Math.max(0,Math.min(n,employeeCap-b.employees))} · {paid?(plan?.cost||0).toLocaleString()+' Gold':'Free'}</Button>})}</div>
+    : <><div className="inn-hire-row">{[1,10].map(n=>{const plan=paid?staffingPlan(game,id,n):null,q=paid?null:hireQuote(game,id,n);return <Button key={n} disabled={locked||(paid?(!plan?.count||(plan?.cost||0)>game.gold):!q?.affordable)} onClick={()=>action(paid?'paidStaffHire':'hireEmployees',id,n)}>Hire {paid?plan?.count:q?.count} · {(paid?(plan?.cost||0):(q?.price||0)).toLocaleString()} Gold</Button>})}</div>
       <div className="inn-quality-row"><span>{definition.type?definition.type+' · '+definition.employeeRate+' gold/s each':'Building growth'}</span><Button className="advancement-button" onClick={()=>setPanel('Growth')}>Improve</Button></div>
       {id==='Building_201'&&onApothecary&&<Button variant="outline" onClick={onApothecary}>Open potion counter</Button>}
       <div className="inn-operators"><span>Operating Fellows · {b.fellows.length}/{operationSlots(b.employees)}</span>

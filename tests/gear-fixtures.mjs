@@ -17,6 +17,18 @@ export const funded=(s,gold=WHOLE_LADDER)=>({...s,gold:s.gold+gold});
  *  about to be spent leaves every downstream figure exactly as it was before opening cost anything. */
 export const costOf=(...ids)=>ids.reduce((n,id)=>n+(businessCost(id)||0),0);
 
+/** Staff a business directly, for tests about what a business *does* rather than about affording it.
+ *  Hiring charges the original's curve, where 200 workers at the Clinic cost 336 billion and 5,000 at
+ *  the Museum exceed the safe-integer range entirely -- so funding these fixtures would bury what each
+ *  test actually measures, and in one case is impossible. Seeding keeps the save valid: validBusinesses
+ *  checks the count and its ceiling, not how the workers arrived.
+ *  tests/staffing.test.mjs and tests/businesses.test.mjs are what guard the prices themselves. */
+export const staffed=(s,id,employees)=>({...s,enterprises:{...s.enterprises,[id]:{...s.enterprises[id],employees}}});
+// staffed() writes `employees` directly, so it is only sound before startPaidStaffing: once apkStaffing
+// exists, staffingStatus/validStaffing replay the event log and ignore the field. covered() is the
+// free-coverage equivalent -- the same [kind 0] event recordStaff writes for a Hire Card.
+export const covered=(s,id,count)=>{const b=s.enterprises[id];return {...s,enterprises:{...s.enterprises,[id]:{...b,employees:b.employees+count,apkStaffing:{...b.apkStaffing,events:[...b.apkStaffing.events,[0,count,0]]}}}};};
+
 /** One more copy of every artifact, exactly as claimAllGear gave. */
 export const stockAll=s=>({...s,inventory:{...s.inventory,...Object.fromEntries(GEAR.map(g=>[g.id,Math.min(1e6,(s.inventory[g.id]||0)+1)]))}});
 

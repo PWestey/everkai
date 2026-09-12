@@ -3,6 +3,7 @@ import {startingSave,act,valid,decode} from '../lib/game.mjs';
 import {enterpriseBreakdown,enterpriseRate,BUSINESSES} from '../lib/businesses.mjs';
 import {openSlots,slotTier,fathomBonus,habitActions,FATHOM_SLOTS,FATHOM_STEPS,MAX_TIER,ACTIONS_PER_SLOT,FATHOM_DAILY_MAX} from '../lib/fathoms.mjs';
 import {habitEarnings} from '../lib/habits.mjs';
+import {staffed} from './gear-fixtures.mjs';
 const NOW=1767225600000; // fixed local day, so habitDay() is stable across runs
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,String(r.error));return r.state};
 /** A save with one family member, a completed daily habit, and enough lifetime practice for `slots`. */
@@ -83,7 +84,7 @@ test('the bonus reaches business income, matches only its own type, and both inc
  let [s,id]=ready(1);
  s={...s,gold:s.gold+1_000_000};
  s=run(s,'openEnterprise','Building_101');           // Inn is Diligent, and slot 1 is Diligent
- s=run(s,'hireEmployees','Building_101',200);
+ s=staffed(s,'Building_101',200);
  const before=enterpriseBreakdown(s,'Building_101');
  s=run(s,'fathomAdvance',id,1);
  const after=enterpriseBreakdown(s,'Building_101');

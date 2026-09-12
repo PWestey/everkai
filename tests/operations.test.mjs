@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,decode,settle,totalRate} from '../lib/game.mjs';
 import {BUSINESSES,enterpriseBreakdown,enterpriseRate} from '../lib/businesses.mjs';
 import {fellowOperation} from '../lib/operations.mjs';
-import {funded} from './gear-fixtures.mjs';
+import {funded,staffed} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
 function setup(){let s=funded(fresh(1000));for(const f of ['hero_1','hero_117'])s=run(s,'recruit',f);for(const id of ['Building_101','Building_701','Building_401'])s=run(s,'openEnterprise',id);return s;}
 test('Fifi operation matches type and level 50 Inn bonus from the version-matched appoint table',()=>{
@@ -22,7 +22,7 @@ test('Fifi operation matches type and level 50 Inn bonus from the version-matche
  s.fellows.hero_117.level=200;assert.equal(fellowOperation(s,'hero_117',scroll).percent,200);
 });
 test('assignment moves only supported bonuses, retaining whole-roster base and persistence',()=>{
- let s=setup();s.fellows.hero_1.level=50;s.fellows.hero_1.breaks=3;s=run(s,'hireEmployees','Building_101',50);const base=enterpriseBreakdown(s,'Building_101');
+ let s=setup();s.fellows.hero_1.level=50;s.fellows.hero_1.breaks=3;s=staffed(s,'Building_101',50);const base=enterpriseBreakdown(s,'Building_101');
  s=run(s,'assignOperator','Building_101','hero_1');let b=enterpriseBreakdown(s,'Building_101');assert.equal(b.operation,base.operation);assert.equal(b.total,(base.employees+base.operation)*1.5);
  s=run(s,'assignOperator','Building_701','hero_1');assert.equal(enterpriseBreakdown(s,'Building_101').bonus,0);assert.equal(enterpriseBreakdown(s,'Building_701').bonus,.3);
  s=run(s,'assignOperator','Building_401','hero_117');assert.equal(enterpriseBreakdown(s,'Building_401').bonus,1.5);
@@ -42,7 +42,7 @@ test('Reir/Pump exact building and type scopes stack only while assigned; earlie
   assert.equal(fellowOperation(s,f,definition(named)).percent,50);assert.equal(fellowOperation(s,f,definition(other)).percent,30);assert.equal(fellowOperation(s,f,definition(wrong)).percent,0);
   s.fellows[f].level=49;assert.equal(fellowOperation(s,f,definition(named)).percent,30);s.fellows[f].level=50;
  }
- s=run(s,'hireEmployees','Building_401',50);s=run(s,'assignOperator','Building_401','hero_117');const old=totalRate(s),before=s.pending;
+ s=staffed(s,'Building_401',50);s=run(s,'assignOperator','Building_401','hero_117');const old=totalRate(s),before=s.pending;
  s=act(s,'assignOperator',s.lastAt+10000,'Building_401','hero_3').state;assert.equal(s.pending,before+10*old);assert.equal(enterpriseBreakdown(s,'Building_401').bonus,2);
  s=run(s,'assignOperator','Building_501','hero_5');assert.equal(enterpriseBreakdown(s,'Building_501').bonus,.5);
  const oldRemove=totalRate(s);const removed=act(s,'removeOperator',s.lastAt+10000,'Building_401','hero_3').state;assert.equal(removed.pending,s.pending+10*oldRemove);s=removed;assert.equal(enterpriseBreakdown(s,'Building_401').bonus,1.5);

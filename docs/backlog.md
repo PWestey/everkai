@@ -8,6 +8,22 @@ of the time is not 90% done, and an economy that is 90% sealed still hands the r
 
 ## Cosmetic — ship at 90%
 
+### Roster cards should copy Isekai's layout
+Requested 2026-09-12, explicitly lower priority: "it'd be nice for the roster to look like Isekai's.
+Can just copy it."
+
+The roster now lands correctly and groups Joined / Not joined, but the tiles are Everkai's own card
+style rather than the original's. The reference is captured in this session's scratchpad
+(`ref-fellow-roster.png`): a 3-column grid with a level badge top-left, a class icon top-right, a
+rarity-tinted card ground, a name plate across the bottom, and star pips under the portrait for
+awakened characters, over a parchment field with a sort control and a class filter row.
+
+**The art for this is already imported** — `Bg_HeroList_Rarity_1..6`, `Bg_WifeList_Rarity_1..6`,
+`Bg_PetList_Rarity_1..6` and `Frame_PetList_Rarity_1..6` all ship in `public/assets/ui-original`, and
+`lib/ui-sprites.mjs` already resolves the Pet set through `petCardIcon`/`petFrameIcon`. So this is a
+CSS-and-markup job in `roster-picker.tsx`, not another extraction: add the Hero/Wife card grounds as
+tile backgrounds keyed on rarity, the way the Pet fallback already works.
+
 ### Town List view clips the longest notes
 `app/globals.css`, `.town-list button`. The row sits at 44px whatever its children need, so 5 of 18
 notes are cut (Businesses, School, Village stories, Mine Clearance, Northern Odyssey). Names and
