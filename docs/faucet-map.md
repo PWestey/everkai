@@ -23,7 +23,7 @@ Two scans that produced wrong answers, recorded so the numbers here can be trust
 Classification is by runtime behaviour, not by name — dispatch the action on a save with no habits
 finished and see whether it refuses.
 
-## Converted (9 commits, unpushed)
+## Converted (10 commits)
 
 | Resource | Was | Now | Original's stated source | Commit |
 |---|---|---|---|---|
@@ -34,17 +34,17 @@ finished and see whether it refuses.
 | Hire Cards | `claimHireCards` +10 | Banquet shop, 150 coins, 5/day | `Item_Building_Recruit_Increase_1` → "Banquet Shop" | `43fe296` |
 | Treasure stamina | `treasureRefill` → 12 | daily recovery in `treasureState`, which already existed | — | `e0c6e61` |
 | Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `06df8c5` |
+| Banquet materials | `banquetPrepare`, ungated | 1 set per finished daily, cap 2, once a day across all parties | — (the original states no source for Cheese/Beer/Steak/Wine) | `6b8f416` |
 
-## Still free (18, but only 2 tractable)
+## Still free (17, but only 1 tractable)
 
 **Tractable — an earned source exists or is easy to build**
 
-Only two remain. Every other candidate failed the recovery test below and moved to blocked.
+Only `refillEducation` remains. Every other candidate failed the recovery test below, or was converted.
 
 | Action | Module | Note |
 |---|---|---|
 | `refillEducation` | game.mjs | **deletable but costly.** Points cap at 6 and recover every 5 min, so the button is a timer skip. But `school-maturation.test.mjs` pumps it in two `while` loops and `ADULT_LESSONS` runs to 84 lessons, so converting means ~70 steps of time advancement. |
-| `banquetPrepare` | banquets.mjs | **highest leverage.** Free pantry → host → 800 coins (`coinsPerGuest` 100 × 8 seats) → shop. Every banquet-shop price, including the Hire Card above and Magic Ore at 30, rests on this. Farm produce is the natural source but the farm has its own timer skip (`finishFarm`), and `finishFarm` is load-bearing in 8 test sites across 5 files. |
 | `buySupply` | adventure.mjs | charges, but only 3 of 84 artifacts carry a price |
 
 **Blocked — removing these strands content**
