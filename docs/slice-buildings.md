@@ -105,13 +105,35 @@ slice whose semantics are not yet recovered.
 | Assign Fellows | `city_employ_hero` | works (4 assigned on the Inn) |
 | Harvest | `city_harvest` / `_all` | implemented, never exercised |
 | Build new | `city_build_building` | works |
-| **Service Level upgrade** | `city_building_bs_level_up` | **999 — blocked** |
+| **Service Level upgrade** | `city_building_bs_level_up` | **fixed 2026-09-12** — was 999 |
 | **Attribute points** | `city_building_enhance_attribute` | **999 — blocked** |
 | Ribbon cutting | `city_cut_ribbon` | 999 — blocked |
 
-The two blocked routes are fully determined by original config data (§3), so implementing them is
-recovery, not invention. Request shape is known from the protocol schema:
-`{buildingId, count}` → `{r, building, items}`.
+Note that `city_building_level_up`, `city_building_quality_up`, `city_harvest` and `city_harvest_all`
+have **zero requests in the entire 3-day log** — they are implemented and have simply never been
+pressed. That is exercise work, not engineering.
+
+### `city_building_bs_level_up` — implemented and verified
+
+Cost is `BuildingBusiness[level].Cost` in gold (item `3`, from `System.json`
+`CityBuildingRecruitCostItem`), each step gated on `staff >= BuildingBusiness[level+1].StaffNum`,
+capped at `BuildingBusinessMax` = 3,000 = `BuildingBusiness.Count`. All four facts come from the
+original's own config and client code, so this is recovery rather than invention.
+
+Verified three ways rather than assumed:
+1. `test_service_level_cost_and_staff_gate` in `test_village.py` — 11/11 pass.
+2. Dispatched against a deep copy of the **live** save: `bsLevel` 1 → 2, charged exactly 10,000,000,
+   refused at 1,999 staff, response `{r, building, items}` matching the protocol schema, and the save
+   on disk left untouched.
+3. The client's own panel independently shows "Upgrade x1 / 10M" and "+0 → next +100", matching
+   `BuildingBusiness` rows 1 and 2.
+
+**That tree is not under version control.** The three edited files are copied to
+`scratchpad/private-server-edits-2026-09-12/` with a manifest.
+
+`city_building_enhance_attribute` is deliberately **not** implemented: its outcome is probabilistic
+(the client passes `prob` and `energy` and compares levels to detect success) and those odds are not
+recovered. Implementing it would be invention. See §4.
 
 ## 6. Everkai work this slice implies
 
