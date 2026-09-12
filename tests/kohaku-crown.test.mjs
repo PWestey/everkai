@@ -6,7 +6,7 @@ test('guaranteed source claim requires placement and crowning; no random/retroac
  const historical=structuredClone(s);historical.fishing.catches[0].crownEffect.initial=7;assert.ok(valid(historical));assert.equal(fishingBonuses(historical,'hero_15').percent,7);
 });
 test('existing normal Kohaku receipt stays normal; crown grant cannot supply ordinary research twice',()=>{
- let s=fresh(1000);for(let n=0;n<=FISH.findIndex(r=>r.id==='F9402');n++){if(!s.fishing?.bait)s=run(s,'claimBait');s=run(s,'castFish',castKey(s));}const before=JSON.stringify(s.fishing.catches);s=run(s,'claimCrownKohaku');const c=s.fishing.catches.at(-1);assert.equal(c.duplicate,true);assert.equal(JSON.stringify(s.fishing.catches.slice(0,-1)),before);assert.ok(act(s,'researchFish',1000,c.id).error);assert.deepEqual(decode(JSON.stringify(s)),s);
+ let s=fresh(1000);for(let n=0;n<=FISH.findIndex(r=>r.id==='F9402');n++){s=run(s,'castFish',castKey(s));}const before=JSON.stringify(s.fishing.catches);s=run(s,'claimCrownKohaku');const c=s.fishing.catches.at(-1);assert.equal(c.duplicate,true);assert.equal(JSON.stringify(s.fishing.catches.slice(0,-1)),before);assert.ok(act(s,'researchFish',1000,c.id).error);assert.deepEqual(decode(JSON.stringify(s)),s);
  const bad=structuredClone(s);bad.fishing.crowned=['F1101'];assert.equal(valid(bad),false);assert.throws(()=>decode(JSON.stringify(bad)));
 });
 test('crown actions settle old income and save failures never consume the one claim',()=>{
