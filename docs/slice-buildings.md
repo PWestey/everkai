@@ -321,7 +321,32 @@ buy 1,000 Diamond Rings for 500,000 gold, then batch-apply them.
 at 24 of 36 slots after months of play. That is the shape to aim at — a ladder that keeps moving for a
 long time and never stalls punitively.
 
-Measured and specified; the build is the next step.
+**Built 2026-09-12** — `lib/fathoms.mjs`, covered by `tests/fathoms.test.mjs`, 639/639 green.
+
+What shipped, and the two places it deliberately departs from the original:
+
+- **State is one top-level `s.fathoms` subtree**, not a per-member family field. That was a late
+  correction: a per-member field would have meant widening the family shape validator, while a
+  subtree follows `s.fountain` / `s.banquets` / `s.insight` and needs exactly one validator and one
+  `decode` message. It touches the family shape not at all.
+- **Unlocks need both gates.** The original's intimacy gate is kept in its own order, *and* the slot
+  index must be covered by cumulative habit actions (`ACTIONS_PER_SLOT` = 30, so slot 1 at 30 and
+  slot 36 at 1,080). Intimacy alone cannot pace anything — it is bought at ~100 gold per point,
+  `buyGift` has no daily gate or rate limit, and `giftBatch` applies up to a million at once.
+- **Practice replaces the reroll.** `fathomAdvance` raises one slot by one tier, and the daily
+  allowance is `min(FATHOM_DAILY_MAX, dailies)` guarded by `refillDay` — the `roamRefill` idiom. It
+  is monotonic and stops at tier 25, so there is no frustration RNG and no way to go backwards.
+- **Pacing:** 36 slots × 24 steps = 864 advances, under a year for a consistent player, against the
+  original's live save sitting at 24 of 36 slots after months. "Some grind", always moving.
+
+Verified by driving it rather than by reading it: a seeded save opened all 36 slots, advanced slot 1
+(Diligent), and the Inn's bonus moved 0.1200 → 0.1300 with `enterpriseRate` still equal to the sum of
+`enterpriseBreakdown` totals, the save round-tripping through `decode`, and a tampered save carrying a
+tier on an unopened slot correctly rejected.
+
+One honest note on magnitude: with all 36 slots open at tier 1 the stack already contributes +12% to
+every business, because the six null-type slots pay everyone — faithful to the original, which also
+seeds new slots at `rise: 100`.
 
 ## 5d. The full bonus web — every strand, measured
 
@@ -390,7 +415,10 @@ hiring — carries none of it.
    range and never-decreasing rule; replace the weighted reroll and the purchasable unlock with
    habit- and time-driven advancement via the `roamRefill` idiom. Unlock gates on cumulative habit
    activity (`h.totals[domain].actions/points`, which increment on completion and are never reset),
-   **not** on intimacy, which is buyable at ~100 gold per point with no cap. Ready to build.
+   **not** on intimacy, which is buyable at ~100 gold per point with no cap.
+   **DONE 2026-09-12** — `lib/fathoms.mjs` + `tests/fathoms.test.mjs`, 639/639 green. See §5c for what
+   shipped and where it departs from the original. The strand now flows through `businessBonus`, so
+   `enterpriseBreakdown` and `enterpriseRate` pick it up together and cannot drift.
 
    **The remaining strands of the web (§5d), cheapest first.** None is large alone; together they are
    the connective tissue the "everything touches everything" principle asks for.
