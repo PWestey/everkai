@@ -45,6 +45,33 @@ familiars at no cost, the same hole that was closed for characters in `54ced87` 
 Left alone deliberately rather than swept into a fix about characters: the parity audit lists
 familiar acquisition as missing entirely, so this needs a designed source, not just a removed button.
 
+### Hiring is free, and that is a specified contract — not an oversight
+`lib/businesses.mjs` `hireEmployees` grants staff free up to 5,000 while `paidStaffHire` charges the
+original's own prices for the same workers. Repricing it is a **design change, not a bug fix**:
+`tests/staffing.test.mjs:14` is titled "free and Hire Card coverage never charges, reduces cap or
+grants quality income" and asserts that behaviour deliberately. The blast radius is 27 references
+across six test files plus three call sites in `app/` (`business-panel.tsx`, `inn-business-scene.tsx`,
+`opening-panel.tsx`).
+
+It also cannot simply be repriced in place: most of those references use `hireEmployees` as a
+*fixture* to stock employees before measuring something else, and at the original's prices 5,000
+workers costs trillions — `funded()`'s whole-ladder default is ~94bn, and `staffPrice` returns
+`Infinity` past the safe-integer range. So the fix follows the `gear-fixtures.mjs` precedent: seed
+employees directly in tests that are about what a business *does*, and let the priced path keep its
+own coverage.
+
+**Fix:** delete the free grant, make the priced ladder the default, and convert fixture call sites to
+direct seeding. Verified prerequisite: the priced curve is already correct — worker #2,000 computes
+to 408,406,219 against the live client UI's 408.4M.
+
+### Quality/`yieldRise` is unreachable outside APK-growth mode
+`enterpriseBreakdown`'s `qualityBonus` reads `staffingStatus(id,b)?.bonus`, which requires
+`b.apkStaffing`, which requires `originalProgression(s)`. In the default save it is therefore always
+0, so buildings have no quality ladder at all and the "Earnings Rate 3000%" multiplier the original
+shows has no Everkai equivalent. The data is already present and correct in
+`lib/staffing-data.json` (caps 1,000→26,000, `yieldRise` 0/10000/30000/…/290000, byte-identical to
+the original's `BuildingQuality` rows) — only the gate is wrong. See `docs/slice-buildings.md`.
+
 ### hero_60 has no price
 Kamakura ships with art and an extraction record but is absent from the public roster snapshot, so
 `summonCost` returns null and the Recruit counter refuses it. 257 of 259 are buyable. Needs either a
