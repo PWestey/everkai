@@ -141,6 +141,34 @@ Verified four ways rather than assumed:
 (the client passes `prob` and `energy` and compares levels to detect success) and those odds are not
 recovered. Implementing it would be invention. See §4.
 
+## 5a. Everkai's own decomposition — MEASURED
+
+Run against live code, not read off the source. Inn, fresh save, fellows levelled to the highest
+value `valid()` accepts (10 — level 25 is rejected on a fresh save):
+
+| State | employees | power term | bonus | total | power as % |
+|---|---|---|---|---|---|
+| 200 staff, 5 fellows lv10 | 200.0 | 1.40 | 0.0000 | 201.4 | 0.70% |
+| + `hero_1` assigned | 200.0 | 1.40 | 0.3000 | 261.8 | 0.53% |
+| + `hero_117`, `hero_3` assigned | 200.0 | 1.40 | 0.3000 | 261.8 | 0.53% |
+| 5,200 staff | 5000.0 | 1.40 | 0.3000 | 6501.8 | **0.02%** |
+
+Three things this pins down:
+
+1. **Workers are ~100% of income at every realistic staff count** — the exact inverse of the original,
+   where they are ~0.5%. The power term is structurally present (`rosterOperation` is already
+   `Σ bondedPower/1000`, the same divisor as `HeroConversionRate/10000`) but is swamped the moment
+   staff is bought.
+2. **`bonus` caps at +0.30.** `operation-data.json` holds records for **4 fellows of 259**
+   (`hero_1`, `hero_3`, `hero_5`, `hero_117`), and only effects whose `type` matches the business
+   apply — `hero_117` and `hero_3` are `Inspiring` and contribute nothing to the `Diligent` Inn, so
+   assigning them changed nothing. The original's comparable figure on the live save is between
+   **+98.5% and +443.3%** (`bonus` 985,650–4,433,000 in ten-thousandths).
+3. **`qualityBonus` is 0.0000 throughout**, per §6.
+
+So the gap is not one defect but three inert terms, and the earlier instinct to reprice hiring would
+have made none of them better.
+
 ## 6. Everkai work this slice implies
 
 1. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. This is the 100%-correctness
