@@ -90,6 +90,111 @@
     "width": 102,
     "height": 102
   },
+  "Icon_Pet_Career_1": {
+    "src": "ui-original/Pet--Icon_Pet_Career_1.png",
+    "sha256": "22af66e6524d8cb2396dbe2d6501f02c7c02bbff6ec166b26911090bef1be369",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 70,
+    "height": 70
+  },
+  "Icon_Pet_Career_2": {
+    "src": "ui-original/Pet--Icon_Pet_Career_2.png",
+    "sha256": "833b26a014b95dd68371c531f9401ffce497cdd8aead380db4f602d267a81c07",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 70,
+    "height": 70
+  },
+  "Icon_Pet_Career_3": {
+    "src": "ui-original/Pet--Icon_Pet_Career_3.png",
+    "sha256": "feb36fa6657754227f5353cda3629ea69acc34f4576d3d759468056fc1b31b6f",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 70,
+    "height": 70
+  },
+  "Bg_PetList_Rarity_6": {
+    "src": "ui-original/Pet--Bg_PetList_Rarity_6.png",
+    "sha256": "b58a51f14eca330513c8f78e1feda745adb448ab96fb7dae38de42e5b0070b1b",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Frame_PetList_Rarity_6": {
+    "src": "ui-original/Pet--Frame_PetList_Rarity_6.png",
+    "sha256": "e843610913189af20727a34a74b77e666152f000e38bfdf6e0a3f0fa08557f69",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Frame_PetList_Rarity_5": {
+    "src": "ui-original/Pet--Frame_PetList_Rarity_5.png",
+    "sha256": "a589243e41b050e1b2355907bb12bc4c4a36852e0d7441ff1c0209fa531d24ea",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Bg_PetList_Rarity_1": {
+    "src": "ui-original/Pet--Bg_PetList_Rarity_1.png",
+    "sha256": "5c493af222b8fb463732eb13041e3f71c9b97c42e74f1741916f6bc8cce332b9",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Bg_PetList_Rarity_2": {
+    "src": "ui-original/Pet--Bg_PetList_Rarity_2.png",
+    "sha256": "e350ab74ae55bf133995d5f3050cf1bbddcf78087c5f7096e06dc97a04277a78",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Bg_PetList_Rarity_3": {
+    "src": "ui-original/Pet--Bg_PetList_Rarity_3.png",
+    "sha256": "9c31d8286b1bb340be921efa8cfaa96621e1d98d654fc02e70b38e3016d90ba3",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Bg_PetList_Rarity_4": {
+    "src": "ui-original/Pet--Bg_PetList_Rarity_4.png",
+    "sha256": "15b8814c66aaad227e992df151c55775a45605bf346ed14b4c046c6a54bc2df1",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Bg_PetList_Rarity_5": {
+    "src": "ui-original/Pet--Bg_PetList_Rarity_5.png",
+    "sha256": "9d6eee20cb0778fa6e08745353d1f213f76c94a3bbfc01f423df0e0114ddd5f7",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Frame_PetList_Rarity_1": {
+    "src": "ui-original/Pet--Frame_PetList_Rarity_1.png",
+    "sha256": "83c59291006eb6c7bc42743563b5a6ccee4760fc8b2eee89d201c5d04f21bf43",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Frame_PetList_Rarity_2": {
+    "src": "ui-original/Pet--Frame_PetList_Rarity_2.png",
+    "sha256": "4ae94596d48ddbc234e6384a61129b8b696cb210b4d87e78797f1ecf66616771",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Frame_PetList_Rarity_3": {
+    "src": "ui-original/Pet--Frame_PetList_Rarity_3.png",
+    "sha256": "047bb3a12c85b029405dceacd5beba644fba9252381e8097a88b0021e99aa170",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
+  "Frame_PetList_Rarity_4": {
+    "src": "ui-original/Pet--Frame_PetList_Rarity_4.png",
+    "sha256": "3abf59ac1adeb9ae3f26fd3c77c36fbc67f06812eb045fbdad2493b1c8eac367",
+    "sourceIndexSha256": "b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f",
+    "width": 206,
+    "height": 280
+  },
   "Icon_Intimacy_1": {
     "src": "ui-original/Icons--Icon_Intimacy_1.png",
     "sha256": "24d30ed3e0b78b5626069b4a959e1ada11a4cdeec8641a76a6f81d6cab913f7a",
