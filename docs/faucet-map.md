@@ -23,7 +23,7 @@ Two scans that produced wrong answers, recorded so the numbers here can be trust
 Classification is by runtime behaviour, not by name — dispatch the action on a save with no habits
 finished and see whether it refuses.
 
-## Converted (7 commits, unpushed)
+## Converted (9 commits, unpushed)
 
 | Resource | Was | Now | Original's stated source | Commit |
 |---|---|---|---|---|
@@ -33,9 +33,9 @@ finished and see whether it refuses.
 | Insight | `claimInsight` +1000 | `insightRefill` 250/daily cap 3000 | `Item_Box_Talent_1` → "Roaming, Pupil Union, Daily Task" | `2cc53a0` |
 | Hire Cards | `claimHireCards` +10 | Banquet shop, 150 coins, 5/day | `Item_Building_Recruit_Increase_1` → "Banquet Shop" | `43fe296` |
 | Treasure stamina | `treasureRefill` → 12 | daily recovery in `treasureState`, which already existed | — | `e0c6e61` |
-| Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `HEAD` |
+| Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `06df8c5` |
 
-## Still free (19)
+## Still free (18)
 
 **Tractable — an earned source exists or is easy to build**
 
