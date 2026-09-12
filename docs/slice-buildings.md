@@ -413,8 +413,29 @@ hiring — carries none of it.
 4. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. Structurally Everkai is
    already close — `rosterOperation` is the right shape — so this is mostly making the bonus terms
    above actually reach it. 100%-correctness item: it is the economy.
-5. **Add the quality ladder** (`yieldRise` → "Earnings Rate 3000%"). Only 14.1% of the multiplier, and
-   the data is already correct in `lib/staffing-data.json`; only the APK-growth gate is wrong.
+5. **Add the quality ladder** (`yieldRise` → "Earnings Rate 3000%"). 14.1% of the multiplier. The data
+   is already correct in `lib/staffing-data.json` and the ungating itself is **safe by construction** —
+   every business has `yieldRise: 0` at quality 1, so a default quality contributes exactly 0 and no
+   existing save or pinned `bonus` assertion changes.
+
+   **But it is blocked on a blueprint source, and that is not a small job.** Quality is bought with
+   `Item_StarUp_Building_1_1` ("Building Upgrade Blueprint"), and taking one business from quality 1
+   to 26 costs **25,915** materials (Inn) to **57,013** (Museum). Today the only source is the free
+   `claimStaffingMaterials` faucet. The original names four sources — *"Fountain of Wishes, Cyrstal
+   Shop, Trading Post Shop, Guild Shop"* — and Everkai has wired only the weakest:
+
+   - The Fountain pool *does* carry it (`Lottery_14`, weight 211/1000, quantity 2) = **0.422
+     materials per pull**. At the 2/day habit refill that is 0.84/day → **30,705 days** for the Inn
+     alone; at the 12/day cap, 5,117 days. It cannot carry this ladder.
+   - Worse, the drop is currently **inert**: `transferable()` requires the item to be in
+     `EXTRA_ITEMS`, and `Item_StarUp_Building_1_1` is not among its 105 entries, so blueprints
+     accumulate in the fountain ledger and can never reach the Bag.
+
+   So the real prerequisite is a **shop** that sells blueprints at volume (Trading Post Shop or
+   Crystal Shop), plus making the drop transferable. Note that inventory is a **closed, exactly
+   counted set** — `validFamily` asserts `Object.keys(s.inventory).length === GIFTS.length +
+   EXTRA_ITEMS.length` — so adding the blueprint as a real item means a save-version bump, not a
+   one-line change.
 6. **Separate quality from staff count** in state and UI; today they are conflated (§1).
 7. **Add Service Level** (§3) or record deliberately dropping it.
 8. **Building panel art parity** — the panel is a full screen with building art, a named plate,
