@@ -224,14 +224,43 @@ import, not an authoring job.
 Value at level 1 is `skillProp_Initial`, rising by `skillProp_Level` per level (with an uneven-growth
 variant keyed on `skillProp_Growth_Type == 2`).
 
+### Imported 2026-09-12 — and what it actually moved
+
+`scripts/import-operations.py` now generates the file: **175 fellows, 494 effects**, against 4 and 10.
+Measured on the Inn at 5,000 staff with the five best-matching fellows assigned:
+
+| | before | after |
+|---|---|---|
+| Fellows with an Inn-applicable effect | ~1 | **36** |
+| `bonus` | 0.3000 | **7.5000** |
+| Income at 5,000 staff | 6,556/s | **42,514/s** |
+| Ceiling at fellow level 200 | 0.3000 | **10.0000** |
+
+The important change is structural, not the multiple: `bonus` now **responds to which fellows occupy
+the slots**, which is how the original works. Before the import it was a flat 0.30 regardless of
+roster, because only one of 154 fellows had a matching record.
+
+**Do not overstate it.** The original's appoint term alone measured **+10,550%**; Everkai reaches
++750% at fellow level 10 and +1,000% at level 200, so it remains roughly 10× below. Two disclosed
+reasons, both recorded in the importer's `limits`: skill levels above 1 are not modelled (value is
+pinned at `skillProp_Initial`), and 31 rarity-gated appoint skills are excluded because an Everkai
+effect carries a level gate only. A third is not the importer's doing — `valid()` caps a fresh save's
+fellows at level 10, so the level-50 and level-200 steps are unreachable early.
+
+Also note the slot ceiling: `slotThresholds` are 0/50/200/800/5000, so at most **five** fellows can
+ever contribute to one business. Coverage raises the ceiling; it does not raise the floor.
+
 ## 6. Everkai work this slice implies
 
 Ordered by **measured leverage** (§5b), not by how visible each one is. The first two carry 81% of
 the original's multiplier between them; the item that looked most urgent before measuring — repricing
 hiring — carries none of it.
 
-1. **Broaden appoint-skill coverage.** 51.1% of the multiplier. Everkai models 4 fellows of 154
-   against the original's 180 of 181. This is the single largest lever in the slice.
+1. ~~**Broaden appoint-skill coverage.**~~ **DONE 2026-09-12.** 51.1% of the multiplier, and the
+   single largest lever in the slice. `scripts/import-operations.py` replaced 4 hand-entered records
+   with 175 imported from the version-matched source; the Inn's `bonus` goes 0.30 → 7.50 with the
+   five best fellows assigned. Remaining under this item: skill levels above 1 are still unmodelled
+   and 31 rarity-gated skills excluded, leaving Everkai ~10× below the original's appoint term.
 2. ~~**Fill the two missing business types.**~~ **DONE 2026-09-12.** This item previously read "add the
    country dimension", which was wrong: Everkai's `type` *is* country (§5b). Airship → Inspiring and
    Magic Academy → Diligent are filled from `BuildingBase.country`, with a `typeSource` provenance
