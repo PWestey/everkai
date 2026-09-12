@@ -169,18 +169,64 @@ Three things this pins down:
 So the gap is not one defect but three inert terms, and the earlier instinct to reprice hiring would
 have made none of them better.
 
+## 5b. Where the original's multiplier actually comes from — MEASURED
+
+The Inn's live bonus of +20,638% decomposed against the running save, component by component:
+
+| Component | Value (1/10⁴) | As % | Share of bonus |
+|---|---|---|---|
+| **Appoint skills** (4 assigned fellows) | 1,055,000 | +10,550% | **51.1%** |
+| Family skills | 627,100 | +6,271% | 30.4% |
+| Quality `yieldRise` | 290,000 | +2,900% | 14.1% |
+| Inn | 58,000 | +580% | 2.8% |
+| Family potential | 13,400 | +134% | 0.6% |
+| Bank | 10,000 | +100% | 0.5% |
+| Family growth / medicine / farm / drakenberg | 10,300 | +103% | 0.5% |
+| Fishing, museum | 0 | — | 0% |
+| **Total** | **2,063,800** | **+20,638%** | |
+
+**Quality is only 14% of it.** The dominant term is appoint skills, and the second is family skills —
+neither of which Everkai models at parity:
+
+- **Appoint skills.** 180 of the original's 181 heroes (99.4%) carry `operationSkill` entries, across
+  57 distinct skills worth **+20% to +200% each** at level 1 (median +30%). Everkai's
+  `operation-data.json` covers **4 fellows of 259**, capping the whole term at +30%.
+- **The `country` dimension is absent from Everkai entirely.** Of the original's 540 appoint-skill
+  instances, `targetCondition.conditionType` is `country` 510 times, `building` 21, `all` 9 — so
+  **94% target country**. `BuildingBase` gives every building a `country` of 1–5; Everkai's
+  `business-data.json` records carry `cityLandId, cost, description, employeeRate, id, name, order,
+  sourceKey, type` and **no country field**, and no `lib` module reads a building country. Everkai
+  matches on `type` (Diligent/Informed/…) and building id only — the two dimensions that carry 6% of
+  the original's bonuses.
+
+That reorders the work: adding `country` and broad appoint-skill coverage is worth far more than the
+quality ladder, and repricing hiring is worth nothing at all here.
+
 ## 6. Everkai work this slice implies
 
-1. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. This is the 100%-correctness
-   item — it is the economy.
-2. **Separate quality from staff count** in state and UI; today they are conflated.
-3. **Add the quality ladder** (`yieldRise` → "Earnings Rate 3000%") — Everkai's `qualityBonus` is
-   hardcoded 0.
-4. **Add Service Level** (§3) or record deliberately dropping it.
-5. **Building panel art parity** — the panel is a full screen with building art, a named plate,
+Ordered by **measured leverage** (§5b), not by how visible each one is. The first two carry 81% of
+the original's multiplier between them; the item that looked most urgent before measuring — repricing
+hiring — carries none of it.
+
+1. **Broaden appoint-skill coverage.** 51.1% of the multiplier. Everkai models 4 fellows of 259
+   against the original's 180 of 181. This is the single largest lever in the slice.
+2. **Add the `country` dimension.** 94% of the original's appoint skills target country, and Everkai
+   has no country field on a business and no module that reads one. Without it, most of item 1
+   cannot even be expressed. `BuildingBase.country` (1–5) is the source.
+3. **Family skills into building yield.** 30.4% of the multiplier, and currently absent from
+   Everkai's business income entirely.
+4. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. Structurally Everkai is
+   already close — `rosterOperation` is the right shape — so this is mostly making the bonus terms
+   above actually reach it. 100%-correctness item: it is the economy.
+5. **Add the quality ladder** (`yieldRise` → "Earnings Rate 3000%"). Only 14.1% of the multiplier, and
+   the data is already correct in `lib/staffing-data.json`; only the APK-growth gate is wrong.
+6. **Separate quality from staff count** in state and UI; today they are conflated (§1).
+7. **Add Service Level** (§3) or record deliberately dropping it.
+8. **Building panel art parity** — the panel is a full screen with building art, a named plate,
    an earnings header, Quick x1/x10, and three tabs (Training / Appearance / Operation). Everkai's is
    text and space.
-6. Fix `hireEmployees` being free and unbounded (`docs/free-action-audit.md`).
+9. Fix `hireEmployees` being free and unbounded (`docs/free-action-audit.md`). Worth doing for economy
+   integrity, but note it changes **none** of the income shape above.
 
 ## 7. Provenance
 

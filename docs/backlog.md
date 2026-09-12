@@ -72,6 +72,14 @@ shows has no Everkai equivalent. The data is already present and correct in
 `lib/staffing-data.json` (caps 1,000→26,000, `yieldRise` 0/10000/30000/…/290000, byte-identical to
 the original's `BuildingQuality` rows) — only the gate is wrong. See `docs/slice-buildings.md`.
 
+**But it is not the big lever, and that was measured rather than guessed.** Decomposing the original
+Inn's live +20,638% bonus: appoint skills **51.1%**, family skills **30.4%**, quality `yieldRise`
+only **14.1%**, everything else 4.4%. So the ranked building work is (1) appoint-skill coverage —
+Everkai models 4 fellows of 259 against the original's 180 of 181, capping the term at +30% versus
++10,550%; (2) the **`country` dimension**, which 94% of the original's 540 appoint-skill instances
+target and which Everkai does not have at all — no country field on a business, no module reading
+one; (3) family skills feeding building yield; and only then quality.
+
 ### hero_60 has no price
 Kamakura ships with art and an extraction record but is absent from the public roster snapshot, so
 `summonCost` returns null and the Recruit counter refuses it. 257 of 259 are buyable. Needs either a
