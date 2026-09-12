@@ -104,5 +104,76 @@
       "info": "A captivating girl from another world who actively streams to soothe lonely nights with her enchanting voice. Her boundless curiosity drives her to seek new experiences. Her impish nature will come with surprises, so be ready for some playful teasing."
     },
     "wife_59": {"race": "Seraphic"}
-  }
+  },
+  "stringsNote": "Rewrites for generated data files, applied by scripts/apply-content-overrides.py. Each 'old' is the RAW file text, so entries for files that store \\uXXXX escapes are written in escaped form. Keys include a field prefix wherever the same wording also appears in a frozen field (expo evidence, source URLs, sourceKeys), which stays factual about the original game. Villain and chuunibyo contexts get neutral wording rather than angelic wording, so meaning is not inverted: Enad'Num's 'demon god' becomes a 'shadow god' because he is a deluded would-be sorcerer, not a saint.",
+  "strings": {
+    "character-skill-guide.json": [
+      ["\"name\":\"Hell Racing\"", "\"name\":\"Empyrean Racing\""],
+      ["\"name\":\"Gazing at the Abyss\"", "\"name\":\"Gazing into the Deep\""],
+      ["\"name\":\"Abyssal Tentacles\"", "\"name\":\"Deepwater Tentacles\""],
+      ["\"name\":\"Sweet little devil\"", "\"name\":\"Sweet little rascal\""],
+      ["\"name\":\"Devileer\"", "\"name\":\"Angeleer\""]
+    ],
+    "expanded-gear.json": [
+      ["adorned with angel and demon wings", "adorned with wings of light and shadow"],
+      ["Rica's naughty, devilish side", "Rica's naughty, mischievous side"],
+      ["\"name\": \"Demon Blade Benizakura\"", "\"name\": \"Crimson Blade Benizakura\""]
+    ],
+    "inventory-display-data.json": [
+      ["\"name\": \"Demon Blade Benizakura\"", "\"name\": \"Crimson Blade Benizakura\""]
+    ],
+    "expo-bond-data.json": [
+      ["Fellows of Archdemon", "Fellows of Archangel"]
+    ],
+    "expo-data.json": [
+      ["\"name\": \"Archdemon Wine & Restaurant\"", "\"name\": \"Archangel Wine & Restaurant\""],
+      ["\"name\": \"Archdemon\\u2019s Mille-Feuille\"", "\"name\": \"Archangel\\u2019s Mille-Feuille\""]
+    ],
+    "wardrobe-data.json": [
+      ["Archdemon", "Archangel"]
+    ],
+    "fountain-data.json": [
+      ["Succubus Tonic", "Seraph Tonic"]
+    ],
+    "tonic-data.json": [
+      ["Succubus Tonic", "Seraph Tonic"],
+      ["replenishes Succubus Energy", "replenishes Seraph Energy"]
+    ],
+    "museum-data.json": [
+      ["a renowned Hell artisan", "a renowned Empyrean artisan"]
+    ],
+    "raphael-data.json": [
+      ["Devil Believes Villains Sure Win", "Angel Believes Villains Sure Win"],
+      ["Reformed Devil", "Reformed Angel"],
+      ["Insane Muscular Devil", "Insane Muscular Angel"]
+    ],
+    "treasure-data.json": [
+      ["Frozen Abyss", "Frozen Depths"]
+    ],
+    "original-scenes.mjs": [
+      ["even a match for an Archdemon", "even a match for an Archangel"],
+      ["making their lives a living hell", "making their lives a waking nightmare"]
+    ],
+    "roaming-data.mjs": [
+      ["the Devil's recipe", "the Angel's recipe"]
+    ],
+    "roaming-scenes.mjs": [
+      ["Oni Archdemon", "Oni Warlord"],
+      ["demonic hour", "shadowed hour"],
+      ["demonic tears", "shadow tears"],
+      ["Demon tears", "Shadow tears"],
+      ["demon god", "shadow god"],
+      ["Demon god", "Shadow god"],
+      ["a \\\"demon\\\"", "a \\\"shadow\\\""],
+      ["any demon!", "any shadow!"]
+    ]
+  },
+  "removedItemsNote": "Crossover gear for the Demon Slayer characters removed in e70a8e6. Their descriptions read 'A blade carried by Demon-Slayer Swordsmen', and they are named for people the game no longer ships. Demon Blade Benizakura is NOT one of these: it is a Fairy Tail crossover modelled after Erza's weapons, so it is renamed rather than removed.",
+  "removedItems": [
+    {"id": "Item_Weapon_Equipment_6_H264", "name": "Shinobu Kocho's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
+    {"id": "Item_Weapon_Equipment_6_H301", "name": "Giyu Tomioka's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
+    {"id": "Item_Weapon_Equipment_6_H302", "name": "Tanjiro Kamado's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
+    {"id": "Item_Weapon_Equipment_6_H303", "name": "Zenitsu Agatsuma's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
+    {"id": "Item_Weapon_Equipment_6_H304", "name": "Inosuke Hashibira's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]}
+  ]
 }

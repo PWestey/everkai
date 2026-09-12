@@ -637,7 +637,7 @@
     "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
   },
   "Item_Weapon_Equipment_6_42": {
-    "name": "Demon Blade Benizakura",
+    "name": "Crimson Blade Benizakura",
     "rarity": 5,
     "isActivity": false,
     "icon": "Icon_Equipment_67",
@@ -753,41 +753,6 @@
     "rarity": 5,
     "isActivity": false,
     "icon": "Icon_Equipment_89",
-    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
-  },
-  "Item_Weapon_Equipment_6_H264": {
-    "name": "Shinobu Kocho's Nichirin Sword",
-    "rarity": 5,
-    "isActivity": false,
-    "icon": "Icon_Equipment_90",
-    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
-  },
-  "Item_Weapon_Equipment_6_H301": {
-    "name": "Giyu Tomioka's Nichirin Sword",
-    "rarity": 5,
-    "isActivity": false,
-    "icon": "Icon_Equipment_91",
-    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
-  },
-  "Item_Weapon_Equipment_6_H302": {
-    "name": "Tanjiro Kamado's Nichirin Sword",
-    "rarity": 5,
-    "isActivity": false,
-    "icon": "Icon_Equipment_92",
-    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
-  },
-  "Item_Weapon_Equipment_6_H303": {
-    "name": "Zenitsu Agatsuma's Nichirin Sword",
-    "rarity": 5,
-    "isActivity": false,
-    "icon": "Icon_Equipment_93",
-    "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
-  },
-  "Item_Weapon_Equipment_6_H304": {
-    "name": "Inosuke Hashibira's Nichirin Sword",
-    "rarity": 5,
-    "isActivity": false,
-    "icon": "Icon_Equipment_94",
     "sourceSha256": "0dac639249d3f5381bc0fa4c4b1e7892b8038dd86916b7ef71fa27167b82fd24"
   }
 }

@@ -40,35 +40,5 @@
     "name": "Takina Inoue Plushie",
     "icon": "Icon_Equipment_89",
     "reason": "No exact resource name in readable Icons or Icons_EN tables."
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H264",
-    "name": "Shinobu Kocho's Nichirin Sword",
-    "icon": "Icon_Equipment_90",
-    "reason": "No exact resource name in readable Icons or Icons_EN tables."
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H301",
-    "name": "Giyu Tomioka's Nichirin Sword",
-    "icon": "Icon_Equipment_91",
-    "reason": "No exact resource name in readable Icons or Icons_EN tables."
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H302",
-    "name": "Tanjiro Kamado's Nichirin Sword",
-    "icon": "Icon_Equipment_92",
-    "reason": "No exact resource name in readable Icons or Icons_EN tables."
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H303",
-    "name": "Zenitsu Agatsuma's Nichirin Sword",
-    "icon": "Icon_Equipment_93",
-    "reason": "No exact resource name in readable Icons or Icons_EN tables."
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H304",
-    "name": "Inosuke Hashibira's Nichirin Sword",
-    "icon": "Icon_Equipment_94",
-    "reason": "No exact resource name in readable Icons or Icons_EN tables."
   }
 ]

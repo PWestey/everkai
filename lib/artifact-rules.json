@@ -756,51 +756,6 @@
       "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/takina-inoue-plushie/",
       "pageSha256": "f09bc358b9eeec831f82eb9faeb0a0c5b4a9407f6ef25e50b6f5c03371d25ddc",
       "rarity": "UR"
-    },
-    "Item_Weapon_Equipment_6_H264": {
-      "initial": 60,
-      "perLevel": 7,
-      "ore": 70,
-      "recycle": 600,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shinobu-kocho-s-nichirin-sword/",
-      "pageSha256": "daa1be73c1e8b3fbc733d8e2ea63baaf80c33d8dd608f5f7e6a929cd958f0f90",
-      "rarity": "UR"
-    },
-    "Item_Weapon_Equipment_6_H301": {
-      "initial": 60,
-      "perLevel": 7,
-      "ore": 70,
-      "recycle": 600,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giyu-tomioka-s-nichirin-sword/",
-      "pageSha256": "08d80f449406c9ad72047d2401c089f8b4033907a94a160b6d74e3331cee6ccb",
-      "rarity": "UR"
-    },
-    "Item_Weapon_Equipment_6_H302": {
-      "initial": 50,
-      "perLevel": 7,
-      "ore": 70,
-      "recycle": 500,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tanjiro-kamado-s-nichirin-sword/",
-      "pageSha256": "d3a10b49478068903b87e4722d52476f3788591cc5a26613f03261d7676b17de",
-      "rarity": "UR"
-    },
-    "Item_Weapon_Equipment_6_H303": {
-      "initial": 50,
-      "perLevel": 7,
-      "ore": 70,
-      "recycle": 500,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/zenitsu-agatsuma-s-nichirin-sword/",
-      "pageSha256": "279885fda50feaeca3ef5b2a35f9e47d1dcfac94b89be351d0db046aae80e95d",
-      "rarity": "UR"
-    },
-    "Item_Weapon_Equipment_6_H304": {
-      "initial": 50,
-      "perLevel": 7,
-      "ore": 70,
-      "recycle": 500,
-      "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/inosuke-hashibira-s-nichirin-sword/",
-      "pageSha256": "a4cb24dc85016bb8466bff66d5b4b84fab70daa039e74e0dc8a70fa453070908",
-      "rarity": "UR"
     }
   },
   "excludedWithoutLocalIdentity": [

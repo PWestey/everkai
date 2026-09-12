@@ -76,7 +76,7 @@
     "name": "Golden Microphone",
     "aptitude": 60,
     "description": "Aptitude +60. Special effects are not implemented.",
-    "originalDescription": "The special microphone of a renowned opera star, adorned with angel and demon wings: her signature symbol.",
+    "originalDescription": "The special microphone of a renowned opera star, adorned with wings of light and shadow: her signature symbol.",
     "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/golden-microphone/",
     "price": null
   },
@@ -103,7 +103,7 @@
     "name": "Rica's Plushie",
     "aptitude": 60,
     "description": "Aptitude +60. Special effects are not implemented.",
-    "originalDescription": "A special edition toy from Hanamiya Rica's collaboration event showcasing Rica's naughty, devilish side.",
+    "originalDescription": "A special edition toy from Hanamiya Rica's collaboration event showcasing Rica's naughty, mischievous side.",
     "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/rica-s-plushie/",
     "price": null
   },
@@ -271,7 +271,7 @@
   },
   {
     "id": "Item_Weapon_Equipment_6_42",
-    "name": "Demon Blade Benizakura",
+    "name": "Crimson Blade Benizakura",
     "aptitude": 50,
     "description": "Aptitude +50. Special effects are not implemented.",
     "originalDescription": "Exclusive crossover event artifact, modeled after Erza's weapons. The original was forged for raw power at the cost of armor, symbolizing Erza's unwavering resolve in battle.",
@@ -393,51 +393,6 @@
     "description": "Aptitude +60. Special effects are not implemented.",
     "originalDescription": "Exclusive crossover event Plushie. Modeled after Takina's cool expression.",
     "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/takina-inoue-plushie/",
-    "price": null
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H264",
-    "name": "Shinobu Kocho's Nichirin Sword",
-    "aptitude": 60,
-    "description": "Aptitude +60. Special effects are not implemented.",
-    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/shinobu-kocho-s-nichirin-sword/",
-    "price": null
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H301",
-    "name": "Giyu Tomioka's Nichirin Sword",
-    "aptitude": 60,
-    "description": "Aptitude +60. Special effects are not implemented.",
-    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/giyu-tomioka-s-nichirin-sword/",
-    "price": null
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H302",
-    "name": "Tanjiro Kamado's Nichirin Sword",
-    "aptitude": 50,
-    "description": "Aptitude +50. Special effects are not implemented.",
-    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/tanjiro-kamado-s-nichirin-sword/",
-    "price": null
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H303",
-    "name": "Zenitsu Agatsuma's Nichirin Sword",
-    "aptitude": 50,
-    "description": "Aptitude +50. Special effects are not implemented.",
-    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/zenitsu-agatsuma-s-nichirin-sword/",
-    "price": null
-  },
-  {
-    "id": "Item_Weapon_Equipment_6_H304",
-    "name": "Inosuke Hashibira's Nichirin Sword",
-    "aptitude": 50,
-    "description": "Aptitude +50. Special effects are not implemented.",
-    "originalDescription": "A blade carried by Demon-Slayer Swordsmen, which can suppress a demon's regeneration. Furthermore, the blade's color changes based on the user's affinity.",
-    "source": "https://zik-ascend.github.io/isl-tools/wiki/artifacts/inosuke-hashibira-s-nichirin-sword/",
     "price": null
   }
 ]

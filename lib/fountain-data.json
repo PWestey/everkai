@@ -51,7 +51,7 @@
     },
     {
       "id": "Lottery_9",
-      "name": "Succubus Tonic",
+      "name": "Seraph Tonic",
       "quantity": 1,
       "weight": 54,
       "itemId": "Item_GetDE_10",
@@ -189,7 +189,7 @@
     },
     {
       "id": "Rule:text:Lottery_9",
-      "en": "   Succubus Tonic x1 5.4%"
+      "en": "   Seraph Tonic x1 5.4%"
     }
   ],
   "recruits": [

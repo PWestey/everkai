@@ -11,7 +11,7 @@ test('v9 migration preserves progress and seeds only new artifact stacks',()=>{
  assert.ok(valid(next));assert.deepEqual(decode(JSON.stringify(next)),next);
 });
 test('expanded artifacts can be claimed, upgraded and transferred without losing copies',()=>{
- assert.equal(GEAR.length,89);assert.equal(added.length,49);let s=run(fresh(1000),'claimAllGear').state;s=run(s,'claimOre').state;
+ assert.equal(GEAR.length,84);assert.equal(added.length,44);let s=run(fresh(1000),'claimAllGear').state;s=run(s,'claimOre').state;
  for(const g of added){s=run(s,'equip','hero_15',g.id).state;s=run(s,'claimOre').state;s=run(s,'upgradeArtifact','hero_15').state;assert.equal(gearLevel(s.fellows.hero_15),2);s=run(s,'equip','hero_15',null).state;assert.equal(basicCopies(s,g.id),0);assert.equal(s.artifacts.bag[g.id][2],1);}
  assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);
 });
