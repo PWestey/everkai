@@ -250,6 +250,37 @@ fellows at level 10, so the level-50 and level-200 steps are unreachable early.
 Also note the slot ceiling: `slotThresholds` are 0/50/200/800/5000, so at most **five** fellows can
 ever contribute to one business. Coverage raises the ceiling; it does not raise the floor.
 
+## 5c. Family skills (30.4% of the multiplier) — MEASURED, not yet built
+
+The original's rule is two lines: each **owned** family member carries `quenchingSlot` entries with a
+`prop` (a country id, or `'0'` for all) and a `rise`; a building sums the rises whose prop matches its
+country or is `'0'`. Validated against the live save — 40 owned members, **920 slots**, country 2
+totalling **627,100**, exactly the Inn figure in §5b.
+
+**Most of it is deterministic, which makes it far more portable than the roll tables suggest:**
+
+- **Slots unlock purely on intimacy**, in a fixed order — 36 of them, gated 50 → 5000
+  (`WifeQuenchingUnlock`). `refresh()` appends each new slot at `rise: 100`.
+- **Each slot's country is fixed by its index**, cycling 2, 4, 3, 1, 5, 0 — exactly six of each.
+  Nothing about which country a slot serves is random.
+- **Only the value is rolled.** `WifeQuenchingWight` has 25 tiers (+1% to +25%) with weights heavily
+  favouring the low end, and two modes: gold (`WeightNormal`) or a stone, `Item_Quenching_Wife_1`
+  (`WeightHigh`, which only exists for tiers 20–25).
+- **The roll cannot go down.** `beauty_quenching` stores its result in `lastQuenchingRes` without
+  applying it; `beauty_replace` applies it only when it beats the current `rise`. That keep-or-discard
+  loop is why the live save clusters at the top tiers, and why the log shows 673 quench and 673
+  replace calls. Cost scales with attempt count across `WifeQuenchingConsume`'s 1,180 rows, and a slot
+  is terminal at 2500.
+
+**The porting problem is the ladder, not the rule.** Everkai's intimacy analogue is the bond level in
+`lib/bonds.mjs`, which caps at **10** (`validBonds` enforces `level <= 10`, `bondTrain` refuses at 10)
+and costs `20*(level+1)` Blessing Points earned from dates. Mapping 36 intimacy gates spanning 50–5000
+onto a 0–10 ladder is a rescaling decision, and copying the reroll grind directly would import exactly
+the kind of loop the single-player design rule exists to adapt.
+
+So this item is **measured and specified, but deliberately not built** — it needs a design decision
+first, not more research.
+
 ## 6. Everkai work this slice implies
 
 Ordered by **measured leverage** (§5b), not by how visible each one is. The first two carry 81% of
@@ -265,8 +296,13 @@ hiring — carries none of it.
    country dimension", which was wrong: Everkai's `type` *is* country (§5b). Airship → Inspiring and
    Magic Academy → Diligent are filled from `BuildingBase.country`, with a `typeSource` provenance
    block. Remaining from this item: a decision on the original's `self` conditionType.
-3. **Family skills into building yield.** 30.4% of the multiplier, and currently absent from
-   Everkai's business income entirely.
+3. **Family skills into building yield.** 30.4% of the multiplier — the largest remaining lever — and
+   absent from Everkai's business income entirely (`businesses.mjs` never mentions family; `bonus` is
+   `assignedOperation + qualityBonus` and nothing else). Fully measured in §5c, including the parts
+   that are deterministic and the one part that is not. **Blocked on a design decision, not on
+   research:** 36 intimacy-gated slots spanning 50–5000 have to rescale onto a bond ladder that caps
+   at 10, and the reroll loop behind the values is the kind of grind the single-player rule adapts
+   rather than copies.
 4. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. Structurally Everkai is
    already close — `rosterOperation` is the right shape — so this is mostly making the bonus terms
    above actually reach it. 100%-correctness item: it is the economy.
