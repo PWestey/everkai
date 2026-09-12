@@ -360,7 +360,7 @@ Grep across `app/*.tsx`, `lib/*.mjs` (excluding biography text) and SYSTEMS.md.
 | **Pupil unions** | **ABSENT** | SYSTEMS.md:263. |
 | **Family trips (Sailing, Airship)** | **ABSENT** | SYSTEMS.md:75. |
 | **Fellow auras, artifact materia/awakening/ascension** | **ABSENT** | SYSTEMS.md:464, 269. |
-| **VIP / recharge** | Removed by design | SYSTEMS.md:98. |
+| **VIP / recharge** | Removed by design | SYSTEMS.md:98. The nine characters it locked are re-homed, not lost: two are starter picks and seven are Recruit purchases. See `docs/vip-roster.md`. |
 | **Artifacts** | PARTIAL | §3. |
 | **Drakenberg town / village map** | Presentation done | 16 plates and 17 buildings. Placement is local (SYSTEMS.md:3, 7). Tests: `drakenberg`, `village-map`, `facility-scenes`. |
 
