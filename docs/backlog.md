@@ -187,6 +187,27 @@ now. Treat per-row detail as stale until re-verified against the code, and prefe
 
 ## Resolved
 
+### Fellows opened on a character, not a roster
+Reported as "home and fellows takes you directly to a character instead of a roster screen, so you
+have to side swipe to find what you need". Fixed 2026-09-12 for Fellows: the tab now lands on the
+roster grid, picking someone opens their screen, and a `‹ Fellows roster` control returns to the grid.
+
+It was promotion, not construction. `RosterPicker` was already complete — search, joined/not-joined
+filter, class-icon filter row, rarity and country badges, count line, pagination — but was reachable
+only through a "Browse collection" button inside a dialog. `recruit-panel.tsx` already proved it
+renders inline outside a dialog, so `RosterLanding` just hosts it and reuses the
+`character-collection` class so the existing tile styling applies rather than being duplicated.
+
+**Still to do:** Family and Companions. Family routes through `FamilyPanel` rather than `page.tsx`, so
+it needs the same treatment at that layer. Companions are worse off — they are page 2 of the Journey
+tab behind a `NativeSelect`, not a tab of their own.
+
+**Companion tiles need no portraits.** All 71 familiars lack `portrait`/`art` entirely and none exists
+on disk, so `RosterPicker` now falls back to the original's rarity card ground, and
+`lib/ui-sprites.mjs` gained `petCardIcon`/`petFrameIcon`. Career badges are deliberately absent:
+`Pet.json`'s `career` is a combat role (1/2/3 with distinct HP/ATK/SPD profiles), not the wiki's
+Cool/Cute/Playful, and `familiar-data.json` does not carry it yet.
+
 ### "Buildings are still free to open" was a label, not an economy hole
 Reported 2026-09-12. `app/village-map.tsx` rendered every tile as `Build · Free` — a hardcoded string
 in the `<small>` ternary that **never called `businessCost`** — while `openEnterprise` had been

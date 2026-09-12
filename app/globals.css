@@ -192,6 +192,12 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-nameplate{padding:7px 12px;background:#5b4236c9;border-block:2px solid #c5a362;clip-path:polygon(7% 0,93% 0,100% 50%,93% 100%,7% 100%,0 50%);text-shadow:0 1px 2px #2b160a}
 .character-nameplate h2{font:700 19px/1.15 Georgia,serif;margin:3px 0 0}
 .character-nameplate small{font:700 12px/1.15 Georgia,serif;letter-spacing:0}
+.roster-landing{max-width:none;height:100%;min-height:0;display:flex;flex-direction:column;gap:6px;overflow:auto;padding:10px 12px}
+.roster-landing-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex:none}
+.roster-landing-heading h2{font:700 20px Georgia,serif;color:#4b3421}
+.roster-landing-heading p{font-size:13px;color:#635b41}
+/* Familiars ship no portrait art, so their tile shows the original's rarity card ground instead. */
+.roster-tile img.roster-card-only{object-fit:cover}
 .character-collection-control{position:absolute;left:7px;top:98px;pointer-events:auto}
 .character-screen-heading .collection-open{max-width:94px;min-height:40px!important;font:700 10px/1.15 Georgia,serif;padding:4px;border:2px solid #c09e64;background:#62442ed9}
 .character-rarity{position:absolute;left:8px;top:12px;width:54px;text-align:center;display:grid;gap:3px;text-shadow:0 2px 2px #422410;color:#ffda6b}
