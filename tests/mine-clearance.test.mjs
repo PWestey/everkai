@@ -2,6 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,settle} from '../lib/game.mjs';
 import {mineState,mineToday,minePlan,validMine} from '../lib/mine-clearance.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
+import {stockAll} from './gear-fixtures.mjs';
 const DAY=86400000;
 const go=(s,a,id=null,value=null)=>{const r=act(s,a,s.lastAt,id,value);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
 const mine=(s,a,id='hero_54',count=1)=>go(s,a,id,{seq:mineState(s).seq,day:mineToday(s).day,count});
@@ -10,7 +11,7 @@ test('fresh earned route across four days clears exact encounters, exchanges14Or
  let s=ready();assert.equal(minePlan(s,'hero_54').kills.length,8);const gold=s.gold,xp=s.fellowXP,energies=structuredClone({energy:s.energy,adventure:s.adventure,tradingPost:s.tradingPost});
  for(let d=0;d<4;d++){s=settle(s,d*DAY+1000);s=mine(s,'mineDeploy');s=mine(s,'mineExchange','hero_54','max');}
  assert.equal(s.gold-gold,480000);assert.equal(s.fellowXP-xp,84800);assert.equal(s.mineClearance.history.length,4);assert.equal(s.mineClearance.coins,120);assert.equal(s.artifacts.ore,14);
- s=go(s,'claimAllGear');s=go(s,'equip','hero_54','Item_Weapon_Equipment_1_1');s=go(s,'upgradeArtifact','hero_54');assert.equal(s.fellows.hero_54.gearLevel,2);assert.equal(s.fellows.hero_54.gearOreSpent,10);assert.equal(s.artifacts.ore,4);assert.deepEqual(s.adventure,energies.adventure);assert.equal(s.tradingPost,energies.tradingPost);assert.deepEqual(decode(JSON.stringify(s)),s);
+ s=stockAll(s);s=go(s,'equip','hero_54','Item_Weapon_Equipment_1_1');s=go(s,'upgradeArtifact','hero_54');assert.equal(s.fellows.hero_54.gearLevel,2);assert.equal(s.fellows.hero_54.gearOreSpent,10);assert.equal(s.artifacts.ore,4);assert.deepEqual(s.adventure,energies.adventure);assert.equal(s.tradingPost,energies.tradingPost);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('weak attack saves partial damage, consumes one chance and cannot be replayed or refilled',()=>{
  let s=fresh(1000),p=minePlan(s,'hero_15');assert.equal(p.kills.length,0);assert.ok(p.after>0);const gold=s.gold,xp=s.fellowXP;s=mine(s,'mineDeploy','hero_15');assert.equal(s.gold,gold);assert.equal(s.fellowXP,xp);assert.equal(mineToday(s).progress,p.after);assert.equal(minePlan(s,'hero_15').allowed,false);assert.ok(act(s,'mineDeploy',s.lastAt,'hero_15',{seq:1,day:0}).error);s=go(s,'recruit','hero_1');s=mine(s,'mineDeploy','hero_1');assert.ok(mineToday(s).progress>p.after);assert.equal(s.mineClearance.history[1].before,p.after);

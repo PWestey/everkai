@@ -1,6 +1,6 @@
 # Faucet map — free grants vs earned sources
 
-Measured 2026-09-19 against `lib/*.mjs`. Thirty grant-shaped actions: **19 still free, 4 gated by
+Measured 2026-09-19 against `lib/*.mjs`. Thirty grant-shaped actions: **three now deleted, 16 still free, 4 gated by
 play, 7 either gated by habits or recovering on their own.** `docs/parity-gaps.md` cross-cutting finding #1 — "acquisition mostly
 comes from free sandbox grants, not an earned economy" — is what this tracks.
 
@@ -35,8 +35,9 @@ finished and see whether it refuses.
 | Treasure stamina | `treasureRefill` → 12 | daily recovery in `treasureState`, which already existed | — | `e0c6e61` |
 | Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `06df8c5` |
 | Banquet materials | `banquetPrepare`, ungated | 1 set per finished daily, cap 2, once a day across all parties | — (the original states no source for Cheese/Beer/Steak/Wine) | `6b8f416` |
+| Artifacts | `claimAllGear`, `claimGear`, `sandboxAdventure` | forged from Magic Ore at twice each artifact's own recycle reward; all three grants deleted | — (the original defines only `levelupConsume`; artifacts come from gacha and events Everkai does not have) | `201639f` + this change |
 
-## Still free (17, but only 1 tractable)
+## Still free (14, but only 1 tractable)
 
 **Tractable — an earned source exists or is easy to build**
 
@@ -51,8 +52,6 @@ Only `refillEducation` remains. Every other candidate failed the recovery test b
 
 | Action | Why |
 |---|---|
-| `claimAllGear`, `claimGear` | 81 of 84 artifacts have `price: null` and no drop source anywhere. The original defines only `levelupConsume`; artifacts come from gacha/events it has and Everkai does not. Build an acquisition path first. |
-| `sandboxAdventure` | grants every GEAR item via `EXTRA_ITEMS`, so it is an equivalent bypass of the above |
 | `claimStaffingMaterials` | no `recoverAt`, no `day()`, no settle hook in staffing.mjs. Building materials have no other source, so staff quality upgrades stop without it. |
 | `claimConsumable`, `stellaSupply`, `specialBlessingSupply`, `claimOriginalSupplies` | all four fail the recovery test — zero `recoverAt`, zero `day()`, zero `settle` in their modules. Each is the only source of its resource. |
 | `stageSupply` | **Raphael event stamina has no other source.** `stageEvent` defaults to `stamina:0` with no `recoverAt` and no `day()` anywhere in the module, so nothing regenerates it. Deleting it strands the stage. |

@@ -3,8 +3,9 @@ import {fresh,act,valid,decode,SAVE_KEY} from '../lib/game.mjs';
 import {GEAR} from '../lib/adventure.mjs';
 import {trackedCopies,artifactRule} from '../lib/artifacts.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
+import {stockAll} from './gear-fixtures.mjs';
 const club='Item_Weapon_Equipment_1_1',run=(s,a,t=null,v=null)=>act(s,a,s.lastAt,t,v);
-function equipped(){let s=run(fresh(1000),'claimAllGear').state;s=run(s,'equip','hero_15',club).state;s={...s,artifacts:{...(s.artifacts||{ore:0,bag:{}}),ore:1000}};return s;}
+function equipped(){let s=stockAll(fresh(1000));s=run(s,'equip','hero_15',club).state;s={...s,artifacts:{...(s.artifacts||{ore:0,bag:{}}),ore:1000}};return s;}
 test('new investments survive batch upgrades, transfer, save reload and exact recycling',()=>{
  let s=equipped();s.artifacts.ore=35;s=run(s,'upgradeArtifactMax','hero_15').state;
  assert.equal(s.fellows.hero_15.gearOreSpent,30);assert.equal(s.artifacts.ore,5);
@@ -35,7 +36,7 @@ test('refund uses recorded spending and rejects capacity overflow and malformed 
  }
 });
 test('every known base reward returns invested Ore; unknown base reward stays protected',()=>{
- let s=run(fresh(1000),'claimAllGear').state;s.artifacts={ore:1000000,bag:{}};
+ let s=stockAll(fresh(1000));s.artifacts={ore:1000000,bag:{}};
  for(const g of GEAR){
   s=run(s,'equip','hero_15',g.id).state;const before=s.artifacts.ore,r=artifactRule(g.id);
   s=run(s,'upgradeArtifact','hero_15').state;s=run(s,'equip','hero_15',null).state;
