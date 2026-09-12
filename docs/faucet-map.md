@@ -1,7 +1,18 @@
 # Faucet map — free grants vs earned sources
 
-Measured 2026-09-19 against `lib/*.mjs`. Thirty grant-shaped actions: **three now deleted, 16 still free, 4 gated by
-play, 7 either gated by habits or recovering on their own.** `docs/parity-gaps.md` cross-cutting finding #1 — "acquisition mostly
+Measured 2026-09-12 against `lib/*.mjs`. Thirty grant-shaped actions: **three now deleted, 16 still free, 4 gated by
+play, 7 either gated by habits or recovering on their own.** (The header previously read 2026-09-19, a date a week in
+the future; the measurement itself was sound.)
+
+> **Scope limit — read `docs/free-action-audit.md` alongside this.** This map classifies actions by *grant-shaped
+> name*, so it covers "hands something over for free" and misses the opposite class: **actions that should charge and
+> do not**. A 2026-09-12 audit dispatched all 229 action strings against live state and found `hireEmployees`,
+> `restockWorkshop`, `expandSchool`, `developInnRecipe`, `adoptFamiliar`/`adoptFamiliars`, `wardrobeCollect` and the
+> time-skips (`finishFarm` and friends) are absent from this map entirely. `hireEmployees` is the largest remaining
+> economy hole: free and unbounded, while `paidStaffHire` charges 247 gold for the same ten workers.
+>
+> Also re-open the "Blocked — no other source" verdict on `claimStaffingMaterials` below: the original *does* state a
+> source (`Reward_DailyTaskReward_03` daily, `Reward_CityExchanger_01`), so it is convertible rather than blocked. `docs/parity-gaps.md` cross-cutting finding #1 — "acquisition mostly
 comes from free sandbox grants, not an earned economy" — is what this tracks.
 
 ## Method, and two mistakes worth not repeating

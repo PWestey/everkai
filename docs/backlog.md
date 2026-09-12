@@ -56,12 +56,20 @@ so deleting it strands content — a source must be built first:
 `refillInnStamina`, `stageSupply`, `claimStaffingMaterials`, `claimConsumable`, `stellaSupply`,
 `specialBlessingSupply`, `claimOriginalSupplies`.
 
-### Six importers cannot run: broken base path
-`import-elixirs.py`, `import-fountain.py`, `import-museum.py`, `import-tonic.py` and
-`import-treasure-hunt.py` resolve their source as `app.parents[1]/'outputs/...'`, which is two levels
-above the repo and lands on `/Users/outputs/...`. They fail immediately with `FileNotFoundError`.
-`import-businesses.py` had the same fault and was pointed at the verified absolute path when the
-building costs were added.
+### ~50 importers cannot run outside the workspace: broken base path
+Corrected 2026-09-12 — this was first logged as "six importers" from a narrow grep; a full index put the
+real figure at roughly **50 of 98**, with one root cause.
+
+They resolve their source relative to the repo (`app.parents[1]/'outputs/...'`, i.e.
+`parents[1].parent.parent`), which only lands on the research tree when the repo sits *inside* the
+workspace. From `/Users/westmanfamily/everkai` it resolves to `/Users/` and they fail immediately with
+`FileNotFoundError`. `import-businesses.py` had the same fault and was pointed at a verified absolute
+path when the building costs were added; `import-elixirs.py`, `import-fountain.py`, `import-museum.py`,
+`import-tonic.py` and `import-treasure-hunt.py` are among the rest.
+
+Related: 28 of 98 `lib/*.json` have no producing importer at all, and five are hand-maintained and merely
+*verified* by the script that appears to generate them. See `docs/data-index.md` for the full
+cross-reference.
 
 This matters beyond convenience: the standing rule is to re-run `scripts/apply-content-overrides.py`
 after any importer, and an importer nobody can run is one whose output cannot be regenerated or
