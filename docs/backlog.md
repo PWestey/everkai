@@ -76,9 +76,16 @@ the original's `BuildingQuality` rows) — only the gate is wrong. See `docs/sli
 Inn's live +20,638% bonus: appoint skills **51.1%**, family skills **30.4%**, quality `yieldRise`
 only **14.1%**, everything else 4.4%. So the ranked building work is (1) appoint-skill coverage —
 Everkai models 4 fellows of 154 against the original's 180 of 181, capping the term at +30% versus
-+10,550%; (2) the **`country` dimension**, which 94% of the original's 540 appoint-skill instances
-target and which Everkai does not have at all — no country field on a business, no module reading
-one; (3) family skills feeding building yield; and only then quality.
++10,550%; (2) family skills feeding building yield; and only then quality.
+
+**Correction (2026-09-12):** this entry previously said Everkai lacks the `country` dimension that
+94% of appoint skills target. That was wrong — Everkai's `type` **is** country, mapping 1:1 across
+all 15 typed buildings (1 Inspiring, 2 Diligent, 3 Brave, 4 Informed, 5 Unfettered). The model can
+already express 98% of the original's appoint targeting. What is actually missing is coverage —
+150 of 154 fellows have no rows — plus `type` on Building_1601 (Airship → Inspiring) and
+Building_1701 (Magic Academy → Diligent). And `operation-data.json` has no producing importer while
+every Everkai fellow id maps onto an original hero id that has `operationSkill`, so this is an
+import job, not an authoring one.
 
 ### hero_60 has no price
 Kamakura ships with art and an extraction record but is absent from the public roster snapshot, so

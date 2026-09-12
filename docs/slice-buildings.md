@@ -191,16 +191,36 @@ neither of which Everkai models at parity:
 - **Appoint skills.** 180 of the original's 181 heroes (99.4%) carry `operationSkill` entries, across
   57 distinct skills worth **+20% to +200% each** at level 1 (median +30%). Everkai's
   `operation-data.json` covers **4 fellows of 154**, capping the whole term at +30%.
-- **The `country` dimension is absent from Everkai entirely.** Of the original's 540 appoint-skill
-  instances, `targetCondition.conditionType` is `country` 510 times, `building` 21, `all` 9 — so
-  **94% target country**. `BuildingBase` gives every building a `country` of 1–5; Everkai's
-  `business-data.json` records carry `cityLandId, cost, description, employeeRate, id, name, order,
-  sourceKey, type` and **no country field**, and no `lib` module reads a building country. Everkai
-  matches on `type` (Diligent/Informed/…) and building id only — the two dimensions that carry 6% of
-  the original's bonuses.
+- **Everkai already has the `country` dimension — it is named `type`.** Corrected 2026-09-12; an
+  earlier revision of this file claimed country was absent, which was wrong. The mapping is exact and
+  1:1 across all 15 typed buildings:
 
-That reorders the work: adding `country` and broad appoint-skill coverage is worth far more than the
-quality ladder, and repricing hiring is worth nothing at all here.
+  | `BuildingBase.country` | 1 | 2 | 3 | 4 | 5 |
+  |---|---|---|---|---|---|
+  | Everkai `type` | Inspiring | Diligent | Brave | Informed | Unfettered |
+
+  Of the original's 540 appoint-skill instances, `targetCondition.conditionType` is `country` 510
+  times, `building` 21, `all` 9 — and Everkai's `fellowOperation` already matches on both `type` and
+  `building`, so it can express 98% of them today. Two gaps remain: **Building_1601 (Airship) and
+  Building_1701 (Magic Academy) have `type: None`** where the original gives them countries 1 and 2,
+  i.e. Inspiring and Diligent; and the original's `self` conditionType has no Everkai equivalent.
+
+- **The community data was right, not a misreading.** Hero `1`'s real skills are
+  `Hero_Appoint_Country2Base_1` (+30%), `Hero_Appoint_Building01Extra_1` (+20%, unlock level 50) and
+  `Hero_Appoint_Country2Extra_2` (+30%, unlock level 200). Everkai's hand-written `hero_1` record
+  encodes exactly that as Diligent/+30, Building_101/+20 at 50, Diligent/+30 at 200. Since country 2
+  ≡ Diligent, it agrees with the version-matched source in every field.
+
+So the remaining gap is **coverage, not modelling**: the shape is already correct, and 150 of 154
+fellows simply have no rows. `operation-data.json` has **no producing importer** (`data-index.md`
+lists it among the hand-maintained files) and its provenance says "Community descriptions inspected
+2026-09-07; **not version-matched APK formulas**". The original's `Hero.operationSkill` +
+`SkillBase`/`SkillLevel` are version-matched and cover all 154, and every Everkai fellow id maps onto
+an original hero id by stripping `hero_` — **154 of 154, all with `operationSkill`**. This is an
+import, not an authoring job.
+
+Value at level 1 is `skillProp_Initial`, rising by `skillProp_Level` per level (with an uneven-growth
+variant keyed on `skillProp_Growth_Type == 2`).
 
 ## 6. Everkai work this slice implies
 
@@ -210,9 +230,10 @@ hiring — carries none of it.
 
 1. **Broaden appoint-skill coverage.** 51.1% of the multiplier. Everkai models 4 fellows of 154
    against the original's 180 of 181. This is the single largest lever in the slice.
-2. **Add the `country` dimension.** 94% of the original's appoint skills target country, and Everkai
-   has no country field on a business and no module that reads one. Without it, most of item 1
-   cannot even be expressed. `BuildingBase.country` (1–5) is the source.
+2. **Fill the two missing business types.** Superseded 2026-09-12 — this item previously read "add the
+   country dimension", which was wrong: Everkai's `type` *is* country (§5b). All that is actually
+   missing is `type` on Building_1601 (Airship → Inspiring) and Building_1701 (Magic Academy →
+   Diligent), plus a decision on the original's `self` conditionType. Small.
 3. **Family skills into building yield.** 30.4% of the multiplier, and currently absent from
    Everkai's business income entirely.
 4. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. Structurally Everkai is
