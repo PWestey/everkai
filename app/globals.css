@@ -193,6 +193,10 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-nameplate h2{font:700 19px/1.15 Georgia,serif;margin:3px 0 0}
 .character-nameplate small{font:700 12px/1.15 Georgia,serif;letter-spacing:0}
 .roster-landing{max-width:none;height:100%;min-height:0;display:flex;flex-direction:column;gap:6px;overflow:auto;padding:10px 12px}
+/* Owned and unowned are separate groups, as the original shows them. The heading spans the whole
+   grid row, so it sits between the groups rather than inside a cell. */
+.roster-group{grid-column:1/-1;margin:4px 0 0;font:700 13px Georgia,serif;color:#5e5238;border-bottom:1px solid #c7b582;padding-bottom:3px}
+.roster-group:first-child{margin-top:0}
 .roster-landing-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex:none}
 .roster-landing-heading h2{font:700 20px Georgia,serif;color:#4b3421}
 .roster-landing-heading p{font-size:13px;color:#635b41}

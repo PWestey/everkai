@@ -9,7 +9,7 @@ export default function RosterLanding({entries,owned,selected,onSelect,family=fa
  const ordered=useMemo(()=>[...entries].sort((a:any,b:any)=>Number(!!owned[b.id])-Number(!!owned[a.id])),[entries,owned]);
  return <section className="roster-landing character-collection" aria-label={kind+' roster'}>
   <header className="roster-landing-heading"><h2>{kind}</h2><p>{Object.keys(owned).length} of {entries.length} joined</p>{summary}</header>
-  <RosterPicker entries={ordered} owned={owned} selected={selected} onSelect={onSelect} family={family} pageSize={9} status={status}/>
+  <RosterPicker grouped entries={ordered} owned={owned} selected={selected} onSelect={onSelect} family={family} pageSize={9} status={status}/>
   {album&&<OriginalAlbum kind={album} onChoose={onSelect}/>}
  </section>;
 }
