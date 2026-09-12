@@ -323,6 +323,52 @@ long time and never stalls punitively.
 
 Measured and specified; the build is the next step.
 
+## 5d. The full bonus web — every strand, measured
+
+**Design principle (user, 2026-09-12):** *"Everything touches everything… overall roster power drives
+everything. Family, fellows, companions, fish, museum artifacts, trading post all impact each other
+and contribute to overall account power and village earnings."* That is exactly what the original's
+formula encodes, so this table is the parity target, not a simplification of it.
+
+Income reaches a building by three different routes, and conflating them is what made earlier passes
+of this document wrong. `base` is multiplied by staff; `power` is the roster term; `bonus` is the
+additive multiplier stack.
+
+| Strand | Original's formula | Live value | Route in Everkai | Status |
+|---|---|---|---|---|
+| Appoint skills | `Hero.operationSkill` over **assigned** heroes | 1,055,000 | bonus | **DONE** — 175 fellows imported |
+| Family skills (Fathoms) | owned family `quenchingSlot` rises matching country or `'0'` | 627,100 | — | data imported (§5c), **not built** |
+| Quality | `BuildingQuality.yieldRise` for the building's quality | 290,000 | bonus | present but **gated behind APK-growth mode** |
+| Inn | `simgame1` dish collections whose skill targets `city` | 58,000 | employee rate only | partial — `innGiftEmployeePercent` |
+| Family potential | `sum(potentialCount)` over owned family | 13,400 | — | absent (**trivial to add**) |
+| Bank | `CityBank[level].cityIncomeRate` | 10,000 | — | **absent as a mechanic** |
+| Family growth | owned family `wifeSkill` rows with `_NewHalo_` ids | 6,000 | — | absent |
+| Medicine | completed medicines whose skill targets all/country | 3,000 | — | apothecary exists, no city bonus |
+| Farm | farm `NPC5` level → `buildingYieldPercent` | 1,000 | — | farm exists, no yield bonus |
+| Drakenberg | `MOVING[roomId].cityIncomeRate` — the Challenge floor | 300 | — | **absent as a mechanic** |
+| Fishing | fishing city bonuses | 0 | employee rate **and** power | wired |
+| Museum | excavation bonus | 0 | power | wired |
+
+**Already wired through power**, and therefore already honouring the principle: museum, familiars,
+fishing, blessings, special blessings, artifact echo, Stella and elixirs all feed `bondedPower`, which
+`rosterOperation` sums as `Σ bondedPower/1000` — the same divisor as the original's
+`HeroConversionRate/10000`. The account-power half of the web is in good shape.
+
+**The building half is not.** `businesses.mjs:48` is literally
+`const bonus = assignedOperation(s,definition) + qualityBonus` — two of twelve strands.
+
+Two of the gaps are whole systems Everkai does not have at all: the **Bank's city income rate** (there
+is a Bank *business*, Building_1101, but no city-income mechanic behind it) and the **Drakenberg
+Challenge floor → earnings link**. The server log independently confirms the latter is real: a native
+Challenge run advanced Base Camp 11 → Tranquil Forest 1 and raised village earnings 2% → 3%. It is
+also the same gap as the stalled campaign — the original's main quest chain gates on `MovingLevelId`,
+the Challenge floor.
+
+**Cheapest strands first**, by value per unit of work: family potential (a sum of one counter), farm
+(one NPC level lookup), bank and drakenberg (table lookups once their systems exist), medicine (a
+targeted skill sum). None is large alone; together they are the connective tissue the principle asks
+for.
+
 ## 6. Everkai work this slice implies
 
 Ordered by **measured leverage** (§5b), not by how visible each one is. The first two carry 81% of
@@ -338,13 +384,32 @@ hiring — carries none of it.
    country dimension", which was wrong: Everkai's `type` *is* country (§5b). Airship → Inspiring and
    Magic Academy → Diligent are filled from `BuildingBase.country`, with a `typeSource` provenance
    block. Remaining from this item: a decision on the original's `self` conditionType.
-3. **Family skills into building yield.** 30.4% of the multiplier — the largest remaining lever — and
-   absent from Everkai's business income entirely (`businesses.mjs` never mentions family; `bonus` is
-   `assignedOperation + qualityBonus` and nothing else). Fully measured in §5c, including the parts
-   that are deterministic and the one part that is not. **Blocked on a design decision, not on
-   research:** 36 intimacy-gated slots spanning 50–5000 have to rescale onto a bond ladder that caps
-   at 10, and the reroll loop behind the values is the kind of grind the single-player rule adapts
-   rather than copies.
+3. **Family skills (Fathoms) into building yield.** 30.4% of the multiplier — the largest remaining
+   lever. Specified in §5c and the ladder data is imported (`lib/fathom-data.json`, 36 slots, 25
+   tiers). **Design decided 2026-09-12:** keep the original's slots, fixed country cycle, +1%→+25%
+   range and never-decreasing rule; replace the weighted reroll and the purchasable unlock with
+   habit- and time-driven advancement via the `roamRefill` idiom. Unlock gates on cumulative habit
+   activity (`h.totals[domain].actions/points`, which increment on completion and are never reset),
+   **not** on intimacy, which is buyable at ~100 gold per point with no cap. Ready to build.
+
+   **The remaining strands of the web (§5d), cheapest first.** None is large alone; together they are
+   the connective tissue the "everything touches everything" principle asks for.
+
+3a. **Family potential** — `sum(potentialCount)` over owned family. Trivial once a potential counter
+    exists.
+3b. **Farm → building yield** — one NPC level lookup (`NPC5` → `buildingYieldPercent`). `farm.mjs`
+    exists and exports no bonus today.
+3c. **Medicine → city bonus** — sum of completed medicines whose skill targets all/country.
+    `apothecary.mjs` exists and exports no bonus today.
+3d. **Inn city bonus** — dish collections targeting `city`. Everkai's inn currently reaches income
+    only through the employee rate, not the bonus stack.
+3e. **Family growth** — owned family `wifeSkill` rows with `_NewHalo_` ids.
+3f. **Bank city income rate** — `CityBank[level].cityIncomeRate`. **A whole system Everkai lacks:**
+    there is a Bank *business* (Building_1101) but no city-income mechanic behind it.
+3g. **Drakenberg Challenge → earnings** — `MOVING[roomId].cityIncomeRate`. Also a whole system, and
+    the same gap as the stalled campaign: the original's main quest chain gates on `MovingLevelId`,
+    the Challenge floor. The server log confirms the link is real — a native run advanced Base Camp
+    11 → Tranquil Forest 1 and raised village earnings 2% → 3%.
 4. **Rewrite the income model** to `(staff×rate + power/1000) × (1 + bonus)`. Structurally Everkai is
    already close — `rosterOperation` is the right shape — so this is mostly making the bonus terms
    above actually reach it. 100%-correctness item: it is the economy.
