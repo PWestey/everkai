@@ -21,7 +21,7 @@ test('fresh loss keeps learned XP and loses unbanked coins; retreat preserves it
 test('hourly supplies cannot bank time at full and have no UTC reset or other energy drain',()=>{
  let s=start(fresh(86400000-1000));assert.equal(s.northern.supplies,11);const due=s.northern.recoverAt;assert.equal(northernSupplies(settle(s,86400000)).supplies,11);
  s=settle(s,due-1);assert.equal(northernSupplies(s).supplies,11);s=settle(s,due);assert.deepEqual(northernSupplies(s),{supplies:12,recoverAt:null});
- s=go(s,'northFinish');s=start(s);assert.equal(s.northern.recoverAt,due+3600000);s=go(s,'northSupply');assert.equal(s.northern.recoverAt,null);
+ s=go(s,'northFinish');s=start(s);assert.equal(s.northern.recoverAt,due+3600000);s=settle(s,s.lastAt+12*3600000);assert.equal(northernSupplies(s).recoverAt,null);
  s=go(s,'northFinish');s=settle(s,due+5*3600000);const before={date:s.energy,school:structuredClone(s.school),trade:s.tradingPost,tonics:s.tonics};s=start(s);assert.equal(s.northern.recoverAt,s.lastAt+3600000);assert.equal(s.energy,before.date);assert.deepEqual(s.school,before.school);assert.equal(s.tradingPost,before.trade);assert.equal(s.tonics,before.tonics);
 });
 test('invalid tiles, completed tiles, stale runs, early exit and repeated rewards refuse',()=>{
@@ -41,5 +41,5 @@ test('malformed restore and reward overflow preserve original snapshots',()=>{
  s=start(train());for(let f=1;f<=3;f++){s=floor(s);if(f<3)s=go(s,'northNext');}s=go(s,'northFinish');s.inventory[NORTH.exchangeItem]=1e6;assert.ok(valid(s));assert.ok(result(s,'northExchange').error);assert.equal(s.northern.coins,65);assert.deepEqual(decode(JSON.stringify(s)).northern,s.northern);
 });
 test('exhausted Supplies refuse entry without consuming another ledger; free preparation restores access',()=>{
- let s=fresh(1000);for(let i=0;i<12;i++){s=start(s);s=go(s,'northFinish');}const before=structuredClone(s);assert.equal(northernSupplies(s).supplies,0);assert.ok(result(s,'northStart').error);assert.deepEqual(s,before);assert.ok(result(s,'northTrain','atk').error);s=go(s,'northSupply');s=start(s);assert.equal(s.northern.supplies,11);assert.equal(s.northern.history.length,12);
+ let s=fresh(1000);for(let i=0;i<12;i++){s=start(s);s=go(s,'northFinish');}const before=structuredClone(s);assert.equal(northernSupplies(s).supplies,0);assert.ok(result(s,'northStart').error);assert.deepEqual(s,before);assert.ok(result(s,'northTrain','atk').error);s=settle(s,s.lastAt+12*3600000);s=start(s);assert.equal(northernSupplies(s).supplies,11);assert.equal(s.northern.history.length,12);
 });

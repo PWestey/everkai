@@ -33,6 +33,7 @@ finished and see whether it refuses.
 | Insight | `claimInsight` +1000 | `insightRefill` 250/daily cap 3000 | `Item_Box_Talent_1` → "Roaming, Pupil Union, Daily Task" | `2cc53a0` |
 | Hire Cards | `claimHireCards` +10 | Banquet shop, 150 coins, 5/day | `Item_Building_Recruit_Increase_1` → "Banquet Shop" | `43fe296` |
 | Treasure stamina | `treasureRefill` → 12 | daily recovery in `treasureState`, which already existed | — | `e0c6e61` |
+| Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `HEAD` |
 
 ## Still free (19)
 
@@ -43,8 +44,6 @@ finished and see whether it refuses.
 | `refillEducation` | game.mjs | **deletable but costly.** Points cap at 6 and recover every 5 min, so the button is a timer skip. But `school-maturation.test.mjs` pumps it in two `while` loops and `ADULT_LESSONS` runs to 84 lessons, so converting means ~70 steps of time advancement. |
 | `banquetPrepare` | banquets.mjs | **highest leverage.** Free pantry → host → 800 coins (`coinsPerGuest` 100 × 8 seats) → shop. Every banquet-shop price, including the Hire Card above and Magic Ore at 30, rests on this. Farm produce is the natural source but the farm has its own timer skip (`finishFarm`), and `finishFarm` is load-bearing in 8 test sites across 5 files. |
 | `claimStaffingMaterials` | staffing.mjs | +100 building materials |
-| `stageSupply` | raphael-progress.mjs | +100 event stamina |
-| `northSupply` | northern.mjs | refills to 12 |
 | `claimConsumable` | consumables.mjs | +10 of an item |
 | `stellaSupply` | stella.mjs | +1000 fragments; the original converts duplicate pulls at 400 each |
 | `specialBlessingSupply` | special-blessings.mjs | fills Blessing Points to 1e9 — the largest single grant in the game |
@@ -58,6 +57,7 @@ finished and see whether it refuses.
 |---|---|
 | `claimAllGear`, `claimGear` | 81 of 84 artifacts have `price: null` and no drop source anywhere. The original defines only `levelupConsume`; artifacts come from gacha/events it has and Everkai does not. Build an acquisition path first. |
 | `sandboxAdventure` | grants every GEAR item via `EXTRA_ITEMS`, so it is an equivalent bypass of the above |
+| `stageSupply` | **Raphael event stamina has no other source.** `stageEvent` defaults to `stamina:0` with no `recoverAt` and no `day()` anywhere in the module, so nothing regenerates it. Deleting it strands the stage. |
 | `refillInnStamina` | **inn stamina has no other source.** `settleInn` only advances the serving queue — `served`, `popularity`, `blueprints`, `deposit`, `finesse` — and returns early with no queue. Nothing regenerates stamina, so deleting the button strands the inn. Needs a real source built first. |
 
 **Arguably fine — one-time collection conveniences, not economies**
