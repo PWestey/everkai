@@ -434,9 +434,33 @@ hiring — carries none of it.
     earlier revision of this line quoted "0, 500, 1000, 1500, 2000, 2500 (+0% → +25%)", which was the
     first six rows of `SimGame3Yield` mistaken for the whole table. It has **201 rows**: level 0 at
     0%, rising a flat 500 (+5%) per level to level 200 at `buildingYieldPercent: 100000` — **+1000%**.
-    `consume` climbs 10,000 → 505,000 and the terminal row carries none, the same shape as
+    `consume` starts at **20,000** for the first step, then restarts at 10,000 and climbs by 2,500 a
+    level to 505,000 — an odd shape worth stating rather than smoothing to "10,000 → 505,000", as an
+    earlier revision of this line did. The terminal row carries no `consume`, the same shape as
     `BuildingBusiness`'s last row. The live save measures only 1,000 (+10%) because that player is at
     level 2, so the live figure is a floor, not the ceiling.
+
+    **Sized against Everkai's own economy, and it fits.** `farmGrowthKnowledge` is
+    `floor(seconds/60)*2`, so knowledge is exactly proportional to grow time and the rate is
+    **invariant at 2,880/day per plot** — every plant, every harvest level. Plant choice changes
+    cadence, not income. Six plots give **17,280/day** from growth alone, before the +10 per sow and
+    +10 per water that reward active tending. The only existing sink is `expandFarm` at
+    `plots.length*100`, i.e. **1,500 knowledge once**, so a yield ladder competes with nothing.
+
+    | To level | Yield | Cumulative knowledge | Days at six plots |
+    |---|---|---|---|
+    | 1 | +5% | 30,000 | 1.7 |
+    | 5 | +25% | 95,000 | 5.5 |
+    | 10 | +50% | 232,500 | 13.5 |
+    | 25 | +125% | 1,020,000 | 59 |
+    | 50 | +250% | 3,582,500 | 207 |
+    | 100 | +500% | 13,395,000 | 775 |
+    | 200 | +1000% | 51,262,500 | 2,967 |
+
+    That is the shape the brief asked for: meaningful movement on day one, +50% inside a fortnight,
+    +250% by month seven, and a tail long enough to keep mattering. Unlike the blueprint source behind
+    the quality strand (§6 item 5), this one genuinely carries the part of the ladder players will
+    reach.
 
     Still genuinely deterministic — no weights, no rolls — which keeps it the most portable strand.
     The original reads it as `NPC5`'s level (the Magic Tree). Everkai's `farm.mjs` exports no bonus
