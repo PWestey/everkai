@@ -120,7 +120,13 @@ Cost is `BuildingBusiness[level].Cost` in gold (item `3`, from `System.json`
 capped at `BuildingBusinessMax` = 3,000 = `BuildingBusiness.Count`. All four facts come from the
 original's own config and client code, so this is recovery rather than invention.
 
-Verified three ways rather than assumed:
+Verified four ways rather than assumed:
+0. **Exercised live against the running game.** `ReqCityBuildingBsLevelUp("Building_101", 1)` produced
+   `2026-09-12 13:27:24 REQUEST city_building_bs_level_up` in `server-runtime.log` with **no
+   `UNIMPLEMENTED` line after it** — the 999 count stayed at 3, all of them historical — and the
+   client's own `bsLevel` moved 1 → 2. Before this change the same call logged a 999 every time
+   (2026-09-10 ×2, 2026-09-11 ×1).
+
 1. `test_service_level_cost_and_staff_gate` in `test_village.py` — 11/11 pass.
 2. Dispatched against a deep copy of the **live** save: `bsLevel` 1 → 2, charged exactly 10,000,000,
    refused at 1,999 staff, response `{r, building, items}` matching the protocol schema, and the save
