@@ -35,20 +35,16 @@ finished and see whether it refuses.
 | Treasure stamina | `treasureRefill` → 12 | daily recovery in `treasureState`, which already existed | — | `e0c6e61` |
 | Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `06df8c5` |
 
-## Still free (18)
+## Still free (18, but only 2 tractable)
 
 **Tractable — an earned source exists or is easy to build**
+
+Only two remain. Every other candidate failed the recovery test below and moved to blocked.
 
 | Action | Module | Note |
 |---|---|---|
 | `refillEducation` | game.mjs | **deletable but costly.** Points cap at 6 and recover every 5 min, so the button is a timer skip. But `school-maturation.test.mjs` pumps it in two `while` loops and `ADULT_LESSONS` runs to 84 lessons, so converting means ~70 steps of time advancement. |
 | `banquetPrepare` | banquets.mjs | **highest leverage.** Free pantry → host → 800 coins (`coinsPerGuest` 100 × 8 seats) → shop. Every banquet-shop price, including the Hire Card above and Magic Ore at 30, rests on this. Farm produce is the natural source but the farm has its own timer skip (`finishFarm`), and `finishFarm` is load-bearing in 8 test sites across 5 files. |
-| `claimStaffingMaterials` | staffing.mjs | +100 building materials |
-| `claimConsumable` | consumables.mjs | +10 of an item |
-| `stellaSupply` | stella.mjs | +1000 fragments; the original converts duplicate pulls at 400 each |
-| `specialBlessingSupply` | special-blessings.mjs | fills Blessing Points to 1e9 — the largest single grant in the game |
-| `claimOriginalSupplies` | original-progression.mjs | up to 10M EXP and 100 of each breakthrough item |
-| `sandboxSupplies` | game.mjs | 10 of each gift, refills Energy |
 | `buySupply` | adventure.mjs | charges, but only 3 of 84 artifacts carry a price |
 
 **Blocked — removing these strands content**
@@ -57,8 +53,20 @@ finished and see whether it refuses.
 |---|---|
 | `claimAllGear`, `claimGear` | 81 of 84 artifacts have `price: null` and no drop source anywhere. The original defines only `levelupConsume`; artifacts come from gacha/events it has and Everkai does not. Build an acquisition path first. |
 | `sandboxAdventure` | grants every GEAR item via `EXTRA_ITEMS`, so it is an equivalent bypass of the above |
+| `claimStaffingMaterials` | no `recoverAt`, no `day()`, no settle hook in staffing.mjs. Building materials have no other source, so staff quality upgrades stop without it. |
+| `claimConsumable`, `stellaSupply`, `specialBlessingSupply`, `claimOriginalSupplies` | all four fail the recovery test — zero `recoverAt`, zero `day()`, zero `settle` in their modules. Each is the only source of its resource. |
 | `stageSupply` | **Raphael event stamina has no other source.** `stageEvent` defaults to `stamina:0` with no `recoverAt` and no `day()` anywhere in the module, so nothing regenerates it. Deleting it strands the stage. |
 | `refillInnStamina` | **inn stamina has no other source.** `settleInn` only advances the serving queue — `served`, `popularity`, `blueprints`, `deposit`, `finesse` — and returns early with no queue. Nothing regenerates stamina, so deleting the button strands the inn. Needs a real source built first. |
+
+**Redundant but behavioural — deletable, needs care**
+
+`sandboxSupplies` (game.mjs) refills Energy *and* grants 10 of each gift. Both halves already have
+real paths: Energy accrues in `settle` (`energy + elapsed/ENERGY_RECOVERY_MS`, clamped to
+`energyCap`), and gifts are purchasable via `buyGift` at 100/200/100/200/500 gold. So nothing needs
+building. But two assertions are *about* the grant rather than using it as a fixture —
+`family.test.mjs:9` checks the grant does not count as gifting (`stats.gifts` stays 0, `claims`
+empty) and `bonds.test.mjs:7` checks it touches only gift ids. Rewriting those is gift-accounting
+work, not a mechanical swap. `app/page.tsx` dispatches it.
 
 **Arguably fine — one-time collection conveniences, not economies**
 
