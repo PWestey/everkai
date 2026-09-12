@@ -1,4 +1,4 @@
-import InnBusinessScene from './inn-business-scene';
+import BusinessScene from './inn-business-scene';
 import PaidStaffing from './paid-staffing';
 import {originalProgression} from '@/lib/original-progression.mjs';
 import {innGiftEmployeePercent} from '@/lib/inn-guests.mjs';
@@ -17,7 +17,9 @@ export default function BusinessPanel({game,action,locked,selectedBusiness,onBus
  const definition=BUSINESSES.find(b=>b.id===selected)!,rows=enterpriseState(game),b=rows[selected],rates=enterpriseBreakdown(game,selected);
  const available=FELLOWS.filter(f=>Object.hasOwn(game.fellows,f.id));
  const workplace=(id:string)=>BUSINESSES.find(d=>rows[d.id]?.fellows.includes(id))?.name||BUILDINGS.find(d=>game.buildings[d.id]?.fellow===id)?.name||'Unassigned';
- if(selected==='Building_101'&&!plain)return <InnBusinessScene game={game} action={action} locked={locked} management={<BusinessPanel plain game={game} action={action} locked={locked} selectedBusiness="Building_101"/>}/>;
+ // Every business gets the scene now, not just the Inn. `plain` still renders the text panel, which
+ // the scene embeds as its management sheet.
+ if(!plain)return <BusinessScene id={selected} game={game} action={action} locked={locked} onApothecary={onApothecary} onBusinessSelect={setSelected} management={<BusinessPanel plain game={game} action={action} locked={locked} selectedBusiness={selected}/>}/>;
  return <section><label htmlFor="original-business">Village business</label><NativeSelect id="original-business" value={selected} onChange={e=>setSelected(e.target.value)}>{BUSINESSES.map(d=><NativeSelectOption key={d.id} value={d.id}>{d.name}{rows[d.id]?' · Open':''}</NativeSelectOption>)}</NativeSelect>
  <h2>{definition.name}</h2>{selected==='Building_201'&&<p className="small-note">Manage employees and Fellow assignments to earn village gold. Potion sales have a separate counter and deposit.</p>}{selected==='Building_201'&&onApothecary&&<Button variant="outline" onClick={onApothecary}>Open potion counter</Button>}<p>{definition.type?`${definition.type} type`:'Type not yet verified'} · {b?.staffingYield?'Mixed retained and APK employee rates':`${employeeRateFor(game,definition)} gold/s per employee`}</p>
  {!b?<><p>{definition.description}</p><Button disabled={locked||game.gold<(businessCost(selected)??Infinity)} onClick={()=>action('openEnterprise',selected)}>{businessCost(selected)===null?'No opening price recorded':`Open · ${businessCost(selected)!.toLocaleString()} gold`}</Button></>:<>

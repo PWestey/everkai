@@ -514,9 +514,33 @@ hiring — carries none of it.
    one-line change.
 6. **Separate quality from staff count** in state and UI; today they are conflated (§1).
 7. **Add Service Level** (§3) or record deliberately dropping it.
-8. **Building panel art parity** — the panel is a full screen with building art, a named plate,
-   an earnings header, Quick x1/x10, and three tabs (Training / Appearance / Operation). Everkai's is
-   text and space.
+8. ~~**Building panel art parity**~~ **DONE 2026-09-12 (to ~90%).** Every business now gets the scene
+   the Inn used to have alone: its own building art, a nameplate, a stat row, a priced action and tab
+   navigation, instead of a page of prose.
+
+   `inn-business-scene.tsx` was generalised to take a business id, sourcing art from
+   `village-map-data.json` — **all 17 businesses already had sha-pinned art** (`village/Building_*.webp`,
+   the same textures the original uses, e.g. Apothecary → `Scene_MainCity_Building_3_1`), already in
+   the precache, so no extraction was needed and the bundle did not grow. `business-panel.tsx`'s
+   branch widened from `selected==='Building_101'` to every business; the text panel survives as the
+   embedded management sheet. The `.inn-*` CSS classes were always building-agnostic and are reused
+   rather than renamed.
+
+   The Inn keeps its Inn-only **Service** tab (the kitchen); others get Growth / Operation, and the
+   Apothecary keeps its potion counter. Verified on screen: Apothecary and Inn both render art,
+   nameplate, stat row and tabs; the Inn shows three tabs and the Apothecary two.
+
+   **What is still short of the original, and why this is 90% not 100%:** the original's panel also
+   carries a Quick ×1/×10 toggle, Building Level with its max, an Earnings Rate percentage, Service
+   Level, and a Power Bonus row — the density seen in `service-level-2.png`. Everkai's scene shows
+   earnings, employees, one action and the tabs. That is a large improvement over prose and a real
+   gap against parity; the missing rows depend on strands still unbuilt (Service Level §3, quality
+   §6.5).
+
+   **Three lying labels were removed along the way**, all the same family: `village-map.tsx` hardcoded
+   `Build · Free` for every tile and hardcoded `Business` for the Apothecary regardless of its real
+   state, and the scene's open button read `Open Inn · Free sandbox` while the Inn costs 50 gold.
+   Tiles and buttons now show the original's real prices.
 9. Fix `hireEmployees` being free and unbounded (`docs/free-action-audit.md`). Worth doing for economy
    integrity, but note it changes **none** of the income shape above.
 
