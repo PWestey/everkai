@@ -5,7 +5,13 @@ import {pupilReward} from '../lib/school.mjs';
 import {requiredLessons} from '../lib/education.mjs';
 import {pupilMilestone,ADULT_LESSONS} from '../lib/school-maturation.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
+import {EDUCATION_CAP} from '../lib/school.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
+// These tests are about adulthood milestones and graduation, not about point recovery. Points do
+// recover on their own in settle(), but advancing time here would run roughly 64 hours of game
+// clock through habits, the workshop and the inn, and this file compares fellowXP against an exact
+// snapshot. Seeding the points touches nothing else.
+const topUp=s=>({...s,school:{...s.school,points:EDUCATION_CAP}});
 function enrolled(grade){let s=run(fresh(1000),'welcome','wife_2');return run(s,'enrollPupil','wife_2',{grade,type:'brave',name:'Learner'});}
 test('all four grade boundaries derive from lessons, never accumulated education or intimacy',()=>{
  for(const [grade,adult] of Object.entries(ADULT_LESSONS)){
@@ -19,10 +25,10 @@ test('all four grade boundaries derive from lessons, never accumulated education
 test('ordinary refills and milestone lessons stop at adulthood, then graduate with existing income and ring',()=>{
  for(const [grade,adult] of Object.entries(ADULT_LESSONS)){
   let s=enrolled(grade);const p=()=>s.school.pupils[0];
-  while(p().progress<adult){s=run(s,'refillEducation');s=run(s,'educateToMilestone',p().id);assert.ok(p().progress<=adult);}
+  while(p().progress<adult){s=topUp(s);s=run(s,'educateToMilestone',p().id);assert.ok(p().progress<=adult);}
   assert.equal(p().progress,adult);assert.equal(pupilMilestone(p(),requiredLessons(p())).stage,'Adult pupil');
   s=decode(JSON.stringify(s));const standard=run(s,'finishSchool',p().id);
-  while(p().progress<requiredLessons(p())){s=run(s,'refillEducation');s=run(s,'educateToMilestone',p().id);}
+  while(p().progress<requiredLessons(p())){s=topUp(s);s=run(s,'educateToMilestone',p().id);}
   assert.equal(s.fellowXP,standard.fellowXP);assert.equal(pupilReward(s,p()),pupilReward(standard,standard.school.pupils[0]));
   const expected=pupilReward(s,p()),oldRing=s.inventory.gift1;s=run(s,'graduate',p().id);
   assert.equal(s.school.alumni[0].income,expected);assert.equal(s.inventory.gift1,oldRing+1);assert.deepEqual(decode(JSON.stringify(s)),s);

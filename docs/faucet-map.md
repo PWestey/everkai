@@ -36,16 +36,23 @@ finished and see whether it refuses.
 | Northern supplies | `northSupply` → 12 | hourly accrual in `northernSupplies`, which already existed | — | `06df8c5` |
 | Banquet materials | `banquetPrepare`, ungated | 1 set per finished daily, cap 2, once a day across all parties | — (the original states no source for Cheese/Beer/Steak/Wine) | `6b8f416` |
 | Artifacts | `claimAllGear`, `claimGear`, `sandboxAdventure` | forged from Magic Ore at twice each artifact's own recycle reward; all three grants deleted | — (the original defines only `levelupConsume`; artifacts come from gacha and events Everkai does not have) | `201639f` + this change |
+| Education Points | `refillEducation` → cap 6 | already recovered on their own in `settle()`; grant deleted outright | — (5-minute recovery timing is verified; Focus Candy `Item_GetCE_10` adds +1) | this change |
 
-## Still free (14, but only 1 tractable)
+## Still free (13, none tractable)
 
 **Tractable — an earned source exists or is easy to build**
 
-Only `refillEducation` remains. Every other candidate failed the recovery test below, or was converted.
+None remain. `refillEducation` was the last one and is now deleted. Every other candidate failed the
+recovery test below, or was converted.
+
+The "~70 steps of time advancement" this table used to quote for `refillEducation` was wrong twice
+over. The real loops run ~129 iterations across the four grades, not 70 — six lessons per refill
+against `ADULT_LESSONS` C:36/B-:45/B:60/B+:84 and then `GRADES` C:125/B-:155/B:200/B+:280. And the
+cost never applied, because it assumed the replacement had to be time advancement. Those tests are
+about adulthood milestones, not point recovery, so they seed the points directly instead.
 
 | Action | Module | Note |
 |---|---|---|
-| `refillEducation` | game.mjs | **deletable but costly.** Points cap at 6 and recover every 5 min, so the button is a timer skip. But `school-maturation.test.mjs` pumps it in two `while` loops and `ADULT_LESSONS` runs to 84 lessons, so converting means ~70 steps of time advancement. |
 | `buySupply` | adventure.mjs | charges, but only 3 of 84 artifacts carry a price |
 
 **Blocked — removing these strands content**
