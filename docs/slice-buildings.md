@@ -430,11 +430,18 @@ hiring — carries none of it.
     own config table — a progression system of the same shape as Fathoms. The live save shows 13,400
     across 40 owned members (max 6,800 each), so it is a substantial ladder, not a tally. Everkai's
     family members carry only `{intimacy, blessingPower, points, skill, relationship}`.
-3b. **Farm → building yield** — the cheapest real strand, and **fully deterministic**. The source is
-    `SimGame3Yield`: `buildingYieldPercent` runs 0, 500, 1000, 1500, 2000, 2500 (+0% → +25%) against
-    a `consume` cost per level, with no weights and no rolls anywhere. The original reads it as
-    `NPC5`'s level. Everkai's `farm.mjs` exports no bonus and has no NPC or level concept, so this
-    needs a small farm-side ladder, then one lookup into `businessBonus`.
+3b. **Farm → building yield** — **fully deterministic, but not small. Corrected 2026-09-12:** an
+    earlier revision of this line quoted "0, 500, 1000, 1500, 2000, 2500 (+0% → +25%)", which was the
+    first six rows of `SimGame3Yield` mistaken for the whole table. It has **201 rows**: level 0 at
+    0%, rising a flat 500 (+5%) per level to level 200 at `buildingYieldPercent: 100000` — **+1000%**.
+    `consume` climbs 10,000 → 505,000 and the terminal row carries none, the same shape as
+    `BuildingBusiness`'s last row. The live save measures only 1,000 (+10%) because that player is at
+    level 2, so the live figure is a floor, not the ceiling.
+
+    Still genuinely deterministic — no weights, no rolls — which keeps it the most portable strand.
+    The original reads it as `NPC5`'s level (the Magic Tree). Everkai's `farm.mjs` exports no bonus
+    and has no NPC or level concept, and `validFarm` accepts `{knowledge, harvests, plots}` without
+    an exhaustive key count, so a `yieldLevel` field can be added the way `s.fathoms` was.
 3c. **Medicine → city bonus** — sum of completed medicines whose skill targets all/country.
     **Larger than it looks; corrected 2026-09-12.** Everkai's 10 potions carry their effects as
     *prose only* — `skillText: "Inspiring Fellow Power +0.5% (+0.5%)"` — with **zero structured
