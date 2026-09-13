@@ -51,10 +51,10 @@ test('Workshop failed completion and wallet collection recover without duplicate
  const disk=fixture(JSON.stringify(funded(fresh(1000),costOf('Building_301')))),store=createPersistence(()=>disk);let s=store.load(1000);
  for(const [a,t,v] of [['openEnterprise','Building_301'],['openWorkshop'],['recruit','hero_1'],['startWorkshop','2001',{fellow:'hero_1',count:1}]]){s=act(s,a,1000,t,v).state;store.commit(s);}
  disk.fail=true;assert.throws(()=>store.commit(settle(s,301000)));assert.equal(store.current.workshop.deposit,0);disk.fail=false;
- const done=store.load(301000);assert.equal(done.workshop.deposit,3600);assert.equal(done.workshop.salesXP.hero_1,36);
+ const done=store.load(301000);assert.equal(done.workshop.deposit,12);assert.equal(done.workshop.salesXP.hero_1,36);
  disk.fail=true;assert.throws(()=>store.commit(act(done,'collectWorkshop',301000).state));disk.fail=false;
  const recovered=store.load(301000);assert.equal(recovered.workshop.wallet,0);store.commit(act(recovered,'collectWorkshop',301000).state);
- const last=createPersistence(()=>disk).load(401000);assert.equal(last.workshop.wallet,3600);assert.equal(last.workshop.deposit,0);assert.equal(last.workshop.salesXP.hero_1,36);
+ const last=createPersistence(()=>disk).load(401000);assert.equal(last.workshop.wallet,12);assert.equal(last.workshop.deposit,0);assert.equal(last.workshop.salesXP.hero_1,36);
 });
 test('failed Farm harvest cannot admit duplicate crops or Knowledge on reload',()=>{
  const disk=fixture(),store=createPersistence(()=>disk);let s=store.load(1000);

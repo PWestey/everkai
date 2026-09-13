@@ -106,8 +106,8 @@ const collectPotion=s=>run(s,'potionCollect',null,{seq:s.apothecary.seq});
 test('all four claims exist and move accrued earnings into a wallet',()=>{
  const i=inn();          assert.equal(i.inn.deposit,50);
  assert.equal(run(i,'collectInnDeposit').gold,i.gold+50);
- const w=workshop();     assert.equal(w.workshop.deposit,3600);
- assert.equal(run(w,'collectWorkshop').workshop.wallet,3600);
+ const w=workshop();     assert.equal(w.workshop.deposit,12);
+ assert.equal(run(w,'collectWorkshop').workshop.wallet,12);
  const p=potion();       assert.equal(p.apothecary.deposit,10);
  assert.equal(collectPotion(p).gold,p.gold+10);
  const v={...fresh(NOW),pending:100};
@@ -124,7 +124,7 @@ test('collectWorkshop is the only one that does not pay into village gold',()=>{
  // different currency than the other three, which is why "three of four use 1e9" is not the whole story.
  const w=workshop(),after=run(w,'collectWorkshop');
  assert.equal(after.gold,w.gold,'collectWorkshop must not touch village gold');
- assert.equal(after.workshop.wallet,3600);
+ assert.equal(after.workshop.wallet,12);
  for(const [before,after2] of [[inn(),s=>run(s,'collectInnDeposit')],[potion(),collectPotion]])
   assert.ok(after2(before).gold>before.gold,'the other three pay into village gold');
 });
@@ -170,12 +170,12 @@ test('collectInnDeposit is ALL-OR-NOTHING at 1e9: it pays zero where potionColle
 
 test('collectWorkshop is ALL-OR-NOTHING at 1e9 against the Workshop wallet, not against gold',()=>{
  const w=workshop();
- const tight={...w,workshop:{...w.workshop,wallet:1e9-1000}};        // 3,600 due, 1,000 of room
+ const tight={...w,workshop:{...w.workshop,wallet:1e9-11}};          // 12 due, 11 of room
  assert.ok(valid(tight));
  assert.match(refused(tight,'collectWorkshop'),/Spend wallet coins/);
  // Village gold is irrelevant to it: a maxed-out gold wallet does not block a Workshop collection.
  const richInGold={...w,gold:1e12};
- assert.equal(run(richInGold,'collectWorkshop').workshop.wallet,3600);
+ assert.equal(run(richInGold,'collectWorkshop').workshop.wallet,12);
 });
 
 test('potionCollect alone is {seq}-guarded, so a stale control cannot claim the deposit twice',()=>{
@@ -204,7 +204,7 @@ test('THE INCONSISTENCY, measured: past 1e9 gold two claims die while village in
  assert.match(refused(p,'potionCollect',null,{seq:p.apothecary.seq}),/wallet is full/);
 
  const w={...workshop(),gold:rich};
- assert.equal(run(w,'collectWorkshop').workshop.wallet,3600,'the Workshop is unaffected: separate wallet');
+ assert.equal(run(w,'collectWorkshop').workshop.wallet,12,'the Workshop is unaffected: separate wallet');
 
  // Stated once more as the contract, so the shape of the disagreement is legible without reading the
  // assertions above: at 2e9 gold, two of the three gold-paying claims are dead.

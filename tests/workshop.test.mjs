@@ -5,15 +5,19 @@ const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error
 import {funded} from './gear-fixtures.mjs';
 function setup(){let s=funded(fresh(1000));for(const [a,t] of [['openEnterprise','Building_301'],['openWorkshop'],['recruit','hero_1']])s=run(s,a,t);return s;}
 test('50 complete local numeric rows and declared matching policy gate manufacturing',()=>{
- assert.equal(WORKSHOP_PRODUCTS.length,50);assert.ok(WORKSHOP_PRODUCTS.every(p=>Number.isInteger(p.salesXP*1.2)&&p.seconds>0&&p.coinsPerSecond>0));
+ assert.equal(WORKSHOP_PRODUCTS.length,50);assert.ok(WORKSHOP_PRODUCTS.every(p=>Number.isInteger(p.salesXP*1.2)&&p.seconds>0&&p.coins>0));
  let s=setup();assert.ok(act(s,'startWorkshop',1000,'2001',{fellow:'hero_15',count:1}).error);
  assert.ok(act(s,'startWorkshop',1000,'2002',{fellow:'hero_1',count:1}).error);
  s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});assert.equal(s.workshop.supplies,19);assert.equal(s.workshop.job.xpPerUnit,36);assert.ok(act(s,'startWorkshop',1000,'2001',{fellow:'hero_1',count:1}).error);assert.ok(valid(s));
 });
 test('timed coins accrue once, completion EXP unlocks next product, deposit/store connects training',()=>{
- let s=run(setup(),'startWorkshop','2001',{fellow:'hero_1',count:1});const partial=settle(s,11000);assert.equal(partial.workshop.deposit,120);assert.equal(partial.workshop.salesXP.hero_1,0);
- s=settle(decode(JSON.stringify(partial)),301000);assert.equal(s.workshop.deposit,3600);assert.equal(s.workshop.salesXP.hero_1,36);assert.equal(s.workshop.crafted['2001'],1);assert.equal(s.workshop.job,null);assert.equal(workshopUnlocked(s.workshop,'2002'),true);
- assert.deepEqual(settle(s,301000),s);s=run(s,'collectWorkshop');assert.equal(s.workshop.wallet,3600);assert.ok(act(s,'collectWorkshop',s.lastAt).error);const pearls=s.inventory.Item_Talent_Hero_1;s=run(s,'buyWorkshopPearl');assert.equal(s.inventory.Item_Talent_Hero_1,pearls+1);assert.equal(s.workshop.wallet,1600);assert.ok(valid(s));
+ let s=run(setup(),'startWorkshop','2001',{fellow:'hero_1',count:1});const partial=settle(s,11000);assert.equal(partial.workshop.deposit,0);assert.equal(partial.workshop.salesXP.hero_1,0);
+ s=settle(decode(JSON.stringify(partial)),301000);assert.equal(s.workshop.deposit,12);assert.equal(s.workshop.salesXP.hero_1,36);assert.equal(s.workshop.crafted['2001'],1);assert.equal(s.workshop.job,null);assert.equal(workshopUnlocked(s.workshop,'2002'),true);
+ assert.deepEqual(settle(s,301000),s);s=run(s,'collectWorkshop');assert.equal(s.workshop.wallet,12);assert.ok(act(s,'collectWorkshop',s.lastAt).error);
+ // One craft pays 12, so the store leg has to be funded deliberately or it stops being exercised.
+ // 2,000 coins is ~5.6 hours of real crafting under the corrected rate -- a coherent price, not a typo.
+ s={...s,workshop:{...s.workshop,wallet:2500}};
+ const pearls=s.inventory.Item_Talent_Hero_1;s=run(s,'buyWorkshopPearl');assert.equal(s.inventory.Item_Talent_Hero_1,pearls+1);assert.equal(s.workshop.wallet,500);assert.ok(valid(s));
 });
 test('batch and sequential jobs conserve rewards and instant finish cannot double credit',()=>{
  let a=setup(),b=setup();a=run(a,'startWorkshop','2001',{fellow:'hero_1',count:5});a=run(a,'finishWorkshop');
@@ -38,11 +42,11 @@ test('versioned sandbox policy accepts legacy jobs without rewriting earned coun
  for(const change of [{policyVersion:999},{assignedType:'Brave'}])assert.equal(valid({...restored,workshop:{...restored.workshop,job:{...restored.workshop.job,...change}}}),false);
 });
 test('local mastery preserves earned EXP, pins jobs and conserves fractional coin settlement',()=>{
- let s=setup();s.workshop.salesXP.hero_1=1000;s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});s=run(s,'upgradeWorkshopMastery','hero_1');assert.equal(s.workshop.salesXP.hero_1,1000);assert.equal(s.workshop.mastery.hero_1.spent,100);assert.equal(s.workshop.job.masteryTier,0);s=run(s,'finishWorkshop');assert.equal(s.workshop.deposit,3600);
- s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});assert.equal(s.workshop.job.masteryTier,1);const all=settle(s,301000);let parts=s;for(let n=1;n<=300;n++)parts=settle(parts,1000+n*1000);assert.deepEqual(parts.workshop,all.workshop);assert.equal(all.workshop.deposit,7560);assert.deepEqual(decode(JSON.stringify(all)),all);
+ let s=setup();s.workshop.salesXP.hero_1=1000;s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});s=run(s,'upgradeWorkshopMastery','hero_1');assert.equal(s.workshop.salesXP.hero_1,1000);assert.equal(s.workshop.mastery.hero_1.spent,100);assert.equal(s.workshop.job.masteryTier,0);s=run(s,'finishWorkshop');assert.equal(s.workshop.deposit,12);
+ s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});assert.equal(s.workshop.job.masteryTier,1);const all=settle(s,301000);let parts=s;for(let n=1;n<=300;n++)parts=settle(parts,1000+n*1000);assert.deepEqual(parts.workshop,all.workshop);assert.equal(all.workshop.deposit,25);assert.deepEqual(decode(JSON.stringify(all)),all);
 });
 test('mastery rejects overspending, unknown policies and invalid ledgers while legacy jobs remain base',()=>{
  let s=setup();assert.ok(act(s,'upgradeWorkshopMastery',1000,'hero_1').error);s.workshop.salesXP.hero_1=5500;for(let i=0;i<10;i++)s=run(s,'upgradeWorkshopMastery','hero_1');assert.equal(s.workshop.mastery.hero_1.spent,5500);assert.equal(s.workshop.salesXP.hero_1,5500);assert.ok(act(s,'upgradeWorkshopMastery',1000,'hero_1').error);
  for(const m of [{tier:1,spent:0,policyVersion:1},{tier:11,spent:6600,policyVersion:1},{tier:1,spent:100,policyVersion:2}])assert.equal(valid({...s,workshop:{...s.workshop,mastery:{hero_1:m}}}),false);
- s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});delete s.workshop.job.masteryTier;delete s.workshop.job.masteryPolicy;assert.ok(valid(s));assert.equal(run(s,'finishWorkshop').workshop.deposit,3600);
+ s=run(s,'startWorkshop','2001',{fellow:'hero_1',count:1});delete s.workshop.job.masteryTier;delete s.workshop.job.masteryPolicy;assert.ok(valid(s));assert.equal(run(s,'finishWorkshop').workshop.deposit,12);
 });
