@@ -407,69 +407,14 @@ function inn(){
  return run(s,'startPaidStaffing','Building_101');
 }
 
-test('ECON-02: the faucet reads no clock at all — no day gate, no cooldown, no rate limit',()=>{
- const branch=faucetBranch();
- // Every token that would indicate a time gate. The faucet must contain none of them today.
- for(const token of ['habitDay','lastAt','recoverAt','elapsed','Date','now','cooldown','settle'])
-  assert.ok(!branch.includes(token),
-   `claimStaffingMaterials now mentions \`${token}\`. If a gate was added, ECON-02 is being fixed and `
-   +'the current-state assertions below are expected to fail -- update them WITH the decision.');
- // Its only guards are absolute ceilings on the running totals, not a rate.
- assert.match(branch,/r\.stock>999900\|\|r\.claims>=1000000/,'the ceiling guard has changed');
- assert.match(branch,/stock:r\.stock\+100,claims:r\.claims\+1/,'the flat +100 grant has changed');
- assert.match(branch,/Sandbox/,'the grant no longer announces itself as a sandbox faucet');
-});
+// The four current-state tests that stood here pinned the UNGATED faucet: that it read no clock at
+// all, that 300 claims landed at one frozen timestamp banking 30,000 materials, that 260 clicks
+// bought the Inn's whole ladder, and that 9,692 bought all seventeen. claimStaffingMaterials is now
+// one claim per calendar day at 1,000 materials, so none of that is reachable. Current-state tests
+// are deleted when their defect is fixed; the invariant that replaces them is the ex-todo below,
+// and tests/staffing-daily-materials.test.mjs covers the gate and the reserve identity in full.
 
-test('ECON-02: 300 claims land at one frozen timestamp, banking 30,000 materials',()=>{
- let s=inn();
- const at=s.lastAt;
- let accepted=0;
- for(let i=0;i<300;i++){
-  const r=act(s,'claimStaffingMaterials',at);   // the SAME instant, 300 times over
-  if(r.error)break;
-  s=r.state;accepted++;
- }
- assert.equal(accepted,300,'the faucet now refuses inside a single instant; a rate limit has appeared');
- assert.deepEqual(s.staffingMaterials,{stock:30_000,claims:300});
- assert.equal(s.lastAt,at,'no time passed at all');
- assert.ok(valid(s),'300 instantaneous claims produce a legal save');
-});
-
-test('ECON-02: 260 clicks buy the Inn its whole 26-tier ladder, +11,200% quality bonus',()=>{
- const id='Building_101';
- // The bill, straight from the shipped rules: 25 upgrades from quality 1 to 26.
- const ladder=idOf=>{let n=0;for(let q=1;q<26;q++)n+=staffingRule(idOf,q).cost;return n};
- assert.equal(ladder(id),25_915);
- assert.equal(Math.ceil(ladder(id)/100),260,'260 claims of 100 materials cover the Inn outright');
- let s=inn();
- assert.equal(staffingStatus(id,s.enterprises[id]).quality,1);
- assert.equal(staffingStatus(id,s.enterprises[id]).bonus,0);
- const at=s.lastAt;
- for(let i=0;i<300;i++)s=run(s,'claimStaffingMaterials',at);
- let upgrades=0;
- for(;;){const r=act(s,'upgradeStaffQuality',at,id);if(r.error){assert.match(String(r.error),/Final business quality reached/);break}s=r.state;upgrades++}
- const status=staffingStatus(id,s.enterprises[id]);
- assert.equal(upgrades,25);
- assert.equal(status.quality,26);
- assert.equal(status.bonus,112,'the whole ladder is worth +11,200% to this business');
- assert.equal(status.spent,25_915);
- assert.equal(s.staffingMaterials.stock,30_000-25_915);
- assert.ok(valid(s),'the free maxed-quality Inn is a legal save');
-});
-
-test('ECON-02: 9,692 clicks buy the quality ladder of all seventeen businesses',()=>{
- // Stated as the size of the hole rather than exercised: the number is what matters, and building
- // seventeen ladders would spend a second for no extra information.
- const ladder=id=>{let n=0;for(let q=1;q<26;q++)n+=staffingRule(id,q).cost;return n};
- const all=BUSINESSES.reduce((n,d)=>n+ladder(d.id),0);
- assert.equal(all,969_191);
- assert.equal(Math.ceil(all/100),9_692);
- // Well inside the faucet's own ceilings, so nothing stops a player from doing exactly this.
- assert.ok(9_692<1_000_000,'the claims ceiling is two orders of magnitude beyond the whole game');
-});
-
-test('ECON-02: the materials faucet must be gated — THE FIX, NOT THE CURRENT STATE',
- {todo:'claimStaffingMaterials (staffing.mjs:22) has no day gate and no rate limit, so the quality ladder of all 17 businesses (969,191 materials) is 9,692 free clicks in one instant. The original states sources -- Reward_DailyTaskReward_03 and Reward_CityExchanger_01 (50 per trade) -- so this is convertible rather than blocked; docs/faucet-map.md records that it needs a shop plus a save-version bump.'},()=>{
+test('ECON-02: the materials faucet is gated to one claim per day',()=>{
  // A second claim at the same instant must not pay again. It does today.
  let s=inn();
  const at=s.lastAt;

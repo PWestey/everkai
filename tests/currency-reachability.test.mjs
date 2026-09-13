@@ -81,11 +81,7 @@ const CURRENCIES=[
 
  {id:'staffingMaterials',label:'building upgrade materials',key:'staffingMaterials',
   sink:{action:'upgradeStaffQuality',module:'staffing.mjs'},faucet:{action:'claimStaffingMaterials',module:'staffing.mjs'},
-  free:'A flat +100 sandbox grant with no cost and no cap. docs/faucet-map.md reclassified it on '
-   +'2026-09-12 as convertible rather than blocked: the original states a source (Fountain of Wishes, '
-   +'Crystal/Trading Post/Guild shops) but the Fountain path yields 0.84/day against a 25,915-material '
-   +'bill for the Inn alone, and the blueprint is not in EXTRA_ITEMS so it cannot reach the Bag. '
-   +'Converting it needs a shop plus a save-version bump. Asserted here as the CURRENT state.'},
+  },
 ];
 
 // ---------------------------------------------------------------------------------------------
@@ -149,9 +145,12 @@ test('the free sandbox grants are recorded as the CURRENT state, each naming wha
  // Not an endorsement. docs/faucet-map.md tracks the conversion of these one at a time; this pins
  // which are still free so a conversion shows up here as a deliberate edit rather than a surprise.
  const free=CURRENCIES.filter(c=>c.free);
- assert.deepEqual(free.map(c=>c.id),['staffingMaterials'],
-  'the set of currencies whose only faucet is a free grant has changed. If one was converted, drop '
-  +'its `free` note; if a new one appeared, record it here with the reason, and in docs/faucet-map.md.');
+ // Was ['staffingMaterials']. ECON-02 converted it on 2026-09-13: claimStaffingMaterials is now one
+ // claim per calendar day rather than an unbounded +100 button, so no currency in this table has a
+ // free grant as its only faucet. An empty list is the goal state, not a missing assertion.
+ assert.deepEqual(free.map(c=>c.id),[],
+  'a currency whose only faucet is a free sandbox grant has appeared. Record it here with the reason '
+  +'and in docs/faucet-map.md, or convert it -- do not delete this assertion to make it pass.');
  for(const c of free){
   assert.ok(c.free.length>80,`${c.label}: a free faucet must state what an earned replacement would be`);
   assert.ok(dispatched(c.faucet.action),`${c.label}: even a free grant must be reachable`);
