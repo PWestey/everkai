@@ -397,24 +397,9 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 
 /* Building Operation: one sheet, matching the original's layout -- portrait slots instead of a
    dropdown, and the combined bonus stated once rather than recomputed per selection. */
-.op-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-block-end:1px solid #e0d5b7}
-.op-row:last-of-type{border-block-end:none}
-.op-row dl{margin:0;display:grid;gap:2px;min-width:0;flex:1 1 100%}
-.op-row>button{flex:1 1 auto}
-.op-row dt{font-size:.8rem;color:#5c5138}
-.op-row dd{margin:0;font-size:1rem;font-weight:600}
-.op-next{color:#2f6b4f;font-weight:600}
-.op-multiplier{display:flex;gap:4px}
-.op-multiplier button{min-height:32px;padding:0 10px}
 
-.fellow-slots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;padding:10px;background:#ece4cf;border:1px solid #e0d5b7;border-radius:10px;cursor:pointer}
-.fellow-slots:disabled{cursor:default;opacity:.6}
-.fellow-slot{position:relative;flex:0 1 64px;max-width:64px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#ddd2b4;display:grid;place-items:center}
-.fellow-slot img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.fellow-slot.empty{border:2px dashed #c3b58f}
-.fellow-slot-empty{font-size:1.4rem;color:#9a8c68}
-.fellow-slot-bonus{position:absolute;inset-inline:0;bottom:0;background:#2f6b4fdd;color:#fff5dc;font-size:.65rem;text-align:center;padding:1px 0}
 
+.fellow-picker{max-width:min(94vw,520px)}
 .fellow-total{margin:10px 0;text-align:center;font-size:1.1rem;font-weight:700}
 .fellow-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;max-height:46vh;overflow-y:auto}
 .fellow-card{position:relative;padding:0 0 4px;background:#ece4cf;border:1px solid #e0d5b7;border-radius:10px;overflow:hidden;display:grid;gap:2px;cursor:pointer}
@@ -425,3 +410,5 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .fellow-card-slot{position:absolute;top:30%;left:50%;translate:-50% 0;width:34px;height:34px;border-radius:50%;background:#2f6b4fdd;color:#fff5dc;display:grid;place-items:center;font-weight:700}
 .fellow-card-bonus{font-size:.75rem;font-weight:600;color:#2f6b4f}
 .fellow-card-name{font-size:.7rem;padding:0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.inn-operators button:not(:has(img)){height:42px;width:42px;min-height:0;border-radius:50%;padding:0;font-size:1.1rem}
