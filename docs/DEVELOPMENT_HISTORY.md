@@ -2,7 +2,7 @@
 
 First independent single-player slice for an iPhone Safari Home Screen app. Original extracted scenery and a rendered Kaity idle loop accompany newly written game rules. This is not the original client or a full recreation.
 
-Collect fish-stall gold, upgrade Kaity to level 20, and return to saved progress. Away earnings stop at eight hours. No gameplay requests leave the device. The private hosting service requires online access/sign-in for initial delivery. The service worker precaches the complete build; the app confirms cache completeness before declaring offline readiness.
+Collect fish-stall gold, upgrade Kaity to level 20, and return to saved progress. Away earnings stop at twelve hours, the original's own `offlineMaxTime`. No gameplay requests leave the device. The private hosting service requires online access/sign-in for initial delivery. The service worker precaches the complete build; the app confirms cache completeness before declaring offline readiness.
 
 On iPhone: open the private URL in Safari, Share → Add to Home Screen, open the installed app online, then wait for “Ready for offline play” in save settings. Close, enable airplane mode and reopen to validate on the actual phone. Safari and standalone storage may differ; use export/restore to move saves. Clearing website data removes saves and cached files.
 

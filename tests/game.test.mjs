@@ -4,5 +4,11 @@ test('collecting twice cannot duplicate gold',()=>{const s=act(fresh(1000),'coll
 test('insufficient Fellow EXP cannot grant a level',()=>{const s={...fresh(1000),fellowXP:0};assert.ok(act(s,'upgrade',1000).error);assert.equal(act(s,'upgrade',1000).state.fellows.hero_15.level,1)});
 test('earnings before upgrade use old rate',()=>{const s=act(fresh(0),'upgrade',10000).state;assert.equal(s.pending,50);assert.equal(settle(s,11000).pending,53.5)});
 test('clock rollback does not create duplicate earnings',()=>{const s=settle(fresh(1000),500);assert.equal(s.lastAt,1000);assert.equal(s.pending,30);assert.equal(settle(s,1000).pending,30)});
-test('away earnings capped to eight hours',()=>{assert.equal(settle(fresh(0),MAX_AWAY_MS*4).pending,30+MAX_AWAY_MS/1000*2)});
+// Pins the number, not just the shape. The old assertion used MAX_AWAY_MS on both sides, so it held
+// for any value and could not catch the constant drifting -- it passed unchanged when 8h became 12h.
+// 12h is the original's own ceiling: System.json {"_id":"offlineMaxTime","integerValue":43200}.
+test('away earnings stop at the original twelve-hour ceiling',()=>{
+ assert.equal(MAX_AWAY_MS,12*60*60*1000);
+ assert.equal(settle(fresh(0),MAX_AWAY_MS*4).pending,30+MAX_AWAY_MS/1000*2);
+});
 test('malformed and incompatible saves rejected',()=>{for(const s of [{},{...fresh(),version:99},{...fresh(),fellows:{hero_15:{level:0}}},{...fresh(),gold:-1},{...fresh(),lastAt:null}])assert.throws(()=>decode(JSON.stringify(s)))});
