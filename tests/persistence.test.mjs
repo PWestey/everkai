@@ -70,3 +70,24 @@ test('Farm order and essence write refusal cannot consume crops or grant Aptitud
  disk.fail=true;assert.throws(()=>store.commit(act(s,'useFarmEssence',1000,'hero_1','SG3TalentCountry2').state));disk.fail=false;s=store.load(1000);assert.equal(s.fellows.hero_1.aptitude,10);assert.equal(s.farm.trade.essences.SG3TalentCountry2,1);
  store.commit(act(s,'useFarmEssence',1000,'hero_1','SG3TalentCountry2').state);const last=createPersistence(()=>disk).load(2000);assert.equal(last.fellows.hero_1.aptitude,11);assert.equal(last.farm.trade.essences.SG3TalentCountry2,0);
 });
+test('a save that cannot be decoded is still exportable, byte for byte',()=>{
+ // BUG-32. The export button was disabled while a save failed to load, which is exactly when the
+ // player most needs their bytes out. The guard was not arbitrary -- `current` is null after a failed
+ // load, so anything derived from it is a village they never had -- so `raw` exposes the stored
+ // string undecoded, and export uses that.
+ const corrupt='{"version":10,"gold":';                       // truncated: valid JSON prefix, unparseable
+ const disk=fixture(corrupt),store=createPersistence(()=>disk);
+ assert.throws(()=>store.load(1000),'a truncated save must still be refused');
+ assert.equal(store.current,null,'nothing decoded, so there is no state to export');
+ assert.equal(store.blocked,true);
+ // The bytes are untouched on disk and reachable without decoding them.
+ assert.equal(store.raw,corrupt);
+ assert.equal(disk.getItem(SAVE_KEY),corrupt,'a failed load must never rewrite the stored save');
+ // A healthy save exports the same way, so the accessor is not a special case for corruption.
+ const ok=fixture(),good=createPersistence(()=>ok);good.load(1000);
+ assert.equal(good.raw,ok.getItem(SAVE_KEY));
+ // No save at all answers null rather than throwing, which is what the empty-handed message needs.
+ assert.equal(createPersistence(()=>fixture(null)).raw,null);
+ // Denied storage answers null too; export must not crash the dialog that reports the failure.
+ assert.equal(createPersistence(()=>{throw new DOMException('Denied','SecurityError')}).raw,null);
+});
