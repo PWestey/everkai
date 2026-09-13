@@ -154,56 +154,45 @@ test('ECON-28: exactly 49 of the 259 catalogue characters are priced in a curren
  }
  // The whole catalogue, counted once. Measured 2026-09-12.
  assert.deepEqual(Object.fromEntries(Object.entries(byCurrency).map(([k,v])=>[k,v.length])),
-  {stoneFragments:42,stones:168,insignias:49});
+  {stoneFragments:42,stones:168,valiant:46,archangel:3});
  // Was ['hero_60']: no rarity in the public roster meant summonCost returned null, so the counter
  // refused him and nothing else in the game could grant him. He is free-tier in the original, so
  // the free list prices him and the catalogue is now fully priced.
  assert.deepEqual(unpriced,[],'every shipped character has a price');
- // 49 of them are charged against a key the wallet has never held.
+ // Was ['insignias'] with 49 characters charged against a key the wallet never held. UR/UR*/set are
+ // now priced in valiant/archangel, which the forge produces and validSummon guards.
  const phantom=Object.keys(byCurrency).filter(k=>!wallet.includes(k));
- assert.deepEqual(phantom,['insignias']);
- assert.equal(byCurrency.insignias.length,49);
+ assert.deepEqual(phantom,[],'no cost may name a currency the wallet cannot hold');
+ assert.equal(byCurrency.valiant.length+byCurrency.archangel.length,49);
  // Counting from recruitOffers instead would report 48, because startingSave already owns hero_195
  // (UR). The defect is a property of the price table, not of one save, so it is counted over the
  // catalogue. That off-by-one is stated here so a future reader does not "correct" 49 to 48.
  assert.equal(recruitRarity('hero_195'),'UR');
 });
 
-test('ECON-28: a UR joins on a completely empty wallet, and the charge leaves NaN behind',()=>{
+// The two tests that used to sit here pinned the BROKEN behaviour -- that a UR joined on an empty
+// wallet, that the charge wrote NaN into summon.insignias, and that the corrupt save survived a
+// JSON round trip as null. UR/UR*/set are now priced in valiant/archangel, so none of that is
+// reachable: an empty wallet refuses with "Needs 2 Valiant Insignias" and a funded one debits
+// valiant and writes a receipt validSummon accepts. Current-state tests get DELETED when their
+// defect is fixed rather than rebaselined; the invariant that replaces them is the ex-todo below.
+
+test('ECON-28: a UR is refused on an empty wallet and genuinely charged on a funded one',()=>{
  const s=startingSave(NOW);
- assert.equal(summonState(s).insignias,undefined,'the wallet holds no insignias slot at all');
- assert.deepEqual(recruitPrice('hero_113'),{insignias:2});
+ assert.deepEqual(recruitPrice('hero_113'),{valiant:2});
  assert.equal(recruitRarity('hero_113'),'UR');
- const r=recruit(s,'hero_113');
- // No refusal: `undefined < 2` is false, so the affordability check never fires.
- assert.equal(r.error,undefined,'the counter refused; the affordability check now fails CLOSED');
- assert.match(r.message,/Leon joined for 2 insignias\./);
- assert.ok(r.state.fellows.hero_113,'Leon joined');
- // `undefined - 2` is NaN, and it is written straight into the wallet.
- assert.ok(Number.isNaN(r.state.summon.insignias),'the charge no longer writes NaN');
- // Every real balance is untouched: nothing anywhere was actually spent.
- for(const k of ['stoneFragments','stones','insigniaFragments','valiant','archangel','starShards'])
-  assert.equal(r.state.summon[k],0,`${k} moved; the charge is no longer free`);
- // The receipt records a payment that never happened, and passes validSummon's receipt check.
- assert.deepEqual(r.state.summon.recruited,[{id:'hero_113',kind:'fellows',paid:2,currency:'insignias'}]);
+ assert.match(recruit(s,'hero_113').error,/Needs 2 Valiant Insignias/,'the check now fails CLOSED');
+ const funded={...s,summon:{...summonState(s),valiant:3}};
+ const r=recruit(funded,'hero_113');
+ assert.equal(r.error,undefined,r.error);
+ assert.equal(summonState(r.state).valiant,1,'two valiant were actually spent');
+ assert.deepEqual(summonState(r.state).recruited,[{id:'hero_113',kind:'fellows',paid:2,currency:'valiant'}]);
+ assert.ok(valid(r.state));assert.deepEqual(decode(JSON.stringify(r.state)),r.state);
 });
 
-test('ECON-28: the NaN save is accepted by valid() and survives a JSON round trip as null',()=>{
- const bad=recruit(startingSave(NOW),'hero_113').state;
- assert.ok(Number.isNaN(bad.summon.insignias));
- // validSummon's key list omits `insignias`, so nothing ever inspects it.
- assert.ok(valid(bad),'valid() now rejects the NaN wallet');
- const raw=JSON.stringify(bad);
- assert.match(raw,/"insignias":null/,'JSON.stringify no longer writes the NaN as null');
- // And the reload is accepted, so the corruption is durable rather than transient.
- const reloaded=decode(raw);
- assert.equal(reloaded.summon.insignias,null);
- assert.ok(reloaded.fellows.hero_113,'Leon is still on the roster after the reload');
-});
-
-test('ECON-28: no successful purchase may leave a NaN balance — THE FIX, NOT THE CURRENT STATE',
- {todo:'SUMMON_COSTS prices UR/UR*/set in `insignias`, a key summonState never creates. Give the wallet the key, add it to validSummon and give it a faucet, or reprice those rarities onto valiant/archangel. Either way the NaN already written into shipped saves needs a migration.'},()=>{
- // Two invariants, either of which would have stopped this. Both fail today, on purpose.
+test('ECON-28: no successful purchase may leave a NaN balance',()=>{
+ // Two invariants, either of which would have stopped this. Both pass since UR/UR*/set were
+ // repriced onto valiant/archangel -- currencies the wallet holds and validSummon guards.
  const s=startingSave(NOW),wallet=Object.keys(summonState(s));
  const phantom=[...new Set(Object.values(SUMMON_COSTS).map(c=>Object.keys(c)[0]))].filter(k=>!wallet.includes(k));
  assert.deepEqual(phantom,[],

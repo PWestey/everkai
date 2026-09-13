@@ -7,7 +7,7 @@ const ok=(s,a,t=null,now=s.lastAt)=>{const x=run(s,a,t,now);assert.equal(x.error
 function withHabit(s,title,domain,now=s.lastAt){const r=act(s,'habitSave',now,null,{title,freq:'daily',domain});assert(!r.error,r.error);return r.state}
 function complete(s,id,now=s.lastAt){const r=act(s,'habitComplete',now,id);assert(!r.error,r.error);return r.state}
 
-test('costs follow rarity, and set members take one insignia',()=>{assert.deepEqual(summonCost('SR'),{stones:1});assert.deepEqual(summonCost('SSR'),{stones:2});assert.deepEqual(summonCost('SSR+'),{stones:3});assert.deepEqual(summonCost('UR'),{insignias:2});assert.deepEqual(summonCost('SSR -> UR'),{stones:2});assert.deepEqual(summonCost('SSR',true),{insignias:1})});
+test('costs follow rarity, and set members take one insignia',()=>{assert.deepEqual(summonCost('SR'),{stones:1});assert.deepEqual(summonCost('SSR'),{stones:2});assert.deepEqual(summonCost('SSR+'),{stones:3});assert.deepEqual(summonCost('UR'),{valiant:2});assert.deepEqual(summonCost('SSR -> UR'),{stones:2});assert.deepEqual(summonCost('SSR',true),{archangel:1})});
 
 test('a partial day pays per completed daily; a perfect day adds the bonus, an insignia fragment and star shards',()=>{
  let s=withHabit(withHabit(fresh(MON),'Walk','health'),'Read','learning');

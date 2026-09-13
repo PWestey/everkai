@@ -177,8 +177,7 @@ test('Education Points are the one currency whose faucet is passive recovery, no
 // A real defect this file found. Marked todo so check.yml stays green, NOT deleted.
 // ---------------------------------------------------------------------------------------------
 
-test('every currency a cost names is a currency the wallet actually holds — THE `insignias` DEFECT',
- {todo:'SUMMON_COSTS prices UR/UR*/set in `insignias`, a key summonState never creates; 49 of 257 offered characters therefore recruit for free. Give the wallet the key (or price them in valiant/archangel) and add it to validSummon.'},()=>{
+test('every currency a cost names is a currency the wallet actually holds',()=>{
  // Found by this guard. `SUMMON_COSTS` (summon.mjs:30) prices UR, UR* and set members in `insignias`.
  // `summonState` (summon.mjs:33) creates stoneFragments, stones, insigniaFragments, valiant,
  // archangel and starShards -- there is no `insignias` slot, and no faucet anywhere fills one.

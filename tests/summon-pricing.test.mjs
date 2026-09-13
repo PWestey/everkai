@@ -21,7 +21,9 @@ test('rarity chains price from their head, and the whole roster is priced',()=>{
  const people=[...FELLOWS,...FAMILY];
  const unpriced=people.filter(p=>!summonCost(roster.records[p.id]?.rarity)).map(p=>p.id);
  // hero_60 Kamakura ships with art and an extraction record but is absent from the public roster
- // snapshot, so it has no rarity to price. The counter refuses it rather than inventing a cost.
+ // snapshot, so summonCost has no rarity to price him from. This reads the roster snapshot directly,
+ // which is why he still appears here -- recruitPrice() now sells him for nothing instead, because
+ // Hero.json marks him free-tier. Do not read this row as "unobtainable"; it means "no rarity".
  assert.deepEqual(unpriced,['hero_60']);
  assert.equal(people.length-unpriced.length,258);});
 
@@ -29,5 +31,5 @@ test('every tier is payable in exactly one currency',()=>{
  for(const [tier,cost] of Object.entries(SUMMON_COSTS)){
   const keys=Object.keys(cost);
   assert.equal(keys.length,1,`${tier} mixes currencies`);
-  assert.ok(['stoneFragments','stones','insignias'].includes(keys[0]),`${tier} uses an unknown currency`);
+  assert.ok(['stoneFragments','stones','valiant','archangel'].includes(keys[0]),`${tier} uses an unknown currency`);
   assert.ok(Number.isInteger(cost[keys[0]])&&cost[keys[0]]>0,`${tier} has a bad amount`);}});
