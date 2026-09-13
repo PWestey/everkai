@@ -154,8 +154,11 @@ test('ECON-28: exactly 49 of the 259 catalogue characters are priced in a curren
  }
  // The whole catalogue, counted once. Measured 2026-09-12.
  assert.deepEqual(Object.fromEntries(Object.entries(byCurrency).map(([k,v])=>[k,v.length])),
-  {stoneFragments:35,stones:174,insignias:49});
- assert.deepEqual(unpriced,['hero_60'],'the one character the counter cannot price at all');
+  {stoneFragments:42,stones:168,insignias:49});
+ // Was ['hero_60']: no rarity in the public roster meant summonCost returned null, so the counter
+ // refused him and nothing else in the game could grant him. He is free-tier in the original, so
+ // the free list prices him and the catalogue is now fully priced.
+ assert.deepEqual(unpriced,[],'every shipped character has a price');
  // 49 of them are charged against a key the wallet has never held.
  const phantom=Object.keys(byCurrency).filter(k=>!wallet.includes(k));
  assert.deepEqual(phantom,['insignias']);

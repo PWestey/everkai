@@ -8,7 +8,9 @@ import {habitEarnings} from '@/lib/habits.mjs';
 /** rarityIcon has no sprite for a chain like "SSR -> UR", and the price comes from the head anyway. */
 const head=(rarity:string)=>String(rarity||'').split(' ->')[0].trim();
 const priceLabel=(id:string)=>{const c=recruitPrice(id);if(!c)return 'No price recorded';
- const [currency,amount]=Object.entries(c)[0] as [string,number];return `${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`;};
+ const [currency,amount]=Object.entries(c)[0] as [string,number];
+ if(!amount)return 'Free';
+ return `${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`;};
 
 export default function RecruitPanel({game,action,locked}:any){
  const [tab,setTab]=useState<'fellows'|'family'>('fellows');
@@ -66,7 +68,7 @@ export default function RecruitPanel({game,action,locked}:any){
    <h3>{person.name}</h3>
    <p>{head(person.rarity)}{person.type?' · '+person.type:''} · {priceLabel(person.id)}</p>
    <Button disabled={locked||!afford||!cost} onClick={()=>{run('summonRecruit',person.id);setSelected(null)}}>
-    {cost?(afford?`Invite for ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`:`Needs ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`):'No price recorded'}
+    {cost?(!amount?'Invite · free':afford?`Invite for ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`:`Needs ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`):'No price recorded'}
    </Button>
   </article>}
 

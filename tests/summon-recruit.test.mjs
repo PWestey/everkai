@@ -11,16 +11,18 @@ const base=()=>fresh(T);
 test('the counter sells the whole priced roster and never what is already owned',()=>{
  const s=base();
  const offers=recruitOffers(s);
- assert.equal(offers.length,257,'259 shipped, less the unpriced hero_60 and the starter Fellow');
+ assert.equal(offers.length,258,'259 shipped, less the starter Fellow; hero_60 is priced at last');
  assert.ok(!offers.some(o=>o.id==='hero_15'),'the starter Fellow is already owned');
- assert.ok(!offers.some(o=>o.id==='hero_60'),'hero_60 has no recorded price');
+ // hero_60 has no rarity in the public roster, so summonCost returned null and NOTHING in the game
+ // could grant him. He is free-tier in the original, so the free list prices him and he is sellable.
+ assert.ok(offers.some(o=>o.id==='hero_60'),'hero_60 is free-tier and now offered');
  for(const o of offers){assert.ok(o.cost,o.id);assert.equal(Object.keys(o.cost).length,1,o.id);}});
 
 test('each currency buys, and the Fellow arrives exactly as recruit would build him',()=>{
  let s=stocked(base(),{stoneFragments:10,stones:5,insignias:4});
  const r=buy(s,'hero_1');s=r.state;
  assert.deepEqual(s.fellows.hero_1,newFellow(),'identical to a recruited Fellow');
- assert.equal(summonState(s).stoneFragments,7,'an N costs three fragments');
+ assert.equal(summonState(s).stoneFragments,10,'hero_1 is free-tier: the original gives Fifi away at player level 2, so nothing is spent');
  assert.equal(r.recruited,'hero_1');
  s=buy(s,'hero_105').state;
  assert.equal(summonState(s).stones,3,'an SSR costs two stones');
@@ -38,16 +40,20 @@ test('a Family member arrives in the Family shape, under the welcomed key',()=>{
 
 test('too little of the right currency refuses without spending anything',()=>{
  const s=stocked(base(),{stoneFragments:2,stones:0,insignias:0});
- for(const [id,want] of [['hero_1',/3 Acquaint Stone Fragments/],['hero_105',/2 Acquaint Stones/],['hero_195',/2 insignias/]]){
+ // wife_2, not hero_1: every N and R FELLOW is free-tier now, so no Fellow can refuse for want of
+ // fragments. Family keeps its rarity pricing (15 characters still priced in fragments).
+ for(const [id,want] of [['wife_2',/3 Acquaint Stone Fragments/],['hero_105',/2 Acquaint Stones/],['hero_195',/2 insignias/]]){
   const r=act(s,'summonRecruit',s.lastAt,id,{seq:seq(s)});
   assert.match(r.error,want,id);
   assert.deepEqual(r.state,s,'a refusal leaves the save untouched');}});
 
-test('unknown, unpriced and already-joined targets are all refused',()=>{
+test('unknown and already-joined targets are refused; nothing shipped is unpriced any more',()=>{
  let s=stocked(base(),{stones:9,stoneFragments:9,insignias:9});
  assert.match(act(s,'summonRecruit',s.lastAt,'nobody',{seq:seq(s)}).error,/Choose someone/);
- assert.equal(recruitPrice('hero_60'),null);
- assert.match(act(s,'summonRecruit',s.lastAt,'hero_60',{seq:seq(s)}).error,/No price is recorded/);
+ // hero_60 was the last unpriced character: no rarity in the public roster meant no price, and the
+ // counter refused him outright. He is free-tier in the original, so he now sells for nothing.
+ assert.deepEqual(recruitPrice('hero_60'),{stoneFragments:0});
+ assert.equal(act(s,'summonRecruit',s.lastAt,'hero_60',{seq:seq(s)}).error,undefined);
  assert.match(act(s,'summonRecruit',s.lastAt,'hero_15',{seq:seq(s)}).error,/Already joined/);
  s=buy(s,'hero_1').state;
  assert.match(act(s,'summonRecruit',s.lastAt,'hero_1',{seq:seq(s)}).error,/Already joined/);});
@@ -62,7 +68,7 @@ test('receipts record what was paid, stay unique and survive a reload',()=>{
  s=buy(s,'hero_1').state;s=buy(s,'hero_105').state;
  const receipts=summonState(s).recruited;
  assert.deepEqual(receipts,[
-  {id:'hero_1',kind:'fellows',paid:3,currency:'stoneFragments'},
+  {id:'hero_1',kind:'fellows',paid:0,currency:'stoneFragments'},
   {id:'hero_105',kind:'fellows',paid:2,currency:'stones'}]);
  assert.deepEqual(decode(JSON.stringify(s)),s);
  assert.ok(RECRUIT_RECEIPTS>=200);
