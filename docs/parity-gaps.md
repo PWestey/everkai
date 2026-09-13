@@ -192,15 +192,15 @@ House caveat from the ledger itself: "Do not label a whole system reproduced mer
 ## 4. Family: bonds, intimacy, dates, gifts, pictures, wardrobe, children, blessings
 
 - **Implemented**
-  - 119 Family members. Welcome is free (`welcome` / `welcomeAll`); the opening first-Family branch is earned.
+  - **105** Family members (measured 2026-09-13; this line said 119). Acquisition is the paid Recruit counter (`summonRecruit`); `welcome`/`welcomeAll` remain in lib with no app dispatch, recorded in `tests/dispatch.test.mjs` ALLOWED.
   - **Intimacy and Blessing Power** via 5 original gifts plus 10 fixed gifts (`catalog.mjs`, `consumables.mjs`, `gift-batch.mjs`). Gifts are bought with gold at local prices.
   - **Random dates and auto-date** using Energy (1/min, cap rank+2) and Succubus Tonic reserve. Points = Blessing Power × fishing date %.
   - **Blessings** (`lib/blessings.mjs`): Fellow Blessing and Advanced Blessing. Community rows 36/24 in classic mode; APK rows to 700 in APK growth. Special Blessing (`special-blessings.mjs`).
   - **Local bonds** (+2%/level, 10 levels) using documented pairings (`lib/bonds.mjs`).
   - **Relationship tiers 1–5**, local (`game.mjs relationship`).
   - Provisional family "skill": +1% village earnings.
-  - **Date pictures** (`lib/family-gallery.mjs`): 195 records. 118 base-gated, 58 costume-gated (57 routes), 17 without image, 2 item-gated and locked.
-  - **Wardrobe** (`lib/wardrobe.mjs`): 268 costumes (111 Family), free cosmetic collection.
+  - **Date pictures** (`lib/family-gallery.mjs`): **175** records (measured 2026-09-13; this line said 195), of which **15** carry no image (this line said 17). The rest of the old 118/58/2 breakdown was not re-measured.
+  - **Wardrobe** (`lib/wardrobe.mjs`): **258** costumes — **157 Fellow, 101 Family** by `kind`/`ownerId` (measured 2026-09-13; this line said 268 and 111). Free cosmetic collection; costumes carry no stat effect, unlike the original's `WifeClothes`/`ClothesItem`.
   - 43 graduation bonds (see §5). Family portraits and idle clips.
 - **Missing or local**
   - SYSTEMS.md:67: "free sequential welcome is a sandbox choice; roaming encounters and original unlock requirements pending."
