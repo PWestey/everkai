@@ -303,9 +303,10 @@ test('ECON-29: 71 free binds multiply a 17-business village income by 13.4x',()=
  assert.equal(Math.round(rosterOperation(v)),67_136);
  assert.equal(Math.round(after/before*10)/10,13.4,'71 free actions multiply village income 13.4x');
  assert.ok(valid(v),'the whole 13.4x fixture is a legal save, so this really is reachable');
- // It stays under the default-mode ceiling tests/fellow-power.test.mjs:179 pins (138,699), because
- // that fixture ALSO maxes every record and activates every node. Binding alone lands below it.
- assert.ok(rosterOperation(v)<138_699,'binding alone must stay below the maxed-roster ceiling');
+ // It stays under the 138,699 that tests/fellow-power.test.mjs:179 pins, because that fixture ALSO
+ // maxes every record and activates every node. Binding alone lands below it. NOTE: 138,699 is that
+ // fixture's REACH, not a ceiling -- stella, blessings and echoes take a still-valid save to 827,408.
+ assert.ok(rosterOperation(v)<138_699,'binding alone must stay below the maxed-record fixture');
 });
 
 test('ECON-29: familiar power must be earned through the shipped Cost tables — THE FIX',
