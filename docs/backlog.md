@@ -78,7 +78,13 @@ What the measurement changed:
   bonus at 0, because `coverage(n)` is `ceil(n/1000)`. The quality jump only bites past 1,000 staff.
 - **The cap must stay at 5,000 for now.** The original caps staff by `BuildingQuality.levelLimit`
   (1,000 at quality 1 → 26,000 at 26), and `staffingRule` already returns those. Coupling capacity to
-  quality is the faithful design, but quality is blocked behind the blueprint shop (§6 item 5), so
+  quality is the faithful design. **Correction 2026-09-13: quality is NOT blocked behind a blueprint
+  shop.** `claimStaffingMaterials` (`lib/staffing.mjs:22`) has no day gate and no rate limit — it
+  refuses only at `stock > 999,900`. Measured: 300 claims at a single timestamp give 30,000 materials,
+  25 upgrades take the Inn's `qualityBonus` 0 → 112 (+11,200%), and `valid()` stays true throughout.
+  The whole Inn ladder is 25,915 materials = 260 clicks of a free button; all 17 is 9,692 clicks. The
+  defect is the inverse of "blocked" — a free faucet hands out a x113 multiplier. Tracked as ECON-02
+  and SL1-04, both P0. Quality is still gated behind the APK-growth opt-in, which is a separate thing, so
   coupling now would strand play at 1,000 workers with no way to lift it — worse than today. Keeping a
   flat 5,000 while charging original prices is a deliberate mismatch, recorded rather than buried.
 - **Blast radius is 20 fixtures + 2 contracts**, not 27 unknowns. Of 22 test call sites, 20 use

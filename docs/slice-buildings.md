@@ -500,7 +500,15 @@ hiring — carries none of it.
    every business has `yieldRise: 0` at quality 1, so a default quality contributes exactly 0 and no
    existing save or pinned `bonus` assertion changes.
 
-   **But it is blocked on a blueprint source, and that is not a small job.** Quality is bought with
+   **Correction 2026-09-13: it is NOT blocked on a blueprint source.** Measured end to end —
+   `activateOriginalProgression`, `startPaidStaffing`, then 300 `claimStaffingMaterials` at one
+   timestamp (30,000 materials) and 25 `upgradeStaffQuality`, taking the Inn's `qualityBonus` 0 → 112
+   with `valid()` true throughout. The faucet refuses only at `stock > 999,900` (`lib/staffing.mjs:22`)
+   and `app/paid-staffing.tsx` puts its button beside the upgrade. So the ladder is free, not stalled;
+   the real defect is the ungated faucet (ECON-02, SL1-04, both P0). Blueprints live in
+   `s.staffingMaterials`, **not** `s.inventory`, so a priced source needs no SAVE_VERSION bump — but the
+   reserve invariant `stock === claims*100 - spent` rejects hand-added stock, which constrains any
+   replacement. Historical note, kept because the reasoning still applies to a *priced* source: quality is bought with
    `Item_StarUp_Building_1_1` ("Building Upgrade Blueprint"), and taking one business from quality 1
    to 26 costs **25,915** materials (Inn) to **57,013** (Museum). Today the only source is the free
    `claimStaffingMaterials` faucet. The original names four sources — *"Fountain of Wishes, Cyrstal

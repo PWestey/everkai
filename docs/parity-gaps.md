@@ -310,7 +310,10 @@ House caveat from the ledger itself: "Do not label a whole system reproduced mer
 
 ## 9. Drakenberg facilities
 
-The 16 plates are in `lib/drakenberg-layout.json`. Its provenance says the original buildings are Recruit, Ranking, Challenge, Banquet, Hall of Fame, Trading Post, Roaming, Bazaar, Guild, Costume Shop, Golemore Mine and Archdemon's Temple Challenge, and that "the facility-to-building matching here is ours."
+The **18** plates are in `lib/drakenberg-layout.json` (measured 2026-09-13; this said 16): habits,
+businesses, school, stories, mine, northern, trading, fountain, banquets, apothecary, museum, treasure,
+fishing, expo, journey, raphael, roaming, recruit. Only six correspond to original Drakenberg buildings;
+the rest are village systems relocated onto the painting. Its provenance says the original buildings are Recruit, Ranking, Challenge, Banquet, Hall of Fame, Trading Post, Roaming, Bazaar, Guild, Costume Shop, Golemore Mine and Archdemon's Temple Challenge, and that "the facility-to-building matching here is ours."
 
 | Facility | Implemented | Missing / local (quote) | Depth | Tests |
 |---|---|---|---|---|
@@ -375,7 +378,7 @@ Grep across `app/*.tsx`, `lib/*.mjs` (excluding biography text) and SYSTEMS.md.
 | **Fellow auras, artifact materia/awakening/ascension** | **ABSENT** | SYSTEMS.md:464, 269. |
 | **VIP / recharge** | Removed by design | SYSTEMS.md:98. The nine characters it locked are re-homed, not lost: two are starter picks and seven are Recruit purchases. See `docs/vip-roster.md`. |
 | **Artifacts** | PARTIAL | §3. |
-| **Drakenberg town / village map** | Presentation done | 16 plates and 17 buildings. Placement is local (SYSTEMS.md:3, 7). Tests: `drakenberg`, `village-map`, `facility-scenes`. |
+| **Drakenberg town / village map** | Presentation done | 18 plates and 17 buildings (plate count measured 2026-09-13; this said 16). Placement is local (SYSTEMS.md:3, 7). Tests: `drakenberg`, `village-map`, `facility-scenes`. |
 
 ---
 
