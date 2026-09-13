@@ -124,15 +124,15 @@
       "cityLandId": "9"
     },
     {
-      "id": "Building_1401",
-      "name": "Clinic",
-      "description": "A place for receiving medical treatment surrounded by the pungent smell of disinfectant, feared by children. It offers high-quality treatment, curing every illness, no matter the complexity.",
+      "id": "Building_901",
+      "name": "Museum",
+      "description": "A museum with many cultural relics collected. It can attract tourists from other places and it's a good place to improve cultural literacy.",
       "type": "Informed",
       "employeeRate": 20,
-      "sourceKey": "BuildingBase:name:Building_1401",
-      "cost": 900000000,
-      "order": 14,
-      "cityLandId": "15"
+      "sourceKey": "BuildingBase:name:Building_901",
+      "cost": 2000000,
+      "order": 9,
+      "cityLandId": "10"
     },
     {
       "id": "Building_1001",
@@ -179,15 +179,15 @@
       "cityLandId": "14"
     },
     {
-      "id": "Building_901",
-      "name": "Museum",
-      "description": "A museum with many cultural relics collected. It can attract tourists from other places and it's a good place to improve cultural literacy.",
+      "id": "Building_1401",
+      "name": "Clinic",
+      "description": "A place for receiving medical treatment surrounded by the pungent smell of disinfectant, feared by children. It offers high-quality treatment, curing every illness, no matter the complexity.",
       "type": "Informed",
       "employeeRate": 50,
-      "sourceKey": "BuildingBase:name:Building_901",
-      "cost": 2000000,
-      "order": 9,
-      "cityLandId": "10"
+      "sourceKey": "BuildingBase:name:Building_1401",
+      "cost": 900000000,
+      "order": 14,
+      "cityLandId": "15"
     },
     {
       "id": "Building_1501",

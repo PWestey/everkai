@@ -353,41 +353,29 @@ test('BUG-19: the rate list is compared in FILE ORDER, so any fix must reorder t
  assert.equal(source.reduce((n,v)=>n+v,0),459,'equal sums are why total village income is unaffected');
 });
 
-test('BUG-19: exactly two ids disagree between the two rate files, and it is a clean swap',()=>{
+test('BUG-19: the two rate files agree on every id; the clean swap that was here is corrected',()=>{
  const disagreeing=BUSINESSES.filter(d=>d.employeeRate!==sourceYield.rates[d.id])
   .map(d=>[d.id,d.name,d.employeeRate,sourceYield.rates[d.id]]).sort((a,b)=>a[0]<b[0]?-1:1);
- assert.deepEqual(disagreeing,[
-  ['Building_1401','Clinic',20,50],   // business-data says 20; the original says 50
-  ['Building_901','Museum',50,20],    // business-data says 50; the original says 20
- ],'the set of disagreeing buildings has changed. If one was fixed, update this; if a new one '
-  +'appeared, the importer has drifted again -- scripts/import-businesses.py:10 is hand-typed by NAME.');
- // A clean swap, not two independent errors: each file's value for one is the other's value for two.
+ // Was [['Building_1401','Clinic',20,50],['Building_901','Museum',50,20]] -- a clean swap, each
+ // file's value for one being the other's value for two. scripts/import-businesses.py was corrected
+ // and re-run, so the two files now agree on all seventeen ids.
+ assert.deepEqual(disagreeing,[],
+  'the two rate files disagree again. scripts/import-businesses.py:19 is hand-typed by NAME, which '
+  +'is what let Museum and Clinic swap unnoticed the first time -- check that dict against '
+  +'BuildingBase.yield.count before touching anything else.');
  const museum=BUSINESSES.find(d=>d.id==='Building_901'),clinic=BUSINESSES.find(d=>d.id==='Building_1401');
- assert.equal(museum.employeeRate,sourceYield.rates.Building_1401);
- assert.equal(clinic.employeeRate,sourceYield.rates.Building_901);
+ assert.equal(museum.employeeRate,20,'Museum pays the original BuildingBase rate');
+ assert.equal(clinic.employeeRate,50,'Clinic pays the original BuildingBase rate');
+ assert.equal(museum.employeeRate,sourceYield.rates.Building_901);
+ assert.equal(clinic.employeeRate,sourceYield.rates.Building_1401);
 });
 
-test('BUG-19: after one paid hire the Museum pays 50 to old staff and 20 to new, from one building',()=>{
- // The player-visible consequence. staffingYield is seeded by addStaff, NOT by
- // activateOriginalProgression alone -- a probe that skips the hire sees undefined.
- const id='Building_901';
- let s=funded(fresh(T),1e12);
- s=run(s,'openEnterprise',id);
- s=staffed(s,id,100);
- s=run(s,'activateOriginalProgression');
- s=run(s,'startPaidStaffing',id);
- assert.equal(s.enterprises[id].staffingYield,undefined,'staffingYield is not seeded until a hire lands');
- s=run(s,'paidStaffHire',id,1);
- // One building, two rates: the retained cohort keeps business-data's 50, the new hire pays the
- // original's 20. Both are charged by employeeIncome (lib/businesses.mjs:51).
- assert.deepEqual(s.enterprises[id].staffingYield,{policyVersion:1,retainedEmployees:100,retainedRate:50});
- assert.equal(sourceEmployeeYield(id),20);
- assert.deepEqual(employeeCohorts(s,id),{retained:100,retainedRate:50,source:1,sourceRate:20});
- assert.ok(valid(s),'the dual-rate save is legal, so the split is shipped behaviour');
-});
+// The dual-rate test that stood here pinned the player-visible consequence -- one building paying
+// business-data's 50 to its retained cohort and the original's 20 to every later hire. Both files
+// now agree per id, so a building pays ONE rate and that split is unreachable. Current-state tests
+// are deleted when their defect is fixed; the invariant that replaces it is the ex-todo below.
 
-test('BUG-19: the two rate files must agree per building id — THIS IS THE TRANSPOSITION',
- {todo:'lib/business-data.json has Museum (Building_901) 50 and Clinic (Building_1401) 20; the original BuildingBase.yield.count is Museum 20 and Clinic 50, and lib/employee-yield-data.json is correct on all 17. NOT LANDABLE AS A PURE DATA FIX. Measured by applying it in a throwaway copy: 7 assertions go red if the two VALUES are swapped in place, but only 5 if the records are also re-sorted rate-ascending the way scripts/import-businesses.py:19 writes them -- tests/businesses.test.mjs:6 stays green under a re-sort, which is the way to do it. The 5 are tests/employee-yields.test.mjs:13 (10060->4060), :14 (4500->10500), :16 (1000->625), plus two current-state tests here, which are part of the bug and get DELETED rather than rebaselined. tests/staffing.test.mjs stays fully green; an earlier draft named it and was wrong. Worse, validBusinesses (lib/businesses.mjs:44) pins a saved staffingYield.retainedRate against BUSINESSES[].employeeRate, so any save that hired at the Museum or Clinic under original progression fails valid() and decode() throws "Invalid business workforce" -- live players on the deployed site. This needs a save migration (decode repair branch or SAVE_VERSION bump) before the data can move.'},()=>{
+test('BUG-19: the two rate files must agree per building id',()=>{
  const wrong=BUSINESSES.filter(d=>d.employeeRate!==sourceYield.rates[d.id])
   .map(d=>`${d.id} (${d.name}): business-data ${d.employeeRate}, BuildingBase ${sourceYield.rates[d.id]}`);
  assert.deepEqual(wrong,[],
