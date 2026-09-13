@@ -340,12 +340,17 @@ test('ECON-29: familiar power must be earned through the shipped Cost tables —
 // into original progression a SINGLE building pays both numbers: employeeIncome (businesses.mjs:51)
 // charges the retained cohort the business-data rate and every later hire the employee-yield rate.
 //
-// tests/businesses.test.mjs:8 cannot catch it: it compares a rate list SORTED BY RATE, so swapping
-// 20 and 50 leaves that assertion byte-identical. Demonstrated below.
+// tests/businesses.test.mjs:8 DOES catch it, and an earlier draft of this file claimed otherwise.
+// That assertion does not sort: it maps BUSINESSES in FILE ORDER against a rate-ascending literal.
+// lib/business-data.json is only stored rate-ascending because scripts/import-businesses.py:19 sorts
+// records by employeeRate before writing. So an in-place swap of the two VALUES breaks the ascending
+// run and turns that test red -- a correct fix must move the two record blocks as well, or re-run the
+// corrected importer, which reorders automatically. Demonstrated below.
 // =============================================================================================
 
-test('BUG-19: the existing rate test is blind to a transposition, because it sorts by rate',()=>{
- // The exact assertion at tests/businesses.test.mjs:8, and the reason it passes either way.
+test('BUG-19: the rate list is compared in FILE ORDER, so any fix must reorder the records too',()=>{
+ // The exact assertion at tests/businesses.test.mjs:8. There is no sort in it and none in that file:
+ // the ascending run is a property of how the importer WRITES the data, not of how the test reads it.
  assert.deepEqual(BUSINESSES.map(b=>b.employeeRate),[1,2,3,4,6,8,10,15,20,25,30,35,40,50,60,70,80]);
  // Both files hold the same seventeen numbers; only the id they are attached to differs.
  const ours=BUSINESSES.map(b=>b.employeeRate).sort((a,b)=>a-b);
@@ -389,7 +394,7 @@ test('BUG-19: after one paid hire the Museum pays 50 to old staff and 20 to new,
 });
 
 test('BUG-19: the two rate files must agree per building id — THIS IS THE TRANSPOSITION',
- {todo:'lib/business-data.json has Museum (Building_901) 50 and Clinic (Building_1401) 20; the original BuildingBase.yield.count is Museum 20 and Clinic 50, and lib/employee-yield-data.json is correct on all 17. Fixing the data needs a test rebaseline: five assertions across tests/employee-yields.test.mjs:13,14,16 and tests/staffing.test.mjs:14,18 use Building_901 with expectations built on 50.'},()=>{
+ {todo:'lib/business-data.json has Museum (Building_901) 50 and Clinic (Building_1401) 20; the original BuildingBase.yield.count is Museum 20 and Clinic 50, and lib/employee-yield-data.json is correct on all 17. NOT LANDABLE AS A PURE DATA FIX. Measured by applying it in a throwaway copy: it turns 7 assertions red -- tests/businesses.test.mjs:6 (file order, see above) and tests/employee-yields.test.mjs:13 (10060->4060), :14 (4500->10500), :16 (1000->625), plus the three current-state tests here, which are part of the bug and get DELETED rather than rebaselined. tests/staffing.test.mjs stays fully green; an earlier draft named it and was wrong. Worse, validBusinesses (lib/businesses.mjs:44) pins a saved staffingYield.retainedRate against BUSINESSES[].employeeRate, so any save that hired at the Museum or Clinic under original progression fails valid() and decode() throws "Invalid business workforce" -- live players on the deployed site. This needs a save migration (decode repair branch or SAVE_VERSION bump) before the data can move.'},()=>{
  const wrong=BUSINESSES.filter(d=>d.employeeRate!==sourceYield.rates[d.id])
   .map(d=>`${d.id} (${d.name}): business-data ${d.employeeRate}, BuildingBase ${sourceYield.rates[d.id]}`);
  assert.deepEqual(wrong,[],

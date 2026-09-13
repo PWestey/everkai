@@ -7,7 +7,16 @@ app=Path(__file__).resolve().parents[1]
 source=Path('/Users/westmanfamily/Documents/Codex/2026-09-07/referenced-chatgpt-conversation-this-is-an/outputs/component-research/text/c884ee22dfd491ce.bin')
 raw=source.read_bytes();text={r['id']:r['en'] for r in json.loads(raw)['translate']}
 # Curated numeric facts from Building_Operations, not downloaded code.
-rates={'Inn':1,'Apothecary':2,'Workshop':3,'Scroll Shop':4,'Spring Resort':6,'Central Station':8,'Patisserie':10,'Archery Range':15,'Clinic':20,'Market Street':25,'Bank':30,'Tailor Shop':35,'Sports Park':40,'Museum':50,'Theater':60,'Airship':70,'Magic Academy':80}
+# CORRECTED 2026-09-12 (BUG-19): Clinic was 20 and Museum 50, transposing the original's
+# BuildingBase.yield.count, which gives Building_901 (Museum) 20 and Building_1401 (Clinic) 50.
+# Keying this dict by NAME rather than by id is what let the two swap unnoticed.
+# WARNING -- THE SHIPPED DATA IS STILL WRONG ON PURPOSE. lib/business-data.json has NOT been
+# regenerated from this dict, so running this script WILL change it. Do not regenerate until the save
+# migration lands: validBusinesses (lib/businesses.mjs:44) pins a saved staffingYield.retainedRate
+# against BUSINESSES[].employeeRate, so corrected data makes every save that hired at the Museum or
+# Clinic under original progression fail valid(), and decode() throws "Invalid business workforce".
+# The fix is corrected here first so the next importer run cannot silently reinstate the error.
+rates={'Inn':1,'Apothecary':2,'Workshop':3,'Scroll Shop':4,'Spring Resort':6,'Central Station':8,'Patisserie':10,'Archery Range':15,'Museum':20,'Market Street':25,'Bank':30,'Tailor Shop':35,'Sports Park':40,'Clinic':50,'Theater':60,'Airship':70,'Magic Academy':80}
 types={'Inn':'Diligent','Apothecary':'Informed','Workshop':'Brave','Scroll Shop':'Inspiring','Spring Resort':'Unfettered','Central Station':'Inspiring','Patisserie':'Diligent','Archery Range':'Brave','Clinic':'Informed','Market Street':'Unfettered','Bank':'Inspiring','Tailor Shop':'Diligent','Sports Park':'Brave','Museum':'Informed','Theater':'Unfettered'}
 records=[]
 for key,name in text.items():
