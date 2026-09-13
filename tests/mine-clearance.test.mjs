@@ -1,3 +1,4 @@
+import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,settle} from '../lib/game.mjs';
 import {mineState,mineToday,minePlan,validMine} from '../lib/mine-clearance.mjs';
@@ -29,7 +30,7 @@ test('interrupted final reward retains Power damage, participation and wallets u
 });
 test('malformed ledgers and destination overflow refuse without spending; old saves stay optional',()=>{
  assert.equal(fresh(1000).mineClearance,undefined);let s=mine(ready(),'mineDeploy');for(const mutate of [m=>m.coins++,m=>m.history[0].after--,m=>m.history[0].kills[0].order=2,m=>m.history[0].day++,m=>m.history[0].id=0,m=>m.history[0].at++,m=>m.seq++]){const b=structuredClone(s);mutate(b.mineClearance);assert.equal(validMine(b),false);assert.throws(()=>decode(JSON.stringify(b)));}
- let t=ready();t.fellowXP=1e9;const r=act(t,'mineDeploy',t.lastAt,'hero_54',{seq:0,day:0});assert.ok(r.error);assert.equal(r.state.mineClearance,undefined);assert.equal(r.state.fellowXP,1e9);
+ let t=ready();t.fellowXP=MAX_FELLOW_XP;const r=act(t,'mineDeploy',t.lastAt,'hero_54',{seq:0,day:0});assert.ok(r.error);assert.equal(r.state.mineClearance,undefined);assert.equal(r.state.fellowXP,MAX_FELLOW_XP);
 });
 
 test('Mine deployments preserve other battle energies and committed snapshots',()=>{

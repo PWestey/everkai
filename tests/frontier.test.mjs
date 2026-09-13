@@ -1,3 +1,4 @@
+import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,SAVE_KEY} from '../lib/game.mjs';
 import {FELLOWS} from '../lib/catalog.mjs';import {FRONTIER,frontierState,frontierKey} from '../lib/frontier.mjs';
@@ -17,7 +18,7 @@ test('waves pin party, reject stale requests and repeat leaders; retreat changes
 });
 test('final reward overflow and failed storage admission retain wave without granting reward',()=>{
  let s=run(legacy(),'startFrontier',1);s=run(s,'frontierWave',s.adventure.party[0],frontierKey(s.frontier.active));const id=s.adventure.party[0],key=frontierKey(s.frontier.active);
- const full={...s,fellowXP:1e9};const refused=act(full,'frontierWave',full.lastAt,id,key);assert.ok(refused.error);assert.equal(refused.state.frontier.cleared,0);
+ const full={...s,fellowXP:MAX_FELLOW_XP};const refused=act(full,'frontierWave',full.lastAt,id,key);assert.ok(refused.error);assert.equal(refused.state.frontier.cleared,0);
  let raw=JSON.stringify(s),blocked=false;const storage={getItem:()=>raw,setItem:(k,v)=>{if(blocked)throw Error('Quota');if(k===SAVE_KEY)raw=v;}};const p=createPersistence(()=>storage);p.load(s.lastAt);const reward=act(p.current,'frontierWave',s.lastAt,id,key).state;blocked=true;assert.throws(()=>p.commit(reward));assert.equal(p.current.frontier.cleared,0);assert.equal(decode(raw).frontier.cleared,0);blocked=false;p.load(s.lastAt);p.commit(act(p.current,'frontierWave',s.lastAt,id,key).state);assert.equal(decode(raw).frontier.cleared,1);assert.equal(decode(raw).fellowXP,s.fellowXP+3000);assert.ok(act(p.current,'frontierWave',s.lastAt,id,key).error);
 });
 test('fresh player reaches all chapters through ordinary income, stages, supplies, training and patrols',()=>{

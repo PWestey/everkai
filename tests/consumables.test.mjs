@@ -1,3 +1,4 @@
+import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {CONSUMABLES as ALL_CONSUMABLES,V7_ITEMS} from '../lib/adventure.mjs';
@@ -21,7 +22,7 @@ test('every imported consumable applies its exact full effect and survives reloa
 });
 test('bulk use conserves items at caps and never discards a partial effect',()=>{
  let s=act(fresh(0),'welcome',0).state;
- for(const i of CONSUMABLES){s.inventory[i.id]=100;const cap=i.target==='family'?1e6:1e9;
+ for(const i of CONSUMABLES){s.inventory[i.id]=100;const cap=i.target==='family'?1e6:i.stat==='fellowXP'?MAX_FELLOW_XP:i.stat==='points'?1e9:1e9;
  if(i.target==='family')s.family.wife_2[i.stat]=cap-i.amount*2-1;else s[i.stat]=cap-i.amount*2-1;
  assert.equal(usableCount(s,i,'wife_2'),2);const r=act(s,'useConsumable',0,i.id,{count:'all',recipient:'wife_2'});assert.ok(!r.error);s=r.state;assert.equal(s.inventory[i.id],98);assert.equal(usableCount(s,i,'wife_2'),0);
  const denied=act(s,'useConsumable',0,i.id,{count:1,recipient:'wife_2'});assert.ok(denied.error);assert.deepEqual(denied.state,s);assert.ok(valid(s));}
