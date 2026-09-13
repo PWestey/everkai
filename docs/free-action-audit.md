@@ -241,7 +241,9 @@ sim, not this local workshop.
 → *"All familiars welcomed"*, adding every familiar at level 1 / 0 stars. No debit.
 
 **Paid counterpart:** none in Everkai. **Correction 2026-09-13: the sinks are not where the value is.**
-`trainFamiliar`/`starFamiliar` are sinks, but `bindFamiliar` (`lib/familiar-nodes.mjs:23`) is free and
+`trainFamiliar`/`starFamiliar` are NOT sinks either -- **corrected 2026-09-13**, measured through
+adopt/bind/train/star in sequence: the purse is byte-identical after all four, so nothing in the
+familiar system charges anything at all. `bindFamiliar` (`lib/familiar-nodes.mjs:23`) is free and
 ungated, and `familiarBonus` (`:16`) does `Object.assign(bonus, data.inherent[pet])` — paying the pet's
 full inherent bonus at level 1 with no investment at all. Measured: one bind takes a fresh Fellow
 100 → 1,040,104 Power (×10,401); binding all 71 reaches `rosterOperation` 67,136, and on a village of 17

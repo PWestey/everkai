@@ -302,7 +302,7 @@ test('ECON-29: 71 free binds multiply a 17-business village income by 13.4x',()=
 });
 
 test('ECON-29: familiar power must be earned through the shipped Cost tables — THE FIX',
- {todo:'bindFamiliar (familiar-nodes.mjs:23) and adoptFamiliars (familiars.mjs:27) are both free, and familiarBonus (familiar-nodes.mjs:16) pays full inherent Power on the bond alone. Charge the familiar-data.json Cost ladders (classes 300-15,000; levels summing 626,190; stars summing 5,000), or scale the inherent bonus by level and stars.'},()=>{
+ {todo:'bindFamiliar (familiar-nodes.mjs:23) and adoptFamiliars (familiars.mjs:27) are both free, and familiarBonus (familiar-nodes.mjs:16) pays full inherent Power on the bond alone. Charge the familiar-data.json Cost ladders (classes 44,300/pet over 10 rows; levels 626,190/pet over 498 of 499 rows -- row 1 carries no Cost key; stars 5,000/pet over 100 rows; 675,490 per pet, 47,959,790 across all 71) AND scale the inherent bonus by level and stars. Scaling alone is NOT enough: measured 2026-09-13, trainFamiliar and starFamiliar charge nothing either, so scaling would only put free Power behind free clicks. Everkai also has no currency to charge -- a save carries gold/crystals/fellowXP only, with artifacts.ore and staffingMaterials undefined when fresh -- so this needs a new currency and an inventory-id migration.'},()=>{
  // The invariant that would have stopped it: an action worth a million Power must cost something.
  // The purse is summarised to a handful of scalars rather than compared whole: a failing notEqual
  // prints BOTH sides, and spreading the 100-key inventory across a CI log twice buries the message.
