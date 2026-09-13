@@ -2,7 +2,8 @@ import {useMemo,useState} from 'react';
 import {Button} from '@/components/ui/button';
 import RosterPicker from './roster-picker';
 import {FELLOWS,FAMILY} from '@/lib/catalog.mjs';
-import {summonState,recruitPrice,CURRENCY_NAMES,STONE_FRAGMENTS_PER_STONE,INSIGNIA_FRAGMENTS_PER_INSIGNIA,SUMMON_KINDS} from '@/lib/summon.mjs';
+import {summonState,recruitPrice,CURRENCY_NAMES,STONE_FRAGMENTS_PER_STONE,INSIGNIA_FRAGMENTS_PER_INSIGNIA,SUMMON_KINDS,summonDay,weekStartDay,WEEK_DAYS_FOR_BONUS,WEEK_AREAS_FOR_BONUS,STONE_FRAGMENTS_PER_DAILY,STONE_FRAGMENTS_DAILY_CAP,PERFECT_DAY_BONUS} from '@/lib/summon.mjs';
+import {habitEarnings} from '@/lib/habits.mjs';
 
 /** rarityIcon has no sprite for a chain like "SSR -> UR", and the price comes from the head anyway. */
 const head=(rarity:string)=>String(rarity||'').split(' ->')[0].trim();
@@ -26,11 +27,32 @@ export default function RecruitPanel({game,action,locked}:any){
  const amount=cost?Object.values(cost)[0] as number:0;
  const afford=!!currency&&(r as any)[currency]>=amount;
  const person=pick?(family?FAMILY:FELLOWS).find((f:any)=>f.id===pick):null;
+ const day=summonDay(game,game.lastAt),week=weekStartDay(game.lastAt);
+ const dayClaimed=(r.days||[]).some((d:string)=>d.startsWith(day.day)),weekClaimed=(r.weeks||[]).includes(week);
+ const perfectDays=(r.days||[]).filter((d:string)=>d.endsWith('!')&&d.slice(0,10)>=week).length;
+ const {areas}=habitEarnings(game.habits,game.lastAt);
 
  return <section className="treasure-panel" aria-label="Recruit">
   <h2>Recruit</h2>
   <p>{r.stones} Acquaint Stones · {r.stoneFragments} fragments · {r.insignias??0} insignias · {r.starShards??0} star shards</p>
   <p className="small-note">Finish daily habits to earn fragments; ten make a stone. Characters are chosen, not drawn — pick who you want and pay their price. Perfect days also pay star shards, spent on a Fellow’s stars in their own training panel.</p>
+
+  {/* The claim was the missing half of this panel. summonClaimDay/Week were dispatched nowhere in the
+      app, so stoneFragments could never leave 0 and every Invite button below read "Needs 3 Acquaint
+      Stone Fragments" forever -- the habits-to-roster loop had no door. */}
+  <article className="school-card">
+   <h3>Habit rewards</h3>
+   <p>{day.done}/{day.due} daily habits today{day.perfect?' · perfect day':''}</p>
+   <Button disabled={locked||dayClaimed||!day.done} onClick={()=>run('summonClaimDay')}>
+    {dayClaimed?'Today’s rewards claimed'
+     :!day.done?'Complete a daily habit first'
+     :`Claim ${Math.min(STONE_FRAGMENTS_DAILY_CAP,day.done)*STONE_FRAGMENTS_PER_DAILY+(day.perfect?PERFECT_DAY_BONUS:0)} fragments`}
+   </Button>
+   <Button variant="outline" disabled={locked||weekClaimed||perfectDays<WEEK_DAYS_FOR_BONUS||areas<WEEK_AREAS_FOR_BONUS} onClick={()=>run('summonClaimWeek')}>
+    {weekClaimed?'This week’s bonus claimed'
+     :`Weekly bonus · ${perfectDays}/${WEEK_DAYS_FOR_BONUS} perfect days, ${areas}/${WEEK_AREAS_FOR_BONUS} life areas`}
+   </Button>
+  </article>
 
   <div className="business-actions">
    <Button variant="outline" aria-pressed={!family} onClick={()=>{setTab('fellows');setSelected(null)}}>Fellows</Button>
