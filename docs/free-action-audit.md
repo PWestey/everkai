@@ -240,7 +240,14 @@ sim, not this local workshop.
 **Observed.** `adoptFamiliar('Pet_1191')` → *"Familiar welcomed for sandbox play."*; `adoptFamiliars`
 → *"All familiars welcomed"*, adding every familiar at level 1 / 0 stars. No debit.
 
-**Paid counterpart:** none in Everkai (`trainFamiliar`/`starFamiliar` are the sinks).
+**Paid counterpart:** none in Everkai. **Correction 2026-09-13: the sinks are not where the value is.**
+`trainFamiliar`/`starFamiliar` are sinks, but `bindFamiliar` (`lib/familiar-nodes.mjs:23`) is free and
+ungated, and `familiarBonus` (`:16`) does `Object.assign(bonus, data.inherent[pet])` — paying the pet's
+full inherent bonus at level 1 with no investment at all. Measured: one bind takes a fresh Fellow
+100 → 1,040,104 Power (×10,401); binding all 71 reaches `rosterOperation` 67,136, and on a village of 17
+businesses at 200 staff each that moves `totalRate` 92,064 → 1,233,109 gold/s (×13.4) for 71 free clicks,
+with `valid()` true. Inherent flat across the 71: min 30,000, median 500,000, max 3,000,000. So pricing
+adoption alone does not close this — the grant is on the bind. Tracked as ECON-29 (P0).
 **Original data: yes.** `Pet.json` → `Item` (`Item_Owner_Pet_<id>`), `ItemSP`, `Piece`
 (`Item_Owner_PetPiece_<id>`); `PetCatchItem.json` → `Item` (`Item_PetCatch1/2/3`) with per-rarity
 catch probabilities (N 7000 / R 1000 / SR 720 / SSR 310 at grade 1); `PetStar.json` → `Cost`.
