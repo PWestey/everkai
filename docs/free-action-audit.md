@@ -286,7 +286,12 @@ is fully bypassable for free, repeatedly.
 job (refused: *"Choose an owned Fellow matching this product's sandbox type"*).
 
 **Original data: none found.** The private-server set has no speed-up/diamond-skip table for
-SimGame3; plant durations live in `SimGame3Plant.json` (`time`, `FinalTime`).
+SimGame3; plant durations live in `SimGame3PlantUpgrade.json` (117 rows = 39 plants x 3 levels,
+columns `time`/`output`/`upgradeCost`/`risePercent`), which `lib/farm-level-data.json` matches 117/117
+exactly. CORRECTED 2026-09-12: this line previously pointed at `SimGame3Plant.json` (`time`,
+`FinalTime`). `SimGame3Plant.time` is a CONSTANT PLACEHOLDER reading 60 for all 39 plants and is NOT a
+growth time -- real durations span 180 to 43200. That wrong locator produced a false drift report
+(BUG-34, retracted), which would have failed 6 tests and thrown `Invalid Magic Farm.` on live saves.
 **Recommendation.** Delete, or charge crystals per skipped minute (local number, not parity).
 Confidence: **high** for farm, **medium** for workshop.
 
