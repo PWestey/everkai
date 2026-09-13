@@ -194,6 +194,30 @@ creating a new Sheet, which sprawls documents. Best done once per slice rather t
 The original `ISEKAI_SLOW_LIFE_SYSTEM_CATALOG.xlsx` is untouched and still accurate: it describes the
 original game neutrally and by its own scope carries no status columns.
 
+### Two orphaned action branches in `lib`, superseded but still dispatchable
+
+Found while sweeping for actions the app never dispatches (that sweep is how `summonClaimDay`,
+`summonClaimWeek` and `farmYieldUpgrade` were found to have no buttons — all three fixed in `e659c6c`
+and `996f36c`). Two survivors are not missing buttons but **stale duplicates**: an older branch kept
+alongside the newer one the UI actually calls.
+
+- **`enroll`** (`lib/game.mjs`) vs **`enrollPupil`** (`lib/education.mjs`). The School panel dispatches
+  `enrollPupil`. They are not twins: `enroll` validates against `PUPIL_TYPES` (`curious`, `creative`,
+  plus the five countries) and builds a pupil with **no `name` and no `grade`**, while `enrollPupil`
+  validates against `SCHOOL_TYPES` (five countries only) and requires both. So `enroll` can mint a
+  pupil shaped like an older save format.
+- **`habitOrder`** (`lib/habits.mjs:46`) vs **`habitReorder`** (`:47`). The Arrange modal dispatches
+  `habitReorder` through a `move()` helper, never the literal — which is why a literal-matching sweep
+  reports `habitOrder` as "stranded" and `habitReorder` as present. `habitOrder` replaces the whole
+  item list and requires every id; `habitReorder` permutes a subset within its group. Driven: the
+  orphan accepts a full reversed list and leaves `valid()` true, so it works — it is simply the older
+  design.
+
+Neither is reachable from the app, so neither is a live defect. **Do not delete blind:** both are
+guarded, `enroll` is refused for an unknown type, and `recruitAll`/`welcomeAll`/`welcome` sit in the
+same category with their own recommendation in `docs/free-action-audit.md`. Worth one deliberate pass
+over all six rather than piecemeal removal mid-slice.
+
 ## Records that drift
 
 ### docs/parity-gaps.md is a dated snapshot
