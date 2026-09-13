@@ -362,7 +362,7 @@ additive multiplier stack.
 | Strand | Original's formula | Live value | Route in Everkai | Status |
 |---|---|---|---|---|
 | Appoint skills | `Hero.operationSkill` over **assigned** heroes | 1,055,000 | bonus | **DONE** — 175 fellows imported |
-| Family skills (Fathoms) | owned family `quenchingSlot` rises matching country or `'0'` | 627,100 | — | data imported (§5c), **not built** |
+| Family skills (Fathoms) | owned family `quenchingSlot` rises matching country or `'0'` | 627,100 | bonus | **DONE** — module §5c, panel shipped 2026-09-12 |
 | Quality | `BuildingQuality.yieldRise` for the building's quality | 290,000 | bonus | present but **gated behind APK-growth mode** |
 | Inn | `simgame1` dish collections whose skill targets `city` | 58,000 | employee rate only | partial — `innGiftEmployeePercent` |
 | Family potential | `sum(potentialCount)` over owned family | 13,400 | — | absent (**trivial to add**) |
@@ -409,13 +409,19 @@ hiring — carries none of it.
    country dimension", which was wrong: Everkai's `type` *is* country (§5b). Airship → Inspiring and
    Magic Academy → Diligent are filled from `BuildingBase.country`, with a `typeSource` provenance
    block. Remaining from this item: a decision on the original's `self` conditionType.
-3. **Family skills (Fathoms) into building yield.** 30.4% of the multiplier — the largest remaining
-   lever. Specified in §5c and the ladder data is imported (`lib/fathom-data.json`, 36 slots, 25
-   tiers). **Design decided 2026-09-12:** keep the original's slots, fixed country cycle, +1%→+25%
-   range and never-decreasing rule; replace the weighted reroll and the purchasable unlock with
-   habit- and time-driven advancement via the `roamRefill` idiom. Unlock gates on cumulative habit
-   activity (`h.totals[domain].actions/points`, which increment on completion and are never reset),
-   **not** on intimacy, which is buyable at ~100 gold per point with no cap.
+3. ~~**Family skills (Fathoms) into building yield.**~~ **DONE 2026-09-12.** 30.4% of the multiplier.
+   Specified in §5c, ladder imported (`lib/fathom-data.json`, 36 slots, 25 tiers), module built and
+   covered by `tests/fathoms.test.mjs` (6 tests). **Panel shipped 2026-09-12:** `app/fathom-panel.tsx`
+   as a Fathoms page on each family member, which is what had been missing — `fathomAdvance` was
+   dispatched in `game.mjs` and tested, but no app path reached it, so the strand was unreachable in
+   play. Kept: the original's slots, fixed country cycle, +1%→+25% range and never-decreasing rule;
+   replaced: the weighted reroll and the purchasable unlock, with habit- and time-driven advancement
+   via the `roamRefill` idiom. **Unlock needs BOTH gates** — the original's intimacy threshold *and*
+   cumulative habit activity (`h.totals[domain].actions`, incremented on completion, never reset).
+   An earlier revision of this item said habit activity **not** intimacy; that was wrong, and §5c and
+   `openSlots()` have always required both. Intimacy alone cannot pace anything: it is buyable at
+   ~100 gold per point with no cap. Ceiling measured: +12% per type at tier 1 with all 36 open,
+   +300% at tier 25, from one member — 864 advances at 3/day is ~288 days.
    **DONE 2026-09-12** — `lib/fathoms.mjs` + `tests/fathoms.test.mjs`, 639/639 green. See §5c for what
    shipped and where it departs from the original. The strand now flows through `businessBonus`, so
    `enterpriseBreakdown` and `enterpriseRate` pick it up together and cannot drift.
