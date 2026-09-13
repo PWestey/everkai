@@ -167,7 +167,7 @@ House caveat from the ledger itself: "Do not label a whole system reproduced mer
     - Local "skill" 0–20 using scrolls; sandbox Aptitude via Skill Pearls.
   - **Stella** (`lib/stella.mjs`): **4 owners only** (Angie 40, Liz 40, Rani 40, Elise 20 levels).
   - **Equipment / artifacts** (`lib/artifacts.mjs`, `artifact-echo.mjs`):
-    - 89 artifacts with base Aptitude and growth. Level cap 20.
+    - **84** artifacts with base Aptitude and growth (measured 2026-09-13; this said 89 — `GEAR` is 84, `artifact-rules.json` is 84, and `tests/artifact-forge.test.mjs` asserts 84). Level cap 20, a local choice: the original's cap is 200 on all 99 Equipment rows.
     - Recycling with investment refunds. 33 named Echo bonuses and 3 Family-supported bonuses.
   - **Elixirs:** Basic/Advanced flat Power from Fountain rewards (`lib/elixirs.mjs`).
   - **Skill guide:** 293 profiles and 2,158 nodes, reference only (`character-skill-guide.json`).
