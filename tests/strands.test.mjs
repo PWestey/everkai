@@ -171,8 +171,11 @@ test('the breakdown accounts for its own multiplier: named strands never exceed 
 //   F16    -- Family Fathoms is the original's family-earnings channel (WifeQuenching*, sha-matched
 //             in docs/data-provenance.md:99) and ALREADY feeds businessBonus as the `family` strand,
 //             so familyBonus on top would double-count the family contribution.
-//   SL1-13 -- a P0 row measuring the stack at x334.0 against the original Inn's x206.4. Adding a
-//             +2,100% strand would deepen a known overshoot rather than close a deficit.
+//   SL1-13 -- measured the stack at x334.0 against the original Inn's x206.4. REFUTED 2026-09-13:
+//             that figure needs 105 family members at 36 maxed slots, which takes welcomeAll
+//             (test-only) and 82.8 years of Fathom practice. At reachable states the stack is SHORT
+//             (1yr x127.8, 3yr x135.4, 10yr x162.0). The argument below does not rest on it: the
+//             double-count with Fathoms stands on its own.
 // So the panel and the bless message now say what is true: the family skill raises the legacy
 // starter buildings, and Fathoms is what reaches the businesses.
 test('the family skill raises the starter buildings and deliberately does NOT reach a business',()=>{
@@ -188,8 +191,8 @@ test('the family skill raises the starter buildings and deliberately does NOT re
  // ...and it must stay out of the business stack, or the family contribution is counted twice.
  assert.equal(after.bonus,before.bonus,
   'blessing moved the business multiplier. familyBonus must NOT reach businessBonus: Family Fathoms '
-  +'(F16) is already the family strand there, and SL1-13 measures the stack at x334.0 against the '
-  +"original Inn's x206.4. If this is now intended, retire Fathoms' family strand first.");
+  +'(F16) is already the family strand there, so adding familyBonus counts the family contribution '
+  +"twice. If this is now intended, retire Fathoms' family strand first.");
  assert.equal(after.familyBonus,before.familyBonus,'the family strand is Fathoms, and blessing is not Fathoms');
  // Once wired, the claim scan must keep every promising panel mapped to a live strand.
  for(const f of earningsClaims()){

@@ -190,7 +190,14 @@ neither of which Everkai models at parity:
 
 - **Appoint skills.** 180 of the original's 181 heroes (99.4%) carry `operationSkill` entries, across
   57 distinct skills worth **+20% to +200% each** at level 1 (median +30%). Everkai's
-  `operation-data.json` covers **4 fellows of 154**, capping the whole term at +30%.
+  `operation-data.json` in fact covers **175 records / 494 effects**, and all 494 match
+  `skillProp_Initial/100` exactly — the import is faithful. CORRECTED 2026-09-13: the "4 fellows
+  of 154 / +30%" claim here was stale. Measured, 33 Fellows carry a nonzero Inn bonus at level
+  750, topping out at +200%. THE REAL GAP IS SKILL GROWTH, which `operation-data.json`'s own
+  `limits` note admits: "Skill levels above 1 are not modelled, so skillProp_Level growth is not
+  applied." 144 of the 494 effects are growable (`maxUpgradeLevel` 300 with a non-zero
+  `skillProp_Level`), and applying that growth takes the shipped set from **+22,650% at level 1
+  to +237,930% at max — 10.5×**, which is the whole of the measured appoint shortfall.
 - **Everkai already has the `country` dimension — it is named `type`.** Corrected 2026-09-12; an
   earlier revision of this file claimed country was absent, which was wrong. The mapping is exact and
   1:1 across all 15 typed buildings:
