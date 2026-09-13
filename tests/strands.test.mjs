@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {readdirSync,readFileSync} from 'node:fs';
-import {startingSave,act,valid} from '../lib/game.mjs';
+import {startingSave,act,valid,totalRate} from '../lib/game.mjs';
 import {enterpriseBreakdown,enterpriseRate,businessBonus,BUSINESSES} from '../lib/businesses.mjs';
 import {blessingCost} from '../lib/progression.mjs';
 import {ACTIONS_PER_SLOT} from '../lib/fathoms.mjs';
@@ -111,6 +111,7 @@ const NOT_A_BUSINESS_STRAND=new Map([
  ['habit-panel.tsx','The habit multiplier, applied outside the bonus stack by effectiveRate/accrue (game.mjs:109-112). It scales the whole village rate, businesses included, so it is real income but not an additive strand.'],
  ['apothecary-panel.tsx','Navigation prose only ("Go to village earnings"), promising nothing.'],
  ['blessing-panel.tsx','The opposite of a promise: it states outright that blessings affect Fellow and party Power, NOT village earnings. Honest, and nothing to wire.'],
+ ['family-panel.tsx','BUG-12, resolved by retiring the promise rather than wiring it. familyBonus (progression.mjs:23) multiplies into buildingRate only, which serves the legacy starter buildings, and the panel now says so. It is NOT wired into businessBonus on purpose: F16 records that Family Fathoms is the original\'s family-earnings channel (WifeQuenching*, sha-matched) and already feeds businessBonus as the `family` strand, so adding familyBonus would double-count the family contribution. SL1-13 (P0) also measures the stack at x334.0 against the original Inn\'s x206.4, so a further +2,100% strand would deepen a known overshoot.'],
 ]);
 
 test('the source extractors still work (a drifted pattern must fail loudly, not pass vacuously)',()=>{
@@ -164,30 +165,36 @@ test('the breakdown accounts for its own multiplier: named strands never exceed 
  }
 });
 
-// Marked todo, not deleted: check.yml runs `pnpm test` on every push, so leaving this red would
-// fail the build for everyone. node:test reports a todo failure without failing the run, so the
-// defect stays documented and measurable. Drop the flag the moment familyBonus reaches businessBonus.
-test('every village-earnings promise in app/ reaches a business — THIS IS THE familyBonus DEFECT',{todo:'familyBonus (progression.mjs:23) reaches only buildingRate; wire it into businessBonus or retire the promise'},()=>{
- // Each panel that promises the player a village-earnings percentage must be backed by a strand the
- // businesses actually charge. app/family-panel.tsx:33 renders "+{member.skill}% village earnings"
- // and game.mjs:179 answers `bless` with "Family skill improved: +1% village earnings." Both are
- // paid by familyBonus (progression.mjs:23), which game.mjs:104 multiplies into buildingRate only.
+// BUG-12, resolved by RETIRING the promise rather than wiring it, and this test now pins that
+// choice rather than the defect. familyBonus (progression.mjs:23) multiplies into buildingRate only.
+// Wiring it into businessBonus would have been wrong twice over:
+//   F16    -- Family Fathoms is the original's family-earnings channel (WifeQuenching*, sha-matched
+//             in docs/data-provenance.md:99) and ALREADY feeds businessBonus as the `family` strand,
+//             so familyBonus on top would double-count the family contribution.
+//   SL1-13 -- a P0 row measuring the stack at x334.0 against the original Inn's x206.4. Adding a
+//             +2,100% strand would deepen a known overshoot rather than close a deficit.
+// So the panel and the bless message now say what is true: the family skill raises the legacy
+// starter buildings, and Fathoms is what reaches the businesses.
+test('the family skill raises the starter buildings and deliberately does NOT reach a business',()=>{
  let s=inn();
  const id=Object.keys(s.family)[0];
  s={...s,family:{...s.family,[id]:{...s.family[id],points:blessingCost(s.family[id])}}};
- const before=enterpriseBreakdown(s,'Building_101');
- const after=enterpriseBreakdown(run(s,'bless',id),'Building_101');
- assert.ok(after.bonus>before.bonus,
-  'app/family-panel.tsx and game.mjs:179 promise the player "+1% village earnings" for a family '
-  +'skill, but familyBonus (progression.mjs:23) is multiplied only into buildingRate (game.mjs:104), '
-  +'which serves the three legacy starter buildings. It never reaches businessBonus '
-  +'(businesses.mjs:56), so none of the 17 businesses charge it: the Inn bonus stayed at '
-  +`${before.bonus}. Measured ceiling if wired: +2,100% across 105 family members; measured effect `
-  +'today: 0.837% of totalRate. Fix by adding it to businessBonus, or stop making the promise.');
+ const beforeRate=totalRate(s),before=enterpriseBreakdown(s,'Building_101');
+ const blessed=run(s,'bless',id);
+ const after=enterpriseBreakdown(blessed,'Building_101');
+ // It is a real bonus -- on the buildings it actually serves.
+ assert.ok(totalRate(blessed)>beforeRate,
+  'familyBonus must still raise buildingRate; if this fails the mechanic was removed, not just the claim');
+ // ...and it must stay out of the business stack, or the family contribution is counted twice.
+ assert.equal(after.bonus,before.bonus,
+  'blessing moved the business multiplier. familyBonus must NOT reach businessBonus: Family Fathoms '
+  +'(F16) is already the family strand there, and SL1-13 measures the stack at x334.0 against the '
+  +"original Inn's x206.4. If this is now intended, retire Fathoms' family strand first.");
+ assert.equal(after.familyBonus,before.familyBonus,'the family strand is Fathoms, and blessing is not Fathoms');
  // Once wired, the claim scan must keep every promising panel mapped to a live strand.
  for(const f of earningsClaims()){
   if(NOT_A_BUSINESS_STRAND.has(f))continue;
-  assert.ok(STRANDS.some(x=>x.declaredIn.includes(f))||f==='family-panel.tsx',
+  assert.ok(STRANDS.some(x=>x.declaredIn.includes(f)),
    `${f} promises village earnings but names no strand in STRANDS. Add its probe, or record it in `
    +`NOT_A_BUSINESS_STRAND with the reason it is not part of the business multiplier.`);
  }
