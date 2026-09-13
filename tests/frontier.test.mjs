@@ -2,6 +2,7 @@ import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,SAVE_KEY} from '../lib/game.mjs';
 import {FELLOWS} from '../lib/catalog.mjs';import {FRONTIER,frontierState,frontierKey} from '../lib/frontier.mjs';
+import {fellowCap} from '../lib/adventure.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
 const run=(s,a,t=null,v=null,now=s.lastAt)=>{const r=act(s,a,now,t,v);assert.ok(!r.error,`${a}: ${r.error}`);assert.ok(valid(r.state));return r.state};
 function legacy(){const s=fresh(1000);s.adventure.cleared=30;s.gold=100000;const ids=['hero_15',...FELLOWS.filter(f=>f.id!=='hero_15').slice(0,2).map(f=>f.id)];for(const id of ids)s.fellows[id]={...s.fellows.hero_15,level:30,breaks:1,aptitude:100};s.adventure.party=ids;return s;}
@@ -26,7 +27,18 @@ test('fresh player reaches all chapters through ordinary income, stages, supplie
  for(const f of FELLOWS.filter(f=>f.id!=='hero_15').slice(0,2)){s=run(s,'recruit',f.id);s=run(s,'party',f.id);}
  const ids=[...s.adventure.party];for(const id of ids)for(let i=0;i<90;i++){s=run(s,'buySupply','Item_Talent_Hero_1');s=run(s,'aptitude',id);}
  for(let stage=1;stage<=30;stage++){s=run(s,'battle',stage);for(const id of ids){const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}}
- for(const id of ids){while(s.fellows[id].level<20){s=run(s,'patrol',30);const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}s=run(s,'limitBreak',id);let guard=0;while(s.fellows[id].level<30&&guard++<200){s=run(s,'patrol',30);const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}assert.equal(s.fellows[id].level,30);}
+ // Walk to the zero-break cap, limit-break once, and confirm the cap moved. Both loops carry a
+ // guard: an earlier version trained to a hardcoded level with no bound, and when the cost curve
+ // changed under it the walk ran for 28 minutes instead of failing. Assert against fellowCap rather
+ // than a magic number so the next ladder change reports a wrong cap instead of spinning.
+ for(const id of ids){
+  let guard=0;
+  while(s.fellows[id].level<fellowCap(s.fellows[id])&&guard++<3000){s=run(s,'patrol',30);const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}
+  assert.equal(s.fellows[id].level,fellowCap(s.fellows[id]),'a zero-break Fellow must reach the quality-1 cap of 100');
+  assert.equal(s.fellows[id].level,100);
+  s=run(s,'limitBreak',id);
+  assert.equal(fellowCap(s.fellows[id]),150,'one limit break moves the cap to quality tier 2');
+ }
  for(const e of FRONTIER){s=run(s,'startFrontier',e.id);s=finish(s);}assert.equal(s.frontier.cleared,12);assert.ok(valid(decode(JSON.stringify(s))));
 });
 test('type advantage affects effective Power and insufficient wave Power spends nothing',async()=>{

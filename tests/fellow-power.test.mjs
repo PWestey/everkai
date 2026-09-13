@@ -19,17 +19,24 @@ import operations from '../lib/operation-data.json' with {type:'json'};
 // pinning at both ends: what a single Fellow contributes, and what the whole roster can ever reach.
 //
 // The measured reference point on the original's live save is 3,497,276,469 total power
-// => 3,497,276 conversion. The fixture below reaches 138,699 with every record maxed and every
+// => 3,497,276 conversion. The fixture below reaches 881,466 with every record maxed and every
 // familiar bound; its APK-growth mode passes the original outright.
 //
-// 138,699 IS NOT A CEILING, and an earlier version of this comment said it was. That fixture never
-// touches three shipped, reachable systems: stella, blessings and artifact echoes. Driving those
-// through their own actions reaches 827,408 in a save that still passes valid() -- MEASURED
-// 2026-09-12, stage by stage: 138,699 fixture -> 564,121 (+stella, 4 profiles) -> 821,245
-// (+blessings, 208 trainBlessingsMax calls over 105 welcomed families) -> 827,408 (+27 echoes).
-// So the real default-mode shortfall against the original is 4.23x, NOT the 25.2x that comparing
-// this fixture against a fully-developed original save implies. Numbers here are pinned because
-// they must not drift, but read them as this fixture's reach, not as what the game can reach.
+// 881,466 IS NOT A CEILING, and an earlier version of this comment said its predecessor was. That
+// fixture never touches three shipped, reachable systems: stella, blessings and artifact echoes.
+// Driving those through their own actions reaches 2,938,908 in a save that still passes valid() --
+// MEASURED 2026-09-13, stage by stage: 881,466 fixture -> 1,939,371 (+stella, 4 profiles) ->
+// 2,866,304 (+blessings, 208 trainBlessingsMax calls over 105 welcomed families) -> 2,938,908
+// (+27 echoes). So the real default-mode shortfall against the original is 1.19x.
+//
+// EVERY NUMBER IN THIS FILE MOVED ON 2026-09-13, and not because the power maths changed. Raising
+// the default cap from the old 20+breaks*10 ladder (max 60 at 4 breaks) to the original's quality
+// ladder (max 750 at 13 breaks) is what moved them: `maxedRecords` now builds level 750 / breaks 13
+// records because those are the highest values valid() accepts. The previous figures -- 138,699
+// fixture, 827,408 ceiling, 4.23x shortfall -- were all measured against a level-60 ceiling and are
+// dead. Numbers here are pinned because they must not drift, but read them as this fixture's reach,
+// not as what the game can reach. Whether 1.19x is where default mode SHOULD land is a balance
+// question tied to the faucet work, not something this characterisation test decides.
 
 const NOW=1767225600000;                 // fixed day, so habit-derived state is stable across runs
 const ID='hero_15';                      // the starting Fellow, present on every fresh save
@@ -42,9 +49,11 @@ const maybe=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);return r.error?s
 const roster=()=>maybe(startingSave(NOW),'recruitAll');
 /** Overwrite one Fellow's record on a save. */
 const withFellow=(s,props,id=ID)=>({...s,fellows:{...s.fellows,[id]:{...s.fellows[id],...props}}});
-/** Every Fellow record pushed to the highest values `valid()` accepts in default mode. */
+/** Every Fellow record pushed to the highest values `valid()` accepts in default mode. Level tracks
+ *  the quality ladder: 13 breaks is the validated maximum and puts fellowCap at 750, so 750/13 is
+ *  the true ceiling. It was 60/4 under the old 20+breaks*10 ladder. */
 const maxedRecords=s=>({...s,fellows:Object.fromEntries(Object.keys(s.fellows).map(id=>
- [id,{level:60,aptitude:1000,skill:20,breaks:4,gear:BEST.id,stars:STAR_CAP,gearLevel:20}]))});
+ [id,{level:750,aptitude:1000,skill:20,breaks:13,gear:BEST.id,stars:STAR_CAP,gearLevel:20}]))});
 
 // ---------------------------------------------------------------------------------------------
 // Extractor guard FIRST. The contributor test below reads lib/adventure.mjs as text, so a drifted
@@ -101,10 +110,11 @@ test('bondedPower sums exactly these fifteen contributors, and no others',()=>{
 // Cap arithmetic. Two independent ladders, and which one applies is a per-save opt-in.
 // ---------------------------------------------------------------------------------------------
 
-test('default mode caps a Fellow at level 60, not 50: cap is 20+breaks*10 and breaks stop at 4',()=>{
- // lib/adventure.mjs:35. `breaks` is validated to a maximum of 4 (lib/adventure.mjs:73), and the
- // limitBreak action refuses at 4 (lib/adventure.mjs:80), so 60 is the real default ceiling.
- assert.deepEqual([0,1,2,3,4].map(breaks=>fellowCap({breaks})),[20,30,40,50,60]);
+test('default mode reads the original quality ladder: caps 100-750 as breaks run 0-13',()=>{
+ // lib/adventure.mjs:39. `breaks` is validated to a maximum of 13 (lib/adventure.mjs:84), and the
+ // limitBreak action refuses at 13 (lib/adventure.mjs:91), so 750 is the real default ceiling.
+ assert.deepEqual([0,1,2,3,4].map(breaks=>fellowCap({breaks})),[100,150,200,250,300]);
+ assert.deepEqual([7,13].map(breaks=>fellowCap({breaks})),[450,750],'breaks now run 0-13 across the original 14 quality tiers');
 });
 
 test('APK growth replaces that ladder with the original quality table: 14 steps, 100 to 750',()=>{
@@ -156,7 +166,7 @@ test('museum is the one external contributor reachable with no other system buil
 // The ceiling. This is the number the economy hangs off, so it is pinned at each stage of assembly.
 // ---------------------------------------------------------------------------------------------
 
-test('default mode: records + museum + familiars reach 138,699 -- NOT the ceiling, see the header',()=>{
+test('default mode: records + museum + familiars reach 881,466 -- NOT the ceiling, see the header',()=>{
  let s=roster();
  assert.equal(Object.keys(s.fellows).length,154);
  // An untrained full roster is worth almost nothing: 154 x 100 / 1000.
@@ -170,9 +180,9 @@ test('default mode: records + museum + familiars reach 138,699 -- NOT the ceilin
 
  // Every record maxed instead: levels, aptitude, skill, best gear, artifact level 20, seven stars.
  s=maxedRecords(s);
- assert.equal(Math.round(rosterOperation(s)),61225);
+ assert.equal(Math.round(rosterOperation(s)),721313);
  s=maybe(maybe(s,'claimMuseum'),'acceptMuseum');
- assert.equal(Math.round(rosterOperation(s)),67612);
+ assert.equal(Math.round(rosterOperation(s)),796557);
 
  // Familiars are the largest single external contributor: inherent flat Power up to 3,000,000 plus
  // 199 activatable nodes each. Binding is strictly 1:1, so only 71 of 154 Fellows can ever hold one.
@@ -185,14 +195,14 @@ test('default mode: records + museum + familiars reach 138,699 -- NOT the ceilin
   if(next!==s){s=maybe(next,'activateFamiliarNodes',pet);bound++}
  }
  assert.equal(bound,71,'familiar binding is 1:1; 71 familiars cover 71 of 154 Fellows');
- assert.equal(Math.round(rosterOperation(s)),138699);
+ assert.equal(Math.round(rosterOperation(s)),881466);
 
  // The whole fixture is a legal save, so this is genuinely reached and not a minted state. It is NOT
  // the ceiling: stella, blessings and artifact echoes are all still at zero here, and driving them
- // reaches 827,408 (see the file header). Do not quote 138,699 as what default mode can reach.
+ // reaches 2,938,908 (see the file header). Do not quote 881,466 as what default mode can reach.
  assert.ok(valid(s),'the maxed roster must remain a valid save');
- // Measured parity reference: the original's live save converts 3,497,276. This fixture reaches 4.0%
- // of it; the reachable 827,408 reaches 23.7%, i.e. a 4.23x shortfall rather than 25.2x.
+ // Measured parity reference: the original's live save converts 3,497,276. This fixture reaches 25.2%
+ // of it; the reachable 2,938,908 reaches 84.0%, i.e. a 1.19x shortfall.
  assert.ok(rosterOperation(s)<3_497_276,'this fixture is still below the original live-save total');
 });
 
@@ -200,15 +210,15 @@ test('default mode: records + museum + familiars reach 138,699 -- NOT the ceilin
 // THE ACTUAL REACHABLE CEILING. The fixture above was quoted as Everkai's ceiling for weeks, and the
 // roadmap carried a "25.2x power gap" built on it. It is not a ceiling: it never touches stella,
 // blessings or artifact echoes, all three of which are shipped and reachable through their own
-// actions. Driving them takes the SAME save to 827,408 -- a 5.97x correction, and the real shortfall
-// against the original's 3,497,276 is 4.23x rather than 25.2x.
+// actions. Driving them takes the SAME save to 2,938,908 -- a 3.33x correction, and the real
+// shortfall against the original's 3,497,276 is 1.19x rather than 25.2x.
 //
 // This is pinned stage by stage on purpose. A single end number would say "something moved" when one
 // system silently stops contributing; four checkpoints say WHICH one. Every stage asserts valid(),
 // because a ceiling reachable only by minting an illegal save is not a ceiling.
 // ---------------------------------------------------------------------------------------------
 
-test('the real default-mode ceiling is 827,408: stella, blessings and echoes take it 5.97x past the fixture',()=>{
+test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes take it 3.33x past the fixture',()=>{
  // Stage 0 -- the fixture above, rebuilt here so this test stands alone if that one is edited.
  let s=maxedRecords(roster());
  s=maybe(maybe(s,'claimMuseum'),'acceptMuseum');
@@ -219,7 +229,7 @@ test('the real default-mode ceiling is 827,408: stella, blessings and echoes tak
   const next=maybe(s,'bindFamiliar',pet,fellow);
   if(next!==s){s=maybe(next,'activateFamiliarNodes',pet);bound++}
  }
- assert.equal(Math.round(rosterOperation(s)),138699,'stage 0 must match the fixture above');
+ assert.equal(Math.round(rosterOperation(s)),881466,'stage 0 must match the fixture above');
 
  // Stage 1 -- STELLA. Four profiles ship with a private activation policy; each is activated once and
  // then upgraded to the top of its own ladder, paid from the free sandbox fragment faucet. Every call
@@ -237,7 +247,7 @@ test('the real default-mode ceiling is 827,408: stella, blessings and echoes tak
    if(s===before)break;
   }
  }
- assert.equal(Math.round(rosterOperation(s)),564121,'stella is worth +425,422 over the fixture');
+ assert.equal(Math.round(rosterOperation(s)),1939371,'stella is worth +1,057,905 over the fixture');
  assert.ok(valid(s),'the stella save must be legal');
 
  // Stage 2 -- BLESSINGS. welcomeAll is the family counterpart of recruitAll; without it a save holds
@@ -262,7 +272,7 @@ test('the real default-mode ceiling is 827,408: stella, blessings and echoes tak
  }
  // 208 of 210: two (family, key) pairs refuse with 'No supported ungated Fellows are available'.
  assert.equal(trained,208,'the trainable (family, blessing) pair count has moved');
- assert.equal(Math.round(rosterOperation(s)),821245,'blessings are worth +257,124 over stella');
+ assert.equal(Math.round(rosterOperation(s)),2866304,'blessings are worth +926,933 over stella');
  assert.ok(valid(s),'the blessing save must be legal');
 
  // Stage 3 -- ARTIFACT ECHOES. An Echo only enables when its OWN named artifact is equipped on its
@@ -277,13 +287,13 @@ test('the real default-mode ceiling is 827,408: stella, blessings and echoes tak
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
  assert.equal(enabled,27,'every named Echo must enable once its own artifact is equipped');
- assert.equal(Math.round(rosterOperation(s)),827408);
- assert.ok(valid(s),'THE WHOLE 827,408 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
+ assert.equal(Math.round(rosterOperation(s)),2938908);
+ assert.ok(valid(s),'THE WHOLE 2,938,908 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
 
  // The parity statement this file exists to make, in one assertion.
- assert.equal(Math.round(3_497_276/rosterOperation(s)*100)/100,4.23,
-  'the default-mode shortfall against the original live save is 4.23x, NOT the 25.2x that quoting '
-  +'the 138,699 fixture as a ceiling implies');
+ assert.equal(Math.round(3_497_276/rosterOperation(s)*100)/100,1.19,
+  'the default-mode shortfall against the original live save is 1.19x, NOT the 25.2x that quoting '
+  +'the 881,466 fixture as a ceiling implies');
 });
 
 test('APK growth mode passes the original outright: one Fellow alone is worth 44.6M Power',()=>{
@@ -310,16 +320,20 @@ test('APK growth mode passes the original outright: one Fellow alone is worth 44
 // are gated on Fellow LEVEL, so the default cap of 60 decides how much of the import is live.
 // ---------------------------------------------------------------------------------------------
 
-test('175 of 494 imported appoint effects are unreachable while the default cap is 60',()=>{
+test('all 494 imported appoint effects are reachable: the level-200 tier unlocks at 2 limit breaks',()=>{
  const effects=operations.records.flatMap(r=>r.effects);
  assert.equal(operations.records.length,175);
  assert.equal(effects.length,494);
  // Three unlock tiers, straight from the original's AppointSkill_HeroLevel counts.
  const byLevel={};for(const e of effects)byLevel[e.minLevel]=(byLevel[e.minLevel]||0)+1;
  assert.deepEqual(byLevel,{1:144,50:175,200:175});
- // The level-50 tier IS reachable at breaks 4 (cap 60). Only the level-200 tier is stranded.
- assert.equal(effects.filter(e=>e.minLevel<=fellowCap({breaks:4})).length,319);
- assert.equal(effects.filter(e=>e.minLevel>fellowCap({breaks:4})).length,175);
+ // A fresh Fellow -- breaks 0, cap 100 -- already clears the level-1 and level-50 tiers.
+ assert.equal(effects.filter(e=>e.minLevel<=fellowCap({breaks:0})).length,319);
+ // Two limit breaks put the cap at exactly the last tier's gate, so nothing stays stranded. The old
+ // 20+breaks*10 ladder topped out at 60 and left all 175 level-200 effects permanently dead.
+ assert.equal(fellowCap({breaks:2}),200);
+ assert.equal(effects.filter(e=>e.minLevel<=fellowCap({breaks:2})).length,494);
+ assert.equal(effects.filter(e=>e.minLevel>fellowCap({breaks:13})).length,0);
  // And skill-level growth is not modelled at all: percent is pinned at skillProp_Initial/100, so
  // the original's +500 per level (SkillBase.json, 44 of 76 appoint rows, maxUpgradeLevel 300) is absent.
  assert.match(operations.limits,/Skill levels above 1 are not modelled/);

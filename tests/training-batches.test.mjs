@@ -6,7 +6,7 @@ const run=(s,a,v)=>{const r=act(s,a,s.lastAt,'hero_15',v);assert.ok(!r.error,r.e
 test('max level training equals singles, respects exact budget and never auto breaks',()=>{
  let s=fresh(1000);s.fellowXP=xpCost(s.fellows.hero_15.level)+xpCost(s.fellows.hero_15.level+1)-1;
  const p=levelTrainingPlan(s,'hero_15');assert.equal(p.count,1);const a=run(s,'train','max');assert.deepEqual(a,run(s,'train',1));assert.equal(a.fellowXP,s.fellowXP-p.cost);
- s.fellowXP=1e9;let b=s;const plan=levelTrainingPlan(s,'hero_15');for(let i=0;i<plan.count;i++)b=run(b,'train',1);assert.deepEqual(run(s,'train','max'),b);assert.equal(b.fellows.hero_15.level,20);assert.equal(b.fellows.hero_15.breaks,0);assert.deepEqual(decode(JSON.stringify(b)),b);
+ s.fellowXP=1e9;let b=s;const plan=levelTrainingPlan(s,'hero_15');for(let i=0;i<plan.count;i++)b=run(b,'train',1);assert.deepEqual(run(s,'train','max'),b);assert.equal(b.fellows.hero_15.level,100);assert.equal(b.fellows.hero_15.breaks,0);assert.deepEqual(decode(JSON.stringify(b)),b);
 });
 test('max talents equal singles and preserve prior Aptitude at source and resource boundaries',()=>{
  let s=fresh(1000);const r=talentRule('hero_15');assert.ok(r);s.inventory.Item_Talent_Hero_1=1000;s.fellows.hero_15.aptitude=100;
