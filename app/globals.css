@@ -676,3 +676,18 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .story-reader .story-controls button:disabled{background:#cdbb95!important;color:#6d5d42!important}
 .story-reader>.small-note{display:none}
 .story-reader .story-stage{background:radial-gradient(ellipse at bottom,#9a7650 0%,#5b3d26 55%,#2e1f14 100%)!important}
+/* RAPHAEL'S STAGE -- the formation sits ON the stage art: translucent dark squares with gold edges
+   instead of opaque beige tiles, stats as dark plates. The objective button is hidden here because
+   the action dock overlapped it (dock 630-762, button 727-771 at 393x852). */
+.game-modal:has(.raphael-panel)>.return-objective{display:none}
+.raphael-panel .family-stats div{background:#2e1f14c7!important;border:1px solid #c99a4e;border-radius:6px!important;color:#ffe7b5}
+.raphael-panel .family-stats span{color:#e5bd6a!important;min-height:0!important}
+.raphael-panel .family-stats strong{color:#fff3d6}
+.raphael-grid .raphael-square{background:#2e1f148c!important;border:1px solid #c99a4ecc!important;color:#ffe7b5!important;border-radius:6px;backdrop-filter:blur(1px)}
+.raphael-grid .raphael-square>span{font:700 16px Georgia,serif;color:#f3cd6b}
+.raphael-grid .raphael-square.supported{box-shadow:inset 0 0 0 2px #7fd39a}
+.raphael-grid .raphael-square.selected{background:#8a5a1ccc!important;border-color:#ffd36b!important;box-shadow:0 0 6px #ffd36b}
+/* Arranging needs the formation in view: the Arrange sheet is a short bottom sheet over the dock
+   area instead of the full-height facility sheet. Selector specificity beats .system-sheet's own. */
+.character-sheet.system-sheet:has(.raphael-arrange){height:min(40dvh,360px)!important;top:auto!important}
+.character-sheet.system-sheet:has(.raphael-arrange)>.game-resources{display:none}
