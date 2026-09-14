@@ -93,7 +93,10 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-modal{padding:0!important;gap:0!important;height:calc(100dvh - 12px)!important;max-height:calc(100dvh - 12px)!important;overflow:hidden}
 .character-modal .modal-body{padding:0;overflow:hidden;display:flex}
 .character-modal .system-content,.character-modal .system-content>[data-slot=tabs-content]{height:100%;width:100%;min-height:0}
-.character-modal .return-objective{margin:0;border-radius:0;background:#e7d5ae;min-height:36px;height:36px;font-size:12px}
+/* Measured 2026-09-13: rendered 375x36 -- full width, but 36px tall is under the 44px minimum, and
+   this is the bar a player taps to get back to their objective. .modal-heading above it is 80px, so
+   the extra 8px costs the character art nothing. */
+.character-modal .return-objective{margin:0;border-radius:0;background:#e7d5ae;min-height:44px;height:44px;font-size:12px}
 .character-modal .module-notice{padding:5px 10px;font-size:12px;max-height:68px;overflow:auto}
 .character-screen{height:100%;min-height:0;position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 50% 65%,#e1d6b4,#577b64 80%);overflow:hidden}
 .character-screen-art{position:absolute;inset:0;z-index:-1}
@@ -174,7 +177,11 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .resource-pill strong{font-size:clamp(11px,3.5vw,15px);white-space:nowrap}
 .resource-pill>svg,.resource-pill>img{width:18px;height:18px;flex:none;object-fit:contain;color:#edbd62}
 .resource-pill:nth-of-type(3)>svg{color:#6ddfff}
-.resource-settings{min-width:36px;width:36px;height:40px;min-height:40px!important;padding:4px;margin:0;color:#edd19a;border:1px solid #9a794d;border-radius:5px;background:#432918}
+/* Measured 2026-09-13: 36x40, the last sub-44px control in the module frame, and it sits in the
+   top-right corner directly above the close -- the pair the "buried in the top right" report named.
+   .game-resources measures 53px tall, so 44 fits with room. The min-height carries !important
+   because the original did; a weaker rule appended elsewhere would lose to it. */
+.resource-settings{min-width:44px;width:44px;height:44px;min-height:44px!important;padding:4px;margin:0;color:#edd19a;border:1px solid #9a794d;border-radius:5px;background:#432918}
 .original-primary-dock{grid-template-columns:repeat(6,minmax(0,1fr));gap:0;padding:5px 2px max(6px,env(safe-area-inset-bottom));background:repeating-linear-gradient(45deg,#54342066 0 2px,transparent 2px 6px),#47291b;border-top:3px double #b9955e}
 .original-primary-dock .village-icon{min-width:0;padding:2px;min-height:63px;gap:1px;box-shadow:none;border:0;border-radius:0;background:transparent}
 .original-primary-dock .village-icon img{width:43px;height:43px;max-width:100%;object-fit:contain}
@@ -186,7 +193,12 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .modal-heading>img{height:28px;width:28px}
 .modal-heading [data-slot=dialog-title]{font:700 18px Georgia,serif;color:#ffe9b6}
 .modal-heading [data-slot=dialog-description]{display:none}
-.modal-heading .village-close{height:36px;width:36px;min-height:36px;background:#795038;border:2px solid #c6a36a}
+/* Measured 2026-09-13 on a 375x812 phone frame: this X rendered 36x36 at (331,56) -- under the 44px
+   minimum on both axes, in the top-right corner, which is what "the x is unclickable since it's
+   buried in the top right" was describing. .modal-heading is min-height:80px, so 44 fits with room.
+   The earlier fix only repositioned it: its selector was [data-slot=dialog-content]>[data-slot=dialog-close],
+   but the close is NOT a direct child of dialog-content, so that rule never matched anything. */
+.modal-heading .village-close{height:44px;width:44px;min-height:44px;background:#795038;border:2px solid #c6a36a}
 .character-screen{background:radial-gradient(ellipse at 50% 65%,#c4bda7,#7b7059 85%)}
 .character-screen-heading{position:relative;display:block;padding:10px 66px 0;color:#ffe8be;background:none;text-align:center;pointer-events:none}
 .character-nameplate{padding:7px 12px;background:#5b4236c9;border-block:2px solid #c5a362;clip-path:polygon(7% 0,93% 0,100% 50%,93% 100%,7% 100%,0 50%);text-shadow:0 1px 2px #2b160a}
@@ -262,7 +274,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .storage-empty{padding:20px;text-align:center}.item-detail-art{height:90px;width:90px;object-fit:contain;margin:auto}.item-use-actions{display:flex;gap:8px;flex-wrap:wrap}.item-use-actions>button{flex:1;min-height:44px;background:#748440;color:#fff7d4}
 .original-gift-panel{display:grid;gap:14px}.gift-icon-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.gift-icon-grid button{position:relative;aspect-ratio:1;min-width:0;padding:3px;border:2px solid #a88b5e;background:#e1d2ad;border-radius:3px}.gift-icon-grid button[aria-pressed=true]{border-color:#e4ab2d;box-shadow:0 0 0 2px #a37421,inset 0 0 10px #fff6ce}.gift-icon-grid img{width:100%;height:100%;object-fit:contain}.gift-icon-grid strong{position:absolute;bottom:2px;right:3px;color:#fff;font:700 12px Georgia,serif;text-shadow:0 1px 2px #2d1d10}.gift-description h3{font:700 20px Georgia,serif;margin-bottom:5px}.gift-quantity{display:flex;gap:8px;align-items:center}.gift-quantity input{width:90px}.gift-purchase{justify-self:start}
 @media(max-height:480px){.character-rarity strong>img{width:42px;height:42px}.character-rarity span>img{width:28px;height:28px}.storage-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.storage-item{aspect-ratio:1.2}.storage-item img{height:42px}.storage-summary{margin:0}.storage-screen{padding:4px 10px}.original-gift-panel{gap:8px}.gift-icon-grid{max-width:380px}.gift-description h3{font-size:18px}}
-.roster-type-filters{display:flex;justify-content:space-between;gap:4px;background:#765332;border-block:1px solid #aa8b50;padding:2px 4px}.roster-type-filters button{min-width:0;width:42px;min-height:42px;padding:2px;color:#f9e8b8}.roster-type-filters img{width:34px;height:34px;object-fit:contain}.roster-type-filters button[aria-pressed=true]{outline:2px solid #e1bd68;outline-offset:-2px;background:#ad8d3f66}
+.roster-type-filters{display:flex;justify-content:space-between;gap:4px;background:#765332;border-block:1px solid #aa8b50;padding:2px 4px}.roster-type-filters button{min-width:0;width:44px;min-height:44px;padding:2px;color:#f9e8b8}.roster-type-filters img{width:34px;height:34px;object-fit:contain}.roster-type-filters button[aria-pressed=true]{outline:2px solid #e1bd68;outline-offset:-2px;background:#ad8d3f66}
 .character-collection .roster-tile{position:relative;overflow:hidden;border:2px solid #9e7b49;border-radius:3px;padding:0;background:#d9c7a0;gap:0}.character-collection .roster-tile>img{height:118px}.character-collection .roster-tile>strong{width:100%;background:#674730;color:#ffe7b5;padding:4px 1px;font:700 13px Georgia,serif}.character-collection .roster-tile>span:not(.roster-source-badges){padding:2px;font-size:10px}.character-collection .roster-tile .roster-source-badges{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}.character-collection .roster-source-badges>img{width:28px;height:29px;object-fit:contain;filter:none;opacity:1}.character-collection .roster-tile.chosen{border-color:#ecd183;box-shadow:0 0 0 2px #8d6928}
 @media(max-height:480px){.character-collection .roster-tile>img{height:66px}.roster-type-filters button{min-height:36px;height:36px}.roster-type-filters img{height:30px;width:30px}}
 .game-modal>.original-primary-dock{position:relative;inset:auto;flex:none;width:100%;margin:0;border-radius:0}
