@@ -730,3 +730,38 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .familiar-detail .panel-pages{background:transparent!important}
 .familiar-detail .panel-pages>button{background:#7a5634!important;border:1px solid #4d321d!important;color:#f6dfa8!important;font:700 13px Georgia,serif;white-space:nowrap;padding-inline:4px}
 .familiar-detail .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33)!important;border-color:#8a5a1c!important;color:#442a10!important}
+/* BUSINESS SHEET -- the original frames a business as a scene: the building stands in the painted
+   village inside a dark-wood border under a ribbon title, stats sit in a two-column table, and the
+   one primary action is gold. */
+.inn-exterior{background:#6d5a3c url('../public/assets/ui-scenes/Bg_Village_01_Mid.png') center/cover no-repeat!important;border-bottom:3px solid #5b3d26;box-shadow:inset 0 0 0 2px #c99a4e,inset 0 -40px 60px -30px #0006}
+.inn-exterior>img{filter:drop-shadow(0 8px 8px #0006)}
+.inn-exterior h2{left:50%!important;right:auto!important;transform:translateX(-50%);min-width:180px;padding:8px 26px 10px;background:url('../public/assets/ui-original/title.png') center/100% 100% no-repeat;color:#ffe7b5!important;font-size:17px!important;text-shadow:0 1px 2px #000a!important;white-space:nowrap}
+.inn-operation [data-slot=native-select]{background:#fff6df;border-color:#b88a47;font-family:Georgia,serif;color:#4b3421}
+.inn-summary{gap:0!important;border:1px solid #c49a55;border-radius:4px;overflow:hidden}
+.inn-summary>div{grid-template-columns:auto 1fr;align-items:center;gap:8px!important;padding:4px 10px;background:#fbf0d4}
+.inn-summary>div+div{border-left:1px solid #c49a55}
+.inn-summary span{padding:2px 6px;border-radius:3px;background:#e3cfa3;color:#5b3d26;font-weight:700}
+.inn-summary strong{text-align:right;color:#3d2a1b}
+.inn-operation>button[data-variant=default],.inn-quality-row button[data-variant=default]{background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font:700 15px Georgia,serif}
+.inn-operation>button[data-variant=default]:disabled{background:#cdbb95!important;color:#6d5d42!important;border-color:#a8926a!important;opacity:1}
+.inn-hire-row button{background:#7a5634!important;border:1px solid #4d321d!important;color:#ffe7b5!important;font-family:Georgia,serif;font-weight:700}
+.inn-bottom-actions button{background:#5b3d26!important;border:1px solid #c99a4e!important;color:#ffe7b5!important;font:700 14px Georgia,serif}
+.inn-bottom-actions button:disabled{opacity:.55}
+/* Open business: the operation column holds hire, quality, operators and three disclosures, so it
+   scrolls on its own and the scene keeps a real height instead of collapsing to a strip. */
+@media (min-height:481px),(max-width:519px){.inn-exterior{flex:0 0 auto!important;height:clamp(150px,24dvh,300px)}.inn-exterior>img{max-height:100%}.inn-operation{flex:1 1 auto!important;min-height:0;overflow-y:auto;overscroll-behavior:contain}}
+.inn-summary strong{white-space:nowrap;font-size:16px!important}
+.inn-hire-row button[aria-pressed=true]{background:#d9aa55!important;color:#3d2a1b!important;border-color:#8a5a1c!important}
+.inn-hire-row button:not([aria-pressed]){background:linear-gradient(#f3cd6b,#d59a33)!important;border-color:#8a5a1c!important;color:#442a10!important}
+.inn-operation details summary{color:#6b4a26}
+.inn-operation{grid-auto-rows:max-content;align-content:start}
+/* FACILITY SHEETS -- every Drakenberg/business sheet shares one frame: gold primary buttons, brown
+   tabs with a gold active tab, dark-wood summary plates and parchment cards. Character sheets keep
+   the green Improve-style button, which is what the original uses for levelling. */
+.system-sheet .character-sheet-body button:not([data-variant=outline]):not([data-variant=ghost]){background:linear-gradient(#f3cd6b,#d59a33);border:1px solid #8a5a1c;color:#442a10;font-weight:700}
+.system-sheet .character-sheet-body button:not([data-variant=outline]):not([data-variant=ghost]):disabled{background:#cdbb95;border-color:#a8926a;color:#6d5d42;opacity:1}
+.system-sheet .character-sheet-body button[data-variant=outline]{border-color:#b88a47;color:#5b3d26}
+.system-sheet .character-sheet-body .panel-pages>button[data-variant=outline]{background:#7a5634;border:1px solid #4d321d;color:#f6dfa8;font-weight:700}
+.system-sheet .character-sheet-body .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33);border-color:#8a5a1c;color:#442a10}
+.system-sheet .rank-card{background:linear-gradient(#5b3d26,#422a19)!important;border:1px solid #c99a4e;color:#ffe7b5}
+.system-sheet :is(.school-card,.business-card,.family-detail,.milestone){background:#fbf0d4;border-color:#c49a55}
