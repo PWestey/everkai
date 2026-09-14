@@ -911,3 +911,6 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .town-list .maturity-line{white-space:normal;font-size:11px;color:#6b4a26}
 .town-list .maturity-row{flex-wrap:nowrap!important}.town-list .maturity-line{flex:1 1 auto;min-width:0}.town-list .maturity-badge{flex:none}
 .town-list{grid-template-rows:none!important;grid-auto-rows:max-content!important;align-content:start}
+/* Native selects rendered at the component's 32px (h-8) everywhere -- e.g. the equipment picker in the
+   Fellow sheets and the fishing-ground picker. Portrait raises them to the 44px tap target. */
+@media (min-height:481px),(max-width:519px){select[data-slot=native-select]{min-height:44px}}
