@@ -840,3 +840,25 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .system-sheet .character-sheet-body .panel-pages{display:flex!important;flex-wrap:nowrap;gap:4px}
 .system-sheet .character-sheet-body .panel-pages>button{flex:1 1 auto;min-width:0;padding-inline:4px;font-size:12px;white-space:nowrap}
 .system-sheet .business-actions:has(.supply-buy){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+/* FAMILIAR TOWER -- ribbon, floor progress, five team slots (front two marked), and the next floor as
+   a card with the guardians' stats and a gold Challenge. The skill text sits behind its own summary. */
+.familiar-tower{display:grid;gap:10px}
+.tower-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:0;padding:0;list-style:none}
+.tower-slots li{display:grid;gap:2px;justify-items:center}
+.tower-slots .framed-card{width:100%}
+.tower-slots .framed-card>span{top:24%;display:grid;place-items:center}.tower-slots .framed-card>span img{width:26px;height:26px}
+.tower-slots .framed-card>strong{font-size:9px;padding:1px}
+.tower-empty{width:100%;aspect-ratio:206/280;display:grid;place-items:center;border:2px dashed #b88a47;border-radius:6px;background:#efe0bd;color:#8a5a1c;font:700 22px Georgia,serif}
+.tower-slots small{font-size:10px;color:#8a5a1c;font-weight:700}.tower-slots li.front small{color:#a8431f}
+.tower-floor{display:grid;gap:6px;padding:10px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px;text-align:center}
+.tower-floor h4{justify-self:center;padding:3px 22px;background:#5b3d26;border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font:700 15px Georgia,serif}
+.tower-floor>p{margin:0;color:#6b4a26;font-size:13px!important}
+.tower-floor dl{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0}
+.tower-floor dl div{padding:4px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px}
+.tower-floor dt{font-size:11px;color:#e5bd6a}.tower-floor dd{margin:0;font:700 15px Georgia,serif;color:#fff3d6}
+.tower-floor .tower-reward{color:#8a5a1c;font-weight:700}
+.tower-result{padding:8px 10px;border:2px solid #c49a55;border-radius:6px;background:#fbf0d4}
+.tower-result>summary{font:700 15px Georgia,serif;color:#4b3421}
+.tower-result.won{border-color:#c99a4e;box-shadow:inset 0 0 0 2px #f3cd6b88}.tower-result.won>summary{color:#7a5a12}
+.tower-result.lost{border-color:#8a3a2a}.tower-result.lost>summary{color:#8a3a2a}
+.tower-result p{font-size:13px!important}
