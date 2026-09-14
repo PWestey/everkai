@@ -497,3 +497,28 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
  .character-screen .character-action-dock::-webkit-scrollbar{display:none}
  .character-screen .character-action-dock>button{flex:0 0 62px;scroll-snap-align:start}
 }
+
+/* STAGE, redesigned against the original (screen audit P0: Stage, 15 rows). The audit capture
+   showed a blank scene, but that was stale -- the illustrated scene, title ribbon and progress
+   track were already live. What was still wrong: text-pill activities, a green secondary-looking
+   primary action, explanatory prose where the original has a Stage Records log, and a plain
+   cream panel. The original: parchment records, a GOLD Go button carrying its cost, icon actions. */
+.stage-operation{background:repeating-linear-gradient(45deg,#64402b55 0 2px,transparent 2px 6px),#49301f;color:#fff0cf;border-top:3px double #d4b16e}
+.stage-current small{color:#f4d18b;letter-spacing:.06em}
+.stage-current h3{color:#fff3d1;text-shadow:0 1px 2px #1d1208}
+.stage-current p{color:#e9d8b3}
+.stage-records{height:auto;max-height:104px;display:grid;align-content:start;gap:4px;padding:5px 8px 7px;border:2px solid #c5a263;border-radius:8px;background:#e9dcc0 url('../public/assets/ui-original/parchment.png') center/cover;color:#4b3421}
+.stage-records>header{text-align:center;font:700 13px Georgia,serif;color:#6b4b2a}
+.stage-records>header::before,.stage-records>header::after{content:'\25C6';color:#b8894a;font-size:9px;margin:0 7px;vertical-align:2px}
+.stage-records>p{margin:0;padding:4px 9px;border-radius:6px;background:#8a6a4de0;color:#fff3dd;font:12px/1.3 Georgia,serif}
+.stage-go button:first-child{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;background:linear-gradient(#f6cf6a,#d98b2b);color:#3f2408;border:2px solid #fff0b8;border-radius:10px;box-shadow:0 2px 0 #7a4a17,inset 0 1px 0 #fff6cc;font:700 18px Georgia,serif}
+.stage-go button:first-child b{font:700 20px/1 Georgia,serif}
+.stage-go button:first-child small{font:700 11px/1.2 Georgia,serif;color:#5a3510}
+.stage-go button:first-child:disabled{filter:grayscale(.6);opacity:.7}
+.stage-go button:last-child{background:#62442e;color:#ffe9b5;border:2px solid #c5a263;border-radius:10px;font:700 14px Georgia,serif}
+.stage-go button:last-child[aria-pressed=true]{background:#8a6a2a;color:#fff6d0;box-shadow:inset 0 0 0 2px #ffd46c}
+.stage-activity-buttons{gap:4px}
+.stage-activity-buttons button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:52px;padding:3px 2px;background:#62442e;color:#ffe9b5;border:2px solid #c5a263;border-radius:8px;font:700 10px/1.05 Georgia,serif}
+.stage-activity-buttons button img{width:24px;height:24px;object-fit:contain;filter:drop-shadow(0 1px 1px #211406)}
+.stage-quest-link{display:flex;align-items:center;gap:6px;color:#fff0cf;background:#3b2a1dcc;border:1px solid #c5a263;border-radius:6px;text-decoration:none;padding:4px 8px}
+.stage-quest-link::before{content:'';flex:none;width:20px;height:20px;background:url('../public/assets/menu/overview.png') center/contain no-repeat}
