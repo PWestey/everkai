@@ -537,3 +537,23 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .world .village-next-step>button{flex:none;max-width:112px;min-height:44px;padding:4px 9px;white-space:normal;line-height:1.1;background:linear-gradient(#f6cf6a,#d98b2b);color:#3f2408;border:2px solid #fff0b8;border-radius:8px;font:700 12px Georgia,serif;box-shadow:0 2px 0 #7a4a17}
 .village-building>span{background:linear-gradient(#5a4327,#3f2f1c);color:#fdf3d8;border:2px solid var(--game-gold);border-radius:7px;text-shadow:0 1px 2px #000a;box-shadow:inset 0 0 0 1px #7d6033,0 3px 8px #0009}
 .village-building>span small{color:#f4d18b}
+
+/* CHARACTER SHEETS, redesigned against the original (screen audit P0: ~19 Family/Fellow sheet rows).
+   The original never buries the character: gift and bond sheets are bottom sheets with a slim
+   centred ornament header, so the face stays visible above. Ours were 494px (58dvh), 540px for
+   gifts, and header + pager footer alone took 120px of that. Measured content already scrolls on
+   most pages (Profile 905px, Fathoms 3,611px in a 366px body), so the win is cutting chrome, not
+   squeezing content. Character sheets only: facility pages share this component as .system-sheet
+   and their long content must not be halved. Portrait only: landscape uses a side sheet. */
+@media (min-height:481px),(max-width:519px){
+ .character-sheet:not(.system-sheet){height:min(50dvh,460px)}
+ .character-sheet:not(.system-sheet):has(.original-gift-panel){height:min(60dvh,520px)}
+ .character-sheet:not(.system-sheet) .character-sheet-heading{position:relative;justify-content:center;min-height:44px;padding:0 52px;background:linear-gradient(#ecdfc2,#dcc79d);border-bottom:1px solid #b89c6b}
+ .character-sheet:not(.system-sheet) .character-sheet-heading>div{text-align:center;min-width:0}
+ .character-sheet:not(.system-sheet) .character-sheet-heading [data-slot=dialog-description]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .character-sheet:not(.system-sheet) .character-sheet-heading [data-slot=dialog-title]{font:700 17px/1.2 Georgia,serif;color:#5a3f24;white-space:nowrap}
+ .character-sheet:not(.system-sheet) .character-sheet-heading [data-slot=dialog-title]::before,
+ .character-sheet:not(.system-sheet) .character-sheet-heading [data-slot=dialog-title]::after{content:'\25C6';color:#b8894a;font-size:10px;margin:0 9px;vertical-align:3px}
+ .character-sheet:not(.system-sheet) .character-sheet-close{position:absolute;right:5px;top:0}
+ .character-sheet:not(.system-sheet) .character-sheet-footer{padding:2px 8px}
+}
