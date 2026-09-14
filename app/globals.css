@@ -616,3 +616,8 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-detail-sheet .rank-card h2{font-size:22px;line-height:1.15}
 .stage-detail-sheet>[data-slot=dialog-close]{width:44px!important;height:44px!important;top:10px;right:8px;color:#5b3d26}.stage-detail-sheet>[data-slot=dialog-close] svg{width:22px;height:22px}
 .stage-detail-sheet .adventure-panel>.panel-book>.panel-pages>button{font-size:14px;letter-spacing:0}
+
+/* Character sheet bodies: rule explanations stay behind each sheet's "Rules" disclosure; the
+   persistent small-note paragraphs under controls are hidden, as the original shows none. A note
+   that stands in for a missing control is tagged item-status and stays. */
+.character-sheet:not(.system-sheet) .small-note:not(.item-status){display:none}
