@@ -866,3 +866,33 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-detail-sheet .adventure-panel button:has(img)[aria-pressed]{background:#fbf0d4!important;border:1px solid #c49a55!important;color:#4b3421!important}
 .stage-detail-sheet .adventure-panel button.party-selected:has(img)[aria-pressed]{background:#fff4d6!important;border:2px solid #d59a33!important;box-shadow:0 0 0 2px #f3cd6b66}
 .stage-detail-sheet .adventure-panel button:has(img)>img{border:2px solid #5b3d26;border-radius:3px}
+/* HABIT JOURNAL -- same materials as the facilities: a shorter banner so tasks start higher, brown
+   section tabs on one scrolling row with the active one gold, tool chips, parchment task cards with a
+   gold Complete. No task information is removed; Journal settings' compact mode still applies. */
+.game-modal:has(.habit-panel)>.facility-scene{height:120px!important;min-height:0!important}
+.habit-panel{padding:8px 12px}
+.habit-heading{padding:8px 10px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:6px;color:#ffe7b5}
+.habit-heading h2{color:#ffe7b5;font-family:Georgia,serif}
+.habit-heading p{color:#e8d3a8!important}.habit-heading strong{color:#f3cd6b}
+.habit-heading>button{background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font:700 14px Georgia,serif}
+.habit-sections{display:flex!important;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.habit-sections::-webkit-scrollbar{display:none}
+.habit-sections button{flex:0 0 auto;white-space:nowrap!important;padding:4px 12px!important;font:700 12px Georgia,serif!important;background:#7a5634!important;border:1px solid #4d321d!important;color:#f6dfa8!important}
+.habit-panel .habit-sections button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33)!important;border-color:#8a5a1c!important;color:#442a10!important}
+.habit-tools{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none}
+.habit-tools button{flex:0 0 auto;background:#fbf0d4!important;border:1px solid #b88a47!important;color:#5b3d26!important;border-radius:14px!important;white-space:nowrap}
+.habit-panel>input[type=search],.habit-panel>input{background:#fff6df;border-color:#b88a47;min-height:40px}
+.habit-group-title{display:flex;justify-content:space-between;align-items:center;padding:3px 10px;background:#5b3d26;border-radius:3px;color:#ffe7b5!important;font:700 13px Georgia,serif!important}
+.habit-row{background:#fbf0d4!important;border-color:#c49a55!important;border-radius:6px!important}
+.habit-row strong{font:700 14px Georgia,serif!important;color:#3d2a1b}
+.habit-row input[type=checkbox]{accent-color:#d59a33}
+.habit-row>button:not(.habit-task-title){background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700!important}
+.habit-done{opacity:.8}.habit-done>button:not(.habit-task-title){background:#cdbb95!important;color:#6d5d42!important;border-color:#a8926a!important}
+.habit-batch button{border-color:#b88a47}
+.habit-batch>button:last-child{background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
+.habit-heading h2{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.habit-sheet>[data-slot=dialog-title]{justify-self:center;margin-inline:auto;width:fit-content;padding:6px 26px 8px;background:url('../public/assets/ui-original/title.png') center/100% 100% no-repeat;color:#ffe7b5!important;font:700 17px Georgia,serif;text-shadow:0 1px 2px #000a}
+.habit-sheet>[data-slot=dialog-description]{text-align:center}
+.habit-sheet button:not([data-variant=outline]):not([data-variant=ghost]):not([data-slot=dialog-close]):not([aria-pressed]){background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
+.habit-sheet>[data-slot=dialog-close]{width:44px;height:44px}
+.habit-sheet button{min-height:44px}.habit-weekdays button{min-height:44px}
