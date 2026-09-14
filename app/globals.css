@@ -677,9 +677,11 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .story-reader>.small-note{display:none}
 .story-reader .story-stage{background:radial-gradient(ellipse at bottom,#9a7650 0%,#5b3d26 55%,#2e1f14 100%)!important}
 /* RAPHAEL'S STAGE -- the formation sits ON the stage art: translucent dark squares with gold edges
-   instead of opaque beige tiles, stats as dark plates. The objective button is hidden here because
-   the action dock overlapped it (dock 630-762, button 727-771 at 393x852). */
-.game-modal:has(.raphael-panel)>.return-objective{display:none}
+   instead of opaque beige tiles, stats as dark plates. */
+/* Every facility with an action dock (12 measured: Raphael, Fishing, Trading Post, Roaming, Museum,
+   Apothecary, Mine Clearance, Treasure Hunt, Banquets, Fountain, School, Expo, Odyssey) drew the
+   objective button at y=727 under a dock ending at 762-776, so it was visible but never tappable. */
+.game-modal:has(.system-action-dock)>.return-objective{display:none}
 .raphael-panel .family-stats div{background:#2e1f14c7!important;border:1px solid #c99a4e;border-radius:6px!important;color:#ffe7b5}
 .raphael-panel .family-stats span{color:#e5bd6a!important;min-height:0!important}
 .raphael-panel .family-stats strong{color:#fff3d6}
@@ -792,3 +794,22 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .supply-buy b{font:700 15px Georgia,serif}.supply-buy small{font-size:11px;font-weight:600}
 .item-detail-sheet>button[data-slot=dialog-close],.storage-shop-sheet>button[data-slot=dialog-close]{width:44px!important;height:44px!important}
 .storage-shop-sheet button{min-height:44px}
+/* Facility sheets: rule explanations under controls are hidden, as in the character sheets. Notes that
+   report live state or the next step (business bonus, creditable EXP, 'No roams yet', encounter
+   advice...) carry item-status and stay. */
+:is(.system-sheet,.storage-shop-sheet) .small-note:not(.item-status){display:none}
+/* Facility sheet heading: the sheet name centred on the ribbon plate, like the item and shop sheets.
+   The facility eyebrow ('Fishing') is kept for screen readers only -- the scene behind names it. */
+.system-sheet .character-sheet-heading{position:relative;justify-content:center;min-height:56px;padding:4px 56px}
+.system-sheet .character-sheet-heading>div{text-align:center;min-width:0}
+.system-sheet .character-sheet-heading [data-slot=dialog-description]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.system-sheet .character-sheet-heading [data-slot=dialog-title]{display:inline-block;padding:7px 28px 9px;background:url('../public/assets/ui-original/title.png') center/100% 100% no-repeat;color:#ffe7b5;font:700 18px/1.2 Georgia,serif!important;text-shadow:0 1px 2px #000a;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.system-sheet .character-sheet-heading .character-sheet-close{position:absolute;right:6px;top:50%;transform:translateY(-50%)}
+/* Facility sheets size to their content (between ~half the screen and full height), so a short page
+   like Cast leaves the facility scene in view instead of a screen of empty parchment. The business
+   scene page lays itself out against a full-height sheet, so it keeps the fixed height. */
+.character-sheet.system-sheet:not(:has(.inn-business-scene)):not(:has(.raphael-arrange)){height:auto!important;min-height:min(46dvh,420px);top:auto!important}
+.character-sheet.system-sheet:not(:has(.inn-business-scene)) .character-sheet-body{flex:1 1 auto;min-height:0;overflow-y:auto}
+/* A content-sized sheet stops below the game's own resource bar, so its duplicate bar is dropped. */
+.character-sheet.system-sheet:not(:has(.inn-business-scene)):not(:has(.raphael-arrange)){max-height:calc(100dvh - 62px - env(safe-area-inset-top))!important}
+.character-sheet.system-sheet:not(:has(.inn-business-scene))>.game-resources{display:none}
