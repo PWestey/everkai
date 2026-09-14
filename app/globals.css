@@ -896,3 +896,18 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .habit-sheet button:not([data-variant=outline]):not([data-variant=ghost]):not([data-slot=dialog-close]):not([aria-pressed]){background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
 .habit-sheet>[data-slot=dialog-close]{width:44px;height:44px}
 .habit-sheet button{min-height:44px}.habit-weekdays button{min-height:44px}
+/* DRAKENBERG -- the town header in dark wood like every other screen header (it was the old green);
+   the 'Tap a building to visit' hint is screen-reader only, and List is a brown toggle. */
+.drakenberg-town .town-heading{background:linear-gradient(#5b3d26,#3d2a1b)!important;border-bottom:2px solid #c99a4e!important}
+.drakenberg-town .town-heading h2{color:#ffe7b5!important;font-family:Georgia,serif}
+.drakenberg-town .town-heading [data-slot=dialog-description]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.drakenberg-town .town-heading>button[aria-pressed]{background:#7a5634!important;border:1px solid #c99a4e!important;color:#ffe7b5!important;font:700 14px Georgia,serif;min-width:56px}
+.drakenberg-town .town-heading>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33)!important;color:#442a10!important}
+/* Town list rows were fixed at 44px while their content needed 78px, so long maturity notes spilled
+   into the next row. Rows now grow with their content and read as parchment cards. */
+.town-list>button{height:auto!important;min-height:52px;flex-direction:column;align-items:stretch!important;justify-content:center;gap:3px;padding:6px 12px!important;white-space:normal!important;text-align:left;background:#fbf0d4!important;border:1px solid #c49a55!important;border-radius:6px!important}
+.town-list>button>span:first-child{font:700 15px Georgia,serif;color:#3d2a1b}
+.town-list .maturity-row{display:flex;align-items:center;gap:6px;min-width:0}
+.town-list .maturity-line{white-space:normal;font-size:11px;color:#6b4a26}
+.town-list .maturity-row{flex-wrap:nowrap!important}.town-list .maturity-line{flex:1 1 auto;min-width:0}.town-list .maturity-badge{flex:none}
+.town-list{grid-template-rows:none!important;grid-auto-rows:max-content!important;align-content:start}
