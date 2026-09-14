@@ -626,16 +626,18 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-detail-sheet .opening-event h3{justify-self:center;padding:3px 16px;background:#f0d9a4;border:1px solid #b88a47;border-radius:3px;color:#4b3421;font:700 14px Georgia,serif}
 .stage-detail-sheet .opening-event>p{text-align:center;color:#6b4a26;font-weight:600}.stage-detail-sheet .school-card h2{font-size:20px;line-height:1.2}
 
-/* ALBUM -- entries use the roster's framed rarity card. Playable characters show their portrait;
-   records with no playable character keep a plain N-rank card with their title in the arch. */
+/* FRAMED CARD -- the roster's arched rarity card, shared by the albums and the story library.
+   Portrait art is drawn at 150% top-anchored and masked back to the card; a card with no art shows
+   its <span> text in the arch. <strong> is the name plate, <small> the arch badge. */
+.framed-card{position:relative;display:block!important;aspect-ratio:206/280;height:auto!important;min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;overflow:hidden;white-space:normal;box-shadow:none!important;background:var(--card-bg,#b98d55) center/100% 100% no-repeat!important}
+.framed-card::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:var(--card-frame,none) center/100% 100% no-repeat}
+.framed-card>img{position:absolute!important;top:0;left:-25%;width:150%!important;height:150%!important;max-width:none!important;object-fit:cover;object-position:50% 0;-webkit-mask:var(--card-bg) 50% 0/66.667% 66.667% no-repeat;mask:var(--card-bg) 50% 0/66.667% 66.667% no-repeat}
+.framed-card>strong{position:absolute;z-index:3;left:6%;right:6%;bottom:5%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 2px;border:1px solid #c99a4e;border-radius:2px;background:#5b3d26;color:#ffe7b5;font:700 12px/1.1 Georgia,serif;text-align:center}
+.framed-card>span{position:absolute;z-index:3;left:12%;right:12%;top:30%;color:#fff3d6;font:italic 600 11px/1.25 Georgia,serif;text-align:center;text-shadow:0 1px 2px #000a;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.framed-card>small{position:absolute;z-index:3;top:2px;left:50%;transform:translateX(-50%);padding:1px 7px;border-radius:8px;background:#3d2a1bd9;color:#ffe7b5;font:700 10px/1.3 Georgia,serif;white-space:nowrap;letter-spacing:0}
 .album-modal .album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 6px}
-.album-modal .album-card{position:relative;display:block;aspect-ratio:206/280;height:auto!important;min-height:0;padding:0;border:0!important;border-radius:0;overflow:hidden;white-space:normal;background:var(--card-bg,#b98d55) center/100% 100% no-repeat!important}
-.album-modal .album-card::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:var(--card-frame,none) center/100% 100% no-repeat}
-.album-modal .album-card>img{position:absolute;top:0;left:-25%;width:150%;height:150%;max-width:none;object-fit:cover;object-position:50% 0;-webkit-mask:var(--card-bg) 50% 0/66.667% 66.667% no-repeat;mask:var(--card-bg) 50% 0/66.667% 66.667% no-repeat}
-.album-modal .album-card>strong{position:absolute;z-index:3;left:6%;right:6%;bottom:5%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 2px;border:1px solid #c99a4e;border-radius:2px;background:#5b3d26;color:#ffe7b5;font:700 12px/1.1 Georgia,serif;text-align:center}
-.album-modal .album-card>span{position:absolute;z-index:3;left:12%;right:12%;top:30%;color:#fff3d6;font:italic 600 11px/1.25 Georgia,serif;text-align:center;text-shadow:0 1px 2px #000a;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .album-modal .album-card:not(.album-record)>span{display:none}
-.album-modal .album-card>small{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.album-modal .album-card>small{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);padding:0}
 .album-modal .album-count{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .album-modal .album-body{background:#ecdcb8}
 .album-modal .panel-pages{background:transparent!important}
@@ -643,3 +645,34 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .album-modal .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33);border-color:#8a5a1c;color:#442a10}
 .album-modal label[for^=album-search-]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .album-modal .roster-pagination button,.album-modal nav[aria-label="Album pages"]~* button[data-variant=outline]{border-color:#b88a47}
+
+/* VILLAGE STORIES -- library as a card shelf: title ribbon, framed character cards, brown pager.
+   The facility maturity strip (Ready/Limited/Early) is build status, not game information; the
+   Drakenberg list still shows it, so it is hidden inside facility modals. */
+.game-modal>.facility-maturity{display:none}
+.story-library{display:grid;gap:8px;padding:12px}
+/* The facility scene's plate already names the library; the h2 stays for screen readers. */
+.story-library>h2{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.story-library>p:not(.small-note){text-align:center;font-size:13px!important;color:#6b4a26}
+.story-library>label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.story-library>[data-slot=native-select-wrapper],.story-library>div.relative{justify-self:center}
+.story-library .story-covers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;padding-inline:28px}
+.story-library .story-cover.story-read>img{filter:saturate(.6)}
+.story-library .album-pagination button{background:#5b3d26;color:#ffe7b5;border-color:#b88a47}
+.story-library>.small-note{display:none}
+/* STORY READER -- reading is a scene, not a page: the facility banner and objective button give way
+   to the art, the line sits in a parchment dialogue box over the art's foot, and the replay note
+   (already under "About this encounter") is hidden. */
+.game-modal:has(.story-reader)>:is(.facility-scene,.return-objective){display:none}
+.story-reader{padding:8px 12px;gap:6px}
+.story-reader>header{flex-wrap:nowrap}
+.story-reader>header>button{background:#5b3d26!important;color:#ffe7b5!important;border-color:#b88a47!important;padding-inline:10px;font-size:13px}
+.story-reader>header>span{font-size:12px!important;color:#6b4a26;white-space:nowrap}
+.story-reader>h2{justify-self:center;align-self:center;margin:2px auto!important;padding:4px 20px;background:#5b3d26;border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font:700 15px Georgia,serif;text-align:center;width:fit-content}
+.story-reader .story-caption{background:#fbf0d4!important;border:2px solid #b88a47!important;border-radius:6px!important;box-shadow:0 2px 6px #0005;color:#3d2a1b}
+/* Portrait only: landscape lays art and caption side by side, where an overlap would cover the header. */
+@media (min-height:481px),(max-width:519px){.story-reader .story-stage{height:clamp(260px,46dvh,420px)!important;border-radius:6px 6px 0 0}.story-reader .story-caption{position:relative;z-index:1;margin:-64px 6px 0!important}}
+.story-reader .story-controls button{background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
+.story-reader .story-controls button:disabled{background:#cdbb95!important;color:#6d5d42!important}
+.story-reader>.small-note{display:none}
+.story-reader .story-stage{background:radial-gradient(ellipse at bottom,#9a7650 0%,#5b3d26 55%,#2e1f14 100%)!important}
