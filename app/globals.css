@@ -711,3 +711,22 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .recruit-panel>.school-card button[data-variant=default]:disabled{background:#cdbb95;border-color:#a8926a;color:#6d5d42;opacity:1}
 .recruit-invite{border-color:#d59a33!important;box-shadow:0 0 0 2px #f3cd6b66}
 .roster-cards .roster-count{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.roster-cards .roster-search{margin:0 0 6px}.roster-cards .roster-type-filters{margin-bottom:8px}.roster-cards .roster-pagination{margin:8px 0 0}
+/* FAMILIARS -- a hero row (rarity card beside name and stats) and a Current Bond block after the
+   original's bond sheet: ribbon, partner card beside the bonus, node progress bar, gold actions. */
+.familiar-detail .small-note{display:none}
+.familiar-hero{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}
+.familiar-hero>.framed-card>span{top:28%;display:grid;place-items:center}.familiar-hero>.framed-card>span img{width:48px;height:48px;object-fit:contain}
+.familiar-hero h3{font:700 22px Georgia,serif;color:#4b3421}.familiar-hero p{color:#6b4a26;font-size:14px}
+.familiar-detail>.family-stats div{background:#3d2a1b!important;border:1px solid #c99a4e;color:#ffe7b5}.familiar-detail>.family-stats span{color:#e5bd6a!important;min-height:0!important}
+.familiar-detail button[data-variant=default]{background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
+.familiar-detail button[data-variant=default]:disabled{background:#cdbb95!important;color:#6d5d42!important;border-color:#a8926a!important;opacity:1}
+.familiar-bond{display:grid;gap:10px}
+.bond-ribbon{justify-self:center;padding:4px 26px;background:linear-gradient(#6d4a2f,#4b3220);border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font:700 15px Georgia,serif}
+.bond-current{display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:center;padding:8px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px}
+.bond-current>.framed-card>span{top:32%;font:700 30px Georgia,serif;font-style:normal}
+.bond-current small{color:#8a5a1c;font-size:12px}.bond-current .bond-name{font:700 17px Georgia,serif;color:#4b3421}.bond-current .bond-bonus{font-size:13px!important;color:#6b4a26}
+.bond-progress{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;font-size:13px;color:#4b3421}
+.bond-progress progress{width:100%;height:12px;accent-color:#d59a33}.bond-progress em{grid-column:1/-1;justify-self:end;font-style:normal;color:#2f7a4b;font-size:12px}
+.familiar-detail .panel-pages{background:transparent!important}
+.familiar-detail .panel-pages>button{background:#7a5634!important;border:1px solid #4d321d!important;color:#f6dfa8!important;font:700 13px Georgia,serif;white-space:nowrap;padding-inline:4px}
+.familiar-detail .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33)!important;border-color:#8a5a1c!important;color:#442a10!important}
