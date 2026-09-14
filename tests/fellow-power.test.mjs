@@ -39,7 +39,7 @@ import operations from '../lib/operation-data.json' with {type:'json'};
 // question tied to the faucet work, not something this characterisation test decides.
 
 const NOW=1767225600000;                 // fixed day, so habit-derived state is stable across runs
-const ID='hero_15';                      // the starting Fellow, present on every fresh save
+const ID='hero_1';                       // the starting Fellow (Fifi), present on every new village
 const BEST=GEAR.slice().sort((a,b)=>b.aptitude-a.aptitude)[0];   // Dragon Tamer's Scepter, +70
 
 /** Apply an action, ignoring a refusal. Several of these are sandbox faucets whose guards differ by
@@ -305,7 +305,8 @@ test('APK growth mode passes the original outright: one Fellow alone is worth 44
   [id,{level:750,aptitude:1000,skill:20,breaks:0,gear:null,stars:STAR_CAP}]));
  const quality=Object.fromEntries(Object.keys(s.fellows).map(id=>[id,14]));
  s={...s,fellows,originalProgression:{...s.originalProgression,quality}};
- assert.equal(bondedPower(s,ID),44_640_000);
+ // Pinned to Kaity (hero_15), whose talent terms the formula above spells out; the full roster owns her.
+ assert.equal(bondedPower(s,'hero_15'),44_640_000);
  assert.equal(Math.round(rosterOperation(s)),7_082_725);
  // 2.0x the original's measured live-save conversion of 3,497,276 -- so the parity shortfall is a
  // property of DEFAULT mode's caps, not of the power formula, which is the original's own.

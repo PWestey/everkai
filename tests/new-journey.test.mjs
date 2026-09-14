@@ -13,7 +13,7 @@ test('a new journey keeps the habit journal and resets everything else',()=>{con
  // The played save welcomed wife_3; a new journey drops her and keeps only the starter picks.
  assert.equal(next.family.wife_3,undefined);assert.deepEqual(next.family,base.family);
  assert.deepEqual(Object.keys(next.fellows),Object.keys(base.fellows));
- assert.deepEqual(Object.keys(next.fellows),['hero_15','hero_195']);
+ assert.deepEqual(Object.keys(next.fellows),['hero_1','hero_195']);
  assert.equal(next.gold,base.gold);assert.equal(next.lastAt,T+1000);
  assert.ok(valid(next));assert.deepEqual(decode(JSON.stringify(next)),next);
  // A journey started from a save with no journal is exactly a starting save.

@@ -3,7 +3,7 @@ import {readFileSync,readdirSync} from 'node:fs';
 import {fresh,startingSave,act,valid,decode,totalRate} from '../lib/game.mjs';
 import {BUSINESSES,sourceEmployeeYield,employeeCohorts,rosterOperation} from '../lib/businesses.mjs';
 import {staffingRule,staffingStatus} from '../lib/staffing.mjs';
-import {summonState,recruitPrice,recruitRarity,SUMMON_COSTS} from '../lib/summon.mjs';
+import {RANK_FELLOWS,summonState,recruitPrice,recruitRarity,SUMMON_COSTS} from '../lib/summon.mjs';
 import {inherentFamiliarBonus} from '../lib/familiar-nodes.mjs';
 import {FAMILIARS} from '../lib/familiars.mjs';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
@@ -154,11 +154,14 @@ test('ECON-28: exactly 49 of the 259 catalogue characters are priced in a curren
  }
  // The whole catalogue, counted once. Measured 2026-09-12.
  assert.deepEqual(Object.fromEntries(Object.entries(byCurrency).map(([k,v])=>[k,v.length])),
-  {stoneFragments:42,stones:168,valiant:46,archangel:3});
+  {stoneFragments:20,stones:168,valiant:46,archangel:3});
  // Was ['hero_60']: no rarity in the public roster meant summonCost returned null, so the counter
  // refused him and nothing else in the game could grant him. He is free-tier in the original, so
  // the free list prices him and the catalogue is now fully priced.
- assert.deepEqual(unpriced,[],'every shipped character has a price');
+ // The 22 rank-up Fellows are deliberately unpriced: the original never sells them, each arrives
+ // through its player-rank encounter (lib/rank-ladder-data.json). They were 22 of the 42 fragment-
+ // priced (free-tier) characters, which is why stoneFragments fell from 42 to 20.
+ assert.deepEqual(unpriced.sort(),[...RANK_FELLOWS.keys()].sort(),'only the rank-up Fellows are unpriced');
  // Was ['insignias'] with 49 characters charged against a key the wallet never held. UR/UR*/set are
  // now priced in valiant/archangel, which the forge produces and validSummon guards.
  const phantom=Object.keys(byCurrency).filter(k=>!wallet.includes(k));
@@ -231,14 +234,14 @@ function village(){
 
 test('ECON-29: one free bind takes a fresh Fellow from 100 Power to 1,040,104 — a 10,401x jump',()=>{
  let s=startingSave(NOW);
- assert.equal(bondedPower(s,'hero_15'),100,'a fresh Fellow is worth exactly 100 Power');
+ assert.equal(bondedPower(s,'hero_1'),100,'a fresh Fellow is worth exactly 100 Power');
  s=run(s,'adoptFamiliars');
  assert.equal(Object.keys(s.familiars).length,71,'all 71 familiars are granted in a single free action');
  assert.deepEqual(s.familiars.Pet_1191,{level:1,stars:0},'granted at level 1 with no stars');
  assert.deepEqual(inherentFamiliarBonus('Pet_1191'),{flat:1000000,finalPercent:4});
- const bound=run(s,'bindFamiliar','Pet_1191','hero_15');
+ const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
  // floor((100 + 1,000,000) * 1.04). The pet is level 1 and unstarred; none of that is consulted.
- assert.equal(bondedPower(bound,'hero_15'),1_040_104);
+ assert.equal(bondedPower(bound,'hero_1'),1_040_104);
  assert.ok(valid(bound),'the free 1.04M-Power save is a legal save');
 });
 
@@ -247,7 +250,7 @@ test('ECON-29: adopting and binding spends nothing — no gold, no currency, no 
  const before=JSON.stringify({gold:s.gold,crystals:s.crystals,fellowXP:s.fellowXP,ore:s.artifacts?.ore,
   inventory:s.inventory,summon:s.summon,staffingMaterials:s.staffingMaterials});
  s=run(s,'adoptFamiliars');
- const bound=run(s,'bindFamiliar','Pet_1191','hero_15');
+ const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
  const after=JSON.stringify({gold:bound.gold,crystals:bound.crystals,fellowXP:bound.fellowXP,ore:bound.artifacts?.ore,
   inventory:bound.inventory,summon:bound.summon,staffingMaterials:bound.staffingMaterials});
  assert.equal(after,before,'adopting and binding now charge something; this defect may be fixed');
@@ -310,12 +313,12 @@ test('ECON-29: familiar power must be earned through the shipped Cost tables —
   gifts:x.inventory.gift1,ore:x.artifacts?.ore??null,materials:x.staffingMaterials?.stock??0,
   summon:x.summon?JSON.stringify(x.summon):null});
  let s=run(startingSave(NOW),'adoptFamiliars');
- const before=bondedPower(s,'hero_15'),spendable=purse(s);
- const bound=run(s,'bindFamiliar','Pet_1191','hero_15');
- const gained=bondedPower(bound,'hero_15')-before;
+ const before=bondedPower(s,'hero_1'),spendable=purse(s);
+ const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
+ const gained=bondedPower(bound,'hero_1')-before;
  assert.ok(gained>0,'the fixture measured no gain; the probe has drifted');
  assert.notEqual(purse(bound),spendable,
-  `binding Pet_1191 to hero_15 granted ${gained.toLocaleString()} Power and charged nothing at all. `
+  `binding Pet_1191 to hero_1 granted ${gained.toLocaleString()} Power and charged nothing at all. `
   +'Familiar power is meant to be earned through the Cost tables shipped in lib/familiar-data.json, '
   +'which no module reads. Measured: 71 free binds take a 17-business village from 92,064 to '
   +'1,233,109 gold/s.');

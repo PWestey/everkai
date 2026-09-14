@@ -1,0 +1,281 @@
+{
+ "maxRank": 28,
+ "ranks": [
+  {
+   "rank": 1,
+   "fameToNext": 5,
+   "earningsToNext": 30
+  },
+  {
+   "rank": 2,
+   "fameToNext": 35,
+   "earningsToNext": 200
+  },
+  {
+   "rank": 3,
+   "fameToNext": 50,
+   "earningsToNext": 720
+  },
+  {
+   "rank": 4,
+   "fameToNext": 90,
+   "earningsToNext": 1500
+  },
+  {
+   "rank": 5,
+   "fameToNext": 125,
+   "earningsToNext": 3400
+  },
+  {
+   "rank": 6,
+   "fameToNext": 160,
+   "earningsToNext": 6150
+  },
+  {
+   "rank": 7,
+   "fameToNext": 200,
+   "earningsToNext": 10500
+  },
+  {
+   "rank": 8,
+   "fameToNext": 250,
+   "earningsToNext": 17000
+  },
+  {
+   "rank": 9,
+   "fameToNext": 300,
+   "earningsToNext": 35500
+  },
+  {
+   "rank": 10,
+   "fameToNext": 400,
+   "earningsToNext": 51500
+  },
+  {
+   "rank": 11,
+   "fameToNext": 500,
+   "earningsToNext": 73000
+  },
+  {
+   "rank": 12,
+   "fameToNext": 550,
+   "earningsToNext": 110000
+  },
+  {
+   "rank": 13,
+   "fameToNext": 850,
+   "earningsToNext": 175000
+  },
+  {
+   "rank": 14,
+   "fameToNext": 1050,
+   "earningsToNext": 230000
+  },
+  {
+   "rank": 15,
+   "fameToNext": 1300,
+   "earningsToNext": 350000
+  },
+  {
+   "rank": 16,
+   "fameToNext": 1450,
+   "earningsToNext": 495000
+  },
+  {
+   "rank": 17,
+   "fameToNext": 1750,
+   "earningsToNext": 605000
+  },
+  {
+   "rank": 18,
+   "fameToNext": 2100,
+   "earningsToNext": 1000000
+  },
+  {
+   "rank": 19,
+   "fameToNext": 2300,
+   "earningsToNext": 1400000
+  },
+  {
+   "rank": 20,
+   "fameToNext": 2700,
+   "earningsToNext": 2000000
+  },
+  {
+   "rank": 21,
+   "fameToNext": 4000,
+   "earningsToNext": 3350000
+  },
+  {
+   "rank": 22,
+   "fameToNext": 4500,
+   "earningsToNext": 4450000
+  },
+  {
+   "rank": 23,
+   "fameToNext": 6500,
+   "earningsToNext": 5650000
+  },
+  {
+   "rank": 24,
+   "fameToNext": 7000,
+   "earningsToNext": 8850000
+  },
+  {
+   "rank": 25,
+   "fameToNext": 9000,
+   "earningsToNext": 11000000
+  },
+  {
+   "rank": 26,
+   "fameToNext": 10000,
+   "earningsToNext": 15000000
+  },
+  {
+   "rank": 27,
+   "fameToNext": 12000,
+   "earningsToNext": 20000000
+  }
+ ],
+ "encounters": [
+  {
+   "id": "B2",
+   "rank": 2,
+   "reward": "Reward_PlayLevel_Reward_02",
+   "fellow": "hero_1"
+  },
+  {
+   "id": "B4",
+   "rank": 3,
+   "reward": "Reward_PlayLevel_Reward_03_Hero",
+   "fellow": "hero_2"
+  },
+  {
+   "id": "A2",
+   "rank": 4,
+   "reward": "Reward_PlayLevel_Reward_04",
+   "fellow": "hero_4"
+  },
+  {
+   "id": "B5",
+   "rank": 5,
+   "reward": "Reward_PlayLevel_Reward_05",
+   "fellow": "hero_3"
+  },
+  {
+   "id": "B6",
+   "rank": 6,
+   "reward": "Reward_PlayLevel_Reward_06",
+   "fellow": "hero_5"
+  },
+  {
+   "id": "B7",
+   "rank": 7,
+   "reward": "Reward_PlayLevel_Reward_07",
+   "fellow": "hero_13"
+  },
+  {
+   "id": "B8",
+   "rank": 8,
+   "reward": "Reward_PlayLevel_Reward_08",
+   "fellow": "hero_19"
+  },
+  {
+   "id": "B9",
+   "rank": 9,
+   "reward": "Reward_PlayLevel_Reward_09",
+   "fellow": "hero_14"
+  },
+  {
+   "id": "B10",
+   "rank": 10,
+   "reward": "Reward_PlayLevel_Reward_10",
+   "fellow": "hero_12"
+  },
+  {
+   "id": "B11",
+   "rank": 11,
+   "reward": "Reward_PlayLevel_Reward_11",
+   "fellow": "hero_51"
+  },
+  {
+   "id": "B13",
+   "rank": 13,
+   "reward": "Reward_PlayLevel_Reward_13",
+   "fellow": "hero_11"
+  },
+  {
+   "id": "B14",
+   "rank": 14,
+   "reward": "Reward_PlayLevel_Reward_14",
+   "fellow": "hero_15"
+  },
+  {
+   "id": "B15",
+   "rank": 15,
+   "reward": "Reward_PlayLevel_Reward_15",
+   "fellow": "hero_17"
+  },
+  {
+   "id": "B16",
+   "rank": 16,
+   "reward": "Reward_PlayLevel_Reward_16",
+   "fellow": "hero_23"
+  },
+  {
+   "id": "B18",
+   "rank": 18,
+   "reward": "Reward_PlayLevel_Reward_18",
+   "fellow": "hero_16"
+  },
+  {
+   "id": "B19",
+   "rank": 19,
+   "reward": "Reward_PlayLevel_Reward_19",
+   "fellow": "hero_20"
+  },
+  {
+   "id": "B21",
+   "rank": 21,
+   "reward": "Reward_PlayLevel_Reward_21",
+   "fellow": "hero_21"
+  },
+  {
+   "id": "B22",
+   "rank": 22,
+   "reward": "Reward_PlayLevel_Reward_22",
+   "fellow": "hero_18"
+  },
+  {
+   "id": "B24",
+   "rank": 24,
+   "reward": "Reward_PlayLevel_Reward_24",
+   "fellow": "hero_25"
+  },
+  {
+   "id": "B25",
+   "rank": 25,
+   "reward": "Reward_PlayLevel_Reward_25",
+   "fellow": "hero_22"
+  },
+  {
+   "id": "B27",
+   "rank": 27,
+   "reward": "Reward_PlayLevel_Reward_27",
+   "fellow": "hero_24"
+  },
+  {
+   "id": "B28",
+   "rank": 28,
+   "reward": "Reward_PlayLevel_Reward_28",
+   "fellow": "hero_61"
+  }
+ ],
+ "provenance": {
+  "Level.json": "ac8129562b7c460589144c9b2ae39368eb3dbe4183e374e4ecbd421222043a3c",
+  "CityAssignEvent.json": "b2959fed2948e4d6ce45db183650a029361b92148b41e969fefa8182ed041c0d",
+  "Rewards.json": "b0888d102dd6c008f0f3897d580451d0bb2285789d03810eac9f4ac4f784d659",
+  "Item.json": "c2ebdd64dfdbb6fa803319d541ea5d1bff9f31d3bad153f1755b0b6e5997152f",
+  "note": "Rank r promotes to r+1 for fameToNext Fame once village earnings reach earningsToNext per second (Level.json expNeed / prosperityNeed of row r)."
+ }
+}

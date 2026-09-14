@@ -50,7 +50,7 @@ const bonusOf=s=>enterpriseBreakdown(s,'Building_101').bonus;
 const STRANDS=[
  {id:'assignedOperation',key:null,declaredIn:'app/business-panel.tsx "assigned operation"',
   probe(){ // hero_1 at level 50 carries Diligent +30% and an Inn-specific +20%: operations.test.mjs
-   let s=run(inn(),'recruit','hero_1');
+   let s=inn();if(!s.fellows.hero_1)s=run(s,'recruit','hero_1');
    s={...s,fellows:{...s.fellows,hero_1:{...s.fellows.hero_1,level:50,breaks:3}}};
    return run(s,'assignOperator','Building_101','hero_1');}},
 
