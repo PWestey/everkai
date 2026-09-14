@@ -813,3 +813,25 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* A content-sized sheet stops below the game's own resource bar, so its duplicate bar is dropped. */
 .character-sheet.system-sheet:not(:has(.inn-business-scene)):not(:has(.raphael-arrange)){max-height:calc(100dvh - 62px - env(safe-area-inset-top))!important}
 .character-sheet.system-sheet:not(:has(.inn-business-scene))>.game-resources{display:none}
+/* ROAMING -- stamina and Fame as dark plates, the meeting card as a portrait in a wood frame beside a
+   speech bubble, the location on a small ribbon. Go keeps the gold primary. */
+.roam-hud>div{background:#3d2a1b!important;border-color:#c99a4e!important}
+.roam-hud small{color:#e5bd6a!important}.roam-hud strong{color:#fff3d6!important}.roam-hud span{color:#e8d3a8!important}
+.roam-actions button{white-space:nowrap}
+.roam-card{border-color:#c49a55!important;background:#fbf0d4!important;border-radius:6px!important}
+.roam-card>img{border:3px solid #5b3d26;border-radius:4px!important;box-shadow:0 0 0 1px #c99a4e;background:#8a6a45}
+.roam-card>div>small:first-child{justify-self:start;padding:1px 10px;background:#5b3d26;border-radius:2px;color:#ffe7b5!important;font:700 11px Georgia,serif;letter-spacing:.04em}
+.roam-card blockquote{position:relative;margin:4px 0 0;padding:6px 8px;background:#fff;border:1px solid #d9bf8a;border-radius:8px;font:italic 13px/1.35 Georgia,serif;color:#4b3421}
+.roam-card blockquote::before{content:'';position:absolute;left:-7px;top:12px;border:6px solid transparent;border-right-color:#d9bf8a;border-left:0}
+.roam-card>div>small:last-child{color:#8a5a1c!important;font-weight:700}
+/* Encounters: three portrait cards a row -- art on top in a wood frame with the name plate over its
+   foot, then location, bond bar and the Stories button. */
+.roam-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px 6px!important}
+.roam-member{position:relative;flex-direction:column;gap:4px!important;padding:4px!important;background:#fbf0d4!important;border:1px solid #c49a55!important;border-radius:6px!important}
+.roam-member img{width:100%!important;height:118px!important;border:2px solid #5b3d26;border-radius:4px!important}
+.roam-member>div>strong{order:-1;margin:-26px 4px 2px;position:relative;padding:2px 2px;background:#5b3d26;border:1px solid #c99a4e;border-radius:2px;color:#ffe7b5;font-size:12px!important;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.roam-member small{text-align:center;color:#8a5a1c;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.roam-member span{text-align:center;color:#4b3421}
+.roam-member progress{accent-color:#d59a33!important}
+.roam-member .roam-stories{padding:2px 4px!important;font-size:12px}
+.roam-member .roam-stories{width:100%}
