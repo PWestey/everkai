@@ -918,3 +918,21 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .system-sheet .family-stats>div{background:#3d2a1b!important;border:1px solid #c99a4e;color:#ffe7b5}
 .system-sheet .family-stats span{color:#e5bd6a!important;min-height:0!important}
 .system-sheet .family-stats strong{color:#fff3d6}
+/* WAYFARER -- the player's character. A level badge leads the resource bar and opens his profile;
+   on the Stage he stands on the path at the progress bar's reach and strides when a stage clears. */
+.player-badge{flex:none;position:relative;width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;border:2px solid #c99a4e!important;border-radius:50%!important;overflow:visible;background:#2b1a10!important}
+.player-badge>img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.player-badge>b{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);padding:0 5px;border:1px solid #c99a4e;border-radius:7px;background:#5b3d26;color:#ffe7b5;font:700 9px/1.4 Georgia,serif;white-space:nowrap}
+.stage-walker{position:absolute;z-index:2;bottom:24px;left:calc(12px + (100% - 24px) * var(--walk,0));height:clamp(64px,11dvh,110px);width:auto;transform:translateX(-50%);transform-origin:50% 100%;pointer-events:none;filter:drop-shadow(0 3px 3px #0008);transition:left .9s ease-in-out}
+.stage-walker.walking{animation:wayfarer-stride .3s ease-in-out 3}
+@keyframes wayfarer-stride{0%,100%{transform:translateX(-50%) translateY(0) rotate(0)}25%{transform:translateX(-50%) translateY(-4px) rotate(-2deg)}75%{transform:translateX(-50%) translateY(-4px) rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){.stage-walker{transition:none}.stage-walker.walking{animation:none}}
+.wayfarer-profile{width:min(94vw,440px)!important;max-width:440px!important;padding:0!important;overflow:hidden;border:3px solid #6b4a2b!important;box-shadow:inset 0 0 0 2px #c99a4e;background:#2e1f14!important;gap:0!important;max-height:calc(100dvh - 24px);display:flex!important;flex-direction:column}
+.wayfarer-art{display:block;width:100%;flex:1 1 auto;min-height:0;max-height:62dvh;object-fit:cover;object-position:50% 20%}
+.wayfarer-card{display:grid;gap:8px;padding:12px 14px 16px;background:#ecdcb8;border-top:3px solid #c99a4e}
+.wayfarer-card [data-slot=dialog-title]{justify-self:center;margin-top:-34px;padding:7px 30px 9px;background:url('../public/assets/ui-original/title.png') center/100% 100% no-repeat;color:#ffe7b5;font:700 19px Georgia,serif;text-shadow:0 1px 2px #000a}
+.wayfarer-card [data-slot=dialog-description]{text-align:center;color:#6b4a26;font:700 14px Georgia,serif}
+.wayfarer-card dl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0}
+.wayfarer-card dl div{padding:4px;text-align:center;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px}
+.wayfarer-card dt{font-size:10px;color:#e5bd6a}.wayfarer-card dd{margin:0;font:700 15px Georgia,serif;color:#fff3d6}
+.wayfarer-profile>[data-slot=dialog-close]{width:44px;height:44px;color:#ffe7b5;background:#3d2a1bcc;border-radius:50%}
