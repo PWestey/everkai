@@ -625,3 +625,21 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-detail-sheet .opening-event{display:grid;gap:6px;padding:10px 0;border-top:1px solid #d9bf8a}
 .stage-detail-sheet .opening-event h3{justify-self:center;padding:3px 16px;background:#f0d9a4;border:1px solid #b88a47;border-radius:3px;color:#4b3421;font:700 14px Georgia,serif}
 .stage-detail-sheet .opening-event>p{text-align:center;color:#6b4a26;font-weight:600}.stage-detail-sheet .school-card h2{font-size:20px;line-height:1.2}
+
+/* ALBUM -- entries use the roster's framed rarity card. Playable characters show their portrait;
+   records with no playable character keep a plain N-rank card with their title in the arch. */
+.album-modal .album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 6px}
+.album-modal .album-card{position:relative;display:block;aspect-ratio:206/280;height:auto!important;min-height:0;padding:0;border:0!important;border-radius:0;overflow:hidden;white-space:normal;background:var(--card-bg,#b98d55) center/100% 100% no-repeat!important}
+.album-modal .album-card::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:var(--card-frame,none) center/100% 100% no-repeat}
+.album-modal .album-card>img{position:absolute;top:0;left:-25%;width:150%;height:150%;max-width:none;object-fit:cover;object-position:50% 0;-webkit-mask:var(--card-bg) 50% 0/66.667% 66.667% no-repeat;mask:var(--card-bg) 50% 0/66.667% 66.667% no-repeat}
+.album-modal .album-card>strong{position:absolute;z-index:3;left:6%;right:6%;bottom:5%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 2px;border:1px solid #c99a4e;border-radius:2px;background:#5b3d26;color:#ffe7b5;font:700 12px/1.1 Georgia,serif;text-align:center}
+.album-modal .album-card>span{position:absolute;z-index:3;left:12%;right:12%;top:30%;color:#fff3d6;font:italic 600 11px/1.25 Georgia,serif;text-align:center;text-shadow:0 1px 2px #000a;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.album-modal .album-card:not(.album-record)>span{display:none}
+.album-modal .album-card>small{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.album-modal .album-count{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.album-modal .album-body{background:#ecdcb8}
+.album-modal .panel-pages{background:transparent!important}
+.album-modal .panel-pages>button{background:#7a5634;border:1px solid #4d321d;color:#f6dfa8;font-family:Georgia,serif;font-weight:700}
+.album-modal .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33);border-color:#8a5a1c;color:#442a10}
+.album-modal label[for^=album-search-]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.album-modal .roster-pagination button,.album-modal nav[aria-label="Album pages"]~* button[data-variant=outline]{border-color:#b88a47}

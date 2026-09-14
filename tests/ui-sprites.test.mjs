@@ -7,3 +7,11 @@ test('exact named UI sprites retain admitted hashes and source identity joins',(
  for(const n of [...Array(6)].flatMap((_,i)=>['Bg_PetList_Rarity_'+(i+1),'Frame_PetList_Rarity_'+(i+1)]))assert.ok(sprites[n],n);
  for(let i=1;i<=3;i++)assert.ok(sprites['Icon_Pet_Career_'+i],'career '+i);
  assert.equal(sprites.Bg_PetList_Rarity_1.width,206);assert.equal(sprites.Icon_Pet_Career_1.width,70);for(const row of Object.values(sprites)){assert.equal(createHash('sha256').update(readFileSync(new URL('../public/assets/'+row.src,import.meta.url))).digest('hex'),row.sha256);assert.equal(row.sourceIndexSha256,'b11445f106363ab64ea6e52d794f77575bbbac7441805ab43cd0318c12a4385f')}assert.deepEqual(GIFT_DISPLAY_ORDER,['gift1','gift2','gift5','gift3','gift4']);assert(giftIcon('gift5').endsWith('Icons--Icon_Intimacy_3.png'));assert(countryIcon('Brave').endsWith('Base--Icon_Hero_Country_3.png'));assert(rarityIcon('SSR').endsWith('Base--Icon_Rarity_SSR_1.png'));assert.equal(countryIcon('unknown'),null);assert.equal(rarityIcon(4),null);assert.equal(giftIcon('fake'),null)});
+test('every catalog character gets a rarity card, including ascension-chain rarities',async()=>{
+ const {petCardIcon,petFrameIcon,cardRarity}=await import('../lib/ui-sprites.mjs');const {FELLOWS,FAMILY}=await import('../lib/catalog.mjs');
+ assert.equal(cardRarity('SSR+ -> UR*'),'SSR+');assert.equal(cardRarity('UR*'),'UR');assert.equal(cardRarity('SR'),'SR');
+ const all=[...FELLOWS,...FAMILY].filter(c=>c.rarity),chains=all.filter(c=>c.rarity.includes('->'));
+ assert.ok(chains.length>=40,'positive control: chain rarities are present ('+chains.length+')');
+ const missing=all.filter(c=>!petCardIcon(c.rarity)||!petFrameIcon(c.rarity)).map(c=>c.name+':'+c.rarity);
+ assert.deepEqual(missing,[],'characters without a card frame');
+});
