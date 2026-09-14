@@ -110,13 +110,6 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen-heading small{font-size:11px;letter-spacing:0;color:#fff0c8}
 .character-screen-heading .collection-open{margin:0;width:auto;max-width:128px;font-size:11px;padding:6px;min-height:44px;height:auto;background:#61482fd9;border:2px solid #c5a263;color:#fff0d0;text-shadow:none}
 .character-screen-controls{margin-top:auto;flex:none;min-width:0;width:100%}
-/* The overlay controls (View artwork / Pause animation) used a hard-coded bottom offset
-   tuned for a 2-row action dock. Family has 9 dock entries (3 rows, measured 171px at
-   393x852) so the constant put both buttons INSIDE the dock -- clipped in half, which is
-   what a player sees on the Family screen. The dock's row count now drives the offset. */
-.character-screen{--character-dock-h:132px}
-.character-screen:has(.character-action-dock>button:nth-child(9)){--character-dock-h:180px}
-.character-screen:has(.character-action-dock>button:nth-child(5)):not(:has(.character-action-dock>button:nth-child(9))){--character-dock-h:126px}
 .character-action-dock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;border-top:3px double #d4b16e;background:#503622;padding:3px 4px max(4px,env(safe-area-inset-bottom));box-shadow:0 -4px 16px #38261366}
 .character-action-dock>button{display:flex;flex-direction:column;gap:0;align-items:center;justify-content:center;min-height:53px!important;height:53px;border:0;border-radius:3px;padding:2px;background:transparent;color:#ffedc7;font:700 12px Georgia,serif;white-space:normal;text-align:center}
 .character-action-dock>button:hover{background:#84613c;color:#fff5df}
@@ -228,7 +221,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-rarity span{font:700 11px Georgia,serif;background:#4c3426a8;border:1px solid #c19b5e;padding:3px}
 .character-side-actions{position:absolute;right:7px;top:80px;display:grid;gap:5px}
 .character-side-actions>button{width:46px;min-height:44px!important;padding:4px 2px;border:2px solid #c5a46a;border-radius:3px;background:#654b34d9;color:#ffedc0;font:700 12px Georgia,serif}
-.character-arrow{position:absolute;top:44%;width:42px;height:50px;min-height:44px!important;background:transparent;color:#f4c978;border:0;border-radius:0;padding:0;font:700 50px/1 Georgia,serif;text-shadow:0 2px 2px #4d2e17}
+.character-arrow{position:absolute;top:44%;width:44px;height:50px;min-height:44px!important;background:transparent;color:#f4c978;border:0;border-radius:0;padding:0;font:700 50px/1 Georgia,serif;text-shadow:0 2px 2px #4d2e17}
 .character-previous{left:0}.character-next{right:0}
 .character-lower-stats{position:relative;z-index:1;margin-top:auto;left:auto;right:auto;bottom:auto;min-height:62px;padding:5px 14px;background:linear-gradient(transparent,#332317c9);color:#fff0c9;text-shadow:0 1px 2px #29180c;font:700 15px Georgia,serif;pointer-events:none}
 .character-lower-stats>small{font:700 11px Georgia,serif;color:#f4d18b;letter-spacing:0}
@@ -421,7 +414,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-lower-stats .character-nameplate small{display:block;font:700 12px/1.15 Georgia,serif;color:#f4d18b}
 .character-lower-stats .character-nameplate h2{font:700 clamp(24px,6.5vw,32px)/1.05 Georgia,serif;margin:1px 0 2px;color:#fff3d1;text-shadow:0 2px 3px #1d1208}
 @media(max-height:480px) and (min-width:520px){.character-lower-stats .character-nameplate h2{font-size:18px}.character-lower-stats .character-nameplate small{font-size:10px}.character-lower-stats{padding-top:12px}}
-.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:calc(var(--character-dock-h,132px) + 12px)}
+.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:132px}
 @media(max-height:480px) and (min-width:520px){.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:84px}}
 
 /* Building Operation: one sheet, matching the original's layout -- portrait slots instead of a
@@ -467,3 +460,40 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .business-locked .level{position:relative;padding-left:23px;background:var(--game-brown);border-color:#2c1a10;color:#f0e2c4}
 .business-locked .level::before{content:'';position:absolute;left:7px;top:50%;margin-top:-1px;width:10px;height:8px;border-radius:2px;background:currentColor}
 .business-locked .level::after{content:'';position:absolute;left:9.5px;top:50%;margin-top:-7px;width:5px;height:6px;border:1.5px solid currentColor;border-bottom:0;border-radius:3px 3px 0 0}
+
+/* CHARACTER SCREENS, redesigned against the original (screen audit P0: Family 19 rows, Fellows 16).
+   The original gives the art the whole frame: a name ribbon above the head, an icon rail on the
+   right, one compact stat row, and ONE row of framed icon actions with a back chevron. Ours spent
+   ~95px on chrome, floated the name band mid-art (two margin-top:auto in a space-between column),
+   used text boxes for Hide/Info, and wrapped the dock into 2-3 rows. */
+.character-modal .return-objective{display:none}
+@media (min-height:481px),(max-width:519px){
+ .character-screen .character-screen-heading .character-nameplate{display:inline-block;min-width:150px;max-width:100%;padding:8px 26px 9px}
+ .character-screen .character-screen-heading .character-nameplate small{display:block;font:700 15px/1.1 Georgia,serif;color:#fff3d1;text-shadow:0 2px 3px #1d1208}
+ .character-screen .character-screen-heading .character-nameplate h2{font:700 12px/1.15 Georgia,serif;margin:1px 0 0;color:#f4d18b}
+ .character-screen .character-side-actions{top:62px;gap:6px}
+ .character-screen .character-side-actions>button,
+ .character-screen .character-screen-art .character-showcase>button,
+ .character-screen .character-screen-art .idle-control{width:50px;min-width:50px;max-width:50px;min-height:50px!important;height:auto;padding:5px 2px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:2px solid #c5a46a;border-radius:10px;background:#3b2a1dd1;color:#ffedc0;font:700 10px/1 Georgia,serif;white-space:nowrap;box-shadow:0 2px 4px #0006}
+ .character-screen .character-side-actions>button svg,
+ .character-screen .character-screen-art .character-showcase>button svg,
+ .character-screen .character-screen-art .idle-control svg{width:20px;height:20px;color:#ffe2a6}
+ .character-screen .character-screen-art .character-showcase>button{top:174px;right:7px;left:auto;bottom:auto}
+ .character-screen .character-screen-art .idle-control{top:230px;right:7px;left:auto;bottom:auto}
+ .character-screen .character-lower-stats{margin-top:auto;min-height:0;padding:10px 12px 8px;background:linear-gradient(transparent,#231509d9 40%);display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+ .character-screen .character-lower-stats:empty{display:none}
+ .character-screen .character-tag{font:700 11px/1.2 Georgia,serif;color:#fff1cc;background:linear-gradient(90deg,#7a3d8ce6,#7a3d8c00);padding:2px 22px 2px 8px;border-radius:3px}
+ .character-screen .character-lower-stats .character-stat-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:6px 16px;max-width:none}
+ .character-screen .character-stat{display:flex;align-items:center;gap:5px}
+ .character-screen .character-stat img{width:24px;height:24px;object-fit:contain;flex:none}
+ .character-screen .character-stat span{font:700 12px Georgia,serif;color:#f3e3bd}
+ .character-screen .character-stat strong{font:700 15px Georgia,serif;color:#ffd37a}
+ .character-screen .character-screen-controls{margin-top:0;display:flex;align-items:stretch;background:repeating-linear-gradient(45deg,#64402b55 0 2px,transparent 2px 6px),#49301f}
+ .character-screen .character-back{flex:none;display:flex;align-items:center;padding:3px 0 max(4px,env(safe-area-inset-bottom)) 5px;border-top:3px double #d4b16e}
+ .character-screen .character-back .collection-open{margin:0;width:46px;min-width:46px;max-width:46px;min-height:50px!important;height:auto;padding:0;font-size:0;border:2px solid #c5a263;border-radius:8px;background:#62442e;box-shadow:inset 0 0 0 1px #7d6033}
+ .character-screen .character-back .collection-open::before{content:'\00AB';font:700 30px/1 Georgia,serif;color:#ffe2a6}
+ .character-screen .character-menu{flex:1;min-width:0}
+ .character-screen .character-action-dock{display:flex;grid-template-columns:none;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;gap:2px}
+ .character-screen .character-action-dock::-webkit-scrollbar{display:none}
+ .character-screen .character-action-dock>button{flex:0 0 62px;scroll-snap-align:start}
+}

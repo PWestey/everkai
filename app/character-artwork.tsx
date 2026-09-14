@@ -1,4 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
+import {Pause,Play} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import FamilyArtStage from './family-art-stage';
 import clips from '@/lib/character-idle-data.json';
@@ -21,5 +22,5 @@ export default function CharacterArtwork({person,large=false,suspended=false}:an
   else if(resumeAfterCover.current){resumeAfterCover.current=false;if(!document.hidden&&!matchMedia('(prefers-reduced-motion: reduce)').matches)el.play().catch(()=>setPlaying(false));}
  },[suspended]);
  if(!clip||failed)return person.id.startsWith('wife_')?<FamilyArtStage person={person} large={large}/>:<img src={'./assets/'+person.art} alt={person.name+' full character art'}/>;
- return <div className="character-idle" data-model={clip.id}><img className="character-art-backdrop" src={'./assets/'+person.art} alt="" aria-hidden="true"/><video ref={video} src={'./assets/'+clip.src} poster={'./assets/'+person.art} muted loop playsInline preload="auto" aria-label={person.name+' rendered Idle animation'} onPlaying={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onError={()=>setFailed(true)}/><Button className="idle-control" variant="outline" onClick={()=>{const el=video.current;if(!el)return;if(el.paused)el.play().catch(()=>setPlaying(false));else el.pause()}}>{playing?'Pause animation':'Play animation'}</Button></div>;
+ return <div className="character-idle" data-model={clip.id}><img className="character-art-backdrop" src={'./assets/'+person.art} alt="" aria-hidden="true"/><video ref={video} src={'./assets/'+clip.src} poster={'./assets/'+person.art} muted loop playsInline preload="auto" aria-label={person.name+' rendered Idle animation'} onPlaying={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onError={()=>setFailed(true)}/><Button className="idle-control" variant="outline" aria-label={playing?'Pause animation':'Play animation'} onClick={()=>{const el=video.current;if(!el)return;if(el.paused)el.play().catch(()=>setPlaying(false));else el.pause()}}>{playing?<Pause aria-hidden="true"/>:<Play aria-hidden="true"/>}<span>{playing?'Pause':'Play'}</span></Button></div>;
 }
