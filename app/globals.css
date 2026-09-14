@@ -110,6 +110,13 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen-heading small{font-size:11px;letter-spacing:0;color:#fff0c8}
 .character-screen-heading .collection-open{margin:0;width:auto;max-width:128px;font-size:11px;padding:6px;min-height:44px;height:auto;background:#61482fd9;border:2px solid #c5a263;color:#fff0d0;text-shadow:none}
 .character-screen-controls{margin-top:auto;flex:none;min-width:0;width:100%}
+/* The overlay controls (View artwork / Pause animation) used a hard-coded bottom offset
+   tuned for a 2-row action dock. Family has 9 dock entries (3 rows, measured 171px at
+   393x852) so the constant put both buttons INSIDE the dock -- clipped in half, which is
+   what a player sees on the Family screen. The dock's row count now drives the offset. */
+.character-screen{--character-dock-h:132px}
+.character-screen:has(.character-action-dock>button:nth-child(9)){--character-dock-h:180px}
+.character-screen:has(.character-action-dock>button:nth-child(5)):not(:has(.character-action-dock>button:nth-child(9))){--character-dock-h:126px}
 .character-action-dock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;border-top:3px double #d4b16e;background:#503622;padding:3px 4px max(4px,env(safe-area-inset-bottom));box-shadow:0 -4px 16px #38261366}
 .character-action-dock>button{display:flex;flex-direction:column;gap:0;align-items:center;justify-content:center;min-height:53px!important;height:53px;border:0;border-radius:3px;padding:2px;background:transparent;color:#ffedc7;font:700 12px Georgia,serif;white-space:normal;text-align:center}
 .character-action-dock>button:hover{background:#84613c;color:#fff5df}
@@ -414,7 +421,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-lower-stats .character-nameplate small{display:block;font:700 12px/1.15 Georgia,serif;color:#f4d18b}
 .character-lower-stats .character-nameplate h2{font:700 clamp(24px,6.5vw,32px)/1.05 Georgia,serif;margin:1px 0 2px;color:#fff3d1;text-shadow:0 2px 3px #1d1208}
 @media(max-height:480px) and (min-width:520px){.character-lower-stats .character-nameplate h2{font-size:18px}.character-lower-stats .character-nameplate small{font-size:10px}.character-lower-stats{padding-top:12px}}
-.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:132px}
+.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:calc(var(--character-dock-h,132px) + 12px)}
 @media(max-height:480px) and (min-width:520px){.character-screen-art .character-showcase>button,.character-screen-art .idle-control{bottom:84px}}
 
 /* Building Operation: one sheet, matching the original's layout -- portrait slots instead of a
