@@ -614,7 +614,9 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-detail-sheet .panel-pages{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
 .stage-detail-sheet .panel-pages>button{min-width:0;padding-inline:0;border-radius:6px;font-size:10.5px;letter-spacing:-.02em}
 .stage-detail-sheet .rank-card h2{font-size:22px;line-height:1.15}
-.stage-detail-sheet>[data-slot=dialog-close]{width:44px!important;height:44px!important;top:10px;right:8px;color:#5b3d26}.stage-detail-sheet>[data-slot=dialog-close] svg{width:22px;height:22px}
+/* top includes the safe area: a plain 10px put the X under the iPhone status bar, where it cannot be
+   tapped (reported on the installed app; it overrode the generic env()-aware rule). */
+.stage-detail-sheet>[data-slot=dialog-close]{width:44px!important;height:44px!important;top:calc(env(safe-area-inset-top) + 10px);right:8px;color:#5b3d26}.stage-detail-sheet>[data-slot=dialog-close] svg{width:22px;height:22px}
 .stage-detail-sheet .adventure-panel>.panel-book>.panel-pages>button{font-size:14px;letter-spacing:0}
 
 /* Character sheet bodies: rule explanations stay behind each sheet's "Rules" disclosure; the
@@ -936,3 +938,4 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .wayfarer-card dl div{padding:4px;text-align:center;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px}
 .wayfarer-card dt{font-size:10px;color:#e5bd6a}.wayfarer-card dd{margin:0;font:700 15px Georgia,serif;color:#fff3d6}
 .wayfarer-profile>[data-slot=dialog-close]{width:44px;height:44px;color:#ffe7b5;background:#3d2a1bcc;border-radius:50%}
+.storage-shop-sheet>button[data-slot=dialog-close]{top:calc(env(safe-area-inset-top) + 10px)}
