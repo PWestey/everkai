@@ -621,3 +621,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
    persistent small-note paragraphs under controls are hidden, as the original shows none. A note
    that stands in for a missing control is tagged item-status and stays. */
 .character-sheet:not(.system-sheet) .small-note:not(.item-status){display:none}
+/* Roadside encounters read as the original's small result cards: a ribbon-style title over the reward. */
+.stage-detail-sheet .opening-event{display:grid;gap:6px;padding:10px 0;border-top:1px solid #d9bf8a}
+.stage-detail-sheet .opening-event h3{justify-self:center;padding:3px 16px;background:#f0d9a4;border:1px solid #b88a47;border-radius:3px;color:#4b3421;font:700 14px Georgia,serif}
+.stage-detail-sheet .opening-event>p{text-align:center;color:#6b4a26;font-weight:600}.stage-detail-sheet .school-card h2{font-size:20px;line-height:1.2}
