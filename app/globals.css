@@ -765,3 +765,30 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .system-sheet .character-sheet-body .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33);border-color:#8a5a1c;color:#442a10}
 .system-sheet .rank-card{background:linear-gradient(#5b3d26,#422a19)!important;border:1px solid #c99a4e;color:#ffe7b5}
 .system-sheet :is(.school-card,.business-card,.family-detail,.milestone){background:#fbf0d4;border-color:#c49a55}
+/* STORAGE -- item detail reads like the original's reward popup: centred ribbon title, the icon in a
+   rarity-edged slot with the owned count, gold use/gift buttons. Supply shop button in brown. */
+.item-detail-sheet>[data-slot=dialog-title]{justify-self:center;margin:0 40px;padding:6px 26px 8px;background:url('../public/assets/ui-original/title.png') center/100% 100% no-repeat;color:#ffe7b5;font:700 17px Georgia,serif;text-align:center;text-shadow:0 1px 2px #000a}
+.item-detail-sheet>[data-slot=dialog-description]{text-align:center;color:#6b4a26}
+.item-detail-sheet>.item-detail-art{justify-self:center;width:88px!important;height:88px!important;padding:10px;object-fit:contain;background:radial-gradient(#3d5a78,#1f2e40);border:2px solid #c99a4e;border-radius:6px;box-shadow:inset 0 0 8px #000a}
+.item-detail-sheet>p{text-align:center}
+.item-detail-sheet button:not([data-variant=outline]):not([data-variant=ghost]):not([data-slot=dialog-close]){background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
+.item-detail-sheet button:not([data-variant=outline]):not([data-variant=ghost]):not([data-slot=dialog-close]):disabled{background:#cdbb95!important;color:#6d5d42!important;border-color:#a8926a!important;opacity:1}
+.item-detail-sheet>label{justify-self:center;display:flex;align-items:center;gap:8px}
+.storage-summary>button{background:#5b3d26!important;color:#ffe7b5!important;border-color:#c99a4e!important;font-family:Georgia,serif;font-weight:700}
+.storage-shop-sheet>[data-slot=dialog-title]{justify-self:center;padding:6px 26px 8px;background:url('../public/assets/ui-original/title.png') center/100% 100% no-repeat;color:#ffe7b5;font:700 17px Georgia,serif;text-shadow:0 1px 2px #000a}
+.storage-shop-sheet>[data-slot=dialog-description]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.storage-shop-sheet button:not([data-variant=outline]):not([data-variant=ghost]):not([data-slot=dialog-close]){background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font-weight:700}
+.storage-shop-sheet button:not([data-variant=outline]):not([data-variant=ghost]):not([data-slot=dialog-close]):disabled{background:#cdbb95!important;color:#6d5d42!important;border-color:#a8926a!important;opacity:1}
+.storage-shop-sheet .panel-pages>button[data-variant=outline]{background:#7a5634!important;border:1px solid #4d321d!important;color:#f6dfa8!important;font-weight:700}
+.storage-shop-sheet .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33)!important;border-color:#8a5a1c!important;color:#442a10!important}
+.storage-shop-sheet>[data-slot=dialog-title]{margin-inline:auto;width:fit-content}
+.storage-shop-sheet .rank-card{background:linear-gradient(#5b3d26,#422a19)!important;border:1px solid #c99a4e;border-radius:6px;color:#ffe7b5}
+.storage-shop-sheet .rank-card h2{font:700 22px/1.15 Georgia,serif}.storage-shop-sheet .rank-card small{color:#e5bd6a}
+.storage-shop-sheet .panel-pages{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;background:transparent!important}
+.storage-shop-sheet .panel-pages>button{min-width:0;padding-inline:2px;font-size:12px}
+.storage-shop-sheet .school-card{background:#fbf0d4;border:1px solid #c49a55;border-radius:6px}
+.supplies-panel .business-actions:has(.supply-buy){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.supply-buy{flex-direction:column;height:auto!important;min-height:48px;gap:0;padding:4px 2px;white-space:nowrap}
+.supply-buy b{font:700 15px Georgia,serif}.supply-buy small{font-size:11px;font-weight:600}
+.item-detail-sheet>button[data-slot=dialog-close],.storage-shop-sheet>button[data-slot=dialog-close]{width:44px!important;height:44px!important}
+.storage-shop-sheet button{min-height:44px}
