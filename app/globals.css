@@ -442,3 +442,21 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-detail-sheet,.storage-shop-sheet,.drakenberg-town{padding-top:calc(env(safe-area-inset-top) + 12px)!important}
 [data-slot=dialog-content]>[data-slot=dialog-close]{top:calc(env(safe-area-inset-top) + 8px)}
 .game-modal>[data-slot=dialog-close],.drakenberg-town>[data-slot=dialog-close]{top:calc(env(safe-area-inset-top) + 8px);right:8px;z-index:9}
+
+/* Style parity 2026-09-14, against the original's Commission and Challenge screens.
+   1. A NAMED PLATE per building card. SL1-11 requires one; the original gives every card a dark
+      plate with a gold border and cream serif. Same treatment as the town plates so the chrome
+      language stays consistent. Out-specifies .identity h2 and .business-card h2 at (0,2,1).
+   2. A LOCKED state. The original greys locked cards and marks them with a padlock. No lock art
+      ships (ui-original has only close.png) and an emoji would clash with the serif chrome, so the
+      padlock is drawn from the chip's two pseudo-elements. The card keeps OUR condition -- the
+      gold price on its button -- rather than the original's level sentence, which would misdescribe
+      our mechanic.
+   Both rules wire --game-gold and --game-brown, which were declared with zero consumers. */
+.business-card .identity h2{background:linear-gradient(#5a4327,#3f2f1c);color:#fdf3d8;border:2px solid var(--game-gold);border-radius:7px;padding:5px 12px;font:700 1.05rem Georgia,serif;box-shadow:inset 0 0 0 1px #7d6033,0 2px 5px #0006;text-shadow:0 1px 2px #000a;white-space:nowrap}
+.business-card .identity{flex-wrap:wrap;gap:8px}
+.business-locked{background:#f1e7d2;border-color:#b9a480}
+.business-locked .identity h2{opacity:.82}
+.business-locked .level{position:relative;padding-left:23px;background:var(--game-brown);border-color:#2c1a10;color:#f0e2c4}
+.business-locked .level::before{content:'';position:absolute;left:7px;top:50%;margin-top:-1px;width:10px;height:8px;border-radius:2px;background:currentColor}
+.business-locked .level::after{content:'';position:absolute;left:9.5px;top:50%;margin-top:-7px;width:5px;height:6px;border:1.5px solid currentColor;border-bottom:0;border-radius:3px 3px 0 0}
