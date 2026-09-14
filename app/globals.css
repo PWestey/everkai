@@ -835,3 +835,8 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .roam-member progress{accent-color:#d59a33!important}
 .roam-member .roam-stories{padding:2px 4px!important;font-size:12px}
 .roam-member .roam-stories{width:100%}
+/* Facility sheet tab rows stay on one line (Workshop's five tabs wrapped to two rows). */
+/* Flex, not equal grid columns: a long label ('Manufacture') takes the width it needs from short ones. */
+.system-sheet .character-sheet-body .panel-pages{display:flex!important;flex-wrap:nowrap;gap:4px}
+.system-sheet .character-sheet-body .panel-pages>button{flex:1 1 auto;min-width:0;padding-inline:4px;font-size:12px;white-space:nowrap}
+.system-sheet .business-actions:has(.supply-buy){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
