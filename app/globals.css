@@ -862,3 +862,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .tower-result.won{border-color:#c99a4e;box-shadow:inset 0 0 0 2px #f3cd6b88}.tower-result.won>summary{color:#7a5a12}
 .tower-result.lost{border-color:#8a3a2a}.tower-result.lost>summary{color:#8a3a2a}
 .tower-result p{font-size:13px!important}
+/* Sandbox party rows: parchment, with the chosen Fellows edged in gold rather than green. */
+.stage-detail-sheet .adventure-panel button:has(img)[aria-pressed]{background:#fbf0d4!important;border:1px solid #c49a55!important;color:#4b3421!important}
+.stage-detail-sheet .adventure-panel button.party-selected:has(img)[aria-pressed]{background:#fff4d6!important;border:2px solid #d59a33!important;box-shadow:0 0 0 2px #f3cd6b66}
+.stage-detail-sheet .adventure-panel button:has(img)>img{border:2px solid #5b3d26;border-radius:3px}
