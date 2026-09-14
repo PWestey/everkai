@@ -34,17 +34,37 @@ export default function RecruitPanel({game,action,locked}:any){
  const perfectDays=(r.days||[]).filter((d:string)=>d.endsWith('!')&&d.slice(0,10)>=week).length;
  const {areas}=habitEarnings(game.habits,game.lastAt);
 
- return <section className="treasure-panel" aria-label="Recruit">
-  <h2>Recruit</h2>
-  <p>{r.stones} Acquaint Stones · {r.stoneFragments} fragments · {r.valiant??0} Valiant · {r.archangel??0} Archangel · {r.starShards??0} star shards</p>
-  <p className="small-note">Finish daily habits to earn fragments; ten make a stone. Characters are chosen, not drawn — pick who you want and pay their price. Perfect days also pay star shards, spent on a Fellow’s stars in their own training panel.</p>
+ return <section className="treasure-panel recruit-panel" aria-label="Recruit">
+  <h2 className="sr-only">Recruit</h2>
+  {/* Counts only; how fragments are earned is on the Habit rewards card below. */}
+  <dl className="recruit-wallet" aria-label="Recruit currencies">
+   {[['Stones',r.stones],['Fragments',r.stoneFragments],['Valiant',r.valiant??0],['Archangel',r.archangel??0],['Star shards',r.starShards??0]].map(([k,v])=><div key={k as string}><dt>{k}</dt><dd>{v as number}</dd></div>)}
+  </dl>
+
+  <div className="recruit-tabs">
+   <Button variant="outline" aria-pressed={!family} onClick={()=>{setTab('fellows');setSelected(null)}}>Fellows</Button>
+   <Button variant="outline" aria-pressed={family} onClick={()=>{setTab('family');setSelected(null)}}>Family</Button>
+  </div>
+
+  {person&&<article className="school-card recruit-invite">
+   <h3>{person.name}</h3>
+   <p>{head(person.rarity)}{person.type?' · '+person.type:''} · {priceLabel(person.id)}</p>
+   <Button disabled={locked||!afford||!cost} onClick={()=>{run('summonRecruit',person.id);setSelected(null)}}>
+    {cost?(!amount?'Invite · free':afford?`Invite for ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`:`Needs ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`):'No price recorded'}
+   </Button>
+  </article>}
+
+  <div className="roster-cards">
+   <RosterPicker entries={entries} owned={owned} selected={pick} onSelect={(id:string)=>setSelected(id)}
+    family={family} pageSize={6} status={(id:string)=>owned[id]?'Joined':priceLabel(id)}/>
+  </div>
 
   {/* The claim was the missing half of this panel. summonClaimDay/Week were dispatched nowhere in the
       app, so stoneFragments could never leave 0 and every Invite button below read "Needs 3 Acquaint
       Stone Fragments" forever -- the habits-to-roster loop had no door. */}
   <article className="school-card">
    <h3>Habit rewards</h3>
-   <p>{day.done}/{day.due} daily habits today{day.perfect?' · perfect day':''}</p>
+   <p>{day.done}/{day.due} daily habits today{day.perfect?' · perfect day':''} · {STONE_FRAGMENTS_PER_STONE} fragments make a stone</p>
    <Button disabled={locked||dayClaimed||!day.done} onClick={()=>run('summonClaimDay')}>
     {dayClaimed?'Today’s rewards claimed'
      :!day.done?'Complete a daily habit first'
@@ -55,22 +75,6 @@ export default function RecruitPanel({game,action,locked}:any){
      :`Weekly bonus · ${perfectDays}/${WEEK_DAYS_FOR_BONUS} perfect days, ${areas}/${WEEK_AREAS_FOR_BONUS} life areas`}
    </Button>
   </article>
-
-  <div className="business-actions">
-   <Button variant="outline" aria-pressed={!family} onClick={()=>{setTab('fellows');setSelected(null)}}>Fellows</Button>
-   <Button variant="outline" aria-pressed={family} onClick={()=>{setTab('family');setSelected(null)}}>Family</Button>
-  </div>
-
-  <RosterPicker entries={entries} owned={owned} selected={pick} onSelect={(id:string)=>setSelected(id)}
-   family={family} pageSize={6} status={(id:string)=>owned[id]?'Joined':priceLabel(id)}/>
-
-  {person&&<article className="school-card">
-   <h3>{person.name}</h3>
-   <p>{head(person.rarity)}{person.type?' · '+person.type:''} · {priceLabel(person.id)}</p>
-   <Button disabled={locked||!afford||!cost} onClick={()=>{run('summonRecruit',person.id);setSelected(null)}}>
-    {cost?(!amount?'Invite · free':afford?`Invite for ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`:`Needs ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`):'No price recorded'}
-   </Button>
-  </article>}
 
   <article className="school-card">
    <h3>Forge</h3>
