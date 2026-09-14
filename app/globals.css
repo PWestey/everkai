@@ -589,3 +589,30 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* Landscape: six narrower cards a row -- the game column is ~560px wide here, so three would be
    taller than the whole 393px screen. */
 @media (max-height:480px) and (min-width:520px){.roster-landing .roster,.roster-landing .family-roster{grid-template-columns:repeat(6,minmax(0,1fr))}.roster-landing .roster-tile>strong{font-size:10px}.roster-landing .roster-source-badges>img{width:18px!important;height:18px!important}.roster-landing .roster-group{grid-column:1/-1}}
+
+/* STAGE DETAIL SHEETS (Quest / Explore / Rank / Workshop / Rewards / Other journeys) -- the original's
+   brown-and-gold framing instead of green app cards: a title ribbon, brown tabs with a gold active
+   tab, a dark-wood summary plate, parchment cards and gold primary buttons. Rule explanations
+   ('small-note') are hidden here; the sheet already carries them under "About these rules". */
+.stage-detail-sheet{background:#ecdcb8;border:3px solid #6b4a2b;box-shadow:inset 0 0 0 2px #c99a4e;border-radius:10px}
+.stage-detail-sheet>h2{align-self:center;margin:0 44px 4px;padding:7px 26px;background:#5b3d26;border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font:700 17px Georgia,serif;text-align:center}
+.stage-detail-sheet>h2::before{content:'\25C6  ';color:#d9aa55;font-size:11px}.stage-detail-sheet>h2::after{content:'  \25C6';color:#d9aa55;font-size:11px}
+.stage-detail-sheet>h2+p{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.stage-detail-sheet .panel-pages{gap:4px}
+.stage-detail-sheet .panel-pages>button[data-variant=outline]{background:#7a5634;border:1px solid #4d321d;color:#f6dfa8;font-family:Georgia,serif;font-weight:700}
+.stage-detail-sheet .panel-pages>button[aria-pressed=true]{background:linear-gradient(#f3cd6b,#d59a33);border-color:#8a5a1c;color:#442a10;box-shadow:inset 0 1px 0 #fff3}
+.stage-detail-sheet .rank-card{background:linear-gradient(#5b3d26,#422a19);border:1px solid #c99a4e;border-radius:6px;color:#ffe7b5}
+.stage-detail-sheet .rank-card small{color:#e5bd6a}.stage-detail-sheet .rank-card h2{font-family:Georgia,serif}
+.stage-detail-sheet .school-card{background:#fbf0d4;border:1px solid #c49a55;border-radius:6px;box-shadow:0 1px 0 #a67c3f55}
+.stage-detail-sheet .school-card>small{color:#8a5a1c}.stage-detail-sheet .school-card h2{color:#4b3421;font-family:Georgia,serif}
+.stage-detail-sheet .school-card button[data-variant=default]{background:linear-gradient(#f3cd6b,#d59a33);border:1px solid #8a5a1c;color:#442a10;font-weight:700}
+.stage-detail-sheet .school-card button[data-variant=default]:disabled{background:#cdbb95;border-color:#a8926a;color:#6d5d42;opacity:1}
+.stage-detail-sheet .school-card button[data-variant=outline]{background:#fff8e6;border-color:#b88a47;color:#5b3d26}
+.stage-detail-sheet :is(.opening-journey,.adventure-panel) .small-note:not(.item-status){display:none}
+.stage-detail-sheet .rules-note summary{color:#6b4a26}
+.stage-detail-sheet .panel-pages{background:transparent!important}
+.stage-detail-sheet .panel-pages{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+.stage-detail-sheet .panel-pages>button{min-width:0;padding-inline:0;border-radius:6px;font-size:10.5px;letter-spacing:-.02em}
+.stage-detail-sheet .rank-card h2{font-size:22px;line-height:1.15}
+.stage-detail-sheet>[data-slot=dialog-close]{width:44px!important;height:44px!important;top:10px;right:8px;color:#5b3d26}.stage-detail-sheet>[data-slot=dialog-close] svg{width:22px;height:22px}
+.stage-detail-sheet .adventure-panel>.panel-book>.panel-pages>button{font-size:14px;letter-spacing:0}
