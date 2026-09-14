@@ -838,7 +838,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* Facility sheet tab rows stay on one line (Workshop's five tabs wrapped to two rows). */
 /* Flex, not equal grid columns: a long label ('Manufacture') takes the width it needs from short ones. */
 .system-sheet .character-sheet-body .panel-pages{display:flex!important;flex-wrap:nowrap;gap:4px}
-.system-sheet .character-sheet-body .panel-pages>button{flex:1 1 auto;min-width:0;padding-inline:4px;font-size:12px;white-space:nowrap}
+.system-sheet .character-sheet-body .panel-pages>button{flex:1 1 auto;min-width:44px;padding-inline:4px;font-size:12px;white-space:nowrap}
 .system-sheet .business-actions:has(.supply-buy){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 /* FAMILIAR TOWER -- ribbon, floor progress, five team slots (front two marked), and the next floor as
    a card with the guardians' stats and a gold Challenge. The skill text sits behind its own summary. */
@@ -914,3 +914,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* Native selects rendered at the component's 32px (h-8) everywhere -- e.g. the equipment picker in the
    Fellow sheets and the fishing-ground picker. Portrait raises them to the 44px tap target. */
 @media (min-height:481px),(max-width:519px){select[data-slot=native-select]{min-height:44px}}
+/* Facility stat tiles (Inn service, Fathoms-style family-stats inside facility sheets) as dark plates. */
+.system-sheet .family-stats>div{background:#3d2a1b!important;border:1px solid #c99a4e;color:#ffe7b5}
+.system-sheet .family-stats span{color:#e5bd6a!important;min-height:0!important}
+.system-sheet .family-stats strong{color:#fff3d6}
