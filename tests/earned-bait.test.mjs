@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
-import {fishingState,castKey,STARTING_BAIT,BAIT_REFILL_MAX,BAIT_DUPLICATE_RETURN,FISH} from '../lib/fishing.mjs';
+import {fishingState,castKey,STARTING_BAIT,BAIT_REFILL_MAX,BAIT_STORAGE,BAIT_DUPLICATE_RETURN,FISH} from '../lib/fishing.mjs';
 import {starterHabits} from '../lib/habits.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime();
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.equal(r.error,undefined,r.error);assert.ok(valid(r.state),a);return r.state;};
@@ -43,6 +43,11 @@ test('the refill is capped and respects bait storage',()=>{
  s={...s,fishing:{...fishingState(s),bait:0}};
  s=run(s,'baitRefill');
  assert.equal(fishingState(s).bait,BAIT_REFILL_MAX,'more dailies than the cap still stops at the cap');
+ assert.equal(BAIT_REFILL_MAX,12,'the original accrues 12 bait a day (FishBaitTime 7200, FishBaitTimeMax 86400)');
+ // Storage stops at the original's 50, so a refill cannot stack past it.
+ let held=withJournal();held=run(held,'habitComplete',held.habits.items.find(x=>x.freq==='daily').id);
+ held={...held,fishing:{...fishingState(held),bait:BAIT_STORAGE-1}};
+ held=run(held,'baitRefill');assert.equal(fishingState(held).bait,BAIT_STORAGE);
  let full=withJournal();
  full=run(full,'habitComplete',full.habits.items.find(x=>x.freq==='daily').id);
  full={...full,fishing:{...fishingState(full),bait:1000}};
