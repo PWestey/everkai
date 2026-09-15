@@ -4,7 +4,7 @@ import {fishingState,castKey,STARTING_BAIT,BAIT_REFILL_MAX,BAIT_DUPLICATE_RETURN
 import {starterHabits} from '../lib/habits.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime();
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.equal(r.error,undefined,r.error);assert.ok(valid(r.state),a);return r.state;};
-const cast=s=>run(s,'castFish',castKey(s));
+const cast=s=>run(s,'castFish',castKey(s),'Village River');
 const withJournal=()=>({...fresh(T),habits:starterHabits(T)});
 
 test('bait is stocked at the start, never granted by a button',()=>{
@@ -12,23 +12,19 @@ test('bait is stocked at the start, never granted by a button',()=>{
  assert.equal(fishingState(s).bait,STARTING_BAIT);
  assert.throws(()=>act(s,'claimBait',T),/Unknown action/,'the free bait faucet is gone');});
 
-test('a new collection entry returns the bait it cost, so discovery never drains the stock',()=>{
- let s=fresh(T);
- const pool=FISH.length;
- for(let n=0;n<8;n++){s=cast(s);assert.equal(fishingState(s).catches.at(-1).duplicate,false);}
- assert.equal(fishingState(s).bait,STARTING_BAIT,'eight new species cost nothing net');
- assert.ok(pool>8);});
-
-test('repeat casts drain slowly: every third duplicate returns its bait',()=>{
- let s=fresh(T);
- while(fishingState(s).catches.length<FISH.length)s=cast(s);
- assert.equal(fishingState(s).bait,STARTING_BAIT,'the whole encyclopaedia is free to discover');
- const before=fishingState(s).bait;
- for(let n=0;n<9;n++)s=cast(s);
- const spent=before-fishingState(s).bait;
- assert.ok(fishingState(s).catches.slice(-9).every(c=>c.duplicate),'those nine were repeats');
- assert.equal(spent,9-Math.floor(9/BAIT_DUPLICATE_RETURN),'two thirds of a bait per repeat cast');
- assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);});
+test('a new collection entry returns the bait it cost; every third repeat returns one',()=>{
+ let s=fresh(T),news=0,repeats=0;s={...s,fishing:{...fishingState(s),bait:100}};
+ for(let n=0;n<60;n++){
+  const before=fishingState(s),index=before.catches.length;s=cast(s);const c=fishingState(s).catches.at(-1);
+  const back=c.duplicate?(index%BAIT_DUPLICATE_RETURN===0?1:0):1;
+  assert.equal(fishingState(s).bait,before.bait-1+back,`cast ${index+1}`);
+  if(c.duplicate)repeats++;else news++;
+ }
+ // Positive control: the draw really produced both kinds, so both branches above were exercised.
+ assert.ok(news>0&&repeats>0,`${news} new, ${repeats} repeats`);
+ assert.ok(fishingState(s).bait<100,'repeats drain the stock now that discovery is a draw');
+ assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);
+ assert.ok(FISH.length>news);});
 
 test('the daily refill needs a finished habit and only lands once a day',()=>{
  let s=withJournal();
