@@ -2,10 +2,13 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {fresh,act,valid,settle} from '../lib/game.mjs';
 import {funded,costOf} from './gear-fixtures.mjs';
+import {MAX_GOLD} from '../lib/limits.mjs';
 
-// The four accumulate-then-claim surfaces, pinned AS THEY ARE TODAY. This is a characterisation
-// test, not an aspiration: it records that the four claims DISAGREE about the wallet ceiling, and
-// deliberately does NOT assert which value is right -- that is an open owner decision.
+// The four accumulate-then-claim surfaces. This file used to pin that they DISAGREED about the wallet
+// ceiling (village gold 1e12, Inn and Apothecary 1e9) and left the fix as an owner decision. Decided
+// 2026-09-14 after an economy simulation reached billions of gold per second: every claim that pays
+// village gold now caps at MAX_GOLD (1e15, lib/limits.mjs). The Workshop keeps 1e9 because it pays a
+// different wallet (Workshop coins). The history below describes the old state for context.
 //
 // Money accrues somewhere the player cannot spend it, then a button moves it into a wallet. Each of
 // the four does that, and each caps it differently:
@@ -14,11 +17,9 @@ import {funded,costOf} from './gear-fixtures.mjs';
 //   potionCollect      lib/apothecary.mjs village gold   clamps PARTIALLY at 1e9, and is {seq}-guarded
 //   collectWorkshop    lib/workshop.mjs  Workshop wallet REFUSES outright at 1e9, never touching gold
 //
-// Three use 1e9 while the wallet they pay into is bounded at 1e12 by `collect` and by the milestone
-// `claim` (game.mjs:184). The measurable consequence is pinned below: a player past 1e9 gold keeps
-// collecting village income up to 1e12, but can never collect Inn or Apothecary earnings again.
-// Whether the fix is to raise three caps or lower one is not this file's call; noticing a silent
-// change to any of them is.
+// Before 2026-09-14 three used 1e9 while `collect` allowed 1e12, so a player past 1e9 gold kept
+// collecting village income but could never collect Inn or Apothecary earnings again. The tests below
+// now pin the unified MAX_GOLD ceiling, so any future change to it must be deliberate.
 
 const LIB=new URL('../lib/',import.meta.url);
 const read=f=>readFileSync(new URL(f,LIB),'utf8');
@@ -45,7 +46,7 @@ function branchOf(site){
  return j<0?rest.slice(0,400):rest.slice(0,j);
 }
 /** Every distinct wallet-ceiling literal inside that branch. */
-const capsOf=site=>{const b=branchOf(site);return b===null?null:[...new Set([...b.matchAll(/\b1e(?:12|9)\b/g)].map(m=>m[0]))]};
+const capsOf=site=>{const b=branchOf(site);return b===null?null:[...new Set([...b.matchAll(/\b(?:1e(?:12|9)|MAX_GOLD)\b/g)].map(m=>m[0]))]};
 
 // ---------------------------------------------------------------------------------------------
 // Extractor guard FIRST. Everything below reads lib source as text; a drifted pattern would let the
@@ -66,20 +67,20 @@ test('the cap extractor still works (a drifted pattern must fail loudly, not pas
  assert.ok(!branchOf(SITES[3]).includes('buyWorkshopPearl'),'the branch bound leaked into the next action');
 });
 
-test('each claim declares exactly one ceiling, and they do not agree: 1e12, 1e9, 1e9, 1e9',()=>{
+test('each claim declares exactly one ceiling: MAX_GOLD for the three gold claims, 1e9 for Workshop coins',()=>{
  // The EXPECTED side is written out by hand on purpose. A test that read the cap from source on both
  // sides would pass unchanged through any value change -- the exact failure that let "away earnings
  // capped to eight hours" survive the move to twelve hours.
- assert.deepEqual(SITES.map(capsOf),[['1e12'],['1e9'],['1e9'],['1e9']],
+ assert.deepEqual(SITES.map(capsOf),[['MAX_GOLD'],['MAX_GOLD'],['MAX_GOLD'],['1e9']],
   'the four claim ceilings have moved. This test does not say which value is correct -- it says a '
   +'change to any of them must be deliberate. Update the expectation WITH the decision, not before it.');
  // Stated as a count too, so the inconsistency itself is the thing under guard rather than a side
  // effect of four independent literals that happen to differ today.
  const caps=SITES.map(s=>capsOf(s)[0]);
- assert.equal(caps.filter(c=>c==='1e9').length,3,'three claims cap at 1e9');
- assert.equal(caps.filter(c=>c==='1e12').length,1,'one claim caps at 1e12');
- // ...and the wallet three of them pay into is bounded at 1e12 everywhere else it is credited.
- assert.match(read('game.mjs'),/gold:Math\.min\(1e12,s\.gold\+m\.reward\.gold\)/,'milestone claim no longer bounds gold at 1e12');
+ assert.equal(caps.filter(c=>c==='MAX_GOLD').length,3,'the three gold claims agree');
+ assert.equal(caps.filter(c=>c==='1e9').length,1,'only the Workshop coin wallet caps at 1e9');
+ // ...and the wallet they pay into is bounded by MAX_GOLD where the milestone claim credits it too.
+ assert.match(read('game.mjs'),/gold:Math\.min\(MAX_GOLD,s\.gold\+m\.reward\.gold\)/,'milestone claim no longer bounds gold at MAX_GOLD');
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -133,36 +134,36 @@ test('collectWorkshop is the only one that does not pay into village gold',()=>{
 // The caps, exercised. Each number below was measured by running this code.
 // ---------------------------------------------------------------------------------------------
 
-test('collect clamps PARTIALLY at 1e12, paying what fits and leaving the rest pending',()=>{
- const s={...fresh(NOW),gold:1e12-5,pending:100};
+test('collect clamps PARTIALLY at MAX_GOLD, paying what fits and leaving the rest pending',()=>{
+ const s={...fresh(NOW),gold:MAX_GOLD-5,pending:100};
  assert.ok(valid(s));
  const after=run(s,'collect');
- assert.equal(after.gold,1e12);          // filled exactly to the ceiling
+ assert.equal(after.gold,MAX_GOLD);      // filled exactly to the ceiling
  assert.equal(after.pending,95);         // and the remainder is kept, not burned
  assert.ok(valid(after));
  // At the ceiling it pays nothing but still succeeds -- collect has no refusal branch at all.
- const full=run({...s,gold:1e12},'collect');
- assert.equal(full.gold,1e12);assert.equal(full.pending,100);
+ const full=run({...s,gold:MAX_GOLD},'collect');
+ assert.equal(full.gold,MAX_GOLD);assert.equal(full.pending,100);
 });
 
-test('potionCollect clamps PARTIALLY at 1e9, and refuses only once the wallet is genuinely full',()=>{
- const s={...potion(),gold:1e9-3};
+test('potionCollect clamps PARTIALLY at MAX_GOLD, and refuses only once the wallet is genuinely full',()=>{
+ const s={...potion(),gold:MAX_GOLD-3};
  const after=collectPotion(s);
- assert.equal(after.gold,1e9);                    // three of the ten fit
+ assert.equal(after.gold,MAX_GOLD);                    // three of the ten fit
  assert.equal(after.apothecary.deposit,7);        // and seven are kept on the counter
  assert.ok(valid(after));
  assert.match(refused(after,'potionCollect',null,{seq:after.apothecary.seq}),/wallet is full/);
 });
 
-test('collectInnDeposit is ALL-OR-NOTHING at 1e9: it pays zero where potionCollect would pay a part',()=>{
+test('collectInnDeposit is ALL-OR-NOTHING at MAX_GOLD: it pays zero where potionCollect would pay a part',()=>{
  // The sharpest form of the inconsistency. Same wallet headroom, same deposit, opposite behaviour.
  const headroom=3,deposit=10;
- const i={...inn(),gold:1e9-headroom,inn:{...inn().inn,deposit}};   // deposit seeded, not served
+ const i={...inn(),gold:MAX_GOLD-headroom,inn:{...inn().inn,deposit}};   // deposit seeded, not served
  assert.ok(valid(i));
  assert.match(refused(i,'collectInnDeposit'),/Make room for the full deposit/);
- const p={...potion(),gold:1e9-headroom};
+ const p={...potion(),gold:MAX_GOLD-headroom};
  assert.equal(p.apothecary.deposit,deposit);
- assert.equal(collectPotion(p).gold,1e9);          // the Apothecary banks the 3 that fit
+ assert.equal(collectPotion(p).gold,MAX_GOLD);      // the Apothecary banks the 3 that fit
  assert.equal(collectPotion(p).apothecary.deposit,deposit-headroom);
  // ...and the Inn's till is untouched by the refusal, so nothing is lost -- only stranded.
  assert.equal(i.inn.deposit,deposit);
@@ -189,7 +190,7 @@ test('potionCollect alone is {seq}-guarded, so a stale control cannot claim the 
   assert.ok(!branchOf(SITES.find(x=>x.claim===action)).includes('seq'),`${action} has gained a seq guard`);
 });
 
-test('THE INCONSISTENCY, measured: past 1e9 gold two claims die while village income keeps paying',()=>{
+test('past 1e9 gold every gold claim still collects (the old 1e9 caps stranded Inn and Apothecary earnings)',()=>{
  // Not a style complaint. At 2e9 gold -- reachable, since collect itself allows up to 1e12 -- the Inn
  // and the Apothecary are permanently uncollectable, and their tills fill and stop. This is the
  // player-visible consequence of the caps disagreeing, and it is what must not change silently.
@@ -198,10 +199,10 @@ test('THE INCONSISTENCY, measured: past 1e9 gold two claims die while village in
  assert.equal(run(v,'collect').gold,rich+100,'village gold still collects far above 1e9');
 
  const i={...inn(),gold:rich};
- assert.match(refused(i,'collectInnDeposit'),/Make room for the full deposit/);
+ assert.equal(run(i,'collectInnDeposit').gold,rich+50,'the Inn collects above 1e9');
 
  const p={...potion(),gold:rich};
- assert.match(refused(p,'potionCollect',null,{seq:p.apothecary.seq}),/wallet is full/);
+ assert.equal(collectPotion(p).gold,rich+10,'the Apothecary collects above 1e9');
 
  const w={...workshop(),gold:rich};
  assert.equal(run(w,'collectWorkshop').workshop.wallet,12,'the Workshop is unaffected: separate wallet');
@@ -210,5 +211,5 @@ test('THE INCONSISTENCY, measured: past 1e9 gold two claims die while village in
  // assertions above: at 2e9 gold, two of the three gold-paying claims are dead.
  const dead=[['collectInnDeposit',i,null],['potionCollect',p,{seq:p.apothecary.seq}]]
   .filter(([a,s,v2])=>act(s,a,s.lastAt,null,v2).error).map(([a])=>a);
- assert.deepEqual(dead,['collectInnDeposit','potionCollect']);
+ assert.deepEqual(dead,[],'no gold claim is dead at 2e9');
 });

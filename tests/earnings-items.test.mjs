@@ -1,3 +1,4 @@
+import {MAX_GOLD} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,valid,decode,totalRate} from '../lib/game.mjs';import {CONSUMABLES,V8_ITEMS} from '../lib/adventure.mjs';import {usableCount,consumableAmount} from '../lib/consumables.mjs';
 const basic='Item_Gcoin_YieldPack_1',advanced='Item_Gcoin_YieldPack_3',insight='Item_WifeBlessExp_extradd_01';
 test('v8 migration preserves old bag, full roster and all progress; only new item keys are empty',()=>{
@@ -11,7 +12,7 @@ test('earnings cards use the current rate without collecting pending gold or gra
 });
 test('earnings cards preserve inventory with no income and cap bulk use at whole cards',()=>{
  const s=fresh(0);s.inventory[basic]=10;s.buildings.fish.fellow=null;const denied=act(s,'useConsumable',0,basic,{count:'all'});assert.ok(denied.error);assert.equal(denied.state.inventory[basic],10);
- s.buildings.fish.fellow='hero_15';s.gold=1e12-250;const r=act(s,'useConsumable',0,basic,{count:'all'});assert.equal(r.state.gold,1e12-10);assert.equal(r.state.inventory[basic],8);assert.ok(valid(r.state));
+ s.buildings.fish.fellow='hero_15';s.gold=MAX_GOLD-250;const r=act(s,'useConsumable',0,basic,{count:'all'});assert.equal(r.state.gold,MAX_GOLD-10);assert.equal(r.state.inventory[basic],8);assert.ok(valid(r.state));
  const item=CONSUMABLES.find(i=>i.id===basic);assert.equal(consumableAmount(item,2.123),127);assert.equal(usableCount(r.state,item,null,totalRate(r.state)),0);
 });
 test('Blessing Point Insight supplies 10000 points without altering power, intimacy or gift counters',()=>{
