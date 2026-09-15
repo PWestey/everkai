@@ -1,0 +1,61 @@
+{
+ "sources": {
+  "System": "d8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312",
+  "PetTower": "20f4738ae5a0a264366d89e00880ee89a78b7b97b52a934e2c729c152279eff9"
+ },
+ "items": {
+  "levelUp": "Item_PetLevelUP",
+  "classUp": "Item_PetClassUP"
+ },
+ "holdHours": 24,
+ "floorIncome": [
+  [
+   110,
+   4
+  ],
+  [
+   120,
+   5
+  ],
+  [
+   130,
+   5
+  ],
+  [
+   141,
+   5
+  ],
+  [
+   151,
+   6
+  ],
+  [
+   162,
+   7
+  ],
+  [
+   172,
+   7
+  ],
+  [
+   182,
+   7
+  ],
+  [
+   184,
+   8
+  ],
+  [
+   185,
+   8
+  ],
+  [
+   186,
+   8
+  ],
+  [
+   187,
+   8
+  ]
+ ]
+}

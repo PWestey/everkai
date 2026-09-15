@@ -1,5 +1,5 @@
 import {MAX_FELLOW_XP} from '../lib/limits.mjs';
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,settle} from '../lib/game.mjs';
 import {mineState,mineToday,minePlan,validMine,MINE_UNLOCK_RANK} from '../lib/mine-clearance.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
@@ -9,7 +9,7 @@ const DAY=86400000;
 const unlocked=s=>({...s,opening:{...act(s,'openingStart',s.lastAt).state.opening,rank:12}});
 const go=(s,a,id=null,value=null)=>{const r=act(s,a,s.lastAt,id,value);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
 const mine=(s,a,id='hero_54',count=1)=>go(s,a,id,{seq:mineState(s).seq,day:mineToday(s).day,count});
-const ready=()=>{let s=go(unlocked(fresh(1000)),'recruit','hero_54');s=go(s,'stellaActivate','hero_54',{seq:0});s=go(s,'stellaSupply','hero_54',{seq:s.stella.seq});return go(s,'stellaUpgrade','hero_54',{seq:s.stella.seq,count:'max'});};
+const ready=()=>{let s=go(unlocked(fresh(1000)),'recruit','hero_54');s=go(s,'stellaActivate','hero_54',{seq:0});s=grantFragments(s,'hero_54');return go(s,'stellaUpgrade','hero_54',{seq:s.stella.seq,count:'max'});};
 test('fresh earned route across four days clears exact encounters, exchanges14Ore and upgrades without freeOre',()=>{
  let s=ready();assert.equal(minePlan(s,'hero_54').kills.length,8);const gold=s.gold,xp=s.fellowXP,energies=structuredClone({energy:s.energy,adventure:s.adventure,tradingPost:s.tradingPost});
  for(let d=0;d<4;d++){s=settle(s,d*DAY+1000);s=mine(s,'mineDeploy');s=mine(s,'mineExchange','hero_54','max');}

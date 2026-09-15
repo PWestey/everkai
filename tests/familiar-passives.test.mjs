@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
 import {STAT_PASSIVES,passiveStats} from '../lib/familiar-passives.mjs';import {familiarStats} from '../lib/familiars.mjs';import {towerBattle,towerKey} from '../lib/familiar-tower.mjs';import {fresh,act,decode,valid} from '../lib/game.mjs';import {createPersistence} from '../lib/persistence.mjs';
 const team=['Pet_3191','Pet_8043501','Pet_8043502'].map(id=>({id,level:50,stars:0}));
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
@@ -18,7 +18,7 @@ test('frozen combat versions1–6 retain report hashes while v7 has separate ini
  const low=team.map(p=>({...p,level:49}));assert.deepEqual(towerBattle(10,low,7),towerBattle(10,low,6));
 });
 test('new battle save/retry uses v8 once and preserves training, binding and report snapshots',()=>{
- let s=run(fresh(1000),'adoptFamiliars');for(const p of team){for(let n=0;n<5;n++)s=run(s,'trainFamiliar',p.id,10);s=run(s,'towerParty',p.id);}
+ let s=run(fresh(1000),'adoptFamiliars');for(const p of team){for(let n=0;n<5;n++)s=run(withItems(s),'trainFamiliar',p.id,10);s=run(s,'towerParty',p.id);}
  let raw=JSON.stringify(s),fail=false;const storage=createPersistence(()=>({getItem:()=>raw,setItem:(k,v)=>{if(fail)throw Error('quota');raw=v}}));storage.load(1000);const before=raw,after=run(storage.current,'towerFight',towerKey(storage.current));
  assert.equal(after.familiarTower.last.combatVersion,10);assert.deepEqual(after.familiars,s.familiars);assert.deepEqual(after.bonds,s.bonds);
  fail=true;assert.throws(()=>storage.commit(after));assert.equal(raw,before);fail=false;storage.load(1000);storage.commit(run(storage.current,'towerFight',towerKey(storage.current)));storage.load(1000);assert.deepEqual(storage.current.familiarTower,after.familiarTower);assert.deepEqual(decode(raw),storage.current);

@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,SAVE_KEY} from '../lib/game.mjs';
 import {FAMILIARS} from '../lib/familiars.mjs';
 import {towerBattle,towerKey,towerState} from '../lib/familiar-tower.mjs';
@@ -17,11 +17,11 @@ test('battle respects Speed, KO and 15-round cap; Rage strikes occur determinist
 });
 test('first clear and rewards commit together; stale keys and snapshot changes cannot replay rewards',()=>{
  const before=setup(),key=towerKey(before);let s=run(before,'towerFight',key);assert.equal(towerState(s).cleared,1);assert.equal(s.inventory.Item_Talent_Hero_1,before.inventory.Item_Talent_Hero_1+4);assert.equal(s.fellowXP,before.fellowXP+500);
- assert.ok(act(s,'towerFight',1000,key).error);const report=towerBattle(1,s.familiarTower.last.team);s=run(s,'trainFamiliar',FAMILIARS[0].id,10);assert.deepEqual(towerBattle(1,s.familiarTower.last.team),report);assert.deepEqual(decode(JSON.stringify(s)),s);
+ assert.ok(act(s,'towerFight',1000,key).error);const report=towerBattle(1,s.familiarTower.last.team);s=run(withItems(s),'trainFamiliar',FAMILIARS[0].id,10);assert.deepEqual(towerBattle(1,s.familiarTower.last.team),report);assert.deepEqual(decode(JSON.stringify(s)),s);
  const full=setup();full.inventory.Item_Talent_Hero_1=1e6;assert.ok(act(full,'towerFight',1000,towerKey(full)).error);assert.equal(towerState(full).cleared,0);
 });
 test('all twelve local floors are reachable through existing free training and cannot replay',()=>{
- let s=setup();for(const p of FAMILIARS.slice(0,5))for(let i=0;i<10;i++)s=run(s,'trainFamiliar',p.id,10);
+ let s=setup();for(const p of FAMILIARS.slice(0,5))for(let i=0;i<10;i++)s=run(withItems(s),'trainFamiliar',p.id,10);
  for(let floor=1;floor<=12;floor++){s=run(s,'towerFight',towerKey(s));assert.equal(towerState(s).cleared,floor);}
  assert.ok(act(s,'towerFight',1000,towerKey(s)).error);
 });

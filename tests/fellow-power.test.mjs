@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {startingSave,act,valid} from '../lib/game.mjs';
 import {rosterOperation} from '../lib/businesses.mjs';
@@ -194,6 +194,9 @@ test('default mode: records + museum + familiars reach 881,466 -- NOT the ceilin
   const next=maybe(s,'bindFamiliar',pet,fellow);
   if(next!==s){s=maybe(next,'activateFamiliarNodes',pet);bound++}
  }
+ // A bond pays by stage now (ECON-29). The ceiling trains every familiar to stage 10 AFTER its nodes were
+ // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
+ s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
  assert.equal(bound,71,'familiar binding is 1:1; 71 familiars cover 71 of 154 Fellows');
  assert.equal(Math.round(rosterOperation(s)),881466);
 
@@ -229,6 +232,9 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
   const next=maybe(s,'bindFamiliar',pet,fellow);
   if(next!==s){s=maybe(next,'activateFamiliarNodes',pet);bound++}
  }
+ // A bond pays by stage now (ECON-29). The ceiling trains every familiar to stage 10 AFTER its nodes were
+ // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
+ s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
  assert.equal(Math.round(rosterOperation(s)),881466,'stage 0 must match the fixture above');
 
  // Stage 1 -- STELLA. Four profiles ship with a private activation policy; each is activated once and
@@ -241,7 +247,7 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
   assert.notEqual(activated,s,`stella ${p.id} refused activation; the policy set has drifted`);
   s=activated;
   for(let i=0;i<200;i++){
-   s=maybe(s,'stellaSupply',p.id,{seq:stellaState(s).seq});
+   s=grantFragments(s,p.id);
    const before=s;
    s=maybe(s,'stellaUpgrade',p.id,{seq:stellaState(s).seq,count:'max'});
    if(s===before)break;

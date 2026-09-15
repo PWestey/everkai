@@ -19,7 +19,7 @@ import {funded,staffed} from './gear-fixtures.mjs';
 // deliberate edit here rather than a silent drift in lib/.
 //
 //   ECON-28  lib/summon.mjs:30     49 of 259 characters recruit free; the charge writes NaN
-//   ECON-29  lib/familiar-nodes:16 bindFamiliar pays full inherent Power for nothing
+//   ECON-29  FIXED: bonds scale with stage; training charges the Cost ladders (see its section)
 //   BUG-19   lib/business-data.json Museum/Clinic employee rates transposed; one building, two rates
 //   ECON-02  lib/staffing.mjs:22   the building-materials faucet has no day gate and no rate limit
 //
@@ -60,11 +60,11 @@ function faucetBranch(){
  return j<0?null:rest.slice(0,j);
 }
 /** The one line that pays a bound familiar its inherent bonus. */
-const inherentLine=()=>read('familiar-nodes.mjs').split('\n').find(l=>l.includes('Object.assign(bonus,data.inherent['));
+const inherentLine=()=>read('familiar-nodes.mjs').split('\n').find(l=>l.includes('Object.entries(data.inherent[pet]'));
 /** The lib modules that import familiar-data.json at all. */
 const familiarDataImporters=()=>readdirSync(LIB).filter(f=>f.endsWith('.mjs'))
  .filter(f=>read(f).includes('familiar-data.json')).sort();
-/** Of those, any that reads a Cost column from it. Should be empty: that is the defect.
+/** Of those, any that reads a Cost column from it. Was empty while ECON-29 stood; the fix reads it.
  *  Scoped to the importers, and matched as a PROPERTY READ rather than as prose. A bare /\bCost\b/
  *  over all of lib/ reports lib/artifacts.mjs, whose line 56 is an English sentence ("Cost is twice
  *  the artifact's own verified recycle") about forge prices and has nothing to do with familiars --
@@ -85,14 +85,14 @@ test('the source and data extractors still work (a drifted pattern must fail lou
 
  // ECON-29's inherent line.
  const line=inherentLine();
- assert.ok(line,'no `Object.assign(bonus,data.inherent[' + '])` line in lib/familiar-nodes.mjs; the pattern has drifted');
+ assert.ok(line,'no `Object.entries(data.inherent[pet]` line in lib/familiar-nodes.mjs; the pattern has drifted');
  assert.ok(line.includes('familiarBonus')||read('familiar-nodes.mjs').indexOf('export function familiarBonus(')<read('familiar-nodes.mjs').indexOf(line),
   'the inherent assignment is no longer inside familiarBonus');
  // The Cost sweep must be capable of finding something, or "nothing reads Cost" is vacuous. The data
  // file genuinely carries the tables, so a scan of lib/ DATA must hit while the scan of lib/ CODE misses.
  // First: the sweep must actually be looking at a file. An importer list that came back empty would
  // make costReaders() trivially [] and the ECON-29 assertion below would prove nothing.
- assert.deepEqual(familiarDataImporters(),['familiars.mjs'],
+ assert.deepEqual(familiarDataImporters(),['familiar-supplies.mjs','familiars.mjs'],
   'the familiar-data.json importer sweep has drifted. If another module now imports the file, add it '
   +'here deliberately -- and check whether it reads the Cost columns, which would mean ECON-29 moved.');
  // ...and the matcher must be able to match. These are the three shapes a Cost read could take;
@@ -210,16 +210,13 @@ test('ECON-28: no successful purchase may leave a NaN balance',()=>{
 });
 
 // =============================================================================================
-// ECON-29 -- bindFamiliar pays a familiar's full inherent Power, free, at level 1.
+// ECON-29 -- FIXED. bindFamiliar used to pay a familiar's full inherent Power, free, at level 1:
+// 71 free binds took a 17-business village from 92,064 to 1,233,109 gold/s (13.4x).
 //
-// familiarBonus (lib/familiar-nodes.mjs:16) does `Object.assign(bonus,data.inherent[pet])` on the
-// strength of the bond alone. adoptFamiliars grants all 71 at no cost (lib/familiars.mjs:27) and
-// bindFamiliar (lib/familiar-nodes.mjs:23) charges nothing, so the whole inherent table is payable
-// in 72 free clicks with zero investment. Nothing in lib/ reads familiar-data.json's Cost tables.
-//
-// tests/familiar-nodes.test.mjs:28 pins ONE pet's inherent values and the arithmetic around them.
-// What it never asserts -- and what this section adds -- is that the bind costs nothing at all, and
-// what the whole table is worth to the village economy.
+// Now familiarBonus (lib/familiar-nodes.mjs) pays a ninth of the inherent bonus per stage past the
+// first, so an untrained familiar's bond is worth nothing; trainFamiliar and starFamiliar charge the
+// familiar-data.json Cost ladders in the original's Item_PetLevelUP / Item_PetClassUP, which only the
+// Familiar Tower's hourly income supplies (lib/familiar-supplies.mjs).
 // =============================================================================================
 
 /** A village with all 17 businesses open, 200 staff each and the full 154-Fellow roster. Staff is
@@ -231,60 +228,37 @@ function village(){
  for(const d of BUSINESSES)s=staffed(s,d.id,200);
  return s;
 }
+const purse=x=>JSON.stringify({gold:x.gold,crystals:x.crystals,fellowXP:x.fellowXP,familiarSupplies:x.familiarSupplies??null});
 
-test('ECON-29: one free bind takes a fresh Fellow from 100 Power to 1,040,104 — a 10,401x jump',()=>{
- let s=startingSave(NOW);
- assert.equal(bondedPower(s,'hero_1'),100,'a fresh Fellow is worth exactly 100 Power');
- s=run(s,'adoptFamiliars');
- assert.equal(Object.keys(s.familiars).length,71,'all 71 familiars are granted in a single free action');
- assert.deepEqual(s.familiars.Pet_1191,{level:1,stars:0},'granted at level 1 with no stars');
+test('ECON-29 fixed: binding an untrained familiar adds nothing; stage 10 pays the full 1,040,104',()=>{
+ let s=run(startingSave(NOW),'adoptFamiliars');
  assert.deepEqual(inherentFamiliarBonus('Pet_1191'),{flat:1000000,finalPercent:4});
  const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
- // floor((100 + 1,000,000) * 1.04). The pet is level 1 and unstarred; none of that is consulted.
- assert.equal(bondedPower(bound,'hero_1'),1_040_104);
- assert.ok(valid(bound),'the free 1.04M-Power save is a legal save');
+ assert.equal(bondedPower(bound,'hero_1'),100,'a level-1 bond is worth nothing');
+ // Positive control: the same bond on a stage-10 familiar pays exactly the old free amount.
+ const trained={...bound,familiars:{...bound.familiars,Pet_1191:{level:450,stars:0}}};
+ assert.equal(bondedPower(trained,'hero_1'),1_040_104);
+ const stage2={...bound,familiars:{...bound.familiars,Pet_1191:{level:50,stars:0}}};
+ assert.equal(bondedPower(stage2,'hero_1'),Math.floor((100+Math.floor(1e6/9))*(1+Math.round(4/9*100)/100/100)),'stage 2 pays a ninth');
 });
 
-test('ECON-29: adopting and binding spends nothing — no gold, no currency, no level, no stars',()=>{
- let s=startingSave(NOW);
- const before=JSON.stringify({gold:s.gold,crystals:s.crystals,fellowXP:s.fellowXP,ore:s.artifacts?.ore,
-  inventory:s.inventory,summon:s.summon,staffingMaterials:s.staffingMaterials});
- s=run(s,'adoptFamiliars');
- const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
- const after=JSON.stringify({gold:bound.gold,crystals:bound.crystals,fellowXP:bound.fellowXP,ore:bound.artifacts?.ore,
-  inventory:bound.inventory,summon:bound.summon,staffingMaterials:bound.staffingMaterials});
- assert.equal(after,before,'adopting and binding now charge something; this defect may be fixed');
- // The pet itself is untouched too: the inherent bonus is not gated on level or stars in any way.
- assert.deepEqual(bound.familiars.Pet_1191,{level:1,stars:0});
- // Node activation IS correctly gated, which is why the power lands on the BIND rather than the nodes.
- // Reported alongside this defect as a 10,792-action chain worth 443M Power; NOT reproduced.
- assert.match(String(act(bound,'activateFamiliarNodes',bound.lastAt,'Pet_1191').error),
-  /No eligible inactive node selected/,'node activation is no longer gated at level 1');
+test('ECON-29 fixed: every level and star is charged from the Cost ladders, and nothing else pays for them',()=>{
+ let s=run(startingSave(NOW),'adoptFamiliars');
+ assert.match(act(s,'trainFamiliar',s.lastAt,'Pet_1191',1).error,/Needs 10 level-up items/,'no items, no training');
+ assert.match(act(s,'starFamiliar',s.lastAt,'Pet_1191').error,/class-up items/);
+ assert.deepEqual(costReaders(),['familiar-supplies.mjs'],'the Cost columns are read by the supply module');
+ s={...s,familiarSupplies:{levelUp:1490,classUp:300,since:null}};
+ for(let n=0;n<5;n++)s=run(s,'trainFamiliar','Pet_1191',10);
+ assert.match(act(s,'trainFamiliar',s.lastAt,'Pet_1191',1).error,/Needs 70 level-up/,'the purse is spent to the item');
+ assert.equal(s.familiars.Pet_1191.level,50,'1,490 level-up and 300 class-up items reach stage 2 exactly');
+ assert.deepEqual(s.familiarSupplies,{levelUp:0,classUp:0,since:null});
+ assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 
-test('ECON-29: the inherent table nothing charges for spans 30,000 to 3,000,000 flat Power',()=>{
- const flats=FAMILIARS.map(p=>inherentFamiliarBonus(p.id).flat??0).sort((a,b)=>a-b);
- assert.equal(flats.length,71);
- assert.equal(flats[0],30_000);
- assert.equal(flats[Math.floor(flats.length/2)],500_000);
- assert.equal(flats[flats.length-1],3_000_000);
- // The Cost ladders the original charges for exactly this are present in the data and read by nobody.
- assert.deepEqual(costReaders(),[],
-  'a lib module now reads a Cost column. If familiar Costs are being charged, ECON-29 is fixed and '
-  +'this file should be revisited.');
- const classCosts=Object.values(familiarData.classes).reduce((n,r)=>n+(r.Cost||0),0);
- const levelCosts=Object.values(familiarData.levels).reduce((n,r)=>n+(r.Cost||0),0);
- const starCosts=Object.values(familiarData.stars).reduce((n,r)=>n+(r.Cost||0),0);
- assert.ok(classCosts>0&&levelCosts>0&&starCosts>0,'the shipped Cost tables are non-empty and unspent');
-});
-
-test('ECON-29: 71 free binds multiply a 17-business village income by 13.4x',()=>{
+test('ECON-29 fixed: 71 binds on untrained familiars leave village income where it was',()=>{
  let v=village();
- assert.equal(Object.keys(v.fellows).length,154);
- assert.equal(Object.keys(v.enterprises).length,17);
  const before=totalRate(v);
  assert.equal(Math.round(before*10)/10,92_063.8,'the un-bound village rate has moved');
- assert.equal(Math.round(rosterOperation(v)*10)/10,15.4,'154 untrained Fellows are worth 154*100/1000');
  v=run(v,'adoptFamiliars');
  let bound=0;
  for(const pet of Object.keys(v.familiars)){
@@ -292,36 +266,23 @@ test('ECON-29: 71 free binds multiply a 17-business village income by 13.4x',()=
   const next=maybe(v,'bindFamiliar',pet,fellow);
   if(next!==v){v=next;bound++}
  }
- assert.equal(bound,71,'binding is strictly 1:1, so 71 familiars cover 71 of 154 Fellows');
- const after=totalRate(v);
- assert.equal(Math.round(after),1_233_109);
- assert.equal(Math.round(rosterOperation(v)),67_136);
- assert.equal(Math.round(after/before*10)/10,13.4,'71 free actions multiply village income 13.4x');
- assert.ok(valid(v),'the whole 13.4x fixture is a legal save, so this really is reachable');
- // It stays under the 138,699 that tests/fellow-power.test.mjs:179 pins, because that fixture ALSO
- // maxes every record and activates every node. Binding alone lands below it. NOTE: 138,699 is that
- // fixture's REACH, not a ceiling -- stella, blessings and echoes take a still-valid save to 827,408.
- assert.ok(rosterOperation(v)<138_699,'binding alone must stay below the maxed-record fixture');
+ assert.equal(bound,71);
+ assert.equal(Math.round(totalRate(v)*10)/10,92_063.8,'free binds no longer move income (was 1,233,109)');
+ // Negative control: the same binds on stage-10 familiars restore the old 13.4x, so the probe can see it.
+ const trained={...v,familiars:Object.fromEntries(Object.keys(v.familiars).map(id=>[id,{level:450,stars:0}]))};
+ assert.equal(Math.round(totalRate(trained)),1_233_109);
 });
 
-test('ECON-29: familiar power must be earned through the shipped Cost tables — THE FIX',
- {todo:'bindFamiliar (familiar-nodes.mjs:23) and adoptFamiliars (familiars.mjs:27) are both free, and familiarBonus (familiar-nodes.mjs:16) pays full inherent Power on the bond alone. Charge the familiar-data.json Cost ladders (classes 44,300/pet over 10 rows; levels 626,190/pet over 498 of 499 rows -- row 1 carries no Cost key; stars 5,000/pet over 100 rows; 675,490 per pet, 47,959,790 across all 71) AND scale the inherent bonus by level and stars. Scaling alone is NOT enough: measured 2026-09-13, trainFamiliar and starFamiliar charge nothing either, so scaling would only put free Power behind free clicks. Everkai also has no currency to charge -- a save carries gold/crystals/fellowXP only, with artifacts.ore and staffingMaterials undefined when fresh -- so this needs a new currency and an inventory-id migration.'},()=>{
- // The invariant that would have stopped it: an action worth a million Power must cost something.
- // The purse is summarised to a handful of scalars rather than compared whole: a failing notEqual
- // prints BOTH sides, and spreading the 100-key inventory across a CI log twice buries the message.
- const purse=x=>JSON.stringify({gold:x.gold,crystals:x.crystals,fellowXP:x.fellowXP,
-  gifts:x.inventory.gift1,ore:x.artifacts?.ore??null,materials:x.staffingMaterials?.stock??0,
-  summon:x.summon?JSON.stringify(x.summon):null});
+test('ECON-29 fixed: familiar power must be earned through the shipped Cost tables',()=>{
  let s=run(startingSave(NOW),'adoptFamiliars');
+ s=run(s,'bindFamiliar','Pet_1191','hero_1');
  const before=bondedPower(s,'hero_1'),spendable=purse(s);
- const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
- const gained=bondedPower(bound,'hero_1')-before;
- assert.ok(gained>0,'the fixture measured no gain; the probe has drifted');
- assert.notEqual(purse(bound),spendable,
-  `binding Pet_1191 to hero_1 granted ${gained.toLocaleString()} Power and charged nothing at all. `
-  +'Familiar power is meant to be earned through the Cost tables shipped in lib/familiar-data.json, '
-  +'which no module reads. Measured: 71 free binds take a 17-business village from 92,064 to '
-  +'1,233,109 gold/s.');
+ s={...s,familiarSupplies:{levelUp:1e6,classUp:1e6,since:null}};const stocked=purse(s);
+ for(let n=0;n<5;n++)s=run(s,'trainFamiliar','Pet_1191',10);
+ const gained=bondedPower(s,'hero_1')-before;
+ assert.ok(gained>0,'training to stage 2 measured no gain; the probe has drifted');
+ assert.notEqual(purse(s),stocked,`training granted ${gained.toLocaleString()} Power and charged nothing`);
+ assert.notEqual(stocked,spendable);
 });
 
 // =============================================================================================
