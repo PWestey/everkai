@@ -1040,3 +1040,37 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .pick-strip.pick-chip>.pick{min-height:44px}
 .pick-strip+.fishing-portrait,.pick-heading+.pick-strip+.fishing-portrait{max-height:132px}.pick-strip+.fishing-portrait img{max-height:120px;width:auto;margin:auto;display:block}
 .pick-strip.pick-square .pick-name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.1;min-height:2.2em}
+/* FAMILY FATHOMS -- one 6x6 grid of slot tiles and a detail bar (was 36 stacked rows, 12 screens tall). */
+.fathom-panel .fathom-head{display:grid;gap:6px;padding:10px 12px;background:linear-gradient(#5b3d26,#3d2a1b);border:1px solid #c99a4e;border-radius:8px}
+.fathom-panel .fathom-head .habit-meter span{color:#e8d3a8}
+.fathom-practice{display:flex;align-items:center;gap:5px;margin:0;font-size:12px;color:#e8d3a8}
+.fathom-practice i{width:12px;height:12px;border-radius:50%;background:#2a1c11;border:1px solid #c99a4e}.fathom-practice i[data-on=true]{background:linear-gradient(#f7d77e,#d59a33)}
+.fathom-practice span{margin-left:4px}
+.fathom-types{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:8px 0}
+.fathom-types>div{display:grid;justify-items:center;gap:1px;padding:5px 2px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px;min-width:0}
+.fathom-types img{width:22px;height:22px}.fathom-types span{font-size:9px;color:#7a5a36;max-width:100%;overflow:hidden;text-overflow:ellipsis}.fathom-types strong{font:700 13px Georgia,serif;color:#2f7a2a}
+.fathom-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+.fathom-tile{position:relative;aspect-ratio:1;min-height:44px;display:grid;place-items:center;align-content:center;gap:0;padding:2px;border:2px solid #c49a55;border-radius:8px;background:linear-gradient(to top,#f3cd6b calc(var(--fill)*100%),#fbf0d4 calc(var(--fill)*100%));color:#3d2a1b;overflow:hidden}
+.fathom-tile img{width:20px;height:20px}.fathom-tile b{font:700 13px/1 Georgia,serif}.fathom-all{font:700 10px Georgia,serif;color:#5b3d26}
+.fathom-tile.locked{background:#d8c9a6;border-color:#b0996d;color:#6d5a3c}.fathom-tile.locked img{filter:grayscale(1);opacity:.5}.fathom-tile.locked svg{width:14px;height:14px}
+.fathom-tile.maxed{border-color:#8a5a1c;box-shadow:inset 0 0 0 2px #fff3cf}
+.fathom-tile[aria-checked=true]{outline:3px solid #2f7a4b;outline-offset:1px}
+.fathom-detail{position:sticky;bottom:0;display:flex;align-items:center;gap:8px;margin-top:8px;padding:8px 10px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:8px;color:#ffe7b5}
+.fathom-detail>div{flex:1;min-width:0;display:grid}.fathom-detail strong{font:700 14px Georgia,serif}.fathom-detail small{font-size:12px;color:#e8d3a8}
+.fathom-detail button{flex:none;min-height:44px;background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#442a10!important;font:700 14px Georgia,serif!important}
+.fathom-detail button:disabled{background:#6d5a3c!important;color:#d8c9a6!important}
+/* OPENING REWARDS -- item tiles (was a list of name lines and full-width "Use ..." buttons, 590 words). */
+.reward-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0}
+.reward-tile{display:grid;justify-items:center;gap:4px;padding:8px 6px;background:#fbf0d4;border:1px solid #c49a55;border-radius:8px;text-align:center;min-width:0}
+.reward-tile.later{opacity:.7}
+.reward-art{position:relative;width:56px;height:56px;display:grid;place-items:center;border-radius:10px;background:radial-gradient(circle at 50% 40%,#fff6df,#e8d3a8);border:1px solid #c49a55;color:#8a5a1c}
+.reward-art img{width:46px;height:46px;object-fit:contain}.reward-art svg{width:28px;height:28px}
+.reward-art b{position:absolute;right:-6px;bottom:-6px;padding:1px 5px;border-radius:8px;background:#3d2a1b;color:#ffe7b5;font:700 11px Georgia,serif}
+.reward-name{font:700 12px/1.2 Georgia,serif;color:#3d2a1b;min-height:2.4em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.reward-tile button{min-height:44px;width:100%}.reward-tile small{min-height:44px;display:grid;place-items:center;font-size:11px;color:#7a5a36}
+.fathom-grid>.fathom-tile{aspect-ratio:1;height:auto!important;min-height:44px!important;padding:2px!important;border-radius:8px!important;border:2px solid #c49a55!important;background:linear-gradient(to top,#f3cd6b calc(var(--fill)*100%),#fbf0d4 calc(var(--fill)*100%))!important;color:#3d2a1b!important;line-height:1!important;white-space:nowrap}
+.fathom-grid>.fathom-tile.locked{background:#d8c9a6!important;border-color:#b0996d!important;color:#6d5a3c!important}
+.fathom-grid>.fathom-tile.maxed{border-color:#8a5a1c!important}
+.fathom-panel .fathom-detail{position:static}
+.fathom-panel .fathom-detail small,.fathom-panel .fathom-detail strong,.fathom-panel .fathom-practice{letter-spacing:normal;text-transform:none}
+.fathom-panel .fathom-detail button{border-radius:8px!important;padding:6px 14px!important}
