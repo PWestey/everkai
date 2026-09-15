@@ -1,13 +1,15 @@
 import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,settle} from '../lib/game.mjs';
-import {mineState,mineToday,minePlan,validMine} from '../lib/mine-clearance.mjs';
+import {mineState,mineToday,minePlan,validMine,MINE_UNLOCK_RANK} from '../lib/mine-clearance.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
 import {stockAll} from './gear-fixtures.mjs';
 const DAY=86400000;
+// Mine Clearance opens at player rank 12 (lib/mine-clearance.mjs MINE_UNLOCK_RANK); fixtures start there.
+const unlocked=s=>({...s,opening:{...act(s,'openingStart',s.lastAt).state.opening,rank:12}});
 const go=(s,a,id=null,value=null)=>{const r=act(s,a,s.lastAt,id,value);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
 const mine=(s,a,id='hero_54',count=1)=>go(s,a,id,{seq:mineState(s).seq,day:mineToday(s).day,count});
-const ready=()=>{let s=go(fresh(1000),'recruit','hero_54');s=go(s,'stellaActivate','hero_54',{seq:0});s=go(s,'stellaSupply','hero_54',{seq:s.stella.seq});return go(s,'stellaUpgrade','hero_54',{seq:s.stella.seq,count:'max'});};
+const ready=()=>{let s=go(unlocked(fresh(1000)),'recruit','hero_54');s=go(s,'stellaActivate','hero_54',{seq:0});s=go(s,'stellaSupply','hero_54',{seq:s.stella.seq});return go(s,'stellaUpgrade','hero_54',{seq:s.stella.seq,count:'max'});};
 test('fresh earned route across four days clears exact encounters, exchanges14Ore and upgrades without freeOre',()=>{
  let s=ready();assert.equal(minePlan(s,'hero_54').kills.length,8);const gold=s.gold,xp=s.fellowXP,energies=structuredClone({energy:s.energy,adventure:s.adventure,tradingPost:s.tradingPost});
  for(let d=0;d<4;d++){s=settle(s,d*DAY+1000);s=mine(s,'mineDeploy');s=mine(s,'mineExchange','hero_54','max');}
@@ -15,7 +17,7 @@ test('fresh earned route across four days clears exact encounters, exchanges14Or
  s=stockAll(s);s=go(s,'equip','hero_54','Item_Weapon_Equipment_1_1');s=go(s,'upgradeArtifact','hero_54');assert.equal(s.fellows.hero_54.gearLevel,2);assert.equal(s.fellows.hero_54.gearOreSpent,10);assert.equal(s.artifacts.ore,4);assert.deepEqual(s.adventure,energies.adventure);assert.equal(s.tradingPost,energies.tradingPost);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('weak attack saves partial damage, consumes one chance and cannot be replayed or refilled',()=>{
- let s=fresh(1000),p=minePlan(s,'hero_15');assert.equal(p.kills.length,0);assert.ok(p.after>0);const gold=s.gold,xp=s.fellowXP;s=mine(s,'mineDeploy','hero_15');assert.equal(s.gold,gold);assert.equal(s.fellowXP,xp);assert.equal(mineToday(s).progress,p.after);assert.equal(minePlan(s,'hero_15').allowed,false);assert.ok(act(s,'mineDeploy',s.lastAt,'hero_15',{seq:1,day:0}).error);s=go(s,'recruit','hero_1');s=mine(s,'mineDeploy','hero_1');assert.ok(mineToday(s).progress>p.after);assert.equal(s.mineClearance.history[1].before,p.after);
+ let s=unlocked(fresh(1000)),p=minePlan(s,'hero_15');assert.equal(p.kills.length,0);assert.ok(p.after>0);const gold=s.gold,xp=s.fellowXP;s=mine(s,'mineDeploy','hero_15');assert.equal(s.gold,gold);assert.equal(s.fellowXP,xp);assert.equal(mineToday(s).progress,p.after);assert.equal(minePlan(s,'hero_15').allowed,false);assert.ok(act(s,'mineDeploy',s.lastAt,'hero_15',{seq:1,day:0}).error);s=go(s,'recruit','hero_1');s=mine(s,'mineDeploy','hero_1');assert.ok(mineToday(s).progress>p.after);assert.equal(s.mineClearance.history[1].before,p.after);
 });
 test('stale controls across actions/midnight refuse and fully cleared days cannot pay again',()=>{
  let s=ready(),token={seq:0,day:0};s=mine(s,'mineDeploy');assert.ok(act(s,'mineDeploy',s.lastAt,'hero_54',token).error);assert.ok(act(s,'mineDeploy',s.lastAt,'hero_15',{seq:1,day:0}).error);s=settle(s,DAY);assert.equal(mineToday(s).cleared,0);assert.deepEqual(mineToday(s).used,[]);assert.ok(act(s,'mineDeploy',DAY,'hero_54',{seq:1,day:0}).error);s=mine(s,'mineDeploy');assert.equal(s.mineClearance.history.length,2);assert.equal(s.mineClearance.coins,2160);
@@ -36,3 +38,9 @@ test('malformed ledgers and destination overflow refuse without spending; old sa
 test('Mine deployments preserve other battle energies and committed snapshots',()=>{
  let s=ready();s=go(s,'northStart',null,{seq:0});s=go(s,'tradeBegin','learner',{seq:0,team:['hero_54']});const old=structuredClone({north:s.northern,trade:s.tradingPost,adventure:s.adventure,energy:s.energy,school:s.school});s=mine(s,'mineDeploy');assert.deepEqual({north:s.northern,trade:s.tradingPost,adventure:s.adventure,energy:s.energy,school:s.school},old);
 });
+
+test('the mine stays locked until player rank 12, and the refusal spends nothing',()=>{
+ const s=fresh(1000),token={seq:0,day:0};
+ const below={...unlocked(s),opening:{...unlocked(s).opening,rank:MINE_UNLOCK_RANK-1}};
+ for(const locked of [s,below]){const r=act(locked,'mineDeploy',locked.lastAt,'hero_15',token);assert.match(r.error,/rank 12/);assert.equal(r.state.mineClearance,undefined);}
+ assert.equal(act(unlocked(s),'mineDeploy',s.lastAt,'hero_15',token).error,undefined,'rank 12 opens it');});

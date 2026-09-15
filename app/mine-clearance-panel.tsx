@@ -3,10 +3,11 @@ import {Button} from '@/components/ui/button';
 import {NativeSelect,NativeSelectOption} from '@/components/ui/native-select';
 import PanelPages from './panel-pages';
 import {fellowById} from '@/lib/catalog.mjs';
-import {mineState,mineToday,minePlan,mineShopPlan,MINE_ROWS} from '@/lib/mine-clearance.mjs';
+import {mineState,mineToday,minePlan,mineShopPlan,MINE_ROWS,MINE_UNLOCK_RANK,mineUnlocked} from '@/lib/mine-clearance.mjs';
 export default function MineClearancePanel({game,action,locked,onBag,onFellow}:any){
- const [selected,setSelected]=useState('hero_15'),m=mineState(game),today=mineToday(game),plan=minePlan(game,selected),shop=mineShopPlan(game),enemy=MINE_ROWS[today.cleared],remaining=enemy?enemy.cumulativePower-today.progress:0;
+ const [selected,setSelected]=useState(()=>Object.keys(game.fellows)[0]),m=mineState(game),today=mineToday(game),plan=minePlan(game,selected),shop=mineShopPlan(game),enemy=MINE_ROWS[today.cleared],remaining=enemy?enemy.cumulativePower-today.progress:0;
  const run=(a:string,count:any=1)=>action(a,selected,{seq:m.seq,day:today.day,count});
+ if(!mineUnlocked(game))return <section className="school-card frontier-locked"><h2>Mine Clearance</h2><p>The mines open at player rank {MINE_UNLOCK_RANK}. Their first guardian, Rock Baby, has {MINE_ROWS[0].power.toLocaleString()} health — train your Fellows through the campaign first.</p><div className="bond-progress"><span>Rank</span><progress value={game.opening?.rank||1} max={MINE_UNLOCK_RANK} aria-label="Player rank toward the mines"/><b>{game.opening?.rank||1}/{MINE_UNLOCK_RANK}</b></div></section>;
  return <section><p className="small-note">Private Mine Clearance · eight source encounters · local combat rules</p><PanelPages labels={['Clearance','Mine exchange','Mine records']}><>
  <h3>{enemy?`${today.cleared+1}/8 · ${enemy.name}`:'Today’s mine is clear'}</h3>
  <p>{enemy?`${remaining.toLocaleString()} Power remaining`:'All eight encounters paid once today. Return after the next UTC midnight.'}</p>
