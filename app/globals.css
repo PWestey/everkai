@@ -1007,3 +1007,10 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .stage-background,.facility-scene>img.facility-backdrop{opacity:0;transition:opacity .25s ease-out}
 .stage-background.loaded,.facility-scene>img.facility-backdrop.loaded{opacity:1}
 @media (prefers-reduced-motion:reduce){.stage-background,.facility-scene>img.facility-backdrop{transition:none}}
+/* Progress bars (crawl 2026-09-15: Mine Clearance and 12 other screens drew the browser's default grey bar).
+   One themed bar for every <progress>: dark wood track, gold fill. :where() keeps specificity at zero so
+   screen-specific bars (journal meters, bond rows) still win. */
+:where(progress){appearance:none;-webkit-appearance:none;display:block;width:100%;height:12px;border:1px solid #4d321d;border-radius:7px;background:#3d2a1b;overflow:hidden;box-shadow:inset 0 1px 2px #0006}
+:where(progress)::-webkit-progress-bar{background:#3d2a1b;border-radius:7px}
+:where(progress)::-webkit-progress-value{background:linear-gradient(#f7d77e,#d59a33 60%,#b8792a);border-radius:6px;box-shadow:inset 0 1px 0 #fff5}
+:where(progress)::-moz-progress-bar{background:linear-gradient(#f7d77e,#d59a33 60%,#b8792a);border-radius:6px}
