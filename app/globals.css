@@ -1014,3 +1014,29 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 :where(progress)::-webkit-progress-bar{background:#3d2a1b;border-radius:7px}
 :where(progress)::-webkit-progress-value{background:linear-gradient(#f7d77e,#d59a33 60%,#b8792a);border-radius:6px;box-shadow:inset 0 1px 0 #fff5}
 :where(progress)::-moz-progress-bar{background:linear-gradient(#f7d77e,#d59a33 60%,#b8792a);border-radius:6px}
+/* PICK STRIP -- portrait / square / chip choices in one scrolling row instead of a dropdown (visual audit
+   2026-09-14: 67 dropdowns; the top pickers on Mine Clearance, Fishing, School and Opening rewards). */
+.pick-heading{margin:6px 0 2px;font:700 13px Georgia,serif;color:#5b3d26}
+.pick-strip{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#c49a55 transparent;min-width:0}
+.pick{flex:none;scroll-snap-align:center;display:grid;justify-items:center;align-content:start;gap:3px;padding:4px;border:2px solid #c49a55;border-radius:10px;background:#fbf0d4;color:#3d2a1b;box-shadow:0 1px 0 #8a5a1c33;cursor:pointer}
+.pick[aria-checked=true]{border-color:#8a5a1c;background:linear-gradient(#fff3cf,#f3cd6b);box-shadow:0 0 0 2px #f3cd6b,0 2px 6px #5b3d2640}
+.pick:focus-visible{outline:3px solid #2f7a4b;outline-offset:2px}
+.pick:disabled{cursor:default;opacity:.7;background:#e6dac0}
+.pick-muted:not([aria-checked=true]) .pick-art img{filter:grayscale(.85) brightness(.9)}
+.pick-art{position:relative;display:block;overflow:hidden;border-radius:7px;background:#e9dcbd}
+.pick-art img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+.pick-portrait .pick{width:76px}.pick-portrait .pick-art{width:66px;height:84px}
+.pick-square .pick{width:84px}.pick-square .pick-art{width:74px;height:62px;background:radial-gradient(circle at 50% 45%,#f4fbf8,#cfe3de)}
+.pick-square .pick-art img{object-fit:contain;object-position:center;padding:4px}
+.pick-chip .pick{min-width:64px;min-height:44px;grid-auto-flow:column;align-items:center;gap:6px;padding:4px 10px;border-radius:22px}
+.pick-chip .pick-art{width:24px;height:24px;border-radius:50%;background:none}.pick-chip .pick-art img{object-fit:contain}
+.pick-name{max-width:100%;font:700 11px/1.15 Georgia,serif;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pick-chip .pick-name{font-size:13px}
+.pick-sub{font-size:10px;color:#7a5a36;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.pick-lock{position:absolute;inset:0;display:grid;place-items:center;background:#2a1c11a6;color:#ffe7b5}.pick-lock svg{width:22px;height:22px}
+.pick-strip>.pick{background:#fbf0d4!important;border:2px solid #c49a55!important;color:#3d2a1b!important;box-shadow:0 1px 0 #8a5a1c33!important;font-weight:400!important;min-height:0}
+.pick-strip>.pick[aria-checked=true]{background:linear-gradient(#fff3cf,#f3cd6b)!important;border-color:#8a5a1c!important;box-shadow:0 0 0 2px #f3cd6b,0 2px 6px #5b3d2640!important}
+.pick-strip>.pick:disabled{background:#e6dac0!important}
+.pick-strip.pick-chip>.pick{min-height:44px}
+.pick-strip+.fishing-portrait,.pick-heading+.pick-strip+.fishing-portrait{max-height:132px}.pick-strip+.fishing-portrait img{max-height:120px;width:auto;margin:auto;display:block}
+.pick-strip.pick-square .pick-name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.1;min-height:2.2em}
