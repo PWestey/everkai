@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {ripe} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {createPersistence} from '../lib/persistence.mjs';
 import {fresh,act,SAVE_KEY,decode,settle} from '../lib/game.mjs';
 import {funded,costOf} from './gear-fixtures.mjs';
@@ -58,13 +58,15 @@ test('Workshop failed completion and wallet collection recover without duplicate
 });
 test('failed Farm harvest cannot admit duplicate crops or Knowledge on reload',()=>{
  const disk=fixture(),store=createPersistence(()=>disk);let s=store.load(1000);
- for(const [a,t,v] of [['openFarm'],['sowFarm',0,'Plant1'],['waterFarm',0],['finishFarm',0]]){s=act(s,a,1000,t,v).state;store.commit(s);}
+ for(const [a,t,v] of [['openFarm'],['sowFarm',0,'Plant1'],['waterFarm',0]]){s=act(s,a,1000,t,v).state;store.commit(s);}
+ store.commit(s=ripe(s));
  disk.fail=true;assert.throws(()=>store.commit(act(s,'harvestFarm',1000,0).state));disk.fail=false;const recovered=store.load(1000);assert.equal(recovered.farm.harvests.Plant1,undefined);assert.equal(recovered.farm.knowledge,20);
  store.commit(act(recovered,'harvestFarm',1000,0).state);const last=createPersistence(()=>disk).load(2000);assert.equal(last.farm.harvests.Plant1,10);assert.equal(last.farm.knowledge,26);assert.equal(last.farm.plots[0],null);
 });
 test('Farm order and essence write refusal cannot consume crops or grant Aptitude twice',()=>{
  const disk=fixture(),store=createPersistence(()=>disk);let s=store.load(1000);
- for(const [a,t,v] of [['openFarm'],['recruit','hero_1'],['sowFarm',0,'Plant1'],['finishFarm',0],['harvestFarm',0]]){s=act(s,a,1000,t,v).state;store.commit(s);}
+ for(const [a,t,v] of [['openFarm'],['recruit','hero_1'],['sowFarm',0,'Plant1']]){s=act(s,a,1000,t,v).state;store.commit(s);}
+ store.commit(s=ripe(s));s=act(s,'harvestFarm',1000,0).state;store.commit(s);
  disk.fail=true;assert.throws(()=>store.commit(act(s,'deliverFarmOrder',1000,0,'0:0').state));disk.fail=false;s=store.load(1000);assert.equal(s.farm.harvests.Plant1,10);assert.equal(s.farm.trade,undefined);
  s=act(s,'deliverFarmOrder',1000,0,'0:0').state;store.commit(s);s=act(s,'buyFarmEssence',1000,'SG3TalentCountry2').state;store.commit(s);
  disk.fail=true;assert.throws(()=>store.commit(act(s,'useFarmEssence',1000,'hero_1','SG3TalentCountry2').state));disk.fail=false;s=store.load(1000);assert.equal(s.fellows.hero_1.aptitude,10);assert.equal(s.farm.trade.essences.SG3TalentCountry2,1);

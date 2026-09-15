@@ -1,7 +1,7 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {ripe} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {fresh,act,decode,valid,totalRate} from '../lib/game.mjs';import {farmOrder,farmTrade,FARM_ESSENCES} from '../lib/farm-trade.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
-function setup(){let s=fresh(1000);for(const [a,t,v] of [['openFarm'],['recruit','hero_1'],['openEnterprise','Building_101'],['sowFarm',0,'Plant1'],['finishFarm',0],['harvestFarm',0]])s=run(s,a,t,v);return s;}
+function setup(){let s=fresh(1000);for(const [a,t,v] of [['openFarm'],['recruit','hero_1'],['openEnterprise','Building_101'],['sowFarm',0,'Plant1']])s=run(s,a,t,v);s=ripe(s);return run(s,'harvestFarm',0);}
 test('crop order → Dew → matching essence → Aptitude closes the local reward loop',()=>{
  let s=setup();const oldRate=totalRate(s),oldAPT=s.fellows.hero_1.aptitude;const order=farmOrder(s.farm,0);assert.equal(order.quantity,10);s=run(s,'deliverFarmOrder',0,order.key);assert.equal(s.farm.harvests.Plant1,0);assert.equal(s.farm.trade.dew,5);
  s=run(s,'buyFarmEssence','SG3TalentCountry2');assert.equal(s.farm.trade.dew,0);assert.equal(s.farm.trade.essences.SG3TalentCountry2,1);

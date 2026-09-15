@@ -1,4 +1,4 @@
-import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';
+import test from 'node:test';import {withItems,grantFragments,allKeepsakes,stockConsumable} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {startingSave,act,valid} from '../lib/game.mjs';
 import {rosterOperation} from '../lib/businesses.mjs';
@@ -157,7 +157,7 @@ test('every growth track on the record moves Power, and aptitude dominates all o
 test('museum is the one external contributor reachable with no other system built',()=>{
  let s=startingSave(NOW);
  assert.equal(bondedPower(s,ID),100);
- s=maybe(maybe(s,'claimMuseum'),'acceptMuseum');
+ s=maybe(allKeepsakes(s),'acceptMuseum');
  // 31 keepsakes total +2 aptitude, +6 basicPowerPercent, +4 powerPercent (lib/museum-data.json).
  assert.equal(bondedPower(s,ID),132);
 });
@@ -181,7 +181,7 @@ test('default mode: records + museum + familiars reach 881,466 -- NOT the ceilin
  // Every record maxed instead: levels, aptitude, skill, best gear, artifact level 20, seven stars.
  s=maxedRecords(s);
  assert.equal(Math.round(rosterOperation(s)),721313);
- s=maybe(maybe(s,'claimMuseum'),'acceptMuseum');
+ s=maybe(allKeepsakes(s),'acceptMuseum');
  assert.equal(Math.round(rosterOperation(s)),796557);
 
  // Familiars are the largest single external contributor: inherent flat Power up to 3,000,000 plus
@@ -224,7 +224,7 @@ test('default mode: records + museum + familiars reach 881,466 -- NOT the ceilin
 test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes take it 3.33x past the fixture',()=>{
  // Stage 0 -- the fixture above, rebuilt here so this test stands alone if that one is edited.
  let s=maxedRecords(roster());
- s=maybe(maybe(s,'claimMuseum'),'acceptMuseum');
+ s=maybe(allKeepsakes(s),'acceptMuseum');
  s=maybe(s,'adoptFamiliars');
  let bound=0;
  for(const pet of Object.keys(s.familiars||{})){
@@ -264,7 +264,7 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
  assert.equal(Object.keys(s.family).length,105,'welcomeAll must seat the whole family catalogue');
  const points=CONSUMABLES.find(i=>i.stat==='points'&&i.target==='family');
  assert.ok(points,'no family Blessing-Point consumable ships; the faucet below would prove nothing');
- for(let i=0;i<300;i++){const before=s;s=maybe(s,'claimConsumable',points.id);if(s===before)break}
+ s=stockConsumable(s,points.id,3000);
  let funded=0;
  for(const id of Object.keys(s.family)){
   const before=s;

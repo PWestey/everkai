@@ -1,5 +1,5 @@
 import {MAX_FELLOW_XP} from '../lib/limits.mjs';
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {stockConsumable} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {CONSUMABLES as ALL_CONSUMABLES,V7_ITEMS} from '../lib/adventure.mjs';
 import {usableCount} from '../lib/consumables.mjs';
@@ -15,7 +15,7 @@ test('v7 migration preserves every existing item and progression while new suppl
 });
 test('every imported consumable applies its exact full effect and survives reload',()=>{
  assert.equal(CONSUMABLES.length,14);let s=act(fresh(0),'welcome',0).state;
- for(const i of CONSUMABLES){const snapshot=structuredClone(s),grant=act(s,'claimConsumable',0,i.id);assert.equal(grant.state.gold,s.gold);assert.equal(grant.state.crystals,s.crystals);assert.deepEqual(s,snapshot);s=grant.state;
+ for(const i of CONSUMABLES){const before0=s;s=stockConsumable(s,i.id);assert.equal(s.gold,before0.gold);assert.equal(s.crystals,before0.crystals);
  const before=i.target==='family'?s.family.wife_2[i.stat]:s[i.stat];const r=act(s,'useConsumable',0,i.id,{count:10,recipient:'wife_2'});assert.ok(!r.error);s=r.state;
  assert.equal(i.target==='family'?s.family.wife_2[i.stat]:s[i.stat],before+i.amount*10);assert.equal(s.inventory[i.id],0);assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);}
  assert.equal(s.stats.gifts,100);

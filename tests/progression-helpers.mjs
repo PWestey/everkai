@@ -12,3 +12,10 @@ export function grantFragments(s,id='hero_54',times=1){
 // The retired sandbox supplies button granted 10M EXP and 100 of each breakthrough material per press.
 // Tests that need that stock credit ten daily habit claims (10 each) and the EXP directly.
 export const stockOriginal=(s,claims=10)=>({...s,fellowXP:s.fellowXP+claims*1e6,originalProgression:{...s.originalProgression,dailyClaims:(s.originalProgression.dailyClaims||0)+claims,stock:Object.fromEntries(Object.entries(s.originalProgression.stock).map(([k,n])=>[k,n+claims*10]))}});
+import {KEEPSAKES} from '../lib/museum.mjs';
+// Free grants that are now daily habit rewards (claimConsumable, claimMuseum) or retired (finishFarm).
+// Tests about what those things DO seed the state directly; the earning rules have their own coverage.
+export const stockConsumable=(s,id,count=10)=>({...s,inventory:{...s.inventory,[id]:(s.inventory[id]||0)+count}});
+export const allKeepsakes=s=>({...s,museum:Object.fromEntries(KEEPSAKES.map(k=>[k.id,false]))});
+/** Bring a growing plot to ready, as waiting out its timer would. */
+export const ripe=(s,plot=0)=>({...s,farm:{...s.farm,plots:s.farm.plots.map((p,i)=>i===plot&&p?{...p,readyAt:s.lastAt}:p)}});
