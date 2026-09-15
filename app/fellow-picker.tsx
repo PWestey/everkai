@@ -3,6 +3,7 @@ import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/u
 import {wardrobeAppearance} from '@/lib/wardrobe.mjs';
 import {fellowOperation} from '@/lib/operations.mjs';
 import {FELLOWS,fellowById} from '@/lib/catalog.mjs';
+import {canOperate} from '@/lib/businesses.mjs';
 
 // The original shows every eligible Fellow at once as a card -- portrait, level, its own earnings
 // bonus, and a numbered badge marking the slot it currently fills -- with the COMBINED total above
@@ -12,7 +13,7 @@ const pct=(n:number)=>`+${Math.round(n)}%`;
 
 export default function FellowPicker({game,action,business,slots,open,onClose,locked}:any){
  const assigned:string[]=game.enterprises?.[business.id]?.fellows??[];
- const candidates=FELLOWS.filter((f:any)=>Object.hasOwn(game.fellows,f.id))
+ const candidates=FELLOWS.filter((f:any)=>Object.hasOwn(game.fellows,f.id)&&(canOperate(f.id,business)||assigned.includes(f.id)))
   .map((f:any)=>({...f,percent:fellowOperation(game,f.id,business).percent,slot:assigned.indexOf(f.id)}))
   .sort((a:any,b:any)=>b.percent-a.percent||a.name.localeCompare(b.name));
  const total=assigned.reduce((n,id)=>n+fellowOperation(game,id,business).percent,0);
@@ -34,7 +35,7 @@ export default function FellowPicker({game,action,business,slots,open,onClose,lo
    </div></div>
    <p className="fellow-total">Earnings {pct(total)}</p>
 
-   <h3>Fellows capable of operating {business.name}</h3>
+   <h3>{business.type} Fellows who can operate {business.name}</h3>{!candidates.length&&<p className="fellow-total">No {business.type} Fellow has joined yet.</p>}
    <div className="fellow-grid">
     {candidates.map((f:any)=>{
      const p=wardrobeAppearance(game,fellowById(f.id)),here=f.slot>=0;

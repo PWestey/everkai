@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,totalRate,settle} from '../lib/game.mjs';
-import {BUSINESSES,operationSlots,enterpriseBreakdown} from '../lib/businesses.mjs';
+import {BUSINESSES,operationSlots,enterpriseBreakdown,canOperate,ANY_BUILDING_FELLOWS} from '../lib/businesses.mjs';
+import {FELLOWS,fellowById} from '../lib/catalog.mjs';
 import {funded,staffed} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>act(s,a,s.lastAt,t,v),inn='Building_101',shop='Building_301';
 test('17 local business identities retain documented employee rates and old saves remain unchanged',()=>{
@@ -17,10 +18,13 @@ test('17 local business identities retain documented employee rates and old save
 });
 test('staff thresholds open five slots, cap grants safely, and failed assignments do not move workers',()=>{
  assert.deepEqual([0,49,50,199,200,799,800,4999,5000].map(operationSlots),[1,1,2,2,3,3,4,4,5]);
- let s=run(funded(fresh(1000)),'openEnterprise',inn).state;s=run(s,'assignOperator',inn,'hero_15').state;
- assert.equal(s.buildings.fish.fellow,null);s=run(s,'recruit','hero_1').state;
- assert.ok(run(s,'assignOperator',inn,'hero_1').error);
- s=staffed(s,inn,50);s=run(s,'assignOperator',inn,'hero_1').state;
+ // The Inn is Diligent, so its operators are Fifi (hero_1) and Belle (hero_12); Kaity is Unfettered.
+ let s=run(funded(fresh(1000)),'openEnterprise',inn).state;s=run(s,'recruit','hero_1').state;s=run(s,'recruit','hero_12').state;
+ s=run(s,'assign','fish','hero_1').state;s=run(s,'assignOperator',inn,'hero_1').state;
+ assert.equal(s.buildings.fish.fellow,null);
+ assert.match(String(run(s,'assignOperator',inn,'hero_15').error),/Only Diligent Fellows/,'Kaity is not Diligent');
+ assert.ok(run(s,'assignOperator',inn,'hero_12').error,'one slot below 50 staff');
+ s=staffed(s,inn,50);s=run(s,'assignOperator',inn,'hero_12').state;
  assert.equal(s.enterprises[inn].employees,50);
  assert.equal(s.enterprises[inn].fellows.length,2);
  // Staff is seeded because this is about slot thresholds and the cap, not about affording workers.
@@ -29,12 +33,14 @@ test('staff thresholds open five slots, cap grants safely, and failed assignment
  assert.match(String(act({...s,gold:1e12},'hireEmployees',s.lastAt,inn,1).error),/limit reached/);assert.ok(valid(s));
 });
 test('moves across original and starter businesses preserve unique assignments',()=>{
- let s=run(funded(fresh(1000)),'openEnterprise',inn).state;s=run(s,'openEnterprise',shop).state;
- s=run(s,'assignOperator',inn,'hero_15').state;s=run(s,'assignOperator',shop,'hero_15').state;
- assert.deepEqual(s.enterprises[inn].fellows,[]);assert.deepEqual(s.enterprises[shop].fellows,['hero_15']);
- assert.equal(enterpriseBreakdown(s,shop).operation,.1);
- s=run(s,'assign','fish','hero_15').state;assert.deepEqual(s.enterprises[shop].fellows,[]);assert.ok(valid(s));
- const bad=structuredClone(s);bad.enterprises[inn].fellows=['hero_15'];assert.equal(valid(bad),false);assert.throws(()=>decode(JSON.stringify(bad)));
+ // Kaity is Unfettered: she moves between the two Unfettered businesses, Spring Resort (501) and 1001.
+ const a='Building_501',b='Building_1001';
+ let s=run(funded(fresh(1000)),'openEnterprise',a).state;s=run(s,'openEnterprise',b).state;
+ s=run(s,'assignOperator',a,'hero_15').state;s=run(s,'assignOperator',b,'hero_15').state;
+ assert.deepEqual(s.enterprises[a].fellows,[]);assert.deepEqual(s.enterprises[b].fellows,['hero_15']);
+ assert.equal(enterpriseBreakdown(s,b).operation,.1);
+ s=run(s,'assign','fish','hero_15').state;assert.deepEqual(s.enterprises[b].fellows,[]);assert.ok(valid(s));
+ const bad=structuredClone(s);bad.enterprises[a].fellows=['hero_15'];assert.equal(valid(bad),false);assert.throws(()=>decode(JSON.stringify(bad)));
 });
 test('hiring settles past earnings at old rate and offline recovery uses new rate thereafter',()=>{
  const initial=run(funded(fresh(1000)),'openEnterprise',inn).state;
@@ -52,4 +58,15 @@ test('every original business receives total roster contribution regardless of a
  assert.equal(enterpriseBreakdown(s,inn).operation,.2);assert.equal(enterpriseBreakdown(s,shop).operation,.2);
  s=run(s,'removeOperator',inn,'hero_1').state;
  assert.equal(enterpriseBreakdown(s,inn).operation,.2);
+});
+test('a business employs only Fellows of its type; Maren and Adeline work anywhere; old mismatches are released on load',()=>{
+ let s=run(funded(fresh(1000)),'openEnterprise',inn).state;
+ assert.match(String(run(s,'assignOperator',inn,'hero_15').error),/Only Diligent Fellows can work at Inn/,'Unfettered Kaity at the Diligent Inn');
+ for(const [id,type] of [['hero_193','Brave'],['hero_53','Unfettered']]){
+  const t=run(s,'recruit',id).state;assert.equal(fellowById(id).type,type);
+  const r=run(t,'assignOperator',inn,id);assert.equal(r.error,undefined,`${id} works anywhere`);}
+ for(const d of BUSINESSES){const owned=FELLOWS.filter(f=>canOperate(f.id,d)&&!ANY_BUILDING_FELLOWS.has(f.id));assert.ok(owned.every(f=>f.type===d.type),d.id);assert.ok(owned.length>=20,`${d.id} has ${owned.length} eligible Fellows`);}
+ // A save from before the rule, with Kaity operating the Inn, still loads -- with her released.
+ const old=structuredClone(s);old.buildings.fish.fellow=null;old.enterprises[inn].fellows=['hero_15'];
+ const loaded=decode(JSON.stringify(old));assert.deepEqual(loaded.enterprises[inn].fellows,[]);assert.ok(valid(loaded));
 });
