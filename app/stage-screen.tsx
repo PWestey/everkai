@@ -7,7 +7,8 @@ import scenes from '@/lib/stage-scene-data.json';
 import OpeningPanel from './opening-panel';
 import AdventurePanel from './adventure-panel';
 import {SystemMenus} from './panel-pages';
-// Chapters 7-50 name a background id; show the opening chapter scene that uses the same art.
+// Chapters 7-150 name a background id; show the opening chapter scene that uses the mapped art (the import
+// script maps Forest/City_02/Level/Maze/Mountain/Mine backgrounds onto the four shipped scenes).
 const campaignScene=(chapter:number)=>{const shown=(CAMPAIGN as any).backgrounds[String(chapter)]?.shown;return Object.values((scenes as any).chapters).find((c:any)=>c.background===shown)};
 export default function StageScreen({game,action,locked,onNavigate,suspended=false}:any){
  const [auto,setAuto]=useState(false),[details,setDetails]=useState<string|null>(null),o=game.opening,stage:any=OPENING_STAGES[o?.cleared||0],chapter=stage?Number(stage._id.split("-")[0]):CAMPAIGN.lastChapter,section=stage?Number(stage._id.split('-')[1]):6;
