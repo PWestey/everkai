@@ -32,7 +32,7 @@ export default function StoragePanel({game,action,locked,onNavigate}:any){
    {inventoryIcon(entry.id)?<img src={inventoryIcon(entry.id)} alt=""/>:<span className="item-monogram" aria-hidden="true">{short(entry.name)}</span>}
    <span className="storage-item-name">{entry.name}</span><strong className="storage-count">{entry.count.toLocaleString()}</strong>
   </button>)}</div>
-  {!visible.length&&<p className="storage-empty">{category==='Combine'?'No combination recipes are available in this sandbox yet.':category==='Fragment'?'No supported fragments in your bag.':'Your '+(category==='Events'?'event ':'')+'bag is empty.'}</p>}
+  {!visible.length&&<p className="storage-empty">{category==='Combine'?'No combination recipes yet.':category==='Fragment'?'No supported fragments in your bag.':'Your '+(category==='Events'?'event ':'')+'bag is empty.'}</p>}
   <Dialog open={selected!==null} onOpenChange={open=>{if(!open)setSelected(null)}}><DialogContent className="item-detail-sheet"><DialogTitle>{item?.name||source[selected||'']?.name||selected}</DialogTitle><DialogDescription>{count.toLocaleString()} owned{(gear||source[selected||'']?.rarity)?' · Rarity '+(artifactRule(selected)?.rarity||source[selected||'']?.rarity):''}</DialogDescription>
    {selected&&inventoryIcon(selected)&&<img className="item-detail-art" src={inventoryIcon(selected)} alt=""/>}
    <p>{item?.description||item?.detail||(gift?`Adds ${gift.amount} ${gift.stat==='intimacy'?'Intimacy':'Blessing Power'}.`:'This item is kept in your bag.')}</p>
@@ -42,6 +42,6 @@ export default function StoragePanel({game,action,locked,onNavigate}:any){
    {gear&&<Button variant="outline" onClick={()=>{setSelected(null);openShop(1)}}>Manage equipment</Button>}
    {MATERIALS.some(m=>m.id===selected)&&<Button variant="outline" onClick={()=>{setSelected(null);onNavigate('fellows')}}>Train Fellows</Button>}
   </DialogContent></Dialog>
-  <Dialog open={shop} onOpenChange={setShop}><DialogContent className="storage-shop-sheet"><DialogTitle>Supply shop</DialogTitle><DialogDescription>Supplies and free sandbox grants</DialogDescription><SystemMenus name=""><SuppliesPanel key={shopPage} initialPage={shopPage} game={game} action={action} locked={locked}/></SystemMenus></DialogContent></Dialog>
+  <Dialog open={shop} onOpenChange={setShop}><DialogContent className="storage-shop-sheet"><DialogTitle>Supply shop</DialogTitle><DialogDescription>Supplies and free grants</DialogDescription><SystemMenus name=""><SuppliesPanel key={shopPage} initialPage={shopPage} game={game} action={action} locked={locked}/></SystemMenus></DialogContent></Dialog>
  </section>;
 }
