@@ -31,7 +31,11 @@ test('a keepsake is a daily habit reward, not the whole museum at once',()=>{
  const next=T+24*H;const two=at(daily(one,next),'claimMuseum',next);
  assert.equal(Object.keys(two.museum).length,2);
  assert.deepEqual(decode(JSON.stringify(two)),two);
- assert.equal(valid({...one,museumDay:7}),false);});
+ assert.equal(valid({...one,museumDay:7}),false);
+ // Picking a specific keepsake shares the same daily allowance.
+ let pick=daily(journal());pick=at(pick,'claimKeepsake',T,KEEPSAKES[3].id);
+ assert.deepEqual(Object.keys(pick.museum),[KEEPSAKES[3].id]);
+ assert.match(act(pick,'claimKeepsake',T+H,KEEPSAKES[4].id).error,/already collected/);});
 
 test('the Workshop supply delivery is daily (ECON-10)',()=>{
  let s=funded(journal());s=at(s,'openEnterprise',T,'Building_301');s=at(s,'openWorkshop',T);

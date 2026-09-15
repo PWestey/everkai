@@ -37,8 +37,8 @@ test('only known collected keepsakes may be displayed and malformed restores fai
   assert.equal(valid({...s,museum}),false);
   assert.throws(()=>decode(JSON.stringify({...s,museum})));
  }
- const collected=run(s,'claimKeepsake','Collection_24').state;
- assert.equal(collected.crystals,s.crystals);assert.ok(run(collected,'claimKeepsake','Collection_24').error);
+ const collected={...s,museum:{...s.museum,Collection_24:false}};
+ assert.equal(collected.crystals,s.crystals);assert.ok(run(collected,'claimKeepsake','Collection_24').error);assert.ok(valid(collected));
  assert.ok(run(collected,'toggleKeepsake','Collection_24').error);assert.equal(run(collected,'acceptKeepsake','Collection_24').state.crystals,s.crystals);
 });
 
