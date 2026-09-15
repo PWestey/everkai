@@ -9,3 +9,6 @@ export function grantFragments(s,id='hero_54',times=1){
  for(let i=0;i<times;i++){t.seq++;t.stock[p.itemId]=(t.stock[p.itemId]||0)+1000;t.grants.push({id:t.seq,itemId:p.itemId,count:1000,at:s.lastAt});}
  return {...s,stella:t};
 }
+// The retired sandbox supplies button granted 10M EXP and 100 of each breakthrough material per press.
+// Tests that need that stock credit ten daily habit claims (10 each) and the EXP directly.
+export const stockOriginal=(s,claims=10)=>({...s,fellowXP:s.fellowXP+claims*1e6,originalProgression:{...s.originalProgression,dailyClaims:(s.originalProgression.dailyClaims||0)+claims,stock:Object.fromEntries(Object.entries(s.originalProgression.stock).map(([k,n])=>[k,n+claims*10]))}});

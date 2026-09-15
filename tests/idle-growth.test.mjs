@@ -45,3 +45,12 @@ test('the daily habit breakthrough claim: needs a habit, lands once a day, and k
  const next=T+24*H;let t=at(s,'habitComplete',next,s.habits.items.find(x=>x.freq==='daily').id);
  t=at(t,'claimDailyBreach',next);
  assert.equal(t.originalProgression.stock.Item_Breach_Hero_1_1,2*DAILY_BREACH);});
+
+test('the sandbox supplies button is retired; saves that pressed it still load',()=>{
+ const s=at(fresh(T),'activateOriginalProgression',T);
+ assert.throws(()=>act(s,'claimOriginalSupplies',T),/Unknown action/,'10M EXP and 100 of each material per press is gone');
+ // A save from before the retirement: three presses credited 300 of each material.
+ const old=structuredClone(s);old.originalProgression.claims=3;for(const id of Object.keys(SOURCE_MATERIALS))old.originalProgression.stock[id]=300;
+ assert.ok(valid(old));assert.deepEqual(decode(JSON.stringify(old)),old);
+ // Negative control: stock those presses do not account for is still refused.
+ old.originalProgression.stock.Item_Breach_Hero_1_1=301;assert.equal(valid(old),false);});
