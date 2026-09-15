@@ -103,9 +103,92 @@ def remove_record(text, item_id):
     return None
 
 
+def value_end(t, m, j):
+    """End of the JSON value starting at j."""
+    if t[j] in '{[':
+        d = 0
+        for k in range(j, len(t)):
+            if not m[k]:
+                if t[k] in '{[': d += 1
+                elif t[k] in '}]':
+                    d -= 1
+                    if d == 0: return k + 1
+        raise AssertionError('unbalanced brackets')
+    if t[j] == '"':
+        k = j
+        while k < len(t) and m[k]: k += 1
+        return k
+    k = j
+    while k < len(t) and t[k] not in ',}]' and not t[k].isspace(): k += 1
+    return k
+
+
+REFERENCE_FIELDS = ('id', 'fellow')
+
+
+def purge_reference(text, item_id):
+    """Delete the first reference to item_id: a key and its value, an array element, or the record
+    whose id/fellow field names it. Returns None when none is left; raises on any other shape, so
+    a new kind of reference is looked at rather than guessed at."""
+    token = f'"{item_id}"'
+    m = mask(text); i = text.find(token)
+    while i >= 0 and i > 0 and m[i - 1]:
+        i = text.find(token, i + 1)  # inside another string, e.g. an escaped quote
+    if i < 0:
+        return None
+    e = i + len(token)
+    a = e
+    while a < len(text) and text[a].isspace(): a += 1
+    b = i
+    while b > 0 and text[b - 1].isspace(): b -= 1
+    before = text[b - 1] if b > 0 else ''
+    if a < len(text) and text[a] == ':':
+        v = a + 1
+        while text[v].isspace(): v += 1
+        return cut(text, i, value_end(text, m, v))
+    if before == ':':
+        k = b - 2
+        while text[k].isspace(): k -= 1
+        ks = text.rfind('"', 0, k)
+        key = text[ks + 1:k]
+        if key not in REFERENCE_FIELDS:
+            raise AssertionError(f'{item_id} is the value of an unhandled field "{key}"')
+        s, oe = obj_span(text, m, i)
+        return cut(text, s, oe)
+    if before in '[,':
+        return cut(text, i, e)
+    raise AssertionError(f'{item_id} appears in an unhandled position')
+
+
 def main():
     data = json.loads((ROOT / 'lib/content-overrides.json').read_text())
     errors, unapplied, changed = [], [], 0
+
+    removed_ids = [r['id'] for r in data.get('removed', [])]
+    for rel in data.get('removedReferences', []):
+        p = ROOT / 'lib' / rel
+        if not p.exists():
+            errors.append(f'{rel}: file missing'); continue
+        text = old = p.read_text(encoding='utf-8')
+        hits = 0
+        try:
+            for item_id in removed_ids:
+                while (new := purge_reference(text, item_id)) is not None:
+                    text = new; hits += 1
+        except AssertionError as err:
+            errors.append(f'{rel}: {err}'); continue
+        if text == old:
+            continue
+        if rel.endswith('.json'):
+            json.loads(text)
+        if not is_subsequence(text, old):
+            errors.append(f'{rel}: reference removal was not a pure deletion'); continue
+        if CHECK:
+            unapplied.append(f'{rel}: {hits} reference(s) to removed characters')
+        else:
+            p.write_text(text, encoding='utf-8')
+            print(f'  {rel}: removed {hits} reference(s) to removed characters')
+        changed += hits
 
     for rel, pairs in sorted(data.get('strings', {}).items()):
         p = ROOT / 'lib' / rel

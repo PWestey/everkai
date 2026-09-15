@@ -1,5 +1,7 @@
 {
   "note": "Everkai content decisions layered over the faithful APK extraction. lib/original-content.mjs, the render-verification records (roster-availability, roster-batch-evidence, source-character-index, public-roster) and the research docs stay exactly as extracted, so provenance keeps describing the original game. This file records what the app actually ships, and survives regeneration of any of those.",
+  "removedReferencesNote": "Generated data files that are not provenance but still name the removed characters: pairings in the blessing tables, their artifact echoes, talents, insight groups, progression rows and skill-guide profiles. scripts/apply-content-overrides.py deletes every reference to an id in 'removed' from these files, as a key with its value, an array element, or the record whose id/fellow field names it. The frozen provenance files (public-roster, original-content) are filtered at load time instead, in public-reference.mjs and original-catalog.mjs.",
+  "removedReferences": ["artifact-echo-data.json", "character-skill-guide.json", "default-talent-source.json", "insight-data.json", "original-blessing-data.json", "original-progression-data.json", "special-blessing-data.json"],
   "removed": [
     {"id": "hero_264", "name": "Shinobu Kocho", "reason": "Demon Slayer crossover"},
     {"id": "hero_301", "name": "Giyu Tomioka", "reason": "Demon Slayer crossover"},

@@ -39,3 +39,28 @@ test('the Demon Slayer crossover gear is gone and the roster denylist still hold
  for(const p of [...FELLOWS,...FAMILY])assert.ok(!removed.has(p.id),p.id);
  // Benizakura is a Fairy Tail crossover, not Demon Slayer: renamed, never removed.
  assert.ok(GEAR.some(g=>g.name==='Crimson Blade Benizakura'));});
+
+test('no player-visible data names a removed character, so bond pairings and albums cannot list them',async()=>{
+ const {affinityIds}=await import('../lib/public-reference.mjs');
+ const {searchCharacters}=await import('../lib/original-catalog.mjs');
+ const {supportedIds}=await import('../lib/bonds.mjs');
+ const ids=overrides.removed.map(r=>r.id),names=[...new Set(overrides.removed.map(r=>r.name))];
+ const tokens=[...ids.map(id=>`"${id}"`),...names];
+ // Positive control: the frozen provenance roster still names them, so the scan below can see them.
+ assert.ok(tokens.every(t=>read('public-roster.json').includes(t)||read('original-content.mjs').includes(t)),'the scan cannot find removed characters even in provenance');
+ for(const f of overrides.removedReferences)assert.ok(!FROZEN_FILES.has(f),`${f} is frozen provenance; filter it at load time instead`);
+ const offenders=[];
+ for(const f of readdirSync(new URL('../lib/',import.meta.url))){
+  if((!f.endsWith('.json')&&!f.endsWith('.mjs'))||FROZEN_FILES.has(f))continue;
+  const text=read(f);
+  for(const t of tokens)if(text.includes(t))offenders.push(`${f} names removed character ${t}; add it to removedReferences and run scripts/apply-content-overrides.py`);}
+ assert.deepEqual(offenders,[]);
+ const removed=new Set(ids);
+ // Bridget (wife_191) is documented with Tanjiro Kamado in the frozen roster; it must not reach the Bonds sheet.
+ assert.ok(JSON.parse(read('public-roster.json')).records.wife_191.blessedFellows.includes('hero_302'));
+ const shown=[];
+ for(const p of FAMILY)for(const f of affinityIds(p.id))if(removed.has(f))shown.push(`${p.id} Documented Fellows lists ${f}`);
+ const village={bonds:{},fellows:Object.fromEntries(ids.map(id=>[id,{}]))};
+ for(const p of FAMILY)for(const f of supportedIds(village,p.id))if(removed.has(f))shown.push(`${p.id} bond supports ${f}`);
+ for(const kind of ['Hero','Wife'])for(const c of searchCharacters(kind))if(removed.has(c.id))shown.push(`${kind} album lists ${c.id}`);
+ assert.deepEqual(shown,[]);});
