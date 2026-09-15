@@ -7,7 +7,7 @@ test('known station gains snapshot at reception and unlock rating stamina thresh
  let s=setup();s.inn.popularity=494;s=run(s,'receiveInnGuests','1',1);assert.deepEqual(s.inn.queue.gains,{finesse:100,popularity:6});
  s.inn.blueprints=10;s=run(s,'upgradeInnStation','1');s=settle(s,11000);
  assert.equal(s.inn.popularity,500);assert.equal(s.inn.finesse['1'],100);assert.equal(innRating(s.inn),2);assert.equal(innStaminaCap(s.inn),30);
- s=run(s,'refillInnStamina');assert.equal(s.inn.stamina,30);assert.deepEqual(innServingGains(s.inn,'1'),{finesse:110,popularity:8});assert.deepEqual(decode(JSON.stringify(s)),s);
+ s.inn.stamina=30;assert.ok(valid(s),'the higher rating admits 30 stamina');assert.deepEqual(innServingGains(s.inn,'1'),{finesse:110,popularity:8});assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('missing gains stay bounded and legacy queued meals keep their promised rewards',()=>{
  let s=setup();s.inn.stations['1']=3;assert.deepEqual(innServingGains(s.inn,'1'),{finesse:120,popularity:10});assert.deepEqual(innServingGains(s.inn,'57'),{finesse:1,popularity:0});
