@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Import campaign chapters 7-150 (after the six opening chapters) from the original stage tables.
+"""Import campaign chapters 7-3000 (after the six opening chapters) from the original stage tables.
 
 Sources, plainly readable config tables in the private-server workspace:
   BattleNormal.json  normal encounters: atk, gold consume, stageId, item1 (Fellow EXP), item5 (Fame)
   LevelBoss.json     chapter bosses (N-6-0): atk, stageId, reward items
   Chapter.json       each chapter's background id
 The tables hold 12,000 chapters (BattleNormal 240,000 rows = 20 x 12,000; LevelBoss and Chapter 12,000
-each, no gaps). Everkai ships 7-150; LAST is a scope choice, not a data limit.
+each, no gaps). Everkai ships 7-3000; LAST is a scope choice, not a data limit.
 
 Output format 2 (lib/campaign-chapters-data.json) is compact: rows are tuples in stage order and _id,
 stageId and the consume/inspire item id ('3', gold) are derived, because they are fully determined by
@@ -31,7 +31,7 @@ D=Path('/Users/westmanfamily/Documents/Codex/2026-09-07/your/outputs/private-ser
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def table(name):
     x=json.loads((D/name).read_text());return x[next(iter(x))] if isinstance(x,dict) else x
-FIRST,LAST=7,150
+FIRST,LAST=7,3000
 FIRST_STAGE_ID=127  # chapter 6's boss is stage 126 in lib/opening-data.json
 # sha256 of json.dumps({'battles','bosses','backgrounds'}, compact) for chapters 7-50 as format 1 shipped them.
 SHIPPED_7_50='4d9d798606140f30efffe11e21c8b33ce9ef5339f7b8bae7fa1dac87a553f111'
@@ -45,13 +45,15 @@ normals=sorted((r for r in all_normals if FIRST<=chapter(r)<=LAST),key=lambda r:
 bosses=sorted((r for r in all_bosses if FIRST<=chapter(r)<=LAST),key=lambda r:r['stageId'])
 battles=[];dropped=set()
 for r in normals:
-    row={k:r[k] for k in ('_id','timelineNameType','mushRoomType','atk','consume','stageId','item1','item5')}
+    row={k:r.get(k) if k=='mushRoomType' else r[k] for k in ('_id','timelineNameType','mushRoomType','atk','consume','stageId','item1','item5')}
     if r.get('stageEventId'):row['sourceEventId']=r['stageEventId']
     battles.append(row)
 boss_rows=[]
 for r in bosses:
     items=[i for i in r['items'] if i['id'] in supported];dropped|={i['id'] for i in r['items'] if i['id'] not in supported}
     boss_rows.append({'_id':r['_id'],'atk':r['atk'],'inspireConsumeBase':r['inspireConsumeBase'],'stageId':r['stageId'],'items':items})
+missing_mush=[r['_id'] for r in battles if r['mushRoomType'] is None]
+assert len(missing_mush)<=1,('mushRoomType missing on more rows than the one known source gap; it is kept as null',missing_mush)
 assert len(battles)==(LAST-FIRST+1)*20 and len(boss_rows)==LAST-FIRST+1,(len(battles),len(boss_rows))
 ids=sorted(r['stageId'] for r in battles+boss_rows)
 assert ids==list(range(FIRST_STAGE_ID,FIRST_STAGE_ID+len(ids))),'stageIds must continue the opening ladder without gaps'
@@ -59,7 +61,7 @@ assert all(i['id'] in ('1','5') or i['id'] in supported for b in boss_rows for i
 assert dropped==DROPPED,('dropped boss items changed; decide each new one explicitly',sorted(dropped))
 ART={'Bg_Village_01':'Bg_Village_01','Bg_Field_01':'Bg_Field_01','Bg_City_01':'Bg_City_01','Bg_Level_03':'Bg_Level_03',
      'Bg_City_02':'Bg_City_01','Bg_Level_01':'Bg_Level_03','Bg_Level_02':'Bg_Level_03','Bg_Forest_01':'Bg_Field_01','Bg_Forest_02':'Bg_Field_01','Bg_Forest_03':'Bg_Field_01',
-     'Bg_Maze_01':'Bg_Level_03','Bg_Maze_02':'Bg_Level_03','Bg_Maze_03':'Bg_Level_03','Bg_Maze_04':'Bg_Level_03',
+     'Bg_Maze_01':'Bg_Level_03','Bg_Maze_02':'Bg_Level_03','Bg_Maze_03':'Bg_Level_03','Bg_Maze_04':'Bg_Level_03','Bg_Maze_05':'Bg_Level_03','Bg_Maze_06':'Bg_Level_03','Bg_Maze_07':'Bg_Level_03',
      'Bg_Mountain_01':'Bg_Level_03','Bg_Mountain_02':'Bg_Level_03','Bg_Mine_01':'Bg_Level_03'}
 backgrounds={}
 for c in sorted(all_chapters,key=lambda c:int(c['_id'])):
