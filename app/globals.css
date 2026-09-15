@@ -939,3 +939,71 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .wayfarer-card dt{font-size:10px;color:#e5bd6a}.wayfarer-card dd{margin:0;font:700 15px Georgia,serif;color:#fff3d6}
 .wayfarer-profile>[data-slot=dialog-close]{width:44px;height:44px;color:#ffe7b5;background:#3d2a1bcc;border-radius:50%}
 .storage-shop-sheet>button[data-slot=dialog-close]{top:calc(env(safe-area-inset-top) + 10px)}
+/* HABIT JOURNAL v2 (visual audit 2026-09-14, EV-036..047: "dense productivity controls; reads as a
+   dashboard"). Measured before: the Daily page showed 1,954 words, 136 buttons and 57 form fields.
+   Now a journal cover with two meters and icon tools, section tabs with open counts, and one-line task
+   cards: a gold ring completes, the title opens the task sheet, pips show effort, a flame the streak.
+   Search and multi-select are opt-in toggles; notes, schedule and links live in the task sheet. */
+.habit-panel{gap:8px}
+.habit-panel .habit-heading{display:grid!important;grid-template-columns:minmax(0,1fr);gap:8px;padding:10px 12px;background:linear-gradient(#5b3d26,#3d2a1b);border:1px solid #c99a4e;border-radius:8px;box-shadow:inset 0 1px 0 #ffe7b522}
+.habit-tally{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;min-width:0}
+.habit-meter{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px;min-width:0}
+.habit-meter span{display:inline-flex;align-items:center;gap:3px;font:700 12px Georgia,serif;color:#e8d3a8}
+.habit-meter svg{width:14px;height:14px;color:#f3cd6b}
+.habit-meter b{font:700 13px Georgia,serif;color:#ffe7b5;font-variant-numeric:tabular-nums}
+.habit-meter progress{appearance:none;width:100%;height:8px;border:1px solid #1d140c;border-radius:5px;background:#2a1c11;overflow:hidden}
+.habit-meter progress::-webkit-progress-bar{background:#2a1c11}
+.habit-meter progress::-webkit-progress-value{background:linear-gradient(#f3cd6b,#d59a33);border-radius:4px}
+.habit-meter progress::-moz-progress-bar{background:linear-gradient(#f3cd6b,#d59a33)}
+.habit-panel .habit-tally .habit-boost-line{grid-column:1/-1;margin:0;font-size:12px;color:#e8d3a8!important}
+.habit-panel .habit-boost-line strong{color:#9be58b}
+.habit-toolbar{display:flex;gap:6px;justify-content:flex-end}
+.habit-panel .habit-icon{width:44px;height:44px;min-height:44px;padding:0;border-radius:50%;display:inline-grid;place-items:center;background:#fbf0d4;border:1px solid #b88a47;color:#5b3d26}
+.habit-panel .habit-icon svg{width:20px;height:20px}
+.habit-panel .habit-icon[aria-pressed=true]{background:#5b3d26;color:#ffe7b5;border-color:#c99a4e}
+.habit-panel .habit-toolbar .habit-icon{background:#7a5634;border-color:#c99a4e;color:#ffe7b5}
+.habit-panel .habit-toolbar .habit-new{background:linear-gradient(#f3cd6b,#d59a33)!important;border-color:#8a5a1c!important;color:#442a10!important}
+.habit-sections button{display:inline-flex;align-items:center;gap:5px;min-height:44px}
+.habit-count{min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#b8352a;color:#fff4d4;font:700 11px system-ui,sans-serif;display:inline-grid;place-items:center}
+.habit-listbar{display:flex;align-items:center;gap:6px}.habit-listbar>span{flex:1;font:700 13px Georgia,serif;color:#5b3d26}
+.habit-card{display:flex;align-items:center;gap:10px;min-height:56px;padding:6px 10px 6px 8px;background:#fbf0d4;border:1px solid #c49a55;border-radius:8px;box-shadow:0 1px 0 #8a5a1c33}
+.habit-ring{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#fff8e6,#efdcb4);border:2px solid #c49a55;color:#442a10;box-shadow:inset 0 0 0 4px #fbf0d4}
+.habit-ring svg{width:22px;height:22px;stroke-width:3}
+.habit-ring[aria-pressed=true],.habit-ring[aria-checked=true]{background:linear-gradient(#f3cd6b,#d59a33);border-color:#8a5a1c;box-shadow:none}
+.habit-ring:disabled{opacity:.45}
+.habit-card-text{flex:1;min-width:0;display:grid;gap:2px;text-align:left;background:none;border:0;padding:4px 0;color:inherit;min-height:44px;align-content:center}
+.habit-card-text strong{font:700 15px/1.2 Georgia,serif;color:#3d2a1b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.habit-card-text small{display:flex;align-items:center;gap:6px;font-size:11px;color:#7a5a36;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.habit-pips{display:inline-flex;gap:2px}.habit-pips i{width:6px;height:6px;border-radius:50%;background:#dcc59a}.habit-pips i[data-on=true]{background:#b8702a}
+.habit-streak{flex:none;display:inline-flex;align-items:center;gap:2px;font:700 13px Georgia,serif;color:#b8521f}.habit-streak svg{width:15px;height:15px}
+.habit-done{opacity:1}.habit-done .habit-card-text strong{color:#8a7654;text-decoration:line-through;text-decoration-color:#b88a47}
+.habit-rest{background:#efe4cb}.habit-rest .habit-card-text strong{color:#7a6a50}
+.habit-suggested{border-color:#d59a33;box-shadow:0 0 0 2px #f3cd6b66}
+.habit-card>button:not(.habit-ring):not(.habit-card-text){background:linear-gradient(#f3cd6b,#d59a33);border:1px solid #8a5a1c;color:#442a10;font-weight:700;min-height:44px}
+.habit-panel .habit-batch{position:sticky;bottom:0;display:grid;grid-template-columns:1fr 1.4fr;gap:6px;padding:8px;background:#3d2a1b;border-radius:8px}
+.habit-panel .habit-batch button{min-height:44px;font:700 13px Georgia,serif}
+.habit-panel .habit-batch>button:first-child{background:#fbf0d4;color:#5b3d26}
+.habit-empty,.habit-note{font-size:13px!important;color:#6d5a3c;text-align:center}
+.habit-review-start{display:inline-flex;gap:6px;min-height:48px;background:linear-gradient(#f3cd6b,#d59a33);border:1px solid #8a5a1c;color:#442a10;font:700 14px Georgia,serif}
+.habit-undo{display:inline-flex;gap:6px;align-self:center}
+.habit-task-sheet{display:grid;gap:12px}
+.habit-task-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:6px}
+.habit-task-stats>div{padding:8px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:6px;text-align:center}
+.habit-task-stats span{display:block;font-size:11px;color:#e8d3a8}.habit-task-stats b{display:inline-flex;align-items:center;gap:3px;font:700 15px Georgia,serif;color:#ffe7b5}.habit-task-stats svg{width:15px;height:15px;color:#f3a23a}
+.habit-task-note{margin:0;padding:10px 12px;background:#fbf0d4;border-left:3px solid #d59a33;border-radius:4px;font-size:14px;line-height:1.45;color:#3d2a1b}
+.habit-task-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.habit-task-actions button,.habit-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
+.habit-link{grid-column:1/-1;border:1px solid #b88a47;border-radius:6px;color:#5b3d26;font-weight:700;text-decoration:none;background:#fbf0d4}
+.habit-task-actions svg,.habit-undo svg,.habit-review-start svg{width:16px;height:16px}
+.habit-more{border:1px solid #c49a55;border-radius:6px;background:#fbf0d4;padding:0 10px}
+.habit-more>summary{min-height:44px;display:flex;align-items:center;font:700 14px Georgia,serif;color:#5b3d26;cursor:pointer}
+.habit-more[open]{padding-bottom:10px;display:grid;gap:8px}
+.habit-sheet label:has(>input[type=checkbox]){display:flex;align-items:center;gap:10px;min-height:44px;padding:0 10px;border-bottom:1px solid #e0cfa8;font-size:14px}
+.habit-sheet label>input[type=checkbox]{width:22px;height:22px;accent-color:#d59a33}
+/* Scene art first paint (visual audit EV-022/023/175 Stage, EV-048/067 Businesses: captured as a flat beige or
+   blue field). Not reproduced on the live build, where the art paints within 250 ms even from a cold cache.
+   Hardened anyway: until the image has loaded, the field shows a painted dusk-to-earth ground in the art's
+   palette rather than a flat colour, and the art fades in once decoded. Stage scenes load a ~230 KB JPEG. */
+.stage-scene,.game-modal .facility-scene{background:radial-gradient(120% 70% at 50% 100%,#6f5a3a 0%,#8a7a55 38%,transparent 70%),linear-gradient(#9cc1d8 0%,#cfd9c4 42%,#9a8a62 70%,#5e4a30 100%)}
+.stage-background,.facility-scene>img.facility-backdrop{opacity:0;transition:opacity .25s ease-out}
+.stage-background.loaded,.facility-scene>img.facility-backdrop.loaded{opacity:1}
+@media (prefers-reduced-motion:reduce){.stage-background,.facility-scene>img.facility-backdrop{transition:none}}

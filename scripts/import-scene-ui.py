@@ -13,5 +13,12 @@ unique={r['file']:r for r in rows}
 for r in unique.values():assert hashlib.sha256(Path(r['file']).read_bytes()).hexdigest()==r['sha256']
 app=Path(__file__).resolve().parents[1];out=app/'public/assets/ui-scenes';out.mkdir(exist_ok=True)
 for r in unique.values():shutil.copyfile(r['file'],out/Path(r['file']).name)
+# Display copies: each chapter Mid PNG is fully opaque, so `sips -s format jpeg -s formatOptions 82` makes a
+# ~230 KB JPEG for first paint (the ~1 MB PNG stays the admitted, hashed source). Recorded when present.
+import subprocess
+for c in chapters.values():
+ png=out/Path(c['src']).name;jpg=png.with_suffix('.jpg')
+ if not jpg.exists():subprocess.run(['sips','-s','format','jpeg','-s','formatOptions','82',str(png),'--out',str(jpg)],check=True,capture_output=True)
+ c['display']='ui-scenes/'+jpg.name;c['displaySha256']=hashlib.sha256(jpg.read_bytes()).hexdigest()
 (app/'lib/stage-scene-data.json').write_text(json.dumps({'chapters':chapters,'files':[{'src':'ui-scenes/'+Path(r['file']).name,'name':r['name'],'sha256':r['sha256']} for r in unique.values()],'bindingLimits':'Exact chapter background and named path sprites; camera/runtime controller/parallax remain local presentation. Inn exterior visual match; renderer assembly not asserted.'},indent=2)+'\n')
 print('Imported',len(unique),'scene UI assets; exact six chapter joins')

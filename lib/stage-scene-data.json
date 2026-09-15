@@ -3,32 +3,44 @@
     "1": {
       "background": "Bg_Village_01",
       "src": "ui-scenes/Bg_Village_01_Mid.png",
-      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d",
+      "display": "ui-scenes/Bg_Village_01_Mid.jpg",
+      "displaySha256": "474232fbea3bc467b98497de6cffa538939be6a1b0b02822b3c8cf2ca3065a91"
     },
     "2": {
       "background": "Bg_Field_01",
       "src": "ui-scenes/Bg_Field_01_Mid.png",
-      "sha256": "a9ce92f498aaeb553201dcdd48e17a294933342c7935c66a9a7e871090bc0e9c"
+      "sha256": "a9ce92f498aaeb553201dcdd48e17a294933342c7935c66a9a7e871090bc0e9c",
+      "display": "ui-scenes/Bg_Field_01_Mid.jpg",
+      "displaySha256": "0330f71182e345a8173c86aeb672b0ccdb0258ce5d0a6269275881df84ebd028"
     },
     "3": {
       "background": "Bg_Village_01",
       "src": "ui-scenes/Bg_Village_01_Mid.png",
-      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d",
+      "display": "ui-scenes/Bg_Village_01_Mid.jpg",
+      "displaySha256": "474232fbea3bc467b98497de6cffa538939be6a1b0b02822b3c8cf2ca3065a91"
     },
     "4": {
       "background": "Bg_Village_01",
       "src": "ui-scenes/Bg_Village_01_Mid.png",
-      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d"
+      "sha256": "bc0d5abb79a3524a6aedf0d7dbb7d697e0b3d7be7c56360f8a166ad8d3818f8d",
+      "display": "ui-scenes/Bg_Village_01_Mid.jpg",
+      "displaySha256": "474232fbea3bc467b98497de6cffa538939be6a1b0b02822b3c8cf2ca3065a91"
     },
     "5": {
       "background": "Bg_City_01",
       "src": "ui-scenes/Bg_City_01_Mid.png",
-      "sha256": "1906220e52a98d09026a0f27c144a57cd54b9f93e5973863aae70ddd8a4767e3"
+      "sha256": "1906220e52a98d09026a0f27c144a57cd54b9f93e5973863aae70ddd8a4767e3",
+      "display": "ui-scenes/Bg_City_01_Mid.jpg",
+      "displaySha256": "a66314036aed9d8e9549da407787a69c20db33a31b8676b321890f7b0e290605"
     },
     "6": {
       "background": "Bg_Level_03",
       "src": "ui-scenes/Bg_Level_03_Mid.png",
-      "sha256": "96f8410b0759a541e8b5fa7c884055d2c4efb247a5c9c7d39b93656f65af087d"
+      "sha256": "96f8410b0759a541e8b5fa7c884055d2c4efb247a5c9c7d39b93656f65af087d",
+      "display": "ui-scenes/Bg_Level_03_Mid.jpg",
+      "displaySha256": "df9313ffcbf8abded2bb0019345c3090bb0d7937867bd5a80902f90bfdfe8964"
     }
   },
   "files": [
@@ -93,5 +105,6 @@
       "sha256": "96f8410b0759a541e8b5fa7c884055d2c4efb247a5c9c7d39b93656f65af087d"
     }
   ],
-  "bindingLimits": "Exact chapter background and named path sprites; camera/runtime controller/parallax remain local presentation. Inn exterior visual match; renderer assembly not asserted."
+  "bindingLimits": "Exact chapter background and named path sprites; camera/runtime controller/parallax remain local presentation. Inn exterior visual match; renderer assembly not asserted.",
+  "displayNote": "display: a JPEG (sips quality 82) of the admitted PNG, which is fully opaque (0% transparent pixels, measured by canvas). About 1 MB -> 230 KB each, for first paint on phones. The PNG and its sha256 stay the admitted source."
 }
