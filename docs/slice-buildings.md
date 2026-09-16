@@ -143,6 +143,17 @@ recovered. Implementing it would be invention. See §4.
 
 ## 5a. Everkai's own decomposition — MEASURED
 
+> **SUPERSEDED 2026-09-15 (catalogue SL1-02, SL1-14).** The table below was measured when `valid()`
+> capped a fresh save's Fellows at level 10, and conclusion 1 — "workers are ~100% of income at every
+> realistic staff count" — no longer describes the shipped game. The Fellow level cap was raised
+> (commit `3a2463b`) and `rosterOperation` is now pinned green at **15.9** on an untrained 159-Fellow
+> roster, **203.52** at level 60, and **4,096,763** at the reachable default-mode ceiling
+> (`tests/fellow-power.test.mjs`, the ceiling assertions). Against the original's own live-save
+> conversion of 3,497,276 that is **1.17x — over it, not short**; both halves of that ratio are the
+> original's live save against Everkai's own `rosterOperation`, per working rule 1. The table is kept
+> because conclusions 2 and 3 (the `bonus` cap and the inert `qualityBonus`) were the durable half of
+> this measurement and are still what §5b decomposes. **Do not quote the percentages below as current.**
+
 Run against live code, not read off the source. Inn, fresh save, fellows levelled to the highest
 value `valid()` accepts (10 — level 25 is rejected on a fresh save):
 
