@@ -1,6 +1,6 @@
 {
  "policyVersion": 1,
- "note": "Lite habit-events (EVT-21). The original ran these as timed mega events with their own minigames (map exploration, match-3, sparring, gacha, power ranking) -- see docs/event-catalog.md section 4.4. Everkai keeps only what a single-player habit game can honestly keep: the CAST and the sense of an arc. Each stage is paid for with habit completions, which is the one currency this game actually mints.",
+ "note": "Lite habit-events (EVT-21). The original ran these as timed mega events with their own minigames (map exploration, match-3, sparring, gacha, power ranking) -- see docs/event-catalog.md section 4.4. Everkai keeps only what a single-player habit game can honestly keep: the CAST and the sense of an arc. Each stage is paid for with habit completions, which is the one currency this game actually mints. CAST IS RESOLVED BY ID, never by name. Shinobu Kocho, Aqua and Roxy Migurdia each ship as TWO records (one Fellow, one Family) with identical titles -- one character, two records, so both are stages and the record kind labels them. A name-based generator dropped all six. It also nearly added wife_148 \"Lucy - Principal of the Magic Corps\" to the Fairy Tail arc: a different character who merely shares the name with wife_161 \"Lucy - Celestial Spirit Wizard\", who is the Fairy Tail one. Identify by id and title, never by translated name.",
  "source": "docs/event-catalog.md sections 4.1 and 4.4 (names and ids); lib/catalog.mjs (cast, resolved by name at build time, not hand-typed)",
  "localNumbers": "COMPLETIONS_PER_STAGE is a LOCAL number, not the original's. The original gated event heroes on event currency and gacha pity, neither of which exists here. 10 completions a stage is stated here so it can be argued with rather than discovered in the code.",
  "events": [
@@ -12,27 +12,51 @@
     {
      "id": "hero_302",
      "name": "Tanjiro Kamado",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Practitioner of Hinokami Kagura",
+     "label": "Tanjiro Kamado"
     },
     {
      "id": "hero_303",
      "name": "Zenitsu Agatsuma",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Thunder Breathing Inheritor",
+     "label": "Zenitsu Agatsuma"
     },
     {
      "id": "hero_304",
      "name": "Inosuke Hashibira",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Beast Breathing Creator",
+     "label": "Inosuke Hashibira"
     },
     {
      "id": "hero_301",
      "name": "Giyu Tomioka",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Water Hashira",
+     "label": "Giyu Tomioka"
+    },
+    {
+     "id": "hero_264",
+     "name": "Shinobu Kocho",
+     "kind": "Fellow",
+     "title": "Insect Hashira",
+     "label": "Shinobu Kocho (Fellow)"
+    },
+    {
+     "id": "wife_185",
+     "name": "Shinobu Kocho",
+     "kind": "Family",
+     "title": "Insect Hashira",
+     "label": "Shinobu Kocho (Family)"
     },
     {
      "id": "wife_186",
      "name": "Nezuko Kamado",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Eldest Daughter of the Kamado Family",
+     "label": "Nezuko Kamado"
     }
    ],
    "stages": [
@@ -54,6 +78,14 @@
     },
     {
      "step": 5,
+     "member": "hero_264"
+    },
+    {
+     "step": 6,
+     "member": "wife_185"
+    },
+    {
+     "step": 7,
      "member": "wife_186"
     }
    ]
@@ -66,22 +98,30 @@
     {
      "id": "hero_251",
      "name": "Rimuru Tempest",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Slime",
+     "label": "Rimuru Tempest"
     },
     {
      "id": "hero_144",
      "name": "Benimaru",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Samurai General of the Ogres",
+     "label": "Benimaru"
     },
     {
      "id": "wife_144",
      "name": "Shuna",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Holy Princess of the Ogres",
+     "label": "Shuna"
     },
     {
      "id": "wife_168",
      "name": "Shion",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Master Chef",
+     "label": "Shion"
     }
    ],
    "stages": [
@@ -111,27 +151,37 @@
     {
      "id": "hero_139",
      "name": "Tohru",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Earth-Shattering Dragon Maid",
+     "label": "Tohru"
     },
     {
      "id": "hero_140",
      "name": "Elma",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Endless Appetite",
+     "label": "Elma"
     },
     {
      "id": "hero_142",
      "name": "Kanna",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Self-paced Young Dragon",
+     "label": "Kanna"
     },
     {
      "id": "hero_74",
      "name": "Lucoa",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Strange-Eyed Dragon Mystic",
+     "label": "Lucoa"
     },
     {
      "id": "hero_141",
      "name": "Fafnir",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Unsleeping Strategist",
+     "label": "Fafnir"
     }
    ],
    "stages": [
@@ -165,22 +215,30 @@
     {
      "id": "hero_167",
      "name": "Bell Cranel",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Rabbit Foot",
+     "label": "Bell Cranel"
     },
     {
      "id": "wife_253",
      "name": "Hestia",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "The Goddess of the Furnace",
+     "label": "Hestia"
     },
     {
      "id": "hero_165",
      "name": "Ryu Lion",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Gale Wind",
+     "label": "Ryu Lion"
     },
     {
      "id": "wife_156",
      "name": "Liliruca Arde",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Little Supporter",
+     "label": "Liliruca Arde"
     }
    ],
    "stages": [
@@ -210,17 +268,30 @@
     {
      "id": "hero_256",
      "name": "Natsu",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Son of the Fire Dragon",
+     "label": "Natsu"
     },
     {
      "id": "hero_173",
      "name": "Erza",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Fairy Queen",
+     "label": "Erza"
     },
     {
      "id": "wife_162",
      "name": "Wendy",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Sky Maiden",
+     "label": "Wendy"
+    },
+    {
+     "id": "wife_161",
+     "name": "Lucy",
+     "kind": "Family",
+     "title": "Celestial Spirit Wizard",
+     "label": "Lucy"
     }
    ],
    "stages": [
@@ -235,6 +306,10 @@
     {
      "step": 3,
      "member": "wife_162"
+    },
+    {
+     "step": 4,
+     "member": "wife_161"
     }
    ]
   },
@@ -246,17 +321,37 @@
     {
      "id": "hero_184",
      "name": "Kazuma",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Average Adventurer",
+     "label": "Kazuma"
     },
     {
      "id": "hero_185",
      "name": "Darkness",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Resolute Knight",
+     "label": "Darkness"
     },
     {
      "id": "wife_174",
      "name": "Megumin",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Explosion Magic Wielder",
+     "label": "Megumin"
+    },
+    {
+     "id": "hero_260",
+     "name": "Aqua",
+     "kind": "Fellow",
+     "title": "Goddess of Water",
+     "label": "Aqua (Fellow)"
+    },
+    {
+     "id": "wife_173",
+     "name": "Aqua",
+     "kind": "Family",
+     "title": "Goddess of Water",
+     "label": "Aqua (Family)"
     }
    ],
    "stages": [
@@ -271,6 +366,14 @@
     {
      "step": 3,
      "member": "wife_174"
+    },
+    {
+     "step": 4,
+     "member": "hero_260"
+    },
+    {
+     "step": 5,
+     "member": "wife_173"
     }
    ]
   },
@@ -282,12 +385,30 @@
     {
      "id": "hero_176",
      "name": "Rudeus Greyrat",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "Grand Mage",
+     "label": "Rudeus Greyrat"
     },
     {
      "id": "wife_160",
      "name": "Sylphiette Greyrat",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "Gentle Wind Mage",
+     "label": "Sylphiette Greyrat"
+    },
+    {
+     "id": "hero_257",
+     "name": "Roxy Migurdia",
+     "kind": "Fellow",
+     "title": "Outstanding Master",
+     "label": "Roxy Migurdia (Fellow)"
+    },
+    {
+     "id": "wife_159",
+     "name": "Roxy Migurdia",
+     "kind": "Family",
+     "title": "Outstanding Master",
+     "label": "Roxy Migurdia (Family)"
     }
    ],
    "stages": [
@@ -298,6 +419,14 @@
     {
      "step": 2,
      "member": "wife_160"
+    },
+    {
+     "step": 3,
+     "member": "hero_257"
+    },
+    {
+     "step": 4,
+     "member": "wife_159"
     }
    ]
   },
@@ -309,12 +438,16 @@
     {
      "id": "hero_263",
      "name": "Chisato Nishikigi",
-     "kind": "Fellow"
+     "kind": "Fellow",
+     "title": "The Strongest Lycoris",
+     "label": "Chisato Nishikigi"
     },
     {
      "id": "wife_184",
      "name": "Takina Inoue",
-     "kind": "Family"
+     "kind": "Family",
+     "title": "LycoReco Accountant",
+     "label": "Takina Inoue"
     }
    ],
    "stages": [

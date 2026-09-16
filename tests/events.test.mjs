@@ -44,9 +44,12 @@ test('completions are SPENT, so an event cannot be farmed',()=>{
  assert.equal(eventClaimed(twice,'DemonSlayer'),2);});
 
 test('an unknown event, and a finished one, are both refused',()=>{
- const s=withCompletions(COMPLETIONS_PER_STAGE*6);
+ const e=eventById('DemonSlayer');
+ // Derived from the arc, not hard-coded: this fixture said 6 and silently under-funded itself the
+ // moment Shinobu's two records made the arc seven stages long.
+ const s=withCompletions(COMPLETIONS_PER_STAGE*e.stages.length);
  assert.match(act(s,'eventClaim',s.lastAt,'NotAnEvent').error,/Choose an event/);
- let done=s;const e=eventById('DemonSlayer');
+ let done=s;
  for(let i=0;i<e.stages.length;i++)done=run(done,'eventClaim','DemonSlayer');
  assert.equal(eventClaimed(done,'DemonSlayer'),e.stages.length);
  assert.match(act(done,'eventClaim',done.lastAt,'DemonSlayer').error,/is complete/);
@@ -79,6 +82,17 @@ test('the ledger is checked, so a claimed stage that was never paid for is refus
 
 test('every event names real, shipped characters and a reachable cast',()=>{
  assert.equal(EVENTS.length,8);
+ // Resolved by ID, never by name: Shinobu Kocho, Aqua and Roxy Migurdia each ship as a Fellow AND a
+ // Family record, and a name-based generator dropped all six. Where a name repeats, the label must
+ // disambiguate, or the player sees the same person listed twice with no way to tell them apart.
+ for(const e of EVENTS){
+  const names=e.cast.map(c=>c.name);
+  for(const c of e.cast){
+   if(names.filter(n=>n===c.name).length>1)assert.notEqual(c.label,c.name,`${c.id} shares a name and needs a label`);
+   assert.ok(c.label&&c.label.length,`${c.id} has no label`);
+  }
+  assert.equal(new Set(e.cast.map(c=>c.label)).size,e.cast.length,`${e.id} has two cast entries labelled the same`);
+ }
  const ids=new Set([...FELLOWS,...FAMILY].map(p=>p.id));
  let stages=0;
  for(const e of EVENTS){
@@ -88,7 +102,7 @@ test('every event names real, shipped characters and a reachable cast',()=>{
   for(const st of e.stages)assert.ok(ids.has(st.member),`${e.id} names ${st.member}, which is not in the catalogue`);
   assert.equal(new Set(e.stages.map(s=>s.member)).size,e.stages.length,`${e.id} lists someone twice`);
  }
- assert.equal(stages,28,'28 crossover characters ship, and every one is reachable through an event');
+ assert.equal(stages,35,'every shipped crossover RECORD is reachable, including the six characters that ship twice');
  // Positive control on the membership probe: an id the catalogue really lacks is not accepted.
  assert.equal(ids.has('hero_99999'),false);
- assert.equal(stages*COMPLETIONS_PER_STAGE,280,'the whole cast costs 280 habit completions');});
+ assert.equal(stages*COMPLETIONS_PER_STAGE,350,'the whole cast costs 350 habit completions');});

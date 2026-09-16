@@ -13,10 +13,10 @@ export default function EventPanel({game,action,locked}:any){
      <h3>{e.name}</h3>
      <p className="small-note">{e.source} · {done} of {total} joined</p>
      <progress value={done} max={total}/>
-     <p>{e.cast.map((c:any,i:number)=><span key={c.id} className={i<done?'event-met':'event-unmet'}>{c.name}{i<e.cast.length-1?' · ':''}</span>)}</p>
+     <p>{e.cast.map((c:any,i:number)=><span key={c.id} className={i<done?'event-met':'event-unmet'}>{c.label||c.name}{i<e.cast.length-1?' · ':''}</span>)}</p>
      {next
       ? <Button disabled={locked||available<COMPLETIONS_PER_STAGE} onClick={()=>action('eventClaim',e.id)}>
-         {available<COMPLETIONS_PER_STAGE?`${COMPLETIONS_PER_STAGE-available} more habits to meet ${next.name}`:`Meet ${next.name} · ${COMPLETIONS_PER_STAGE} completions`}
+         {available<COMPLETIONS_PER_STAGE?`${COMPLETIONS_PER_STAGE-available} more habits to meet ${next.label||next.name}`:`Meet ${next.label||next.name} · ${COMPLETIONS_PER_STAGE} completions`}
         </Button>
       : <p className="item-status">Arc complete — the whole cast is in your village.</p>}
     </article>})}
