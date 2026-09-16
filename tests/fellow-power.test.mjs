@@ -19,16 +19,19 @@ import operations from '../lib/operation-data.json' with {type:'json'};
 // pinning at both ends: what a single Fellow contributes, and what the whole roster can ever reach.
 //
 // The measured reference point on the original's live save is 3,497,276,469 total power
-// => 3,497,276 conversion. The fixture below reaches 907,328 with every record maxed and every
+// => 3,497,276 conversion. The fixture below reaches 1,284,793 with every record maxed and every
 // familiar bound; its APK-growth mode passes the original outright.
 //
-// 907,328 IS NOT A CEILING, and an earlier version of this comment said its predecessor was. That
+// 1,284,793 IS NOT A CEILING, and an earlier version of this comment said its predecessor was. That
 // fixture never touches three shipped, reachable systems: stella, blessings and artifact echoes.
-// Driving those through their own actions reaches 3,026,482 in a save that still passes valid() --
+// Driving those through their own actions reaches 4,096,763 in a save that still passes valid() --
 // MEASURED 2026-09-13, re-measured 2026-09-15 after the seven crossover characters were restored
-// (159 Fellows, 107 Family), stage by stage: 907,328 fixture -> 1,977,854 (+stella, 4 profiles) ->
-// 2,943,548 (+blessings, 212 trainBlessingsMax calls over 107 welcomed families) -> 3,026,482
-// (+32 echoes). So the real default-mode shortfall against the original is 1.16x.
+// (159 Fellows, 107 Family), and REBASELINED 2026-09-15 after E4-02/E4-03 gave all 32 Hall1 keepsakes
+// their own Exhibit.levelUpSkill effect, stage by stage: 1,284,793 fixture -> 2,672,207 (+stella,
+// 4 profiles) -> 3,976,204 (+blessings, 212 trainBlessingsMax calls over 107 welcomed families) ->
+// 4,096,763 (+32 echoes). Default mode now PASSES the original's live-save total by 1.17x; the old
+// figures (907,328 / 1,977,854 / 2,943,548 / 3,026,482, a 1.16x shortfall) were measured while 26 of
+// the 32 keepsakes were inert and three of the six modelled ones sat in the wrong bucket.
 //
 // EVERY NUMBER IN THIS FILE MOVED ON 2026-09-13, and not because the power maths changed. Raising
 // the default cap from the old 20+breaks*10 ladder (max 60 at 4 breaks) to the original's quality
@@ -159,15 +162,21 @@ test('museum is the one external contributor reachable with no other system buil
  let s=startingSave(NOW);
  assert.equal(bondedPower(s,ID),100);
  s=maybe(allKeepsakes(s),'acceptMuseum');
- // 31 keepsakes total +2 aptitude, +6 basicPowerPercent, +4 powerPercent (lib/museum-data.json).
- assert.equal(bondedPower(s,ID),132);
+ // REBASELINED 2026-09-15 (E4-02/E4-03). Everkai ships 32 Hall1 keepsakes; 26 of them were inert and
+ // three of the six modelled effects sat in the wrong bucket. All 32 now carry their own
+ // Exhibit.levelUpSkill -> SkillBase effect: 30 x atk/percent 200 (= +2% each) and 2 x talent 2.
+ // Totals moved from +2 aptitude / +6 basicPowerPercent / +4 powerPercent (old, 6 modelled)
+ // to +4 aptitude / +60 basicPowerPercent / +0 powerPercent (new, 32 modelled). Hall1 carries zero
+ // atk/finalpercent rows -- positive control: SkillBase holds 495 finalpercent rows overall -- so the
+ // powerPercent bucket was entirely a mis-bucketing. bondedPower moved 132 -> 224.
+ assert.equal(bondedPower(s,ID),224);
 });
 
 // ---------------------------------------------------------------------------------------------
 // The ceiling. This is the number the economy hangs off, so it is pinned at each stage of assembly.
 // ---------------------------------------------------------------------------------------------
 
-test('default mode: records + museum + familiars reach 907,328 -- NOT the ceiling, see the header',()=>{
+test('default mode: records + museum + familiars reach 1,284,793 -- NOT the ceiling, see the header',()=>{
  let s=roster();
  assert.equal(Object.keys(s.fellows).length,159);
  // An untrained full roster is worth almost nothing: 159 x 100 / 1000.
@@ -183,7 +192,9 @@ test('default mode: records + museum + familiars reach 907,328 -- NOT the ceilin
  s=maxedRecords(s);
  assert.equal(Math.round(rosterOperation(s)),744732);
  s=maybe(allKeepsakes(s),'acceptMuseum');
- assert.equal(Math.round(rosterOperation(s)),822420);
+ // REBASELINED 2026-09-15: 822,420 -> 1,195,714. The museum stage moved because all 32 keepsakes now
+ // carry their original effect (+60 basicPowerPercent instead of +6, and no powerPercent at all).
+ assert.equal(Math.round(rosterOperation(s)),1195714);
 
  // Familiars are the largest single external contributor: inherent flat Power up to 3,000,000 plus
  // 199 activatable nodes each. Binding is strictly 1:1, so only 71 of 154 Fellows can ever hold one.
@@ -199,7 +210,8 @@ test('default mode: records + museum + familiars reach 907,328 -- NOT the ceilin
  // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
  s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
  assert.equal(bound,71,'familiar binding is 1:1; 71 familiars cover 71 of 154 Fellows');
- assert.equal(Math.round(rosterOperation(s)),907328);
+ // REBASELINED 2026-09-15 (E4-02/E4-03): 907,328 -> 1,284,793, driven entirely by the museum stage.
+ assert.equal(Math.round(rosterOperation(s)),1284793);
 
  // The whole fixture is a legal save, so this is genuinely reached and not a minted state. It is NOT
  // the ceiling: stella, blessings and artifact echoes are all still at zero here, and driving them
@@ -222,7 +234,7 @@ test('default mode: records + museum + familiars reach 907,328 -- NOT the ceilin
 // because a ceiling reachable only by minting an illegal save is not a ceiling.
 // ---------------------------------------------------------------------------------------------
 
-test('the real default-mode ceiling is 3,026,482: stella, blessings and echoes take it 3.34x past the fixture',()=>{
+test('the real default-mode ceiling is 4,096,763: stella, blessings and echoes take it 3.19x past the fixture',()=>{
  // Stage 0 -- the fixture above, rebuilt here so this test stands alone if that one is edited.
  let s=maxedRecords(roster());
  s=maybe(allKeepsakes(s),'acceptMuseum');
@@ -236,7 +248,7 @@ test('the real default-mode ceiling is 3,026,482: stella, blessings and echoes t
  // A bond pays by stage now (ECON-29). The ceiling trains every familiar to stage 10 AFTER its nodes were
  // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
  s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
- assert.equal(Math.round(rosterOperation(s)),907328,'stage 0 must match the fixture above');
+ assert.equal(Math.round(rosterOperation(s)),1284793,'stage 0 must match the fixture above');
 
  // Stage 1 -- STELLA. Four profiles ship with a private activation policy; each is activated once and
  // then upgraded to the top of its own ladder, paid from the free sandbox fragment faucet. Every call
@@ -254,7 +266,7 @@ test('the real default-mode ceiling is 3,026,482: stella, blessings and echoes t
    if(s===before)break;
   }
  }
- assert.equal(Math.round(rosterOperation(s)),1977854,'stella is worth +1,070,526 over the fixture');
+ assert.equal(Math.round(rosterOperation(s)),2672207,'stella is worth +1,387,414 over the fixture');
  assert.ok(valid(s),'the stella save must be legal');
 
  // Stage 2 -- BLESSINGS. welcomeAll is the family counterpart of recruitAll; without it a save holds
@@ -279,7 +291,7 @@ test('the real default-mode ceiling is 3,026,482: stella, blessings and echoes t
  }
  // 208 of 210: two (family, key) pairs refuse with 'No supported ungated Fellows are available'.
  assert.equal(trained,212,'the trainable (family, blessing) pair count has moved');
- assert.equal(Math.round(rosterOperation(s)),2943548,'blessings are worth +965,694 over stella');
+ assert.equal(Math.round(rosterOperation(s)),3976204,'blessings are worth +1,303,997 over stella');
  assert.ok(valid(s),'the blessing save must be legal');
 
  // Stage 3 -- ARTIFACT ECHOES. An Echo only enables when its OWN named artifact is equipped on its
@@ -294,13 +306,16 @@ test('the real default-mode ceiling is 3,026,482: stella, blessings and echoes t
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
  assert.equal(enabled,32,'every named Echo must enable once its own artifact is equipped');
- assert.equal(Math.round(rosterOperation(s)),3026482);
- assert.ok(valid(s),'THE WHOLE 3,026,482 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
+ assert.equal(Math.round(rosterOperation(s)),4096763);
+ assert.ok(valid(s),'THE WHOLE 4,096,763 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
 
- // The parity statement this file exists to make, in one assertion.
- assert.equal(Math.round(3_497_276/rosterOperation(s)*100)/100,1.16,
-  'the default-mode shortfall against the original live save is 1.16x, NOT the 25.2x that quoting '
-  +'the 907,328 fixture as a ceiling implies');
+ // The parity statement this file exists to make, in one assertion. REBASELINED 2026-09-15 (E4-02/E4-03):
+ // importing every keepsake's own effect moved the ceiling 3,026,482 -> 4,096,763, which OVERSHOOTS the
+ // original's live-save 3,497,276 rather than falling short of it. The shortfall ratio flipped from
+ // 1.16x short to 1.17x over. Both halves of this ratio are the original's own live-save total against
+ // Everkai's own rosterOperation, so it compares Everkai's reach to the original's, not two sources.
+ assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,1.17,
+  'default mode now passes the original live-save total; it used to fall 1.16x short');
 });
 
 test('APK growth mode passes the original outright: one Fellow alone is worth 44.6M Power',()=>{
