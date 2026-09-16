@@ -7,6 +7,10 @@ import {FELLOWS} from '../lib/catalog.mjs';
 import {TRADE_OPPONENTS,tradingPost,negotiationEnergy} from '../lib/trading-post.mjs';
 import {ROAM_QUICK_MAX,roamStamina,roamingState} from '../lib/roaming.mjs';
 import {bestNegotiation} from '../lib/helper.mjs';
+import {FAMILIARS} from '../lib/familiars.mjs';
+import * as SUMMON from '../lib/summon.mjs';
+import * as RAPHAEL from '../lib/raphael.mjs';
+import * as FARM_TRADE from '../lib/farm-trade.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
@@ -15,7 +19,7 @@ import {BAIT_STORAGE,fishingState} from '../lib/fishing.mjs';
 import {expoStepKey} from '../lib/expo.mjs';
 import {TREASURE_AREAS,TREASURE_RELICS,tileGem} from '../lib/treasure.mjs';
 import {FISH,FISHING_GROUNDS,groundLevel,fishingIndex,fishingLevel} from '../lib/fishing.mjs';
-import {HELPER_TASKS,HELPER_RUN_CAP,CHORE_STEP_CAP,helperState,validHelper,helperAction,helperEnabled,bestPlant,bestGround} from '../lib/helper.mjs';
+import {HELPER_GROUPS,HELPER_TASKS,HELPER_RUN_CAP,CHORE_STEP_CAP,TREASURE_STEP_CAP,helperState,validHelper,helperAction,helperEnabled,bestPlant,bestGround} from '../lib/helper.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime();
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),a);return r.state};
 const armed=()=>{let s={...fresh(T),habits:starterHabits(T)};return run(s,'habitComplete',s.habits.items.find(x=>x.freq==='daily').id)};
@@ -40,12 +44,32 @@ test('the helper is armed by a daily habit, the same gate the bait refill uses',
 // actions a run dispatched. That is not vacuous the way a regex over task names would be, because a
 // chore has no action name to inspect.
 const SPENDING=/^(buy|forge|recruit|welcome|hire|open|build|educate|enroll|expand|summon|stella|bless|upgrade|train|limitBreak|equip|assign|adopt|bind)/;
-// The regex is a NAME-SHAPED PROXY for "buys something with the player's money". `upgradeFish` is its one
-// false positive among the chores: fishing.mjs spends `points`, which exist only as the output of
-// researchFish on a duplicate catch, can buy nothing else, and cap out because the skill caps at level 3.
-// The property the proxy stands in for -- gold and crystals never fall -- is asserted DIRECTLY below and
-// is untouched by it. Nothing else belongs in this set; add a chore that really spends and the gate holds.
-const DUPLICATE_ONLY=new Set(['upgradeFish']);
+// The regex is a NAME-SHAPED PROXY for "buys something with the player's money". Its false positives among
+// the default-on chores are listed here, each with the ONE currency it spends and why that currency has a
+// single destination. The property the proxy stands in for -- gold and crystals never fall -- is asserted
+// DIRECTLY below and is untouched by this list. A new entry needs a reason, and the list is pinned exactly.
+const NOT_GOLD={
+ upgradeFish:'Research Points, which only researchFish on a duplicate catch produces',
+ summonClaimDay:'spends nothing: pays the day`s habit rewards',
+ summonClaimWeek:'spends nothing: pays the week`s habit bonus',
+ summonForge:'Acquaint Stone Fragments into a stone (target is only ever "stone")',
+ summonRecruit:'nothing: only characters priced at zero are invited',
+ enrollPupil:'nothing: enrollment is free',
+ enrollTripChild:'nothing: a child already home from a trip takes a seat',
+ educateBatch:'Education Points, which recover on a timer and buy only lessons',
+ educate:'Education Points, as above',
+ educateAllRound:'Education Points, as above',
+ expandSchool:'nothing: a graduation-count gate',
+ stellaActivate:'nothing: activation is free',
+ stellaUpgrade:'a Fellow`s own Stella fragments, which buy only that Fellow`s Stella',
+ upgradeWorkshopMastery:'a Fellow`s own Workshop Sales EXP, which buys only that Fellow`s mastery',
+ buyWorkshopPearl:'Workshop wallet coins, whose only sink in the engine is this pearl',
+ openingClaim:'nothing: a quest reward',
+ openingEvent:'nothing: a reward or appoint event',
+ openingPromote:'Fame, whose only sink is rank promotion',
+ openingRecruit:'nothing: an earned rank encounter',
+};
+const DUPLICATE_ONLY=new Set(Object.keys(NOT_GOLD));
 function spyRun(s){
  const seen=[];
  const spy=(state,action,now,target,value)=>{seen.push(action);return act(state,action,now,target,value)};
@@ -60,12 +84,17 @@ test('a helper run reaches state only through act(), and never spends gold or cr
  assert.ok(seen.length>=5,`only ${seen.length} actions dispatched`);
  assert.ok(new Set(seen).size>=3,`only ${new Set(seen).size} distinct actions`);
  for(const a of new Set(seen))assert.ok(!SPENDING.test(a)||DUPLICATE_ONLY.has(a),`the helper dispatched ${a}, which spends`);
+ // A default run never reaches a default-OFF spending chore.
+ assert.ok(!seen.includes('openingAuto'),'Full-Auto spends gold and must stay off until switched on');
  assert.ok(result.state.gold>=s.gold,`gold fell ${s.gold} -> ${result.state.gold}`);
  assert.ok(result.state.crystals>=s.crystals,`crystals fell ${s.crystals} -> ${result.state.crystals}`);
  assert.ok(valid(result.state));
  // Positive control on the regex itself, and on the narrowness of its one exception.
  assert.ok(SPENDING.test('buySupply')&&SPENDING.test('upgradeInnStation'));
- assert.deepEqual([...DUPLICATE_ONLY],['upgradeFish'],'the SPENDING exception covers exactly one action');});
+ assert.deepEqual(Object.keys(NOT_GOLD).sort(),['buyWorkshopPearl','educate','educateAllRound','educateBatch','enrollPupil','enrollTripChild','expandSchool',
+  'openingClaim','openingEvent','openingPromote','openingRecruit','stellaActivate','stellaUpgrade','summonClaimDay','summonClaimWeek','summonForge',
+  'summonRecruit','upgradeFish','upgradeWorkshopMastery'],'the SPENDING exceptions are exactly these, each with a stated currency');
+ for(const a of Object.keys(NOT_GOLD))assert.ok(SPENDING.test(a),`${a} is listed but the regex never flagged it`);});
 
 test('a chore cannot reach past a gate that refuses the player',()=>{
  // Run twice in the same moment. Everything the first run could do, it did; the second must find the
@@ -252,7 +281,9 @@ test('a save written before a chore existed gets it switched ON, not off',()=>{
  const s=armed();
  const older={...s,helper:{tasks:{village:1,museum:1},ranAt:0}};
  assert.ok(valid(older),'a partial tasks map is a legal record');
- for(const t of HELPER_TASKS)assert.equal(helperEnabled(older,t.id),true,`${t.id} should be on by default`);
+ for(const t of HELPER_TASKS)assert.equal(helperEnabled(older,t.id),!t.defaultOff,`${t.id} should be ${t.defaultOff?'off':'on'} by default`);
+ // Positive control: the exception is real and narrow -- at least one task spends and is off, most are on.
+ assert.ok(HELPER_TASKS.some(t=>t.defaultOff)&&HELPER_TASKS.filter(t=>t.defaultOff).every(t=>t.group==='spending'),'every default-off task is a spending task');
  // An explicit off still wins, so a player's choice is never overridden.
  const off={...s,helper:{tasks:{farm:0},ranAt:0}};
  assert.equal(helperEnabled(off,'farm'),false);
@@ -267,7 +298,7 @@ test('an old save without a helper record loads, and gains one only when used',(
  assert.equal(old.helper,undefined,'fresh saves do not carry the record');
  assert.ok(valid(old));
  assert.deepEqual(decode(JSON.stringify(old)),old,'no key is added on load');
- assert.deepEqual(helperState(old).tasks,Object.fromEntries(HELPER_TASKS.map(t=>[t.id,1])),'defaults are all on, like isSelect on 36 of 40 original rows');});
+ assert.deepEqual(helperState(old).tasks,Object.fromEntries(HELPER_TASKS.map(t=>[t.id,t.defaultOff?0:1])),'defaults are on except the spending tasks, like isSelect on 36 of 40 original rows');});
 
 // ---------------------------------------------------------------------------------------------
 // TREASURE HUNT and DUPLICATE SPENDING (appended).
@@ -290,7 +321,7 @@ test('the Treasure Hunt chore digs, banks, appraises and donates through the rea
  assert.ok(Object.keys(t.relics).length>0,'no relic was appraised out of the gemstones');
  assert.ok(Object.values(t.relics).every(r=>r.donated&&r.displayed),'every appraised relic was donated and displayed');
  // treasureRestore is excluded: it belongs to the duplicates chore, which has its own budget.
- assert.ok(seen.filter(a=>a.startsWith('treasure')&&a!=='treasureRestore').length<=CHORE_STEP_CAP,'the chore stayed inside the step cap');
+ assert.ok(seen.filter(a=>a.startsWith('treasure')&&a!=='treasureRestore').length<=TREASURE_STEP_CAP,'the chore stayed inside its step cap');
  // Negative control: switched off, the chore leaves the system completely untouched.
  const off=helperAction({...s,helper:{tasks:{treasure:0},ranAt:0}},'helperRun',s.lastAt,null,null,act);
  assert.equal(off.error,undefined,off.error);
@@ -306,7 +337,9 @@ test('the duplicates chore spends duplicates on their own items, and never gold 
  assert.equal(shown.error,undefined,shown.error);
  // The first run drained the day's bait, so stock some by hand: the second run has to CATCH new duplicates
  // before it can research them, otherwise this test would pass on an empty sink.
- s={...shown.state,fishing:{...shown.state.fishing,bait:40}};
+ // Treasure stamina likewise: the first run now spends the whole bar (TREASURE_STEP_CAP), so the second run
+ // needs stamina of its own to dig new duplicate materials for treasureRestore to spend.
+ s={...shown.state,fishing:{...shown.state.fishing,bait:40},treasure:{...shown.state.treasure,stamina:24}};
  assert.ok(valid(s),'the stocked fixture is a legal save');
  const before={gold:s.gold,crystals:s.crystals,points:s.fishing.points,researched:s.fishing.researched.length,
   skill:s.fishing.skills[caught]||1,restored:Object.values(s.treasure.relics).filter(r=>r.restorations?.length).length};
@@ -324,7 +357,9 @@ test('the duplicates chore spends duplicates on their own items, and never gold 
   'at least one relic was restored with its own materials');
  // THE LINE: item-specific duplicates and minigame coins are fine; gold and crystals are not.
  assert.ok(result.state.gold>=before.gold,`gold fell ${before.gold} -> ${result.state.gold}`);
- assert.equal(result.state.crystals,before.crystals,'crystals were untouched');
+ // `>=`, not `===`: the full run now also claims campaign stages and achievements, which PAY crystals.
+ // What this line guards is that nothing SPENT them.
+ assert.ok(result.state.crystals>=before.crystals,`crystals fell ${before.crystals} -> ${result.state.crystals}`);
  assert.ok(valid(result.state));
  assert.deepEqual(decode(JSON.stringify(result.state)),result.state);
  // Research Points are conserved exactly: each research pays 1, each upgrade costs 2*level.
@@ -449,16 +484,34 @@ test('the two new chores never spend gold or crystals',()=>{
 // Adding a chore without adding it here now fails.
 test('every chore has its dispatch contract checked, not just the ones that broke',()=>{
  const primed={
-  farm:{state:{farm:{plots:[null],knowledge:0,harvests:{}}},allow:['harvestFarm','waterFarm','sowFarm']},
+  farm:{state:{farm:{plots:[null],knowledge:0,harvests:{}}},allow:['harvestFarm','waterFarm','sowFarm','deliverFarmOrder']},
   fishing:{state:{fishing:{bait:5,catches:[],researched:[],displayed:[],skills:{},points:0}},allow:['castFish','baitRefill']},
-  innGuests:{state:{inn:{menu:[INN_GUESTS[0].dish],served:9999,stations:{},popularity:1e12},fellows:{[INN_GUESTS[0].fellow]:{}}},allow:['serveInnSpecial']},
-  expo:{state:{expo:{stalls:{},assigned:{},sequence:1,active:{sequence:1,step:0,slots:[],customers:[],rewards:[]},last:null,clears:[],spentCoins:0,transferredPearls:0}},allow:['serveExpo']},
+  innGuests:{state:{inn:{menu:[INN_GUESTS[0].dish],served:9999,stations:{},popularity:1e12,guestGifts:{[INN_GUESTS[0].id]:{completedAt:T,claimedAt:null,policyVersion:2}}},fellows:{[INN_GUESTS[0].fellow]:{}}},allow:['serveInnSpecial','claimInnGift']},
+  expo:{state:{expo:{stalls:{},assigned:{},sequence:1,active:{sequence:1,step:0,slots:[],customers:[],rewards:[]},last:null,clears:[],spentCoins:0,transferredPearls:0}},allow:['serveExpo','takeExpoPearls','startExpo']},
   roaming:{state:{family:{},inventory:{},roaming:{policyVersion:1,seq:0,stamina:5,recoverAt:null,fame:0,travels:0,bonds:{},refillDay:null,history:[]}},allow:['roamGo','roamQuick','roamRefill']},
   trading:{state:{fellows:{hero_15:{level:1,aptitude:10,skill:0,breaks:0,gear:null}},tradingPost:{policyVersion:1,seq:0,coins:0,influence:0,run:null,history:[],energy:{},shop:{day:0,bought:0}}},allow:['tradeBegin','tradeComplete']},
   treasure:{state:{treasure:{seq:0,stamina:100,relics:{},gems:{},area:null,run:null}},allow:['treasureStart','treasureDig','treasureAppraise','treasureReturn','treasureRestore','treasureDonate','treasureDisplay']},
-  duplicates:{state:{fishing:{bait:0,catches:[],researched:[],displayed:[],skills:{},points:0}},allow:['researchFish','upgradeFish','treasureRestore','treasureDonate','northExchange','mineExchange']},
-  banquets:{state:{banquets:{policyVersion:1,seq:0,coins:0,popularity:0,pantry:{},run:null,history:[],shop:{day:0,bought:{}}}},allow:['banquetClaim','banquetPrepare','banquetHost']},
+  duplicates:{state:{fishing:{bait:0,catches:[{id:'catch:1',fish:'F1101',duplicate:true}],researched:[],displayed:[],skills:{},points:0}},allow:['researchFish','upgradeFish','treasureRestore','treasureDonate','northExchange','mineExchange']},
+  banquets:{state:{habits:armed().habits,banquets:{policyVersion:1,seq:0,coins:0,popularity:0,pantry:{},run:null,history:[],shop:{day:0,bought:{}}}},allow:['banquetClaim','banquetPrepare','banquetHost']},
   northern:{state:{northern:{policyVersion:1,seq:0,supplies:12,recoverAt:null,coins:60,atkXP:0,hpXP:0,atkLevel:0,hpLevel:0,consumed:0,run:null,history:[],exchanges:[]}},allow:['northExchange','northStart','northTile','northAttack','northNext','northFinish']},
+  // The chores added with "everything should be an option to be automated". Each overlay gives the chore
+  // something to try; the stub refuses, so only the FIRST dispatch of each stage is recorded.
+  habitRewards:{state:{habits:armed().habits,summon:{policyVersion:1,seq:3,stoneFragments:25,stones:0,insigniaFragments:9,valiant:0,archangel:0,starShards:0,days:[],weeks:[]}},allow:['summonClaimDay','summonClaimWeek','summonForge']},
+  freeRecruits:{state:{},allow:['summonRecruit']},
+  innService:{state:{inn:{menu:['57'],served:0,stamina:10,stations:{},finesse:{},popularity:0,blueprints:0,deposit:0,queue:null}},allow:['receiveInnGuests','refillInnStamina']},
+  workshopCraft:{state:{workshop:{supplies:20,deposit:0,wallet:4000,crafted:{},salesXP:{hero_15:500},job:null}},allow:['upgradeWorkshopMastery','buyWorkshopPearl','startWorkshop']},
+  mine:{state:{opening:{rank:12},fellows:{hero_15:{level:100,aptitude:1000,skill:0,breaks:0,gear:null},hero_1:{level:100,aptitude:1000,skill:0,breaks:0,gear:null}}},allow:['mineDeploy']},
+  fountain:{state:{habits:armed().habits,fountain:{policyVersion:1,seq:2,seed:1,bottles:95,total:500,ledger:{Lottery_8:40},history:[],recruited:[]}},allow:['bottleRefill','wishDraw','wishFairyClaim','wishSynthesize']},
+  villageEvents:{state:{habits:armed().habits},allow:['villageEvent','villageResolve','villageManageAccept','villageManageFinish']},
+  raphael:{state:{habits:armed().habits,raphael:{cells:[{kind:'fan'},...Array(24).fill(null)],best:0,performances:0},raphaelEvent:{policyVersion:1,seq:4,stamina:20,consumed:10,run:{id:3},history:[],claims:[],locker:{Item_GetCE_10:5}}},allow:['stageComplete','stageClaim','stageTransfer','stageSupply','stageBegin']},
+  familiarTower:{state:{familiars:{Pet_1191:{level:1,stars:0}}},allow:['towerParty','towerFight']},
+  dispatch:{state:{familiars:Object.fromEntries(FAMILIARS.map(p=>[p.id,{level:120,stars:0}])),familiarTower:{cleared:1}},allow:['dispatchCollect','dispatchTeam','dispatchStart']},
+  school:{state:{family:{wife_1:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}},allow:['activateGraduationBonds','graduateAll','expandSchool','enrollTripChild','enrollPupil','educateAllRound','educateBatch','educate']},
+  campaign:{state:{},allow:['battle','patrol']},
+  stella:{state:{fellows:{hero_54:{level:1,aptitude:10,skill:0,breaks:0,gear:null}}},allow:['stellaActivate','stellaUpgrade']},
+  journeyAuto:{state:{opening:{cleared:30,rank:5,events:[]}},allow:['openingAuto']},
+  journey:{state:{opening:{claimed:0,rank:1,fame:0,city:[],events:['A101']}},allow:['openingClaim','openingEvent','openingPromote','openingRecruit']},
+  achievements:{state:{},allow:['claim','achievementClaim']},
  };
  // Each overlay sits on a REAL fresh save, not a fragment: the modules reach for fields like s.claims
  // through playerRank, and a hand-built stub throws rather than reporting a contract problem.
@@ -466,17 +519,23 @@ test('every chore has its dispatch contract checked, not just the ones that brok
  const chores=HELPER_TASKS.filter(t=>t.run).map(t=>t.id);
  assert.deepEqual([...chores].sort(),Object.keys(primed).sort(),
   'a chore exists with no dispatch contract checked -- add it to `primed` above');
+ const silent=[];
  for(const id of chores){
   const {state:overlay,allow}=primed[id];const state={...base,...overlay};
   const seen=[];
   const stub=(s,action,now,target,value)=>{seen.push({action,target,value});return {error:'stub'}};
   HELPER_TASKS.find(t=>t.id===id).run(state,stub,T);
+  if(!seen.length)silent.push(id);
   // Not every primed state can reach every chore's first dispatch, but whatever IS dispatched must be
   // an action that chore is allowed to drive -- a typo'd or foreign action name fails here.
   for(const d of seen)assert.ok(allow.includes(d.action),`${id} dispatched ${d.action}, which is not one of ${allow.join(', ')}`);
+  // And every action name a chore is allowed must be one act() KNOWS: a typo throws "Unknown action".
+  for(const a of allow)assert.doesNotThrow(()=>act(base,a,T,null,null),`${id}: ${a} is not an action the engine knows`);
  }
  // Positive control: the loop really did drive chores, so the assertion above is not vacuous.
- assert.ok(chores.length>=8,`${chores.length} chores checked`);});
+ assert.ok(chores.length>=8,`${chores.length} chores checked`);
+ // And a primed state that makes a chore dispatch NOTHING checks nothing, so it is not allowed to pass.
+ assert.deepEqual(silent,[],`these chores dispatched nothing from their primed state: ${silent.join(', ')}`);});
 
 test('the banquet chore prepares, hosts and collects the party with the best coin yield',()=>{
  // coinsPerGuest is fixed at 100 inside banquetHost, and every shipped party costs one of each of
@@ -643,3 +702,244 @@ test('the helper never spends a habit refill into a nearly-full stock',()=>{
  const ids=HELPER_TASKS.map(t=>t.id);
  assert.ok(ids.indexOf('fishing')<ids.indexOf('bait'),
   'the bait refill must run AFTER the fishing chore, or it refills into a full stock');});
+
+// ---------------------------------------------------------------------------------------------
+// "EVERYTHING SHOULD BE AN OPTION TO BE AUTOMATED" -- the chores added for it.
+// Every chore below is driven on a fixture built through real actions (or a hand-set field the
+// validator accepts), and must CHANGE STATE there and leave a legal, round-tripping save. The contract
+// test above proves the action names and shapes; these prove the chores are not dead.
+// ---------------------------------------------------------------------------------------------
+const choreRun=(id,s,now=s.lastAt)=>{
+ const seen=[];
+ const spy=(state,action,t,target,value)=>{const r=act(state,action,t,target,value);seen.push(r.error?`${action}!`:action);return r};
+ const out=HELPER_TASKS.find(t=>t.id===id).run(s,spy,now);
+ assert.ok(valid(out.state),`${id} produced an illegal save`);
+ assert.deepEqual(decode(JSON.stringify(out.state)),out.state,`${id}: the save round-trips`);
+ return {...out,seen,ok:seen.filter(a=>!a.endsWith('!'))};
+};
+const allDailies=(s,at=s.lastAt)=>{for(const h of s.habits.items.filter(x=>x.freq==='daily')){const r=act(s,'habitComplete',Math.max(at,s.lastAt),h.id);if(!r.error)s=r.state}return s};
+
+test('a spending task is OFF when absent, every other new task is ON, and both survive a round trip',()=>{
+ const spenders=HELPER_TASKS.filter(t=>t.defaultOff);
+ assert.deepEqual(spenders.map(t=>t.id),['journeyAuto'],'exactly one default-off task, and it is the gold spender');
+ const s=armed();
+ // An OLD save: a tasks map written before any of these ids existed.
+ const old={...s,helper:{tasks:{village:1,museum:0},ranAt:0}};
+ assert.ok(valid(old));
+ assert.equal(helperEnabled(old,'journeyAuto'),false,'absent means OFF for the spender');
+ assert.equal(helperEnabled(old,'school'),true,'absent means ON for a free chore');
+ assert.equal(helperEnabled(old,'museum'),false,'a stored 0 still wins');
+ assert.ok(!spyRun(old).seen.includes('openingAuto'),'and the old save never spends');
+ // Switch the spender on, save, load: it stays on. Switch it off again: it stays off.
+ const on=run(old,'helperToggle','journeyAuto',true);
+ assert.equal(on.helper.tasks.journeyAuto,1);
+ const loaded=decode(JSON.stringify(on));
+ assert.deepEqual(loaded,on,'the toggled save round-trips');
+ assert.equal(helperEnabled(loaded,'journeyAuto'),true);
+ const off=run(loaded,'helperToggle','journeyAuto',false);
+ assert.equal(helperEnabled(decode(JSON.stringify(off)),'journeyAuto'),false);
+ // A first toggle on a save with no helper record stores every default explicitly, spender included.
+ const first=run(s,'helperToggle','farm',false);
+ assert.equal(first.helper.tasks.journeyAuto,0);
+ assert.equal(first.helper.tasks.school,1);
+ assert.equal(validHelper({helper:{tasks:{journeyAuto:1,school:0},ranAt:0}}),true,'new ids are legal task ids');
+ // Negative control: the default really is what gates the run -- switched on, the spender is attempted.
+ const opened={...on,opening:{...(on.opening||{}),version:1,cleared:21,rank:4,fame:0,claimed:0,collections:0,education:0,fathoms:0,reforges:0,upgrades:0,locker:{},events:[],eventClaims:[],city:[],familyBranch:null,operations:{},stars:{}},gold:1e9};
+ assert.ok(valid(opened),'the Full-Auto fixture is legal');
+ assert.ok(spyRun(opened).seen.includes('openingAuto'),'switched on, Full-Auto runs');});
+
+test('the journey Full-Auto chore spends gold on stages only when switched on',()=>{
+ const s=armed();
+ const o={version:1,cleared:21,rank:4,fame:0,claimed:0,collections:0,education:0,fathoms:0,reforges:0,upgrades:0,locker:{},events:[],eventClaims:[],city:[],familyBranch:null,operations:{},stars:{}};
+ const start={...s,opening:o,gold:1e9};
+ assert.ok(valid(start));
+ const {state,ok}=choreRun('journeyAuto',start);
+ assert.deepEqual(ok,['openingAuto']);
+ assert.ok(state.opening.cleared>o.cleared,'stages were cleared');
+ assert.ok(state.gold<start.gold,'and it did spend gold, which is why it is off by default');});
+
+test('habit rewards are claimed on a PERFECT day, not before -- with a 21:00 fallback -- and stones are forged',()=>{
+ const one=armed();                                  // one daily done: not a perfect day
+ const {summonDay,summonState}=SUMMON;
+ assert.equal(summonDay(one,one.lastAt).perfect,false,'positive control: the fixture is not perfect');
+ assert.deepEqual(choreRun('habitRewards',one).ok,[],'09:00 on an imperfect day: nothing is claimed');
+ // The fallback: the same imperfect day at 21:30 is claimed as it stands.
+ const late=new Date(T);late.setHours(21,30,0,0);
+ const evening=act(one,'collect',late.getTime()).state;
+ const fallback=choreRun('habitRewards',evening);
+ assert.ok(fallback.ok.includes('summonClaimDay'),'from 21:00 an imperfect day is claimed');
+ assert.ok(!summonState(fallback.state).days[0].endsWith('!'),'and recorded as imperfect');
+ // A perfect day at 09:00 is claimed straight away, pays the perfect bonus, and fragments become a stone.
+ const perfect=allDailies(armed());
+ assert.equal(summonDay(perfect,perfect.lastAt).perfect,true,'positive control: every daily is done');
+ const {state,ok}=choreRun('habitRewards',perfect);
+ assert.ok(ok.includes('summonClaimDay'));
+ const r=summonState(state);
+ assert.ok(r.days[0].endsWith('!'),'claimed as a perfect day');
+ assert.equal(r.insigniaFragments,1,'the perfect-day insignia fragment was paid');
+ assert.ok(ok.includes('summonForge')&&r.stones>=1,'whole stones were forged from fragments');
+ assert.ok(r.stoneFragments<SUMMON.STONE_FRAGMENTS_PER_STONE,'every whole stone was forged');
+ assert.equal(r.valiant+r.archangel,0,'insignias are never forged: that choice is the player`s');
+ // Once a day: a second run claims nothing.
+ assert.ok(!choreRun('habitRewards',state).ok.includes('summonClaimDay'));});
+
+test('the School chore enrolls grade-D pupils, teaches with real points, graduates, and never uses finishSchool',()=>{
+ let s=run(armed(),'welcome');
+ const seen=new Set();let graduated=0;
+ for(let i=0;i<40&&graduated<1;i++){
+  // Half an hour passes (settled by a tap, as the helper run itself is settled before its chores).
+  s=act(s,'collect',s.lastAt+30*60000).state;
+  const out=choreRun('school',s);
+  out.seen.forEach(a=>seen.add(a.replace('!','')));s=out.state;graduated=s.school.graduates;
+ }
+ assert.ok(!seen.has('finishSchool'),'the sandbox finish button was never pressed');
+ assert.ok(graduated>=1,`no pupil graduated in 20 hours of play (${s.school.pupils.map(p=>p.progress).join('/')})`);
+ assert.ok(s.school.income>0,'graduation income was banked');
+ assert.equal(s.school.pupils.length,3,'the freed seat was filled again');
+ assert.ok(s.school.pupils.every(p=>p.grade==='D'),'grade D pays the most income per Education Point');
+ assert.ok(s.school.points<6,'points were spent rather than left at the cap');
+ // Trip children are LEGACY pupils (6 lessons, 3 per point with Tutorial) and go in before graded pupils.
+ let t=run({...armed(),crystals:1000},'welcome');
+ t=run(t,'familyTrip',Object.keys(t.family)[0],'sailing');
+ const kids=choreRun('school',t);
+ assert.equal(kids.ok.filter(a=>a==='enrollTripChild').length,1,'the waiting child was enrolled');
+ assert.ok(kids.ok.indexOf('enrollTripChild')<kids.ok.indexOf('enrollPupil'),'before any graded pupil');
+ assert.equal(kids.state.familyTrips.children.length,0);});
+
+test('the Stella chore activates and upgrades with idle fragments, and idle fragments accrue without a subtree',()=>{
+ let s=run(armed(),'recruit','hero_54');
+ assert.equal(s.stella,undefined,'positive control: this village never touched Stella');
+ s=act(s,'collect',s.lastAt+3*86400000).state;
+ assert.ok((s.stella?.stock?.Item_Owner_HeroPiece_54||0)>0,'three idle days paid fragments with no prior subtree');
+ const {state,ok}=choreRun('stella',s);
+ assert.deepEqual(ok,['stellaActivate','stellaUpgrade']);
+ assert.ok(state.stella.history.length>1,'levels were bought');
+ // A village with no Stella-profile Fellow is left byte-identical by settling.
+ const plain=armed(),later=act(plain,'collect',plain.lastAt+3*86400000).state;
+ assert.equal(later.stella,undefined,'no subtree appears for a village without a profile Fellow');
+ // Frequent settling is not a way to lose fragments: 60 one-minute taps pay what one hour pays.
+ let often=run(armed(),'recruit','hero_54');const hour=act(often,'collect',often.lastAt+3600000).state;
+ for(let i=1;i<=60;i++)often=act(often,'collect',often.lastAt+60000).state;
+ assert.equal(often.stella.stock.Item_Owner_HeroPiece_54,hour.stella.stock.Item_Owner_HeroPiece_54,'60 small settles == 1 large one');
+ assert.ok(hour.stella.stock.Item_Owner_HeroPiece_54>0);});
+
+test('the familiar chores climb only floors they win, then dispatch the strongest five',()=>{
+ let s=run(armed(),'adoptFamiliars');
+ // Negative control on the trial-then-keep rule: an act() whose fight comes back LOST (cleared unchanged)
+ // must leave the tower exactly as it was -- the losing copy is discarded, not saved.
+ const party=run(run(s,'towerParty',FAMILIARS[0].id),'towerParty',FAMILIARS[1].id);
+ const losing=(state,action,t,target,value)=>{const r=act(state,action,t,target,value);
+  return action==='towerFight'&&!r.error?{...r,state:{...r.state,familiarTower:{...r.state.familiarTower,cleared:state.familiarTower.cleared}}}:r};
+ const lost=HELPER_TASKS.find(t=>t.id==='familiarTower').run(party,losing,party.lastAt);
+ assert.equal(lost.steps,0,'a lost fight is not counted');
+ assert.deepEqual(lost.state.familiarTower,party.familiarTower,'and not saved');
+ s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:120}]))};
+ assert.ok(valid(s));
+ const tower=choreRun('familiarTower',s);
+ assert.ok(tower.state.familiarTower.cleared>0,'floors were cleared');
+ assert.equal(tower.state.familiarTower.cleared,tower.state.familiarTower.attempts,'every recorded attempt was a win');
+ const sent=choreRun('dispatch',tower.state);
+ assert.ok(sent.ok.includes('dispatchStart'),'a dispatch was started');
+ const d=sent.state.familiarDispatch;
+ assert.equal(d.team.length,5);
+ // Collecting: 20 hours later the run is banked and a new one goes out.
+ const back=choreRun('dispatch',act(sent.state,'collect',sent.state.lastAt+20*3600000).state);
+ assert.ok(back.ok.includes('dispatchCollect')&&back.ok.includes('dispatchStart'));
+ assert.ok(back.state.familiarSupplies.levelUp>0,'the dispatch paid its items');});
+
+test('the Mine chore deploys strongest first and stops once no kill is reachable',()=>{
+ const s=armed(),strong={level:100,aptitude:1000,skill:0,breaks:0,gear:null};
+ const opening={version:1,cleared:0,rank:12,fame:0,claimed:0,collections:0,education:0,fathoms:0,reforges:0,upgrades:0,locker:{},events:[],eventClaims:[],city:[],familyBranch:null,operations:{},stars:{}};
+ // Negative control: one Fellow alone cannot reach the first guardian, so nothing is deployed at all.
+ const alone={...s,opening,fellows:{...s.fellows,hero_15:strong}};
+ assert.ok(valid(alone));
+ assert.deepEqual(choreRun('mine',alone).ok,[],'a deployment that can kill nothing is not made');
+ const pair={...alone,fellows:{...alone.fellows,hero_1:{...strong,level:99}}};
+ const {state,ok}=choreRun('mine',pair);
+ assert.deepEqual(ok,['mineDeploy','mineDeploy']);
+ assert.equal(state.mineClearance.history[0].owner,'hero_15','the stronger Fellow went first');
+ assert.ok(state.mineClearance.history[1].kills.length>0,'the pooled damage killed a guardian');
+ assert.ok(state.gold>pair.gold);});
+
+test('the Inn, Workshop, Raphael, Fountain, village and campaign chores all change state from a real fixture',()=>{
+ const s=allDailies(armed());
+ // Inn service: a free guest dish, one queue, then the refill once stamina cannot seat ten.
+ let inn=run({...s,enterprises:{Building_101:{employees:0,fellows:[]}}},'openInnService');
+ inn=run(inn,'developInnRecipe','57');
+ const served=choreRun('innService',inn);
+ assert.deepEqual(served.ok,['receiveInnGuests','refillInnStamina']);
+ assert.equal(served.state.inn.queue.remaining,10);
+ // Workshop crafting.
+ const shop=run({...s,enterprises:{Building_301:{employees:0,fellows:[]}}},'openWorkshop');
+ const crafted=choreRun('workshopCraft',shop);
+ assert.deepEqual(crafted.ok,['startWorkshop']);
+ assert.equal(crafted.state.workshop.supplies,shop.workshop.supplies-10);
+ // Raphael support: nothing without a fan (the formation is the player's), then supply and a run.
+ assert.ok(!choreRun('raphael',{...s,raphael:{cells:Array(25).fill(null),best:0,performances:0}}).ok.includes('stageBegin'),'no run without a fan');
+ const fan=RAPHAEL.RAPHAEL_FANS[0];
+ const stage=run(s,'stagePlace',12,{kind:'fan',id:fan.id,level:fan.levelMin});
+ const support=choreRun('raphael',stage);
+ assert.deepEqual(support.ok,['stageSupply','stageBegin']);
+ const done=choreRun('raphael',act(support.state,'collect',support.state.lastAt+6000).state);
+ assert.ok(done.ok.includes('stageComplete')&&done.ok.includes('stageClaim'),`finished and claimed: ${done.seen.join(' ')}`);
+ // Fountain: bottles in, a ten-wish out, never a single wish.
+ const wish=choreRun('fountain',s);
+ assert.ok(wish.ok.includes('bottleRefill')&&wish.ok.includes('wishDraw'));
+ assert.ok(wish.state.fountain.history.every(h=>h.count>=10),'no single wishes');
+ // Village walk, and the campaign (which can only add gold).
+ assert.ok(choreRun('villageEvents',s).ok.includes('villageEvent'));
+ const camp=choreRun('campaign',s);
+ assert.ok(camp.ok.includes('battle')&&camp.state.adventure.cleared>0&&camp.state.gold>=s.gold);});
+
+test('the journey, achievements, free recruits, farm orders, Inn gifts and Expo chores all pay out',()=>{
+ const s=armed();
+ // Journey: the first quest is "collect village gold"; once collected, the chore claims it.
+ const j=run(run(s,'openingStart'),'collect');
+ assert.ok(choreRun('journey',j).ok.includes('openingClaim'));
+ // Milestones and achievements: a fresh village already qualifies for some.
+ const a=choreRun('achievements',run(s,'collect'));
+ assert.ok(a.steps>0,`nothing claimed: ${a.seen.join(' ')}`);
+ // Free characters only.
+ const free=choreRun('freeRecruits',s);
+ assert.ok(free.ok.length>0);
+ assert.deepEqual(free.state.summon.recruited.map(r=>r.paid).filter(n=>n!==0),[],'nobody was paid for');
+ // Farm orders: a stock of the ordered crop is delivered.
+ const farm=run(s,'openFarm');
+ const {farmOrder}=FARM_TRADE,order=farmOrder(farm.farm,0);
+ const stocked={...farm,farm:{...farm.farm,harvests:{[order.plant]:order.quantity}}};
+ assert.ok(valid(stocked));
+ const delivered=choreRun('farm',stocked);
+ assert.ok(delivered.ok.includes('deliverFarmOrder'));
+ assert.equal(delivered.state.farm.trade.completed[0],1);
+ // Expo: a line-up that LOSES is never started; one that wins clears the stage, then the pearls move.
+ let e=run(s,'claimExpoStall','Stall001');e=run(e,'assignExpo','Stall001','hero_15');
+ const lose=choreRun('expo',e);
+ assert.ok(lose.seen.includes('startExpo'),'positive control: the day was tried on a copy');
+ assert.deepEqual(lose.state.expo,e.expo,'a losing business day is not kept');
+ assert.equal(lose.steps,0);
+ const strong={...e,fellows:{...e.fellows,hero_15:{...e.fellows.hero_15,level:100,aptitude:1000}}};
+ const won=choreRun('expo',strong);
+ assert.equal(won.state.expo.clears.length,1,'the winning day was played and cleared');
+ const pearls=choreRun('expo',won.state);
+ assert.ok(pearls.ok.includes('takeExpoPearls'));
+ assert.ok(pearls.state.inventory.Item_Talent_Hero_1>won.state.inventory.Item_Talent_Hero_1);});
+
+test('the Treasure Hunt chore spends a FULL stamina bar in one run from a mid-game camp',()=>{
+ // The owner's report was "the treasure hunt isn't automated". Measured: it ran, but a 50-dispatch budget
+ // spent ~36 of the 150 stamina a day refills, so a once-a-day helper left the bar pinned at 300.
+ let s=stocked();
+ s=helperAction(s,'helperRun',s.lastAt,null,null,act).state;           // a camp with relics, gems and XP
+ s={...s,treasure:{...s.treasure,stamina:300}};
+ assert.ok(valid(s)&&Object.keys(s.treasure.relics).length>0,'positive control: a mid-game camp');
+ const {state}=choreRun('treasure',s);
+ assert.ok(state.treasure.stamina<12,`one run left ${state.treasure.stamina} of 300 stamina unspent`);
+ assert.ok(Object.values(state.treasure.relics).every(r=>r.donated&&r.displayed));
+ assert.deepEqual(state.treasure.gems&&Object.values(state.treasure.gems).filter(n=>n>0),[],'every gem was appraised');
+ // The chore is listed in the panel's groups, so it is visible there.
+ assert.equal(HELPER_TASKS.find(t=>t.id==='treasure').group,'minigames');});
+
+test('every task belongs to a panel group, and the groups cover every task',()=>{
+ const groups=new Set(HELPER_GROUPS.map(g=>g.id));
+ for(const t of HELPER_TASKS)assert.ok(groups.has(t.group),`${t.id} has no panel group`);
+ for(const g of HELPER_GROUPS)assert.ok(HELPER_TASKS.some(t=>t.group===g.id),`group ${g.id} is empty`);
+ assert.ok(HELPER_TASKS.filter(t=>t.group==='spending').every(t=>t.defaultOff),'everything in the spending group is off by default');});

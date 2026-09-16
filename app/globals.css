@@ -1095,6 +1095,11 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .helper-tasks li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 12px;border-radius:10px;background:rgba(255,255,255,.55)}
 .helper-tasks li:nth-child(odd){background:rgba(255,255,255,.8)}
 .helper-tasks span{font-size:15px;min-width:0}
+.helper-group{margin:8px 0;border-radius:12px;background:rgba(255,255,255,.35)}
+.helper-group>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 12px;cursor:pointer;font-weight:600}
+.helper-group>summary small{font-weight:400;opacity:.75;white-space:nowrap}
+.helper-group>.small-note{padding:0 12px}
+.helper-group .helper-tasks{margin:4px 0 8px}
 
 /* Little Helper entry point on Home, where the original puts it: above the objective banner, clear
    of the bottom dock and of the right-hand scroll edge at phone width. */
