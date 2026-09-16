@@ -20,6 +20,6 @@ test('frozen combat versions1–6 retain report hashes while v7 has separate ini
 test('new battle save/retry uses v8 once and preserves training, binding and report snapshots',()=>{
  let s=run(fresh(1000),'adoptFamiliars');for(const p of team){for(let n=0;n<5;n++)s=run(withItems(s),'trainFamiliar',p.id,10);s=run(s,'towerParty',p.id);}
  let raw=JSON.stringify(s),fail=false;const storage=createPersistence(()=>({getItem:()=>raw,setItem:(k,v)=>{if(fail)throw Error('quota');raw=v}}));storage.load(1000);const before=raw,after=run(storage.current,'towerFight',towerKey(storage.current));
- assert.equal(after.familiarTower.last.combatVersion,10);assert.deepEqual(after.familiars,s.familiars);assert.deepEqual(after.bonds,s.bonds);
+ assert.equal(after.familiarTower.last.combatVersion,11);assert.deepEqual(after.familiars,s.familiars);assert.deepEqual(after.bonds,s.bonds);
  fail=true;assert.throws(()=>storage.commit(after));assert.equal(raw,before);fail=false;storage.load(1000);storage.commit(run(storage.current,'towerFight',towerKey(storage.current)));storage.load(1000);assert.deepEqual(storage.current.familiarTower,after.familiarTower);assert.deepEqual(decode(raw),storage.current);
 });

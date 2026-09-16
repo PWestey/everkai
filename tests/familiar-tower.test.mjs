@@ -19,7 +19,7 @@ test('first clear pays Reward_PetTower_01 into the familiar store; stale keys an
  const before=setup(),key=towerKey(before);let s=run(before,'towerFight',key);assert.equal(towerState(s).cleared,1);
  // The sandbox paid Skill Pearls and Fellow EXP; the original floor 1 pays 20 level-up items and nothing else.
  assert.equal(s.inventory.Item_Talent_Hero_1,before.inventory.Item_Talent_Hero_1);assert.equal(s.fellowXP,before.fellowXP);
- assert.equal(s.familiarSupplies.levelUp,20);assert.equal(s.familiarSupplies.classUp,0);assert.equal(s.familiarTower.policyVersion,2);
+ assert.equal(s.familiarSupplies.levelUp,20);assert.equal(s.familiarSupplies.classUp,0);assert.equal(s.familiarTower.policyVersion,3);
  assert.ok(act(s,'towerFight',1000,key).error);const report=originalBattle(1,s.familiarTower.last.team);s=run(withItems(s),'trainFamiliar',FAMILIARS[0].id,10);assert.deepEqual(originalBattle(1,s.familiarTower.last.team),report);assert.deepEqual(decode(JSON.stringify(s)),s);
  const full=setup();full.familiarSupplies={levelUp:1e12,classUp:0,since:null};assert.match(act(full,'towerFight',1000,towerKey(full)).error,/storage is full/);assert.equal(towerState(full).cleared,0);
 });
@@ -56,7 +56,7 @@ test('old absent-policy sandbox reports survive migration and unknown versions a
  const team=FAMILIARS.slice(0,5).map(p=>({id:p.id,level:1,stars:0}));let s=setup();
  s.familiarTower={policyVersion:1,cleared:1,attempts:1,party:team.map(p=>p.id),last:{attempt:1,floor:1,team}};
  assert.ok(towerBattle(1,team,1).won,'fixture: the legacy v1 battle is a win');assert.ok(valid(s));
- const loaded=decode(JSON.stringify(s));assert.deepEqual(loaded.familiarTower.legacy,{cleared:1,attempts:1,last:{attempt:1,floor:1,team}});assert.equal(loaded.familiarTower.cleared,25);
+ const loaded=decode(JSON.stringify(s));assert.deepEqual(loaded.familiarTower.legacy,{cleared:1,attempts:1,last:{attempt:1,floor:1,team}});assert.equal(loaded.familiarTower.cleared,0,'the redo restarts a sandbox tower at floor 0');assert.equal(loaded.familiarTower.redoFrom,25);
  const bad=structuredClone(s);bad.familiarTower.last.combatVersion=99;assert.ok(!valid(bad));
  const migratedBad=structuredClone(loaded);migratedBad.familiarTower.legacy.last.combatVersion=99;assert.ok(!valid(migratedBad),'a kept legacy report is still replay-checked');
 });

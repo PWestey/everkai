@@ -88,6 +88,22 @@ def fragment_pools(n):
                 assert c['id'].startswith('Item_Owner_PetPiece_'), (k, c['id'])
     return len(pools)
 
+def fragment_detail(n):
+    """2026-09-16: the pools are now PAID. Each Reward_PetDispatch_Add_n_k is randomType Weight, every
+    entry weight 100 holding one familiar's fragments; a pool is a uniform list of [pet, count]."""
+    out = []
+    for k in sorted(k for k in rewards if k.startswith(f'Reward_PetDispatch_Add_{n}_')):
+        r = rewards[k]
+        assert r['randomType'] == 'Weight', k
+        entries = []
+        for block in r['content']:
+            assert block['weight'] == 100 and len(block['content']) == 1, (k, block)
+            c = block['content'][0]
+            assert isinstance(c['count'], int) and c['count'] > 0
+            entries.append(['Pet_' + c['id'][len('Item_Owner_PetPiece_'):], c['count']])
+        out.append({'id': k, 'entries': entries})
+    return out
+
 hours = {r['Time'] for r in dispatch}
 assert hours == {20}, f'Time is no longer constant across the nine areas: {sorted(hours)}'
 # There is no other dispatch duration anywhere in System -- checked, so Time is the only candidate.
@@ -110,6 +126,7 @@ for r in dispatch:
         'base': fixed(r['Reward']),
         'great': fixed(r['SPReward']),
         'fragmentPools': fragment_pools(n),
+        'fragments': fragment_detail(n),
     })
 
 out = {

@@ -79,12 +79,52 @@ for t in tower:
 
 assert [f['floor'] for f in floors if f['reward'].get('familiar')] == [60, 100, 130, 160, 200, 300]
 assert [f['floor'] for f in floors if f['boss']] == [100, 200, 300]
+# 2026-09-16 expansion. Team bond ("PetFettersTips1: The team contains {val} familiars of the same type",
+# PetFettersTips2/3 HP/ATK +{val}%): System.PetArrayAdd Group3/4/5, basis points. Pet.Group is the type;
+# checked against Everkai's familiar-data types: Group 1 Cool 19, 2 Cute 19, 3 Playful 19, 4 Legendary 13.
+bond = {}
+for n in (3, 4, 5):
+    row = system['PetArrayAdd']['jsonValue'][f'Group{n}']
+    bond[str(n)] = {k: int(row[k]) for k in ('ATK', 'HP')}  # rule 5: "1300" arrives as a string
+assert bond == {'3': {'ATK': 1000, 'HP': 1000}, '4': {'ATK': 1300, 'HP': 1300}, '5': {'ATK': 1500, 'HP': 1500}}, bond
+pets = {p['_id']: p for p in table('Pet')}
+pet_info = {'Pet_' + k: {'group': int(p['Group']), 'career': int(p['career'])} for k, p in pets.items()}
+careers = {r['_id'] for r in table('PetCareer')}
+assert careers == {'1', '2', '3'}  # en/translate PetCareer:des 1 Attacker, 2 Tank, 3 Support
+
+# Endless Mode. MEASURED: PetEndlessTower 23 bands {StageRange, CareerMax, ATK/HP/SPD/Power/Lv coef, Income};
+# PetEndlessTowerPool 705 bots {Pet, career, StageRange, ATK, HP, SPD, Lv 200}; PetBattleShow.lua
+# GetPetInitData shows an endless bot's level as Pool.Lv + floor(towerLevel * Lvcoef / 10000); PetManager.lua
+# GetPetTowerIncome adds the endless band Income to the normal floor Income. NOT in any table or client
+# file: which bots the server draws, and how ATK/HP/SPD coef apply (see lib/familiar-endless.mjs).
+bands = []
+for e in endless:
+    lo, hi = e['StageRange']
+    cm = {k: [v['countmin'], v['countmax']] for k, v in e['CareerMax'].items()}
+    bands.append({'id': int(e['_id']), 'from': lo, 'to': hi, 'careers': cm,
+                  'coef': {k: e[k + 'coef'] for k in ('ATK', 'HP', 'SPD', 'Power', 'Lv')},
+                  'income': e['Income'], 'reward': e['Reward']})
+assert bands[0]['from'] == 1 and all(bands[i]['to'] + 1 == bands[i + 1]['from'] for i in range(len(bands) - 1))
+assert {b['reward'] for b in bands} == {'Reward_PetEndlessTower_1'}
+assert [c['id'] for c in rewards['Reward_PetEndlessTower_1']['content']] == ['Item_PetFeedBox']
+bots = []
+for b in pool:
+    band = next(x for x in bands if x['from'] == b['StageRange'][0] and x['to'] == b['StageRange'][1])
+    assert b['Lv'] == 200 and 'Pet_' + b['Pet'] in pet_info and b['career'] == pet_info['Pet_' + b['Pet']]['career'], b
+    bots.append([band['id'], 'Pet_' + b['Pet'], b['career'], b['Lv'], b['ATK'], b['HP'], b['SPD'], b['Power']])
+for band in bands:
+    mine = [x for x in bots if x[0] == band['id']]
+    for c, (lo, hi) in band['careers'].items():
+        assert sum(1 for x in mine if x[2] == int(c)) >= hi, (band['id'], c)
+
 src = lambda p: hashlib.sha256((L / p).read_bytes()).hexdigest()
 out = {
     'sources': {p: src(p) for p in ['PetTower.json', 'PetTowerArray.json', 'System.json', 'split_reward/reward.json',
-                                    'PetEndlessTower.json', 'PetEndlessTowerPool.json']},
+                                    'PetEndlessTower.json', 'PetEndlessTowerPool.json', 'Pet.json', 'PetCareer.json']},
     'holdHours': 24, 'endlessOpen': 200,
     'endlessMeasured': {'bands': len(endless), 'pool': len(pool)},
+    'bond': bond, 'pets': pet_info,
+    'endless': {'bands': bands, 'bots': bots, 'rewardItem': 'Item_PetFeedBox'},
     'floors': floors,
 }
 (ROOT / 'lib/familiar-tower-data.json').write_text(json.dumps(out, separators=(',', ':')) + '\n')

@@ -165,7 +165,7 @@ test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
  bad({...e,area:2},'an area whose tower floor is not cleared');
  bad({...e,items:{...e.items,Item_PetCatch3:1.5}},'a fractional contract');
  bad({...e,items:{...e.items,Item_Gold:1}},'an unknown item');
- bad({...e,pieces:{Pet_4151:10}},'fragments of a familiar not owned');
+ bad({...e,pieces:{Pet_not_real:10}},'fragments of a familiar that does not exist');bad({...e,pieces:{Pet_4151:0}},'an empty fragment entry');
  bad({...e,sp:['Pet_4151']},'a shining familiar not owned');
  bad({...e,starter:'Pet_1191'},'a starter that is not a starter');
  bad({...e,encounter:{pet:'Pet_4151',sp:false,alert:0,attempts:0,soothed:0,mustCatch:0}},'a monster not in this area');

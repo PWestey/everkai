@@ -67,9 +67,11 @@ test('earned route: a five-familiar team clears the first 60 original floors on 
  assert.equal(towerState(s).cleared,60,`stopped at floor ${towerState(s).cleared} after ${hours} hours`);
  assert.ok(valid(s));
  // FAMILIARS.slice(0,5) is the SSR+/UR top of the roster. Measured 2026-09-16 with the same loop run to
- // floor 300 on tower income alone: this team 1.5 days (level 74), an SSR explore team (12141/13141/21341/
- // 22241/23341) 17.8 days (level 116), an SR team 22.6 days (level 140). An N/R team stalls at level 49
- // on floor 8, because floors 1-19 pay no class-up items: the next class-up must come from Exploring.
+ // floor 300 on tower income alone. Combat v10 (0fac20d): this team 1.5 days (level 74), an SSR explore team
+ // (12141/13141/21341/22241/23341) 17.8 days (level 116), an SR team 22.6 days (level 140). Combat v11
+ // (enemy skills + team bond): 5.5 days (level 90), 47.0 days (158), 48.0 days (166). An N/R team stalls at
+ // level 49 on floor 8 in both, because floors 1-19 pay no class-up items; exploring 3 times an hour it
+ // reaches floor 300 in 459 days (v10) / 671 days (v11).
  assert.ok(hours<24*120);
  console.log(`# earned tower: floor 60 after ${(hours/24).toFixed(1)} days; levels ${FAMILIARS.slice(0,5).map(p=>s.familiars[p.id].level).join('/')}`);});
 
