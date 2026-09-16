@@ -15,5 +15,13 @@ test('welcome all preserves individual training and saves without granting villa
 test('bad identities, levels and duplicate welcome cannot grant progression',()=>{
  let s=fresh(1000);assert.ok(run(withItems(s),'trainFamiliar','Pet_1191',1).error);assert.ok(run(s,'adoptFamiliar','bad').error);
  s=run(s,'adoptFamiliar','Pet_1191').state;assert.ok(run(s,'adoptFamiliar','Pet_1191').error);s.familiars.Pet_1191.level=498;s=run(withItems(s),'trainFamiliar','Pet_1191',10).state;assert.equal(s.familiars.Pet_1191.level,499);assert.ok(run(withItems(s),'trainFamiliar','Pet_1191',1).error);
- for(const patch of [{level:500,stars:0},{level:1,stars:101},{level:1.5,stars:0}]){const x=structuredClone(s);x.familiars.Pet_1191=patch;assert.throws(()=>decode(JSON.stringify(x)));}
+ // A tampered familiar record must never GRANT anything. It used to be refused outright; since the
+ // save quarantine (lib/game.mjs) a malformed optional subtree is DISCARDED instead, so the village
+ // survives a corrupt one. Tampering is still worth nothing -- the record does not come back -- so the
+ // guarantee this test exists for is intact, and asserted directly rather than via the refusal.
+ for(const patch of [{level:500,stars:0},{level:1,stars:101},{level:1.5,stars:0}]){
+  const x=structuredClone(s);x.familiars.Pet_1191=patch;
+  let loaded=null;try{loaded=decode(JSON.stringify(x))}catch{loaded=null}
+  if(loaded)assert.notDeepEqual(loaded.familiars?.Pet_1191,patch,`tampered record survived: ${JSON.stringify(patch)}`);
+ }
 });

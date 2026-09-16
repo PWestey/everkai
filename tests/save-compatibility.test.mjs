@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {fresh,act,valid,decode,VALIDATORS,refusedBy} from '../lib/game.mjs';
+import {fresh,act,valid,decode,VALIDATORS,refusedBy,QUARANTINABLE,lastQuarantine} from '../lib/game.mjs';
 import {readFileSync} from 'node:fs';
 import {validMine,mineState,MINE_ROWS} from '../lib/mine-clearance.mjs';
 import {FARM_MAX_PLOTS} from '../lib/farm.mjs';
@@ -104,8 +104,45 @@ test('refusedBy names the system, and says nothing about a healthy save',()=>{
  // A deliberately broken subtree must be named, not merely detected.
  assert.equal(refusedBy({...s,version:9}),'validV4');
  assert.equal(refusedBy({...s,helper:{tasks:{nosuch:1},ranAt:0}}),'validHelper');
- // And the thrown message carries it, which is the whole point.
- try{decode(JSON.stringify({...s,helper:{tasks:{nosuch:1},ranAt:0}}));assert.fail('should have thrown')}
- catch(e){assert.match(e.message,/Refused by: validHelper/)}
+ // The thrown message carries the name -- but only where the quarantine below cannot recover the save.
+ // A broken OPTIONAL subtree is now dropped instead of thrown, so the throw path is tested with the
+ // core village shape, which is deliberately not quarantinable.
+ try{decode(JSON.stringify({...s,bonds:null}));assert.fail('should have thrown')}
+ catch(e){assert.match(e.message,/Refused by: valid/)}
  // A validator that THROWS is reported rather than crashing the load path.
  assert.match(refusedBy({...s,fellows:null}),/^valid/);});
+
+// THE POINT OF THE QUARANTINE: a village must not be lost because one subsystem is malformed. After
+// every targeted repair has run, if the save would still be REFUSED ENTIRELY, drop the smallest thing
+// that makes it loadable and say so. Losing the Familiars is bad; losing the village is worse.
+test('a malformed optional subtree is dropped, and the village survives',()=>{
+ const s={...fresh(T),gold:123456,crystals:77};
+ const broken={...s,helper:{tasks:{nosuchchore:1},ranAt:0}};
+ assert.equal(valid(broken),false,'the fixture really is refused');
+ const back=decode(JSON.stringify(broken));
+ assert.ok(valid(back));
+ assert.deepEqual(lastQuarantine,['helper'],'and it named what it dropped');
+ assert.equal(back.gold,123456,'the village came through');
+ assert.equal(back.crystals,77);
+ assert.equal(Object.keys(back.fellows).length,Object.keys(s.fellows).length);});
+
+test('a healthy save is never quarantined, and the core is never dropped',()=>{
+ const s=fresh(T);
+ const back=decode(JSON.stringify(s));
+ assert.deepEqual(lastQuarantine,[],'nothing dropped from a good save');
+ assert.deepEqual(back,s,'and it is byte-identical');
+ // The core village shape is NOT quarantinable: a broken one must still be refused, not silently reset.
+ assert.equal(QUARANTINABLE.includes('bonds'),false);
+ assert.equal(QUARANTINABLE.includes('fellows'),false);
+ assert.equal(QUARANTINABLE.includes('habits'),false,'the habit journal is never dropped');
+ assert.throws(()=>decode(JSON.stringify({...s,bonds:null})),/Refused by: validBonds/);});
+
+test('every quarantinable subtree really is optional',()=>{
+ // The list is only safe if dropping any member leaves a valid save. Checked rather than asserted,
+ // because a wrong entry here would delete a subtree that the engine still requires.
+ const s=fresh(T);
+ for(const key of QUARANTINABLE){
+  const without={...s};delete without[key];
+  assert.equal(refusedBy(without),'',`dropping ${key} left the save invalid`);
+ }
+ assert.ok(QUARANTINABLE.length>=30,`only ${QUARANTINABLE.length} subtrees listed`);});
