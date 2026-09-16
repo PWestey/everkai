@@ -47,6 +47,30 @@ function libActions(){
  *  anything. Measured 2026-09-15: restricting to these four callees strands `recruit` and nothing
  *  else -- the other six stranded names were already in ALLOWED. */
 const DISPATCHERS=['action','run','act','btn'];
+/** Which argument carries the ACTION NAME, per dispatcher. The set above deliberately collects every
+ *  literal anywhere in the call, because a name can sit inside a ternary -- that is right for asking
+ *  "is this lib action reachable?". It is useless for the OPPOSITE question, "does this button
+ *  dispatch something that exists?", because targets and values are literals too. These positions
+ *  answer that one. Where a name is computed rather than literal the call is simply skipped; this
+ *  guard reports dead buttons, it does not claim to see every dispatch. */
+const NAME_ARG={action:0,run:0,act:1,btn:1};
+function dispatchedInNamePosition(){
+ const out=new Map();
+ for(const f of appFiles){
+  const sf=ts.createSourceFile(f,readFileSync(new URL(f,APP),'utf8'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+  const walk=n=>{
+   if(ts.isCallExpression(n)&&ts.isIdentifier(n.expression)&&Object.hasOwn(NAME_ARG,n.expression.text)){
+    const arg=n.arguments[NAME_ARG[n.expression.text]];
+    const add=x=>{if(ts.isStringLiteral(x))out.set(x.text,f);
+     else if(ts.isConditionalExpression(x)){add(x.whenTrue);add(x.whenFalse)}};
+    if(arg)add(arg);
+   }
+   n.forEachChild(walk);
+  };
+  walk(sf);
+ }
+ return out;
+}
 function dispatchedNames(){
  const names=new Set(),callees=new Set();
  for(const f of appFiles){
@@ -118,3 +142,17 @@ test('the exception list has not rotted: each entry is genuinely still unreachab
   assert.ok(!dispatched(name),`ALLOWED lists ${name} as unreachable, but app/ now dispatches it — drop the entry. Reason on file: ${reason}`);
  }
 });
+
+/** THE OTHER DIRECTION. Every test above asks whether a lib action is reachable from app/. None asked
+ *  whether an action app/ dispatches still EXISTS -- so `northSupply` sat in the Northern panel as a
+ *  "Prepare Supplies · Free" button for weeks after the action was deleted, throwing 'Unknown action'
+ *  on every press. A note from that deletion even claimed "No UI dispatched it", which was wrong.
+ *  A dead button is invisible from the lib side by construction, which is why it needs its own guard. */
+test('every action a button dispatches still exists in lib', ()=>{
+ const inButtons=dispatchedInNamePosition();
+ // Positive control: the reader found real dispatches in a name position, so an empty result cannot pass.
+ assert.ok(inButtons.size>20,`read only ${inButtons.size} names in a dispatcher's name position`);
+ for(const known of ['habitComplete','collect'])
+  assert.ok(inButtons.has(known),`the name-position reader missed ${known}`);
+ const dead=[...inButtons].filter(([name])=>!libActions().has(name)).map(([name,file])=>`${name} (${file})`);
+ assert.deepEqual(dead,[],'these buttons dispatch actions that no longer exist');});
