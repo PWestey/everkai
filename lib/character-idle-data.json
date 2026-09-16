@@ -79,8 +79,8 @@
  },
  "wife_116": {
   "id": "wife_116",
-  "sha256": "cb74bfaac5ac73f2ecf8d829f3aafad6b4593de969b264b6f0f4c1651fab124a",
-  "bytes": 615487,
+  "sha256": "2bb12d43d8037246ad6fbca2fc0c73478470182a1de1abc2884f1021cd35f40a",
+  "bytes": 1009163,
   "width": 1024,
   "height": 1536,
   "fps": 12.0,
@@ -1353,8 +1353,8 @@
  },
  "W19C1": {
   "id": "wife_19c1",
-  "sha256": "df78db5921b38055d65eedb7be3e2f616ef79741c15a8c815109221f63b4a4e1",
-  "bytes": 472956,
+  "sha256": "eb8ccfd0cae90c84a8e1af146d956daf2ba4806dd04eec1b294cf953b51ccc92",
+  "bytes": 1084781,
   "width": 1024,
   "height": 1536,
   "fps": 12.0,

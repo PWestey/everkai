@@ -23,10 +23,10 @@ test('no shipped idle clip is frozen',()=>{
  const shipped=new Map(Object.entries(clips).map(([k,c])=>[c.sha256,k]));
  const back=frozen.clips.filter(c=>shipped.has(c.sha256)).map(c=>c.key);
  assert.deepEqual(back,[],'frozen re-render bytes are back in character-idle-data.json');
- // wife_116 and wife_19c1 carry the boot fixes and were re-rendered frozen; their animated renders
- // still have the misplaced boots, so they stay until they can be re-rendered.
+ // wife_116 and wife_19c1 were the last two: their boot-fix re-renders were frozen. The owner chose
+ // motion over the boot fix (2026-09-16), so their animated renders from 5632b86 are back.
  const still=Object.values(clips).filter(c=>clipMotion(c.src)<.0005).map(c=>c.owner+(c.costumeId?'/'+c.costumeId:''));
- assert.deepEqual(still.sort(),['wife_116','wife_19/W19C1'],'clips with no measurable motion');
+ assert.deepEqual(still.sort(),[],'clips with no measurable motion');
 });
 
 test('framing zooms a surround render to its art and leaves full-frame renders alone',()=>{

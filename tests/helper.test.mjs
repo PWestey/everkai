@@ -944,3 +944,20 @@ test('every task belongs to a panel group, and the groups cover every task',()=>
  for(const t of HELPER_TASKS)assert.ok(groups.has(t.group),`${t.id} has no panel group`);
  for(const g of HELPER_GROUPS)assert.ok(HELPER_TASKS.some(t=>t.group===g.id),`group ${g.id} is empty`);
  assert.ok(HELPER_TASKS.filter(t=>t.group==='spending').every(t=>t.defaultOff),'everything in the spending group is off by default');});
+
+// The owner wants free characters invited automatically BUT announced. The run result names every
+// newcomer, so the app can show a dialog instead of a 4-second notice.
+test('a helper run names everyone who joined, and nobody who was already here',()=>{
+ const s=armed();
+ const r=act(s,'helperRun',s.lastAt);
+ assert.equal(r.error,undefined,r.error);
+ const joined=[...Object.keys(r.state.fellows).filter(id=>!s.fellows[id]),...Object.keys(r.state.family).filter(id=>!s.family[id])];
+ assert.ok(joined.length>0,'positive control: the free invite chore really recruited someone');
+ assert.deepEqual(r.arrivals.map(a=>a.id).sort(),joined.sort());
+ assert.match(r.message,/joined the village/);
+ for(const a of r.arrivals)assert.ok(a.name&&['fellows','family'].includes(a.kind));
+ // Negative control: with invites off, nothing is announced.
+ const off=act(s,'helperToggle',s.lastAt,'freeRecruits');
+ if(!off.error){const q=act(off.state,'helperRun',s.lastAt);if(!q.error){
+  const j=Object.keys(q.state.fellows).filter(id=>!s.fellows[id]);
+  assert.equal(q.arrivals.length,j.length+Object.keys(q.state.family).filter(id=>!s.family[id]).length);}}});
