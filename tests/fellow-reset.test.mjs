@@ -9,7 +9,7 @@ import {stockOriginal,grantFragments} from './progression-helpers.mjs';
 import {freshOpening} from '../lib/opening.mjs';
 const withOpeningUpgrade=s=>({...s,opening:{...(s.opening||freshOpening()),upgrades:1}});
 
-const T=1000,ID='hero_54',GEAR='Item_Weapon_Equipment_1_1';
+const T=1000,ID='hero_54',GEAR='Item_Weapon_Equipment_1_1',ESSENCE='SG3TalentCountry1',APT_ITEMS={Item_Quenching_Equipment_1:10,Item_Box_Talent_1:10,Item_Hero_Talent_Country_1:10,Item_Hero_Attribute_Increase_1:5};
 const run=(s,action,value=null,id=ID)=>{const r=act(s,action,s.lastAt,id,value);assert.equal(r.error,undefined,`${action}: ${r.error}`);assert.ok(valid(r.state),action);return r.state};
 
 /** A village with every pool a Fellow investment draws on stocked. `mode`: 'legacy' (no receipts),
@@ -18,9 +18,10 @@ function stocked(mode='original'){
  let s=fresh(T);s.fellows[ID]=newFellow();
  if(mode==='receipts')s=run(s,'activateOriginalTraining');
  if(mode==='original'){s=run(s,'activateOriginalProgression');s=stockOriginal(s,60);}
+ s=run(s,'openFarm',null,null);s={...s,opening:freshOpening(),farm:{...s.farm,trade:{policyVersion:1,completed:[0,0,0],dew:0,essences:{[ESSENCE]:60}}}};
  s=grantFragments(s,ID,4);
  const material=insightRule(ID).materialId;
- s={...s,fellowXP:s.fellowXP+5e7,inventory:{...s.inventory,local_skill_scroll:400,local_limit_token:200,Item_Talent_Hero_1:900,[GEAR]:1},
+ s={...s,fellowXP:s.fellowXP+5e7,inventory:{...s.inventory,local_skill_scroll:400,local_limit_token:200,Item_Talent_Hero_1:900,[GEAR]:1,...APT_ITEMS},
   summon:{...summonState(s),starShards:500},insight:{balances:{[material]:20000},levels:{}},artifacts:{ore:5000,bag:{}}};
  s=run(s,'stellaActivate',{seq:s.stella.seq});
  s=run(s,'equip',GEAR);
@@ -49,8 +50,14 @@ const INVESTMENTS={
  insight:s=>run(s,'trainInsight',5),
  stella:s=>run(s,'stellaUpgrade',{seq:s.stella.seq,count:5}),
  artifact:s=>run(s,'upgradeArtifact'),
+ pearlAptitude:s=>run(s,'aptitude',5),
+ essence:s=>run(s,'useFarmEssence',{essence:ESSENCE,amount:5}),
+ reforge:s=>run(run(s,'openingReforge'),'openingReforge'),
+ talentBox:s=>run(s,'openingUse',ID,'Item_Box_Talent_1'),
+ countryTalent:s=>run(s,'openingUse',ID,'Item_Hero_Talent_Country_1'),
+ addAtk:s=>run(s,'openingUse',ID,'Item_Hero_Attribute_Increase_1'),
 };
-const MODES={levels:['receipts','original'],quality:['original'],breaks:['receipts'],skill:['legacy','original'],stars:['legacy','original'],talent:['legacy','original'],insight:['legacy','original'],stella:['legacy','original'],artifact:['legacy','original']};
+const MODES={levels:['receipts','original'],quality:['original'],breaks:['receipts'],skill:['legacy','original'],stars:['legacy','original'],talent:['legacy','original'],insight:['legacy','original'],stella:['legacy','original'],artifact:['legacy','original'],pearlAptitude:['legacy','original'],essence:['legacy','original'],reforge:['legacy'],talentBox:['legacy'],countryTalent:['original'],addAtk:['legacy']};
 
 test('every refundable investment, invested then refunded, leaves the wallet and the Fellow exactly as they started',()=>{
  for(const [track,invest] of Object.entries(INVESTMENTS))for(const mode of MODES[track]){
@@ -73,13 +80,14 @@ test('a refunded Fellow matches a fresh recruit on every refunded field',()=>{
 // A small deterministic PRNG so a failure names a reproducible seed.
 const rng=seed=>()=>{seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296};
 test('random investment sequences always refund to the exact starting wallet',()=>{
- const actions=[['train',1],['train',5],['train','max'],['fellowSkill',null],['limitBreak',null],['originalQuality',null],['trainTalent',1],['trainTalent',5],['trainInsight',1],['trainInsight','max'],['summonStar','seq'],['stellaUpgrade','stella'],['upgradeArtifact',null],['upgradeArtifactMax',null]];
+ const actions=[['train',1],['train',5],['train','max'],['fellowSkill',null],['limitBreak',null],['originalQuality',null],['trainTalent',1],['trainTalent',5],['trainInsight',1],['trainInsight','max'],['summonStar','seq'],['stellaUpgrade','stella'],['upgradeArtifact',null],['upgradeArtifactMax',null],['aptitude',1],['aptitude','max'],['useFarmEssence','essence'],['openingReforge',null],['openingUse','Item_Box_Talent_1'],['openingUse','Item_Hero_Attribute_Increase_1']];
  for(let seed=1;seed<=24;seed++){
   const mode=['receipts','original','legacy'][seed%3],random=rng(seed),start=stocked(mode);let s=start,done=0;
   for(let i=0;i<40;i++){
    // Legacy saves have no training receipts, so their levels are not refundable and training is left out.
    const pool=mode==='legacy'?actions.filter(([a])=>a!=='train'):actions,[action,v]=pool[Math.floor(random()*pool.length)];
-   const value=v==='seq'?{seq:summonState(s).seq}:v==='stella'?{seq:s.stella.seq,count:1+Math.floor(random()*3)}:v;
+   if(action==='openingUse'){const r=act(s,action,s.lastAt,v,ID);if(!r.error){assert.ok(valid(r.state));s=r.state;done++;}continue;}
+   const value=v==='essence'?{essence:ESSENCE,amount:1+Math.floor(random()*5)}:v==='seq'?{seq:summonState(s).seq}:v==='stella'?{seq:s.stella.seq,count:1+Math.floor(random()*3)}:v;
    const r=act(s,action,s.lastAt,ID,value);if(r.error)continue;assert.ok(valid(r.state));s=r.state;done++;
   }
   assert.ok(done>5,`seed ${seed} invested`);
@@ -137,4 +145,44 @@ test('negative control: a wrong cost row is caught by the round-trip check',()=>
  }
  const stars=INVESTMENTS.stars(stocked('legacy'));
  assert.ok(mismatches(stocked('legacy'),refundPlan(stars,ID,{...REFUND_COSTS,star:k=>REFUND_COSTS.star(k)*2}).state).some(m=>m.startsWith('starShards')));
+});
+
+test('ledgered Aptitude records gain and exact payment per source, and survives a reload',()=>{
+ let s=stocked('legacy');
+ s=INVESTMENTS.addAtk(INVESTMENTS.reforge(INVESTMENTS.essence(INVESTMENTS.pearlAptitude(s))));
+ assert.deepEqual(s.fellows[ID].aptitudeLedger,{policyVersion:1,entries:{'item:Item_Talent_Hero_1':{paid:5,gain:5},'essence:SG3TalentCountry1':{paid:5,gain:5},'item:Item_Quenching_Equipment_1':{paid:2,gain:2},'item:Item_Hero_Attribute_Increase_1':{paid:1,gain:30}}});
+ assert.equal(s.fellows[ID].aptitude,10+5+5+2+30);
+ assert.deepEqual(decode(JSON.stringify(s)),s);
+});
+
+test('a Fellow with Aptitude from before tracking refunds only the ledgered part',()=>{
+ let s=stocked('legacy');s={...s,fellows:{...s.fellows,[ID]:{...s.fellows[ID],aptitude:47}}};assert.ok(valid(s),'legacy Aptitude with no ledger loads');
+ const start=s;s=INVESTMENTS.essence(INVESTMENTS.pearlAptitude(s));assert.equal(s.fellows[ID].aptitude,57);
+ const plan=refundPlan(s,ID);assert.equal(plan.error,undefined);
+ assert.deepEqual(plan.aptitude,{refunded:10,tracked:10,kept:37});
+ const end=refund(s);assert.equal(end.fellows[ID].aptitude,47);assert.equal(end.fellows[ID].aptitudeLedger,undefined);
+ assert.deepEqual(mismatches(start,end),[]);
+});
+
+test('ledgered item refunds respect the bag cap and refuse whole',()=>{
+ let s=INVESTMENTS.reforge(stocked('legacy'));s={...s,inventory:{...s.inventory,Item_Quenching_Equipment_1:1e6-1}};assert.ok(valid(s));
+ const r=act(s,'refundFellow',T,ID);assert.match(r.error,/Not enough room/);assert.deepEqual(r.state.fellows[ID],s.fellows[ID]);
+ // An essence whose farm is gone has nowhere to return to: that Aptitude and its record stay.
+ let e=INVESTMENTS.skill(INVESTMENTS.essence(stocked('legacy')));const nofarm={...e};delete nofarm.farm;assert.ok(valid(nofarm));
+ const kept=refund(nofarm);assert.equal(kept.fellows[ID].aptitude,15);assert.deepEqual(kept.fellows[ID].aptitudeLedger.entries,{'essence:SG3TalentCountry1':{paid:5,gain:5}});
+});
+
+test('negative control: a tampered Aptitude ledger is refused',()=>{
+ const s=INVESTMENTS.pearlAptitude(stocked('legacy'));assert.ok(valid(s));
+ const tamper=[
+  l=>{l.entries['item:Item_Talent_Hero_1'].gain=6},             // more Aptitude than the Fellow holds above base
+  l=>{l.entries['item:Item_Talent_Hero_1'].paid=1.5},
+  l=>{l.entries['item:Item_Talent_Hero_1'].paid=0},
+  l=>{l.entries['essence:NotAnEssence']={paid:1,gain:1}},
+  l=>{l.entries['gold:x']={paid:1,gain:1}},
+  l=>{l.entries['item:Item_Talent_Hero_1'].extra=1},
+  l=>{l.policyVersion=2},
+  l=>{l.entries={}},
+ ];
+ for(const change of tamper){const bad=structuredClone(s);change(bad.fellows[ID].aptitudeLedger);assert.equal(valid(bad),false,String(change));assert.throws(()=>decode(JSON.stringify(bad)));}
 });
