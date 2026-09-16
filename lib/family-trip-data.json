@@ -1,0 +1,53 @@
+{
+  "policyVersion": 1,
+  "provenance": {
+    "rule": "Rule:text:Wife_16, English translation TextAsset, already cached verbatim in lib/family-rule-evidence.json: \"Dates with family members are divided into Sailing Trip and Airship Journey. Sailing Trip costs Crystals, grants a large amount of Blessing Points, and guarantees 1 child. Airship Journey costs Perfume, grants a large amount of Blessing Points, and guarantees a twin.\"",
+    "constants": "All costs, limits and stat gains below are the original's own singletons in System.json (2,430 rows): DateCost_1 = [{\"id\":\"4\",\"count\":100}], DateCost_1LimitTime = 10, DateCost_2 = [{\"id\":\"Item_Date_Wife_Special_1\",\"count\":1}], DateCharm_1 = 10, DateCharm_2 = 20, DateIntimacy = 1.",
+    "currencyIdentification": "Item.json row _id \"4\" carries Icon_Diamond_Big / Icon_Diamond_S -- the premium currency the English build calls Crystals, and exactly what Everkai stores in s.crystals. Item.json row _id \"Item_Date_Wife_Special_1\" carries Icon_Perfume3 at rarity 5 -- the Perfume the rule names.",
+    "sources": [
+      {
+        "file": "System.json",
+        "sha256": "d8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312",
+        "fields": "DateCost_1, DateCost_1LimitTime, DateCost_2, DateCharm_1, DateCharm_2, DateIntimacy"
+      },
+      {
+        "file": "Item.json",
+        "sha256": "c2ebdd64dfdbb6fa803319d541ea5d1bff9f31d3bad153f1755b0b6e5997152f",
+        "fields": "rows _id 4 and Item_Date_Wife_Special_1, for currency identification only"
+      }
+    ],
+    "notPortedAndWhy": "The random date's conception roll is NOT ported. Vip.json does carry DateFertility 7500 and twins 500, but BOTH are identical on all 13 VIP rows, so they are flat game constants (75% conception, 5% twins on a canHaveChild date) and not a VIP ladder -- a constant column is not a measurement. Everkai's random date stays childless and the guaranteed trips are the whole route, which is what the rule describes anyway.",
+    "invented": [
+      {
+        "value": "trips[1].crystals = 200",
+        "why": "The Airship's ORIGINAL price is 1 Perfume. Perfume appears in exactly two places in the whole 1,499-table config set -- its own Item.json definition and DateCost_2 -- with no shop row, no drop table and no reward entry, so there is no acquisition route to port and no crystal-to-perfume rate to recover. 200 is the Sailing price scaled by the only ratio the source gives: DateCharm_2 / DateCharm_1 = 2, matching two children instead of one. THIS IS THE ONLY INVENTED NUMBER IN THIS FILE."
+      },
+      {
+        "value": "the daily cap applies to BOTH trips together",
+        "why": "DateCost_1LimitTime = 10 is written against DateCost_1 only; the original has no matching DateCost_2LimitTime. One shared cap of 10 is the conservative reading -- it can only be stricter than two separate caps, never looser."
+      }
+    ]
+  },
+  "perDay": 10,
+  "dateIntimacy": 1,
+  "trips": [
+    {
+      "id": "sailing",
+      "name": "Sailing Trip",
+      "crystals": 100,
+      "crystalsAreOriginal": true,
+      "originalCost": "System.json DateCost_1 = 100 of item \"4\" (Crystals)",
+      "charm": 10,
+      "children": 1
+    },
+    {
+      "id": "airship",
+      "name": "Airship Journey",
+      "crystals": 200,
+      "crystalsAreOriginal": false,
+      "originalCost": "System.json DateCost_2 = 1 Item_Date_Wife_Special_1 (Perfume); no route to that item exists in the config set, so the Crystal price is local",
+      "charm": 20,
+      "children": 2
+    }
+  ]
+}
