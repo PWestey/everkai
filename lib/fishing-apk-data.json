@@ -1,0 +1,5675 @@
+{
+  "provenance": {
+    "source": "apk-audit/configs/config/logic",
+    "type": "version-matched original config tables",
+    "tables": {
+      "Fish.json": {
+        "sha256": "3abe29c1290cdb3210de4d4248bb7ec1a8df710872ceec7c516ac69547578e61"
+      },
+      "SkillBase.json": {
+        "sha256": "a04ba18bdf0c18d12f1ab2f2e1c6cbfad6afeb9a19c4e6b99296e979a0a5ad75"
+      },
+      "FishSpot.json": {
+        "sha256": "119252233fbf57ffd251d29c00086ec66b908c5c8bfc89338e490b739a99f34f"
+      },
+      "en/translate.json": {
+        "sha256": "c884ee22dfd491ce0c700109f955465b34ef518f6e73d4132993e9d01f4d35bc"
+      }
+    }
+  },
+  "lengthUnits": "hundredths of a centimetre (Fish:long:<id> reads \"cm\"); 500 = 5.00 cm",
+  "bandWeights": {
+    "pro1": 5000,
+    "pro2": 2500,
+    "pro3": 1500,
+    "proG": 1000,
+    "total": 10000,
+    "note": "Band 4 (longG/proG) is the Gold Crown band: 10% of catches. Weights are constant across all 87 rows except F3506, the book-hidden fish, whose bands collapse to a single value."
+  },
+  "rareTiers": {
+    "2": [
+      "R"
+    ],
+    "3": [
+      "SR"
+    ],
+    "4": [
+      "SSR",
+      "SSR+"
+    ],
+    "1": [
+      "N"
+    ],
+    "5": [
+      "UR"
+    ]
+  },
+  "rewardTargetPayout": "NOT IN CONFIG: \"longReward\" appears only in Fish.json (positive control: the same sweep finds Reward_BaseLottery_1 in split_reward/reward.json), so what hitting a length target pays is not recoverable from these tables.",
+  "records": {
+    "F1101": {
+      "rare": 1,
+      "size": 1,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          500,
+          1625
+        ],
+        [
+          1626,
+          2750
+        ],
+        [
+          2751,
+          3875
+        ],
+        [
+          3876,
+          5000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1625,
+        2750,
+        3875
+      ],
+      "normal": {
+        "skill": "Fish_1101",
+        "kind": "flat",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_1101",
+        "kind": "flat",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F1102": {
+      "rare": 1,
+      "size": 2,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          4000,
+          4750
+        ],
+        [
+          4751,
+          5500
+        ],
+        [
+          5501,
+          6250
+        ],
+        [
+          6251,
+          7000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4750,
+        5500,
+        6250
+      ],
+      "normal": {
+        "skill": "Fish_1102",
+        "kind": "flat",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_1102",
+        "kind": "flat",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F1103": {
+      "rare": 1,
+      "size": 1,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          3500
+        ],
+        [
+          3501,
+          5000
+        ],
+        [
+          5001,
+          6500
+        ],
+        [
+          6501,
+          8000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        3500,
+        5000,
+        6500
+      ],
+      "normal": {
+        "skill": "Fish_1103",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 3000,
+        "increment": 1000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_1103",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F1201": {
+      "rare": 2,
+      "size": 2,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          4000,
+          4175
+        ],
+        [
+          4176,
+          4350
+        ],
+        [
+          4351,
+          4525
+        ],
+        [
+          4526,
+          4700
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4175,
+        4350,
+        4525
+      ],
+      "normal": {
+        "skill": "Fish_1201",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_1201",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F1202": {
+      "rare": 2,
+      "size": 2,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          1000,
+          4750
+        ],
+        [
+          4751,
+          8500
+        ],
+        [
+          8501,
+          12250
+        ],
+        [
+          12251,
+          16000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4750,
+        8500,
+        12250
+      ],
+      "normal": {
+        "skill": "Fish_1202",
+        "kind": "flat",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_1202",
+        "kind": "flat",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F1301": {
+      "rare": 3,
+      "size": 1,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          1250
+        ],
+        [
+          1251,
+          1500
+        ],
+        [
+          1501,
+          1750
+        ],
+        [
+          1751,
+          2000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1250,
+        1500,
+        1750
+      ],
+      "normal": {
+        "skill": "Fish_1301",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 40000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_1301",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F1302": {
+      "rare": 3,
+      "size": 1,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          2500
+        ],
+        [
+          2501,
+          4000
+        ],
+        [
+          4001,
+          5500
+        ],
+        [
+          5501,
+          7000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2500,
+        4000,
+        5500
+      ],
+      "normal": {
+        "skill": "Fish_1302",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 50000,
+        "increment": 20000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_1302",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F1401": {
+      "rare": 4,
+      "size": 3,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          500,
+          875
+        ],
+        [
+          876,
+          1250
+        ],
+        [
+          1251,
+          1625
+        ],
+        [
+          1626,
+          2000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        875,
+        1250,
+        1625
+      ],
+      "normal": {
+        "skill": "Fish_1401",
+        "kind": "aptitude",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_1401",
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F1501": {
+      "rare": 5,
+      "size": 3,
+      "area": "A1",
+      "tank": "t1",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          1000,
+          1250
+        ],
+        [
+          1251,
+          1500
+        ],
+        [
+          1501,
+          1750
+        ],
+        [
+          1751,
+          2000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1250,
+        1500,
+        1750
+      ],
+      "normal": {
+        "skill": "Fish_1501",
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_1501",
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2101": {
+      "rare": 1,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          2000,
+          4000
+        ],
+        [
+          4001,
+          6000
+        ],
+        [
+          6001,
+          8000
+        ],
+        [
+          8001,
+          10000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4000,
+        6000,
+        8000
+      ],
+      "normal": {
+        "skill": "Fish_2101",
+        "kind": "flat",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2101",
+        "kind": "flat",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2102": {
+      "rare": 1,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          3000,
+          3750
+        ],
+        [
+          3751,
+          4500
+        ],
+        [
+          4501,
+          5250
+        ],
+        [
+          5251,
+          6000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        3750,
+        4500,
+        5250
+      ],
+      "normal": {
+        "skill": "Fish_2102",
+        "kind": "flat",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2102",
+        "kind": "flat",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2103": {
+      "rare": 1,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1500,
+          1875
+        ],
+        [
+          1876,
+          2250
+        ],
+        [
+          2251,
+          2625
+        ],
+        [
+          2626,
+          3000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1875,
+        2250,
+        2625
+      ],
+      "normal": {
+        "skill": "Fish_2103",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 3000,
+        "increment": 1000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_2103",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F2104": {
+      "rare": 1,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1500,
+          1875
+        ],
+        [
+          1876,
+          2250
+        ],
+        [
+          2251,
+          2625
+        ],
+        [
+          2626,
+          3000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1875,
+        2250,
+        2625
+      ],
+      "normal": {
+        "skill": "Fish_2104",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 3000,
+        "increment": 1000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_2104",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F2201": {
+      "rare": 2,
+      "size": 1,
+      "area": "A2",
+      "tank": "t1",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          800,
+          925
+        ],
+        [
+          926,
+          1050
+        ],
+        [
+          1051,
+          1175
+        ],
+        [
+          1176,
+          1300
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        925,
+        1050,
+        1175
+      ],
+      "normal": {
+        "skill": "Fish_2201",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2201",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 15.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F2202": {
+      "rare": 2,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          800,
+          1100
+        ],
+        [
+          1101,
+          1400
+        ],
+        [
+          1401,
+          1700
+        ],
+        [
+          1701,
+          2000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1100,
+        1400,
+        1700
+      ],
+      "normal": {
+        "skill": "Fish_2202",
+        "kind": "flat",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2202",
+        "kind": "flat",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2203": {
+      "rare": 2,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          7000,
+          12750
+        ],
+        [
+          12751,
+          18500
+        ],
+        [
+          18501,
+          24250
+        ],
+        [
+          24251,
+          30000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        12750,
+        18500,
+        24250
+      ],
+      "normal": {
+        "skill": "Fish_2203",
+        "kind": "flat",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2203",
+        "kind": "flat",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2204": {
+      "rare": 2,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          6000,
+          6750
+        ],
+        [
+          6751,
+          7500
+        ],
+        [
+          7501,
+          8250
+        ],
+        [
+          8251,
+          9000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        6750,
+        7500,
+        8250
+      ],
+      "normal": {
+        "skill": "Fish_2204",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 9000,
+        "increment": 3000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_2204",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F2205": {
+      "rare": 2,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          3500
+        ],
+        [
+          3501,
+          6000
+        ],
+        [
+          6001,
+          8500
+        ],
+        [
+          8501,
+          11000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        3500,
+        6000,
+        8500
+      ],
+      "normal": {
+        "skill": "Fish_2205",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 9000,
+        "increment": 3000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_2205",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F2206": {
+      "rare": 2,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          5100,
+          5725
+        ],
+        [
+          5726,
+          6350
+        ],
+        [
+          6351,
+          6975
+        ],
+        [
+          6976,
+          7600
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        5725,
+        6350,
+        6975
+      ],
+      "normal": {
+        "skill": "Fish_2206",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 9000,
+        "increment": 3000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_2206",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F2301": {
+      "rare": 3,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          300,
+          2725
+        ],
+        [
+          2726,
+          5150
+        ],
+        [
+          5151,
+          7575
+        ],
+        [
+          7576,
+          10000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2725,
+        5150,
+        7575
+      ],
+      "normal": {
+        "skill": "Fish_2301",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 200000,
+        "increment": 100000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2301",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F2302": {
+      "rare": 3,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          600,
+          650
+        ],
+        [
+          651,
+          700
+        ],
+        [
+          701,
+          750
+        ],
+        [
+          751,
+          800
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        650,
+        700,
+        750
+      ],
+      "normal": {
+        "skill": "Fish_2302",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 50000,
+        "increment": 20000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2302",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F2303": {
+      "rare": 3,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1400,
+          2050
+        ],
+        [
+          2051,
+          2700
+        ],
+        [
+          2701,
+          3350
+        ],
+        [
+          3351,
+          4000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2050,
+        2700,
+        3350
+      ],
+      "normal": {
+        "skill": "Fish_2303",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 200000,
+        "increment": 100000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2303",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F2304": {
+      "rare": 3,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          500,
+          10375
+        ],
+        [
+          10376,
+          20250
+        ],
+        [
+          20251,
+          30125
+        ],
+        [
+          30126,
+          40000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        10375,
+        20250,
+        30125
+      ],
+      "normal": {
+        "skill": "Fish_2304",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2304",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F2305": {
+      "rare": 3,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          3000,
+          4750
+        ],
+        [
+          4751,
+          6500
+        ],
+        [
+          6501,
+          8250
+        ],
+        [
+          8251,
+          10000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4750,
+        6500,
+        8250
+      ],
+      "normal": {
+        "skill": "Fish_2305",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2305",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F2306": {
+      "rare": 3,
+      "size": 3,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          4750
+        ],
+        [
+          4751,
+          7500
+        ],
+        [
+          7501,
+          10250
+        ],
+        [
+          10251,
+          13000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4750,
+        7500,
+        10250
+      ],
+      "normal": {
+        "skill": "Fish_2306",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2306",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F2401": {
+      "rare": 4,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          3100,
+          4300
+        ],
+        [
+          4301,
+          5500
+        ],
+        [
+          5501,
+          6700
+        ],
+        [
+          6701,
+          7900
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4300,
+        5500,
+        6700
+      ],
+      "normal": {
+        "skill": "Fish_2401",
+        "kind": "aptitude",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2401",
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2402": {
+      "rare": 4,
+      "size": 3,
+      "area": "A1",
+      "tank": "t2",
+      "spots": [
+        "S01"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          20000,
+          25000
+        ],
+        [
+          25001,
+          30000
+        ],
+        [
+          30001,
+          35000
+        ],
+        [
+          35001,
+          40000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        25000,
+        30000,
+        35000
+      ],
+      "normal": {
+        "skill": "Fish_2402",
+        "kind": "aptitude",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2402",
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2403": {
+      "rare": 4,
+      "size": 2,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11",
+        "S12"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          2750
+        ],
+        [
+          2751,
+          3500
+        ],
+        [
+          3501,
+          4250
+        ],
+        [
+          4251,
+          5000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2750,
+        3500,
+        4250
+      ],
+      "normal": {
+        "skill": "Fish_2403",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_2403",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F2404": {
+      "rare": 4,
+      "size": 3,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          13000,
+          13750
+        ],
+        [
+          13751,
+          14500
+        ],
+        [
+          14501,
+          15250
+        ],
+        [
+          15251,
+          16000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        13750,
+        14500,
+        15250
+      ],
+      "normal": {
+        "skill": "Fish_2404",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2404",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F2405": {
+      "rare": 4,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S12",
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          2750
+        ],
+        [
+          2751,
+          3500
+        ],
+        [
+          3501,
+          4250
+        ],
+        [
+          4251,
+          5000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2750,
+        3500,
+        4250
+      ],
+      "normal": {
+        "skill": "Fish_2405",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_2405",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F2501": {
+      "rare": 5,
+      "size": 3,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S12"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          25000,
+          26250
+        ],
+        [
+          26251,
+          27500
+        ],
+        [
+          27501,
+          28750
+        ],
+        [
+          28751,
+          30000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        26250,
+        27500,
+        28750
+      ],
+      "normal": {
+        "skill": "Fish_2501",
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2501",
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2502": {
+      "rare": 5,
+      "size": 3,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          26000,
+          28250
+        ],
+        [
+          28251,
+          30500
+        ],
+        [
+          30501,
+          32750
+        ],
+        [
+          32751,
+          35000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        28250,
+        30500,
+        32750
+      ],
+      "normal": {
+        "skill": "Fish_2502",
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2502",
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2503": {
+      "rare": 5,
+      "size": 1,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S11"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          500,
+          625
+        ],
+        [
+          626,
+          750
+        ],
+        [
+          751,
+          875
+        ],
+        [
+          876,
+          1000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        625,
+        750,
+        875
+      ],
+      "normal": {
+        "skill": "Fish_2503",
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2503",
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F2504": {
+      "rare": 5,
+      "size": 3,
+      "area": "A2",
+      "tank": "t2",
+      "spots": [
+        "S13"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          1500,
+          1750
+        ],
+        [
+          1751,
+          2000
+        ],
+        [
+          2001,
+          2250
+        ],
+        [
+          2251,
+          2500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1750,
+        2000,
+        2250
+      ],
+      "normal": {
+        "skill": "Fish_2504",
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_2504",
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F3101": {
+      "rare": 1,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          500,
+          625
+        ],
+        [
+          626,
+          750
+        ],
+        [
+          751,
+          875
+        ],
+        [
+          876,
+          1000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        625,
+        750,
+        875
+      ],
+      "normal": {
+        "skill": "Fish_3101",
+        "kind": "flat",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_3101",
+        "kind": "flat",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F3102": {
+      "rare": 1,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          800,
+          850
+        ],
+        [
+          851,
+          900
+        ],
+        [
+          901,
+          950
+        ],
+        [
+          951,
+          1000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        850,
+        900,
+        950
+      ],
+      "normal": {
+        "skill": "Fish_3102",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 3000,
+        "increment": 1000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3102",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3103": {
+      "rare": 1,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          500,
+          875
+        ],
+        [
+          876,
+          1250
+        ],
+        [
+          1251,
+          1625
+        ],
+        [
+          1626,
+          2000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        875,
+        1250,
+        1625
+      ],
+      "normal": {
+        "skill": "Fish_3103",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3103",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3201": {
+      "rare": 2,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          30000,
+          34125
+        ],
+        [
+          34126,
+          38250
+        ],
+        [
+          38251,
+          42375
+        ],
+        [
+          42376,
+          46500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        34125,
+        38250,
+        42375
+      ],
+      "normal": {
+        "skill": "Fish_3201",
+        "kind": "flat",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_3201",
+        "kind": "flat",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F3202": {
+      "rare": 2,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          1125
+        ],
+        [
+          1126,
+          1250
+        ],
+        [
+          1251,
+          1375
+        ],
+        [
+          1376,
+          1500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1125,
+        1250,
+        1375
+      ],
+      "normal": {
+        "skill": "Fish_3202",
+        "kind": "flat",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_3202",
+        "kind": "flat",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F3203": {
+      "rare": 2,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          400,
+          425
+        ],
+        [
+          426,
+          450
+        ],
+        [
+          451,
+          475
+        ],
+        [
+          476,
+          500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        425,
+        450,
+        475
+      ],
+      "normal": {
+        "skill": "Fish_3203",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 9000,
+        "increment": 3000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3203",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3204": {
+      "rare": 2,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2500,
+          2875
+        ],
+        [
+          2876,
+          3250
+        ],
+        [
+          3251,
+          3625
+        ],
+        [
+          3626,
+          4000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2875,
+        3250,
+        3625
+      ],
+      "normal": {
+        "skill": "Fish_3204",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 9000,
+        "increment": 3000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3204",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3301": {
+      "rare": 3,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2500,
+          2875
+        ],
+        [
+          2876,
+          3250
+        ],
+        [
+          3251,
+          3625
+        ],
+        [
+          3626,
+          4000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2875,
+        3250,
+        3625
+      ],
+      "normal": {
+        "skill": "Fish_3301",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3301",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3302": {
+      "rare": 3,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          5000,
+          8750
+        ],
+        [
+          8751,
+          12500
+        ],
+        [
+          12501,
+          16250
+        ],
+        [
+          16251,
+          20000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        8750,
+        12500,
+        16250
+      ],
+      "normal": {
+        "skill": "Fish_3302",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3302",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3303": {
+      "rare": 3,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          400,
+          425
+        ],
+        [
+          426,
+          450
+        ],
+        [
+          451,
+          475
+        ],
+        [
+          476,
+          500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        425,
+        450,
+        475
+      ],
+      "normal": {
+        "skill": "Fish_3303",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3303",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3304": {
+      "rare": 3,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          1125
+        ],
+        [
+          1126,
+          1250
+        ],
+        [
+          1251,
+          1375
+        ],
+        [
+          1376,
+          1500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1125,
+        1250,
+        1375
+      ],
+      "normal": {
+        "skill": "Fish_3304",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3304",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3305": {
+      "rare": 3,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          500,
+          525
+        ],
+        [
+          526,
+          550
+        ],
+        [
+          551,
+          575
+        ],
+        [
+          576,
+          600
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        525,
+        550,
+        575
+      ],
+      "normal": {
+        "skill": "Fish_3305",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3305",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3306": {
+      "rare": 3,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          8600,
+          9950
+        ],
+        [
+          9951,
+          11300
+        ],
+        [
+          11301,
+          12650
+        ],
+        [
+          12651,
+          14000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        9950,
+        11300,
+        12650
+      ],
+      "normal": {
+        "skill": "Fish_3306",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3306",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F3401": {
+      "rare": 4,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          3250
+        ],
+        [
+          3251,
+          5500
+        ],
+        [
+          5501,
+          7750
+        ],
+        [
+          7751,
+          10000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        3250,
+        5500,
+        7750
+      ],
+      "normal": {
+        "skill": "Fish_3401",
+        "kind": "aptitude",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_3401",
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F3402": {
+      "rare": 4,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          4000,
+          7250
+        ],
+        [
+          7251,
+          10500
+        ],
+        [
+          10501,
+          13750
+        ],
+        [
+          13751,
+          17000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        7250,
+        10500,
+        13750
+      ],
+      "normal": {
+        "skill": "Fish_3402",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3402",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3403": {
+      "rare": 4,
+      "size": 1,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          3750
+        ],
+        [
+          3751,
+          5500
+        ],
+        [
+          5501,
+          7250
+        ],
+        [
+          7251,
+          9000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        3750,
+        5500,
+        7250
+      ],
+      "normal": {
+        "skill": "Fish_3403",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3403",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F3404": {
+      "rare": 4,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          20000,
+          27500
+        ],
+        [
+          27501,
+          35000
+        ],
+        [
+          35001,
+          42500
+        ],
+        [
+          42501,
+          50000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        27500,
+        35000,
+        42500
+      ],
+      "normal": {
+        "skill": "Fish_3404",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3404",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F3405": {
+      "rare": 4,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          40000,
+          47500
+        ],
+        [
+          47501,
+          55000
+        ],
+        [
+          55001,
+          62500
+        ],
+        [
+          62501,
+          70000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        47500,
+        55000,
+        62500
+      ],
+      "normal": {
+        "skill": "Fish_3405",
+        "kind": "aptitude",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_3405",
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F3406": {
+      "rare": 4,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S22",
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          2250
+        ],
+        [
+          2251,
+          2500
+        ],
+        [
+          2501,
+          2750
+        ],
+        [
+          2751,
+          3000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2250,
+        2500,
+        2750
+      ],
+      "normal": {
+        "skill": "Fish_3406",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3406",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3407": {
+      "rare": 4,
+      "size": 3,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S22"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          18000,
+          21000
+        ],
+        [
+          21001,
+          24000
+        ],
+        [
+          24001,
+          27000
+        ],
+        [
+          27001,
+          30000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        21000,
+        24000,
+        27000
+      ],
+      "normal": {
+        "skill": "Fish_3407",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_3407",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F3501": {
+      "rare": 5,
+      "size": 3,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          1500,
+          2625
+        ],
+        [
+          2626,
+          3750
+        ],
+        [
+          3751,
+          4875
+        ],
+        [
+          4876,
+          6000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2625,
+        3750,
+        4875
+      ],
+      "normal": {
+        "skill": "Fish_3501",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3501",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3502": {
+      "rare": 5,
+      "size": 3,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S23"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          1200,
+          2150
+        ],
+        [
+          2151,
+          3100
+        ],
+        [
+          3101,
+          4050
+        ],
+        [
+          4051,
+          5000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2150,
+        3100,
+        4050
+      ],
+      "normal": {
+        "skill": "Fish_3502",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3502",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3503": {
+      "rare": 5,
+      "size": 3,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          500,
+          575
+        ],
+        [
+          576,
+          650
+        ],
+        [
+          651,
+          725
+        ],
+        [
+          726,
+          800
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        575,
+        650,
+        725
+      ],
+      "normal": {
+        "skill": "Fish_3503",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3503",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3504": {
+      "rare": 5,
+      "size": 3,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S22"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          20000,
+          25000
+        ],
+        [
+          25001,
+          30000
+        ],
+        [
+          30001,
+          35000
+        ],
+        [
+          35001,
+          40000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        25000,
+        30000,
+        35000
+      ],
+      "normal": {
+        "skill": "Fish_3504",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3504",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3505": {
+      "rare": 5,
+      "size": 3,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S21"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          1300,
+          2975
+        ],
+        [
+          2976,
+          4650
+        ],
+        [
+          4651,
+          6325
+        ],
+        [
+          6326,
+          8000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2975,
+        4650,
+        6325
+      ],
+      "normal": {
+        "skill": "Fish_3505",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_3505",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F3506": {
+      "rare": 5,
+      "size": 2,
+      "area": "A3",
+      "tank": "t3",
+      "spots": [
+        "S100"
+      ],
+      "exp": 10,
+      "hiddenInBook": true,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          2000
+        ],
+        [
+          2001,
+          2001
+        ],
+        [
+          2001,
+          2001
+        ],
+        [
+          2001,
+          2001
+        ]
+      ],
+      "weights": [
+        5000,
+        0,
+        0,
+        0
+      ],
+      "rewardTargets": null,
+      "normal": {
+        "skill": "Fish_3506",
+        "kind": null,
+        "type": null,
+        "rarities": [],
+        "initial": null,
+        "increment": null,
+        "prop": null,
+        "condition": null
+      },
+      "crown": null
+    },
+    "F9401": {
+      "rare": 4,
+      "size": 1,
+      "area": "A9",
+      "tank": "t1",
+      "spots": [],
+      "exp": null,
+      "hiddenInBook": false,
+      "activityFish": true,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          2000,
+          2750
+        ],
+        [
+          2751,
+          3500
+        ],
+        [
+          3501,
+          4250
+        ],
+        [
+          4251,
+          5000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2750,
+        3500,
+        4250
+      ],
+      "normal": {
+        "skill": "Fish_9401",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_9401",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F9402": {
+      "rare": 4,
+      "size": 2,
+      "area": "A9",
+      "tank": "t1",
+      "spots": [],
+      "exp": null,
+      "hiddenInBook": false,
+      "activityFish": true,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          6000,
+          8250
+        ],
+        [
+          8251,
+          10500
+        ],
+        [
+          10501,
+          12750
+        ],
+        [
+          12751,
+          16000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        8250,
+        10500,
+        12750
+      ],
+      "normal": {
+        "skill": "Fish_9402",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_9402",
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F4101": {
+      "rare": 1,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          2000,
+          7750
+        ],
+        [
+          7751,
+          13500
+        ],
+        [
+          13501,
+          19250
+        ],
+        [
+          19251,
+          25000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        7750,
+        13500,
+        19250
+      ],
+      "normal": {
+        "skill": "Fish_4101",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_4101",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F4102": {
+      "rare": 1,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          500,
+          1275
+        ],
+        [
+          1276,
+          2050
+        ],
+        [
+          2051,
+          2825
+        ],
+        [
+          2826,
+          3600
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1275,
+        2050,
+        2825
+      ],
+      "normal": {
+        "skill": "Fish_4102",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 15000,
+        "increment": 5000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_4102",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F4103": {
+      "rare": 1,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          2000,
+          6250
+        ],
+        [
+          6251,
+          10500
+        ],
+        [
+          10501,
+          14750
+        ],
+        [
+          14751,
+          19000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        6250,
+        10500,
+        14750
+      ],
+      "normal": {
+        "skill": "Fish_4103",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 150000,
+        "increment": 50000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4103",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4201": {
+      "rare": 2,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1200,
+          2400
+        ],
+        [
+          2401,
+          3600
+        ],
+        [
+          3601,
+          4800
+        ],
+        [
+          4801,
+          6000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2400,
+        3600,
+        4800
+      ],
+      "normal": {
+        "skill": "Fish_4201",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 150000,
+        "increment": 50000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4201",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4202": {
+      "rare": 2,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1300,
+          2550
+        ],
+        [
+          2551,
+          3800
+        ],
+        [
+          3801,
+          5050
+        ],
+        [
+          5051,
+          6300
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        2550,
+        3800,
+        5050
+      ],
+      "normal": {
+        "skill": "Fish_4202",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 3,
+        "increment": 1,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4202",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 15.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F4203": {
+      "rare": 2,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          4000,
+          5250
+        ],
+        [
+          5251,
+          6500
+        ],
+        [
+          6501,
+          7750
+        ],
+        [
+          7751,
+          9000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        5250,
+        6500,
+        7750
+      ],
+      "normal": {
+        "skill": "Fish_4203",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_4203",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 100000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F4204": {
+      "rare": 2,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          800,
+          3100
+        ],
+        [
+          3101,
+          5400
+        ],
+        [
+          5401,
+          7700
+        ],
+        [
+          7701,
+          10000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        3100,
+        5400,
+        7700
+      ],
+      "normal": {
+        "skill": "Fish_4204",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 45000,
+        "increment": 15000,
+        "prop": "atk",
+        "condition": "all"
+      },
+      "crown": {
+        "skill": "Fish_G_4204",
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 100000,
+        "increment": 30000,
+        "prop": "atk",
+        "condition": "all"
+      }
+    },
+    "F4301": {
+      "rare": 3,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          3000,
+          4125
+        ],
+        [
+          4126,
+          5250
+        ],
+        [
+          5251,
+          6375
+        ],
+        [
+          6376,
+          7500
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4125,
+        5250,
+        6375
+      ],
+      "normal": {
+        "skill": "Fish_4301",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 200000,
+        "increment": 75000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4301",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4302": {
+      "rare": 3,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          3600,
+          4900
+        ],
+        [
+          4901,
+          6200
+        ],
+        [
+          6201,
+          7500
+        ],
+        [
+          7501,
+          8800
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4900,
+        6200,
+        7500
+      ],
+      "normal": {
+        "skill": "Fish_4302",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 250000,
+        "increment": 100000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4302",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4303": {
+      "rare": 3,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1000,
+          1850
+        ],
+        [
+          1851,
+          2700
+        ],
+        [
+          2701,
+          3550
+        ],
+        [
+          3551,
+          4400
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1850,
+        2700,
+        3550
+      ],
+      "normal": {
+        "skill": "Fish_4303",
+        "kind": "flat",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 1000000,
+        "increment": 500000,
+        "prop": "atk",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4303",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4304": {
+      "rare": 3,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          500,
+          925
+        ],
+        [
+          926,
+          1350
+        ],
+        [
+          1351,
+          1775
+        ],
+        [
+          1776,
+          2200
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        925,
+        1350,
+        1775
+      ],
+      "normal": {
+        "skill": "Fish_4304",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4304",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4305": {
+      "rare": 3,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          6000,
+          10000
+        ],
+        [
+          10001,
+          14000
+        ],
+        [
+          14001,
+          18000
+        ],
+        [
+          18001,
+          22000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        10000,
+        14000,
+        18000
+      ],
+      "normal": {
+        "skill": "Fish_4305",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4305",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4306": {
+      "rare": 3,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31",
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          1000,
+          8250
+        ],
+        [
+          8251,
+          15500
+        ],
+        [
+          15501,
+          22750
+        ],
+        [
+          22751,
+          30000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        8250,
+        15500,
+        22750
+      ],
+      "normal": {
+        "skill": "Fish_4306",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5,
+        "increment": 2,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4306",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      }
+    },
+    "F4401": {
+      "rare": 4,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          3300,
+          4775
+        ],
+        [
+          4776,
+          6250
+        ],
+        [
+          6251,
+          7725
+        ],
+        [
+          7726,
+          9200
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        4775,
+        6250,
+        7725
+      ],
+      "normal": {
+        "skill": "Fish_4401",
+        "kind": "aptitude",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4401",
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4402": {
+      "rare": 4,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          8000,
+          9750
+        ],
+        [
+          9751,
+          11500
+        ],
+        [
+          11501,
+          13250
+        ],
+        [
+          13251,
+          15000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        9750,
+        11500,
+        13250
+      ],
+      "normal": {
+        "skill": "Fish_4402",
+        "kind": "aptitude",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4402",
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4403": {
+      "rare": 4,
+      "size": 1,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "mm",
+      "bands": [
+        [
+          400,
+          1450
+        ],
+        [
+          1451,
+          2500
+        ],
+        [
+          2501,
+          3550
+        ],
+        [
+          3551,
+          4600
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1450,
+        2500,
+        3550
+      ],
+      "normal": {
+        "skill": "Fish_4403",
+        "kind": "aptitude",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4403",
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4404": {
+      "rare": 4,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S32",
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          8000,
+          9750
+        ],
+        [
+          9751,
+          11500
+        ],
+        [
+          11501,
+          13250
+        ],
+        [
+          13251,
+          15000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        9750,
+        11500,
+        13250
+      ],
+      "normal": {
+        "skill": "Fish_4404",
+        "kind": "aptitude",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4404",
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4405": {
+      "rare": 4,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          1500,
+          6125
+        ],
+        [
+          6126,
+          10750
+        ],
+        [
+          10751,
+          15375
+        ],
+        [
+          15376,
+          20000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        6125,
+        10750,
+        15375
+      ],
+      "normal": {
+        "skill": "Fish_4405",
+        "kind": "aptitude",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10,
+        "increment": 5,
+        "prop": "talent",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4405",
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4406": {
+      "rare": 4,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          12000,
+          14750
+        ],
+        [
+          14751,
+          17500
+        ],
+        [
+          17501,
+          20250
+        ],
+        [
+          20251,
+          23000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        14750,
+        17500,
+        20250
+      ],
+      "normal": {
+        "skill": "Fish_4406",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4406",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F4407": {
+      "rare": 4,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          6000,
+          7500
+        ],
+        [
+          7501,
+          9000
+        ],
+        [
+          9001,
+          10500
+        ],
+        [
+          10501,
+          12000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        7500,
+        9000,
+        10500
+      ],
+      "normal": {
+        "skill": "Fish_4407",
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6,
+        "prop": "talent",
+        "condition": "rare"
+      },
+      "crown": {
+        "skill": "Fish_G_4407",
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "rare"
+      }
+    },
+    "F4501": {
+      "rare": 5,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          5500,
+          6875
+        ],
+        [
+          6876,
+          8250
+        ],
+        [
+          8251,
+          9625
+        ],
+        [
+          9626,
+          11000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        6875,
+        8250,
+        9625
+      ],
+      "normal": {
+        "skill": "Fish_4501",
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4501",
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4502": {
+      "rare": 5,
+      "size": 2,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S33"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          4000,
+          7250
+        ],
+        [
+          7251,
+          10500
+        ],
+        [
+          10501,
+          13750
+        ],
+        [
+          13751,
+          17000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        7250,
+        10500,
+        13750
+      ],
+      "normal": {
+        "skill": "Fish_4502",
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4502",
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4503": {
+      "rare": 5,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S32"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          20000,
+          30000
+        ],
+        [
+          30001,
+          40000
+        ],
+        [
+          40001,
+          50000
+        ],
+        [
+          50001,
+          60000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        30000,
+        40000,
+        50000
+      ],
+      "normal": {
+        "skill": "Fish_4503",
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4503",
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4504": {
+      "rare": 5,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S32"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "m",
+      "bands": [
+        [
+          1500,
+          1625
+        ],
+        [
+          1626,
+          1750
+        ],
+        [
+          1751,
+          1875
+        ],
+        [
+          1876,
+          2000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        1625,
+        1750,
+        1875
+      ],
+      "normal": {
+        "skill": "Fish_4504",
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4504",
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    },
+    "F4505": {
+      "rare": 5,
+      "size": 3,
+      "area": "A4",
+      "tank": "t4",
+      "spots": [
+        "S31"
+      ],
+      "exp": 10,
+      "hiddenInBook": false,
+      "activityFish": false,
+      "lengthUnit": "cm",
+      "bands": [
+        [
+          9000,
+          11750
+        ],
+        [
+          11751,
+          14500
+        ],
+        [
+          14501,
+          17250
+        ],
+        [
+          17251,
+          20000
+        ]
+      ],
+      "weights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "rewardTargets": [
+        11750,
+        14500,
+        17250
+      ],
+      "normal": {
+        "skill": "Fish_4505",
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0,
+        "prop": "atk",
+        "condition": "country"
+      },
+      "crown": {
+        "skill": "Fish_G_4505",
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5,
+        "prop": "atk",
+        "condition": "country"
+      }
+    }
+  }
+}

@@ -55,12 +55,12 @@
   },
   "supersededBy": "lib/fishing-species.json (86 species, its own deferred/limits keys) plus fishing-draw-data.json and fishing-combination-data.json. This file is the policy-1 record and nothing in lib/, app/ or tests/ imports it; keep it only as the provenance of the first three species.",
   "unimplementedRederivedAt": "2026-09-15",
-  "unimplementedMethod": "Re-derived against lib/fishing.mjs and the live fishing tables, not copied forward. Five entries were removed because the code now implements them: catch probabilities (castOdds/drawFish roll FishLevel rarity weights per ground), other grounds (FISHING_GROUNDS/groundLevel gate casts by fishing level), fishing level curves (FISHING_LEVELS/fishingLevel), combinations (FISH_COMBINATIONS/activateFishCombination), and crowns (claimCrownKohaku/crownKohaku). Absence of the two remaining entries was checked with a positive control: grepping lib/ and app/ for 'combination' returns five files, for 'antique' it returns only this file and two unrelated story tables, and for any length field it returns only this line.",
+  "unimplementedMethod": "Re-derived against lib/fishing.mjs and the live fishing tables, not copied forward. Five entries were removed because the code now implements them: catch probabilities (castOdds/drawFish roll FishLevel rarity weights per ground), other grounds (FISHING_GROUNDS/groundLevel gate casts by fishing level), fishing level curves (FISHING_LEVELS/fishingLevel), combinations (FISH_COMBINATIONS/activateFishCombination), and crowns (claimCrownKohaku/crownKohaku). Absence of the two remaining entries was checked with a positive control: grepping lib/ and app/ for 'combination' returns five files, for 'antique' it returns only this file and two unrelated story tables, and for any length field it returns only this line. | 2026-09-15: re-derived again against Fish.json -> SkillBase.json. Length ranges were recovered in full (four bands per species on constant 5000/2500/1500/1000 weights, hundredths of a centimetre) and now ship: lib/fishing-apk-data.json, rollLength/lengthRecords. All 86 crown effects were recovered too and are stored on every species record, but are NOT activated by the length roll: adding all 86 crown skills on top of the normal ones moves the Fellow Power ceiling by +984,000 flat, +197 Aptitude and +355 percentage points, far past the ~20% the balance brief allows. The length-reward PAYOUT is genuinely absent: \"longReward\" appears only in Fish.json (positive control: the same sweep finds Reward_BaseLottery_1 in split_reward/reward.json).",
   "unimplemented": [
-    "length ranges and length rewards",
-    "antiques",
-    "crown effects beyond Gold Crown Kohaku (fishing-species.json: all other crown effects deferred)",
-    "the 12 normal combination effects fishing-combination-data.json still defers",
-    "the original's timed bait regeneration (FishBaitTime 7200) — deliberately replaced by the daily habit refill, per the single-player design rule, not missing"
+    "length REWARDS (the three longRewardTarget milestones per species pay something the config does not name)",
+    "antiques (FishArtifact, 17 rows; measured but not built \u2014 see parity row E1)",
+    "crown effects: recovered for all 86 species and stored, but not granted by the gold length band (power-ceiling reason above)",
+    "the 12 normal combination effects fishing-combination-data.json still defers, every one of which needs a system another slice owns (artifacts, education, banquets, insight, building caps)",
+    "the original's timed bait regeneration (FishBaitTime 7200) \u2014 deliberately replaced by the daily habit refill, per the single-player design rule, not missing"
   ]
 }

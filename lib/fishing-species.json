@@ -24,7 +24,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          500,
+          1625
+        ],
+        [
+          1626,
+          2750
+        ],
+        [
+          2751,
+          3875
+        ],
+        [
+          3876,
+          5000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1625,
+        2750,
+        3875
+      ]
     },
     {
       "id": "F1102",
@@ -49,7 +85,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          4000,
+          4750
+        ],
+        [
+          4751,
+          5500
+        ],
+        [
+          5501,
+          6250
+        ],
+        [
+          6251,
+          7000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4750,
+        5500,
+        6250
+      ]
     },
     {
       "id": "F1103",
@@ -74,7 +146,43 @@
         "rarities": [],
         "initial": 3000.0,
         "increment": 1000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000
+      },
+      "lengthBands": [
+        [
+          2000,
+          3500
+        ],
+        [
+          3501,
+          5000
+        ],
+        [
+          5001,
+          6500
+        ],
+        [
+          6501,
+          8000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        3500,
+        5000,
+        6500
+      ]
     },
     {
       "id": "F1201",
@@ -101,7 +209,45 @@
         ],
         "initial": 30000.0,
         "increment": 10000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2
+      },
+      "lengthBands": [
+        [
+          4000,
+          4175
+        ],
+        [
+          4176,
+          4350
+        ],
+        [
+          4351,
+          4525
+        ],
+        [
+          4526,
+          4700
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4175,
+        4350,
+        4525
+      ]
     },
     {
       "id": "F1202",
@@ -126,7 +272,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          1000,
+          4750
+        ],
+        [
+          4751,
+          8500
+        ],
+        [
+          8501,
+          12250
+        ],
+        [
+          12251,
+          16000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4750,
+        8500,
+        12250
+      ]
     },
     {
       "id": "F1301",
@@ -153,7 +335,45 @@
         ],
         "initial": 40000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          1000,
+          1250
+        ],
+        [
+          1251,
+          1500
+        ],
+        [
+          1501,
+          1750
+        ],
+        [
+          1751,
+          2000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1250,
+        1500,
+        1750
+      ]
     },
     {
       "id": "F1302",
@@ -181,7 +401,46 @@
         ],
         "initial": 50000.0,
         "increment": 20000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          1000,
+          2500
+        ],
+        [
+          2501,
+          4000
+        ],
+        [
+          4001,
+          5500
+        ],
+        [
+          5501,
+          7000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2500,
+        4000,
+        5500
+      ]
     },
     {
       "id": "F1401",
@@ -206,7 +465,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          500,
+          875
+        ],
+        [
+          876,
+          1250
+        ],
+        [
+          1251,
+          1625
+        ],
+        [
+          1626,
+          2000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        875,
+        1250,
+        1625
+      ]
     },
     {
       "id": "F1501",
@@ -231,7 +526,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          1000,
+          1250
+        ],
+        [
+          1251,
+          1500
+        ],
+        [
+          1501,
+          1750
+        ],
+        [
+          1751,
+          2000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1250,
+        1500,
+        1750
+      ]
     },
     {
       "id": "F2101",
@@ -258,7 +589,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          2000,
+          4000
+        ],
+        [
+          4001,
+          6000
+        ],
+        [
+          6001,
+          8000
+        ],
+        [
+          8001,
+          10000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4000,
+        6000,
+        8000
+      ]
     },
     {
       "id": "F2102",
@@ -285,7 +652,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          3000,
+          3750
+        ],
+        [
+          3751,
+          4500
+        ],
+        [
+          4501,
+          5250
+        ],
+        [
+          5251,
+          6000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        3750,
+        4500,
+        5250
+      ]
     },
     {
       "id": "F2103",
@@ -312,7 +715,43 @@
         "rarities": [],
         "initial": 3000.0,
         "increment": 1000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000
+      },
+      "lengthBands": [
+        [
+          1500,
+          1875
+        ],
+        [
+          1876,
+          2250
+        ],
+        [
+          2251,
+          2625
+        ],
+        [
+          2626,
+          3000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1875,
+        2250,
+        2625
+      ]
     },
     {
       "id": "F2104",
@@ -339,7 +778,43 @@
         "rarities": [],
         "initial": 3000.0,
         "increment": 1000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000
+      },
+      "lengthBands": [
+        [
+          1500,
+          1875
+        ],
+        [
+          1876,
+          2250
+        ],
+        [
+          2251,
+          2625
+        ],
+        [
+          2626,
+          3000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1875,
+        2250,
+        2625
+      ]
     },
     {
       "id": "F2201",
@@ -368,7 +843,45 @@
         ],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 15.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          800,
+          925
+        ],
+        [
+          926,
+          1050
+        ],
+        [
+          1051,
+          1175
+        ],
+        [
+          1176,
+          1300
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        925,
+        1050,
+        1175
+      ]
     },
     {
       "id": "F2202",
@@ -395,7 +908,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          800,
+          1100
+        ],
+        [
+          1101,
+          1400
+        ],
+        [
+          1401,
+          1700
+        ],
+        [
+          1701,
+          2000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1100,
+        1400,
+        1700
+      ]
     },
     {
       "id": "F2203",
@@ -422,7 +971,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          7000,
+          12750
+        ],
+        [
+          12751,
+          18500
+        ],
+        [
+          18501,
+          24250
+        ],
+        [
+          24251,
+          30000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        12750,
+        18500,
+        24250
+      ]
     },
     {
       "id": "F2204",
@@ -449,7 +1034,43 @@
         "rarities": [],
         "initial": 9000.0,
         "increment": 3000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000
+      },
+      "lengthBands": [
+        [
+          6000,
+          6750
+        ],
+        [
+          6751,
+          7500
+        ],
+        [
+          7501,
+          8250
+        ],
+        [
+          8251,
+          9000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        6750,
+        7500,
+        8250
+      ]
     },
     {
       "id": "F2205",
@@ -476,7 +1097,43 @@
         "rarities": [],
         "initial": 9000.0,
         "increment": 3000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000
+      },
+      "lengthBands": [
+        [
+          1000,
+          3500
+        ],
+        [
+          3501,
+          6000
+        ],
+        [
+          6001,
+          8500
+        ],
+        [
+          8501,
+          11000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        3500,
+        6000,
+        8500
+      ]
     },
     {
       "id": "F2206",
@@ -503,7 +1160,43 @@
         "rarities": [],
         "initial": 9000.0,
         "increment": 3000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000
+      },
+      "lengthBands": [
+        [
+          5100,
+          5725
+        ],
+        [
+          5726,
+          6350
+        ],
+        [
+          6351,
+          6975
+        ],
+        [
+          6976,
+          7600
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        5725,
+        6350,
+        6975
+      ]
     },
     {
       "id": "F2301",
@@ -533,7 +1226,45 @@
         "initial": 200000.0,
         "increment": 100000.0,
         "scopeLimit": "UR is current highest catalog rarity; future higher rarities need explicit extension."
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6
+      },
+      "lengthBands": [
+        [
+          300,
+          2725
+        ],
+        [
+          2726,
+          5150
+        ],
+        [
+          5151,
+          7575
+        ],
+        [
+          7576,
+          10000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2725,
+        5150,
+        7575
+      ]
     },
     {
       "id": "F2302",
@@ -563,7 +1294,46 @@
         ],
         "initial": 50000.0,
         "increment": 20000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          600,
+          650
+        ],
+        [
+          651,
+          700
+        ],
+        [
+          701,
+          750
+        ],
+        [
+          751,
+          800
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        650,
+        700,
+        750
+      ]
     },
     {
       "id": "F2303",
@@ -593,7 +1363,45 @@
         "initial": 200000.0,
         "increment": 100000.0,
         "scopeLimit": "UR is current highest catalog rarity; future higher rarities need explicit extension."
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6
+      },
+      "lengthBands": [
+        [
+          1400,
+          2050
+        ],
+        [
+          2051,
+          2700
+        ],
+        [
+          2701,
+          3350
+        ],
+        [
+          3351,
+          4000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2050,
+        2700,
+        3350
+      ]
     },
     {
       "id": "F2304",
@@ -622,7 +1430,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          500,
+          10375
+        ],
+        [
+          10376,
+          20250
+        ],
+        [
+          20251,
+          30125
+        ],
+        [
+          30126,
+          40000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        10375,
+        20250,
+        30125
+      ]
     },
     {
       "id": "F2305",
@@ -651,7 +1497,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          3000,
+          4750
+        ],
+        [
+          4751,
+          6500
+        ],
+        [
+          6501,
+          8250
+        ],
+        [
+          8251,
+          10000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4750,
+        6500,
+        8250
+      ]
     },
     {
       "id": "F2306",
@@ -680,7 +1564,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          2000,
+          4750
+        ],
+        [
+          4751,
+          7500
+        ],
+        [
+          7501,
+          10250
+        ],
+        [
+          10251,
+          13000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4750,
+        7500,
+        10250
+      ]
     },
     {
       "id": "F2401",
@@ -706,7 +1628,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          3100,
+          4300
+        ],
+        [
+          4301,
+          5500
+        ],
+        [
+          5501,
+          6700
+        ],
+        [
+          6701,
+          7900
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4300,
+        5500,
+        6700
+      ]
     },
     {
       "id": "F2402",
@@ -731,7 +1689,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          20000,
+          25000
+        ],
+        [
+          25001,
+          30000
+        ],
+        [
+          30001,
+          35000
+        ],
+        [
+          35001,
+          40000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        25000,
+        30000,
+        35000
+      ]
     },
     {
       "id": "F2403",
@@ -757,7 +1751,43 @@
         "rarities": [],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0
+      },
+      "lengthBands": [
+        [
+          2000,
+          2750
+        ],
+        [
+          2751,
+          3500
+        ],
+        [
+          3501,
+          4250
+        ],
+        [
+          4251,
+          5000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2750,
+        3500,
+        4250
+      ]
     },
     {
       "id": "F2404",
@@ -785,7 +1815,46 @@
         ],
         "initial": 8.0,
         "increment": 3.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5
+      },
+      "lengthBands": [
+        [
+          13000,
+          13750
+        ],
+        [
+          13751,
+          14500
+        ],
+        [
+          14501,
+          15250
+        ],
+        [
+          15251,
+          16000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        13750,
+        14500,
+        15250
+      ]
     },
     {
       "id": "F2405",
@@ -814,7 +1883,45 @@
         "initial": 15.0,
         "increment": 6.0,
         "scopeLimit": "UR is current highest catalog rarity; future higher rarities need explicit extension."
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          2000,
+          2750
+        ],
+        [
+          2751,
+          3500
+        ],
+        [
+          3501,
+          4250
+        ],
+        [
+          4251,
+          5000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2750,
+        3500,
+        4250
+      ]
     },
     {
       "id": "F2501",
@@ -839,7 +1946,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          25000,
+          26250
+        ],
+        [
+          26251,
+          27500
+        ],
+        [
+          27501,
+          28750
+        ],
+        [
+          28751,
+          30000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        26250,
+        27500,
+        28750
+      ]
     },
     {
       "id": "F2502",
@@ -864,7 +2007,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          26000,
+          28250
+        ],
+        [
+          28251,
+          30500
+        ],
+        [
+          30501,
+          32750
+        ],
+        [
+          32751,
+          35000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        28250,
+        30500,
+        32750
+      ]
     },
     {
       "id": "F2503",
@@ -889,7 +2068,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          500,
+          625
+        ],
+        [
+          626,
+          750
+        ],
+        [
+          751,
+          875
+        ],
+        [
+          876,
+          1000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        625,
+        750,
+        875
+      ]
     },
     {
       "id": "F2504",
@@ -914,7 +2129,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          1500,
+          1750
+        ],
+        [
+          1751,
+          2000
+        ],
+        [
+          2001,
+          2250
+        ],
+        [
+          2251,
+          2500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1750,
+        2000,
+        2250
+      ]
     },
     {
       "id": "F3101",
@@ -941,7 +2192,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          500,
+          625
+        ],
+        [
+          626,
+          750
+        ],
+        [
+          751,
+          875
+        ],
+        [
+          876,
+          1000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        625,
+        750,
+        875
+      ]
     },
     {
       "id": "F3102",
@@ -968,7 +2255,43 @@
         "rarities": [],
         "initial": 3000.0,
         "increment": 1000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 6000,
+        "increment": 2000
+      },
+      "lengthBands": [
+        [
+          800,
+          850
+        ],
+        [
+          851,
+          900
+        ],
+        [
+          901,
+          950
+        ],
+        [
+          951,
+          1000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        850,
+        900,
+        950
+      ]
     },
     {
       "id": "F3103",
@@ -997,7 +2320,45 @@
         ],
         "initial": 30000.0,
         "increment": 10000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 3,
+        "increment": 1
+      },
+      "lengthBands": [
+        [
+          500,
+          875
+        ],
+        [
+          876,
+          1250
+        ],
+        [
+          1251,
+          1625
+        ],
+        [
+          1626,
+          2000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        875,
+        1250,
+        1625
+      ]
     },
     {
       "id": "F3201",
@@ -1024,7 +2385,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          30000,
+          34125
+        ],
+        [
+          34126,
+          38250
+        ],
+        [
+          38251,
+          42375
+        ],
+        [
+          42376,
+          46500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        34125,
+        38250,
+        42375
+      ]
     },
     {
       "id": "F3202",
@@ -1051,7 +2448,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 90000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          1000,
+          1125
+        ],
+        [
+          1126,
+          1250
+        ],
+        [
+          1251,
+          1375
+        ],
+        [
+          1376,
+          1500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1125,
+        1250,
+        1375
+      ]
     },
     {
       "id": "F3203",
@@ -1078,7 +2511,43 @@
         "rarities": [],
         "initial": 9000.0,
         "increment": 3000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000
+      },
+      "lengthBands": [
+        [
+          400,
+          425
+        ],
+        [
+          426,
+          450
+        ],
+        [
+          451,
+          475
+        ],
+        [
+          476,
+          500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        425,
+        450,
+        475
+      ]
     },
     {
       "id": "F3204",
@@ -1105,7 +2574,43 @@
         "rarities": [],
         "initial": 9000.0,
         "increment": 3000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 20000,
+        "increment": 6000
+      },
+      "lengthBands": [
+        [
+          2500,
+          2875
+        ],
+        [
+          2876,
+          3250
+        ],
+        [
+          3251,
+          3625
+        ],
+        [
+          3626,
+          4000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2875,
+        3250,
+        3625
+      ]
     },
     {
       "id": "F3301",
@@ -1134,7 +2639,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          2500,
+          2875
+        ],
+        [
+          2876,
+          3250
+        ],
+        [
+          3251,
+          3625
+        ],
+        [
+          3626,
+          4000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2875,
+        3250,
+        3625
+      ]
     },
     {
       "id": "F3302",
@@ -1163,7 +2706,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          5000,
+          8750
+        ],
+        [
+          8751,
+          12500
+        ],
+        [
+          12501,
+          16250
+        ],
+        [
+          16251,
+          20000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        8750,
+        12500,
+        16250
+      ]
     },
     {
       "id": "F3303",
@@ -1192,7 +2773,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          400,
+          425
+        ],
+        [
+          426,
+          450
+        ],
+        [
+          451,
+          475
+        ],
+        [
+          476,
+          500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        425,
+        450,
+        475
+      ]
     },
     {
       "id": "F3304",
@@ -1222,7 +2841,46 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          1000,
+          1125
+        ],
+        [
+          1126,
+          1250
+        ],
+        [
+          1251,
+          1375
+        ],
+        [
+          1376,
+          1500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1125,
+        1250,
+        1375
+      ]
     },
     {
       "id": "F3305",
@@ -1252,7 +2910,46 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          500,
+          525
+        ],
+        [
+          526,
+          550
+        ],
+        [
+          551,
+          575
+        ],
+        [
+          576,
+          600
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        525,
+        550,
+        575
+      ]
     },
     {
       "id": "F3306",
@@ -1282,7 +2979,46 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          8600,
+          9950
+        ],
+        [
+          9951,
+          11300
+        ],
+        [
+          11301,
+          12650
+        ],
+        [
+          12651,
+          14000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        9950,
+        11300,
+        12650
+      ]
     },
     {
       "id": "F3401",
@@ -1307,7 +3043,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          1000,
+          3250
+        ],
+        [
+          3251,
+          5500
+        ],
+        [
+          5501,
+          7750
+        ],
+        [
+          7751,
+          10000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        3250,
+        5500,
+        7750
+      ]
     },
     {
       "id": "F3402",
@@ -1333,7 +3105,43 @@
         "rarities": [],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0
+      },
+      "lengthBands": [
+        [
+          4000,
+          7250
+        ],
+        [
+          7251,
+          10500
+        ],
+        [
+          10501,
+          13750
+        ],
+        [
+          13751,
+          17000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        7250,
+        10500,
+        13750
+      ]
     },
     {
       "id": "F3403",
@@ -1361,7 +3169,46 @@
         ],
         "initial": 8.0,
         "increment": 3.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5
+      },
+      "lengthBands": [
+        [
+          2000,
+          3750
+        ],
+        [
+          3751,
+          5500
+        ],
+        [
+          5501,
+          7250
+        ],
+        [
+          7251,
+          9000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        3750,
+        5500,
+        7250
+      ]
     },
     {
       "id": "F3404",
@@ -1390,7 +3237,45 @@
         "initial": 15.0,
         "increment": 6.0,
         "scopeLimit": "UR is current highest catalog rarity; future higher rarities need explicit extension."
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          20000,
+          27500
+        ],
+        [
+          27501,
+          35000
+        ],
+        [
+          35001,
+          42500
+        ],
+        [
+          42501,
+          50000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        27500,
+        35000,
+        42500
+      ]
     },
     {
       "id": "F3405",
@@ -1416,7 +3301,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          40000,
+          47500
+        ],
+        [
+          47501,
+          55000
+        ],
+        [
+          55001,
+          62500
+        ],
+        [
+          62501,
+          70000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        47500,
+        55000,
+        62500
+      ]
     },
     {
       "id": "F3406",
@@ -1442,7 +3363,43 @@
         "rarities": [],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0
+      },
+      "lengthBands": [
+        [
+          2000,
+          2250
+        ],
+        [
+          2251,
+          2500
+        ],
+        [
+          2501,
+          2750
+        ],
+        [
+          2751,
+          3000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2250,
+        2500,
+        2750
+      ]
     },
     {
       "id": "F3407",
@@ -1470,7 +3427,46 @@
         ],
         "initial": 8.0,
         "increment": 3.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5
+      },
+      "lengthBands": [
+        [
+          18000,
+          21000
+        ],
+        [
+          21001,
+          24000
+        ],
+        [
+          24001,
+          27000
+        ],
+        [
+          27001,
+          30000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        21000,
+        24000,
+        27000
+      ]
     },
     {
       "id": "F3501",
@@ -1495,7 +3491,43 @@
         "rarities": [],
         "initial": 2.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5
+      },
+      "lengthBands": [
+        [
+          1500,
+          2625
+        ],
+        [
+          2626,
+          3750
+        ],
+        [
+          3751,
+          4875
+        ],
+        [
+          4876,
+          6000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2625,
+        3750,
+        4875
+      ]
     },
     {
       "id": "F3502",
@@ -1520,7 +3552,43 @@
         "rarities": [],
         "initial": 2.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5
+      },
+      "lengthBands": [
+        [
+          1200,
+          2150
+        ],
+        [
+          2151,
+          3100
+        ],
+        [
+          3101,
+          4050
+        ],
+        [
+          4051,
+          5000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2150,
+        3100,
+        4050
+      ]
     },
     {
       "id": "F3503",
@@ -1545,7 +3613,43 @@
         "rarities": [],
         "initial": 2.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5
+      },
+      "lengthBands": [
+        [
+          500,
+          575
+        ],
+        [
+          576,
+          650
+        ],
+        [
+          651,
+          725
+        ],
+        [
+          726,
+          800
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        575,
+        650,
+        725
+      ]
     },
     {
       "id": "F3504",
@@ -1570,7 +3674,43 @@
         "rarities": [],
         "initial": 2.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5
+      },
+      "lengthBands": [
+        [
+          20000,
+          25000
+        ],
+        [
+          25001,
+          30000
+        ],
+        [
+          30001,
+          35000
+        ],
+        [
+          35001,
+          40000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        25000,
+        30000,
+        35000
+      ]
     },
     {
       "id": "F3505",
@@ -1595,7 +3735,43 @@
         "rarities": [],
         "initial": 2.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 3.0,
+        "increment": 1.5
+      },
+      "lengthBands": [
+        [
+          1300,
+          2975
+        ],
+        [
+          2976,
+          4650
+        ],
+        [
+          4651,
+          6325
+        ],
+        [
+          6326,
+          8000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2975,
+        4650,
+        6325
+      ]
     },
     {
       "id": "F4101",
@@ -1622,7 +3798,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          2000,
+          7750
+        ],
+        [
+          7751,
+          13500
+        ],
+        [
+          13501,
+          19250
+        ],
+        [
+          19251,
+          25000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        7750,
+        13500,
+        19250
+      ]
     },
     {
       "id": "F4102",
@@ -1649,7 +3861,43 @@
         "rarities": [],
         "initial": 15000.0,
         "increment": 5000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 30000,
+        "increment": 10000
+      },
+      "lengthBands": [
+        [
+          500,
+          1275
+        ],
+        [
+          1276,
+          2050
+        ],
+        [
+          2051,
+          2825
+        ],
+        [
+          2826,
+          3600
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1275,
+        2050,
+        2825
+      ]
     },
     {
       "id": "F4103",
@@ -1678,7 +3926,45 @@
         ],
         "initial": 150000.0,
         "increment": 50000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 3,
+        "increment": 1
+      },
+      "lengthBands": [
+        [
+          2000,
+          6250
+        ],
+        [
+          6251,
+          10500
+        ],
+        [
+          10501,
+          14750
+        ],
+        [
+          14751,
+          19000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        6250,
+        10500,
+        14750
+      ]
     },
     {
       "id": "F4201",
@@ -1707,7 +3993,45 @@
         ],
         "initial": 150000.0,
         "increment": 50000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 5,
+        "increment": 2
+      },
+      "lengthBands": [
+        [
+          1200,
+          2400
+        ],
+        [
+          2401,
+          3600
+        ],
+        [
+          3601,
+          4800
+        ],
+        [
+          4801,
+          6000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2400,
+        3600,
+        4800
+      ]
     },
     {
       "id": "F4202",
@@ -1736,7 +4060,45 @@
         ],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "N"
+        ],
+        "initial": 15.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          1300,
+          2550
+        ],
+        [
+          2551,
+          3800
+        ],
+        [
+          3801,
+          5050
+        ],
+        [
+          5051,
+          6300
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2550,
+        3800,
+        5050
+      ]
     },
     {
       "id": "F4203",
@@ -1763,7 +4125,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 100000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          4000,
+          5250
+        ],
+        [
+          5251,
+          6500
+        ],
+        [
+          6501,
+          7750
+        ],
+        [
+          7751,
+          9000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        5250,
+        6500,
+        7750
+      ]
     },
     {
       "id": "F4204",
@@ -1790,7 +4188,43 @@
         "rarities": [],
         "initial": 45000.0,
         "increment": 15000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "flat",
+        "type": null,
+        "rarities": [],
+        "initial": 100000,
+        "increment": 30000
+      },
+      "lengthBands": [
+        [
+          800,
+          3100
+        ],
+        [
+          3101,
+          5400
+        ],
+        [
+          5401,
+          7700
+        ],
+        [
+          7701,
+          10000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        3100,
+        5400,
+        7700
+      ]
     },
     {
       "id": "F4301",
@@ -1819,7 +4253,45 @@
         ],
         "initial": 200000.0,
         "increment": 75000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          3000,
+          4125
+        ],
+        [
+          4126,
+          5250
+        ],
+        [
+          5251,
+          6375
+        ],
+        [
+          6376,
+          7500
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4125,
+        5250,
+        6375
+      ]
     },
     {
       "id": "F4302",
@@ -1849,7 +4321,46 @@
         ],
         "initial": 250000.0,
         "increment": 100000.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          3600,
+          4900
+        ],
+        [
+          4901,
+          6200
+        ],
+        [
+          6201,
+          7500
+        ],
+        [
+          7501,
+          8800
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4900,
+        6200,
+        7500
+      ]
     },
     {
       "id": "F4303",
@@ -1879,7 +4390,45 @@
         "initial": 1000000.0,
         "increment": 500000.0,
         "scopeLimit": "UR is current highest catalog rarity; future higher rarities need explicit extension."
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 15,
+        "increment": 6
+      },
+      "lengthBands": [
+        [
+          1000,
+          1850
+        ],
+        [
+          1851,
+          2700
+        ],
+        [
+          2701,
+          3550
+        ],
+        [
+          3551,
+          4400
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1850,
+        2700,
+        3550
+      ]
     },
     {
       "id": "F4304",
@@ -1908,7 +4457,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "R"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          500,
+          925
+        ],
+        [
+          926,
+          1350
+        ],
+        [
+          1351,
+          1775
+        ],
+        [
+          1776,
+          2200
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        925,
+        1350,
+        1775
+      ]
     },
     {
       "id": "F4305",
@@ -1937,7 +4524,45 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SR"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          6000,
+          10000
+        ],
+        [
+          10001,
+          14000
+        ],
+        [
+          14001,
+          18000
+        ],
+        [
+          18001,
+          22000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        10000,
+        14000,
+        18000
+      ]
     },
     {
       "id": "F4306",
@@ -1967,7 +4592,46 @@
         ],
         "initial": 5.0,
         "increment": 2.0
-      }
+      },
+      "crownEffect": {
+        "kind": "aptitude",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 8,
+        "increment": 3
+      },
+      "lengthBands": [
+        [
+          1000,
+          8250
+        ],
+        [
+          8251,
+          15500
+        ],
+        [
+          15501,
+          22750
+        ],
+        [
+          22751,
+          30000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        8250,
+        15500,
+        22750
+      ]
     },
     {
       "id": "F4401",
@@ -1993,7 +4657,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          3300,
+          4775
+        ],
+        [
+          4776,
+          6250
+        ],
+        [
+          6251,
+          7725
+        ],
+        [
+          7726,
+          9200
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        4775,
+        6250,
+        7725
+      ]
     },
     {
       "id": "F4402",
@@ -2019,7 +4719,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          8000,
+          9750
+        ],
+        [
+          9751,
+          11500
+        ],
+        [
+          11501,
+          13250
+        ],
+        [
+          13251,
+          15000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        9750,
+        11500,
+        13250
+      ]
     },
     {
       "id": "F4403",
@@ -2044,7 +4780,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          400,
+          1450
+        ],
+        [
+          1451,
+          2500
+        ],
+        [
+          2501,
+          3550
+        ],
+        [
+          3551,
+          4600
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1450,
+        2500,
+        3550
+      ]
     },
     {
       "id": "F4404",
@@ -2070,7 +4842,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          8000,
+          9750
+        ],
+        [
+          9751,
+          11500
+        ],
+        [
+          11501,
+          13250
+        ],
+        [
+          13251,
+          15000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        9750,
+        11500,
+        13250
+      ]
     },
     {
       "id": "F4405",
@@ -2095,7 +4903,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          1500,
+          6125
+        ],
+        [
+          6126,
+          10750
+        ],
+        [
+          10751,
+          15375
+        ],
+        [
+          15376,
+          20000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        6125,
+        10750,
+        15375
+      ]
     },
     {
       "id": "F4406",
@@ -2123,7 +4967,46 @@
         ],
         "initial": 8.0,
         "increment": 3.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "SSR",
+          "SSR+"
+        ],
+        "initial": 5.0,
+        "increment": 2.5
+      },
+      "lengthBands": [
+        [
+          12000,
+          14750
+        ],
+        [
+          14751,
+          17500
+        ],
+        [
+          17501,
+          20250
+        ],
+        [
+          20251,
+          23000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        14750,
+        17500,
+        20250
+      ]
     },
     {
       "id": "F4407",
@@ -2151,7 +5034,45 @@
         "initial": 15.0,
         "increment": 6.0,
         "scopeLimit": "UR is current highest catalog rarity; future higher rarities need explicit extension."
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [
+          "UR"
+        ],
+        "initial": 10.0,
+        "increment": 5.0
+      },
+      "lengthBands": [
+        [
+          6000,
+          7500
+        ],
+        [
+          7501,
+          9000
+        ],
+        [
+          9001,
+          10500
+        ],
+        [
+          10501,
+          12000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        7500,
+        9000,
+        10500
+      ]
     },
     {
       "id": "F4501",
@@ -2176,7 +5097,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Inspiring",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          5500,
+          6875
+        ],
+        [
+          6876,
+          8250
+        ],
+        [
+          8251,
+          9625
+        ],
+        [
+          9626,
+          11000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        6875,
+        8250,
+        9625
+      ]
     },
     {
       "id": "F4502",
@@ -2201,7 +5158,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Diligent",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          4000,
+          7250
+        ],
+        [
+          7251,
+          10500
+        ],
+        [
+          10501,
+          13750
+        ],
+        [
+          13751,
+          17000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        7250,
+        10500,
+        13750
+      ]
     },
     {
       "id": "F4503",
@@ -2226,7 +5219,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Brave",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          20000,
+          30000
+        ],
+        [
+          30001,
+          40000
+        ],
+        [
+          40001,
+          50000
+        ],
+        [
+          50001,
+          60000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        30000,
+        40000,
+        50000
+      ]
     },
     {
       "id": "F4504",
@@ -2251,7 +5280,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Informed",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          1500,
+          1625
+        ],
+        [
+          1626,
+          1750
+        ],
+        [
+          1751,
+          1875
+        ],
+        [
+          1876,
+          2000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        1625,
+        1750,
+        1875
+      ]
     },
     {
       "id": "F4505",
@@ -2276,7 +5341,43 @@
         "rarities": [],
         "initial": 10.0,
         "increment": 5.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": "Unfettered",
+        "rarities": [],
+        "initial": 15.0,
+        "increment": 7.5
+      },
+      "lengthBands": [
+        [
+          9000,
+          11750
+        ],
+        [
+          11751,
+          14500
+        ],
+        [
+          14501,
+          17250
+        ],
+        [
+          17251,
+          20000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        11750,
+        14500,
+        17250
+      ]
     },
     {
       "id": "F9401",
@@ -2301,7 +5402,43 @@
         "rarities": [],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0
+      },
+      "lengthBands": [
+        [
+          2000,
+          2750
+        ],
+        [
+          2751,
+          3500
+        ],
+        [
+          3501,
+          4250
+        ],
+        [
+          4251,
+          5000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        2750,
+        3500,
+        4250
+      ]
     },
     {
       "id": "F9402",
@@ -2326,7 +5463,43 @@
         "rarities": [],
         "initial": 3.0,
         "increment": 1.0
-      }
+      },
+      "crownEffect": {
+        "kind": "percent",
+        "type": null,
+        "rarities": [],
+        "initial": 2.0,
+        "increment": 1.0
+      },
+      "lengthBands": [
+        [
+          6000,
+          8250
+        ],
+        [
+          8251,
+          10500
+        ],
+        [
+          10501,
+          12750
+        ],
+        [
+          12751,
+          16000
+        ]
+      ],
+      "lengthWeights": [
+        5000,
+        2500,
+        1500,
+        1000
+      ],
+      "lengthRewardTargets": [
+        8250,
+        10500,
+        12750
+      ]
     }
   ],
   "deferred": [
@@ -2338,5 +5511,5 @@
       ]
     }
   ],
-  "limits": "Normal effects only. All crown effects deferred. Original activation removal, probabilities/lengths/costs/gates unknown; local display-only policy."
+  "limits": "Normal and crown effects and the four length bands all come from Fish.json -> SkillBase.json and agree with this file's community prose row for row. Crown effects are recorded but NOT activated by a length roll: see docs/parity-catalog.csv E2 for the measured power-ceiling reason. Original activation removal, costs and gates remain unknown; local display-only policy."
 }

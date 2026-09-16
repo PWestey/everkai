@@ -1,0 +1,401 @@
+{
+  "provenance": {
+    "source": "apk-audit/configs/config/logic",
+    "type": "version-matched original config tables",
+    "tables": {
+      "BaseLottery.json": {
+        "sha256": "ab176dffa9526a4c46a6db3c1bf78c5a4799249f21897bdc363f3ccfe0de9fbc"
+      },
+      "BaseLotteryExchange.json": {
+        "sha256": "465d246905fbf7ef54e6f1c9e5bbc38d492144f963b9a5ce6a3523845a145f1d"
+      },
+      "split_reward/reward.json": {
+        "sha256": "2c451783005bab38ed5b51e0533b9665c317edcee53ff7cca251013595d0be58"
+      },
+      "split_reward/reward_baselotteryexchange.json": {
+        "sha256": "45b4132d28e36560380ab07d2517aba0ac467ffc5206d9cdd0c0da4d0c433584"
+      },
+      "System.json": {
+        "sha256": "d8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312"
+      },
+      "BreachLevel.json": {
+        "sha256": "3a018c1aa498868d94feab1e419e7f376fbc4aa00fe8ca54edea1846a5e7e3e7"
+      },
+      "en/translate.json": {
+        "sha256": "c884ee22dfd491ce0c700109f955465b34ef518f6e73d4132993e9d01f4d35bc"
+      }
+    }
+  },
+  "currency": {
+    "bottle": {
+      "itemId": "Item_Token_Gacha_Universal",
+      "name": "Fairy Bottle"
+    },
+    "stone": {
+      "itemId": "Item_Exchange_Hero_Universal",
+      "name": "Acquaint Stone"
+    },
+    "fragment": {
+      "itemId": "Item_Piece_Hero_Universal",
+      "name": "Acquaint Stone Fragment"
+    }
+  },
+  "drawCosts": [
+    {
+      "wishes": 1,
+      "bottles": 1,
+      "key": "LotterySingleDrawCost"
+    },
+    {
+      "wishes": 10,
+      "bottles": 9,
+      "key": "LotteryTenDrawCost"
+    },
+    {
+      "wishes": 100,
+      "bottles": 90,
+      "key": "LotteryHundredDrawCost"
+    }
+  ],
+  "weightTotal": 10000,
+  "pool": [
+    {
+      "row": "BaseLottery_Reward_01",
+      "reward": "Reward_BaseLottery_1",
+      "weight": 10,
+      "rarity": 1,
+      "awardFlag": 1,
+      "itemId": "Item_Exchange_Hero_Universal",
+      "quantity": 1,
+      "itemName": "Acquaint Stone",
+      "percent": 0.1
+    },
+    {
+      "row": "BaseLottery_Reward_02",
+      "reward": "Reward_BaseLottery_2",
+      "weight": 40,
+      "rarity": 2,
+      "awardFlag": 0,
+      "itemId": "Item_Box_Weapon_2",
+      "quantity": 1,
+      "itemName": "Advanced Artifact Chest",
+      "percent": 0.4
+    },
+    {
+      "row": "BaseLottery_Reward_03",
+      "reward": "Reward_BaseLottery_3",
+      "weight": 70,
+      "rarity": 2,
+      "awardFlag": 0,
+      "itemId": "Item_Hero_Attribute_Increase_2",
+      "quantity": 1,
+      "itemName": "Advanced Elixir",
+      "percent": 0.7
+    },
+    {
+      "row": "BaseLottery_Reward_04",
+      "reward": "Reward_BaseLottery_4",
+      "weight": 180,
+      "rarity": 2,
+      "awardFlag": 0,
+      "itemId": "Item_LvUp_Bank",
+      "quantity": 1,
+      "itemName": "Farmstead Upgrade Blueprint",
+      "percent": 1.8
+    },
+    {
+      "row": "BaseLottery_Reward_05",
+      "reward": "Reward_BaseLottery_5",
+      "weight": 210,
+      "rarity": 2,
+      "awardFlag": 0,
+      "itemId": "Item_Piece_Hero_Universal",
+      "quantity": 1,
+      "itemName": "Acquaint Stone Fragment",
+      "percent": 2.1
+    },
+    {
+      "row": "BaseLottery_Reward_06",
+      "reward": "Reward_BaseLottery_6",
+      "weight": 540,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_GetDE_10",
+      "quantity": 1,
+      "itemName": "Seraph Tonic",
+      "percent": 5.4
+    },
+    {
+      "row": "BaseLottery_Reward_07",
+      "reward": "Reward_BaseLottery_7",
+      "weight": 910,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_GetCE_10",
+      "quantity": 5,
+      "itemName": "Focus Candy",
+      "percent": 9.1
+    },
+    {
+      "row": "BaseLottery_Reward_08",
+      "reward": "Reward_BaseLottery_8",
+      "weight": 910,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_Quenching_Equipment_1",
+      "quantity": 1,
+      "itemName": "Reforge essential oil",
+      "percent": 9.1
+    },
+    {
+      "row": "BaseLottery_Reward_09",
+      "reward": "Reward_BaseLottery_9",
+      "weight": 1270,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_HeroManagerment_Building",
+      "quantity": 3,
+      "itemName": "Study Notes",
+      "percent": 12.7
+    },
+    {
+      "row": "BaseLottery_Reward_10",
+      "reward": "Reward_BaseLottery_10",
+      "weight": 1640,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_Hero_Attribute_Increase_1",
+      "quantity": 1,
+      "itemName": "Basic Elixir",
+      "percent": 16.4
+    },
+    {
+      "row": "BaseLottery_Reward_11",
+      "reward": "Reward_BaseLottery_11",
+      "weight": 2110,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_StarUp_Building_1_1",
+      "quantity": 2,
+      "itemName": "Building Upgrade Blueprint",
+      "percent": 21.1
+    },
+    {
+      "row": "BaseLottery_Reward_12",
+      "reward": "Reward_BaseLottery_12",
+      "weight": 2110,
+      "rarity": 3,
+      "awardFlag": 0,
+      "itemId": "Item_Gcoin_YieldPack_1",
+      "quantity": 10,
+      "itemName": "Basic Earnings Card",
+      "percent": 21.1
+    }
+  ],
+  "exchange": [
+    {
+      "row": "BaseLotteryExchange_03",
+      "reward": "Reward_BaseLotteryExchange_hero_3",
+      "ownerItem": "Item_Owner_Hero_102",
+      "character": "hero_102",
+      "kind": "fellows",
+      "name": "Jewlry",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 101
+    },
+    {
+      "row": "BaseLotteryExchange_01",
+      "reward": "Reward_BaseLotteryExchange_hero_1",
+      "ownerItem": "Item_Owner_Hero_104",
+      "character": "hero_104",
+      "kind": "fellows",
+      "name": "Loya",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 100
+    },
+    {
+      "row": "BaseLotteryExchange_02",
+      "reward": "Reward_BaseLotteryExchange_hero_2",
+      "ownerItem": "Item_Owner_Hero_105",
+      "character": "hero_105",
+      "kind": "fellows",
+      "name": "Augustine",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 99
+    },
+    {
+      "row": "BaseLotteryExchange_04",
+      "reward": "Reward_BaseLotteryExchange_hero_4",
+      "ownerItem": "Item_Owner_Hero_103",
+      "character": "hero_103",
+      "kind": "fellows",
+      "name": "Anne",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 97
+    },
+    {
+      "row": "BaseLotteryExchange_05",
+      "reward": "Reward_BaseLotteryExchange_hero_5",
+      "ownerItem": "Item_Owner_Hero_54",
+      "character": "hero_54",
+      "kind": "fellows",
+      "name": "Rani",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 1,
+      "order": 96
+    },
+    {
+      "row": "BaseLotteryExchange_06",
+      "reward": "Reward_BaseLotteryExchange_hero_6",
+      "ownerItem": "Item_Owner_Hero_52",
+      "character": "hero_52",
+      "kind": "fellows",
+      "name": "Angie",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 1,
+      "order": 95
+    },
+    {
+      "row": "BaseLotteryExchange_08",
+      "reward": "Reward_BaseLotteryExchange_hero_8",
+      "ownerItem": "Item_Owner_Hero_56",
+      "character": "hero_56",
+      "kind": "fellows",
+      "name": "Liz",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 1,
+      "order": 93
+    },
+    {
+      "row": "BaseLotteryExchange_09",
+      "reward": "Reward_BaseLotteryExchange_hero_09",
+      "ownerItem": "Item_Owner_Hero_101",
+      "character": "hero_101",
+      "kind": "fellows",
+      "name": "Emosen",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 92
+    },
+    {
+      "row": "BaseLotteryExchange_10",
+      "reward": "Reward_BaseLotteryExchange_wife_1",
+      "ownerItem": "Item_Owner_Wife_101",
+      "character": "wife_101",
+      "kind": "family",
+      "name": "Kosuzu",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 91
+    },
+    {
+      "row": "BaseLotteryExchange_12",
+      "reward": "Reward_BaseLotteryExchange_wife_2",
+      "ownerItem": "Item_Owner_Wife_102",
+      "character": "wife_102",
+      "kind": "family",
+      "name": "Sera",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 89
+    },
+    {
+      "row": "BaseLotteryExchange_13",
+      "reward": "Reward_BaseLotteryExchange_wife_3",
+      "ownerItem": "Item_Owner_Wife_103",
+      "character": "wife_103",
+      "kind": "family",
+      "name": "Lina",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 88
+    },
+    {
+      "row": "BaseLotteryExchange_15",
+      "reward": "Reward_BaseLotteryExchange_wife_4",
+      "ownerItem": "Item_Owner_Wife_104",
+      "character": "wife_104",
+      "kind": "family",
+      "name": "Denier",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 87
+    },
+    {
+      "row": "BaseLotteryExchange_16",
+      "reward": "Reward_BaseLotteryExchange_wife_5",
+      "ownerItem": "Item_Owner_Wife_105",
+      "character": "wife_105",
+      "kind": "family",
+      "name": "Baity",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 86
+    },
+    {
+      "row": "BaseLotteryExchange_17",
+      "reward": "Reward_BaseLotteryExchange_wife_6",
+      "ownerItem": "Item_Owner_Wife_106",
+      "character": "wife_106",
+      "kind": "family",
+      "name": "Lilith",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 2,
+      "order": 85
+    },
+    {
+      "row": "BaseLotteryExchange_19",
+      "reward": "Reward_BaseLotteryExchange_wife_8",
+      "ownerItem": "Item_Owner_Wife_60",
+      "character": "wife_60",
+      "kind": "family",
+      "name": "Wenreesa",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 1,
+      "order": 85
+    },
+    {
+      "row": "BaseLotteryExchange_18",
+      "reward": "Reward_BaseLotteryExchange_wife_7",
+      "ownerItem": "Item_Owner_Wife_52",
+      "character": "wife_52",
+      "kind": "family",
+      "name": "Melody",
+      "priceItem": "Item_Exchange_Hero_Universal",
+      "cost": 1,
+      "order": 84
+    }
+  ],
+  "fragmentsPerStone": {
+    "id": "Item_Piece_Hero_Universal",
+    "count": 20
+  },
+  "fairy": {
+    "cadence": 500,
+    "cadenceKey": "System.LotteryLuckyMax",
+    "ruleKey": "Rule:text:Lottery_19",
+    "ruleText": "\u25c6 Players can claim 1 reward for every 500 Fairies released. The unclaimed rewards can be accumulated.",
+    "rewardContent": "NOT IN CONFIG: no Reward_*Lucky* row exists (positive control: Reward_BaseLottery_1 is found in the same file). Everkai pays 1 Acquaint Stone on community evidence."
+  },
+  "unspokenRules": {
+    "key": "System.LotteryUnspokenRules",
+    "value": [
+      "BaseLottery_Reward_01",
+      "BaseLottery_Reward_03",
+      "BaseLottery_Reward_03",
+      "BaseLottery_Reward_06",
+      "BaseLottery_Reward_08",
+      "BaseLottery_Reward_06",
+      "BaseLottery_Reward_07",
+      "BaseLottery_Reward_08",
+      "BaseLottery_Reward_09",
+      "BaseLottery_Reward_10"
+    ],
+    "applied": false,
+    "note": "Verbatim ten-entry array of BaseLottery reward rows, starting with the 0.1% Acquaint Stone. Almost certainly a scripted opening sequence, but the key is a FAMILY of differently shaped rules -- System.FishWishUnspokenRules is {count,type,id} -- so which draws it overrides, and whether it is per account or per banner, cannot be settled from config. Not implemented; needs one sentence from a player of the original."
+  }
+}

@@ -1,0 +1,2239 @@
+{
+  "provenance": {
+    "source": "apk-audit/configs/config/logic",
+    "type": "version-matched original config tables",
+    "tables": {
+      "TowerDefenseStage.json": {
+        "rows": 885,
+        "sha256": "010d1a0b0175d4b40b5817f45a8ef70090cedaa070a4a8f14ed46909b509a7ce"
+      },
+      "TowerDefenseStall.json": {
+        "rows": 35,
+        "sha256": "e7bd30cd1bd6eadcf300899f4c0cc53d7d810f30a58cd78d42e211605a84e1b3"
+      },
+      "TowerDefenseLevel.json": {
+        "rows": 100,
+        "sha256": "d84226920a7bb1162d454c8b9b8ad7b2ce22bb8d0b12cbccfde1b22f9cab0e1e"
+      }
+    }
+  },
+  "modules": {
+    "1": 100,
+    "Anniversary_01": 150,
+    "CountrySide_01_EN": 75,
+    "CountrySide_01_EN_Day6": 75,
+    "Maidragon_EN": 85,
+    "MonsterGirl_EN": 80,
+    "TenSura": 80,
+    "DanMachi": 80,
+    "Sanrio": 80,
+    "FairyTail": 80
+  },
+  "permanentModule": "1",
+  "note": "TowerDefenseLevel has 100 rows too, but those are EXPO LEVELS (exp, stallNum, customerNum, customerInterval, expBonus), not stages. The two hundreds are different tables.",
+  "verifyFlags": "verify and confirm are the ORIGINAL table's own columns: 0 on Stage1-5 and 1 on Stage6-100. Everkai transcribes them as its \"Verify, Confirm\" flag, so that flag records the original's marking, not any uncertainty about Everkai's numbers.",
+  "stages": [
+    {
+      "id": 1,
+      "slots": 1,
+      "power": 14000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_1",
+      "verify": 0,
+      "confirm": 0
+    },
+    {
+      "id": 2,
+      "slots": 1,
+      "power": 18500,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_2",
+      "verify": 0,
+      "confirm": 0
+    },
+    {
+      "id": 3,
+      "slots": 2,
+      "power": 23000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_3",
+      "verify": 0,
+      "confirm": 0
+    },
+    {
+      "id": 4,
+      "slots": 2,
+      "power": 29000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 29000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_4",
+      "verify": 0,
+      "confirm": 0
+    },
+    {
+      "id": 5,
+      "slots": 2,
+      "power": 34000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 34000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_5",
+      "verify": 0,
+      "confirm": 0
+    },
+    {
+      "id": 6,
+      "slots": 2,
+      "power": 40000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 40000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 40000
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_6",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 7,
+      "slots": 2,
+      "power": 45000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 45000,
+        "goodsType2Power": 45000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_7",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 8,
+      "slots": 3,
+      "power": 59000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 59000,
+        "goodsType3Power": 59000
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_8",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 9,
+      "slots": 3,
+      "power": 60500,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 60500,
+        "goodsType2Power": 60500,
+        "goodsType3Power": 60500
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_9",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 10,
+      "slots": 3,
+      "power": 62000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 62000,
+        "goodsType3Power": 124000
+      },
+      "unlockReq": {
+        "openDay": 1
+      },
+      "clearReward": "Reward_TowerDefense_Stage_10",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 11,
+      "slots": 3,
+      "power": 70000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 70000,
+        "goodsType2Power": 70000,
+        "goodsType3Power": 70000
+      },
+      "unlockReq": {
+        "openDay": 2
+      },
+      "clearReward": "Reward_TowerDefense_Stage_11",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 12,
+      "slots": 3,
+      "power": 78000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 156000,
+        "goodsType3Power": 78000
+      },
+      "unlockReq": {
+        "openDay": 2
+      },
+      "clearReward": "Reward_TowerDefense_Stage_12",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 13,
+      "slots": 3,
+      "power": 113000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 226000,
+        "goodsType2Power": 113000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 2
+      },
+      "clearReward": "Reward_TowerDefense_Stage_13",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 14,
+      "slots": 3,
+      "power": 127000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 127000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 254000
+      },
+      "unlockReq": {
+        "openDay": 2
+      },
+      "clearReward": "Reward_TowerDefense_Stage_14",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 15,
+      "slots": 3,
+      "power": 142000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 142000,
+        "goodsType3Power": 284000
+      },
+      "unlockReq": {
+        "openDay": 2
+      },
+      "clearReward": "Reward_TowerDefense_Stage_15",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 16,
+      "slots": 4,
+      "power": 149000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 298000,
+        "goodsType2Power": 149000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 3
+      },
+      "clearReward": "Reward_TowerDefense_Stage_16",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 17,
+      "slots": 4,
+      "power": 156000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 468000
+      },
+      "unlockReq": {
+        "openDay": 3
+      },
+      "clearReward": "Reward_TowerDefense_Stage_17",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 18,
+      "slots": 4,
+      "power": 198000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 198000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 396000
+      },
+      "unlockReq": {
+        "openDay": 3
+      },
+      "clearReward": "Reward_TowerDefense_Stage_18",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 19,
+      "slots": 4,
+      "power": 242000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 242000,
+        "goodsType2Power": 242000,
+        "goodsType3Power": 242000
+      },
+      "unlockReq": {
+        "openDay": 3
+      },
+      "clearReward": "Reward_TowerDefense_Stage_19",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 20,
+      "slots": 4,
+      "power": 272000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 816000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 3
+      },
+      "clearReward": "Reward_TowerDefense_Stage_20",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 21,
+      "slots": 4,
+      "power": 302000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 302000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 604000
+      },
+      "unlockReq": {
+        "openDay": 4
+      },
+      "clearReward": "Reward_TowerDefense_Stage_21",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 22,
+      "slots": 4,
+      "power": 309000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 309000,
+        "goodsType2Power": 309000,
+        "goodsType3Power": 309000
+      },
+      "unlockReq": {
+        "openDay": 4
+      },
+      "clearReward": "Reward_TowerDefense_Stage_22",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 23,
+      "slots": 4,
+      "power": 316000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 948000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 4
+      },
+      "clearReward": "Reward_TowerDefense_Stage_23",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 24,
+      "slots": 4,
+      "power": 360000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 360000,
+        "goodsType2Power": 360000,
+        "goodsType3Power": 360000
+      },
+      "unlockReq": {
+        "openDay": 4
+      },
+      "clearReward": "Reward_TowerDefense_Stage_24",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 25,
+      "slots": 5,
+      "power": 350000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 700000,
+        "goodsType3Power": 350000
+      },
+      "unlockReq": {
+        "openDay": 4
+      },
+      "clearReward": "Reward_TowerDefense_Stage_25",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 26,
+      "slots": 5,
+      "power": 340000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 680000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 340000
+      },
+      "unlockReq": {
+        "openDay": 5
+      },
+      "clearReward": "Reward_TowerDefense_Stage_26",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 27,
+      "slots": 5,
+      "power": 370000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 1110000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 5
+      },
+      "clearReward": "Reward_TowerDefense_Stage_27",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 28,
+      "slots": 5,
+      "power": 390000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 390000,
+        "goodsType2Power": 780000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 5
+      },
+      "clearReward": "Reward_TowerDefense_Stage_28",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 29,
+      "slots": 5,
+      "power": 410000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 410000,
+        "goodsType2Power": 410000,
+        "goodsType3Power": 410000
+      },
+      "unlockReq": {
+        "openDay": 5
+      },
+      "clearReward": "Reward_TowerDefense_Stage_29",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 30,
+      "slots": 5,
+      "power": 420000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 420000,
+        "goodsType2Power": 840000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 5
+      },
+      "clearReward": "Reward_TowerDefense_Stage_30",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 31,
+      "slots": 5,
+      "power": 460000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 460000,
+        "goodsType2Power": 460000,
+        "goodsType3Power": 460000
+      },
+      "unlockReq": {
+        "openDay": 6
+      },
+      "clearReward": "Reward_TowerDefense_Stage_31",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 32,
+      "slots": 5,
+      "power": 475000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 475000,
+        "goodsType3Power": 950000
+      },
+      "unlockReq": {
+        "openDay": 6
+      },
+      "clearReward": "Reward_TowerDefense_Stage_32",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 33,
+      "slots": 5,
+      "power": 490000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 490000,
+        "goodsType3Power": 980000
+      },
+      "unlockReq": {
+        "openDay": 6
+      },
+      "clearReward": "Reward_TowerDefense_Stage_33",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 34,
+      "slots": 5,
+      "power": 510000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 510000,
+        "goodsType3Power": 1020000
+      },
+      "unlockReq": {
+        "openDay": 6
+      },
+      "clearReward": "Reward_TowerDefense_Stage_34",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 35,
+      "slots": 5,
+      "power": 530000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 530000,
+        "goodsType3Power": 1060000
+      },
+      "unlockReq": {
+        "openDay": 6
+      },
+      "clearReward": "Reward_TowerDefense_Stage_35",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 36,
+      "slots": 5,
+      "power": 670000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 670000,
+        "goodsType2Power": 1340000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 7
+      },
+      "clearReward": "Reward_TowerDefense_Stage_36",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 37,
+      "slots": 5,
+      "power": 740000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 1480000,
+        "goodsType3Power": 740000
+      },
+      "unlockReq": {
+        "openDay": 7
+      },
+      "clearReward": "Reward_TowerDefense_Stage_37",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 38,
+      "slots": 5,
+      "power": 750000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 750000,
+        "goodsType3Power": 1500000
+      },
+      "unlockReq": {
+        "openDay": 7
+      },
+      "clearReward": "Reward_TowerDefense_Stage_38",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 39,
+      "slots": 5,
+      "power": 830000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 830000,
+        "goodsType3Power": 1660000
+      },
+      "unlockReq": {
+        "openDay": 7
+      },
+      "clearReward": "Reward_TowerDefense_Stage_39",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 40,
+      "slots": 6,
+      "power": 825000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 3300000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 1650000
+      },
+      "unlockReq": {
+        "openDay": 7
+      },
+      "clearReward": "Reward_TowerDefense_Stage_40",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 41,
+      "slots": 6,
+      "power": 820000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 1640000,
+        "goodsType2Power": 1640000,
+        "goodsType3Power": 1640000
+      },
+      "unlockReq": {
+        "openDay": 8
+      },
+      "clearReward": "Reward_TowerDefense_Stage_41",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 42,
+      "slots": 6,
+      "power": 880000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 1760000,
+        "goodsType2Power": 1760000,
+        "goodsType3Power": 1760000
+      },
+      "unlockReq": {
+        "openDay": 8
+      },
+      "clearReward": "Reward_TowerDefense_Stage_42",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 43,
+      "slots": 6,
+      "power": 930000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 1860000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 3720000
+      },
+      "unlockReq": {
+        "openDay": 8
+      },
+      "clearReward": "Reward_TowerDefense_Stage_43",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 44,
+      "slots": 6,
+      "power": 980000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 1960000,
+        "goodsType2Power": 1960000,
+        "goodsType3Power": 1960000
+      },
+      "unlockReq": {
+        "openDay": 9
+      },
+      "clearReward": "Reward_TowerDefense_Stage_44",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 45,
+      "slots": 6,
+      "power": 1020000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 4080000,
+        "goodsType2Power": 2040000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 9
+      },
+      "clearReward": "Reward_TowerDefense_Stage_45",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 46,
+      "slots": 6,
+      "power": 1140000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 4560000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 2280000
+      },
+      "unlockReq": {
+        "openDay": 9
+      },
+      "clearReward": "Reward_TowerDefense_Stage_46",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 47,
+      "slots": 6,
+      "power": 1190000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 4760000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 2380000
+      },
+      "unlockReq": {
+        "openDay": 10
+      },
+      "clearReward": "Reward_TowerDefense_Stage_47",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 48,
+      "slots": 6,
+      "power": 1230000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 2460000,
+        "goodsType3Power": 4920000
+      },
+      "unlockReq": {
+        "openDay": 10
+      },
+      "clearReward": "Reward_TowerDefense_Stage_48",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 49,
+      "slots": 6,
+      "power": 1280000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 2560000,
+        "goodsType2Power": 2560000,
+        "goodsType3Power": 2560000
+      },
+      "unlockReq": {
+        "openDay": 10
+      },
+      "clearReward": "Reward_TowerDefense_Stage_49",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 50,
+      "slots": 6,
+      "power": 1340000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 2680000,
+        "goodsType2Power": 2680000,
+        "goodsType3Power": 2680000
+      },
+      "unlockReq": {
+        "openDay": 11
+      },
+      "clearReward": "Reward_TowerDefense_Stage_50",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 51,
+      "slots": 6,
+      "power": 1400000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 8400000
+      },
+      "unlockReq": {
+        "openDay": 11
+      },
+      "clearReward": "Reward_TowerDefense_Stage_51",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 52,
+      "slots": 6,
+      "power": 1490000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 2980000,
+        "goodsType2Power": 5960000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 11
+      },
+      "clearReward": "Reward_TowerDefense_Stage_52",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 53,
+      "slots": 6,
+      "power": 1580000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 6320000,
+        "goodsType2Power": 3160000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 12
+      },
+      "clearReward": "Reward_TowerDefense_Stage_53",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 54,
+      "slots": 6,
+      "power": 1650000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 6600000,
+        "goodsType2Power": 3300000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 12
+      },
+      "clearReward": "Reward_TowerDefense_Stage_54",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 55,
+      "slots": 6,
+      "power": 1830000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 7320000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 3660000
+      },
+      "unlockReq": {
+        "openDay": 12
+      },
+      "clearReward": "Reward_TowerDefense_Stage_55",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 56,
+      "slots": 6,
+      "power": 1910000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 3820000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 7640000
+      },
+      "unlockReq": {
+        "openDay": 13
+      },
+      "clearReward": "Reward_TowerDefense_Stage_56",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 57,
+      "slots": 6,
+      "power": 2010000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 8040000,
+        "goodsType3Power": 4020000
+      },
+      "unlockReq": {
+        "openDay": 13
+      },
+      "clearReward": "Reward_TowerDefense_Stage_57",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 58,
+      "slots": 6,
+      "power": 2120000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 4240000,
+        "goodsType2Power": 8480000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 13
+      },
+      "clearReward": "Reward_TowerDefense_Stage_58",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 59,
+      "slots": 6,
+      "power": 2180000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 8720000,
+        "goodsType2Power": 4360000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 14
+      },
+      "clearReward": "Reward_TowerDefense_Stage_59",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 60,
+      "slots": 6,
+      "power": 2280000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 4560000,
+        "goodsType3Power": 9120000
+      },
+      "unlockReq": {
+        "openDay": 14
+      },
+      "clearReward": "Reward_TowerDefense_Stage_60",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 61,
+      "slots": 6,
+      "power": 2330000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 9320000,
+        "goodsType3Power": 4660000
+      },
+      "unlockReq": {
+        "openDay": 14
+      },
+      "clearReward": "Reward_TowerDefense_Stage_61",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 62,
+      "slots": 6,
+      "power": 2500000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 10000000,
+        "goodsType2Power": 5000000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 15
+      },
+      "clearReward": "Reward_TowerDefense_Stage_62",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 63,
+      "slots": 6,
+      "power": 2600000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 10400000,
+        "goodsType3Power": 5200000
+      },
+      "unlockReq": {
+        "openDay": 15
+      },
+      "clearReward": "Reward_TowerDefense_Stage_63",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 64,
+      "slots": 6,
+      "power": 2700000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 5400000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 10800000
+      },
+      "unlockReq": {
+        "openDay": 15
+      },
+      "clearReward": "Reward_TowerDefense_Stage_64",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 65,
+      "slots": 6,
+      "power": 2800000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 11200000,
+        "goodsType2Power": 5600000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 16
+      },
+      "clearReward": "Reward_TowerDefense_Stage_65",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 66,
+      "slots": 6,
+      "power": 2900000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 11600000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 5800000
+      },
+      "unlockReq": {
+        "openDay": 16
+      },
+      "clearReward": "Reward_TowerDefense_Stage_66",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 67,
+      "slots": 6,
+      "power": 3200000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 6400000,
+        "goodsType2Power": 6400000,
+        "goodsType3Power": 6400000
+      },
+      "unlockReq": {
+        "openDay": 16
+      },
+      "clearReward": "Reward_TowerDefense_Stage_67",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 68,
+      "slots": 6,
+      "power": 3300000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 13200000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 6600000
+      },
+      "unlockReq": {
+        "openDay": 17
+      },
+      "clearReward": "Reward_TowerDefense_Stage_68",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 69,
+      "slots": 6,
+      "power": 3400000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 20400000
+      },
+      "unlockReq": {
+        "openDay": 17
+      },
+      "clearReward": "Reward_TowerDefense_Stage_69",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 70,
+      "slots": 6,
+      "power": 3450000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 13800000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 6900000
+      },
+      "unlockReq": {
+        "openDay": 17
+      },
+      "clearReward": "Reward_TowerDefense_Stage_70",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 71,
+      "slots": 6,
+      "power": 3500000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 14000000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 7000000
+      },
+      "unlockReq": {
+        "openDay": 18
+      },
+      "clearReward": "Reward_TowerDefense_Stage_71",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 72,
+      "slots": 6,
+      "power": 3550000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 14200000,
+        "goodsType3Power": 7100000
+      },
+      "unlockReq": {
+        "openDay": 18
+      },
+      "clearReward": "Reward_TowerDefense_Stage_72",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 73,
+      "slots": 6,
+      "power": 3600000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 7200000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 14400000
+      },
+      "unlockReq": {
+        "openDay": 18
+      },
+      "clearReward": "Reward_TowerDefense_Stage_73",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 74,
+      "slots": 6,
+      "power": 3800000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 22800000
+      },
+      "unlockReq": {
+        "openDay": 19
+      },
+      "clearReward": "Reward_TowerDefense_Stage_74",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 75,
+      "slots": 6,
+      "power": 3900000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 7800000,
+        "goodsType2Power": 7800000,
+        "goodsType3Power": 7800000
+      },
+      "unlockReq": {
+        "openDay": 19
+      },
+      "clearReward": "Reward_TowerDefense_Stage_75",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 76,
+      "slots": 6,
+      "power": 4000000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 8000000,
+        "goodsType3Power": 16000000
+      },
+      "unlockReq": {
+        "openDay": 19
+      },
+      "clearReward": "Reward_TowerDefense_Stage_76",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 77,
+      "slots": 6,
+      "power": 4200000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 8400000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 16800000
+      },
+      "unlockReq": {
+        "openDay": 20
+      },
+      "clearReward": "Reward_TowerDefense_Stage_77",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 78,
+      "slots": 6,
+      "power": 4300000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 25800000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 20
+      },
+      "clearReward": "Reward_TowerDefense_Stage_78",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 79,
+      "slots": 6,
+      "power": 4500000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 27000000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 20
+      },
+      "clearReward": "Reward_TowerDefense_Stage_79",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 80,
+      "slots": 6,
+      "power": 4800000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 9600000,
+        "goodsType2Power": 9600000,
+        "goodsType3Power": 9600000
+      },
+      "unlockReq": {
+        "openDay": 21
+      },
+      "clearReward": "Reward_TowerDefense_Stage_80",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 81,
+      "slots": 6,
+      "power": 5100000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 10200000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 20400000
+      },
+      "unlockReq": {
+        "openDay": 21
+      },
+      "clearReward": "Reward_TowerDefense_Stage_81",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 82,
+      "slots": 6,
+      "power": 5600000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 11200000,
+        "goodsType2Power": 11200000,
+        "goodsType3Power": 11200000
+      },
+      "unlockReq": {
+        "openDay": 21
+      },
+      "clearReward": "Reward_TowerDefense_Stage_82",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 83,
+      "slots": 6,
+      "power": 5900000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 11800000,
+        "goodsType2Power": 23600000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 22
+      },
+      "clearReward": "Reward_TowerDefense_Stage_83",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 84,
+      "slots": 6,
+      "power": 6200000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 12400000,
+        "goodsType2Power": 12400000,
+        "goodsType3Power": 12400000
+      },
+      "unlockReq": {
+        "openDay": 22
+      },
+      "clearReward": "Reward_TowerDefense_Stage_84",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 85,
+      "slots": 6,
+      "power": 6400000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 25600000,
+        "goodsType2Power": 12800000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 22
+      },
+      "clearReward": "Reward_TowerDefense_Stage_85",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 86,
+      "slots": 6,
+      "power": 6800000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 27200000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 13600000
+      },
+      "unlockReq": {
+        "openDay": 23
+      },
+      "clearReward": "Reward_TowerDefense_Stage_86",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 87,
+      "slots": 6,
+      "power": 7500000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 0,
+        "goodsType3Power": 45000000
+      },
+      "unlockReq": {
+        "openDay": 23
+      },
+      "clearReward": "Reward_TowerDefense_Stage_87",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 88,
+      "slots": 6,
+      "power": 7800000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 31200000,
+        "goodsType3Power": 15600000
+      },
+      "unlockReq": {
+        "openDay": 23
+      },
+      "clearReward": "Reward_TowerDefense_Stage_88",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 89,
+      "slots": 6,
+      "power": 8300000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 16600000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 33200000
+      },
+      "unlockReq": {
+        "openDay": 24
+      },
+      "clearReward": "Reward_TowerDefense_Stage_89",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 90,
+      "slots": 6,
+      "power": 8500000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 17000000,
+        "goodsType2Power": 34000000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 24
+      },
+      "clearReward": "Reward_TowerDefense_Stage_90",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 91,
+      "slots": 6,
+      "power": 9000000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 36000000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 18000000
+      },
+      "unlockReq": {
+        "openDay": 24
+      },
+      "clearReward": "Reward_TowerDefense_Stage_91",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 92,
+      "slots": 6,
+      "power": 9600000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 19200000,
+        "goodsType2Power": 19200000,
+        "goodsType3Power": 19200000
+      },
+      "unlockReq": {
+        "openDay": 25
+      },
+      "clearReward": "Reward_TowerDefense_Stage_92",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 93,
+      "slots": 6,
+      "power": 10100000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 20200000,
+        "goodsType2Power": 20200000,
+        "goodsType3Power": 20200000
+      },
+      "unlockReq": {
+        "openDay": 25
+      },
+      "clearReward": "Reward_TowerDefense_Stage_93",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 94,
+      "slots": 6,
+      "power": 10400000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 41600000,
+        "goodsType2Power": 20800000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 25
+      },
+      "clearReward": "Reward_TowerDefense_Stage_94",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 95,
+      "slots": 6,
+      "power": 10900000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 0,
+        "goodsType2Power": 43600000,
+        "goodsType3Power": 21800000
+      },
+      "unlockReq": {
+        "openDay": 26
+      },
+      "clearReward": "Reward_TowerDefense_Stage_95",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 96,
+      "slots": 6,
+      "power": 11200000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 44800000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 22400000
+      },
+      "unlockReq": {
+        "openDay": 26
+      },
+      "clearReward": "Reward_TowerDefense_Stage_96",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 97,
+      "slots": 6,
+      "power": 11400000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 45600000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 22800000
+      },
+      "unlockReq": {
+        "openDay": 26
+      },
+      "clearReward": "Reward_TowerDefense_Stage_97",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 98,
+      "slots": 6,
+      "power": 11900000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 47600000,
+        "goodsType2Power": 23800000,
+        "goodsType3Power": 0
+      },
+      "unlockReq": {
+        "openDay": 27
+      },
+      "clearReward": "Reward_TowerDefense_Stage_98",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 99,
+      "slots": 6,
+      "power": 12600000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 25200000,
+        "goodsType2Power": 0,
+        "goodsType3Power": 50400000
+      },
+      "unlockReq": {
+        "openDay": 27
+      },
+      "clearReward": "Reward_TowerDefense_Stage_99",
+      "verify": 1,
+      "confirm": 1
+    },
+    {
+      "id": 100,
+      "slots": 6,
+      "power": 13400000,
+      "satisfaction": 5,
+      "goodsType": {
+        "goodsType1": 1,
+        "goodsType2": 2,
+        "goodsType3": 3
+      },
+      "typePowerReq": {
+        "goodsType1Power": 26800000,
+        "goodsType2Power": 26800000,
+        "goodsType3Power": 26800000
+      },
+      "unlockReq": {
+        "openDay": 27
+      },
+      "clearReward": "Reward_TowerDefense_Stage_100",
+      "verify": 1,
+      "confirm": 1
+    }
+  ],
+  "stallCount": 35,
+  "levelRows": 100
+}
