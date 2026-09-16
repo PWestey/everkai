@@ -1,11 +1,15 @@
 // Coverage guard for lib/farm-upgrade-data.json -- the original's SimGame3PlantUpgrade ladder and
 // risePercent, SimGame3Plant.country (the affected business type), and SimGame3Field's 12 plots.
-// MEASURED 2026-09-15 against the full 1,499-table config set, with the decompiled original client
-// (private-server/readable) settling what each number MEANS:
+// MEASURED 2026-09-16 against the full 1,499-table config set, with the decompiled original client
+// (private-server/readable) and the original's own lang.json settling what each number MEANS:
 //   upgradeCost present on 39 level-1 and 39 level-2 rows, absent on all 39 level-3 rows (terminal);
-//     level 1->2 runs 30..110, level 2->3 runs 2,000..5,000. It is NOT a currency -- the client's
+//     level 1->2 runs 30..110, level 2->3 runs 2,000..5,000. It is NOT a currency and NOT a quantity
+//     of crop -- it is a COUNT OF TIMES the plant has been grown. The client's
 //     SimGame3Manager:GetPlantUpNoticeById tests "upgradeCost <= GetPlantRecordCount(plantId)", the
-//     plant's LIFETIME recordCount, not the spendable count. Nothing is deducted.
+//     plant's LIFETIME recordCount, never the spendable count; and lang.json settles the unit --
+//     SG3PlantUpTips is cn "累积种植的次数不足" / jp "植物を植えた回数が足りません" ("the accumulated
+//     NUMBER OF TIMES planted is insufficient"), SG3PlantRecord is cn "累计种出" / jp "累計成果".
+//     Nothing is deducted.
 //   risePercent 2500..20000 (hundredths of a percent), 117/117 equal to farm-level-data effectText;
 //     country 1..5 -> Inspiring/Diligent/Brave/Informed/Unfettered, 39/39 equal to that effectText.
 //   SimGame3Field: 12 plots, plot 1 isDefaultUnlock, the rest 100/300/600/3000 x4/4000/5000/5000/
@@ -22,7 +26,7 @@ const TYPES=['Inspiring','Diligent','Brave','Informed','Unfettered'];
 test('the ladder covers every plant at every level, and only terminal level 3 has no requirement',()=>{
  assert.equal(FARM_UPGRADES.length,39);
  assert.deepEqual(FARM_UPGRADES.map(p=>p.id),FARM_PLANTS.map(p=>p.id),'same 39 plants, same order, as farm-data');
- const need=l=>FARM_UPGRADES.map(p=>p.levels[l-1].harvestsRequired);
+ const need=l=>FARM_UPGRADES.map(p=>p.levels[l-1].growthsRequired);
  assert.equal(need(1).filter(c=>c!==undefined).length,39);
  assert.equal(need(2).filter(c=>c!==undefined).length,39);
  assert.equal(need(3).filter(c=>c!==undefined).length,0,'level 3 is terminal: no SimGame3PlantUpgrade level-3 row carries upgradeCost');
@@ -67,14 +71,16 @@ test('reclaiming spends the table Knowledge and stops at twelve',()=>{
  assert.equal(s.farm.knowledge,37000-37000+110,'11 reclaims at +10 Knowledge each, and the ladder totals 37,000');
 });
 
-test('the ladder is earned from the harvest record, spends nothing, and terminates',()=>{
+test('the ladder is earned by growing the plant, spends nothing, and terminates',()=>{
  let s=run(fresh(1000),'openFarm');
  assert.equal(farmPlantLevel(s.farm,'Plant1'),1,'every plant starts at level 1');
  assert.equal(farmUpgradeCost(s.farm,'Plant1'),30);
- assert.match(act(s,'upgradePlant',1000,'Plant1').error,/Harvest 30 more/,'the ladder is not free');
+ assert.match(act(s,'upgradePlant',1000,'Plant1').error,/Grow Rattle Grapes 30 more times/,'the ladder is not free');
  assert.match(act(s,'upgradePlant',1000,'NoSuchPlant').error,/known plant/);
- // Knowledge is NOT the resource: a rich farm with no harvest record still cannot climb.
- assert.match(act({...s,farm:{...s.farm,knowledge:1e6}},'upgradePlant',1000,'Plant1').error,/Harvest 30 more/);
+ // Knowledge is NOT the resource: a rich farm that has grown nothing still cannot climb.
+ assert.match(act({...s,farm:{...s.farm,knowledge:1e6}},'upgradePlant',1000,'Plant1').error,/Grow Rattle Grapes 30 more times/);
+ // Nor is the crop stock: a warehouse full of Rattle Grapes is not a record of growing them.
+ assert.match(act({...s,farm:{...s.farm,harvests:{Plant1:1e6}}},'upgradePlant',1000,'Plant1').error,/Grow Rattle Grapes 30 more times/);
  s={...s,farm:{...s.farm,knowledge:500,records:{Plant1:5030}}};
  s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,500,'nothing is deducted');
  s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,500);
@@ -86,18 +92,25 @@ test('the ladder is earned from the harvest record, spends nothing, and terminat
  assert.deepEqual(decode(JSON.stringify(s)),s,'plantLevels and records survive a save round trip');
 });
 
-test('the harvest record is a lifetime tally that spending the stock cannot undo',()=>{
+test('the record counts growings, not crop, and spending the stock cannot undo it',()=>{
  let s=run(fresh(1000),'openFarm');s=run(s,'sowFarm',0,'Plant1');
  s=run({...s,lastAt:181000},'harvestFarm',0,null,181000);
- assert.equal(s.farm.harvests.Plant1,10);assert.equal(s.farm.records.Plant1,10);
- // Emptying the sellable stock leaves the record standing -- that is the whole point of recordCount.
+ // ONE growing, TEN units of crop. The two tallies must not be the same number.
+ assert.equal(s.farm.harvests.Plant1,10,'stock is in crop units');
+ assert.equal(s.farm.records.Plant1,1,'the record is in growings');
+ // A level-3 crop yields 100 at a time and still counts once -- SG3PlantUpTips counts times planted.
+ const big={...s,farm:{...s.farm,plantLevels:{Plant1:3},records:{Plant1:1}}};
+ const grown=run({...run(big,'sowFarm',0,'Plant1'),lastAt:7201000+181000},'harvestFarm',0,null,7201000+181000);
+ assert.equal(grown.farm.harvests.Plant1,110,'10 already in store plus a 100-unit harvest');
+ assert.equal(grown.farm.records.Plant1,2,'still just one more growing');
+ // Emptying the sellable stock leaves the record standing -- that is the point of recordCount.
  const spent={...s,farm:{...s.farm,harvests:{Plant1:0}}};
- assert.ok(valid(spent));assert.equal(farmPlantRecord(spent.farm,'Plant1'),10);
- // A save written before the counter existed falls back to the stock on hand: a LOWER bound, so it
- // can only under-credit, never grant a level the player never earned.
- const legacy={...s,farm:{...s.farm,harvests:{Plant1:25}}};delete legacy.farm.records;
- assert.ok(valid(legacy));assert.equal(farmPlantRecord(legacy.farm,'Plant1'),25);
- assert.match(act(legacy,'upgradePlant',1000,'Plant1').error,/Harvest 5 more/);
+ assert.ok(valid(spent));assert.equal(farmPlantRecord(spent.farm,'Plant1'),1);
+ // A save written before the counter existed reads as 0: crop units in store cannot be converted
+ // into a number of growings, and guessing from them would OVER-credit.
+ const legacy={...s,farm:{...s.farm,harvests:{Plant1:2500}}};delete legacy.farm.records;
+ assert.ok(valid(legacy));assert.equal(farmPlantRecord(legacy.farm,'Plant1'),0);
+ assert.match(act(legacy,'upgradePlant',1000,'Plant1').error,/Grow Rattle Grapes 30 more times/);
 });
 
 test('a save cannot carry a plant level or record it never earned',()=>{
@@ -131,7 +144,7 @@ test('the per-type rise sums obtained plants at their own level, and is not yet 
  assert.deepEqual(farmPlantRise(s.farm,'Plant1'),{type:'Inspiring',level:1,percent:25});
  assert.deepEqual(farmPlantRise(s.farm,'Plant2'),{type:'Unfettered',level:1,percent:50});
  assert.equal(farmPlantRise(s.farm,'NoSuchPlant'),null);
- for(const t of TYPES)assert.equal(farmTypeRise(s.farm,t),0,'a farm that has harvested nothing adds nothing');
+ for(const t of TYPES)assert.equal(farmTypeRise(s.farm,t),0,'a farm that has grown nothing adds nothing');
  s={...s,farm:{...s.farm,records:{Plant1:30}}};
  assert.equal(farmTypeRise(s.farm,'Inspiring'),25,'one obtained Inspiring plant at level 1');
  assert.equal(farmTypeRise(s.farm,'Unfettered'),0,'an unobtained plant of another type adds nothing');
