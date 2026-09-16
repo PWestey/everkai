@@ -894,7 +894,8 @@ test('the Inn, Workshop, Raphael, Fountain, village and campaign chores all chan
 test('the journey, achievements, free recruits, farm orders, Inn gifts and Expo chores all pay out',()=>{
  const s=armed();
  // Journey: the first quest is "collect village gold"; once collected, the chore claims it.
- const j=run(run(s,'openingStart'),'collect');
+ // Finishing a habit now opens the journey itself (it pays Fame), so start it only if it is not already.
+ const j=run(s.opening?s:run(s,'openingStart'),'collect');
  assert.ok(choreRun('journey',j).ok.includes('openingClaim'));
  // Milestones and achievements: a fresh village already qualifies for some.
  const a=choreRun('achievements',run(s,'collect'));
