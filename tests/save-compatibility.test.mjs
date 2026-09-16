@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {validMine,mineState,MINE_ROWS} from '../lib/mine-clearance.mjs';
+import {FARM_MAX_PLOTS} from '../lib/farm.mjs';
 
 // A REAL PLAYER'S SAVE STOPPED LOADING because of the mine import on 2026-09-16, and nothing here
 // caught it. The import checked that the eight original ROWS were byte-identical and concluded "no save
@@ -57,3 +58,25 @@ test('a fresh save still round-trips, so the exemption changed nothing else',()=
  assert.ok(valid(s));
  assert.deepEqual(decode(JSON.stringify(s)),s);
  assert.equal(mineState(s).history.length,0);});
+
+// A SECOND LOCKOUT FROM THE SAME DAY, same shape as the mine one: for about two hours the farm shipped
+// with 40 plots (read off SimGame3Farmland) before the decompiled client corrected it to SimGame3Field's
+// 12. validFarm caps plots at FARM_MAX_PLOTS, so a save written in that window is refused outright.
+// The cap is right; refusing the save is not. Trim and load.
+test('a save with more plots than the cap is trimmed, not refused',()=>{
+ const plots=n=>({...fresh(T),farm:{knowledge:0,harvests:{},plots:Array(n).fill(null)}});
+ for(const n of [FARM_MAX_PLOTS+1,20,40]){
+  const back=decode(JSON.stringify(plots(n)));
+  assert.equal(back.farm.plots.length,FARM_MAX_PLOTS,`${n} plots trimmed to the cap`);
+  assert.ok(valid(back));
+ }
+ // Inert at or under the cap: a normal save must not be rewritten.
+ for(const n of [1,3,FARM_MAX_PLOTS]){
+  const s=plots(n);
+  assert.deepEqual(decode(JSON.stringify(s)),s,`${n} plots left exactly as they were`);
+ }
+ // The crop on a surviving plot is untouched -- trimming takes from the end only.
+ const withCrop=plots(FARM_MAX_PLOTS+3);
+ withCrop.farm.plots[0]={plant:'Plant1',harvestLevel:1,readyAt:T+60000,watered:false};
+ const back=decode(JSON.stringify(withCrop));
+ assert.deepEqual(back.farm.plots[0],withCrop.farm.plots[0],'plot 1 kept its crop');});
