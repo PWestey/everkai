@@ -24,6 +24,9 @@ test('supplies are a daily habit claim, not an unlimited free grant (ECON-07, BU
  assert.equal(valid({...got,supplyDay:7}),false,'a malformed claim day is not a save');});
 
 test('a keepsake is a daily habit reward, not the whole museum at once',()=>{
+ // ECON-12. Both museum faucets are gated exactly like supplyDay/restockDay: no habit, no keepsake.
+ assert.match(act(journal(),'claimMuseum',T).error,/Complete a daily habit/);
+ assert.match(act(journal(),'claimKeepsake',T,KEEPSAKES[0].id).error,/Complete a daily habit/);
  let s=daily(journal());
  const one=at(s,'claimMuseum',T);
  assert.equal(Object.keys(one.museum).length,1,`one of ${KEEPSAKES.length} keepsakes`);

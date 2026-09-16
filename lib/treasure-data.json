@@ -1,396 +1,2567 @@
 {
-  "provenance": {
-    "url": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/treasure-hunt/index.html",
-    "sha256": "ccf374beaca800f3431123b5bbba646d5b98721cc10e797cc38017b78259b5f8",
-    "kind": "community snapshot; not version matched",
-    "policy": "normal pools only; rounding normalized"
+ "provenance": {
+  "url": "https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/treasure-hunt/index.html",
+  "sha256": "ccf374beaca800f3431123b5bbba646d5b98721cc10e797cc38017b78259b5f8",
+  "kind": "community snapshot; not version matched",
+  "policy": "normal pools only; rounding normalized",
+  "names": "relic display names retained from the community snapshot pinned above",
+  "tables": {
+   "path": "Codex/2026-09-07/your/work/apk-audit/configs/config/logic/",
+   "RelicMap.json": "43b03f3e54eab243d97cb6fdec245b068e6e079b64d0a95c8074209fd32abbdd",
+   "GemBall.json": "e7095f879b94d3b2131f55c21b0404df1dfb3735e93b276460a6757342691d8e",
+   "GemGacha.json": "a993f5fc0e2fdfe8554ef66ced7ca8c00204195838c0ef3021ccdda7a506064b",
+   "RelicLevel.json": "bcd2cf05f51b845cb573adac0b62036bd3b34e6b6a846973e446122e2cefcd5f",
+   "Exhibit.json": "a87460d62cf0a512c65f46e883cbad8e4e8c5f3a2eed411bbf3b07ae2f456a5e",
+   "SkillBase.json": "a04ba18bdf0c18d12f1ab2f2e1c6cbfad6afeb9a19c4e6b99296e979a0a5ad75",
+   "ExhibitPart.json": "09768042e415efe2f192d97a55994617a24b61e72529392c8575e81dd726da08",
+   "split_reward/reward.json": "2c451783005bab38ed5b51e0533b9665c317edcee53ff7cca251013595d0be58"
   },
-  "areas": [
+  "pools": "BUG-26. Each RelicMap row lists THREE GemBall grades, not one. Everkai previously shipped only the grade-1 pool per area, leaving 22 of its 45 relics unreachable. All three pools per area are now imported from GemGacha -> split_reward/reward.json.",
+  "gemGrades": "RelicLevel.json GemBall1/2/3 are the per-Steeltooth-level weights (out of 10000) for which grade a dug gemstone is. Grade 3 is zero below Steeltooth level 8. Everkai rolls the grade at appraisal instead of at dig time: the distribution is identical for a fixed level and it needs no save-shape change.",
+  "effects": "BUG-27. Restoration used to pay an invented flat +1 gold/s. The original pays no gold at all: each exhibit carries a levelUpSkill typed prop (Exhibit.levelUpSkill -> SkillBase), and the museum’s only hourly payout is MuseumLevel.rewardHour, which pays Item_ExhibitEXP_* (Reward_MuseumLv0..50), not gold. Effect value = skillProp_Initial + exhibitLevel_above_1 * skillProp_Level.",
+  "adaptations": "Everkai keeps its own 20-step restoration ladder at level+1 duplicate materials (the original runs 120 steps priced in ExhibitEXP currency Everkai does not have). Exhibit level = 1 + restorationLevel, so a displayed unrestored relic already pays skillProp_Initial. Faction/rarity scoped talents are applied to every Fellow because Everkai models no faction or per-Fellow rarity; the original condition is preserved per relic under effectSource.condition.",
+  "unmodelled": "36 non-part relics: 8 map onto museumBonus.aptitude; the other 28 carry props with no Everkai channel and are recorded verbatim with effectNote instead of being approximated."
+ },
+ "gemGrades": [
+  {
+   "level": 1,
+   "weights": [
+    7675,
+    2325,
+    0
+   ]
+  },
+  {
+   "level": 2,
+   "weights": [
+    7600,
+    2400,
+    0
+   ]
+  },
+  {
+   "level": 3,
+   "weights": [
+    7525,
+    2475,
+    0
+   ]
+  },
+  {
+   "level": 4,
+   "weights": [
+    7450,
+    2550,
+    0
+   ]
+  },
+  {
+   "level": 5,
+   "weights": [
+    7375,
+    2625,
+    0
+   ]
+  },
+  {
+   "level": 6,
+   "weights": [
+    7300,
+    2700,
+    0
+   ]
+  },
+  {
+   "level": 7,
+   "weights": [
+    7225,
+    2775,
+    0
+   ]
+  },
+  {
+   "level": 8,
+   "weights": [
+    6490,
+    2850,
+    660
+   ]
+  },
+  {
+   "level": 9,
+   "weights": [
+    6395,
+    2925,
+    680
+   ]
+  },
+  {
+   "level": 10,
+   "weights": [
+    6300,
+    3000,
+    700
+   ]
+  },
+  {
+   "level": 11,
+   "weights": [
+    6205,
+    3075,
+    720
+   ]
+  },
+  {
+   "level": 12,
+   "weights": [
+    6110,
+    3150,
+    740
+   ]
+  },
+  {
+   "level": 13,
+   "weights": [
+    6015,
+    3225,
+    760
+   ]
+  },
+  {
+   "level": 14,
+   "weights": [
+    5920,
+    3300,
+    780
+   ]
+  },
+  {
+   "level": 15,
+   "weights": [
+    5825,
+    3375,
+    800
+   ]
+  },
+  {
+   "level": 16,
+   "weights": [
+    5730,
+    3450,
+    820
+   ]
+  },
+  {
+   "level": 17,
+   "weights": [
+    5635,
+    3525,
+    840
+   ]
+  },
+  {
+   "level": 18,
+   "weights": [
+    5540,
+    3600,
+    860
+   ]
+  },
+  {
+   "level": 19,
+   "weights": [
+    5445,
+    3675,
+    880
+   ]
+  },
+  {
+   "level": 20,
+   "weights": [
+    5350,
+    3750,
+    900
+   ]
+  },
+  {
+   "level": 21,
+   "weights": [
+    5255,
+    3825,
+    920
+   ]
+  },
+  {
+   "level": 22,
+   "weights": [
+    5160,
+    3900,
+    940
+   ]
+  },
+  {
+   "level": 23,
+   "weights": [
+    5065,
+    3975,
+    960
+   ]
+  },
+  {
+   "level": 24,
+   "weights": [
+    4970,
+    4050,
+    980
+   ]
+  },
+  {
+   "level": 25,
+   "weights": [
+    4875,
+    4125,
+    1000
+   ]
+  },
+  {
+   "level": 26,
+   "weights": [
+    4780,
+    4200,
+    1020
+   ]
+  },
+  {
+   "level": 27,
+   "weights": [
+    4685,
+    4275,
+    1040
+   ]
+  },
+  {
+   "level": 28,
+   "weights": [
+    4590,
+    4350,
+    1060
+   ]
+  },
+  {
+   "level": 29,
+   "weights": [
+    4495,
+    4425,
+    1080
+   ]
+  },
+  {
+   "level": 30,
+   "weights": [
+    4400,
+    4500,
+    1100
+   ]
+  }
+ ],
+ "areas": [
+  {
+   "id": "Relic001",
+   "name": "Original Ruins",
+   "gem": "GemBall101",
+   "level": 1,
+   "totalPercent": 99.9999,
+   "pool": [
     {
-      "id": "Relic001",
-      "name": "Original Ruins",
-      "gem": "GemBall101",
-      "level": 1,
-      "totalPercent": 99.99,
-      "pool": [
-        {
-          "id": "1101",
-          "percent": 25.0
-        },
-        {
-          "id": "1102",
-          "percent": 25.0
-        },
-        {
-          "id": "1103",
-          "percent": 25.0
-        },
-        {
-          "id": "1201",
-          "percent": 7.33
-        },
-        {
-          "id": "1202",
-          "percent": 7.33
-        },
-        {
-          "id": "1203",
-          "percent": 7.33
-        },
-        {
-          "id": "1301",
-          "percent": 1.0
-        },
-        {
-          "id": "1302",
-          "percent": 1.0
-        },
-        {
-          "id": "1303",
-          "percent": 1.0
-        }
-      ]
+     "id": "1101",
+     "percent": 25.0025,
+     "tier": 1
     },
     {
-      "id": "Relic002",
-      "name": "Memory Cave",
-      "gem": "GemBall201",
-      "level": 2,
-      "totalPercent": 100.0,
-      "pool": [
-        {
-          "id": "2101",
-          "percent": 18.75
-        },
-        {
-          "id": "2102",
-          "percent": 18.75
-        },
-        {
-          "id": "2103",
-          "percent": 18.75
-        },
-        {
-          "id": "2104",
-          "percent": 18.75
-        },
-        {
-          "id": "2201",
-          "percent": 5.5
-        },
-        {
-          "id": "2202",
-          "percent": 5.5
-        },
-        {
-          "id": "2203",
-          "percent": 5.5
-        },
-        {
-          "id": "2204",
-          "percent": 5.5
-        },
-        {
-          "id": "2301",
-          "percent": 1.0
-        },
-        {
-          "id": "2304",
-          "percent": 1.0
-        },
-        {
-          "id": "2306",
-          "percent": 1.0
-        }
-      ]
+     "id": "1102",
+     "percent": 25.0025,
+     "tier": 1
     },
     {
-      "id": "Relic003",
-      "name": "Frozen Depths",
-      "gem": "GemBall301",
-      "level": 3,
-      "totalPercent": 100.0,
-      "pool": [
-        {
-          "id": "2101",
-          "percent": 18.75
-        },
-        {
-          "id": "2102",
-          "percent": 18.75
-        },
-        {
-          "id": "2103",
-          "percent": 18.75
-        },
-        {
-          "id": "2104",
-          "percent": 18.75
-        },
-        {
-          "id": "2201",
-          "percent": 5.5
-        },
-        {
-          "id": "2202",
-          "percent": 5.5
-        },
-        {
-          "id": "2203",
-          "percent": 5.5
-        },
-        {
-          "id": "2204",
-          "percent": 5.5
-        },
-        {
-          "id": "2302",
-          "percent": 1.0
-        },
-        {
-          "id": "2304",
-          "percent": 1.0
-        },
-        {
-          "id": "2305",
-          "percent": 1.0
-        }
-      ]
+     "id": "1103",
+     "percent": 25.0025,
+     "tier": 1
     },
     {
-      "id": "Relic004",
-      "name": "Ice Shipwreck",
-      "gem": "GemBall401",
-      "level": 4,
-      "totalPercent": 100.0,
-      "pool": [
-        {
-          "id": "2101",
-          "percent": 18.75
-        },
-        {
-          "id": "2102",
-          "percent": 18.75
-        },
-        {
-          "id": "2103",
-          "percent": 18.75
-        },
-        {
-          "id": "2104",
-          "percent": 18.75
-        },
-        {
-          "id": "2201",
-          "percent": 5.5
-        },
-        {
-          "id": "2202",
-          "percent": 5.5
-        },
-        {
-          "id": "2203",
-          "percent": 5.5
-        },
-        {
-          "id": "2204",
-          "percent": 5.5
-        },
-        {
-          "id": "2303",
-          "percent": 1.0
-        },
-        {
-          "id": "2305",
-          "percent": 1.0
-        },
-        {
-          "id": "2306",
-          "percent": 1.0
-        }
-      ]
+     "id": "1201",
+     "percent": 7.3307,
+     "tier": 2
+    },
+    {
+     "id": "1202",
+     "percent": 7.3307,
+     "tier": 2
+    },
+    {
+     "id": "1203",
+     "percent": 7.3307,
+     "tier": 2
+    },
+    {
+     "id": "1301",
+     "percent": 1.0001,
+     "tier": 3
+    },
+    {
+     "id": "1302",
+     "percent": 1.0001,
+     "tier": 3
+    },
+    {
+     "id": "1303",
+     "percent": 1.0001,
+     "tier": 3
     }
-  ],
-  "relics": [
+   ],
+   "grades": [
     {
-      "id": "2501",
-      "name": "Ladon's Skeleton"
+     "gem": "GemBall101",
+     "grade": 1,
+     "pool": [
+      {
+       "id": "1101",
+       "percent": 25.0025,
+       "tier": 1
+      },
+      {
+       "id": "1102",
+       "percent": 25.0025,
+       "tier": 1
+      },
+      {
+       "id": "1103",
+       "percent": 25.0025,
+       "tier": 1
+      },
+      {
+       "id": "1201",
+       "percent": 7.3307,
+       "tier": 2
+      },
+      {
+       "id": "1202",
+       "percent": 7.3307,
+       "tier": 2
+      },
+      {
+       "id": "1203",
+       "percent": 7.3307,
+       "tier": 2
+      },
+      {
+       "id": "1301",
+       "percent": 1.0001,
+       "tier": 3
+      },
+      {
+       "id": "1302",
+       "percent": 1.0001,
+       "tier": 3
+      },
+      {
+       "id": "1303",
+       "percent": 1.0001,
+       "tier": 3
+      }
+     ],
+     "totalPercent": 99.9999
     },
     {
-      "id": "2901",
-      "name": "Ancient Golden Mural"
+     "gem": "GemBall102",
+     "grade": 2,
+     "pool": [
+      {
+       "id": "1101",
+       "percent": 9.998,
+       "tier": 1
+      },
+      {
+       "id": "1102",
+       "percent": 9.998,
+       "tier": 1
+      },
+      {
+       "id": "1103",
+       "percent": 9.998,
+       "tier": 1
+      },
+      {
+       "id": "1201",
+       "percent": 19.996,
+       "tier": 2
+      },
+      {
+       "id": "1202",
+       "percent": 19.996,
+       "tier": 2
+      },
+      {
+       "id": "1203",
+       "percent": 19.996,
+       "tier": 2
+      },
+      {
+       "id": "1301",
+       "percent": 1.6697,
+       "tier": 3
+      },
+      {
+       "id": "1302",
+       "percent": 1.6697,
+       "tier": 3
+      },
+      {
+       "id": "1303",
+       "percent": 1.6697,
+       "tier": 3
+      },
+      {
+       "id": "1401",
+       "percent": 1.6697,
+       "tier": 4
+      },
+      {
+       "id": "1402",
+       "percent": 1.6697,
+       "tier": 4
+      },
+      {
+       "id": "1403",
+       "percent": 1.6697,
+       "tier": 4
+      }
+     ],
+     "totalPercent": 100.0002
     },
     {
-      "id": "2401",
-      "name": "Snow Cyclops' Eye Fossil"
-    },
-    {
-      "id": "2402",
-      "name": "Iceborg Monster Wolf"
-    },
-    {
-      "id": "2403",
-      "name": "Oyster Trap"
-    },
-    {
-      "id": "2404",
-      "name": "Narwhal Fossil"
-    },
-    {
-      "id": "2405",
-      "name": "Sledge"
-    },
-    {
-      "id": "2406",
-      "name": "Bear-Eared Seal"
-    },
-    {
-      "id": "1401",
-      "name": "Golden Dragon Scale"
-    },
-    {
-      "id": "1402",
-      "name": "Saber-Toothed Tiger"
-    },
-    {
-      "id": "1403",
-      "name": "Lucky Megaloceros"
-    },
-    {
-      "id": "2407",
-      "name": "Mammoth"
-    },
-    {
-      "id": "2408",
-      "name": "Ironhead Turtle"
-    },
-    {
-      "id": "1301",
-      "name": "Golden Mural"
-    },
-    {
-      "id": "1302",
-      "name": "Four-Legged Shark Fossil"
-    },
-    {
-      "id": "1303",
-      "name": "Medusa Statue"
-    },
-    {
-      "id": "2301",
-      "name": "Miracle Medicine"
-    },
-    {
-      "id": "2302",
-      "name": "Master Key"
-    },
-    {
-      "id": "2303",
-      "name": "Protective Battle Flag"
-    },
-    {
-      "id": "2304",
-      "name": "Giant Serpent Egg"
-    },
-    {
-      "id": "2305",
-      "name": "Spatial Mirror"
-    },
-    {
-      "id": "2306",
-      "name": "Golden Cloak"
-    },
-    {
-      "id": "1201",
-      "name": "Golden Mushroom Statue"
-    },
-    {
-      "id": "1202",
-      "name": "Behemoth Footprint"
-    },
-    {
-      "id": "1203",
-      "name": "Survival of the Fittest Fossil"
-    },
-    {
-      "id": "2201",
-      "name": "Hornstone"
-    },
-    {
-      "id": "2202",
-      "name": "Debt Ledger"
-    },
-    {
-      "id": "2203",
-      "name": "Copper Hot Pot"
-    },
-    {
-      "id": "2204",
-      "name": "Circular Stone Formation"
-    },
-    {
-      "id": "1101",
-      "name": "Anomalocaris Fossil"
-    },
-    {
-      "id": "1102",
-      "name": "Horned Seahorse Fossil"
-    },
-    {
-      "id": "1103",
-      "name": "Giant Trilobite"
-    },
-    {
-      "id": "2101",
-      "name": "Giant Ammonite"
-    },
-    {
-      "id": "2102",
-      "name": "Unfettered Oracle Stone Tablet"
-    },
-    {
-      "id": "2103",
-      "name": "No Entry Sign"
-    },
-    {
-      "id": "2104",
-      "name": "Beast Taming Gloves"
-    },
-    {
-      "id": "25015",
-      "name": "Dragon Leg Bones"
-    },
-    {
-      "id": "25011",
-      "name": "Dragon Skull"
-    },
-    {
-      "id": "25012",
-      "name": "Dragon Spine"
-    },
-    {
-      "id": "25016",
-      "name": "Dragon Tail Bones"
-    },
-    {
-      "id": "25014",
-      "name": "Dragon Tarsal Bones"
-    },
-    {
-      "id": "25013",
-      "name": "Dragon Wing Bones"
-    },
-    {
-      "id": "29012",
-      "name": "Incoming Cataclysm"
-    },
-    {
-      "id": "29013",
-      "name": "Primordial Thermal Circle"
-    },
-    {
-      "id": "29011",
-      "name": "Protection from Northrealm Guardian"
+     "gem": "GemBall103",
+     "grade": 3,
+     "pool": [
+      {
+       "id": "1301",
+       "percent": 20.514,
+       "tier": 3
+      },
+      {
+       "id": "1302",
+       "percent": 20.514,
+       "tier": 3
+      },
+      {
+       "id": "1303",
+       "percent": 20.514,
+       "tier": 3
+      },
+      {
+       "id": "1401",
+       "percent": 12.8193,
+       "tier": 4
+      },
+      {
+       "id": "1402",
+       "percent": 12.8193,
+       "tier": 4
+      },
+      {
+       "id": "1403",
+       "percent": 12.8193,
+       "tier": 4
+      }
+     ],
+     "totalPercent": 99.9999
     }
-  ]
+   ]
+  },
+  {
+   "id": "Relic002",
+   "name": "Memory Cave",
+   "gem": "GemBall201",
+   "level": 2,
+   "totalPercent": 100.0,
+   "pool": [
+    {
+     "id": "2101",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2102",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2103",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2104",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2201",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2202",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2203",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2204",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2301",
+     "percent": 1.0,
+     "tier": 3
+    },
+    {
+     "id": "2304",
+     "percent": 1.0,
+     "tier": 3
+    },
+    {
+     "id": "2306",
+     "percent": 1.0,
+     "tier": 3
+    }
+   ],
+   "grades": [
+    {
+     "gem": "GemBall201",
+     "grade": 1,
+     "pool": [
+      {
+       "id": "2101",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2102",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2103",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2104",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2201",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2202",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2203",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2204",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2301",
+       "percent": 1.0,
+       "tier": 3
+      },
+      {
+       "id": "2304",
+       "percent": 1.0,
+       "tier": 3
+      },
+      {
+       "id": "2306",
+       "percent": 1.0,
+       "tier": 3
+      }
+     ],
+     "totalPercent": 100.0
+    },
+    {
+     "gem": "GemBall202",
+     "grade": 2,
+     "pool": [
+      {
+       "id": "2101",
+       "percent": 7.4985,
+       "tier": 1
+      },
+      {
+       "id": "2102",
+       "percent": 7.4985,
+       "tier": 1
+      },
+      {
+       "id": "2103",
+       "percent": 7.4985,
+       "tier": 1
+      },
+      {
+       "id": "2104",
+       "percent": 7.4985,
+       "tier": 1
+      },
+      {
+       "id": "2201",
+       "percent": 14.997,
+       "tier": 2
+      },
+      {
+       "id": "2202",
+       "percent": 14.997,
+       "tier": 2
+      },
+      {
+       "id": "2203",
+       "percent": 14.997,
+       "tier": 2
+      },
+      {
+       "id": "2204",
+       "percent": 14.997,
+       "tier": 2
+      },
+      {
+       "id": "2301",
+       "percent": 1.6697,
+       "tier": 3
+      },
+      {
+       "id": "2304",
+       "percent": 1.6697,
+       "tier": 3
+      },
+      {
+       "id": "2306",
+       "percent": 1.6697,
+       "tier": 3
+      },
+      {
+       "id": "2401",
+       "percent": 1.6697,
+       "tier": 4
+      },
+      {
+       "id": "2406",
+       "percent": 1.6697,
+       "tier": 4
+      },
+      {
+       "id": "2407",
+       "percent": 1.6697,
+       "tier": 4
+      }
+     ],
+     "totalPercent": 100.0002
+    },
+    {
+     "gem": "GemBall203",
+     "grade": 3,
+     "pool": [
+      {
+       "id": "2301",
+       "percent": 17.6369,
+       "tier": 3
+      },
+      {
+       "id": "2304",
+       "percent": 17.6369,
+       "tier": 3
+      },
+      {
+       "id": "2306",
+       "percent": 17.6369,
+       "tier": 3
+      },
+      {
+       "id": "2401",
+       "percent": 11.0214,
+       "tier": 4
+      },
+      {
+       "id": "2406",
+       "percent": 11.0214,
+       "tier": 4
+      },
+      {
+       "id": "2407",
+       "percent": 11.0214,
+       "tier": 4
+      },
+      {
+       "id": "29011",
+       "percent": 2.558,
+       "tier": 5
+      },
+      {
+       "id": "29012",
+       "percent": 2.558,
+       "tier": 5
+      },
+      {
+       "id": "29013",
+       "percent": 2.558,
+       "tier": 5
+      },
+      {
+       "id": "25011",
+       "percent": 1.0585,
+       "tier": 6
+      },
+      {
+       "id": "25012",
+       "percent": 1.0585,
+       "tier": 6
+      },
+      {
+       "id": "25013",
+       "percent": 1.0585,
+       "tier": 6
+      },
+      {
+       "id": "25014",
+       "percent": 1.0585,
+       "tier": 6
+      },
+      {
+       "id": "25015",
+       "percent": 1.0585,
+       "tier": 6
+      },
+      {
+       "id": "25016",
+       "percent": 1.0585,
+       "tier": 6
+      }
+     ],
+     "totalPercent": 99.9999
+    }
+   ]
+  },
+  {
+   "id": "Relic003",
+   "name": "Frozen Depths",
+   "gem": "GemBall301",
+   "level": 3,
+   "totalPercent": 100.0,
+   "pool": [
+    {
+     "id": "2101",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2102",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2103",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2104",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2201",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2202",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2203",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2204",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2302",
+     "percent": 1.0,
+     "tier": 3
+    },
+    {
+     "id": "2304",
+     "percent": 1.0,
+     "tier": 3
+    },
+    {
+     "id": "2305",
+     "percent": 1.0,
+     "tier": 3
+    }
+   ],
+   "grades": [
+    {
+     "gem": "GemBall301",
+     "grade": 1,
+     "pool": [
+      {
+       "id": "2101",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2102",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2103",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2104",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2201",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2202",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2203",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2204",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2302",
+       "percent": 1.0,
+       "tier": 3
+      },
+      {
+       "id": "2304",
+       "percent": 1.0,
+       "tier": 3
+      },
+      {
+       "id": "2305",
+       "percent": 1.0,
+       "tier": 3
+      }
+     ],
+     "totalPercent": 100.0
+    },
+    {
+     "gem": "GemBall302",
+     "grade": 2,
+     "pool": [
+      {
+       "id": "2101",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2102",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2103",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2104",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2201",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2202",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2203",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2204",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2302",
+       "percent": 1.6698,
+       "tier": 3
+      },
+      {
+       "id": "2304",
+       "percent": 1.6698,
+       "tier": 3
+      },
+      {
+       "id": "2305",
+       "percent": 1.6698,
+       "tier": 3
+      },
+      {
+       "id": "2402",
+       "percent": 1.2499,
+       "tier": 4
+      },
+      {
+       "id": "2404",
+       "percent": 1.2499,
+       "tier": 4
+      },
+      {
+       "id": "2407",
+       "percent": 1.2499,
+       "tier": 4
+      },
+      {
+       "id": "2408",
+       "percent": 1.2499,
+       "tier": 4
+      }
+     ],
+     "totalPercent": 100.0002
+    },
+    {
+     "gem": "GemBall303",
+     "grade": 3,
+     "pool": [
+      {
+       "id": "2302",
+       "percent": 17.6346,
+       "tier": 3
+      },
+      {
+       "id": "2304",
+       "percent": 17.6346,
+       "tier": 3
+      },
+      {
+       "id": "2305",
+       "percent": 17.6346,
+       "tier": 3
+      },
+      {
+       "id": "2402",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "2404",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "2407",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "2408",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "29011",
+       "percent": 2.5577,
+       "tier": 5
+      },
+      {
+       "id": "29012",
+       "percent": 2.5577,
+       "tier": 5
+      },
+      {
+       "id": "29013",
+       "percent": 2.5577,
+       "tier": 5
+      },
+      {
+       "id": "25011",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25012",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25013",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25014",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25015",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25016",
+       "percent": 1.0583,
+       "tier": 6
+      }
+     ],
+     "totalPercent": 99.9999
+    }
+   ]
+  },
+  {
+   "id": "Relic004",
+   "name": "Ice Shipwreck",
+   "gem": "GemBall401",
+   "level": 4,
+   "totalPercent": 100.0,
+   "pool": [
+    {
+     "id": "2101",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2102",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2103",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2104",
+     "percent": 18.75,
+     "tier": 1
+    },
+    {
+     "id": "2201",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2202",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2203",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2204",
+     "percent": 5.5,
+     "tier": 2
+    },
+    {
+     "id": "2303",
+     "percent": 1.0,
+     "tier": 3
+    },
+    {
+     "id": "2305",
+     "percent": 1.0,
+     "tier": 3
+    },
+    {
+     "id": "2306",
+     "percent": 1.0,
+     "tier": 3
+    }
+   ],
+   "grades": [
+    {
+     "gem": "GemBall401",
+     "grade": 1,
+     "pool": [
+      {
+       "id": "2101",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2102",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2103",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2104",
+       "percent": 18.75,
+       "tier": 1
+      },
+      {
+       "id": "2201",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2202",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2203",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2204",
+       "percent": 5.5,
+       "tier": 2
+      },
+      {
+       "id": "2303",
+       "percent": 1.0,
+       "tier": 3
+      },
+      {
+       "id": "2305",
+       "percent": 1.0,
+       "tier": 3
+      },
+      {
+       "id": "2306",
+       "percent": 1.0,
+       "tier": 3
+      }
+     ],
+     "totalPercent": 100.0
+    },
+    {
+     "gem": "GemBall402",
+     "grade": 2,
+     "pool": [
+      {
+       "id": "2101",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2102",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2103",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2104",
+       "percent": 7.4993,
+       "tier": 1
+      },
+      {
+       "id": "2201",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2202",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2203",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2204",
+       "percent": 14.9985,
+       "tier": 2
+      },
+      {
+       "id": "2303",
+       "percent": 1.6698,
+       "tier": 3
+      },
+      {
+       "id": "2305",
+       "percent": 1.6698,
+       "tier": 3
+      },
+      {
+       "id": "2306",
+       "percent": 1.6698,
+       "tier": 3
+      },
+      {
+       "id": "2403",
+       "percent": 1.2499,
+       "tier": 4
+      },
+      {
+       "id": "2405",
+       "percent": 1.2499,
+       "tier": 4
+      },
+      {
+       "id": "2406",
+       "percent": 1.2499,
+       "tier": 4
+      },
+      {
+       "id": "2408",
+       "percent": 1.2499,
+       "tier": 4
+      }
+     ],
+     "totalPercent": 100.0002
+    },
+    {
+     "gem": "GemBall403",
+     "grade": 3,
+     "pool": [
+      {
+       "id": "2303",
+       "percent": 17.6346,
+       "tier": 3
+      },
+      {
+       "id": "2305",
+       "percent": 17.6346,
+       "tier": 3
+      },
+      {
+       "id": "2306",
+       "percent": 17.6346,
+       "tier": 3
+      },
+      {
+       "id": "2403",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "2405",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "2406",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "2408",
+       "percent": 8.2683,
+       "tier": 4
+      },
+      {
+       "id": "29011",
+       "percent": 2.5577,
+       "tier": 5
+      },
+      {
+       "id": "29012",
+       "percent": 2.5577,
+       "tier": 5
+      },
+      {
+       "id": "29013",
+       "percent": 2.5577,
+       "tier": 5
+      },
+      {
+       "id": "25011",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25012",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25013",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25014",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25015",
+       "percent": 1.0583,
+       "tier": 6
+      },
+      {
+       "id": "25016",
+       "percent": 1.0583,
+       "tier": 6
+      }
+     ],
+     "totalPercent": 99.9999
+    }
+   ]
+  }
+ ],
+ "relics": [
+  {
+   "id": "2501",
+   "name": "Ladon's Skeleton",
+   "assembledFrom": [
+    "25011",
+    "25012",
+    "25013",
+    "25014",
+    "25015",
+    "25016"
+   ],
+   "effect": {
+    "stat": "aptitude",
+    "initial": 45,
+    "perLevel": 3
+   },
+   "effectSource": {
+    "reference": "SimGame5_2501",
+    "sourceKey": "Skill_SimGame5_2501_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 45,
+    "perLevel": 3,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "2901",
+   "name": "Ancient Golden Mural",
+   "assembledFrom": [
+    "29011",
+    "29012",
+    "29013"
+   ],
+   "effect": {
+    "stat": "aptitude",
+    "initial": 20,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2901",
+    "sourceKey": "Skill_SimGame5_2901_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 20,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "2401",
+   "name": "Snow Cyclops' Eye Fossil",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2401",
+    "sourceKey": "Skill_SimGame5_2401_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 750000,
+    "perLevel": 50000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2402",
+   "name": "Iceborg Monster Wolf",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2402",
+    "sourceKey": "Skill_SimGame5_2402_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 60000,
+    "perLevel": 3000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "all"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2403",
+   "name": "Oyster Trap",
+   "effect": {
+    "stat": "aptitude",
+    "initial": 8,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2403",
+    "sourceKey": "Skill_SimGame5_2403_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 8,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "1"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "2404",
+   "name": "Narwhal Fossil",
+   "effect": {
+    "stat": "aptitude",
+    "initial": 8,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2404",
+    "sourceKey": "Skill_SimGame5_2404_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 8,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "2"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "2405",
+   "name": "Sledge",
+   "effect": {
+    "stat": "aptitude",
+    "initial": 8,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2405",
+    "sourceKey": "Skill_SimGame5_2405_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 8,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "3"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "2406",
+   "name": "Bear-Eared Seal",
+   "effect": {
+    "stat": "aptitude",
+    "initial": 8,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2406",
+    "sourceKey": "Skill_SimGame5_2406_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 8,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "1401",
+   "name": "Golden Dragon Scale",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1401",
+    "sourceKey": "Skill_SimGame5_1401_1",
+    "prop": "intimacy",
+    "propType": "extradd",
+    "initial": 20,
+    "perLevel": 1,
+    "target": "wife",
+    "condition": {
+     "conditionType": "all"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: Wife intimacy; Everkai has no Wife intimacy stat"
+  },
+  {
+   "id": "1402",
+   "name": "Saber-Toothed Tiger",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1402",
+    "sourceKey": "Skill_SimGame5_1402_1",
+    "prop": "charm",
+    "propType": "extradd",
+    "initial": 20,
+    "perLevel": 1,
+    "target": "wife",
+    "condition": {
+     "conditionType": "all"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: Wife charm; Everkai has no Wife charm stat"
+  },
+  {
+   "id": "1403",
+   "name": "Lucky Megaloceros",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1403",
+    "sourceKey": "Skill_SimGame5_1403_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 300000,
+    "perLevel": 20000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2407",
+   "name": "Mammoth",
+   "effect": {
+    "stat": "aptitude",
+    "initial": 8,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2407",
+    "sourceKey": "Skill_SimGame5_2407_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 8,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "2408",
+   "name": "Ironhead Turtle",
+   "effect": {
+    "stat": "aptitude",
+    "initial": 8,
+    "perLevel": 1
+   },
+   "effectSource": {
+    "reference": "SimGame5_2408",
+    "sourceKey": "Skill_SimGame5_2408_1",
+    "prop": "talent",
+    "propType": null,
+    "initial": 8,
+    "perLevel": 1,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   }
+  },
+  {
+   "id": "1301",
+   "name": "Golden Mural",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1301",
+    "sourceKey": "Skill_SimGame5_1301_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "1"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "1302",
+   "name": "Four-Legged Shark Fossil",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1302",
+    "sourceKey": "Skill_SimGame5_1302_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "2"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "1303",
+   "name": "Medusa Statue",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1303",
+    "sourceKey": "Skill_SimGame5_1303_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "3"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2301",
+   "name": "Miracle Medicine",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2301",
+    "sourceKey": "Skill_SimGame5_2301_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2302",
+   "name": "Master Key",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2302",
+    "sourceKey": "Skill_SimGame5_2302_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2303",
+   "name": "Protective Battle Flag",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2303",
+    "sourceKey": "Skill_SimGame5_2303_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "3"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2304",
+   "name": "Giant Serpent Egg",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2304",
+    "sourceKey": "Skill_SimGame5_2304_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 100000,
+    "perLevel": 5000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2305",
+   "name": "Spatial Mirror",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2305",
+    "sourceKey": "Skill_SimGame5_2305_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 250000,
+    "perLevel": 12500,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2306",
+   "name": "Golden Cloak",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2306",
+    "sourceKey": "Skill_SimGame5_2306_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 20000,
+    "perLevel": 1000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "all"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "1201",
+   "name": "Golden Mushroom Statue",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1201",
+    "sourceKey": "Skill_SimGame5_1201_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "1"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "1202",
+   "name": "Behemoth Footprint",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1202",
+    "sourceKey": "Skill_SimGame5_1202_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "2"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "1203",
+   "name": "Survival of the Fittest Fossil",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1203",
+    "sourceKey": "Skill_SimGame5_1203_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "3"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2201",
+   "name": "Hornstone",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2201",
+    "sourceKey": "Skill_SimGame5_2201_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2202",
+   "name": "Debt Ledger",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2202",
+    "sourceKey": "Skill_SimGame5_2202_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "country",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2203",
+   "name": "Copper Hot Pot",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2203",
+    "sourceKey": "Skill_SimGame5_2203_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "1"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "2204",
+   "name": "Circular Stone Formation",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2204",
+    "sourceKey": "Skill_SimGame5_2204_1",
+    "prop": "atk",
+    "propType": "extradd",
+    "initial": 40000,
+    "perLevel": 2000,
+    "target": "hero",
+    "condition": {
+     "conditionType": "rare",
+     "id": "2"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+  },
+  {
+   "id": "1101",
+   "name": "Anomalocaris Fossil",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1101",
+    "sourceKey": "Skill_SimGame5_1101_1",
+    "prop": "yield",
+    "propType": "percent",
+    "initial": 250,
+    "perLevel": 10,
+    "target": "city",
+    "condition": {
+     "conditionType": "country",
+     "id": "1"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: city yield percent; routing it needs lib/game.mjs totalRate to take a multiplier"
+  },
+  {
+   "id": "1102",
+   "name": "Horned Seahorse Fossil",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1102",
+    "sourceKey": "Skill_SimGame5_1102_1",
+    "prop": "yield",
+    "propType": "percent",
+    "initial": 250,
+    "perLevel": 10,
+    "target": "city",
+    "condition": {
+     "conditionType": "country",
+     "id": "2"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: city yield percent; routing it needs lib/game.mjs totalRate to take a multiplier"
+  },
+  {
+   "id": "1103",
+   "name": "Giant Trilobite",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_1103",
+    "sourceKey": "Skill_SimGame5_1103_1",
+    "prop": "yield",
+    "propType": "percent",
+    "initial": 250,
+    "perLevel": 10,
+    "target": "city",
+    "condition": {
+     "conditionType": "country",
+     "id": "3"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: city yield percent; routing it needs lib/game.mjs totalRate to take a multiplier"
+  },
+  {
+   "id": "2101",
+   "name": "Giant Ammonite",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2101",
+    "sourceKey": "Skill_SimGame5_2101_1",
+    "prop": "yield",
+    "propType": "percent",
+    "initial": 250,
+    "perLevel": 10,
+    "target": "city",
+    "condition": {
+     "conditionType": "country",
+     "id": "4"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: city yield percent; routing it needs lib/game.mjs totalRate to take a multiplier"
+  },
+  {
+   "id": "2102",
+   "name": "Unfettered Oracle Stone Tablet",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2102",
+    "sourceKey": "Skill_SimGame5_2102_1",
+    "prop": "yield",
+    "propType": "percent",
+    "initial": 250,
+    "perLevel": 10,
+    "target": "city",
+    "condition": {
+     "conditionType": "country",
+     "id": "5"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: city yield percent; routing it needs lib/game.mjs totalRate to take a multiplier"
+  },
+  {
+   "id": "2103",
+   "name": "No Entry Sign",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2103",
+    "sourceKey": "Skill_SimGame5_2103_1",
+    "prop": "factionGraduateProsperity",
+    "propType": "extradd",
+    "initial": 2000,
+    "perLevel": 100,
+    "target": "Skill",
+    "condition": {
+     "conditionType": "sex",
+     "id": "1"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: School graduate prosperity; Everkai has no faction prosperity stat"
+  },
+  {
+   "id": "2104",
+   "name": "Beast Taming Gloves",
+   "effect": null,
+   "effectSource": {
+    "reference": "SimGame5_2104",
+    "sourceKey": "Skill_SimGame5_2104_1",
+    "prop": "factionGraduateProsperity",
+    "propType": "extradd",
+    "initial": 2000,
+    "perLevel": 100,
+    "target": "Skill",
+    "condition": {
+     "conditionType": "sex",
+     "id": "2"
+    },
+    "maxExhibitLevel": 120
+   },
+   "effectNote": "Recovered but not modelled: School graduate prosperity; Everkai has no faction prosperity stat"
+  },
+  {
+   "id": "25015",
+   "name": "Dragon Leg Bones",
+   "partOf": "2501",
+   "originalPart": "SimGame5_2501E",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2501_1",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2501_2",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 3,
+     "sourceKey": "Skill_SimGame5Part_2501_3",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 4,
+     "sourceKey": "Skill_SimGame5Part_2501_4",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 5,
+     "sourceKey": "Skill_SimGame5Part_2501_5",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    }
+   ]
+  },
+  {
+   "id": "25011",
+   "name": "Dragon Skull",
+   "partOf": "2501",
+   "originalPart": "SimGame5_2501A",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2501_1",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2501_2",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 3,
+     "sourceKey": "Skill_SimGame5Part_2501_3",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 4,
+     "sourceKey": "Skill_SimGame5Part_2501_4",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 5,
+     "sourceKey": "Skill_SimGame5Part_2501_5",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    }
+   ]
+  },
+  {
+   "id": "25012",
+   "name": "Dragon Spine",
+   "partOf": "2501",
+   "originalPart": "SimGame5_2501B",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2501_1",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2501_2",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 3,
+     "sourceKey": "Skill_SimGame5Part_2501_3",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 4,
+     "sourceKey": "Skill_SimGame5Part_2501_4",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 5,
+     "sourceKey": "Skill_SimGame5Part_2501_5",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    }
+   ]
+  },
+  {
+   "id": "25016",
+   "name": "Dragon Tail Bones",
+   "partOf": "2501",
+   "originalPart": "SimGame5_2501F",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2501_1",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2501_2",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 3,
+     "sourceKey": "Skill_SimGame5Part_2501_3",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 4,
+     "sourceKey": "Skill_SimGame5Part_2501_4",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 5,
+     "sourceKey": "Skill_SimGame5Part_2501_5",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    }
+   ]
+  },
+  {
+   "id": "25014",
+   "name": "Dragon Tarsal Bones",
+   "partOf": "2501",
+   "originalPart": "SimGame5_2501D",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2501_1",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2501_2",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 3,
+     "sourceKey": "Skill_SimGame5Part_2501_3",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 4,
+     "sourceKey": "Skill_SimGame5Part_2501_4",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 5,
+     "sourceKey": "Skill_SimGame5Part_2501_5",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    }
+   ]
+  },
+  {
+   "id": "25013",
+   "name": "Dragon Wing Bones",
+   "partOf": "2501",
+   "originalPart": "SimGame5_2501C",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2501_1",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2501_2",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 3,
+     "sourceKey": "Skill_SimGame5Part_2501_3",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 4,
+     "sourceKey": "Skill_SimGame5Part_2501_4",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    },
+    {
+     "count": 5,
+     "sourceKey": "Skill_SimGame5Part_2501_5",
+     "prop": "talent",
+     "initial": 10,
+     "condition": {
+      "conditionType": "rare",
+      "id": "5"
+     }
+    }
+   ]
+  },
+  {
+   "id": "29012",
+   "name": "Incoming Cataclysm",
+   "partOf": "2901",
+   "originalPart": "SimGame5_2901B",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2901_1",
+     "prop": "talent",
+     "initial": 4,
+     "condition": {
+      "conditionType": "rare",
+      "id": "4"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2901_2",
+     "prop": "talent",
+     "initial": 4,
+     "condition": {
+      "conditionType": "rare",
+      "id": "4"
+     }
+    }
+   ]
+  },
+  {
+   "id": "29013",
+   "name": "Primordial Thermal Circle",
+   "partOf": "2901",
+   "originalPart": "SimGame5_2901C",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2901_1",
+     "prop": "talent",
+     "initial": 4,
+     "condition": {
+      "conditionType": "rare",
+      "id": "4"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2901_2",
+     "prop": "talent",
+     "initial": 4,
+     "condition": {
+      "conditionType": "rare",
+      "id": "4"
+     }
+    }
+   ]
+  },
+  {
+   "id": "29011",
+   "name": "Protection from Northrealm Guardian",
+   "partOf": "2901",
+   "originalPart": "SimGame5_2901A",
+   "effect": null,
+   "effectNote": "Parts carry no levelUpSkill of their own. The parent exhibit lists partsSkill thresholds (SimGame5_2501: five rows of talent +10; SimGame5_2901: two rows of talent +4) but the table does not say whether those thresholds stack, so no value is modelled rather than invented.",
+   "originalPartsSkill": [
+    {
+     "count": 1,
+     "sourceKey": "Skill_SimGame5Part_2901_1",
+     "prop": "talent",
+     "initial": 4,
+     "condition": {
+      "conditionType": "rare",
+      "id": "4"
+     }
+    },
+    {
+     "count": 2,
+     "sourceKey": "Skill_SimGame5Part_2901_2",
+     "prop": "talent",
+     "initial": 4,
+     "condition": {
+      "conditionType": "rare",
+      "id": "4"
+     }
+    }
+   ]
+  }
+ ]
 }
