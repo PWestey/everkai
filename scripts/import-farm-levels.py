@@ -1,7 +1,8 @@
 """Export every complete level row and Inn gate attribute from pinned HTML."""
 from pathlib import Path
 import re,html,json,hashlib
-root=Path(__file__).resolve().parents[1];base=root.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 plain=lambda s:re.sub(r'\s+',' ',html.unescape(re.sub('<[^>]+>',' ',s))).strip()
 p=base/'magic-farm/index.html';b=p.read_bytes();rows=[]
 for m in re.finditer(r'<li[^>]+id="magic-farm-plant-(plant\d+)"(.*?)</article>',b.decode(),re.S|re.I):

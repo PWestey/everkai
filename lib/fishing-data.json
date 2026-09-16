@@ -53,13 +53,14 @@
     "displayRemoval": "Bonus applies only while displayed; remove pauses it, redisplay restores it. Original removal permanence unknown.",
     "powerComposition": "Add flat bonus before existing final percent multiplier; reconstructed ordering."
   },
+  "supersededBy": "lib/fishing-species.json (86 species, its own deferred/limits keys) plus fishing-draw-data.json and fishing-combination-data.json. This file is the policy-1 record and nothing in lib/, app/ or tests/ imports it; keep it only as the provenance of the first three species.",
+  "unimplementedRederivedAt": "2026-09-15",
+  "unimplementedMethod": "Re-derived against lib/fishing.mjs and the live fishing tables, not copied forward. Five entries were removed because the code now implements them: catch probabilities (castOdds/drawFish roll FishLevel rarity weights per ground), other grounds (FISHING_GROUNDS/groundLevel gate casts by fishing level), fishing level curves (FISHING_LEVELS/fishingLevel), combinations (FISH_COMBINATIONS/activateFishCombination), and crowns (claimCrownKohaku/crownKohaku). Absence of the two remaining entries was checked with a positive control: grepping lib/ and app/ for 'combination' returns five files, for 'antique' it returns only this file and two unrelated story tables, and for any length field it returns only this line.",
   "unimplemented": [
-    "catch probabilities",
-    "length ranges/crowns/length rewards",
+    "length ranges and length rewards",
     "antiques",
-    "combinations",
-    "other grounds",
-    "bait regeneration",
-    "fishing level curves"
+    "crown effects beyond Gold Crown Kohaku (fishing-species.json: all other crown effects deferred)",
+    "the 12 normal combination effects fishing-combination-data.json still defers",
+    "the original's timed bait regeneration (FishBaitTime 7200) — deliberately replaced by the daily habit refill, per the single-player design rule, not missing"
   ]
 }

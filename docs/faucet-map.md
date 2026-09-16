@@ -1,19 +1,43 @@
 # Faucet map — free grants vs earned sources
 
-Measured 2026-09-12 against `lib/*.mjs`. Thirty grant-shaped actions: **three now deleted, 16 still free, 4 gated by
-play, 7 either gated by habits or recovering on their own.** (The header previously read 2026-09-19, a date a week in
-the future; the measurement itself was sound.)
+Measured 2026-09-12 against `lib/*.mjs`, **re-measured 2026-09-15** (BUG-11). The header once read
+"Measured 2026-09-19", a date a week in the future; that was corrected, and the underlying measurement was sound.
+
+## Re-measurement, 2026-09-15
+
+Re-run with the same extractor the dispatch guard uses (`action===`, `action!==`, `[...].includes(action)`,
+`case 'openingX':`), filtering on the grant-shaped pattern `claim|sandbox|supply|free|refill`:
+
+- **231 action strings in `lib/*.mjs`**, not the 229 quoted below.
+- **24 grant-shaped actions remain live.** The head count below ("thirty … 16 still free") contradicts its own
+  section heading ("Still free (13, none tractable)") and neither figure is reproducible today. Take 24 as the count
+  and the tables below as the classification.
+- **All eleven actions this map records as converted or deleted really are gone** (`claimOre`, `claimBait`,
+  `wishSupply`, `claimInsight`, `claimHireCards`, `treasureRefill`, `northSupply`, `claimAllGear`, `claimGear`,
+  `sandboxAdventure`, `refillEducation`) — checked by running the extractor over `lib/`, which returns all 231 live
+  names, so an absence here is an absence in the code.
+- **Three entries below are stale and are struck through in place:** `specialBlessingSupply` and
+  `claimOriginalSupplies` are retired (`lib/special-blessings.mjs:9`, `lib/original-progression.mjs:35`, guarded by
+  `tests/retired-faucets.test.mjs`), and `finishFarm` is retired (`lib/farm.mjs:55`) so the scope note should no
+  longer cite it as a live time-skip.
+- **Two grant-shaped actions are named nowhere in this file** and are added here rather than left out:
+  `claimDailyBreach` (original-progression.mjs) — **already habit-gated**: once a day, requires a finished daily,
+  and it is the replacement for the retired `claimOriginalSupplies`; and `openingClaim` (opening.mjs) — **already
+  gated by play**: it refuses unless the current journey quest's requirement is `ready`.
 
 > **Scope limit — read `docs/free-action-audit.md` alongside this.** This map classifies actions by *grant-shaped
 > name*, so it covers "hands something over for free" and misses the opposite class: **actions that should charge and
-> do not**. A 2026-09-12 audit dispatched all 229 action strings against live state and found `hireEmployees`,
-> `restockWorkshop`, `expandSchool`, `developInnRecipe`, `adoptFamiliar`/`adoptFamiliars`, `wardrobeCollect` and the
-> time-skips (`finishFarm` and friends) are absent from this map entirely. `hireEmployees` is the largest remaining
-> economy hole: free and unbounded, while `paidStaffHire` charges 247 gold for the same ten workers.
+> do not**. A 2026-09-12 audit dispatched every action string against live state and found `hireEmployees`,
+> `restockWorkshop`, `expandSchool`, `developInnRecipe`, `adoptFamiliar`/`adoptFamiliars` and `wardrobeCollect` are
+> absent from this map entirely. (It also cited the time-skips; `finishFarm` has since been retired.)
+> `hireEmployees` is the largest remaining economy hole: free and unbounded, while `paidStaffHire` charges 247 gold
+> for the same ten workers.
 >
 > Also re-open the "Blocked — no other source" verdict on `claimStaffingMaterials` below: the original *does* state a
-> source (`Reward_DailyTaskReward_03` daily, `Reward_CityExchanger_01`), so it is convertible rather than blocked. `docs/parity-gaps.md` cross-cutting finding #1 — "acquisition mostly
-comes from free sandbox grants, not an earned economy" — is what this tracks.
+> source (`Reward_DailyTaskReward_03` daily, `Reward_CityExchanger_01`), so it is convertible rather than blocked.
+> The cross-cutting finding this map tracks — "acquisition mostly comes from free sandbox grants, not an earned
+> economy" — was `docs/parity-gaps.md`'s §0 finding 1; that file was retired on 2026-09-15 (BUG-04) precisely because
+> that finding had gone stale, so this map, not that one, is the record.
 
 ## Method, and two mistakes worth not repeating
 
@@ -71,7 +95,7 @@ about adulthood milestones, not point recovery, so they seed the points directly
 | Action | Why |
 |---|---|
 | ~~`claimStaffingMaterials`~~ | **Reclassified 2026-09-12 — convertible, not blocked.** The verdict below was wrong and the scope note above already flagged it. The original states a source verbatim: `Item:source:Item_StarUp_Building_1_1` = *"Fountain of Wishes, Cyrstal Shop, Trading Post Shop, Guild Shop"*, for an item named **Building Upgrade Blueprint**. Everkai already has a Fountain of Wishes, so at least one stated path exists to build against. **Refined the same day, after measuring it: that path exists but cannot carry the load, and is currently inert.** The Fountain pool does carry the blueprint (`Lottery_14`, weight 211/1000, quantity 2 = 0.422 materials per pull), but at the 2/day habit refill that is 0.84/day — **30,705 days** to take the Inn alone from quality 1 to 26 — and 5,117 days even at the 12/day cap. It is also not claimable: `transferable()` requires membership in `EXTRA_ITEMS`, and this item is not among its 105 entries, so blueprints pile up in the fountain ledger and can never reach the Bag. Converting this faucet therefore needs a **shop** selling blueprints at volume (the original also names Trading Post Shop and Crystal Shop), and adding the blueprint as a real inventory item needs a save-version bump, because `validFamily` counts inventory keys exactly. Original (stale) reasoning: *no `recoverAt`, no `day()`, no settle hook in staffing.mjs; building materials have no other source, so staff quality upgrades stop without it.* Sizing for whoever converts it: quality 1→26 costs **25,915** materials for the Inn and **57,013** for the Museum, against a faucet granting 100 per claim with no cap — so this faucet currently carries the entire quality ladder. |
-| `claimConsumable`, `stellaSupply`, `specialBlessingSupply`, `claimOriginalSupplies` | all four fail the recovery test — zero `recoverAt`, zero `day()`, zero `settle` in their modules. Each is the only source of its resource. |
+| `claimConsumable`, `stellaSupply`, ~~`specialBlessingSupply`~~, ~~`claimOriginalSupplies`~~ | The first two still fail the recovery test — zero `recoverAt`, zero `day()`, zero `settle` in their modules; each is the only source of its resource. **The last two are retired** (ECON-05 / ECON-04, `tests/retired-faucets.test.mjs`); `claimOriginalSupplies` was replaced by the habit-gated `claimDailyBreach`. Re-measured 2026-09-15. |
 | `stageSupply` | **Raphael event stamina has no other source.** `stageEvent` defaults to `stamina:0` with no `recoverAt` and no `day()` anywhere in the module, so nothing regenerates it. Deleting it strands the stage. |
 | `refillInnStamina` | **inn stamina has no other source.** `settleInn` only advances the serving queue — `served`, `popularity`, `blueprints`, `deposit`, `finesse` — and returns early with no queue. Nothing regenerates stamina, so deleting the button strands the inn. Needs a real source built first. |
 
@@ -94,7 +118,11 @@ work, not a mechanical swap. `app/page.tsx` dispatches it.
 By play: `banquetClaim` (guests seated), `claim` (milestone `metric(s) >= goal`), `stageClaim`
 (threshold consumed), `wishFairyClaim` (`fairyAvailable` from `total/500`).
 
-By habits: `roamRefill`, `summonClaimDay`, `summonClaimWeek`, plus the three shipped above.
+By habits: `roamRefill`, `summonClaimDay`, `summonClaimWeek`, `claimDailyBreach` (added 2026-09-15: one
+claim a day, refuses without a finished daily, and caps breakthrough stock at 1e6), plus the three shipped above.
+
+By play, added 2026-09-15: `openingClaim` — refuses unless `openingRequirement(s,t).ready` for the current
+journey quest.
 
 ## Rates, for calibration
 

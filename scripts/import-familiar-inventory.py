@@ -1,6 +1,7 @@
 """Inventory fields and all skill nodes without executing public page scripts."""
 import pathlib,json,re,html,hashlib
-root=pathlib.Path(__file__).resolve().parents[1];base=root.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+root=pathlib.Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 def plain(s):return html.unescape(re.sub('<[^>]+>','',s)).strip()
 rows=[]
 for e in json.loads((base/'wiki_manifest.json').read_text())['entries']:

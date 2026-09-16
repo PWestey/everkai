@@ -2,7 +2,8 @@
 """Join named community recruitment rows to exact local roster identities and pinned profiles."""
 import json,hashlib,re
 from pathlib import Path
-app=Path(__file__).resolve().parents[1];root=app.parent.parent
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];root=WORKSPACE
 profiles=json.loads((app/'lib/character-skill-guide.json').read_text())['profiles']
 local={kind:json.loads((root/'outputs/component-research/datasets'/file).read_text()) for kind,file in [('fellows','Hero.json'),('family','Wife.json')]}
 rows=[]

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import json,re,html,hashlib
-app=Path(__file__).resolve().parents[1];w=app.parents[1];src=w/'outputs/online-audit/public-reference/wiki/apothecary/index.html';b=src.read_bytes();s=b.decode();cl=lambda x:html.unescape(re.sub('<[^>]+>','',x)).strip();records=[]
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];w=WORKSPACE;src=w/'outputs/online-audit/public-reference/wiki/apothecary/index.html';b=src.read_bytes();s=b.decode();cl=lambda x:html.unescape(re.sub('<[^>]+>','',x)).strip();records=[]
 for m in re.finditer(r'<li id="apothecary-potion-[^"]+"[^>]*data-id-num="([^"]+)"[^>]*>(.*?)</article>\s*</li>',s,re.S):
  id,body=m.groups();name=cl(re.search('class="fish-antique-name">(.*?)</span>',body)[1]);fields={k:cl(v) for k,v in re.findall('<strong>(Skill|Unlock Condition)</strong><span>(.*?)</span>',body)};gate=re.fullmatch(r'Unlocked after (\d+) stock sold',fields['Unlock Condition']);records.append({'id':id,'name':name,'soldGate':int(gate[1]) if gate else None,'skillText':fields['Skill'],'unlockText':fields['Unlock Condition']})
 assert len(records)==20 and sum(r['soldGate'] is not None for r in records)==10

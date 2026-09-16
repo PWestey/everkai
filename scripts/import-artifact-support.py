@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,re,html,hashlib
-root=Path(__file__).resolve().parents[1];base=root.parent.parent;local=base/'outputs/component-research/datasets';hub=base/'outputs/online-audit/public-reference/wiki/artifacts'
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];base=WORKSPACE;local=base/'outputs/component-research/datasets';hub=base/'outputs/online-audit/public-reference/wiki/artifacts'
 skills={r['id']:r['en'] for r in json.loads((local/'SkillBase.json').read_text())};wives={r['id']:r['en'] for r in json.loads((local/'Wife.json').read_text())};records=[]
 for slug,weapon,wife in [('diablo-s-doll','Weapon_6_19','145'),('shuna-s-doll','Weapon_6_18','144'),('rica-s-plushie','Weapon_6_24','252')]:
  p=hub/slug/'index.html';s=p.read_text();assert re.search(r'<p class="character-id">([^<]+)</p>',s)[1]==weapon

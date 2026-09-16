@@ -1,6 +1,7 @@
 from pathlib import Path
 import re,json,html,hashlib
-root=Path(__file__).resolve().parents[1];w=root.parents[1];p=w/'outputs/online-audit/public-reference/wiki/inn/index.html';raw=p.read_bytes();text=raw.decode();dishes=json.loads((root/'lib/inn-data.json').read_text())['dishes'];heroes=json.loads((w/'outputs/component-research/datasets/Hero.json').read_text());rows=[]
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];w=WORKSPACE;p=w/'outputs/online-audit/public-reference/wiki/inn/index.html';raw=p.read_bytes();text=raw.decode();dishes=json.loads((root/'lib/inn-data.json').read_text())['dishes'];heroes=json.loads((w/'outputs/component-research/datasets/Hero.json').read_text());rows=[]
 for chunk in re.split(r'(?=<li id="inn-gifts-)',text)[1:]:
  chunk=chunk.split('<li id="inn-',1)[0] if not chunk.startswith('<li id="inn-') else chunk
  ident=re.search(r'data-id-num="([^"]+)"',chunk)[1]

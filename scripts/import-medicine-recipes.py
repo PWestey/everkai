@@ -2,8 +2,9 @@
 """Verify curated puzzle data against the reviewed read-only source audit."""
 import json
 from pathlib import Path
+from _workspace import WORK
 app=Path(__file__).resolve().parents[1]
-evidence=app.parent/'isekai-research/independent/medicine/medicine-recipe-evidence.json'
+evidence=WORK/'isekai-research/independent/medicine/medicine-recipe-evidence.json'
 # The root exporter pins the independent report before this verifier is run.
 x=json.loads(evidence.read_text())
 data={'policyVersion':1,'provenance':'Recovered APK Medicine/MedicineList and client puzzle/selector; see medicine-discovery-implementation contract for explicit local completion semantics.','colors':[{'id':v['_id'],'name':v['colour']} for v in x['ingredientDefinitions']],'recipes':[{'id':v['medicineId'],'name':v['nameCommunity'],'staff':v['sourceEmployeeGate'],'formula':v['ingredients']} for v in x['normalRecipes']]}

@@ -1,7 +1,8 @@
 """Import numbered, choice-free city encounter text. Does not reconstruct event triggers."""
 import json,re,hashlib
 from pathlib import Path
-p=Path(__file__).resolve();root=p.parents[3]/'outputs/component-research/datasets';rows=json.loads((root/'Dialog.json').read_text());chars=json.loads((root/'characters.json').read_text());known={c['id'] for c in chars};lookup={r['id']:r['en'] for r in rows};groups={}
+from _workspace import WORKSPACE
+p=Path(__file__).resolve();root=WORKSPACE/'outputs/component-research/datasets';rows=json.loads((root/'Dialog.json').read_text());chars=json.loads((root/'characters.json').read_text());known={c['id'] for c in chars};lookup={r['id']:r['en'] for r in rows};groups={}
 for r in rows:
  m=re.fullmatch(r'Dialog:context:(CityEvent([HW])(\d+))-(\d+)',r['id'])
  if not m:continue

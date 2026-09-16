@@ -1,7 +1,8 @@
 """Build app content from the read-only APK extraction. Fails on missing/ambiguous effects."""
 import argparse,json,re,hashlib
 from pathlib import Path
-p=Path(__file__).resolve();parser=argparse.ArgumentParser();parser.add_argument('--source',type=Path,default=p.parents[3]/'outputs/component-research/datasets');args=parser.parse_args();root=args.source
+from _workspace import WORKSPACE
+p=Path(__file__).resolve();parser=argparse.ArgumentParser();parser.add_argument('--source',type=Path,default=WORKSPACE/'outputs/component-research/datasets');args=parser.parse_args();root=args.source
 read=lambda n:json.loads((root/n).read_text())
 characters=read('characters.json');items=read('Item.json');rules=read('core-rules.json');lookup={r['id']:r['en'] for r in items}
 def item(id):

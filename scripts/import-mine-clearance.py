@@ -2,8 +2,9 @@
 """Reproduce the bounded Mine dataset from reviewed community/local evidence."""
 import json
 from pathlib import Path
+from _workspace import WORK
 app=Path(__file__).resolve().parents[1]
-e=json.loads((app.parent/'isekai-research/notes/mine-clearance-readiness.json').read_text())
+e=json.loads((WORK/'isekai-research/notes/mine-clearance-readiness.json').read_text())
 assert len(e['rows'])==8
 for field,total in [('power','cumulativePower'),('mineCoin','cumulativeMineCoin'),('gold','cumulativeGold'),('fellowEXP','cumulativeFellowEXP')]:
  acc=0

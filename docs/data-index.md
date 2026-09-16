@@ -290,17 +290,41 @@ Source roots referenced by the importers:
 | import-achievement-ui, -ui-sprites, -inventory-icons, -scene-ui, -wardrobe-art, -character-idle | achievement-ui-data, ui-sprite-data + ui-chrome-evidence, inventory-icon-data + -exceptions, stage-scene-data, wardrobe-assets, character-idle-data | **argv** — an index/manifest path passed on the command line, pinned by `--sha256` |
 | import-original-content, import-original-scenes | *(`.mjs`, not JSON)* | WS `datasets/` |
 
-### Flag 1 — every workspace-relative source path is broken at the repo's current location
+### Flag 1 — FIXED 2026-09-15 (BUG-05). Was: every workspace-relative source path broken
 
-The importers compute their source root as `Path(__file__).resolve().parents[1]` then `.parent.parent`. With the repo at `/Users/westmanfamily/everkai`, that resolves to **`/Users/`**, so every `outputs/component-research/...` and `outputs/online-audit/...` path resolves to `/Users/outputs/...`, which does not exist. Same for `.parent` -> `/Users/westmanfamily/isekai-research/...`.
+*Original finding.* The importers computed their source root as `Path(__file__).resolve().parents[1]`
+then `.parent.parent`. With the repo at `/Users/westmanfamily/everkai` that resolves to **`/Users/`**,
+so every `outputs/component-research/...` and `outputs/online-audit/...` path became `/Users/outputs/...`;
+same for `.parent` -> `/Users/westmanfamily/isekai-research/...`. From a git worktree it was worse: the
+paths landed under `.claude/`. Neither error message said "you need the research workspace".
 
-These paths only resolve if the repo sits at `~/Documents/Codex/2026-09-07/referenced-chatgpt-conversation-this-is-an/work/everkai` — and that directory does exist, with its own `lib/` (85 json). So the importers are written for the in-workspace copy, not for `~/everkai`. Roughly 50 of the 70 importers cannot run in place as written.
+Those anchors are the *in-workspace* layout, where the repo sat at
+`~/Documents/Codex/2026-09-07/referenced-chatgpt-conversation-this-is-an/work/everkai` — which still
+exists, with its own `lib/`.
 
-Paths that *do* resolve today: the three `~/Desktop/ISEKAI/*.apk` importers, the two `Codex/2026-09-08/isekai-source-research` importers, and `import-businesses`' absolute `isekai-parallel-roaming/data/BuildingBase.json`.
+*Fix.* `scripts/_workspace.py` resolves the workspace once (`$EVERKAI_WORKSPACE`, then that known
+location, then `REPO.parents[1]`), accepting a candidate only if it actually holds
+`outputs/component-research/` and `work/isekai-research/`, and otherwise exiting with a stated
+precondition that names every path it tried. 53 importers were rewritten to `WORKSPACE` / `WORK`.
 
-### Flag 2 — `lib/*.json` with no producing importer (28)
+RE-MEASURED 2026-09-15 by statically resolving every path expression in `scripts/*.py`: **0 of 77**
+importers now have a missing workspace source, against 47 before; 55 resolve to files that exist.
+Nine were run end to end to confirm it — see `docs/data-provenance.md` "Importer runnability".
 
-Never written by any `import-*.py`:
+What still needs something beyond the repo, by design: the six `~/Desktop/ISEKAI/*.apk` art
+importers, the four argv-driven sprite importers (`--sha256`-pinned index path), and the four that
+address `lib/` through `Path('lib/…')` and so must run **from the repo root**.
+
+### Flag 2 — `lib/*.json` with no producing importer — RE-MEASURED 2026-09-15: **27 of 104**
+
+> The "28 of 98" below is stale in both halves. There are **104** `lib/*.json` today, and the
+> measured split is **77 written / 7 read-only / 20 untouched**. `operation-data` and
+> `content-overrides` have moved; `roster-batch-evidence` became untouched when `import-family-scenes`
+> was retired. `docs/data-provenance.md` carries the re-measurement, the method (including the
+> positive control that a `.write_text`-only scan fails), and a provenance line for each of the 20.
+> Use that table, not this list.
+
+*Original finding (2026-09-12).* Never written by any `import-*.py`:
 
 `adventure-rule-evidence`, `artifact-investment-evidence`, `content-overrides`, `drakenberg-layout`, `familiar-trigger-data`, `family-rule-evidence`, `farm-order-policy`, `fishing-data`, `hire-card-data`, `inn-progression-data`, `item-art-evidence`, `kohaku-crown-data`, `northern-data`, `operation-data`, `pupil-rule-evidence`, `source-character-index`, `starter-habits`, `stella-activation-policy`, `system-maturity`, `village-layout`, `workshop-policy-data`
 
@@ -314,13 +338,32 @@ Read or asserted by an importer but still not produced by one:
 | `staffing-data.json` | import-staffing (verifier: `assert read_text()==expected`) |
 | `staffing-independent-data.json` | import-staffing (verifier: byte-compare against notes) |
 | `inventory-display-data.json` | import-inventory-icons (input, hand-maintained) |
-| `roster-batch-evidence.json` | import-family-scenes (input) |
+| `roster-batch-evidence.json` | ~~import-family-scenes (input)~~ — that importer was retired 2026-09-15; nothing in `scripts/` reads it now |
 
 The four `*-actives` / `medicine` / `staffing` scripts are **verifiers, not generators** — they re-check a hand-curated `lib/` file against evidence and fail loudly on drift. Treat those five tables as source-of-truth-by-hand.
 
-### Flag 3 — importer writing a file that is not in `lib/`
+### Flag 3 — RESOLVED 2026-09-15 (BUG-07): the importer was retired, not broken
 
-`import-family-scenes.py` writes `lib/family-scene-data.json`, which does not exist on disk. Its handoff source `Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/roster-humanization` is referenced via `Path.home()/...` and its `backgrounds/manifest.json` and `backgrounds/provenance/loaders.json` do not resolve. This importer has never successfully run, or its output was removed.
+*Original finding.* "`import-family-scenes.py` writes `lib/family-scene-data.json`, which does not
+exist on disk. Its handoff source … and its `backgrounds/manifest.json` and
+`backgrounds/provenance/loaders.json` do not resolve. This importer has never successfully run, or
+its output was removed."
+
+**The second sentence was false.** MEASURED 2026-09-15: the handoff at
+`~/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/roster-humanization` is present,
+and so are `integration-manifest.json`, `backgrounds/manifest.json` (25 backgrounds) and
+`backgrounds/provenance/loaders.json`. Every input resolved.
+
+The real answer is the third possibility the finding offered: **its output was removed, deliberately.**
+`SYSTEMS.md:84` records `public/assets/family-scenes` (1.6 MB) and `lib/family-scene-data.json` as
+retired, because no playable character referenced the roster cutouts after the base renders shipped.
+MEASURED: `public/assets/family-scenes/` does not exist, and `lib/family-scenes.mjs` computes every
+scene from the equipped costume render or the base render with no data file at all.
+
+So the importer regenerated a retired asset into a directory the release had deleted.
+`scripts/import-family-scenes.py` was removed. Its only repo input, `lib/roster-batch-evidence.json`,
+stays — `tests/roster-batch.test.mjs`, `tests/content-overrides.test.mjs` and
+`lib/content-overrides.json` still read it.
 
 `starter-habits.json` (78 rows, `tasks` wrapper) is the private personal-task data — no importer, and it should stay out of any public repo.
 

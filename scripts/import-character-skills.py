@@ -1,6 +1,7 @@
 """Inventory pinned character skill nodes by internal identity, never display name."""
 import concurrent.futures,pathlib,json,re,html,hashlib,urllib.request
-root=pathlib.Path(__file__).resolve().parents[1];base=root.parent.parent/'outputs/online-audit/public-reference/wiki';sha='b49c78d0c06d535f6e1c62bdc9d5d666cd96e954'
+from _workspace import WORKSPACE
+root=pathlib.Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki';sha='b49c78d0c06d535f6e1c62bdc9d5d666cd96e954'
 entries=[e for e in json.loads((base/'wiki_manifest.json').read_text())['entries'] if e['category'] in ['fellows','family']]
 def plain(s):return html.unescape(re.sub('<[^>]+>','',s)).strip()
 def read(e):

@@ -1,7 +1,8 @@
 """Whole manually audited active kits, with pinned page checksums."""
 from pathlib import Path
 import re,json,html,hashlib
-app=Path(__file__).resolve().parents[1];base=app.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 # kind, target, count, coefficient, effects(kind, percent, turns, recipient)
 spec={
 'Pet_4251':('damage','all',5,180,[('dealt',-35,3,'primary'),('speed',-50,3,'primary')]),

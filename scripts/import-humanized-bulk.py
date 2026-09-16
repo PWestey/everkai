@@ -1,8 +1,9 @@
 from pathlib import Path
 import json,hashlib
 from PIL import Image
-app=Path(__file__).resolve().parents[1];source=app.parent/'isekai-research/independent/humanized-art/bulk/manifest.json';m=json.loads(source.read_text());assert hashlib.sha256(source.read_bytes()).hexdigest()=='7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129'
-old=json.loads((app/'lib/humanized-static-data.json').read_text());pair={r['id']:r for r in old if r['id'] in ('wife_1','hero_1')};prior={r['id']:r for r in json.loads((app.parent/'isekai-research/data/pre-bulk-catalog-art.json').read_text())};out=app/'public/assets/humanized';cache={};records=[]
+from _workspace import WORK
+app=Path(__file__).resolve().parents[1];source=WORK/'isekai-research/independent/humanized-art/bulk/manifest.json';m=json.loads(source.read_text());assert hashlib.sha256(source.read_bytes()).hexdigest()=='7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129'
+old=json.loads((app/'lib/humanized-static-data.json').read_text());pair={r['id']:r for r in old if r['id'] in ('wife_1','hero_1')};prior={r['id']:r for r in json.loads((WORK/'isekai-research/data/pre-bulk-catalog-art.json').read_text())};out=app/'public/assets/humanized';cache={};records=[]
 for r in m['records']:
  if not r.get('image'):continue
  assert r['verified'] and not r['sourceHashFailures'] and r['costumeId'] is None and r['activeId'] in prior

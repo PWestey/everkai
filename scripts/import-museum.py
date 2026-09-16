@@ -1,11 +1,12 @@
 """Import literal museum descriptions; never infer missing numeric effects."""
 import hashlib, json, re
 from pathlib import Path
+from _workspace import WORKSPACE
 app=Path(__file__).resolve().parents[1]
-source=app.parents[1]/'outputs/component-research/datasets/Item.json'
+source=WORKSPACE/'outputs/component-research/datasets/Item.json'
 raw=source.read_bytes()
 text={r['id']:r['en'] for r in json.loads(raw)}
-manifestPath=app.parents[1]/'outputs/online-audit/public-reference/wiki/wiki_manifest.json'
+manifestPath=WORKSPACE/'outputs/online-audit/public-reference/wiki/wiki_manifest.json'
 manifestBytes=manifestPath.read_bytes()
 public={r['id']:r for r in json.loads(manifestBytes)['entries'] if r['category']=='museum exhibits'}
 records=[]
@@ -23,6 +24,6 @@ for key,description in text.items():
 assert len(records)==32 and sum(r['effect'] is not None for r in records)==6
 (app/'lib/museum-data.json').write_text(json.dumps({'source':'Readable English translation TextAsset / UnityDataAssetPack.apk; APK source set 1.7702','datasetSha256':hashlib.sha256(raw).hexdigest(),'hallSnapshot':'b49c78d0c06d535f6e1c62bdc9d5d666cd96e954','hallManifestSha256':hashlib.sha256(manifestBytes).hexdigest(),'records':records},indent=2,ensure_ascii=False)+'\n')
 
-rulesPath=app.parents[1]/'outputs/component-research/datasets/Rule.json'
+rulesPath=WORKSPACE/'outputs/component-research/datasets/Rule.json'
 rules=[r for r in json.loads(rulesPath.read_text()) if r['id'].startswith('Rule:text:MuseumHall1_')]
 (app/'lib/museum-rule-evidence.json').write_text(json.dumps({'source':'Readable APK 1.7702 English translation','records':rules},indent=2)+'\n')

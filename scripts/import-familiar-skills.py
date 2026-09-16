@@ -1,6 +1,7 @@
 """Read thirteen instantaneous active skills from the already pinned public snapshot."""
 import pathlib,json,re,html,hashlib
-root=pathlib.Path(__file__).resolve().parents[1];base=root.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+root=pathlib.Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 spec={'Pet_11321':('heal',300,1),'Pet_11141':('damage',400,2),'Pet_41121':('damage',320,1)}
 spec.update({'Pet_11111':('damage',300,1),'Pet_12111':('damage',300,1),'Pet_13111':('damage',300,1),'Pet_22121':('damage',350,1),'Pet_33121':('damage',350,1),'Pet_32121':('damage',400,1),'Pet_23121':('damage',240,5),'Pet_32131':('damage',450,5),'Pet_22131':('damage',220,3),'Pet_43121':('damage',160,3)})
 rows=[]

@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,hashlib
-root=Path(__file__).resolve().parents[1];p=root.parent.parent/'outputs/component-research/text/c884ee22dfd491ce.bin';raw=p.read_bytes();rows=json.loads(raw)['translate'];d={r['id']:r['en'] for r in rows};essences=[]
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];p=WORKSPACE/'outputs/component-research/text/c884ee22dfd491ce.bin';raw=p.read_bytes();rows=json.loads(raw)['translate'];d={r['id']:r['en'] for r in rows};essences=[]
 for n,type in enumerate(['Inspiring','Diligent','Brave','Informed','Unfettered'],1):
  id=f'SG3TalentCountry{n}';description=d['Item:description:'+id];assert type in description
  essences.append({'id':id,'name':d['Item:name:'+id],'type':type,'description':description})

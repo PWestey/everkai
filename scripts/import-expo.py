@@ -1,8 +1,9 @@
 """Read pinned local hub only. Preserve all evidence; only first five stages playable."""
 from pathlib import Path
 import re,json,html,hashlib
+from _workspace import WORKSPACE
 root=Path(__file__).resolve().parents[1]
-p=root.parent.parent/'outputs/online-audit/public-reference/wiki/expo/index.html'
+p=WORKSPACE/'outputs/online-audit/public-reference/wiki/expo/index.html'
 b=p.read_bytes();s=b.decode()
 def text(x):return ' '.join(html.unescape(re.sub('<[^>]+>',' ',x)).split())
 def field(b,k):

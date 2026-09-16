@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,re,html,hashlib
-root=Path(__file__).resolve().parents[1];base=root.parent.parent;local=base/'outputs/component-research/datasets';hub=base/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];base=WORKSPACE;local=base/'outputs/component-research/datasets';hub=base/'outputs/online-audit/public-reference/wiki'
 skills={r['id']:r['en'] for r in json.loads((local/'SkillBase.json').read_text())};heroes={r['id']:r['en'] for r in json.loads((local/'Hero.json').read_text())};rules=json.loads((root/'lib/artifact-rules.json').read_text())['records'];out=[];deferred=[]
 for p in sorted((hub/'artifacts').glob('*/index.html')):
  s=p.read_text();m=re.search(r'<div class="profile-field profile-echo-field">(.*?)</div>',s,re.S)

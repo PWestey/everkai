@@ -370,10 +370,14 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
    fixed height had the name and the badge colliding on one row. */
 .town-list button{flex-direction:column;align-items:flex-start;height:auto;min-height:44px;padding:8px 12px;color:#3c2d1c;white-space:normal;text-align:left}
 .town-list button>span:first-child{font:700 15px Georgia,serif;color:#3c2d1c}
-/* Known defect, see docs/backlog.md: the row is pinned at 44px whatever its children need, so the
-   longest five notes are clipped here. Stacking the note under the badge made it worse (all 18
-   clipped), so this stays wrapped. The real fix is to stop reusing the shadcn Button for these rows.
-   The full text is on every facility header and in each plate's aria-label, so nothing is lost. */
+/* BUG-01, FIXED and re-verified 2026-09-15. The rows were once pinned at 44px whatever their
+   children needed, clipping the five longest notes. The `.town-list>button` block further down this
+   file (height:auto !important, min-height 52px) is what fixed it; the shadcn Button was never
+   replaced. MEASURED at 375x812 in the running app: all 18 rows have scrollHeight === clientHeight
+   (55px for one-line notes, 65px for two) and every .maturity-line has scrollHeight === clientHeight
+   and scrollWidth === clientWidth. Negative control: forcing height:44px;overflow:hidden back on
+   made all 18 report clipping, and removing it returned 0 -- so the measurement detects the defect
+   it says is gone. Do not re-add a fixed height here. */
 .town-list .maturity-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:3px}
 @media(max-height:480px){.facility-scene{height:84px}.facility-plate{font-size:14px;bottom:6px;padding:2px 12px}}
 /* Facilities with activity pages: the building scene fills the screen and the activities sit on it as parchment plates, like the original facility screens */

@@ -2,8 +2,9 @@
 """Curate the already-audited local staffing snapshot; never extract/decrypt APKs."""
 import json
 from pathlib import Path
+from _workspace import WORK
 app=Path(__file__).resolve().parents[1]
-notes=app.parent/'isekai-research/notes'
+notes=WORK/'isekai-research/notes'
 a=json.loads((notes/'staffing-cost-audit.json').read_text())
 assert len(a['businesses'])==17 and len(a['bands'])==57
 for b in a['businesses']:
