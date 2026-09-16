@@ -1,0 +1,606 @@
+{
+  "provenance": {
+    "source": "apk-audit/configs/config/logic",
+    "tables": {
+      "Medicine.json": {
+        "rows": 20,
+        "sha256": "9f27a28698b49a669d0076eb4695cad03132059c9b28e6f62b6dc5b3f9eb991d"
+      },
+      "SkillBase.json": {
+        "rows": 6780,
+        "sha256": "a04ba18bdf0c18d12f1ab2f2e1c6cbfad6afeb9a19c4e6b99296e979a0a5ad75"
+      }
+    },
+    "type": "version-matched original config; Medicine.effect/levelUpSkill resolved through SkillBase",
+    "units": "percent kinds are APK integers where 100 = 1%; aptitude kinds are flat points"
+  },
+  "factions": [
+    "Inspiring",
+    "Diligent",
+    "Brave",
+    "Informed",
+    "Unfettered"
+  ],
+  "records": [
+    {
+      "id": "1001",
+      "permanent": true,
+      "activity": null,
+      "unlock": 1,
+      "country": 1,
+      "faction": "Inspiring",
+      "grade": 1,
+      "completion": {
+        "skill": "Medicine_1001",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1001",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "1",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 50,
+        "increment": 50
+      }
+    },
+    {
+      "id": "1002",
+      "permanent": true,
+      "activity": null,
+      "unlock": 36,
+      "country": 3,
+      "faction": "Brave",
+      "grade": 2,
+      "completion": {
+        "skill": "Medicine_1002",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1002",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "3",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 100,
+        "increment": 100
+      }
+    },
+    {
+      "id": "1003",
+      "permanent": true,
+      "activity": null,
+      "unlock": 50,
+      "country": 2,
+      "faction": "Diligent",
+      "grade": 1,
+      "completion": {
+        "skill": "Medicine_1003",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1003",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "2",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 50,
+        "increment": 50
+      }
+    },
+    {
+      "id": "1004",
+      "permanent": true,
+      "activity": null,
+      "unlock": 100,
+      "country": 1,
+      "faction": "Inspiring",
+      "grade": 2,
+      "completion": {
+        "skill": "Medicine_1004",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1004",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "1",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 100,
+        "increment": 100
+      }
+    },
+    {
+      "id": "1005",
+      "permanent": true,
+      "activity": null,
+      "unlock": 150,
+      "country": 2,
+      "faction": "Diligent",
+      "grade": 3,
+      "completion": {
+        "skill": "Medicine_1005",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1005",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "2",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 1,
+        "increment": 1
+      }
+    },
+    {
+      "id": "1006",
+      "permanent": true,
+      "activity": null,
+      "unlock": 200,
+      "country": 5,
+      "faction": "Unfettered",
+      "grade": 1,
+      "completion": {
+        "skill": "Medicine_1006",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1006",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "5",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 50,
+        "increment": 50
+      }
+    },
+    {
+      "id": "1007",
+      "permanent": true,
+      "activity": null,
+      "unlock": 300,
+      "country": 5,
+      "faction": "Unfettered",
+      "grade": 2,
+      "completion": {
+        "skill": "Medicine_1007",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1007",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "5",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 100,
+        "increment": 100
+      }
+    },
+    {
+      "id": "1008",
+      "permanent": true,
+      "activity": null,
+      "unlock": 400,
+      "country": 3,
+      "faction": "Brave",
+      "grade": 3,
+      "completion": {
+        "skill": "Medicine_1008",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1008",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "3",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 1,
+        "increment": 1
+      }
+    },
+    {
+      "id": "1009",
+      "permanent": true,
+      "activity": null,
+      "unlock": 500,
+      "country": 5,
+      "faction": "Unfettered",
+      "grade": 3,
+      "completion": {
+        "skill": "Medicine_1009",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1009",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "5",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 150,
+        "increment": 150
+      }
+    },
+    {
+      "id": "1010",
+      "permanent": true,
+      "activity": null,
+      "unlock": 600,
+      "country": 4,
+      "faction": "Informed",
+      "grade": 4,
+      "completion": {
+        "skill": "Medicine_1010",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_1010",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "4",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 2,
+        "increment": 2
+      }
+    },
+    {
+      "id": "10001",
+      "permanent": false,
+      "activity": "GveMedicine_01",
+      "unlock": 1,
+      "country": 3,
+      "faction": "Brave",
+      "grade": 3,
+      "completion": {
+        "skill": "GveMedicine_10001",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_10001",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "3",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 150,
+        "increment": 150
+      }
+    },
+    {
+      "id": "10002",
+      "permanent": false,
+      "activity": "GveMedicine_01",
+      "unlock": 1,
+      "country": 1,
+      "faction": "Inspiring",
+      "grade": 3,
+      "completion": {
+        "skill": "GveMedicine_10002",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_10002",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "1",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 1,
+        "increment": 1
+      }
+    },
+    {
+      "id": "10003",
+      "permanent": false,
+      "activity": "GveMedicine_01",
+      "unlock": 1,
+      "country": 4,
+      "faction": "Informed",
+      "grade": 4,
+      "completion": {
+        "skill": "GveMedicine_10003",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_10003",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "4",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 200,
+        "increment": 200
+      }
+    },
+    {
+      "id": "10004",
+      "permanent": false,
+      "activity": "GveMedicine_01",
+      "unlock": 1,
+      "country": 5,
+      "faction": "Unfettered",
+      "grade": 5,
+      "completion": {
+        "skill": "GveMedicine_10004",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_10004",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "5",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 250,
+        "increment": 250
+      }
+    },
+    {
+      "id": "10005",
+      "permanent": false,
+      "activity": "GveMedicine_01",
+      "unlock": 1,
+      "country": 2,
+      "faction": "Diligent",
+      "grade": 5,
+      "completion": {
+        "skill": "GveMedicine_10005",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_10005",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "2",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 3,
+        "increment": 3
+      }
+    },
+    {
+      "id": "20001",
+      "permanent": false,
+      "activity": "GveMedicine_02",
+      "unlock": 1,
+      "country": 4,
+      "faction": "Informed",
+      "grade": 4,
+      "completion": {
+        "skill": "GveMedicine_20001",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_20001",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "4",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 2,
+        "increment": 2
+      }
+    },
+    {
+      "id": "20002",
+      "permanent": false,
+      "activity": "GveMedicine_02",
+      "unlock": 1,
+      "country": 3,
+      "faction": "Brave",
+      "grade": 5,
+      "completion": {
+        "skill": "GveMedicine_20002",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_20002",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "3",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 3,
+        "increment": 3
+      }
+    },
+    {
+      "id": "20003",
+      "permanent": false,
+      "activity": "GveMedicine_02",
+      "unlock": 1,
+      "country": 2,
+      "faction": "Diligent",
+      "grade": 3,
+      "completion": {
+        "skill": "GveMedicine_20003",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_20003",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "2",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 150,
+        "increment": 150
+      }
+    },
+    {
+      "id": "20004",
+      "permanent": false,
+      "activity": "GveMedicine_02",
+      "unlock": 1,
+      "country": 5,
+      "faction": "Unfettered",
+      "grade": 4,
+      "completion": {
+        "skill": "GveMedicine_20004",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_20004",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "5",
+        "prop": "talent",
+        "kind": "aptitude",
+        "initial": 2,
+        "increment": 2
+      }
+    },
+    {
+      "id": "20005",
+      "permanent": false,
+      "activity": "GveMedicine_02",
+      "unlock": 1,
+      "country": 1,
+      "faction": "Inspiring",
+      "grade": 5,
+      "completion": {
+        "skill": "GveMedicine_20005",
+        "target": "city",
+        "condition": "all",
+        "conditionId": null,
+        "prop": "yield",
+        "kind": "percent",
+        "initial": 500,
+        "increment": 0
+      },
+      "upgrade": {
+        "skill": "GveMedicine_Upgrade_20005",
+        "target": "hero",
+        "condition": "country",
+        "conditionId": "1",
+        "prop": "atk",
+        "kind": "percent",
+        "initial": 250,
+        "increment": 250
+      }
+    }
+  ]
+}

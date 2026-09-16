@@ -70,8 +70,9 @@
       "name": "Refining Oil",
       "quantity": 1,
       "weight": 91,
-      "itemId": null,
-      "sourceKey": "Rule:text:Lottery_11"
+      "itemId": "Item_Quenching_Equipment_1",
+      "sourceKey": "Rule:text:Lottery_11",
+      "itemIdSource": "BaseLottery_Reward_08 -> Reward_BaseLottery_8 in split_reward/reward.json"
     },
     {
       "id": "Lottery_12",
@@ -369,7 +370,9 @@
     "quantity": 1,
     "source": "https://isekai-slow-life-mgame.fandom.com/wiki/Fountain_of_Wishes",
     "corroboration": "https://www.reddit.com/r/Isekai_Slow_Life/comments/1l3t2mu",
-    "kind": "community reference via search index; direct open unavailable; not version matched",
-    "checked": "2026-09-08"
+    "kind": "cadence is version-matched APK config; the reward CONTENT (1 Acquaint Stone) is still community reference only -- no Reward_*Lucky* row exists in split_reward/reward.json",
+    "checked": "2026-09-08",
+    "everySource": "System.LotteryLuckyMax = 500, corroborated by Rule:text:Lottery_19 already held in this file",
+    "everyVersionMatched": true
   }
 }
