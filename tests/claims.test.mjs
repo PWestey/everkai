@@ -87,7 +87,10 @@ test('each claim declares exactly one ceiling: MAX_GOLD for the three gold claim
 // Fixtures. Each opens one claim surface and lets it accumulate exactly one payout.
 // ---------------------------------------------------------------------------------------------
 
-/** An open Inn that has served one guest: 50 gold sitting in the Inn's own deposit. */
+/** An open Inn that has served one guest: 1,000 gold sitting in the Inn's own deposit.
+ *  REBASELINED 2026-09-15 (BUG-31): it was 50, one flat rate for all 80 dishes at every level. Dish 57 at
+ *  dish level 1 pays SimGame1FoodLevel.coinEarnings 1,000. Nothing this file measures depends on the
+ *  size of the payout -- only on it being one payout that moves between two places. */
 function inn(){
  let s=funded(fresh(NOW),costOf('Building_101'));
  for(const [a,t,v] of [['openEnterprise','Building_101'],['openInnService'],['developInnRecipe','57'],['receiveInnGuests','57',1]])s=run(s,a,t,v);
@@ -105,8 +108,8 @@ const potion=()=>settle(run(fresh(NOW),'apothecaryOpen'),NOW+20000);
 const collectPotion=s=>run(s,'potionCollect',null,{seq:s.apothecary.seq});
 
 test('all four claims exist and move accrued earnings into a wallet',()=>{
- const i=inn();          assert.equal(i.inn.deposit,50);
- assert.equal(run(i,'collectInnDeposit').gold,i.gold+50);
+ const i=inn();          assert.equal(i.inn.deposit,1000);
+ assert.equal(run(i,'collectInnDeposit').gold,i.gold+1000);
  const w=workshop();     assert.equal(w.workshop.deposit,12);
  assert.equal(run(w,'collectWorkshop').workshop.wallet,12);
  const p=potion();       assert.equal(p.apothecary.deposit,10);
@@ -199,7 +202,7 @@ test('past 1e9 gold every gold claim still collects (the old 1e9 caps stranded I
  assert.equal(run(v,'collect').gold,rich+100,'village gold still collects far above 1e9');
 
  const i={...inn(),gold:rich};
- assert.equal(run(i,'collectInnDeposit').gold,rich+50,'the Inn collects above 1e9');
+ assert.equal(run(i,'collectInnDeposit').gold,rich+1000,'the Inn collects above 1e9');
 
  const p={...potion(),gold:rich};
  assert.equal(collectPotion(p).gold,rich+10,'the Apothecary collects above 1e9');
