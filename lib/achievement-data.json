@@ -1,0 +1,6885 @@
+{
+ "policyVersion": 1,
+ "source": {
+  "TaskGeneral.json": "f4bf71b534f0e832750622f6811ed5913232f18fc4ad298f8988cc0c206a1b1d",
+  "AchievementTaskType.json": "20ae4b56bb8a1341971e21ccc4b513be9524a52c03de4a4f7e77a87a98f0657c",
+  "split_reward/reward.json": "2c451783005bab38ed5b51e0533b9665c317edcee53ff7cca251013595d0be58"
+ },
+ "note": "The original's achievement ladder (E16). AchievementTaskType.json names 5 categories and 32 chain heads; TaskGeneral.json holds 4,145 A_task_* rows, each a step with taskReq {type,count} and a reward, linked by nextTask. Achievement.json is an EMPTY WRAPPER -- the rows really live in TaskGeneral, exactly the trap CLAUDE.md rule 3 warns about.",
+ "rewards": "Every step pays crystals (reward item id 4) and, where present, gold (item id 3). Other reward items are NOT substituted: they are listed in unmappedRewardItems and pay nothing, rather than being approximated into something Everkai happens to have.",
+ "excluded": {
+  "ArenaHeroCount": "Arena is player-vs-player",
+  "ArenaDefeatCount": "Arena is player-vs-player",
+  "ArenaWinsCount": "Arena is player-vs-player",
+  "Top3Prosper": "cross-server ranking; DATA-07 records rankings as fabricated server-side",
+  "Top3Intimacy": "cross-server ranking; DATA-07 records rankings as fabricated server-side",
+  "VassalTotalProsperity": "guild/vassal system, multiplayer",
+  "ThiefGet": "a timed event currency, not a permanent system, so nothing in Everkai can ever increment it",
+  "MovingTokenGet": "a timed board event currency; the event does not exist in Everkai and no permanent system mints it",
+  "MovingLevelId": "progress on a timed board event whose board Everkai does not ship",
+  "DragonDown": "Drakenberg Challenge is not built yet (row B3)",
+  "MerchantTrader": "Bazaar is not built yet (row B9)",
+  "SimGame1Score": "the Inn is not scored in Everkai",
+  "TotalCharisma": "no charisma stat exists in Everkai",
+  "Find": "ambiguous: no single Everkai counter matches it",
+  "ChildMarry": "pupil marriage is not modelled",
+  "FieldTripNum": "Field Trip is not built yet (row C12)",
+  "BuildingTotalStar": "building stars are not modelled yet (row SL1-04)",
+  "EquipmentAtlas": "gear atlas completion is not modelled",
+  "StageClear": "DIFFERENT SHAPE, not a different number: these 190 rows carry taskReq {type,id} naming a stage (\"5-6-0\"), not {type,count}. Mapping a stage id to a cleared-count would be an invention, so the chain is excluded rather than approximated.",
+  "EquipCount": "Everkai tracks gear per Fellow and in the bag but has no single owned-equipment count; building one to satisfy an achievement would be inventing a counter",
+  "Login": "Everkai stores no login-day counter, and distinct habit days is a PROXY, not the thing -- a day played without a habit would not count",
+  "OrderSubmitCount": "Everkai keeps no cumulative farm-order counter"
+ },
+ "chains": [
+  {
+   "id": "A_task_1",
+   "category": "Village",
+   "metric": "buildingLevels",
+   "reqType": "BuildingTotalLv",
+   "steps": [
+    {
+     "id": "A_task_1_1",
+     "goal": 100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_2",
+     "goal": 200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_3",
+     "goal": 300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_4",
+     "goal": 400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_5",
+     "goal": 500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_6",
+     "goal": 700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_7",
+     "goal": 900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_8",
+     "goal": 1100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_9",
+     "goal": 1300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_10",
+     "goal": 1500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_11",
+     "goal": 2000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_12",
+     "goal": 2500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_13",
+     "goal": 3000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_14",
+     "goal": 3500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_15",
+     "goal": 4000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_16",
+     "goal": 5000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_17",
+     "goal": 6000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_18",
+     "goal": 7000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_19",
+     "goal": 8000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_20",
+     "goal": 9000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_21",
+     "goal": 10000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_22",
+     "goal": 12000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_23",
+     "goal": 14000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_24",
+     "goal": 16000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_25",
+     "goal": 18000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_26",
+     "goal": 20000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_27",
+     "goal": 22000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_28",
+     "goal": 24000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_29",
+     "goal": 26000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_30",
+     "goal": 28000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_31",
+     "goal": 30000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_32",
+     "goal": 32000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_33",
+     "goal": 34000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_34",
+     "goal": 36000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_35",
+     "goal": 38000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_36",
+     "goal": 40000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_37",
+     "goal": 42000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_38",
+     "goal": 44000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_39",
+     "goal": 46000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_40",
+     "goal": 48000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_41",
+     "goal": 50000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_42",
+     "goal": 52000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_43",
+     "goal": 54000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_44",
+     "goal": 56000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_45",
+     "goal": 58000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_46",
+     "goal": 60000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_47",
+     "goal": 62000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_48",
+     "goal": 64000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_49",
+     "goal": 66000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_50",
+     "goal": 68000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_51",
+     "goal": 70000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_52",
+     "goal": 72000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_53",
+     "goal": 74000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_54",
+     "goal": 76000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_55",
+     "goal": 78000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_56",
+     "goal": 80000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_57",
+     "goal": 82000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_58",
+     "goal": 84000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_59",
+     "goal": 86000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_60",
+     "goal": 88000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_61",
+     "goal": 90000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_62",
+     "goal": 92000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_63",
+     "goal": 94000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_64",
+     "goal": 96000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_65",
+     "goal": 98000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_66",
+     "goal": 100000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_67",
+     "goal": 102000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_68",
+     "goal": 104000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_69",
+     "goal": 106000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_70",
+     "goal": 108000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_71",
+     "goal": 110000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_72",
+     "goal": 112000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_73",
+     "goal": 114000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_74",
+     "goal": 116000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_75",
+     "goal": 118000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_76",
+     "goal": 120000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_77",
+     "goal": 122000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_78",
+     "goal": 124000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_79",
+     "goal": 126000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_80",
+     "goal": 128000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_81",
+     "goal": 130000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_82",
+     "goal": 132000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_83",
+     "goal": 134000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_84",
+     "goal": 136000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_85",
+     "goal": 138000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_86",
+     "goal": 140000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_87",
+     "goal": 142000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_88",
+     "goal": 144000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_89",
+     "goal": 146000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_90",
+     "goal": 148000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_91",
+     "goal": 150000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_92",
+     "goal": 152000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_93",
+     "goal": 154000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_94",
+     "goal": 156000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_95",
+     "goal": 158000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_96",
+     "goal": 160000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_97",
+     "goal": 162000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_98",
+     "goal": 164000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_99",
+     "goal": 166000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_100",
+     "goal": 168000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_101",
+     "goal": 170000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_102",
+     "goal": 172000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_103",
+     "goal": 174000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_104",
+     "goal": 176000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_105",
+     "goal": 178000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_106",
+     "goal": 180000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_107",
+     "goal": 182000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_108",
+     "goal": 184000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_109",
+     "goal": 186000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_110",
+     "goal": 188000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_111",
+     "goal": 190000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_112",
+     "goal": 192000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_113",
+     "goal": 194000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_114",
+     "goal": 196000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_115",
+     "goal": 198000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_116",
+     "goal": 200000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_117",
+     "goal": 202000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_118",
+     "goal": 204000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_119",
+     "goal": 206000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_120",
+     "goal": 208000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_121",
+     "goal": 210000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_122",
+     "goal": 212000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_123",
+     "goal": 214000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_124",
+     "goal": 216000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_125",
+     "goal": 218000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_126",
+     "goal": 220000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_127",
+     "goal": 222000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_128",
+     "goal": 224000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_129",
+     "goal": 226000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_130",
+     "goal": 228000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_131",
+     "goal": 230000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_132",
+     "goal": 232000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_133",
+     "goal": 234000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_134",
+     "goal": 236000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_135",
+     "goal": 238000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_136",
+     "goal": 240000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_137",
+     "goal": 242000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_138",
+     "goal": 244000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_139",
+     "goal": 246000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_140",
+     "goal": 248000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_141",
+     "goal": 250000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_142",
+     "goal": 252000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_143",
+     "goal": 254000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_144",
+     "goal": 256000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_145",
+     "goal": 258000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_146",
+     "goal": 260000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_147",
+     "goal": 262000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_148",
+     "goal": 264000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_149",
+     "goal": 266000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_150",
+     "goal": 268000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_151",
+     "goal": 270000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_152",
+     "goal": 272000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_153",
+     "goal": 274000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_154",
+     "goal": 276000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_155",
+     "goal": 278000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_156",
+     "goal": 280000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_157",
+     "goal": 282000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_158",
+     "goal": 284000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_159",
+     "goal": 286000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_160",
+     "goal": 288000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_161",
+     "goal": 290000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_162",
+     "goal": 292000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_163",
+     "goal": 294000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_164",
+     "goal": 296000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_165",
+     "goal": 298000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_166",
+     "goal": 300000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_167",
+     "goal": 302000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_168",
+     "goal": 304000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_169",
+     "goal": 306000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_170",
+     "goal": 308000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_171",
+     "goal": 310000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_172",
+     "goal": 312000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_173",
+     "goal": 314000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_174",
+     "goal": 316000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_175",
+     "goal": 318000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_176",
+     "goal": 320000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_177",
+     "goal": 322000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_178",
+     "goal": 324000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_179",
+     "goal": 326000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_180",
+     "goal": 328000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_181",
+     "goal": 330000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_182",
+     "goal": 332000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_183",
+     "goal": 334000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_184",
+     "goal": 336000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_185",
+     "goal": 338000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_186",
+     "goal": 340000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_187",
+     "goal": 342000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_188",
+     "goal": 344000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_189",
+     "goal": 346000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_190",
+     "goal": 348000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_1_191",
+     "goal": 350000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_3",
+   "category": "Village",
+   "metric": "fellowSkill",
+   "reqType": "HeroTotalTalent",
+   "steps": [
+    {
+     "id": "A_task_3_1",
+     "goal": 100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_2",
+     "goal": 150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_3",
+     "goal": 200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_4",
+     "goal": 250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_5",
+     "goal": 300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_6",
+     "goal": 350,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_7",
+     "goal": 400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_8",
+     "goal": 450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_9",
+     "goal": 500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_10",
+     "goal": 550,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_11",
+     "goal": 600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_12",
+     "goal": 650,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_13",
+     "goal": 700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_14",
+     "goal": 750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_15",
+     "goal": 800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_16",
+     "goal": 850,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_17",
+     "goal": 900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_18",
+     "goal": 950,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_19",
+     "goal": 1000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_20",
+     "goal": 1050,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_21",
+     "goal": 1100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_22",
+     "goal": 1150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_23",
+     "goal": 1200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_24",
+     "goal": 1250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_25",
+     "goal": 1300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_26",
+     "goal": 1350,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_27",
+     "goal": 1400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_28",
+     "goal": 1450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_29",
+     "goal": 1500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_30",
+     "goal": 1600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_31",
+     "goal": 1700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_32",
+     "goal": 1800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_33",
+     "goal": 1900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_34",
+     "goal": 2000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_35",
+     "goal": 2100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_36",
+     "goal": 2200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_37",
+     "goal": 2300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_38",
+     "goal": 2400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_39",
+     "goal": 2500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_40",
+     "goal": 2600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_41",
+     "goal": 2700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_42",
+     "goal": 2800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_43",
+     "goal": 2900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_44",
+     "goal": 3000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_45",
+     "goal": 3200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_46",
+     "goal": 3400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_47",
+     "goal": 3600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_48",
+     "goal": 3800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_49",
+     "goal": 4000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_50",
+     "goal": 4200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_51",
+     "goal": 4400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_52",
+     "goal": 4600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_53",
+     "goal": 4800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_54",
+     "goal": 5000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_55",
+     "goal": 5200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_56",
+     "goal": 5400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_57",
+     "goal": 5600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_58",
+     "goal": 5800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_59",
+     "goal": 6000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_60",
+     "goal": 6500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_61",
+     "goal": 7000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_62",
+     "goal": 7500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_63",
+     "goal": 8000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_64",
+     "goal": 8500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_65",
+     "goal": 9000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_66",
+     "goal": 9500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_67",
+     "goal": 10000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_68",
+     "goal": 10500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_69",
+     "goal": 11000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_70",
+     "goal": 11500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_71",
+     "goal": 12000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_72",
+     "goal": 12500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_73",
+     "goal": 13000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_74",
+     "goal": 13500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_75",
+     "goal": 14000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_76",
+     "goal": 14500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_77",
+     "goal": 15000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_78",
+     "goal": 15500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_79",
+     "goal": 16000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_80",
+     "goal": 16500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_81",
+     "goal": 17000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_82",
+     "goal": 17500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_83",
+     "goal": 18000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_84",
+     "goal": 18500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_85",
+     "goal": 19000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_86",
+     "goal": 19500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_87",
+     "goal": 20000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_88",
+     "goal": 21000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_89",
+     "goal": 22000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_90",
+     "goal": 23000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_91",
+     "goal": 24000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_92",
+     "goal": 25000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_93",
+     "goal": 26000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_94",
+     "goal": 27000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_95",
+     "goal": 28000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_96",
+     "goal": 29000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_97",
+     "goal": 30000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_98",
+     "goal": 31000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_99",
+     "goal": 32000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_100",
+     "goal": 33000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_101",
+     "goal": 34000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_102",
+     "goal": 35000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_103",
+     "goal": 36000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_104",
+     "goal": 37000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_105",
+     "goal": 38000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_106",
+     "goal": 39000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_107",
+     "goal": 40000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_108",
+     "goal": 41000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_109",
+     "goal": 42000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_110",
+     "goal": 43000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_111",
+     "goal": 44000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_112",
+     "goal": 45000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_113",
+     "goal": 46000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_114",
+     "goal": 47000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_115",
+     "goal": 48000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_116",
+     "goal": 49000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_117",
+     "goal": 50000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_118",
+     "goal": 52000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_119",
+     "goal": 54000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_120",
+     "goal": 56000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_121",
+     "goal": 58000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_122",
+     "goal": 60000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_123",
+     "goal": 62000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_124",
+     "goal": 64000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_125",
+     "goal": 66000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_126",
+     "goal": 68000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_127",
+     "goal": 70000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_128",
+     "goal": 72000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_129",
+     "goal": 74000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_130",
+     "goal": 76000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_131",
+     "goal": 78000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_132",
+     "goal": 80000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_133",
+     "goal": 82000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_134",
+     "goal": 84000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_135",
+     "goal": 86000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_136",
+     "goal": 88000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_137",
+     "goal": 90000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_138",
+     "goal": 92000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_139",
+     "goal": 94000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_140",
+     "goal": 96000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_141",
+     "goal": 98000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_142",
+     "goal": 100000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_143",
+     "goal": 102000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_144",
+     "goal": 104000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_145",
+     "goal": 106000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_146",
+     "goal": 108000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_3_147",
+     "goal": 110000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_4",
+   "category": "Family",
+   "metric": "fellowCount",
+   "reqType": "HeroCount",
+   "steps": [
+    {
+     "id": "A_task_4_1",
+     "goal": 1,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_2",
+     "goal": 2,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_3",
+     "goal": 3,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_4",
+     "goal": 4,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_5",
+     "goal": 5,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_6",
+     "goal": 6,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_7",
+     "goal": 7,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_8",
+     "goal": 8,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_9",
+     "goal": 9,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_10",
+     "goal": 10,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_11",
+     "goal": 11,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_12",
+     "goal": 12,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_13",
+     "goal": 13,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_14",
+     "goal": 14,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_15",
+     "goal": 15,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_16",
+     "goal": 16,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_17",
+     "goal": 17,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_18",
+     "goal": 18,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_19",
+     "goal": 19,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_20",
+     "goal": 20,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_21",
+     "goal": 21,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_22",
+     "goal": 22,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_23",
+     "goal": 23,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_24",
+     "goal": 24,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_25",
+     "goal": 25,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_26",
+     "goal": 26,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_27",
+     "goal": 27,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_28",
+     "goal": 28,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_29",
+     "goal": 29,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_30",
+     "goal": 30,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_31",
+     "goal": 31,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_32",
+     "goal": 32,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_33",
+     "goal": 33,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_34",
+     "goal": 34,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_35",
+     "goal": 35,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_36",
+     "goal": 36,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_37",
+     "goal": 37,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_38",
+     "goal": 38,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_39",
+     "goal": 39,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_40",
+     "goal": 40,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_41",
+     "goal": 41,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_42",
+     "goal": 42,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_43",
+     "goal": 43,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_44",
+     "goal": 44,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_45",
+     "goal": 45,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_46",
+     "goal": 46,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_47",
+     "goal": 47,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_48",
+     "goal": 48,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_49",
+     "goal": 49,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_50",
+     "goal": 50,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_51",
+     "goal": 51,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_52",
+     "goal": 52,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_53",
+     "goal": 53,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_54",
+     "goal": 54,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_55",
+     "goal": 55,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_56",
+     "goal": 56,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_4_57",
+     "goal": 57,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_5",
+   "category": "Village",
+   "metric": "rosterPower",
+   "reqType": "HeroTotalAtk",
+   "steps": [
+    {
+     "id": "A_task_5_1",
+     "goal": 20000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_2",
+     "goal": 27000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_3",
+     "goal": 35000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_4",
+     "goal": 44000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_5",
+     "goal": 54000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_6",
+     "goal": 65000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_7",
+     "goal": 77000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_8",
+     "goal": 90000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_9",
+     "goal": 105000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_10",
+     "goal": 120000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_11",
+     "goal": 145000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_12",
+     "goal": 175000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_13",
+     "goal": 210000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_14",
+     "goal": 250000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_15",
+     "goal": 295000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_16",
+     "goal": 345000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_17",
+     "goal": 400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_18",
+     "goal": 460000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_19",
+     "goal": 525000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_20",
+     "goal": 595000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_21",
+     "goal": 670000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_22",
+     "goal": 750000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_23",
+     "goal": 835000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_24",
+     "goal": 925000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_25",
+     "goal": 1020000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_26",
+     "goal": 1120000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_27",
+     "goal": 1230000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_28",
+     "goal": 1340000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_29",
+     "goal": 1460000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_30",
+     "goal": 1580000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_31",
+     "goal": 1720000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_32",
+     "goal": 1880000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_33",
+     "goal": 2060000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_34",
+     "goal": 2260000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_35",
+     "goal": 2480000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_36",
+     "goal": 2720000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_37",
+     "goal": 2980000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_38",
+     "goal": 3260000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_39",
+     "goal": 3560000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_40",
+     "goal": 3880000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_41",
+     "goal": 4220000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_42",
+     "goal": 4580000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_43",
+     "goal": 4960000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_44",
+     "goal": 5360000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_45",
+     "goal": 5780000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_46",
+     "goal": 6220000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_47",
+     "goal": 6680000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_48",
+     "goal": 7160000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_49",
+     "goal": 7660000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_50",
+     "goal": 8180000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_51",
+     "goal": 8720000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_52",
+     "goal": 9280000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_53",
+     "goal": 9860000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_54",
+     "goal": 10460000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_55",
+     "goal": 11200000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_56",
+     "goal": 12000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_57",
+     "goal": 12900000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_58",
+     "goal": 13900000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_59",
+     "goal": 15000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_60",
+     "goal": 16200000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_61",
+     "goal": 17500000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_62",
+     "goal": 18900000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_63",
+     "goal": 20400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_64",
+     "goal": 22000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_65",
+     "goal": 23700000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_66",
+     "goal": 25500000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_67",
+     "goal": 27400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_68",
+     "goal": 29400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_69",
+     "goal": 31600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_70",
+     "goal": 34000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_71",
+     "goal": 36600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_72",
+     "goal": 39400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_73",
+     "goal": 42400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_74",
+     "goal": 45600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_75",
+     "goal": 49000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_76",
+     "goal": 52600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_77",
+     "goal": 56400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_78",
+     "goal": 60400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_79",
+     "goal": 64600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_80",
+     "goal": 69000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_81",
+     "goal": 73600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_82",
+     "goal": 78400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_83",
+     "goal": 83400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_84",
+     "goal": 88600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_85",
+     "goal": 94000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_86",
+     "goal": 99600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_87",
+     "goal": 105400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_88",
+     "goal": 111000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_89",
+     "goal": 117000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_90",
+     "goal": 124000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_91",
+     "goal": 131000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_92",
+     "goal": 138000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_93",
+     "goal": 146000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_94",
+     "goal": 154000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_95",
+     "goal": 162000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_96",
+     "goal": 170000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_97",
+     "goal": 179000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_98",
+     "goal": 188000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_99",
+     "goal": 198000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_100",
+     "goal": 209000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_101",
+     "goal": 221000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_102",
+     "goal": 234000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_103",
+     "goal": 248000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_104",
+     "goal": 263000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_105",
+     "goal": 279000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_106",
+     "goal": 296000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_107",
+     "goal": 314000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_108",
+     "goal": 333000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_109",
+     "goal": 353000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_110",
+     "goal": 374000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_111",
+     "goal": 396000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_112",
+     "goal": 419000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_113",
+     "goal": 443000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_114",
+     "goal": 468000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_115",
+     "goal": 494000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_116",
+     "goal": 521000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_117",
+     "goal": 549000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_118",
+     "goal": 578000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_119",
+     "goal": 608000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_120",
+     "goal": 639000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_121",
+     "goal": 671000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_122",
+     "goal": 704000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_123",
+     "goal": 738000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_124",
+     "goal": 773000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_125",
+     "goal": 809000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_126",
+     "goal": 846000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_127",
+     "goal": 884000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_128",
+     "goal": 923000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_129",
+     "goal": 963000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_130",
+     "goal": 1004000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_131",
+     "goal": 1050000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_132",
+     "goal": 1090000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_133",
+     "goal": 1130000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_134",
+     "goal": 1180000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_135",
+     "goal": 1230000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_136",
+     "goal": 1280000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_137",
+     "goal": 1330000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_138",
+     "goal": 1380000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_139",
+     "goal": 1430000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_140",
+     "goal": 1480000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_141",
+     "goal": 1530000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_142",
+     "goal": 1580000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_143",
+     "goal": 1630000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_144",
+     "goal": 1690000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_145",
+     "goal": 1750000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_146",
+     "goal": 1810000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_147",
+     "goal": 1870000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_148",
+     "goal": 1930000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_149",
+     "goal": 1990000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_150",
+     "goal": 2050000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_151",
+     "goal": 2110000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_152",
+     "goal": 2170000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_153",
+     "goal": 2230000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_154",
+     "goal": 2300000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_155",
+     "goal": 2370000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_156",
+     "goal": 2440000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_157",
+     "goal": 2510000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_158",
+     "goal": 2580000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_159",
+     "goal": 2650000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_160",
+     "goal": 2720000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_161",
+     "goal": 2790000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_162",
+     "goal": 2860000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_163",
+     "goal": 2930000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_164",
+     "goal": 3010000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_165",
+     "goal": 3090000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_166",
+     "goal": 3170000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_167",
+     "goal": 3250000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_168",
+     "goal": 3330000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_169",
+     "goal": 3410000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_170",
+     "goal": 3490000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_171",
+     "goal": 3570000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_172",
+     "goal": 3650000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_173",
+     "goal": 3730000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_174",
+     "goal": 3820000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_175",
+     "goal": 3910000000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_5_176",
+     "goal": 4000000000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_6",
+   "category": "Family",
+   "metric": "totalIntimacy",
+   "reqType": "TotalIntimacy",
+   "steps": [
+    {
+     "id": "A_task_6_1",
+     "goal": 100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_2",
+     "goal": 200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_3",
+     "goal": 300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_4",
+     "goal": 400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_5",
+     "goal": 500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_6",
+     "goal": 600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_7",
+     "goal": 700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_8",
+     "goal": 800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_9",
+     "goal": 900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_10",
+     "goal": 1000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_11",
+     "goal": 1200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_12",
+     "goal": 1400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_13",
+     "goal": 1600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_14",
+     "goal": 1800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_15",
+     "goal": 2000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_16",
+     "goal": 2200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_17",
+     "goal": 2400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_18",
+     "goal": 2600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_19",
+     "goal": 2800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_20",
+     "goal": 3000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_21",
+     "goal": 3300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_22",
+     "goal": 3600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_23",
+     "goal": 3900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_24",
+     "goal": 4200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_25",
+     "goal": 4500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_26",
+     "goal": 4800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_27",
+     "goal": 5100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_28",
+     "goal": 5400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_29",
+     "goal": 5700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_30",
+     "goal": 6000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_31",
+     "goal": 6400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_32",
+     "goal": 6800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_33",
+     "goal": 7200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_34",
+     "goal": 7600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_35",
+     "goal": 8000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_36",
+     "goal": 8400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_37",
+     "goal": 8800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_38",
+     "goal": 9200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_39",
+     "goal": 9600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_40",
+     "goal": 10000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_41",
+     "goal": 10500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_42",
+     "goal": 11000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_43",
+     "goal": 11500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_44",
+     "goal": 12000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_45",
+     "goal": 12500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_46",
+     "goal": 13000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_47",
+     "goal": 13500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_48",
+     "goal": 14000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_49",
+     "goal": 14500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_50",
+     "goal": 15000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_51",
+     "goal": 15750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_52",
+     "goal": 16500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_53",
+     "goal": 17250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_54",
+     "goal": 18000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_55",
+     "goal": 18750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_56",
+     "goal": 19500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_57",
+     "goal": 20250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_58",
+     "goal": 21000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_59",
+     "goal": 21750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_60",
+     "goal": 22500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_61",
+     "goal": 23250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_62",
+     "goal": 24000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_63",
+     "goal": 24750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_64",
+     "goal": 25500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_65",
+     "goal": 26250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_66",
+     "goal": 27000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_67",
+     "goal": 27750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_68",
+     "goal": 28500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_69",
+     "goal": 29250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_70",
+     "goal": 30000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_71",
+     "goal": 31000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_72",
+     "goal": 32000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_73",
+     "goal": 33000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_74",
+     "goal": 34000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_75",
+     "goal": 35000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_76",
+     "goal": 36000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_77",
+     "goal": 37000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_78",
+     "goal": 38000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_79",
+     "goal": 39000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_80",
+     "goal": 40000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_81",
+     "goal": 41500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_82",
+     "goal": 43000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_83",
+     "goal": 44500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_84",
+     "goal": 46000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_85",
+     "goal": 47500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_86",
+     "goal": 49000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_87",
+     "goal": 50500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_88",
+     "goal": 52000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_89",
+     "goal": 53500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_90",
+     "goal": 55000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_91",
+     "goal": 56500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_92",
+     "goal": 58000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_93",
+     "goal": 59500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_94",
+     "goal": 61000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_95",
+     "goal": 62500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_96",
+     "goal": 64000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_97",
+     "goal": 65500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_98",
+     "goal": 67000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_99",
+     "goal": 68500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_100",
+     "goal": 70000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_101",
+     "goal": 72000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_102",
+     "goal": 74000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_103",
+     "goal": 76000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_104",
+     "goal": 78000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_105",
+     "goal": 80000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_106",
+     "goal": 82000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_107",
+     "goal": 84000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_108",
+     "goal": 86000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_109",
+     "goal": 88000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_110",
+     "goal": 90000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_111",
+     "goal": 92000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_112",
+     "goal": 94000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_113",
+     "goal": 96000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_114",
+     "goal": 98000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_115",
+     "goal": 100000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_116",
+     "goal": 102000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_117",
+     "goal": 104000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_118",
+     "goal": 106000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_119",
+     "goal": 108000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_120",
+     "goal": 110000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_121",
+     "goal": 112000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_122",
+     "goal": 114000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_123",
+     "goal": 116000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_124",
+     "goal": 118000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_125",
+     "goal": 120000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_126",
+     "goal": 122000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_127",
+     "goal": 124000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_128",
+     "goal": 126000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_129",
+     "goal": 128000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_130",
+     "goal": 130000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_131",
+     "goal": 132000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_132",
+     "goal": 134000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_133",
+     "goal": 136000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_134",
+     "goal": 138000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_135",
+     "goal": 140000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_136",
+     "goal": 142000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_137",
+     "goal": 144000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_138",
+     "goal": 146000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_139",
+     "goal": 148000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_140",
+     "goal": 150000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_141",
+     "goal": 152000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_142",
+     "goal": 154000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_143",
+     "goal": 156000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_144",
+     "goal": 158000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_145",
+     "goal": 160000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_146",
+     "goal": 162000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_147",
+     "goal": 164000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_148",
+     "goal": 166000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_149",
+     "goal": 168000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_150",
+     "goal": 170000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_151",
+     "goal": 172000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_152",
+     "goal": 174000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_153",
+     "goal": 176000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_154",
+     "goal": 178000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_155",
+     "goal": 180000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_156",
+     "goal": 182000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_157",
+     "goal": 184000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_158",
+     "goal": 186000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_159",
+     "goal": 188000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_160",
+     "goal": 190000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_161",
+     "goal": 192000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_162",
+     "goal": 194000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_163",
+     "goal": 196000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_164",
+     "goal": 198000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_6_165",
+     "goal": 200000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_7",
+   "category": "Family",
+   "metric": "familyCount",
+   "reqType": "WifeCount",
+   "steps": [
+    {
+     "id": "A_task_7_1",
+     "goal": 1,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_2",
+     "goal": 2,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_3",
+     "goal": 3,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_4",
+     "goal": 4,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_5",
+     "goal": 5,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_6",
+     "goal": 6,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_7",
+     "goal": 7,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_8",
+     "goal": 8,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_9",
+     "goal": 9,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_10",
+     "goal": 10,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_11",
+     "goal": 11,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_12",
+     "goal": 12,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_13",
+     "goal": 13,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_14",
+     "goal": 14,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_15",
+     "goal": 15,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_16",
+     "goal": 16,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_17",
+     "goal": 17,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_18",
+     "goal": 18,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_19",
+     "goal": 19,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_20",
+     "goal": 20,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_21",
+     "goal": 21,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_22",
+     "goal": 22,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_23",
+     "goal": 23,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_24",
+     "goal": 24,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_25",
+     "goal": 25,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_26",
+     "goal": 26,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_27",
+     "goal": 27,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_28",
+     "goal": 28,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_29",
+     "goal": 29,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_30",
+     "goal": 30,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_31",
+     "goal": 31,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_32",
+     "goal": 32,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_33",
+     "goal": 33,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_34",
+     "goal": 34,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_35",
+     "goal": 35,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_36",
+     "goal": 36,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_37",
+     "goal": 37,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_38",
+     "goal": 38,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_39",
+     "goal": 39,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_40",
+     "goal": 40,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_41",
+     "goal": 41,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_42",
+     "goal": 42,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_43",
+     "goal": 43,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_44",
+     "goal": 44,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_45",
+     "goal": 45,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_46",
+     "goal": 46,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_47",
+     "goal": 47,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_48",
+     "goal": 48,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_49",
+     "goal": 49,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_50",
+     "goal": 50,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_51",
+     "goal": 51,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_52",
+     "goal": 52,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_53",
+     "goal": 53,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_54",
+     "goal": 54,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_55",
+     "goal": 55,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_56",
+     "goal": 56,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_57",
+     "goal": 57,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_58",
+     "goal": 58,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_59",
+     "goal": 59,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_60",
+     "goal": 60,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_61",
+     "goal": 61,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_62",
+     "goal": 62,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_63",
+     "goal": 63,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_64",
+     "goal": 64,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_65",
+     "goal": 65,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_66",
+     "goal": 66,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_67",
+     "goal": 67,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_68",
+     "goal": 68,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_69",
+     "goal": 69,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_70",
+     "goal": 70,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_71",
+     "goal": 71,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_72",
+     "goal": 72,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_73",
+     "goal": 73,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_74",
+     "goal": 74,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_75",
+     "goal": 75,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_76",
+     "goal": 76,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_77",
+     "goal": 77,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_78",
+     "goal": 78,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_79",
+     "goal": 79,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_80",
+     "goal": 80,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_81",
+     "goal": 81,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_82",
+     "goal": 82,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_83",
+     "goal": 83,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_84",
+     "goal": 84,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_85",
+     "goal": 85,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_86",
+     "goal": 86,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_87",
+     "goal": 87,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_88",
+     "goal": 88,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_89",
+     "goal": 89,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_90",
+     "goal": 90,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_91",
+     "goal": 91,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_92",
+     "goal": 92,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_7_93",
+     "goal": 93,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_8",
+   "category": "Family",
+   "metric": "dates",
+   "reqType": "WifeDate",
+   "steps": [
+    {
+     "id": "A_task_8_1",
+     "goal": 10,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_2",
+     "goal": 20,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_3",
+     "goal": 30,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_4",
+     "goal": 40,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_5",
+     "goal": 50,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_6",
+     "goal": 60,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_7",
+     "goal": 70,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_8",
+     "goal": 80,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_9",
+     "goal": 90,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_10",
+     "goal": 100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_11",
+     "goal": 120,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_12",
+     "goal": 140,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_13",
+     "goal": 160,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_14",
+     "goal": 180,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_15",
+     "goal": 200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_16",
+     "goal": 220,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_17",
+     "goal": 240,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_18",
+     "goal": 260,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_19",
+     "goal": 280,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_20",
+     "goal": 300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_21",
+     "goal": 330,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_22",
+     "goal": 360,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_23",
+     "goal": 390,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_24",
+     "goal": 420,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_25",
+     "goal": 450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_26",
+     "goal": 480,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_27",
+     "goal": 510,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_28",
+     "goal": 540,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_29",
+     "goal": 570,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_30",
+     "goal": 600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_31",
+     "goal": 640,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_32",
+     "goal": 680,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_33",
+     "goal": 720,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_34",
+     "goal": 760,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_35",
+     "goal": 800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_36",
+     "goal": 840,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_37",
+     "goal": 880,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_38",
+     "goal": 920,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_39",
+     "goal": 960,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_40",
+     "goal": 1000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_41",
+     "goal": 1050,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_42",
+     "goal": 1100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_43",
+     "goal": 1150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_44",
+     "goal": 1200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_45",
+     "goal": 1250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_46",
+     "goal": 1300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_47",
+     "goal": 1350,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_48",
+     "goal": 1400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_49",
+     "goal": 1450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_50",
+     "goal": 1500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_51",
+     "goal": 1575,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_52",
+     "goal": 1650,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_53",
+     "goal": 1725,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_54",
+     "goal": 1800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_55",
+     "goal": 1875,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_56",
+     "goal": 1950,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_57",
+     "goal": 2025,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_58",
+     "goal": 2100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_59",
+     "goal": 2175,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_60",
+     "goal": 2250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_61",
+     "goal": 2325,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_62",
+     "goal": 2400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_63",
+     "goal": 2475,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_64",
+     "goal": 2550,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_65",
+     "goal": 2625,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_66",
+     "goal": 2700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_67",
+     "goal": 2775,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_68",
+     "goal": 2850,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_69",
+     "goal": 2925,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_70",
+     "goal": 3000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_71",
+     "goal": 3100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_72",
+     "goal": 3200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_73",
+     "goal": 3300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_74",
+     "goal": 3400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_75",
+     "goal": 3500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_76",
+     "goal": 3600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_77",
+     "goal": 3700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_78",
+     "goal": 3800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_79",
+     "goal": 3900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_80",
+     "goal": 4000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_81",
+     "goal": 4150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_82",
+     "goal": 4300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_83",
+     "goal": 4450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_84",
+     "goal": 4600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_85",
+     "goal": 4750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_86",
+     "goal": 4900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_87",
+     "goal": 5050,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_88",
+     "goal": 5200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_89",
+     "goal": 5350,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_90",
+     "goal": 5500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_91",
+     "goal": 5650,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_92",
+     "goal": 5800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_93",
+     "goal": 5950,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_94",
+     "goal": 6100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_95",
+     "goal": 6250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_96",
+     "goal": 6400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_97",
+     "goal": 6550,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_98",
+     "goal": 6700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_99",
+     "goal": 6850,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_100",
+     "goal": 7000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_101",
+     "goal": 7200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_102",
+     "goal": 7400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_103",
+     "goal": 7600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_104",
+     "goal": 7800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_105",
+     "goal": 8000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_106",
+     "goal": 8200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_107",
+     "goal": 8400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_108",
+     "goal": 8600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_109",
+     "goal": 8800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_110",
+     "goal": 9000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_111",
+     "goal": 9200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_112",
+     "goal": 9400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_113",
+     "goal": 9600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_114",
+     "goal": 9800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_115",
+     "goal": 10000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_116",
+     "goal": 10200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_117",
+     "goal": 10400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_118",
+     "goal": 10600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_119",
+     "goal": 10800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_120",
+     "goal": 11000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_121",
+     "goal": 11200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_122",
+     "goal": 11400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_123",
+     "goal": 11600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_124",
+     "goal": 11800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_125",
+     "goal": 12000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_126",
+     "goal": 12200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_127",
+     "goal": 12400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_128",
+     "goal": 12600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_129",
+     "goal": 12800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_130",
+     "goal": 13000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_131",
+     "goal": 13200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_132",
+     "goal": 13400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_133",
+     "goal": 13600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_134",
+     "goal": 13800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_135",
+     "goal": 14000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_136",
+     "goal": 14200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_137",
+     "goal": 14400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_138",
+     "goal": 14600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_139",
+     "goal": 14800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_140",
+     "goal": 15000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_141",
+     "goal": 15200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_142",
+     "goal": 15400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_143",
+     "goal": 15600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_144",
+     "goal": 15800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_145",
+     "goal": 16000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_146",
+     "goal": 16200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_147",
+     "goal": 16400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_148",
+     "goal": 16600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_149",
+     "goal": 16800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_150",
+     "goal": 17000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_151",
+     "goal": 17200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_152",
+     "goal": 17400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_153",
+     "goal": 17600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_154",
+     "goal": 17800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_155",
+     "goal": 18000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_156",
+     "goal": 18200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_157",
+     "goal": 18400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_158",
+     "goal": 18600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_159",
+     "goal": 18800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_160",
+     "goal": 19000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_161",
+     "goal": 19200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_162",
+     "goal": 19400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_163",
+     "goal": 19600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_164",
+     "goal": 19800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_8_165",
+     "goal": 20000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_9",
+   "category": "Family",
+   "metric": "pupils",
+   "reqType": "ChildGain",
+   "steps": [
+    {
+     "id": "A_task_9_1",
+     "goal": 1,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_2",
+     "goal": 2,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_3",
+     "goal": 3,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_4",
+     "goal": 4,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_5",
+     "goal": 7,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_6",
+     "goal": 10,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_7",
+     "goal": 13,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_8",
+     "goal": 16,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_9",
+     "goal": 20,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_10",
+     "goal": 25,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_11",
+     "goal": 30,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_12",
+     "goal": 40,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_13",
+     "goal": 50,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_14",
+     "goal": 70,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_15",
+     "goal": 100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_16",
+     "goal": 150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_17",
+     "goal": 200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_18",
+     "goal": 250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_19",
+     "goal": 300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_20",
+     "goal": 350,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_21",
+     "goal": 400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_22",
+     "goal": 450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_23",
+     "goal": 500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_24",
+     "goal": 550,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_25",
+     "goal": 600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_26",
+     "goal": 650,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_27",
+     "goal": 700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_28",
+     "goal": 750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_29",
+     "goal": 800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_30",
+     "goal": 850,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_31",
+     "goal": 900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_32",
+     "goal": 950,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_33",
+     "goal": 1000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_34",
+     "goal": 1075,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_35",
+     "goal": 1150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_36",
+     "goal": 1225,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_37",
+     "goal": 1300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_38",
+     "goal": 1375,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_39",
+     "goal": 1450,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_40",
+     "goal": 1525,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_41",
+     "goal": 1600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_42",
+     "goal": 1750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_43",
+     "goal": 1900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_44",
+     "goal": 2050,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_45",
+     "goal": 2200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_46",
+     "goal": 2350,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_47",
+     "goal": 2500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_48",
+     "goal": 2650,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_49",
+     "goal": 2800,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_50",
+     "goal": 2950,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_51",
+     "goal": 3100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_52",
+     "goal": 3400,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_53",
+     "goal": 3700,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_54",
+     "goal": 4000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_55",
+     "goal": 4300,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_56",
+     "goal": 4600,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_57",
+     "goal": 4900,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_58",
+     "goal": 5200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_59",
+     "goal": 5500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_60",
+     "goal": 6000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_61",
+     "goal": 6500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_62",
+     "goal": 7000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_63",
+     "goal": 7500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_64",
+     "goal": 8000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_65",
+     "goal": 8500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_66",
+     "goal": 9000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_67",
+     "goal": 9500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_68",
+     "goal": 10000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_69",
+     "goal": 10500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_70",
+     "goal": 11000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_71",
+     "goal": 11500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_72",
+     "goal": 12000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_73",
+     "goal": 12500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_74",
+     "goal": 13000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_75",
+     "goal": 13500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_76",
+     "goal": 14000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_77",
+     "goal": 14500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_78",
+     "goal": 15000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_79",
+     "goal": 15500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_80",
+     "goal": 16000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_81",
+     "goal": 16500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_82",
+     "goal": 17000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_83",
+     "goal": 17500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_84",
+     "goal": 18000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_85",
+     "goal": 18500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_86",
+     "goal": 19000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_87",
+     "goal": 19500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_88",
+     "goal": 20000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_89",
+     "goal": 20500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_90",
+     "goal": 21000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_91",
+     "goal": 21500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_92",
+     "goal": 22000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_93",
+     "goal": 22500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_94",
+     "goal": 23000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_95",
+     "goal": 23500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_96",
+     "goal": 24000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_97",
+     "goal": 24500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_98",
+     "goal": 25000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_99",
+     "goal": 25500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_100",
+     "goal": 26000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_101",
+     "goal": 26500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_102",
+     "goal": 27000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_103",
+     "goal": 27500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_104",
+     "goal": 28000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_105",
+     "goal": 28500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_106",
+     "goal": 29000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_107",
+     "goal": 29500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_9_108",
+     "goal": 30000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_11",
+   "category": "Lifestyle",
+   "metric": "graduates",
+   "reqType": "ChildEducation",
+   "steps": [
+    {
+     "id": "A_task_11_1",
+     "goal": 50,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_2",
+     "goal": 100,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_3",
+     "goal": 150,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_4",
+     "goal": 200,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_5",
+     "goal": 250,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_6",
+     "goal": 500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_7",
+     "goal": 750,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_8",
+     "goal": 1000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_9",
+     "goal": 1500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_10",
+     "goal": 2000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_11",
+     "goal": 2500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_12",
+     "goal": 3000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_13",
+     "goal": 3500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_14",
+     "goal": 4000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_15",
+     "goal": 4500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_16",
+     "goal": 5000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_17",
+     "goal": 6000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_18",
+     "goal": 7000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_19",
+     "goal": 8000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_20",
+     "goal": 9000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_21",
+     "goal": 10000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_22",
+     "goal": 11500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_23",
+     "goal": 13000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_24",
+     "goal": 14500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_25",
+     "goal": 16000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_26",
+     "goal": 17500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_27",
+     "goal": 19000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_28",
+     "goal": 20500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_29",
+     "goal": 22000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_30",
+     "goal": 23500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_31",
+     "goal": 25000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_32",
+     "goal": 27500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_33",
+     "goal": 30000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_34",
+     "goal": 32500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_35",
+     "goal": 35000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_36",
+     "goal": 37500,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_37",
+     "goal": 40000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_38",
+     "goal": 45000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_39",
+     "goal": 50000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_40",
+     "goal": 55000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_41",
+     "goal": 60000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_42",
+     "goal": 65000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_43",
+     "goal": 70000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_44",
+     "goal": 75000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_45",
+     "goal": 80000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_46",
+     "goal": 85000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_47",
+     "goal": 90000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_48",
+     "goal": 95000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_49",
+     "goal": 100000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_50",
+     "goal": 110000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_51",
+     "goal": 120000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_52",
+     "goal": 130000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_53",
+     "goal": 140000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_54",
+     "goal": 150000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_55",
+     "goal": 160000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_56",
+     "goal": 170000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_57",
+     "goal": 180000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_58",
+     "goal": 190000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_59",
+     "goal": 200000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_60",
+     "goal": 210000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_61",
+     "goal": 220000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_62",
+     "goal": 230000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_63",
+     "goal": 240000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_64",
+     "goal": 250000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_65",
+     "goal": 260000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_66",
+     "goal": 270000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_67",
+     "goal": 280000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_68",
+     "goal": 290000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_69",
+     "goal": 300000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_70",
+     "goal": 310000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_71",
+     "goal": 320000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_72",
+     "goal": 330000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_73",
+     "goal": 340000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_74",
+     "goal": 350000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_75",
+     "goal": 360000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_76",
+     "goal": 370000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_77",
+     "goal": 380000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_78",
+     "goal": 390000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_79",
+     "goal": 400000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_80",
+     "goal": 420000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_81",
+     "goal": 440000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_82",
+     "goal": 460000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_83",
+     "goal": 480000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_84",
+     "goal": 500000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_85",
+     "goal": 520000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_86",
+     "goal": 540000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_87",
+     "goal": 560000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_88",
+     "goal": 580000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_89",
+     "goal": 600000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_90",
+     "goal": 620000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_91",
+     "goal": 640000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_92",
+     "goal": 660000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_93",
+     "goal": 680000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_94",
+     "goal": 700000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_95",
+     "goal": 720000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_96",
+     "goal": 740000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_97",
+     "goal": 760000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_98",
+     "goal": 780000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_99",
+     "goal": 800000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_100",
+     "goal": 820000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_101",
+     "goal": 840000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_102",
+     "goal": 860000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_103",
+     "goal": 880000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_104",
+     "goal": 900000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_105",
+     "goal": 920000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_106",
+     "goal": 940000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_107",
+     "goal": 960000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_108",
+     "goal": 980000,
+     "crystals": 5
+    },
+    {
+     "id": "A_task_11_109",
+     "goal": 1000000,
+     "crystals": 5
+    }
+   ]
+  },
+  {
+   "id": "A_task_34",
+   "category": "Treasure",
+   "metric": "fishCaught",
+   "reqType": "FishGoCount",
+   "steps": [
+    {
+     "id": "A_task_34_1",
+     "goal": 5,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_2",
+     "goal": 10,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_3",
+     "goal": 20,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_4",
+     "goal": 30,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_5",
+     "goal": 40,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_6",
+     "goal": 50,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_7",
+     "goal": 75,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_8",
+     "goal": 100,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_9",
+     "goal": 125,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_10",
+     "goal": 150,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_11",
+     "goal": 175,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_12",
+     "goal": 200,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_13",
+     "goal": 250,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_14",
+     "goal": 300,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_15",
+     "goal": 350,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_16",
+     "goal": 400,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_17",
+     "goal": 450,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_18",
+     "goal": 500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_19",
+     "goal": 600,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_20",
+     "goal": 700,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_21",
+     "goal": 800,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_22",
+     "goal": 900,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_23",
+     "goal": 1000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_24",
+     "goal": 1200,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_25",
+     "goal": 1400,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_26",
+     "goal": 1600,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_27",
+     "goal": 1800,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_28",
+     "goal": 2000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_29",
+     "goal": 2300,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_30",
+     "goal": 2600,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_31",
+     "goal": 2900,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_32",
+     "goal": 3200,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_33",
+     "goal": 3500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_34",
+     "goal": 4000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_35",
+     "goal": 4500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_36",
+     "goal": 5000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_37",
+     "goal": 5500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_38",
+     "goal": 6000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_39",
+     "goal": 6500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_40",
+     "goal": 7000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_41",
+     "goal": 7500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_42",
+     "goal": 8000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_43",
+     "goal": 8500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_44",
+     "goal": 9000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_45",
+     "goal": 9500,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_46",
+     "goal": 10000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_47",
+     "goal": 11000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_48",
+     "goal": 12000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_49",
+     "goal": 13000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_50",
+     "goal": 14000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_51",
+     "goal": 15000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_52",
+     "goal": 16000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_53",
+     "goal": 17000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_54",
+     "goal": 18000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_55",
+     "goal": 19000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_56",
+     "goal": 20000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_57",
+     "goal": 21000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_58",
+     "goal": 22000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_59",
+     "goal": 23000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_60",
+     "goal": 24000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_61",
+     "goal": 25000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_62",
+     "goal": 26000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_63",
+     "goal": 27000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_64",
+     "goal": 28000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_65",
+     "goal": 29000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_66",
+     "goal": 30000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_67",
+     "goal": 31000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_68",
+     "goal": 32000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_69",
+     "goal": 33000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_70",
+     "goal": 34000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_71",
+     "goal": 35000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_72",
+     "goal": 36000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_73",
+     "goal": 37000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_74",
+     "goal": 38000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_75",
+     "goal": 39000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_76",
+     "goal": 40000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_77",
+     "goal": 41000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_78",
+     "goal": 42000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_79",
+     "goal": 43000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_80",
+     "goal": 44000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_81",
+     "goal": 45000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_82",
+     "goal": 46000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_83",
+     "goal": 47000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_84",
+     "goal": 48000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_85",
+     "goal": 49000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_86",
+     "goal": 50000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_87",
+     "goal": 51000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_88",
+     "goal": 52000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_89",
+     "goal": 53000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_90",
+     "goal": 54000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_91",
+     "goal": 55000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_92",
+     "goal": 56000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_93",
+     "goal": 57000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_94",
+     "goal": 58000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_95",
+     "goal": 59000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_96",
+     "goal": 60000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_97",
+     "goal": 61000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_98",
+     "goal": 62000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_99",
+     "goal": 63000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_100",
+     "goal": 64000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_101",
+     "goal": 65000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_102",
+     "goal": 66000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_103",
+     "goal": 67000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_104",
+     "goal": 68000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_105",
+     "goal": 69000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_106",
+     "goal": 70000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_107",
+     "goal": 71000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_108",
+     "goal": 72000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_109",
+     "goal": 73000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_110",
+     "goal": 74000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_111",
+     "goal": 75000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_112",
+     "goal": 76000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_113",
+     "goal": 77000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_114",
+     "goal": 78000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_115",
+     "goal": 79000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_116",
+     "goal": 80000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_117",
+     "goal": 81000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_118",
+     "goal": 82000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_119",
+     "goal": 83000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_120",
+     "goal": 84000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_121",
+     "goal": 85000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_122",
+     "goal": 86000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_123",
+     "goal": 87000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_124",
+     "goal": 88000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_125",
+     "goal": 89000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_126",
+     "goal": 90000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_127",
+     "goal": 91000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_128",
+     "goal": 92000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_129",
+     "goal": 93000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_130",
+     "goal": 94000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_131",
+     "goal": 95000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_132",
+     "goal": 96000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_133",
+     "goal": 97000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_134",
+     "goal": 98000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_135",
+     "goal": 99000,
+     "crystals": 0
+    },
+    {
+     "id": "A_task_34_136",
+     "goal": 100000,
+     "crystals": 0
+    }
+   ]
+  }
+ ],
+ "unmappedRewardItems": [
+  "Item_Breach_Hero_1_1",
+  "Item_Breach_Hero_1_2",
+  "Item_Breach_Hero_1_3",
+  "Item_Building_Recruit_Increase_1",
+  "Item_GetCE_10",
+  "Item_GetDE_10",
+  "Item_HeroEXP_Resources_1",
+  "Item_Piece_Hero_Universal",
+  "Item_Strengthen_Equipment_1",
+  "Item_Talent_Hero_Piece",
+  "UNRESOLVED:Reward_A_task_34_1",
+  "UNRESOLVED:Reward_A_task_34_2",
+  "UNRESOLVED:Reward_A_task_34_3",
+  "UNRESOLVED:Reward_A_task_34_4",
+  "UNRESOLVED:Reward_A_task_34_5",
+  "UNRESOLVED:Reward_A_task_35_1",
+  "UNRESOLVED:Reward_A_task_35_10",
+  "UNRESOLVED:Reward_A_task_35_11",
+  "UNRESOLVED:Reward_A_task_35_12",
+  "UNRESOLVED:Reward_A_task_35_13",
+  "UNRESOLVED:Reward_A_task_35_14",
+  "UNRESOLVED:Reward_A_task_35_15",
+  "UNRESOLVED:Reward_A_task_35_16",
+  "UNRESOLVED:Reward_A_task_35_2",
+  "UNRESOLVED:Reward_A_task_35_3",
+  "UNRESOLVED:Reward_A_task_35_4",
+  "UNRESOLVED:Reward_A_task_35_5",
+  "UNRESOLVED:Reward_A_task_35_6",
+  "UNRESOLVED:Reward_A_task_35_7",
+  "UNRESOLVED:Reward_A_task_35_8",
+  "UNRESOLVED:Reward_A_task_35_9",
+  "gift1"
+ ]
+}
