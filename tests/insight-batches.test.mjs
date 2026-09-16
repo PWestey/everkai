@@ -12,7 +12,12 @@ test('all mapped playable Fellows reach300 using exactly30000 of their type and 
  for(let j=0;j<30;j++)s=stock(s,f.id);
  const before=s.fellows[f.id].aptitude,plan=insightTrainingPlan(s,f.id,'max');assert.equal(plan.count,300);assert.equal(plan.cost,30000);
  s=go(s,'trainInsight',f.id,'max');assert.equal(s.fellows[f.id].aptitude,before+300);assert.equal(s.insight.levels[f.id],300);assert.equal(insightTrainingPlan(s,f.id,'max').count,0);}
- assert.equal(count,158);for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[id],0);assert.deepEqual(decode(JSON.stringify(s)),s);
+ // REBASELINED 2026-09-15 (F3): 158 -> 159. hero_60 (Kamakura) had no record in the wiki snapshot
+ // lib/public-roster.json, so its type was null and insightRule() refused it -- a whole +300 Aptitude
+ // track was unreachable on a Fellow the original explicitly types (Hero.json "60": country "5",
+ // heroBaseSkill contains Hero_Talent_Country5Base_1). Every shipped Fellow now reaches exactly one
+ // rule; tests/fellow-type-coverage.test.mjs guards that this stays true.
+ assert.equal(count,159);for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[id],0);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('affordable previews match admitted results at currency, level and Aptitude boundaries',()=>{
  let s=stock(fresh(1000));s.insight.balances.Item_Hero_Talent_Country_5=399;

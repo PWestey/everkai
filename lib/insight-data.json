@@ -212,6 +212,7 @@
         "hero_25",
         "hero_53",
         "hero_55",
+        "hero_60",
         "hero_66",
         "hero_77",
         "hero_75",
@@ -242,5 +243,5 @@
       ]
     }
   ],
-  "uncertainty": "Community rows not version-matched production data. Higher Insight tiers and rarity advancement excluded. Existing Aptitude is not retroactively decomposed into levels."
+  "uncertainty": "Community rows not version-matched production data. Existing Aptitude is not retroactively decomposed into levels. F3 2026-09-15: the five tier-I rules below were cross-checked against Hero.json heroBaseSkill in the full APK config set and agreed on 158 of 159 shipped Fellows; the one miss, hero_60 (Kamakura, country 5), was added. Higher tiers stay excluded, now with a measured reason rather than an assumption: SkillBase carries 15 Hero_Talent_Country*Base_* rows, 5 countries x 3 tiers, each maxUpgradeLevel 300 with skillProp talent and skillProp_Initial = skillProp_Level = the tier number (so tier II is +2/level to 600, tier III +3/level to 900). Tier II is granted ONLY by rarity advancement -- 7 of the 326 HeroRarityUpgrade rows name a Base_2 skill, all type 1 rarity 4 -> afterRarity 5 -- so it is blocked on F7, not independently buildable. Tier III has NO unlock path in any gameplay table (positive control: Base_1 resolves in HeroRarityUpgradeStage, SkillType, SkillLevel and Hero.json; Base_3 resolves only in SkillBase, SkillType, SkillLevel and the translation files), so it is dormant content in the original too and Everkai should not invent one."
 }
