@@ -42,10 +42,14 @@ test('Inn queued rewards and collection survive refusal/reload without duplicate
  const disk=fixture(JSON.stringify(funded(fresh(1000),costOf('Building_101')))),store=createPersistence(()=>disk);let s=store.load(1000);
  for(const [action,target,value] of [['openEnterprise','Building_101'],['openInnService'],['developInnRecipe','57'],['receiveInnGuests','57',5]]){s=act(s,action,1000,target,value).state;store.commit(s);}
  const raw=disk.getItem(SAVE_KEY);disk.fail=true;assert.throws(()=>store.commit(settle(s,51000)));assert.equal(disk.getItem(SAVE_KEY),raw);assert.equal(store.current.inn.served,0);
- disk.fail=false;const recovered=store.load(51000);assert.equal(recovered.inn.served,5);assert.equal(recovered.inn.deposit,250);
+ // REBASELINED 2026-09-15 (BUG-31): the deposit figures were 250, a flat 50 gold a guest. Dish 57 is
+ // guest-gated, so it earns the finesse-1 fallback a serving and stays at dish level 1 across all five;
+ // SimGame1FoodLevel pays it 1,000 there, so five guests bank 5,000. What this test measures -- that a
+ // failed commit neither loses nor duplicates the till -- is unchanged.
+ disk.fail=false;const recovered=store.load(51000);assert.equal(recovered.inn.served,5);assert.equal(recovered.inn.deposit,5000);
  const collected=act(recovered,'collectInnDeposit',51000).state;disk.fail=true;assert.throws(()=>store.commit(collected));disk.fail=false;
- const retry=store.load(51000);assert.equal(retry.gold,recovered.gold);assert.equal(retry.inn.deposit,250);store.commit(act(retry,'collectInnDeposit',51000).state);
- const final=createPersistence(()=>disk).load(61000);assert.equal(final.gold,recovered.gold+250);assert.equal(final.inn.served,5);assert.equal(final.inn.deposit,0);
+ const retry=store.load(51000);assert.equal(retry.gold,recovered.gold);assert.equal(retry.inn.deposit,5000);store.commit(act(retry,'collectInnDeposit',51000).state);
+ const final=createPersistence(()=>disk).load(61000);assert.equal(final.gold,recovered.gold+5000);assert.equal(final.inn.served,5);assert.equal(final.inn.deposit,0);
 });
 test('Workshop failed completion and wallet collection recover without duplicated coins or Sales EXP',()=>{
  const disk=fixture(JSON.stringify(funded(fresh(1000),costOf('Building_301')))),store=createPersistence(()=>disk);let s=store.load(1000);

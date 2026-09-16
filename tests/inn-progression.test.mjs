@@ -1,8 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,settle,decode,valid} from '../lib/game.mjs';
 import {innRating,innStaminaCap,innServingGains} from '../lib/inn-progression.mjs';
+import {funded} from './gear-fixtures.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
-function setup(){let s=fresh(1000);for(const [a,t] of [['openEnterprise','Building_101'],['openInnService'],['buildInnStation','1'],['developInnRecipe','1']])s=run(s,a,t);return s;}
+// funded by exactly dish 1's SimGame1Food unlockConsume (500 gold, ECON-17). This file measures gains and
+// rating thresholds, never a gold balance, so covering the price keeps every figure below unchanged.
+function setup(){let s=funded(fresh(1000),500);for(const [a,t] of [['openEnterprise','Building_101'],['openInnService'],['buildInnStation','1'],['developInnRecipe','1']])s=run(s,a,t);return s;}
 test('known station gains snapshot at reception and unlock rating stamina thresholds',()=>{
  let s=setup();s.inn.popularity=494;s=run(s,'receiveInnGuests','1',1);assert.deepEqual(s.inn.queue.gains,{finesse:100,popularity:6});
  s.inn.blueprints=10;s=run(s,'upgradeInnStation','1');s=settle(s,11000);
