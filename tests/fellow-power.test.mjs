@@ -19,15 +19,16 @@ import operations from '../lib/operation-data.json' with {type:'json'};
 // pinning at both ends: what a single Fellow contributes, and what the whole roster can ever reach.
 //
 // The measured reference point on the original's live save is 3,497,276,469 total power
-// => 3,497,276 conversion. The fixture below reaches 881,466 with every record maxed and every
+// => 3,497,276 conversion. The fixture below reaches 907,328 with every record maxed and every
 // familiar bound; its APK-growth mode passes the original outright.
 //
-// 881,466 IS NOT A CEILING, and an earlier version of this comment said its predecessor was. That
+// 907,328 IS NOT A CEILING, and an earlier version of this comment said its predecessor was. That
 // fixture never touches three shipped, reachable systems: stella, blessings and artifact echoes.
-// Driving those through their own actions reaches 2,938,908 in a save that still passes valid() --
-// MEASURED 2026-09-13, stage by stage: 881,466 fixture -> 1,939,371 (+stella, 4 profiles) ->
-// 2,866,304 (+blessings, 208 trainBlessingsMax calls over 105 welcomed families) -> 2,938,908
-// (+27 echoes). So the real default-mode shortfall against the original is 1.19x.
+// Driving those through their own actions reaches 3,026,482 in a save that still passes valid() --
+// MEASURED 2026-09-13, re-measured 2026-09-15 after the seven crossover characters were restored
+// (159 Fellows, 107 Family), stage by stage: 907,328 fixture -> 1,977,854 (+stella, 4 profiles) ->
+// 2,943,548 (+blessings, 212 trainBlessingsMax calls over 107 welcomed families) -> 3,026,482
+// (+32 echoes). So the real default-mode shortfall against the original is 1.16x.
 //
 // EVERY NUMBER IN THIS FILE MOVED ON 2026-09-13, and not because the power maths changed. Raising
 // the default cap from the old 20+breaks*10 ladder (max 60 at 4 breaks) to the original's quality
@@ -35,7 +36,7 @@ import operations from '../lib/operation-data.json' with {type:'json'};
 // records because those are the highest values valid() accepts. The previous figures -- 138,699
 // fixture, 827,408 ceiling, 4.23x shortfall -- were all measured against a level-60 ceiling and are
 // dead. Numbers here are pinned because they must not drift, but read them as this fixture's reach,
-// not as what the game can reach. Whether 1.19x is where default mode SHOULD land is a balance
+// not as what the game can reach. Whether 1.16x is where default mode SHOULD land is a balance
 // question tied to the faucet work, not something this characterisation test decides.
 
 const NOW=1767225600000;                 // fixed day, so habit-derived state is stable across runs
@@ -166,23 +167,23 @@ test('museum is the one external contributor reachable with no other system buil
 // The ceiling. This is the number the economy hangs off, so it is pinned at each stage of assembly.
 // ---------------------------------------------------------------------------------------------
 
-test('default mode: records + museum + familiars reach 881,466 -- NOT the ceiling, see the header',()=>{
+test('default mode: records + museum + familiars reach 907,328 -- NOT the ceiling, see the header',()=>{
  let s=roster();
- assert.equal(Object.keys(s.fellows).length,154);
- // An untrained full roster is worth almost nothing: 154 x 100 / 1000.
- assert.equal(Math.round(rosterOperation(s)*100)/100,15.4);
+ assert.equal(Object.keys(s.fellows).length,159);
+ // An untrained full roster is worth almost nothing: 159 x 100 / 1000.
+ assert.equal(Math.round(rosterOperation(s)*100)/100,15.9);
 
  // Level alone -- the shape the roadmap brief measured at "~197/s" -- leaves aptitude at its floor.
  const levelled={...s,fellows:Object.fromEntries(Object.keys(s.fellows).map(id=>
   [id,{level:60,aptitude:10,skill:0,breaks:4,gear:null}]))};
  assert.ok(valid(levelled));
- assert.equal(Math.round(rosterOperation(levelled)*100)/100,197.12);
+ assert.equal(Math.round(rosterOperation(levelled)*100)/100,203.52);
 
  // Every record maxed instead: levels, aptitude, skill, best gear, artifact level 20, seven stars.
  s=maxedRecords(s);
- assert.equal(Math.round(rosterOperation(s)),721313);
+ assert.equal(Math.round(rosterOperation(s)),744732);
  s=maybe(allKeepsakes(s),'acceptMuseum');
- assert.equal(Math.round(rosterOperation(s)),796557);
+ assert.equal(Math.round(rosterOperation(s)),822420);
 
  // Familiars are the largest single external contributor: inherent flat Power up to 3,000,000 plus
  // 199 activatable nodes each. Binding is strictly 1:1, so only 71 of 154 Fellows can ever hold one.
@@ -198,14 +199,14 @@ test('default mode: records + museum + familiars reach 881,466 -- NOT the ceilin
  // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
  s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
  assert.equal(bound,71,'familiar binding is 1:1; 71 familiars cover 71 of 154 Fellows');
- assert.equal(Math.round(rosterOperation(s)),881466);
+ assert.equal(Math.round(rosterOperation(s)),907328);
 
  // The whole fixture is a legal save, so this is genuinely reached and not a minted state. It is NOT
  // the ceiling: stella, blessings and artifact echoes are all still at zero here, and driving them
- // reaches 2,938,908 (see the file header). Do not quote 881,466 as what default mode can reach.
+ // reaches 3,026,482 (see the file header). Do not quote 907,328 as what default mode can reach.
  assert.ok(valid(s),'the maxed roster must remain a valid save');
  // Measured parity reference: the original's live save converts 3,497,276. This fixture reaches 25.2%
- // of it; the reachable 2,938,908 reaches 84.0%, i.e. a 1.19x shortfall.
+ // of it; the reachable 3,026,482 reaches 86.5%, i.e. a 1.16x shortfall.
  assert.ok(rosterOperation(s)<3_497_276,'this fixture is still below the original live-save total');
 });
 
@@ -213,15 +214,15 @@ test('default mode: records + museum + familiars reach 881,466 -- NOT the ceilin
 // THE ACTUAL REACHABLE CEILING. The fixture above was quoted as Everkai's ceiling for weeks, and the
 // roadmap carried a "25.2x power gap" built on it. It is not a ceiling: it never touches stella,
 // blessings or artifact echoes, all three of which are shipped and reachable through their own
-// actions. Driving them takes the SAME save to 2,938,908 -- a 3.33x correction, and the real
-// shortfall against the original's 3,497,276 is 1.19x rather than 25.2x.
+// actions. Driving them takes the SAME save to 3,026,482 -- a 3.34x correction, and the real
+// shortfall against the original's 3,497,276 is 1.16x rather than 25.2x.
 //
 // This is pinned stage by stage on purpose. A single end number would say "something moved" when one
 // system silently stops contributing; four checkpoints say WHICH one. Every stage asserts valid(),
 // because a ceiling reachable only by minting an illegal save is not a ceiling.
 // ---------------------------------------------------------------------------------------------
 
-test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes take it 3.33x past the fixture',()=>{
+test('the real default-mode ceiling is 3,026,482: stella, blessings and echoes take it 3.34x past the fixture',()=>{
  // Stage 0 -- the fixture above, rebuilt here so this test stands alone if that one is edited.
  let s=maxedRecords(roster());
  s=maybe(allKeepsakes(s),'acceptMuseum');
@@ -235,7 +236,7 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
  // A bond pays by stage now (ECON-29). The ceiling trains every familiar to stage 10 AFTER its nodes were
  // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
  s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
- assert.equal(Math.round(rosterOperation(s)),881466,'stage 0 must match the fixture above');
+ assert.equal(Math.round(rosterOperation(s)),907328,'stage 0 must match the fixture above');
 
  // Stage 1 -- STELLA. Four profiles ship with a private activation policy; each is activated once and
  // then upgraded to the top of its own ladder, paid from the free sandbox fragment faucet. Every call
@@ -253,7 +254,7 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
    if(s===before)break;
   }
  }
- assert.equal(Math.round(rosterOperation(s)),1939371,'stella is worth +1,057,905 over the fixture');
+ assert.equal(Math.round(rosterOperation(s)),1977854,'stella is worth +1,070,526 over the fixture');
  assert.ok(valid(s),'the stella save must be legal');
 
  // Stage 2 -- BLESSINGS. welcomeAll is the family counterpart of recruitAll; without it a save holds
@@ -261,7 +262,7 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
  // must be SPREAD: `count:'all'` on the first member drains the whole bag into it and the other 104
  // train nothing, which is exactly how this measurement was first got wrong.
  s=maybe(s,'welcomeAll');
- assert.equal(Object.keys(s.family).length,105,'welcomeAll must seat the whole family catalogue');
+ assert.equal(Object.keys(s.family).length,107,'welcomeAll must seat the whole family catalogue');
  const points=CONSUMABLES.find(i=>i.stat==='points'&&i.target==='family');
  assert.ok(points,'no family Blessing-Point consumable ships; the faucet below would prove nothing');
  s=stockConsumable(s,points.id,3000);
@@ -271,14 +272,14 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
   s=maybe(s,'useConsumable',points.id,{recipient:id,count:10});
   if(s!==before)funded++;
  }
- assert.equal(funded,105,'every family member must be funded, or the blessing total is understated');
+ assert.equal(funded,107,'every family member must be funded, or the blessing total is understated');
  let trained=0;
  for(const id of Object.keys(s.family))for(const key of ['flatBlessing','advancedBlessing']){
   const before=s;s=maybe(s,'trainBlessingsMax',id,key);if(s!==before)trained++;
  }
  // 208 of 210: two (family, key) pairs refuse with 'No supported ungated Fellows are available'.
- assert.equal(trained,208,'the trainable (family, blessing) pair count has moved');
- assert.equal(Math.round(rosterOperation(s)),2866304,'blessings are worth +926,933 over stella');
+ assert.equal(trained,212,'the trainable (family, blessing) pair count has moved');
+ assert.equal(Math.round(rosterOperation(s)),2943548,'blessings are worth +965,694 over stella');
  assert.ok(valid(s),'the blessing save must be legal');
 
  // Stage 3 -- ARTIFACT ECHOES. An Echo only enables when its OWN named artifact is equipped on its
@@ -286,20 +287,20 @@ test('the real default-mode ceiling is 2,938,908: stella, blessings and echoes t
  // exactly zero of them. Equipping the echo item costs those Fellows some base aptitude and the net
  // is still positive.
  const named=ARTIFACT_ECHOES.filter(r=>r.fellow&&s.fellows[r.fellow]&&GEAR.some(g=>g.id===r.item));
- assert.equal(named.length,27,'the enable-able Echo set has changed');
+ assert.equal(named.length,32,'the enable-able Echo set has changed');
  let enabled=0;
  for(const r of named){
   s={...s,fellows:{...s.fellows,[r.fellow]:{...s.fellows[r.fellow],gear:r.item,gearLevel:1}}};
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
- assert.equal(enabled,27,'every named Echo must enable once its own artifact is equipped');
- assert.equal(Math.round(rosterOperation(s)),2938908);
- assert.ok(valid(s),'THE WHOLE 2,938,908 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
+ assert.equal(enabled,32,'every named Echo must enable once its own artifact is equipped');
+ assert.equal(Math.round(rosterOperation(s)),3026482);
+ assert.ok(valid(s),'THE WHOLE 3,026,482 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
 
  // The parity statement this file exists to make, in one assertion.
- assert.equal(Math.round(3_497_276/rosterOperation(s)*100)/100,1.19,
-  'the default-mode shortfall against the original live save is 1.19x, NOT the 25.2x that quoting '
-  +'the 881,466 fixture as a ceiling implies');
+ assert.equal(Math.round(3_497_276/rosterOperation(s)*100)/100,1.16,
+  'the default-mode shortfall against the original live save is 1.16x, NOT the 25.2x that quoting '
+  +'the 907,328 fixture as a ceiling implies');
 });
 
 test('APK growth mode passes the original outright: one Fellow alone is worth 44.6M Power',()=>{
@@ -313,7 +314,7 @@ test('APK growth mode passes the original outright: one Fellow alone is worth 44
  s={...s,fellows,originalProgression:{...s.originalProgression,quality}};
  // Pinned to Kaity (hero_15), whose talent terms the formula above spells out; the full roster owns her.
  assert.equal(bondedPower(s,'hero_15'),44_640_000);
- assert.equal(Math.round(rosterOperation(s)),7_082_725);
+ assert.equal(Math.round(rosterOperation(s)),7_315_225);
  // 2.0x the original's measured live-save conversion of 3,497,276 -- so the parity shortfall is a
  // property of DEFAULT mode's caps, not of the power formula, which is the original's own.
  assert.ok(rosterOperation(s)>3_497_276);

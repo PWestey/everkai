@@ -3,15 +3,28 @@ import {fresh,decode,valid,settle} from '../lib/game.mjs';
 import {EXTRA_ITEMS} from '../lib/adventure.mjs';
 import {GIFTS} from '../lib/catalog.mjs';
 
-// The five Nichirin Swords left GEAR with the demon-to-angel rewrite. Every save written before that
-// still carries their inventory keys, and validFamily counts inventory keys exactly -- so those saves
-// stopped loading entirely. decode threw its final generic error, settle threw "Invalid village
-// state", and the player saw "Saving is unavailable" with no way back in.
-const RETIRED=['Item_Weapon_Equipment_6_H264','Item_Weapon_Equipment_6_H301','Item_Weapon_Equipment_6_H302','Item_Weapon_Equipment_6_H303','Item_Weapon_Equipment_6_H304'];
+// validFamily counts inventory keys exactly, so a save whose key set does not match the shipped items
+// stops loading: decode threw its generic error, settle threw "Invalid village state", and the player saw
+// "Saving is unavailable" with no way back in. reconcileInventory repairs both directions -- an id the game
+// dropped is discarded, an id it gained comes back at zero. The five Nichirin Swords have made both trips:
+// retired with the demon-to-angel rewrite, restored 2026-09-15 with their characters, so they are live
+// items again and a genuinely unknown id stands in for the retired case.
 const EXPECTED=GIFTS.length+EXTRA_ITEMS.length;
 
-test('none of the retired ids are still in the game',()=>{
- for(const id of RETIRED)assert.ok(!EXTRA_ITEMS.some(i=>i.id===id),id+' is back in EXTRA_ITEMS');
+const RESTORED=['Item_Weapon_Equipment_6_H264','Item_Weapon_Equipment_6_H301','Item_Weapon_Equipment_6_H302','Item_Weapon_Equipment_6_H303','Item_Weapon_Equipment_6_H304'];
+const RETIRED=['no_such_item_1','no_such_item_2','no_such_item_3','no_such_item_4','no_such_item_5'];
+
+test('the restored crossover swords are live items again',()=>{
+ for(const id of RESTORED)assert.ok(EXTRA_ITEMS.some(i=>i.id===id),id+' is missing from EXTRA_ITEMS');
+ for(const id of RETIRED)assert.ok(!EXTRA_ITEMS.some(i=>i.id===id),id);
+});
+
+test('a save written before the swords came back gains their slots at zero',()=>{
+ const s=fresh(1000),inventory={...s.inventory};
+ for(const id of RESTORED)delete inventory[id];
+ const loaded=decode(JSON.stringify({...s,inventory}));
+ assert.ok(valid(loaded));
+ for(const id of RESTORED)assert.equal(loaded.inventory[id],0,id+' should come back at zero');
 });
 
 test('a save holding items the game has since removed still loads',()=>{

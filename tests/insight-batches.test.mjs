@@ -12,7 +12,7 @@ test('all mapped playable Fellows reach300 using exactly30000 of their type and 
  for(let j=0;j<30;j++)s=stock(s,f.id);
  const before=s.fellows[f.id].aptitude,plan=insightTrainingPlan(s,f.id,'max');assert.equal(plan.count,300);assert.equal(plan.cost,30000);
  s=go(s,'trainInsight',f.id,'max');assert.equal(s.fellows[f.id].aptitude,before+300);assert.equal(s.insight.levels[f.id],300);assert.equal(insightTrainingPlan(s,f.id,'max').count,0);}
- assert.equal(count,153);for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[id],0);assert.deepEqual(decode(JSON.stringify(s)),s);
+ assert.equal(count,158);for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[id],0);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('affordable previews match admitted results at currency, level and Aptitude boundaries',()=>{
  let s=stock(fresh(1000));s.insight.balances.Item_Hero_Talent_Country_5=399;

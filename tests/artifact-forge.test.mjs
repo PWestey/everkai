@@ -10,9 +10,9 @@ const club='Item_Weapon_Equipment_1_1',unpriced='Item_Weapon_Equipment_6_5';
 
 test('every artifact with a verified reward is priced, and the one without is not',()=>{
  const records=Object.entries(rules.records);
- assert.equal(records.length,84);
+ assert.equal(records.length,89);
  const priced=records.filter(([id])=>forgeCost(id)!==null);
- assert.equal(priced.length,83);
+ assert.equal(priced.length,88);
  assert.equal(forgeCost(unpriced),null,'no verified recycle reward means no invented price');
  assert.equal(rules.records[unpriced].recycle,null,'recorded as no verified reward, not merely absent');
  for(const [id,r] of priced)assert.equal(forgeCost(id),r.recycle*FORGE_MULTIPLIER,id);

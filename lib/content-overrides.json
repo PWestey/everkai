@@ -1,16 +1,5 @@
 {
   "note": "Everkai content decisions layered over the faithful APK extraction. lib/original-content.mjs, the render-verification records (roster-availability, roster-batch-evidence, source-character-index, public-roster) and the research docs stay exactly as extracted, so provenance keeps describing the original game. This file records what the app actually ships, and survives regeneration of any of those.",
-  "removedReferencesNote": "Generated data files that are not provenance but still name the removed characters: pairings in the blessing tables, their artifact echoes, talents, insight groups, progression rows and skill-guide profiles. scripts/apply-content-overrides.py deletes every reference to an id in 'removed' from these files, as a key with its value, an array element, or the record whose id/fellow field names it. The frozen provenance files (public-roster, original-content) are filtered at load time instead, in public-reference.mjs and original-catalog.mjs.",
-  "removedReferences": ["artifact-echo-data.json", "character-skill-guide.json", "default-talent-source.json", "insight-data.json", "original-blessing-data.json", "original-progression-data.json", "special-blessing-data.json"],
-  "removed": [
-    {"id": "hero_264", "name": "Shinobu Kocho", "reason": "Demon Slayer crossover"},
-    {"id": "hero_301", "name": "Giyu Tomioka", "reason": "Demon Slayer crossover"},
-    {"id": "hero_302", "name": "Tanjiro Kamado", "reason": "Demon Slayer crossover"},
-    {"id": "hero_303", "name": "Zenitsu Agatsuma", "reason": "Demon Slayer crossover"},
-    {"id": "hero_304", "name": "Inosuke Hashibira", "reason": "Demon Slayer crossover"},
-    {"id": "wife_185", "name": "Shinobu Kocho", "reason": "Demon Slayer crossover; Family version of hero_264"},
-    {"id": "wife_186", "name": "Nezuko Kamado", "reason": "Demon Slayer crossover"}
-  ],
   "textNote": "Rewritten character text. The original game's infernal cast becomes a celestial one: the courts, offices and law-keepers of Hell become those of the Empyrean, and the five Archdemons of the deadly sins become Archangels of the answering virtues. Their Latin names are kept (Lux, Super, Ira, Acedia, Avar are ordinary Latin words, not demon names). Four proper demon names are replaced: Beelsebub, Mammon and Lilith are scriptural demons, and Devileer is built on 'devil'. Characters who were never infernal get neutral wording rather than angelic wording, so they are not misrepresented: Megumin's clan is a KonoSuba name, Tamamo is Japanese folklore, and Otherin's whole story is that she reformed.",
   "text": {
     "hero_115": {
@@ -23,7 +12,10 @@
       "race": "Angel",
       "introduce": "A powerful angel who opened a way from the Empyrean down into the underground with her devouring power, founding the Shadow Kingdom and becoming its ruler. She later established links between the heights and the surface world."
     },
-    "hero_156": {"occupation": "Archangel", "title": "Archangel of Chastity"},
+    "hero_156": {
+      "occupation": "Archangel",
+      "title": "Archangel of Chastity"
+    },
     "hero_157": {
       "occupation": "Archangel",
       "title": "Archangel of Humility",
@@ -34,22 +26,31 @@
       "title": "Archangel of Patience",
       "introduce": "The Archangel with the strongest physical strength. She loves to fight and no one can match her in battle. However, her ideas are often quite simple and she is very easy to persuade. Giving her good food can easily make her happy."
     },
-    "hero_159": {"occupation": "Archangel", "title": "Archangel of Diligence"},
-    "hero_160": {"occupation": "Archangel", "title": "Archangel of Charity"},
+    "hero_159": {
+      "occupation": "Archangel",
+      "title": "Archangel of Diligence"
+    },
+    "hero_160": {
+      "occupation": "Archangel",
+      "title": "Archangel of Charity"
+    },
     "hero_162": {
       "introduce": "The Great Onmyoji of Touno Island, powerful in magic and revered by humans, onis, and spirits alike. However, she is a mischievous girl, often surprising others with her unexpected words and actions."
     },
     "hero_171": {
-      "introduce": "A rider from the Empyrean who loves racing. Free-spirited and untamed, Gale makes her living by taking commissions from the high courts. When money runs low, she challenges thugs to street races and wins back their stolen gold—fair and square. Feared by every criminal she has ever outrun, yet untouchable to them."
+      "introduce": "A rider from the Empyrean who loves racing. Free-spirited and untamed, Gale makes her living by taking commissions from the high courts. When money runs low, she challenges thugs to street races and wins back their stolen gold\u2014fair and square. Feared by every criminal she has ever outrun, yet untouchable to them."
     },
     "hero_172": {
       "occupation": "President of the Empyrean",
-      "introduce": "The president of the Empyrean, who oversees countless laws and statutes. Her words are graceful, yet usually carry hidden motives. She excels at entangling her opponents in layers of convoluted bureaucratic language. When negotiating with her, be extremely cautious—devastating costs may hide deep within the most inconspicuous contract clauses."
+      "introduce": "The president of the Empyrean, who oversees countless laws and statutes. Her words are graceful, yet usually carry hidden motives. She excels at entangling her opponents in layers of convoluted bureaucratic language. When negotiating with her, be extremely cautious\u2014devastating costs may hide deep within the most inconspicuous contract clauses."
     },
     "hero_180": {
       "introduce": "A seraph from another world who rules the Holy Empire of Lubelius as a living deity. Noble and elegant with immense power, she holds a surprising fondness for maid outfits under her cold outlook."
     },
-    "hero_193": {"name": "Maren", "race": "Angel"},
+    "hero_193": {
+      "name": "Maren",
+      "race": "Angel"
+    },
     "hero_198": {
       "race": "Seraphic",
       "introduce": "A mature seraphic apothecary who has studied under Verity for years and has become a renowned grandmaster in elixir craft. Though he is still a little absentminded in daily life, his gentle and composed nature has earned him the deep affection of his students."
@@ -79,8 +80,13 @@
       "title": "Radiant Dom",
       "info": "An angel who came to the surface to live under the disguise of an ordinary employee. Her working abilities and efficiency are beyond comparison. Back in the Empyrean, she was actually a judge who strongly punished wrongdoers for their crimes."
     },
-    "wife_106": {"name": "Lilia", "race": "Seraph"},
-    "wife_121": {"race": "Seraph"},
+    "wife_106": {
+      "name": "Lilia",
+      "race": "Seraph"
+    },
+    "wife_121": {
+      "race": "Seraph"
+    },
     "wife_125": {
       "name": "Angeleer",
       "race": "Half-Angel",
@@ -105,78 +111,262 @@
       "title": "Genius Feathered Maid",
       "info": "A captivating girl from another world who actively streams to soothe lonely nights with her enchanting voice. Her boundless curiosity drives her to seek new experiences. Her impish nature will come with surprises, so be ready for some playful teasing."
     },
-    "wife_59": {"race": "Seraphic"}
+    "wife_59": {
+      "race": "Seraphic"
+    }
   },
   "stringsNote": "Rewrites for generated data files, applied by scripts/apply-content-overrides.py. Each 'old' is the RAW file text, so entries for files that store \\uXXXX escapes are written in escaped form. Keys include a field prefix wherever the same wording also appears in a frozen field (expo evidence, source URLs, sourceKeys), which stays factual about the original game. Villain and chuunibyo contexts get neutral wording rather than angelic wording, so meaning is not inverted: Enad'Num's 'demon god' becomes a 'shadow god' because he is a deluded would-be sorcerer, not a saint.",
   "strings": {
     "character-skill-guide.json": [
-      ["\"name\":\"Hell Racing\"", "\"name\":\"Empyrean Racing\""],
-      ["\"name\":\"Gazing at the Abyss\"", "\"name\":\"Gazing into the Deep\""],
-      ["\"name\":\"Abyssal Tentacles\"", "\"name\":\"Deepwater Tentacles\""],
-      ["\"name\":\"Sweet little devil\"", "\"name\":\"Sweet little rascal\""],
-      ["\"name\":\"Devileer\"", "\"name\":\"Angeleer\""]
+      [
+        "\"name\":\"Hell Racing\"",
+        "\"name\":\"Empyrean Racing\""
+      ],
+      [
+        "\"name\":\"Gazing at the Abyss\"",
+        "\"name\":\"Gazing into the Deep\""
+      ],
+      [
+        "\"name\":\"Abyssal Tentacles\"",
+        "\"name\":\"Deepwater Tentacles\""
+      ],
+      [
+        "\"name\":\"Sweet little devil\"",
+        "\"name\":\"Sweet little rascal\""
+      ],
+      [
+        "\"name\":\"Devileer\"",
+        "\"name\":\"Angeleer\""
+      ]
     ],
     "expanded-gear.json": [
-      ["adorned with angel and demon wings", "adorned with wings of light and shadow"],
-      ["Rica's naughty, devilish side", "Rica's naughty, mischievous side"],
-      ["\"name\": \"Demon Blade Benizakura\"", "\"name\": \"Crimson Blade Benizakura\""]
+      [
+        "adorned with angel and demon wings",
+        "adorned with wings of light and shadow"
+      ],
+      [
+        "Rica's naughty, devilish side",
+        "Rica's naughty, mischievous side"
+      ],
+      [
+        "\"name\": \"Demon Blade Benizakura\"",
+        "\"name\": \"Crimson Blade Benizakura\""
+      ]
     ],
     "inventory-display-data.json": [
-      ["\"name\": \"Demon Blade Benizakura\"", "\"name\": \"Crimson Blade Benizakura\""]
+      [
+        "\"name\": \"Demon Blade Benizakura\"",
+        "\"name\": \"Crimson Blade Benizakura\""
+      ]
     ],
     "expo-bond-data.json": [
-      ["Fellows of Archdemon", "Fellows of Archangel"]
+      [
+        "Fellows of Archdemon",
+        "Fellows of Archangel"
+      ]
     ],
     "expo-data.json": [
-      ["\"name\": \"Archdemon Wine & Restaurant\"", "\"name\": \"Archangel Wine & Restaurant\""],
-      ["\"name\": \"Archdemon\\u2019s Mille-Feuille\"", "\"name\": \"Archangel\\u2019s Mille-Feuille\""]
+      [
+        "\"name\": \"Archdemon Wine & Restaurant\"",
+        "\"name\": \"Archangel Wine & Restaurant\""
+      ],
+      [
+        "\"name\": \"Archdemon\\u2019s Mille-Feuille\"",
+        "\"name\": \"Archangel\\u2019s Mille-Feuille\""
+      ]
     ],
     "wardrobe-data.json": [
-      ["Archdemon", "Archangel"]
+      [
+        "Archdemon",
+        "Archangel"
+      ]
     ],
     "fountain-data.json": [
-      ["Succubus Tonic", "Seraph Tonic"]
+      [
+        "Succubus Tonic",
+        "Seraph Tonic"
+      ]
     ],
     "tonic-data.json": [
-      ["Succubus Tonic", "Seraph Tonic"],
-      ["replenishes Succubus Energy", "replenishes Seraph Energy"]
+      [
+        "Succubus Tonic",
+        "Seraph Tonic"
+      ],
+      [
+        "replenishes Succubus Energy",
+        "replenishes Seraph Energy"
+      ]
     ],
     "museum-data.json": [
-      ["a renowned Hell artisan", "a renowned Empyrean artisan"]
+      [
+        "a renowned Hell artisan",
+        "a renowned Empyrean artisan"
+      ]
     ],
     "raphael-data.json": [
-      ["Devil Believes Villains Sure Win", "Angel Believes Villains Sure Win"],
-      ["Reformed Devil", "Reformed Angel"],
-      ["Insane Muscular Devil", "Insane Muscular Angel"]
+      [
+        "Devil Believes Villains Sure Win",
+        "Angel Believes Villains Sure Win"
+      ],
+      [
+        "Reformed Devil",
+        "Reformed Angel"
+      ],
+      [
+        "Insane Muscular Devil",
+        "Insane Muscular Angel"
+      ]
     ],
     "treasure-data.json": [
-      ["Frozen Abyss", "Frozen Depths"]
+      [
+        "Frozen Abyss",
+        "Frozen Depths"
+      ]
     ],
     "original-scenes.mjs": [
-      ["even a match for an Archdemon", "even a match for an Archangel"],
-      ["making their lives a living hell", "making their lives a waking nightmare"]
+      [
+        "even a match for an Archdemon",
+        "even a match for an Archangel"
+      ],
+      [
+        "making their lives a living hell",
+        "making their lives a waking nightmare"
+      ]
     ],
     "roaming-data.mjs": [
-      ["Mammon paid you a deposit.", "Maren paid you a deposit."],
-      ["the Devil's recipe", "the Angel's recipe"]
+      [
+        "Mammon paid you a deposit.",
+        "Maren paid you a deposit."
+      ],
+      [
+        "the Devil's recipe",
+        "the Angel's recipe"
+      ]
     ],
     "roaming-scenes.mjs": [
-      ["Oni Archdemon", "Oni Warlord"],
-      ["demonic hour", "shadowed hour"],
-      ["demonic tears", "shadow tears"],
-      ["Demon tears", "Shadow tears"],
-      ["demon god", "shadow god"],
-      ["Demon god", "Shadow god"],
-      ["a \\\"demon\\\"", "a \\\"shadow\\\""],
-      ["any demon!", "any shadow!"]
+      [
+        "Oni Archdemon",
+        "Oni Warlord"
+      ],
+      [
+        "demonic hour",
+        "shadowed hour"
+      ],
+      [
+        "demonic tears",
+        "shadow tears"
+      ],
+      [
+        "Demon tears",
+        "Shadow tears"
+      ],
+      [
+        "demon god",
+        "shadow god"
+      ],
+      [
+        "Demon god",
+        "Shadow god"
+      ],
+      [
+        "a \\\"demon\\\"",
+        "a \\\"shadow\\\""
+      ],
+      [
+        "any demon!",
+        "any shadow!"
+      ]
     ]
   },
-  "removedItemsNote": "Crossover gear for the Demon Slayer characters removed in e70a8e6. Their descriptions read 'A blade carried by Demon-Slayer Swordsmen', and they are named for people the game no longer ships. Demon Blade Benizakura is NOT one of these: it is a Fairy Tail crossover modelled after Erza's weapons, so it is renamed rather than removed.",
-  "removedItems": [
-    {"id": "Item_Weapon_Equipment_6_H264", "name": "Shinobu Kocho's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
-    {"id": "Item_Weapon_Equipment_6_H301", "name": "Giyu Tomioka's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
-    {"id": "Item_Weapon_Equipment_6_H302", "name": "Tanjiro Kamado's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
-    {"id": "Item_Weapon_Equipment_6_H303", "name": "Zenitsu Agatsuma's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]},
-    {"id": "Item_Weapon_Equipment_6_H304", "name": "Inosuke Hashibira's Nichirin Sword", "files": ["expanded-gear.json", "inventory-display-data.json", "inventory-icon-exceptions.json", "artifact-rules.json"]}
-  ]
+  "restoredNote": "The crossover characters below were removed 2026-09-11 and restored 2026-09-15 at the owner's direction for private use (the Demon Hunter arc's cast). `restored` is a record, not a denylist: nothing filters on it, so they ship like any other character.",
+  "restored": [
+    {
+      "id": "hero_264",
+      "name": "Shinobu Kocho",
+      "reason": "Demon Slayer crossover"
+    },
+    {
+      "id": "hero_301",
+      "name": "Giyu Tomioka",
+      "reason": "Demon Slayer crossover"
+    },
+    {
+      "id": "hero_302",
+      "name": "Tanjiro Kamado",
+      "reason": "Demon Slayer crossover"
+    },
+    {
+      "id": "hero_303",
+      "name": "Zenitsu Agatsuma",
+      "reason": "Demon Slayer crossover"
+    },
+    {
+      "id": "hero_304",
+      "name": "Inosuke Hashibira",
+      "reason": "Demon Slayer crossover"
+    },
+    {
+      "id": "wife_185",
+      "name": "Shinobu Kocho",
+      "reason": "Demon Slayer crossover; Family version of hero_264"
+    },
+    {
+      "id": "wife_186",
+      "name": "Nezuko Kamado",
+      "reason": "Demon Slayer crossover"
+    }
+  ],
+  "restoredItems": [
+    {
+      "id": "Item_Weapon_Equipment_6_H264",
+      "name": "Shinobu Kocho's Nichirin Sword",
+      "files": [
+        "expanded-gear.json",
+        "inventory-display-data.json",
+        "inventory-icon-exceptions.json",
+        "artifact-rules.json"
+      ]
+    },
+    {
+      "id": "Item_Weapon_Equipment_6_H301",
+      "name": "Giyu Tomioka's Nichirin Sword",
+      "files": [
+        "expanded-gear.json",
+        "inventory-display-data.json",
+        "inventory-icon-exceptions.json",
+        "artifact-rules.json"
+      ]
+    },
+    {
+      "id": "Item_Weapon_Equipment_6_H302",
+      "name": "Tanjiro Kamado's Nichirin Sword",
+      "files": [
+        "expanded-gear.json",
+        "inventory-display-data.json",
+        "inventory-icon-exceptions.json",
+        "artifact-rules.json"
+      ]
+    },
+    {
+      "id": "Item_Weapon_Equipment_6_H303",
+      "name": "Zenitsu Agatsuma's Nichirin Sword",
+      "files": [
+        "expanded-gear.json",
+        "inventory-display-data.json",
+        "inventory-icon-exceptions.json",
+        "artifact-rules.json"
+      ]
+    },
+    {
+      "id": "Item_Weapon_Equipment_6_H304",
+      "name": "Inosuke Hashibira's Nichirin Sword",
+      "files": [
+        "expanded-gear.json",
+        "inventory-display-data.json",
+        "inventory-icon-exceptions.json",
+        "artifact-rules.json"
+      ]
+    }
+  ],
+  "restoredItemsNote": "Crossover gear for the Demon Slayer characters removed in e70a8e6. Their descriptions read 'A blade carried by Demon-Slayer Swordsmen', and they are named for people the game no longer ships. Demon Blade Benizakura is NOT one of these: it is a Fairy Tail crossover modelled after Erza's weapons, so it is renamed rather than removed. Restored 2026-09-15 with their characters."
 }

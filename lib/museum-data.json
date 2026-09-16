@@ -65,6 +65,15 @@
       "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-30"
     },
     {
+      "id": "Collection_DemonSlayer",
+      "name": "Statue of Shinobu",
+      "description": "A woman who once briefly crossed paths with a sculptor. Struck by her remarkable beauty and elegance, the sculptor created this statue based only on faint memories of her.",
+      "effect": null,
+      "sourceKey": "Item:description:Collection_DemonSlayer",
+      "hall": "Hall1",
+      "hallSource": "https://zik-ascend.github.io/isl-tools/wiki/museum/#museum-exhibit-collection-demonslayer"
+    },
+    {
       "id": "Collection_31",
       "name": "Signed Poster",
       "description": "A valuable poster of the Raphael Troupe's hit opera Dance of Light and Shadow, signed in gold by the lead star. Ideal for display. Usable after unlocking the Museum.",

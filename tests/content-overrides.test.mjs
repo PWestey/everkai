@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {readFileSync,readdirSync} from 'node:fs';
+import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import overrides from '../lib/content-overrides.json' with {type:'json'};
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 import {GEAR} from '../lib/adventure.mjs';
@@ -12,10 +12,16 @@ const FROZEN_KEYS=/^(id|source|sourceKey|sourceUrl|url|link|href|hallSource|prof
 
 test('no shipped character profile carries the original infernal wording',()=>{
  const people=[...FELLOWS,...FAMILY];
- assert.equal(people.length,259);
- for(const p of people)for(const k of ['name','title','occupation','race','description'])
-  assert.ok(!WORDING.test(p[k]||''),`${p.id}.${k}: ${p[k]}`);});
+ assert.equal(people.length,266,'259 plus the seven restored crossover records');
+ // The rewrite covers the game's OWN infernal cast. The restored crossover is Demon Slayer itself, shipped
+ // as it is at the owner's direction, so its seven records and five swords are exempt by id.
+ const crossover=new Set(overrides.restored.map(r=>r.id));
+ for(const p of people.filter(p=>!crossover.has(p.id)))for(const k of ['name','title','occupation','race','description'])
+  assert.ok(!WORDING.test(p[k]||''),`${p.id}.${k}: ${p[k]}`);
+ assert.ok(people.some(p=>crossover.has(p.id)&&WORDING.test(p.occupation||'')),'the exemption is doing something');});
 
+// The restored crossover's own wording (Demon Slayer swordsmen and their blades) is not the game's infernal cast.
+const CROSSOVER=/Demon[- ]Slayer/i;
 test('no live data file carries it either, so a regenerated import cannot quietly undo this',()=>{
  const offenders=[];
  for(const f of readdirSync(new URL('../lib/',import.meta.url))){
@@ -24,43 +30,21 @@ test('no live data file carries it either, so a regenerated import cannot quietl
   const text=read(f);
   for(const m of text.matchAll(/"([A-Za-z_][A-Za-z0-9_]*)"\s*:\s*"((?:[^"\\]|\\.)*)"/g)){
    const [,key,value]=m;
-   if(FROZEN_KEYS.test(key)||!WORDING.test(value)||/demonstrat/i.test(value))continue;
+   if(FROZEN_KEYS.test(key)||!WORDING.test(value)||/demonstrat/i.test(value)||CROSSOVER.test(value))continue;
    offenders.push(`${f} [${key}] ${value.slice(0,70)}`);}}
  assert.deepEqual(offenders,[]);});
 
-test('the Demon Slayer crossover gear is gone and the roster denylist still holds',()=>{
- assert.equal(overrides.removedItems.length,5);
- for(const item of overrides.removedItems){
-  assert.equal(GEAR.find(g=>g.id===item.id),undefined,item.id);
-  for(const f of item.files)assert.ok(!read(f).includes(item.id),`${f} still names ${item.id}`);}
- assert.equal(GEAR.length,84);
- const removed=new Set(overrides.removed.map(r=>r.id));
- assert.equal(removed.size,7);
- for(const p of [...FELLOWS,...FAMILY])assert.ok(!removed.has(p.id),p.id);
- // Benizakura is a Fairy Tail crossover, not Demon Slayer: renamed, never removed.
+test('the crossover cast and their gear ship again, with art',()=>{
+ // Removed 2026-09-11, restored 2026-09-15 at the owner's direction. `restored` is a record, not a denylist.
+ const restored=new Set(overrides.restored.map(r=>r.id));
+ assert.equal(restored.size,7);
+ assert.equal(overrides.removed,undefined,'nothing filters on it any more');
+ for(const id of restored)assert.ok([...FELLOWS,...FAMILY].some(p=>p.id===id),`${id} is not shipped`);
+ for(const p of [...FELLOWS,...FAMILY].filter(p=>restored.has(p.id)))
+  assert.ok(existsSync(new URL('../public/assets/'+p.art,import.meta.url)),`${p.id} has no art file`);
+ assert.equal(overrides.restoredItems.length,5);
+ for(const item of overrides.restoredItems)assert.ok(GEAR.some(g=>g.id===item.id),item.id);
+ assert.equal(GEAR.length,89);
+ // Benizakura is a Fairy Tail crossover, renamed rather than removed, and stays as it is.
  assert.ok(GEAR.some(g=>g.name==='Crimson Blade Benizakura'));});
 
-test('no player-visible data names a removed character, so bond pairings and albums cannot list them',async()=>{
- const {affinityIds}=await import('../lib/public-reference.mjs');
- const {searchCharacters}=await import('../lib/original-catalog.mjs');
- const {supportedIds}=await import('../lib/bonds.mjs');
- const ids=overrides.removed.map(r=>r.id),names=[...new Set(overrides.removed.map(r=>r.name))];
- const tokens=[...ids.map(id=>`"${id}"`),...names];
- // Positive control: the frozen provenance roster still names them, so the scan below can see them.
- assert.ok(tokens.every(t=>read('public-roster.json').includes(t)||read('original-content.mjs').includes(t)),'the scan cannot find removed characters even in provenance');
- for(const f of overrides.removedReferences)assert.ok(!FROZEN_FILES.has(f),`${f} is frozen provenance; filter it at load time instead`);
- const offenders=[];
- for(const f of readdirSync(new URL('../lib/',import.meta.url))){
-  if((!f.endsWith('.json')&&!f.endsWith('.mjs'))||FROZEN_FILES.has(f))continue;
-  const text=read(f);
-  for(const t of tokens)if(text.includes(t))offenders.push(`${f} names removed character ${t}; add it to removedReferences and run scripts/apply-content-overrides.py`);}
- assert.deepEqual(offenders,[]);
- const removed=new Set(ids);
- // Bridget (wife_191) is documented with Tanjiro Kamado in the frozen roster; it must not reach the Bonds sheet.
- assert.ok(JSON.parse(read('public-roster.json')).records.wife_191.blessedFellows.includes('hero_302'));
- const shown=[];
- for(const p of FAMILY)for(const f of affinityIds(p.id))if(removed.has(f))shown.push(`${p.id} Documented Fellows lists ${f}`);
- const village={bonds:{},fellows:Object.fromEntries(ids.map(id=>[id,{}]))};
- for(const p of FAMILY)for(const f of supportedIds(village,p.id))if(removed.has(f))shown.push(`${p.id} bond supports ${f}`);
- for(const kind of ['Hero','Wife'])for(const c of searchCharacters(kind))if(removed.has(c.id))shown.push(`${kind} album lists ${c.id}`);
- assert.deepEqual(shown,[]);});

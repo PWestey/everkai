@@ -25,7 +25,7 @@ test('rarity chains price from their head, and the whole roster is priced',()=>{
  // which is why he still appears here -- recruitPrice() now sells him for nothing instead, because
  // Hero.json marks him free-tier. Do not read this row as "unobtainable"; it means "no rarity".
  assert.deepEqual(unpriced,['hero_60']);
- assert.equal(people.length-unpriced.length,258);});
+ assert.equal(people.length-unpriced.length,265);});
 
 test('every tier is payable in exactly one currency',()=>{
  for(const [tier,cost] of Object.entries(SUMMON_COSTS)){

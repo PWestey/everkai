@@ -11,7 +11,7 @@ const base=()=>fresh(T);
 test('the counter sells the whole priced roster and never what is already owned',()=>{
  const s=base();
  const offers=recruitOffers(s);
- assert.equal(offers.length,237,'259 shipped, less the 22 rank-up Fellows (which include the owned starter, hero_15); hero_60 is priced');
+ assert.equal(offers.length,244,'266 shipped, less the 22 rank-up Fellows (which include the owned starter, hero_15); hero_60 is priced');
  assert.ok(!offers.some(o=>o.id==='hero_15'),'the starter Fellow is already owned');
  assert.ok(!offers.some(o=>RANK_FELLOWS.has(o.id)),'rank-up Fellows arrive through their encounters, never the counter');
  // hero_60 has no rarity in the public roster, so summonCost returned null and NOTHING in the game
