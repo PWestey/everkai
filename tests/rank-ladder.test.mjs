@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,startingSave,act,valid,decode} from '../lib/game.mjs';
 import {FELLOWS} from '../lib/catalog.mjs';
-import {RANK_LADDER,RANK_ENCOUNTERS,MAX_RANK,rankCost,rankEarnings} from '../lib/opening.mjs';
+import {RANK_LADDER,RANK_ENCOUNTERS,MAX_RANK,rankCost,rankEarnings,freshOpening} from '../lib/opening.mjs';
 import {RANK_FELLOWS,FREE_ROSTER,recruitPrice} from '../lib/summon.mjs';
 import {ROAM_FAME,roamingState} from '../lib/roaming.mjs';
 import {starterHabits,HABIT_FAME_PER_POINT} from '../lib/habits.mjs';
@@ -51,8 +51,18 @@ test('roaming pays its Fame into the rank pool as well as its own tally',()=>{
  let s=opened();const before=s.opening.fame;
  s=run(s,'roamGo',null,{seq:roamingState(s).seq,roll:.5});
  assert.equal(s.opening.fame-before,ROAM_FAME);assert.equal(roamingState(s).fame,ROAM_FAME);
- // Negative control: without a journey there is no rank pool to pay, and roaming still works.
- const plain=run(fresh(T),'roamGo',null,{seq:0,roll:.5});assert.equal(plain.opening,undefined);});
+ // A village that never tapped Start journey used to drop this Fame (plain.opening stayed undefined)
+ // while the toast still said "Fame +N". It now opens the same pool openingStart would.
+ const plain=run(fresh(T),'roamGo',null,{seq:0,roll:.5});assert.deepEqual(plain.opening,{...freshOpening(),fame:ROAM_FAME});});
+
+test('habit Fame is kept for a real new village that has not started the journey',()=>{
+ // startingSave() is what persistence.mjs creates for a first-time player; it has no opening subtree.
+ let s=startingSave(T);assert.equal(s.opening,undefined,'positive control: a new village has no journey yet');
+ const task=s.habits.items.find(x=>x.freq==='daily'&&x.diff==='med');
+ s=run(s,'habitComplete',task.id);
+ assert.deepEqual(s.opening,{...freshOpening(),fame:2*HABIT_FAME_PER_POINT},'a normal task pays 10 Fame into a newly opened pool');
+ assert.deepEqual(decode(JSON.stringify(s)),s,'the resulting save loads');
+ const undone=run(s,'habitUndo');assert.equal(undone.opening.fame,0,'undo still takes the Fame back');});
 
 test('a completed habit pays Fame once per occurrence, and undo takes it back',()=>{
  let s={...opened(),habits:starterHabits(T)};
