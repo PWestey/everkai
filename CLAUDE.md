@@ -83,6 +83,24 @@ an ordered pipeline applied before those guards. Bump `SAVE_VERSION` only when a
 new field appears — widening a cap or a bound is backward compatible, but measure it rather than
 assuming.
 
+**12. A DERIVED value breaks saves even when every source row is untouched.** On 2026-09-16 the mine
+table went from 8 rows to 80. The import verified the eight original rows were byte-identical and
+concluded "no save migration" — and a real player's village stopped loading. `validMine` never compares
+rows; it compares a stored `after` against `min(TOTAL, before + power)`, and `TOTAL` is the **sum** of
+the rows. It moved from 3,530,000 to 41,678,127,000, so every receipt written by a Fellow strong enough
+to bottom out the old mine was suddenly invalid. "The rows are identical" is not the same claim as
+"saves still load". Before widening any table, ask what is computed *from* it and whether a save stores
+a value derived from the old answer.
+
+**The check that catches this, and it is cheap:** generate a save with the previous build and decode it
+with the new one.
+```
+SAVE_OUT=/tmp/old.json LIB=<previous checkout>/lib/ node sim/sim-v2.mjs 14 apk earned /tmp/x.json
+node -e "import('./lib/game.mjs').then(m=>m.decode(require('fs').readFileSync('/tmp/old.json','utf8')))"
+```
+Run it for anything that touches a shipped table or a validator. `tests/save-compatibility.test.mjs`
+holds the regression this rule came from.
+
 ## Committing
 
 Verify before committing: gate green, and for anything player-facing, checked against the live site
