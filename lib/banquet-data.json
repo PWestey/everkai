@@ -4,7 +4,16 @@
     "checked": "2026-09-08",
     "kind": "manually transcribed community seats/shop rows, not version matched",
     "itemSha256": "6b30d6444e4eaaa71f8d154e171d121170d49a1cd73db5d785c0706e2643d1a1",
-    "ruleSha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe"
+    "ruleSha256": "62716857e5cf0f365a93f1d35e521697d1969cde9a5f2151292670b8c9e87cbe",
+    "verifiedAgainstSource": {
+      "checked": "2026-09-15",
+      "table": "configs/config/logic/Ceremony.json + CeremonyPkg.json",
+      "result": "Both shipped parties are exact. Ceremony row 4 is participantsNom 4 with openingCost Item_Ceremony_01 + Item_Ceremony_02, which is Wine Party; Ceremony row 5 is participantsNom 8 with openingCost Item_Ceremony_03 + Item_Ceremony_04, which is Fine Wine Party. Seats and materials match on both, so the community transcription was faithful.",
+      "typeCount": "Ceremony.json has 6 rows but the base game has FOUR ceremonies, not six: CeremonyPkg row 1 (shopID CeremonyShop) lists allowCeremonys [1,2,4,5]; rows 101 and 102 belong to package FE01 (shopID FestivalEventShop, coinsId Item_FestivalEventCoin), a festival event, and are not base content. Any parity claim of 'six ceremony types' counts a festival package as base game.",
+      "missingTwo": "Ceremony rows 1 and 2 are the two base ceremonies Everkai does not ship. Both are participantsNom 4 with openingConditions 2 (not 1), and their openingCost is not materials but 'wifeGain' x1 and 'challenge' x1 - they are celebration banquets triggered by gaining a Family member and by a challenge, matching the rule line that banquets can also be held after encountering special events. They are event-hosted, so they are a Flow gap, not a seats/materials number gap.",
+      "durationUnknown": "Ceremony.duration is 18000 on every 4-seat row and 36000 on every 8-seat row - exactly 4500 per seat. The unit is not stated anywhere in the config set, so it is deliberately not imported. Read as milliseconds it is 4.5s per guest, near Everkai's local 5s per guest; read as seconds it is 5h and 10h. Everkai's 5000ms per guest stays a marked local sandbox rule until the unit is settled.",
+      "notImported": "basicScoreCoefficient and basicEnragesCoefficient are 0 on all 6 rows - a constant column is not a measurement (CLAUDE.md rule 6). fullGift/createGift (Reward_Ceremony_fullGift_5) is the multiplayer full-capacity mail gift and has no single-player meaning. CeremonyGift's 8 rows are the gifts you bring to someone else's banquet (basicEnrages 135/270/540) and CeremonyTitleBuff's 42 rows are title bonuses; both are cross-player."
+    }
   },
   "materials": [
     {
@@ -32,7 +41,8 @@
       "materials": [
         "Item_Ceremony_01",
         "Item_Ceremony_02"
-      ]
+      ],
+      "sourceCeremony": "4"
     },
     {
       "id": "fine",
@@ -41,7 +51,8 @@
       "materials": [
         "Item_Ceremony_03",
         "Item_Ceremony_04"
-      ]
+      ],
+      "sourceCeremony": "5"
     }
   ],
   "shop": [
@@ -95,27 +106,27 @@
     },
     {
       "id": "Rule:text:Ceremony_10",
-      "en": "\u25c6A Full Capacity Gift will be randomly sent to Transcenders who attend the banquet after the banquest is full. The gift will be distributed via mails."
+      "en": "◆A Full Capacity Gift will be randomly sent to Transcenders who attend the banquet after the banquest is full. The gift will be distributed via mails."
     },
     {
       "id": "Rule:text:Ceremony_2",
-      "en": "\u25c6 After gathering enough banquet materials, a banquet can be held. Banquets can also be held after encountering special events and receiving Invitation Cards."
+      "en": "◆ After gathering enough banquet materials, a banquet can be held. Banquets can also be held after encountering special events and receiving Invitation Cards."
     },
     {
       "id": "Rule:text:Ceremony_3",
-      "en": "\u25c6 Invitation Cards to banquets have a validity period; banquets cannot be held after an Invitation Card has expired."
+      "en": "◆ Invitation Cards to banquets have a validity period; banquets cannot be held after an Invitation Card has expired."
     },
     {
       "id": "Rule:text:Ceremony_4",
-      "en": "\u25c6 After a banquet ends players will obtain Banquet Coins and Popularity."
+      "en": "◆ After a banquet ends players will obtain Banquet Coins and Popularity."
     },
     {
       "id": "Rule:text:Ceremony_5",
-      "en": "\u25c6 Specific family members and Fellows can increase the amount of Popularity received from banquets."
+      "en": "◆ Specific family members and Fellows can increase the amount of Popularity received from banquets."
     },
     {
       "id": "Rule:text:Ceremony_6",
-      "en": "\u25c6 Holding Dinner Parties will grant 20% increased Popularity."
+      "en": "◆ Holding Dinner Parties will grant 20% increased Popularity."
     },
     {
       "id": "Rule:text:Ceremony_7",
@@ -123,11 +134,11 @@
     },
     {
       "id": "Rule:text:Ceremony_8",
-      "en": "\u25c6 Players must bring a gift when attending other people's banquets. The higher the quality of the gift, the more Banquet Coins and Popularity will be received."
+      "en": "◆ Players must bring a gift when attending other people's banquets. The higher the quality of the gift, the more Banquet Coins and Popularity will be received."
     },
     {
       "id": "Rule:text:Ceremony_9",
-      "en": "\u25c6 Improving a Transcender's Rank and meeting certain Fellows and family members can increase the Popularity and Banquet Coins obtained from attending banquets."
+      "en": "◆ Improving a Transcender's Rank and meeting certain Fellows and family members can increase the Popularity and Banquet Coins obtained from attending banquets."
     }
   ]
 }
