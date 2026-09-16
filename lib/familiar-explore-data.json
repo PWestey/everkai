@@ -1,0 +1,1299 @@
+{
+ "sources": {
+  "PetArea.json": "3e8708e9f7af2053bd35405dfea7caa672159c08ae9084e84c68e8c5b416f683",
+  "PetCatchItem.json": "6f826b0ca064000b6dcf878146927e80f042dba114cb3de757dac1b2e1dcd7d1",
+  "PetExploreItem.json": "9f705037ff1270d69fd26e48b0c12be94727c6412ccc78ae82755b45b6ff277e",
+  "PetExploreLottery.json": "307db691b5fca43b9f10406688041fdd5bff3ee63b0bc63ae949b4e846d68d25",
+  "Pet.json": "92a598b4cba9b61c8815e0cf2fab5545d6a3da8de43b6c7a1fd29853aeb1a206",
+  "PetStar.json": "36e2fa56be56df7d3776e7cec3e72fea8550387c4093e45df96ccb00032b45f5",
+  "System.json": "d8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312",
+  "split_reward/reward.json": "2c451783005bab38ed5b51e0533b9665c317edcee53ff7cca251013595d0be58",
+  "split_reward/reward_item.json": "9cf4b45397b3bb126ed43fea488584b07723f5823a7a7b90ac9217d79f2fd577"
+ },
+ "energy": {
+  "item": "Item_PetExploreEnergy",
+  "initial": 20,
+  "max": 20,
+  "seconds": 5400
+ },
+ "soothe": {
+  "item": "Item_PetPacify1",
+  "alert": 30,
+  "useMax": 3
+ },
+ "trapOpen": 10,
+ "ssrBuffWeight": 500,
+ "starters": [
+  "Pet_11111",
+  "Pet_12111",
+  "Pet_13111"
+ ],
+ "gradeWeights": {
+  "1": 3350,
+  "2": 4700,
+  "3": 1500,
+  "4": 450
+ },
+ "itemNames": {
+  "Item_PetCatch1": "Basic Contract",
+  "Item_PetCatch2": "Advanced Contract",
+  "Item_PetCatch3": "Super Contract",
+  "Item_PetPacify1": "Ordinary Mochi",
+  "Item_PetExploreRunCoin": "Familiar Tears",
+  "Item_PetExploreBuff_01": "Track Identification",
+  "Item_PetExploreBuff_02": "Valuable Experience",
+  "Item_PetExploreBuff_03": "Fruitful Guidance",
+  "Item_PetExploreBuff_04": "Special Potion",
+  "Item_PetRefresh1": "Basic Metamorphixir",
+  "Item_PetRefresh2": "Refined Metamorphixir",
+  "Item_PetExploreEnergy": "Exploration Stamina"
+ },
+ "itemText": {
+  "Item_PetExploreBuff_01": "When exploring, the chance of finding an SSR monster next time increases.",
+  "Item_PetExploreBuff_02": "When exploring, the next time you encounter a Luck Flower, you get twice the rewards.",
+  "Item_PetExploreBuff_03": "When exploring, the next time you find lost item, you get twice the rewards.",
+  "Item_PetExploreBuff_04": "The following exploration doesn't cost stamina.",
+  "Item_PetPacify1": "A simple dumpling. Feeding it to a wild monster lowers its Alertness by 30 points.",
+  "Item_PetExploreRunCoin": "Dropped when a familiar runs away. Collect enough to exchange for rewards in the Familiar Shop."
+ },
+ "forms": {
+  "adultStar": 15,
+  "awakenedStar": 50,
+  "threeForms": [
+   "Pet_4151",
+   "Pet_4251",
+   "Pet_4351",
+   "Pet_8041501",
+   "Pet_8041502",
+   "Pet_8041503",
+   "Pet_8041504",
+   "Pet_8042501",
+   "Pet_8042502",
+   "Pet_8043501",
+   "Pet_8043502",
+   "Pet_9041501",
+   "Pet_9041502"
+  ],
+  "spine": {
+   "Pet_11111": [
+    "Pet_11111",
+    "Pet_11111_A"
+   ],
+   "Pet_12111": [
+    "Pet_12111",
+    "Pet_12111_A"
+   ],
+   "Pet_13111": [
+    "Pet_13111",
+    "Pet_13111_A"
+   ],
+   "Pet_11321": [
+    "Pet_11321",
+    "Pet_11321_A"
+   ],
+   "Pet_12221": [
+    "Pet_12221",
+    "Pet_12221_A"
+   ],
+   "Pet_13221": [
+    "Pet_13221",
+    "Pet_13221_A"
+   ],
+   "Pet_11331": [
+    "Pet_11331",
+    "Pet_11331_A"
+   ],
+   "Pet_11131": [
+    "Pet_11131",
+    "Pet_11131_A"
+   ],
+   "Pet_12231": [
+    "Pet_12231",
+    "Pet_12231_A"
+   ],
+   "Pet_12131": [
+    "Pet_12131",
+    "Pet_12131_A"
+   ],
+   "Pet_13131": [
+    "Pet_13131",
+    "Pet_13131_A"
+   ],
+   "Pet_11141": [
+    "Pet_11141",
+    "Pet_11141_A"
+   ],
+   "Pet_12141": [
+    "Pet_12141",
+    "Pet_12141_A"
+   ],
+   "Pet_13141": [
+    "Pet_13141",
+    "Pet_13141_A"
+   ],
+   "Pet_21121": [
+    "Pet_21121",
+    "Pet_21121_A"
+   ],
+   "Pet_22121": [
+    "Pet_22121",
+    "Pet_22121_A"
+   ],
+   "Pet_23121": [
+    "Pet_23121",
+    "Pet_23121_A"
+   ],
+   "Pet_23131": [
+    "Pet_23131",
+    "Pet_23131_A"
+   ],
+   "Pet_23331": [
+    "Pet_23331",
+    "Pet_23331_A"
+   ],
+   "Pet_21131": [
+    "Pet_21131",
+    "Pet_21131_A"
+   ],
+   "Pet_21231": [
+    "Pet_21231",
+    "Pet_21231_A"
+   ],
+   "Pet_22131": [
+    "Pet_22131",
+    "Pet_22131_A"
+   ],
+   "Pet_21341": [
+    "Pet_21341",
+    "Pet_21341_A"
+   ],
+   "Pet_22241": [
+    "Pet_22241",
+    "Pet_22241_A"
+   ],
+   "Pet_23341": [
+    "Pet_23341",
+    "Pet_23341_A"
+   ],
+   "Pet_31121": [
+    "Pet_31121",
+    "Pet_31121_A"
+   ],
+   "Pet_32121": [
+    "Pet_32121",
+    "Pet_32121_A"
+   ],
+   "Pet_33121": [
+    "Pet_33121",
+    "Pet_33121_A"
+   ],
+   "Pet_31131": [
+    "Pet_31131",
+    "Pet_31131_A"
+   ],
+   "Pet_32131": [
+    "Pet_32131",
+    "Pet_32131_A"
+   ],
+   "Pet_32331": [
+    "Pet_32331",
+    "Pet_32331_A"
+   ],
+   "Pet_33131": [
+    "Pet_33131",
+    "Pet_33131_A"
+   ],
+   "Pet_33231": [
+    "Pet_33231",
+    "Pet_33231_A"
+   ],
+   "Pet_31241": [
+    "Pet_31241",
+    "Pet_31241_A"
+   ],
+   "Pet_32341": [
+    "Pet_32341",
+    "Pet_32341_A"
+   ],
+   "Pet_33241": [
+    "Pet_33241",
+    "Pet_33241_A"
+   ],
+   "Pet_2391": [
+    "Pet_2391",
+    "Pet_2391_A"
+   ],
+   "Pet_4251": [
+    "Pet_4251",
+    "Pet_4251_A",
+    "Pet_4251_AA"
+   ],
+   "Pet_1191": [
+    "Pet_1191",
+    "Pet_1191_A"
+   ],
+   "Pet_4151": [
+    "Pet_4151",
+    "Pet_4151_A",
+    "Pet_4151_AA"
+   ],
+   "Pet_3191": [
+    "Pet_3191",
+    "Pet_3191_A"
+   ],
+   "Pet_8031901": [
+    "Pet_8031901",
+    "Pet_8031901_A"
+   ],
+   "Pet_8041501": [
+    "Pet_8041501",
+    "Pet_8041501_A",
+    "Pet_8041501_AA"
+   ],
+   "Pet_8012901": [
+    "Pet_8012901",
+    "Pet_8012901_A"
+   ],
+   "Pet_8043501": [
+    "Pet_8043501",
+    "Pet_8043501_A",
+    "Pet_8043501_AA"
+   ],
+   "Pet_4351": [
+    "Pet_4351",
+    "Pet_4351_A",
+    "Pet_4351_AA"
+   ],
+   "Pet_41121": [
+    "Pet_41121",
+    "Pet_41121_A"
+   ],
+   "Pet_42121": [
+    "Pet_42121",
+    "Pet_42121_A"
+   ],
+   "Pet_43121": [
+    "Pet_43121",
+    "Pet_43121_A"
+   ],
+   "Pet_41131": [
+    "Pet_41131",
+    "Pet_41131_A"
+   ],
+   "Pet_42131": [
+    "Pet_42131",
+    "Pet_42131_A"
+   ],
+   "Pet_42331": [
+    "Pet_42331",
+    "Pet_42331_A"
+   ],
+   "Pet_43131": [
+    "Pet_43131",
+    "Pet_43131_A"
+   ],
+   "Pet_43231": [
+    "Pet_43231",
+    "Pet_43231_A"
+   ],
+   "Pet_41141": [
+    "Pet_41141",
+    "Pet_41141_A"
+   ],
+   "Pet_42141": [
+    "Pet_42141",
+    "Pet_42141_A"
+   ],
+   "Pet_43141": [
+    "Pet_43141",
+    "Pet_43141_A"
+   ],
+   "Pet_8041502": [
+    "Pet_8041502",
+    "Pet_8041502_A",
+    "Pet_8041502_AA"
+   ],
+   "Pet_9041501": [
+    "Pet_9041501",
+    "Pet_9041501_A",
+    "Pet_9041501_AA"
+   ],
+   "Pet_9011901": [
+    "Pet_9011901",
+    "Pet_9011901_A"
+   ],
+   "Pet_9023401": [
+    "Pet_9023401",
+    "Pet_9023401_A"
+   ],
+   "Pet_8042501": [
+    "Pet_8042501",
+    "Pet_8042501_A",
+    "Pet_8042501_AA"
+   ],
+   "Pet_8041503": [
+    "Pet_8041503",
+    "Pet_8041503_A",
+    "Pet_8041503_AA"
+   ],
+   "Pet_8021901": [
+    "Pet_8021901",
+    "Pet_8021901_A"
+   ],
+   "Pet_8043502": [
+    "Pet_8043502",
+    "Pet_8043502_A",
+    "Pet_8043502_AA"
+   ],
+   "Pet_9032901": [
+    "Pet_9032901",
+    "Pet_9032901_A"
+   ],
+   "Pet_9041502": [
+    "Pet_9041502",
+    "Pet_9041502_A",
+    "Pet_9041502_AA"
+   ],
+   "Pet_8041504": [
+    "Pet_8041504",
+    "Pet_8041504_A",
+    "Pet_8041504_AA"
+   ],
+   "Pet_9013901": [
+    "Pet_9013901",
+    "Pet_9013901_A"
+   ],
+   "Pet_8042502": [
+    "Pet_8042502",
+    "Pet_8042502_A",
+    "Pet_8042502_AA"
+   ]
+  }
+ },
+ "areas": [
+  {
+   "id": 1,
+   "name": "Verdant Forest",
+   "text": "With dense vegetation ideal for hiding and a variety of delicious fruits, this is a paradise for monsters that love sunlight and greenery.",
+   "unlock": 0,
+   "cost": 1,
+   "events": {
+    "PetCatch": 4000,
+    "PetExploreItem": 5000,
+    "PetExploreLottery": 1000
+   },
+   "pets": [
+    "Pet_11111",
+    "Pet_12111",
+    "Pet_13111",
+    "Pet_11321",
+    "Pet_12221",
+    "Pet_13221",
+    "Pet_11331",
+    "Pet_11131",
+    "Pet_12231",
+    "Pet_12131",
+    "Pet_13131",
+    "Pet_11141",
+    "Pet_12141",
+    "Pet_13141",
+    "Pet_21121",
+    "Pet_22121",
+    "Pet_23121",
+    "Pet_23131",
+    "Pet_23331",
+    "Pet_21131",
+    "Pet_21231",
+    "Pet_22131",
+    "Pet_21341",
+    "Pet_22241",
+    "Pet_23341"
+   ],
+   "ownedOnly": [
+    "Pet_11141"
+   ],
+   "scripted": {
+    "1": {
+     "type": "PetExploreItem",
+     "id": "101"
+    },
+    "2": {
+     "type": "PetCatch",
+     "id": "Pet_21121",
+     "mustCatch": 2
+    },
+    "3": {
+     "type": "PetExploreItem",
+     "id": "101"
+    },
+    "4": {
+     "type": "PetExploreItem",
+     "id": "101"
+    },
+    "5": {
+     "type": "PetCatch",
+     "id": "Pet_22121",
+     "mustCatch": 1
+    },
+    "6": {
+     "type": "PetExploreItem",
+     "id": "101"
+    },
+    "7": {
+     "type": "PetExploreItem",
+     "id": "101"
+    },
+    "8": {
+     "type": "PetCatch",
+     "id": "Pet_11321",
+     "mustCatch": 3
+    },
+    "9": {
+     "type": "PetExploreItem",
+     "id": "101"
+    },
+    "10": {
+     "type": "PetCatch",
+     "id": "Pet_23121",
+     "mustCatch": 2
+    },
+    "11": {
+     "type": "PetCatch",
+     "id": "Pet_22131",
+     "mustCatch": 1
+    },
+    "30": {
+     "type": "PetCatch",
+     "id": "Pet_12231",
+     "mustCatch": 3
+    },
+    "60": {
+     "type": "PetCatch",
+     "id": "Pet_23331",
+     "mustCatch": 3
+    },
+    "100": {
+     "type": "PetCatch",
+     "id": "Pet_13131",
+     "mustCatch": 3
+    }
+   }
+  },
+  {
+   "id": 2,
+   "name": "Snowy Plains",
+   "text": "An eternally frigid land buried in snow, with monster lairs hidden among the ice-covered pine forests. Follow the scattered footprints in the snow to track monsters.",
+   "unlock": 100,
+   "cost": 1,
+   "events": {
+    "PetCatch": 4000,
+    "PetExploreItem": 5000,
+    "PetExploreLottery": 1000
+   },
+   "pets": [
+    "Pet_11111",
+    "Pet_12111",
+    "Pet_13111",
+    "Pet_11321",
+    "Pet_12221",
+    "Pet_13221",
+    "Pet_11331",
+    "Pet_11131",
+    "Pet_12231",
+    "Pet_12131",
+    "Pet_13131",
+    "Pet_11141",
+    "Pet_12141",
+    "Pet_13141",
+    "Pet_31121",
+    "Pet_32121",
+    "Pet_33121",
+    "Pet_31131",
+    "Pet_32131",
+    "Pet_32331",
+    "Pet_33131",
+    "Pet_33231",
+    "Pet_31241",
+    "Pet_32341",
+    "Pet_33241"
+   ],
+   "ownedOnly": [
+    "Pet_11141",
+    "Pet_31241",
+    "Pet_32341"
+   ],
+   "scripted": {}
+  },
+  {
+   "id": 3,
+   "name": "Endless Desert",
+   "text": "A vast expanse of sand stretches to the horizon. Though it appears desolate, life thrives here—tracks winding across the golden sea, and small figures gathering water by the oasis—all testifying to the vitality coursing through this land.",
+   "unlock": 200,
+   "cost": 1,
+   "events": {
+    "PetCatch": 4000,
+    "PetExploreItem": 5000,
+    "PetExploreLottery": 1000
+   },
+   "pets": [
+    "Pet_11111",
+    "Pet_12111",
+    "Pet_13111",
+    "Pet_41121",
+    "Pet_42121",
+    "Pet_43121",
+    "Pet_41131",
+    "Pet_42131",
+    "Pet_42331",
+    "Pet_43131",
+    "Pet_43231",
+    "Pet_41141",
+    "Pet_42141",
+    "Pet_43141"
+   ],
+   "ownedOnly": [
+    "Pet_41141"
+   ],
+   "scripted": {}
+  }
+ ],
+ "catch": [
+  {
+   "grade": 1,
+   "item": "Item_PetCatch1",
+   "name": "Basic Contract",
+   "alert": [
+    30,
+    40
+   ],
+   "prob": {
+    "1": 7000,
+    "2": 1000,
+    "3": 720,
+    "4": 310
+   }
+  },
+  {
+   "grade": 2,
+   "item": "Item_PetCatch2",
+   "name": "Advanced Contract",
+   "alert": [
+    30,
+    40
+   ],
+   "prob": {
+    "1": 10000,
+    "2": 8000,
+    "3": 4000,
+    "4": 1000
+   }
+  },
+  {
+   "grade": 3,
+   "item": "Item_PetCatch3",
+   "name": "Super Contract",
+   "alert": [
+    30,
+    40
+   ],
+   "prob": {
+    "1": 10000,
+    "2": 10000,
+    "3": 10000,
+    "4": 10000
+   }
+  }
+ ],
+ "exploreItems": [
+  {
+   "id": "101",
+   "area": 1,
+   "type": "reward",
+   "weight": 300,
+   "pool": [
+    [
+     30,
+     "Item_PetLevelUP",
+     10
+    ],
+    [
+     30,
+     "Item_PetClassUP",
+     1
+    ],
+    [
+     30,
+     "Item_PetLevelUP",
+     20
+    ],
+    [
+     30,
+     "Item_PetClassUP",
+     2
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     30
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     3
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     40
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     4
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     50
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "102",
+   "area": 1,
+   "type": "buff",
+   "weight": 100,
+   "buff": "Item_PetExploreBuff_01",
+   "count": 1
+  },
+  {
+   "id": "103",
+   "area": 1,
+   "type": "buff",
+   "weight": 5,
+   "buff": "Item_PetExploreBuff_02",
+   "count": 1
+  },
+  {
+   "id": "104",
+   "area": 1,
+   "type": "buff",
+   "weight": 75,
+   "buff": "Item_PetExploreBuff_03",
+   "count": 2
+  },
+  {
+   "id": "105",
+   "area": 1,
+   "type": "buff",
+   "weight": 20,
+   "buff": "Item_PetExploreBuff_04",
+   "count": 2
+  },
+  {
+   "id": "201",
+   "area": 2,
+   "type": "reward",
+   "weight": 300,
+   "pool": [
+    [
+     30,
+     "Item_PetLevelUP",
+     10
+    ],
+    [
+     30,
+     "Item_PetClassUP",
+     1
+    ],
+    [
+     30,
+     "Item_PetLevelUP",
+     20
+    ],
+    [
+     30,
+     "Item_PetClassUP",
+     2
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     30
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     3
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     40
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     4
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     50
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "202",
+   "area": 2,
+   "type": "buff",
+   "weight": 100,
+   "buff": "Item_PetExploreBuff_01",
+   "count": 1
+  },
+  {
+   "id": "203",
+   "area": 2,
+   "type": "buff",
+   "weight": 5,
+   "buff": "Item_PetExploreBuff_02",
+   "count": 1
+  },
+  {
+   "id": "204",
+   "area": 2,
+   "type": "buff",
+   "weight": 75,
+   "buff": "Item_PetExploreBuff_03",
+   "count": 2
+  },
+  {
+   "id": "205",
+   "area": 2,
+   "type": "buff",
+   "weight": 20,
+   "buff": "Item_PetExploreBuff_04",
+   "count": 2
+  },
+  {
+   "id": "301",
+   "area": 3,
+   "type": "reward",
+   "weight": 300,
+   "pool": [
+    [
+     30,
+     "Item_PetLevelUP",
+     10
+    ],
+    [
+     30,
+     "Item_PetClassUP",
+     1
+    ],
+    [
+     30,
+     "Item_PetLevelUP",
+     20
+    ],
+    [
+     30,
+     "Item_PetClassUP",
+     2
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     30
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     3
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     40
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     4
+    ],
+    [
+     20,
+     "Item_PetLevelUP",
+     50
+    ],
+    [
+     20,
+     "Item_PetClassUP",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "302",
+   "area": 3,
+   "type": "buff",
+   "weight": 100,
+   "buff": "Item_PetExploreBuff_01",
+   "count": 1
+  },
+  {
+   "id": "303",
+   "area": 3,
+   "type": "buff",
+   "weight": 5,
+   "buff": "Item_PetExploreBuff_02",
+   "count": 1
+  },
+  {
+   "id": "304",
+   "area": 3,
+   "type": "buff",
+   "weight": 75,
+   "buff": "Item_PetExploreBuff_03",
+   "count": 2
+  },
+  {
+   "id": "305",
+   "area": 3,
+   "type": "buff",
+   "weight": 20,
+   "buff": "Item_PetExploreBuff_04",
+   "count": 2
+  }
+ ],
+ "lottery": [
+  {
+   "id": "101",
+   "weight": 2,
+   "item": "Item_PetRefresh2",
+   "count": 1,
+   "level": 1,
+   "outTime": 50
+  },
+  {
+   "id": "102",
+   "weight": 5,
+   "item": "Item_PetCatch2",
+   "count": 1,
+   "level": 2,
+   "outTime": 30
+  },
+  {
+   "id": "103",
+   "weight": 40,
+   "item": "Item_PetRefresh1",
+   "count": 2,
+   "level": 3,
+   "outTime": null
+  },
+  {
+   "id": "104",
+   "weight": 15,
+   "item": "Item_PetClassUP",
+   "count": 50,
+   "level": 3,
+   "outTime": null
+  },
+  {
+   "id": "105",
+   "weight": 38,
+   "item": "Item_PetLevelUP",
+   "count": 500,
+   "level": 3,
+   "outTime": null
+  }
+ ],
+ "pets": {
+  "Pet_11111": {
+   "grade": 1,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 1,
+   "pieces": 10
+  },
+  "Pet_11131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_11141": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_11321": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_11331": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_12111": {
+   "grade": 1,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 1,
+   "pieces": 10
+  },
+  "Pet_12131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_12141": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_12221": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_12231": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_13111": {
+   "grade": 1,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 1,
+   "pieces": 10
+  },
+  "Pet_13131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_13141": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_13221": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_21121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_21131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_21231": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_21341": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_22121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_22131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_22241": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_23121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_23131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_23331": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_23341": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_31121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_31131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_31241": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_32121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_32131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_32331": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_32341": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_33121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_33131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_33231": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_33241": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_41121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_41131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_41141": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_42121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_42131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_42141": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_42331": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_43121": {
+   "grade": 2,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 2,
+   "pieces": 10
+  },
+  "Pet_43131": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  },
+  "Pet_43141": {
+   "grade": 4,
+   "alertMax": 100,
+   "sp": 1000,
+   "common": 9000,
+   "tears": 10,
+   "pieces": 100
+  },
+  "Pet_43231": {
+   "grade": 3,
+   "alertMax": 100,
+   "sp": 2000,
+   "common": 8000,
+   "tears": 4,
+   "pieces": 40
+  }
+ }
+}
