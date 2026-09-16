@@ -12,7 +12,10 @@ export default function FamilyTripPanel({game,person,action,locked}:any){
  const left=tripsLeft(game),waiting=waitingChildren(game),full=game.school.pupils.length>=schoolCapacity(game);
  const name=(id:string)=>game.family?.[id]?(id===person.id?person.name:id.replace('wife_','Family member ')):id;
  return <section className="family-trips"><h2>Family trips</h2>
-  <p className="small-note">{left} of {TRIPS_PER_DAY} trips left today · {game.crystals.toLocaleString()} Crystals</p>
+  {/* management-hint, not small-note: `.character-sheet:not(.system-sheet) .small-note` is
+      display:none, and this panel always renders inside the Family character sheet, so a
+      small-note here would be invisible in play while passing every test. Checked in the browser. */}
+  <p className="management-hint">{left} of {TRIPS_PER_DAY} trips left today · {game.crystals.toLocaleString()} Crystals</p>
   {!member&&<p>Welcome {person.name} to travel together.</p>}
   {member&&TRIPS.map((trip:any)=>{const plan=tripPlan(game,person.id,trip.id);return <div className="blessing-row" key={trip.id}>
    <h3>{trip.name} · {trip.crystals.toLocaleString()} Crystals</h3>
