@@ -18,8 +18,8 @@ export default function VillageEventsPanel({game,action,locked}:any){
  const v=villageState(game),pending:any=v?.pending?villageEventById(v.pending):null;
  const step:any=villageManageStep(game),lockNote=villageManageLocked(game),income=totalRate(game);
  const met=v?.seen.length||0;
- return <section><h2>Village Events</h2>
-  <p>{met} / {VILLAGE_POOL.length} villagers met · {v?.draws||0} walks taken</p>
+ return <section>
+  <p>{met} / {VILLAGE_POOL.length} villagers met · {v?.draws||0} walk{(v?.draws||0)===1?'':'s'} taken</p>
   <p className="small-note">In the original the village throws three daily encounters at 10:00, 14:00 and 20:00 and refreshes a special incident every twelve hours. Everkai has no clocks, so one walk a day after a finished daily habit stands in for all of them — the same rule the daily supply, keepsake and bait refills use. Each row keeps the original’s draw weight, so a multiple-choice incident comes up on about three days in thirteen.</p>
   {!pending&&<div className="business-actions"><Button disabled={locked} onClick={()=>action('villageEvent')}>Walk the village · daily, after a habit</Button></div>}
   {pending&&<article className="school-card">
