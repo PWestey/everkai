@@ -19,7 +19,8 @@ export default function FellowReset({game,id,name,action,locked}:any){
    <AlertDialogTitle>Refund {name}?</AlertDialogTitle>
    <AlertDialogDescription>{plan.error?plan.error:`You get back exactly what was spent: ${describeAmounts(plan.back)}.`}</AlertDialogDescription>
    {!plan.error&&plan.kept.length>0&&<p className="small-note">Stays as it is: {plan.kept.join('; ')}.</p>}
-   <p className="small-note">Aptitude trained straight with Skill Pearls, essences and elixirs can’t be priced exactly, so it stays too. Stella activation and the equipped artifact stay.</p>
+   {!plan.error&&<p className="small-note">Aptitude: {plan.aptitude.refunded.toLocaleString()} comes off and is paid back. {plan.aptitude.kept>0?`${plan.aptitude.kept.toLocaleString()} above the base stays: it was gained before Aptitude was tracked, or from sources that don’t record a price.`:'None stays above the base.'}</p>}
+   <p className="small-note">Elixirs, Stella activation and the equipped artifact stay.</p>
    <AlertDialogCancel>Cancel</AlertDialogCancel>
    <AlertDialogAction disabled={locked||!!plan.error} onClick={()=>{action('refundFellow',id);setConfirm(false)}}>Refund all</AlertDialogAction>
   </AlertDialogContent></AlertDialog>
