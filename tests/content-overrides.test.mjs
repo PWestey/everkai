@@ -21,7 +21,10 @@ test('no shipped character profile carries the original infernal wording',()=>{
  assert.ok(people.some(p=>crossover.has(p.id)&&WORDING.test(p.occupation||'')),'the exemption is doing something');});
 
 // The restored crossover's own wording (Demon Slayer swordsmen and their blades) is not the game's infernal cast.
-const CROSSOVER=/Demon[- ]Slayer/i;
+// The Demon Slayer crossover is licensed-IP naming, restored 2026-09-15, not the infernal wording this
+// guard exists to keep out. `Isekai Demon Hunter Arc` is the original's own title for that event
+// (docs/event-catalog.md section 4.1) and ships as the name of its lite-event arc (EVT-21).
+const CROSSOVER=/Demon[- ]Slayer|Isekai Demon Hunter Arc/i;
 test('no live data file carries it either, so a regenerated import cannot quietly undo this',()=>{
  const offenders=[];
  for(const f of readdirSync(new URL('../lib/',import.meta.url))){

@@ -1,0 +1,332 @@
+{
+ "policyVersion": 1,
+ "note": "Lite habit-events (EVT-21). The original ran these as timed mega events with their own minigames (map exploration, match-3, sparring, gacha, power ranking) -- see docs/event-catalog.md section 4.4. Everkai keeps only what a single-player habit game can honestly keep: the CAST and the sense of an arc. Each stage is paid for with habit completions, which is the one currency this game actually mints.",
+ "source": "docs/event-catalog.md sections 4.1 and 4.4 (names and ids); lib/catalog.mjs (cast, resolved by name at build time, not hand-typed)",
+ "localNumbers": "COMPLETIONS_PER_STAGE is a LOCAL number, not the original's. The original gated event heroes on event currency and gacha pity, neither of which exists here. 10 completions a stage is stated here so it can be argued with rather than discovered in the code.",
+ "events": [
+  {
+   "id": "DemonSlayer",
+   "name": "Isekai Demon Hunter Arc",
+   "source": "Demon Slayer",
+   "cast": [
+    {
+     "id": "hero_302",
+     "name": "Tanjiro Kamado",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_303",
+     "name": "Zenitsu Agatsuma",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_304",
+     "name": "Inosuke Hashibira",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_301",
+     "name": "Giyu Tomioka",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_186",
+     "name": "Nezuko Kamado",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_302"
+    },
+    {
+     "step": 2,
+     "member": "hero_303"
+    },
+    {
+     "step": 3,
+     "member": "hero_304"
+    },
+    {
+     "step": 4,
+     "member": "hero_301"
+    },
+    {
+     "step": 5,
+     "member": "wife_186"
+    }
+   ]
+  },
+  {
+   "id": "TenSura",
+   "name": "Camping with A Slime",
+   "source": "That Time I Got Reincarnated as a Slime",
+   "cast": [
+    {
+     "id": "hero_251",
+     "name": "Rimuru Tempest",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_144",
+     "name": "Benimaru",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_144",
+     "name": "Shuna",
+     "kind": "Family"
+    },
+    {
+     "id": "wife_168",
+     "name": "Shion",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_251"
+    },
+    {
+     "step": 2,
+     "member": "hero_144"
+    },
+    {
+     "step": 3,
+     "member": "wife_144"
+    },
+    {
+     "step": 4,
+     "member": "wife_168"
+    }
+   ]
+  },
+  {
+   "id": "Maidragon",
+   "name": "Dragon Maid on Hiemspresent",
+   "source": "Miss Kobayashi's Dragon Maid",
+   "cast": [
+    {
+     "id": "hero_139",
+     "name": "Tohru",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_140",
+     "name": "Elma",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_142",
+     "name": "Kanna",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_74",
+     "name": "Lucoa",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_141",
+     "name": "Fafnir",
+     "kind": "Fellow"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_139"
+    },
+    {
+     "step": 2,
+     "member": "hero_140"
+    },
+    {
+     "step": 3,
+     "member": "hero_142"
+    },
+    {
+     "step": 4,
+     "member": "hero_74"
+    },
+    {
+     "step": 5,
+     "member": "hero_141"
+    }
+   ]
+  },
+  {
+   "id": "DanMachi",
+   "name": "Encounter in Another World",
+   "source": "DanMachi",
+   "cast": [
+    {
+     "id": "hero_167",
+     "name": "Bell Cranel",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_253",
+     "name": "Hestia",
+     "kind": "Family"
+    },
+    {
+     "id": "hero_165",
+     "name": "Ryu Lion",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_156",
+     "name": "Liliruca Arde",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_167"
+    },
+    {
+     "step": 2,
+     "member": "wife_253"
+    },
+    {
+     "step": 3,
+     "member": "hero_165"
+    },
+    {
+     "step": 4,
+     "member": "wife_156"
+    }
+   ]
+  },
+  {
+   "id": "FairyTail",
+   "name": "Fight! Magic Academy Sports Day!",
+   "source": "Fairy Tail",
+   "cast": [
+    {
+     "id": "hero_256",
+     "name": "Natsu",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_173",
+     "name": "Erza",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_162",
+     "name": "Wendy",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_256"
+    },
+    {
+     "step": 2,
+     "member": "hero_173"
+    },
+    {
+     "step": 3,
+     "member": "wife_162"
+    }
+   ]
+  },
+  {
+   "id": "Konosuba",
+   "name": "God's Blessing on This Laid-Back Isekai!",
+   "source": "KonoSuba",
+   "cast": [
+    {
+     "id": "hero_184",
+     "name": "Kazuma",
+     "kind": "Fellow"
+    },
+    {
+     "id": "hero_185",
+     "name": "Darkness",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_174",
+     "name": "Megumin",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_184"
+    },
+    {
+     "step": 2,
+     "member": "hero_185"
+    },
+    {
+     "step": 3,
+     "member": "wife_174"
+    }
+   ]
+  },
+  {
+   "id": "Mushoku",
+   "name": "Mushoku Tensei and Magic Creativity Show",
+   "source": "Mushoku Tensei",
+   "cast": [
+    {
+     "id": "hero_176",
+     "name": "Rudeus Greyrat",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_160",
+     "name": "Sylphiette Greyrat",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_176"
+    },
+    {
+     "step": 2,
+     "member": "wife_160"
+    }
+   ]
+  },
+  {
+   "id": "LycoReco",
+   "name": "Cafe LycoReco Crossing into Isekai",
+   "source": "Lycoris Recoil",
+   "cast": [
+    {
+     "id": "hero_263",
+     "name": "Chisato Nishikigi",
+     "kind": "Fellow"
+    },
+    {
+     "id": "wife_184",
+     "name": "Takina Inoue",
+     "kind": "Family"
+    }
+   ],
+   "stages": [
+    {
+     "step": 1,
+     "member": "hero_263"
+    },
+    {
+     "step": 2,
+     "member": "wife_184"
+    }
+   ]
+  }
+ ]
+}
