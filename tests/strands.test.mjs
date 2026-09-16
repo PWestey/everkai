@@ -109,6 +109,7 @@ function earningsClaims(){
  *  An entry here is a claim that it is NOT this file's business -- so each one states its reason. */
 const NOT_A_BUSINESS_STRAND=new Map([
  ['habit-panel.tsx','The habit multiplier, applied outside the bonus stack by effectiveRate/accrue (game.mjs:109-112). It scales the whole village rate, businesses included, so it is real income but not an additive strand.'],
+ ['wayfarer-profile.tsx','Reads village earnings, never adds to them: the player-rank promotion requirement (openingProsperity vs rankEarnings), shown beside the Promote button with a link to Businesses.'],
  ['apothecary-panel.tsx','Navigation prose only ("Go to village earnings"), promising nothing.'],
  ['village-events-panel.tsx','Reads village earnings, never adds to them. CitySpecialEventManage CSEM_1-6 are earnings GOALS (70,000 -> 5,000,000 gold/s) that the panel compares totalRate against; reaching one pays items into the bag. Nothing in lib/village-events.mjs touches businessBonus or any rate.'],
  ['blessing-panel.tsx','The opposite of a promise: it states outright that blessings affect Fellow and party Power, NOT village earnings. Honest, and nothing to wire.'],
