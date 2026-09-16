@@ -1,0 +1,1015 @@
+{
+ "provenance": "Imported from the original SimGame3PlantUpgrade, SimGame3Plant and SimGame3Farmland tables. upgradeCost on the row for level N is the price of the upgrade FROM level N to level N+1 -- which is why the 39 level-3 rows carry none: level 3 is terminal. risePercent is in hundredths of a percent (2500 = +25%). The affected business type is SimGame3Plant.country 1-5, which maps onto Inspiring/Diligent/Brave/Informed/Unfettered and agrees 39/39 with the effectText already in farm-level-data.json. plots is SimGame3Farmland: 40 plots, the first three free (isBaseUnlock 1), the rest priced in item 4 -- the original Diamond, which Everkai already maps to crystals in lib/opening.mjs. Generated inline (no scripts/ importer: the authoring agent was scoped to lib/farm*).",
+ "sources": [
+  {
+   "file": "SimGame3PlantUpgrade.json",
+   "sha256": "ef77b90b8a2f8d4467877ce93ef75522df7ed0469f276e777aab25820e9880d4",
+   "field": "upgradeCost, risePercent",
+   "rows": 117
+  },
+  {
+   "file": "SimGame3Plant.json",
+   "sha256": "aa19c8217a96588f2c27473065a059d3a7eba1d21d08af7590bf1febe55a3c15",
+   "field": "country",
+   "rows": 39
+  },
+  {
+   "file": "SimGame3Farmland.json",
+   "sha256": "0449c4dedf9bcbfb99afea07a6742c4c723e171438847b74d3c6c2c97da1fdd4",
+   "field": "consume, isBaseUnlock",
+   "rows": 40
+  }
+ ],
+ "limits": "upgradeCost is a bare integer with no currency id, exactly like SimGame3Yield.consume, which Everkai already denominates in farm Knowledge -- so the ladder is charged in Knowledge on that same reading. That mapping is an INFERENCE from the shared table convention, not a recovered currency id. Plot prices carry an explicit id (\"4\"), so those are not inferred.",
+ "types": [
+  "Inspiring",
+  "Diligent",
+  "Brave",
+  "Informed",
+  "Unfettered"
+ ],
+ "plants": [
+  {
+   "id": "Plant1",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 30
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 5000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant2",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 30
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 5000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant3",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 5000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant4",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 90
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 5000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant5",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 40
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 3000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant6",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 3000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant7",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant8",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 40
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant9",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 40
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant10",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 100
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant11",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant12",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 90
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant13",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 70
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant14",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant15",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 70
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant16",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 90
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant17",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 70
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant18",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 90
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant19",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 110
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant20",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 100
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant21",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 70
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant22",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant23",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant24",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant108",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant1002",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant104",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant103",
+   "type": "Brave",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant102",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant106",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant1003",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant1005",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant1004",
+   "type": "Informed",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant107",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant105",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant110",
+   "type": "Inspiring",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 10000,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 15000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 20000
+    }
+   ]
+  },
+  {
+   "id": "Plant109",
+   "type": "Unfettered",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  },
+  {
+   "id": "Plant101",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 2500,
+     "upgradeCost": 60
+    },
+    {
+     "level": 2,
+     "risePercent": 5000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 7500
+    }
+   ]
+  },
+  {
+   "id": "Plant1001",
+   "type": "Diligent",
+   "levels": [
+    {
+     "level": 1,
+     "risePercent": 5000,
+     "upgradeCost": 50
+    },
+    {
+     "level": 2,
+     "risePercent": 8000,
+     "upgradeCost": 2000
+    },
+    {
+     "level": 3,
+     "risePercent": 12500
+    }
+   ]
+  }
+ ],
+ "plots": [
+  {
+   "plot": 1,
+   "crystals": 0,
+   "baseUnlock": true
+  },
+  {
+   "plot": 2,
+   "crystals": 0,
+   "baseUnlock": true
+  },
+  {
+   "plot": 3,
+   "crystals": 0,
+   "baseUnlock": true
+  },
+  {
+   "plot": 4,
+   "crystals": 500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 5,
+   "crystals": 1000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 6,
+   "crystals": 1500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 7,
+   "crystals": 2000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 8,
+   "crystals": 2500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 9,
+   "crystals": 3000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 10,
+   "crystals": 3500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 11,
+   "crystals": 4000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 12,
+   "crystals": 4500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 13,
+   "crystals": 5000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 14,
+   "crystals": 5500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 15,
+   "crystals": 6000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 16,
+   "crystals": 6500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 17,
+   "crystals": 7000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 18,
+   "crystals": 7500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 19,
+   "crystals": 8000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 20,
+   "crystals": 8500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 21,
+   "crystals": 9000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 22,
+   "crystals": 9500,
+   "baseUnlock": false
+  },
+  {
+   "plot": 23,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 24,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 25,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 26,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 27,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 28,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 29,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 30,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 31,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 32,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 33,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 34,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 35,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 36,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 37,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 38,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 39,
+   "crystals": 10000,
+   "baseUnlock": false
+  },
+  {
+   "plot": 40,
+   "crystals": 10000,
+   "baseUnlock": false
+  }
+ ]
+}
