@@ -1,7 +1,7 @@
 {
   "source": "https://raw.githubusercontent.com/Zik-Ascend/isl-tools/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/expo/index.html",
   "sha256": "eb767ee1447324bb22eb42a4352a50599a1cc102781e40b7b014a1c0820c2a01",
-  "limits": "Community rows; not verified version-matched formulas. Only stages1\u20135 playable. Customer simulation, progression gating and coin upgrades local.",
+  "limits": "All 100 permanent stage rows (TowerDefenseStage module \"1\") are version-matched: slots, power and satisfaction agree with the original exactly, and the \"Verify, Confirm\" flag is the original table's own verify/confirm columns, not Everkai's doubt. Only stages 1-5 are playable: the customer simulation, progression gating and coin upgrades are local, and the other 95 clear rewards are unmeasured against the economy. The other 785 TowerDefenseStage rows are event modules, not missing permanent content.",
   "stalls": [
     {
       "id": "Stall402",
