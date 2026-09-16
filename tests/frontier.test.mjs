@@ -2,7 +2,7 @@ import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,SAVE_KEY} from '../lib/game.mjs';
 import {FELLOWS} from '../lib/catalog.mjs';import {FRONTIER,frontierState,frontierKey} from '../lib/frontier.mjs';
-import {fellowCap} from '../lib/adventure.mjs';
+import {fellowCap,PATROL_RECOVERY_MS} from '../lib/adventure.mjs';
 import {createPersistence} from '../lib/persistence.mjs';
 const run=(s,a,t=null,v=null,now=s.lastAt)=>{const r=act(s,a,now,t,v);assert.ok(!r.error,`${a}: ${r.error}`);assert.ok(valid(r.state));return r.state};
 function legacy(){const s=fresh(1000);s.adventure.cleared=30;s.gold=100000;const ids=['hero_15',...FELLOWS.filter(f=>f.id!=='hero_15').slice(0,2).map(f=>f.id)];for(const id of ids)s.fellows[id]={...s.fellows.hero_15,level:30,breaks:1,aptitude:100};s.adventure.party=ids;return s;}
@@ -33,7 +33,10 @@ test('fresh player reaches all chapters through ordinary income, stages, supplie
  // than a magic number so the next ladder change reports a wrong cap instead of spinning.
  for(const id of ids){
   let guard=0;
-  while(s.fellows[id].level<fellowCap(s.fellows[id])&&guard++<3000){s=run(s,'patrol',30);const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}
+  // BUG-40: patrols now run on the original's own expedition meter (System.json adventureSupplyrecovery
+  // 28800s, adventureSupplyCeiling 5), so a walk to the cap has to spend real time instead of hammering
+  // one frozen timestamp. Advancing the clock by one recovery per patrol is what that costs.
+  while(s.fellows[id].level<fellowCap(s.fellows[id])&&guard++<3000){s=run(s,'patrol',30,null,s.lastAt+PATROL_RECOVERY_MS);const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}
   assert.equal(s.fellows[id].level,fellowCap(s.fellows[id]),'a zero-break Fellow must reach the quality-1 cap of 100');
   assert.equal(s.fellows[id].level,100);
   s=run(s,'limitBreak',id);

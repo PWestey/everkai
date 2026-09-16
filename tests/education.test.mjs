@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,decode,valid} from '../lib/game.mjs';
-import {GRADES,SCHOOL_TYPES,requiredLessons,graduationBonus,schoolCapacity} from '../lib/education.mjs';
+import {GRADES,SCHOOL_TYPES,requiredLessons,graduationBonus,schoolCapacity,STARTING_SEATS} from '../lib/education.mjs';
 import {pupilReward} from '../lib/school.mjs';
 const run=(s,a,t=null,v=null)=>act(s,a,s.lastAt,t,v);
 const start=()=>run(fresh(1000),'welcome','wife_2').state;
@@ -25,7 +25,17 @@ test('graduation bonds apply only to matching new graduates and activation canno
  assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('expanded seats are optional; malformed grades, names and bond flags are rejected',()=>{
- let s=start();assert.ok(run(s,'enrollPupil','wife_2',{name:'Bad',type:'diligent',grade:['D']}).error);assert.equal(schoolCapacity(s),3);s=run(s,'expandSchool').state;assert.equal(schoolCapacity(s),5);
+ let s=start();assert.ok(run(s,'enrollPupil','wife_2',{name:'Bad',type:'diligent',grade:['D']}).error);assert.equal(schoolCapacity(s),3);
+ // ECON-16: the seats were a free, repeatable button that just set seats to 5. No original price exists
+ // (HeroEducateLevel.json is the hero-tempering table), so this is a gate, and its threshold is the
+ // existing STARTING_SEATS constant: a full starting cohort must actually graduate.
+ const early=run(s,'expandSchool');
+ assert.ok(early.error,'seats must be refused before a starting cohort has graduated');
+ assert.match(early.error,/Graduate 3 pupils/);assert.equal(schoolCapacity(s),3);
+ for(let i=0;i<STARTING_SEATS;i++){s=enroll(s);const id=s.school.pupils.at(-1).id;s=run(s,'finishSchool',id).state;s=run(s,'graduate',id).state;}
+ assert.equal(s.school.graduates,STARTING_SEATS);
+ s=run(s,'expandSchool').state;assert.equal(schoolCapacity(s),5);
+ assert.ok(run(s,'expandSchool').error,'the seats open once, not repeatedly');
  for(let i=0;i<5;i++)s=enroll(s);assert.equal(s.school.pupils.length,5);assert.ok(run(s,'enrollPupil','wife_2',{name:'Six',grade:'D',type:'brave'}).error);
  for(const change of [p=>p.grade='A',p=>p.grade=['D'],p=>p.progress=101,p=>p.name=' ']){const bad=structuredClone(s);change(bad.school.pupils[0]);assert.throws(()=>decode(JSON.stringify(bad)));}
  const bad=structuredClone(s);bad.family.wife_2.graduationBond='true';assert.throws(()=>decode(JSON.stringify(bad)));
