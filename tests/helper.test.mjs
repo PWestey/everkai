@@ -1,3 +1,6 @@
+import {bestBanquetParty,northSurvive} from '../lib/helper.mjs';
+import {NORTH,northern,tileKind,activeRoom} from '../lib/northern.mjs';
+import {BANQUET_PARTIES,banquetState} from '../lib/banquets.mjs';
 import {habitDay} from '../lib/habits.mjs';
 import {bondedPower} from '../lib/adventure.mjs';
 import {FELLOWS} from '../lib/catalog.mjs';
@@ -444,6 +447,8 @@ test('every chore has its dispatch contract checked, not just the ones that brok
   trading:{state:{fellows:{hero_15:{level:1,aptitude:10,skill:0,breaks:0,gear:null}},tradingPost:{policyVersion:1,seq:0,coins:0,influence:0,run:null,history:[],energy:{},shop:{day:0,bought:0}}},allow:['tradeBegin','tradeComplete']},
   treasure:{state:{treasure:{seq:0,stamina:100,relics:{},gems:{},area:null,run:null}},allow:['treasureStart','treasureDig','treasureAppraise','treasureReturn','treasureRestore','treasureDonate','treasureDisplay']},
   duplicates:{state:{fishing:{bait:0,catches:[],researched:[],displayed:[],skills:{},points:0}},allow:['researchFish','upgradeFish','treasureRestore','treasureDonate','northExchange','mineExchange']},
+  banquets:{state:{banquets:{policyVersion:1,seq:0,coins:0,popularity:0,pantry:{},run:null,history:[],shop:{day:0,bought:{}}}},allow:['banquetClaim','banquetPrepare','banquetHost']},
+  northern:{state:{northern:{policyVersion:1,seq:0,supplies:12,recoverAt:null,coins:60,atkXP:0,hpXP:0,atkLevel:0,hpLevel:0,consumed:0,run:null,history:[],exchanges:[]}},allow:['northExchange','northStart','northTile','northAttack','northNext','northFinish']},
  };
  // Each overlay sits on a REAL fresh save, not a fragment: the modules reach for fields like s.claims
  // through playerRank, and a hand-built stub throws rather than reporting a contract problem.
@@ -462,3 +467,141 @@ test('every chore has its dispatch contract checked, not just the ones that brok
  }
  // Positive control: the loop really did drive chores, so the assertion above is not vacuous.
  assert.ok(chores.length>=8,`${chores.length} chores checked`);});
+
+test('the banquet chore prepares, hosts and collects the party with the best coin yield',()=>{
+ // coinsPerGuest is fixed at 100 inside banquetHost, and every shipped party costs one of each of
+ // its two materials, so coins per material set is 100 x seats and the largest party wins outright.
+ const best=BANQUET_PARTIES.reduce((a,b)=>b.seats>a.seats?b:a);
+ assert.ok(BANQUET_PARTIES.length>1,'there is actually a choice to get right');
+ assert.equal(bestBanquetParty(armed(),false),best.id);
+ // Negative control on the affordability filter: an empty pantry can pay for nothing.
+ assert.equal(bestBanquetParty(armed(),true),null,'an empty pantry hosts nothing');
+
+ const first=run(armed(),'helperRun');
+ const b=banquetState(first);
+ assert.ok(b.run,'the chore laid a banquet');
+ assert.equal(b.run.kind,best.id,`hosted ${b.run.kind}, not the ${best.seats}-seat party`);
+ assert.equal(b.run.guests.length,best.seats);
+ assert.ok(b.refillDay,'the habit refill was used');
+ // The guests then have to arrive; the chore claims by RUN id once they have.
+ const later=act(first,'helperRun',first.lastAt+b.run.guests.length*b.run.intervalMs+1000);
+ assert.equal(later.error,undefined,later.error);
+ const after=banquetState(later.state);
+ assert.equal(after.run,null,'the finished banquet was collected');
+ assert.equal(after.coins,b.run.coinsPerGuest*best.seats,'the full payout was banked');
+ assert.equal(after.history.length,1);
+ assert.ok(valid(later.state),'and the save the chore produced is a legal one');
+ // The chore never reaches the exchange: choosing among the shop items is the player's, not ours.
+ const {seen}=spyRun(armed());
+ assert.ok(seen.includes('banquetHost'),'positive control: the chore really ran in a full helper run');
+ assert.ok(!seen.includes('banquetBuy'),'the helper does not shop');});
+
+test('northSurvive matches what northAttack actually does, blow for blow',()=>{
+ // The predictor is only worth having if it agrees with the real action. Replay one beast through
+ // act() and compare the HP it leaves against what northSurvive said it would.
+ const hurt=NORTH.retaliation[0],atk=2,maxHP=30;
+ assert.equal(northSurvive(maxHP,maxHP,atk,NORTH.monsterHP[0],2,hurt),maxHP-Math.ceil(NORTH.monsterHP[0]/atk)*hurt,
+  'three blows at 2 HP each, killing blow included');
+ // Negative control: too little HP and no springs is refused, not optimistically rounded up.
+ assert.equal(northSurvive(hurt,maxHP,atk,NORTH.monsterHP[2],0,NORTH.retaliation[2]),null);
+ assert.equal(northSurvive(1,maxHP,atk,NORTH.monsterHP[0],0,hurt),null,'1 HP cannot take a 2 HP blow');
+ // A spring is worth exactly NORTH.healing, and only when it is not thrown away against the cap.
+ assert.notEqual(northSurvive(1,maxHP,atk,NORTH.monsterHP[0],2,hurt),null,'springs make the same fight survivable');});
+
+test('the Northern chore never blunders an expedition into a loss',()=>{
+ const chore=HELPER_TASKS.find(t=>t.id==='northern').run;
+ // validNorthern ties banked coins and XP to the history, so training levels cannot be poked into a
+ // save -- they have to be EARNED. Bank camp XP by playing real expeditions first. The Supply count
+ // is not part of that arithmetic, so topping Supplies up between descents keeps the save legal.
+ const north=s=>northern(s),refill=s=>({...s,northern:{...north(s),supplies:12,recoverAt:null}});
+ let bank=refill(armed());
+ for(let i=0;i<10&&(north(bank).atkXP<40||north(bank).hpXP<40);i++)bank=refill(chore(bank,act,bank.lastAt).state);
+ while(north(bank).run)bank=run(bank,'northFinish',null,{seq:north(bank).seq,runId:north(bank).run.id});
+ assert.ok(north(bank).atkXP>=40&&north(bank).hpXP>=40,`only banked ${north(bank).atkXP}/${north(bank).hpXP} XP`);
+ assert.ok(valid(bank),'the banked save is legal, so every grid point derived from it is too');
+ // Three Supplies is exactly one full three-floor descent, so each grid point is one expedition.
+ const at=(atkLevel,hpLevel)=>{
+  let s=bank;
+  for(let i=0;i<atkLevel;i++)s=run(s,'northTrain','atk',{seq:north(s).seq});
+  for(let i=0;i<hpLevel;i++)s=run(s,'northTrain','hp',{seq:north(s).seq});
+  return {...s,northern:{...north(s),supplies:3,recoverAt:s.lastAt+3600000}};
+ };
+ const grid=[0,1,2,3,5,7,10];
+ let cleared=0,fought=0;
+ for(const atkLevel of grid)for(const hpLevel of grid){
+  const start=at(atkLevel,hpLevel),before=north(start).history.length;
+  const out=chore(start,act,start.lastAt),n=north(out.state),where=`ATK+${atkLevel} HP+${hpLevel}`;
+  for(const h of n.history.slice(before))assert.notEqual(h.outcome,'lost',`${where}: the helper lost an expedition`);
+  assert.notEqual(n.run?.status,'lost',`${where}: the helper left an expedition dead`);
+  if(n.run)assert.ok(n.run.hp>0,`${where}: an expedition was left at ${n.run.hp} HP`);
+  assert.ok(valid(out.state),`${where}: the chore produced an illegal save`);
+  fought++;
+  if(n.history.slice(before).some(h=>h.outcome==='cleared'))cleared++;
+ }
+ assert.equal(fought,grid.length**2);
+ assert.ok(cleared>0,`positive control: no grid point cleared all ${NORTH.floors} floors, so nothing was played`);
+
+ // NEGATIVE CONTROL, and the reason this test is not vacuous: the same grid, played by the obvious
+ // shallow policy -- reveal tiles in order, swing whenever the beast is standing -- DOES lose runs.
+ // So "never lost" is a property of the policy, not of a grid where losing was impossible.
+ let reckless=0;
+ for(const atkLevel of grid)for(const hpLevel of grid){
+  let s=at(atkLevel,hpLevel);
+  const fire=(a,t)=>{const n=north(s),r=act(s,a,s.lastAt,t,{seq:n.seq,runId:n.run?.id});if(!r.error&&r.state)s=r.state;return !r.error};
+  fire('northStart',null);
+  for(let step=0;step<CHORE_STEP_CAP&&north(s).run;step++){
+   const r=north(s).run,q=activeRoom(r);
+   if(r.status==='lost')break;
+   if(r.status==='gate'){if(!fire('northNext',null))break;continue}
+   if(r.status!=='exploring')break;
+   if(!q.tiles[4]){fire('northAttack',4);continue}
+   const next=q.tiles.findIndex((v,i)=>!v&&i!==4);
+   if(next<0||!fire('northTile',next))break;
+  }
+  if(north(s).run?.status==='lost')reckless++;
+ }
+ assert.ok(reckless>0,'the reckless control never died, so this grid cannot prove the policy safe');});
+
+test('an expedition the PLAYER left in a hopeless position is banked, not fought',()=>{
+ // The helper only enters a floor it can clear, so on its own runs the mid-fight check never fires.
+ // It exists for the run it did not start: a player can swing recklessly, drink both warm springs and
+ // close the tab, leaving a live beast and too little HP. Attacking there loses every unbanked coin,
+ // so the rule is to take northFinish. This save is that position, and it is a legal one.
+ const s=armed(),tiles=[true,true,true,true,false,true,true,true,false];
+ // No Supplies left, so the chore cannot start a fresh expedition afterwards and `seen` is just this one.
+ const doomed={...s,northern:{policyVersion:1,seq:9,supplies:0,recoverAt:s.lastAt+3600000,coins:0,
+  atkXP:0,hpXP:0,atkLevel:0,hpLevel:0,consumed:1,history:[],exchanges:[],
+  run:{policyVersion:1,id:9,startedAt:s.lastAt,power:100,atk:2,maxHP:30,hp:NORTH.retaliation[0],paid:1,
+   rooms:[{floor:1,tiles,monsterHP:NORTH.monsterHP[0],hits:0}],coins:15,atkXP:4,hpXP:4,status:'exploring'}}};
+ assert.ok(valid(doomed),'the hopeless position is a save the game would actually load');
+ // Positive control: this really is hopeless -- every spring is gone and the next blow would land last.
+ assert.equal(northSurvive(NORTH.retaliation[0],30,2,NORTH.monsterHP[0],0,NORTH.retaliation[0]),null);
+ const seen=[];
+ const spy=(state,action,now,target,value)=>{seen.push(action);return act(state,action,now,target,value)};
+ const out=HELPER_TASKS.find(t=>t.id==='northern').run(doomed,spy,doomed.lastAt);
+ assert.ok(!seen.includes('northAttack'),'the helper swung at a beast that would have killed it');
+ assert.equal(seen[0],'northFinish','it banked the floor instead');
+ const n=northern(out.state);
+ assert.equal(n.history[0].outcome,'returned');
+ assert.equal(n.history[0].banked,15,'the three caches this floor had already paid were kept');
+ assert.ok(valid(out.state));});
+
+test('neither new chore can spend gold or crystals, and northTrain is never dispatched',()=>{
+ // The SPENDING regex above is keyed to action-name prefixes, and every action these two chores
+ // dispatch begins "banquet" or "north" -- so it would not catch a bad one. Pin the set directly.
+ const chore=id=>HELPER_TASKS.find(t=>t.id===id).run;
+ const seen=new Set();
+ const record=(state,action,now,target,value)=>{seen.add(action);return act(state,action,now,target,value)};
+ const s=armed();
+ let out=chore('banquets')(s,record,s.lastAt);
+ assert.ok(out.state.gold>=s.gold&&out.state.crystals>=s.crystals,'banquets moved gold or crystals');
+ // First descent banks expedition coins; the second spends them, because the exchange runs first.
+ out=chore('northern')(out.state,record,s.lastAt);
+ assert.ok(northern(out.state).coins>=30,'positive control: a descent banked coins there were to spend');
+ out=chore('northern')(out.state,record,s.lastAt);
+ assert.ok(out.state.gold>=s.gold&&out.state.crystals>=s.crystals,'the north moved gold or crystals');
+ assert.ok(seen.has('northExchange'),'banked coins were never spent on the one fixed item');
+ assert.ok(!seen.has('northTrain'),'the helper bought an upgrade');
+ assert.ok(!seen.has('banquetBuy'),'the helper shopped');
+ assert.ok(valid(out.state));
+ for(const a of seen)assert.match(a,/^(banquet|north)/,`${a} is not one of these two systems`);});

@@ -20,8 +20,9 @@ export default function HelperPanel({game,action,locked}:any){
    </li>})}
   </ul>
   <details className="rules-note"><summary>What the helper will and will not do</summary>
-   <p>The helper does the repetitive part for you: it collects what is waiting, works the farm, fishes while your bait lasts, welcomes Inn guests and serves the Expo. It taps the same buttons you would, so it can never collect anything twice or hand you more than a day allows.</p>
-   <p>It never spends your gold or crystals, never buys an upgrade, and never trains anyone — those choices stay yours. Where a chore has to pick, it sows whichever crop yields most per hour and fishes the deepest water you have opened.</p>
+   <p>The helper does the repetitive part for you: it collects what is waiting, works the farm, fishes, welcomes Inn guests, serves the Expo, roams, runs the Trading Post and the Treasure Hunt, hosts banquets and descends the Northern Odyssey. It taps the same buttons you would, so it can never collect anything twice or hand you more than a day allows.</p>
+   <p>It never spends your gold or crystals, never buys an upgrade, and never trains anyone — those choices stay yours. Duplicates it will spend, because a duplicate has only one place to go: research on its own fish, restoration on its own relic.</p>
+   <p>Where a chore has to pick, it sows whichever crop yields most per hour, fishes and digs wherever your collection is least complete, fields the cheapest team that still wins a negotiation, and only enters a Northern floor it can clear.</p>
    <p>In the original this feature is sold. Here it is earned: finish one daily habit and the helper runs for the rest of the day.</p>
   </details>
  </section>;
