@@ -1,7 +1,8 @@
 """Build static reference facts from the pinned, previously audited public snapshots."""
 import hashlib,html,json,pathlib,re
+from _workspace import WORKSPACE
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-SOURCE=ROOT.parent.parent/'outputs/online-audit/public-reference/wiki'
+SOURCE=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 SHA='b49c78d0c06d535f6e1c62bdc9d5d666cd96e954'
 manifest=json.loads((SOURCE/'wiki_manifest.json').read_text())
 # Original gear records are generated JS; extract the JSON payload without running it.

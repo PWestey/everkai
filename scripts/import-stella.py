@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,re,html,hashlib,collections
-app=Path(__file__).resolve().parents[1];root=app.parent.parent;base=root/'outputs/online-audit/public-reference/wiki/fellows'
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];root=WORKSPACE;base=root/'outputs/online-audit/public-reference/wiki/fellows'
 items={r['id']:r['en'] for r in json.loads((root/'outputs/component-research/datasets/Item.json').read_text())};names={r['id']:r['en'] for r in json.loads((root/'outputs/component-research/datasets/Hero.json').read_text())}
 inventory=[];profiles=[]
 for p in sorted(base.glob('*/index.html')):

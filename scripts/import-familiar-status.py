@@ -1,7 +1,8 @@
 """Admit only whole supported active descriptions from a pinned public snapshot."""
 from pathlib import Path
 import re,json,html,hashlib
-app=Path(__file__).resolve().parents[1];base=app.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 # Exact audited page hashes prevent silently admitting altered descriptions.
 EXPECTED = {'Pet_3191': '1160aaabc9d328f446f387f77517ee39bb1b46a7f0619aab8d2f74d11c50da20', 'Pet_11131': 'a1c2a0372a91f673aa28f484ca1fa30253dc1d2902b5ea1a9c6f6ed56421371c', 'Pet_12131': 'd9fdcba46aefc8d6bca5fbabdc4de664d8fdb20ae9cda33fda6e162399325e83', 'Pet_21121': '98b92d010ba66f916b4b3962ecbb6d9341d218991aac1d607e4669880feb42eb', 'Pet_21131': 'ad43ded7490d0adb6008b1eb9501263a73562258ff0eb610d5603b42ba622725', 'Pet_23131': '4e54520794523f5289435c48b19f84f6bd5d0f44be9a94344f190cf030254d73', 'Pet_23331': '0d16c9e3419089c8cba67a76c23446ef13243e571eb31f3186edfc66064b8c74', 'Pet_31121': '539b4167f94a0fcc390279c900454f53ff23e0574c352fdb7a0bcd9fc5e91231', 'Pet_41131': '096ac7250ae0910e50caea0398d676e4bf8e62b27d02466cd32f33bdd892c1df', 'Pet_42121': '2a0c47f2d3b6e39f223c742a07a2e7f9cdac2ee3b1233558691e501107f14ee5', 'Pet_42131': 'cf55246d8579d03f176f5c43552f0d54d6a151816595e41a13e605909423a749', 'Pet_8021901': '6acd72c542c5ff603eb9ac289a9d6cba78ddfdc8c5e4c463269848bd2d2d6258', 'Pet_8031901': '0cdc284b7b8a6e3c8dc46318cca02676e5192a33afa9d6871f192863e795bfa8', 'Pet_8041501': '9fee93b3079a780aef77b05863b9046d21593efa9b6afd1327be12517396bf0c', 'Pet_8041505': 'b7f5f270d17b57408e777d5f4c9caca20f09df9635463002b174a408197ac5ea', 'Pet_9011901': '4ae6df5ae60b80582afec118a30b6be68f139220cdb9f1af76071e5b519358d7', 'Pet_9041501': 'fbb56dec08d26e7ae77132eba2a0bfab0906a67c7758bce98ab3d8fe6f858045'}
 rows=[]

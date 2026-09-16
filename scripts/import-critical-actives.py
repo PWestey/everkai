@@ -2,8 +2,9 @@
 """Verify eight admitted kits and declared critical pairs against reviewed evidence."""
 from pathlib import Path
 import json
+from _workspace import WORK
 app=Path(__file__).resolve().parents[1]
-e=json.loads((app.parent/'isekai-research/independent/crit-cluster/crit-cluster-evidence.json').read_text())
+e=json.loads((WORK/'isekai-research/independent/crit-cluster/crit-cluster-evidence.json').read_text())
 d=json.loads((app/'lib/familiar-crit-data.json').read_text());rules={r['id']:r for r in d['skills']}
 assert set(rules)=={x['petId'] for x in e['selected']}
 for x in e['selected']:

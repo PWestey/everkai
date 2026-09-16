@@ -1,7 +1,12 @@
 # Data provenance — every `lib/*.json`
 
-Where each of the 100 numeric tables in `lib/` actually came from, whether its claimed source still
-resolves, and which numbers the economy depends on that nobody can trace.
+Where each numeric table in `lib/` actually came from, whether its claimed source still resolves, and
+which numbers the economy depends on that nobody can trace.
+
+> **Counts in this file are dated.** The audit below ran against **100** tables on 2026-09-12; there
+> are **104** on 2026-09-15. Two sections carry a re-measurement against today and say so in their
+> heading — *Importer runnability* and *Files no importer writes*. Treat every other count as of
+> 2026-09-12 and re-measure before quoting it.
 
 **Method.** Every row below was produced by reading the file's own metadata *and* locating the
 `scripts/import-*.py` that writes it (matched on the literal `lib/<name>.json').write_text` call, not
@@ -273,7 +278,49 @@ and my first pass flagged them as such — **wrongly**. They name the *translati
 against that corpus, both **match exactly**. A provenance checker that matches on filename alone will
 report false staleness here.
 
-## Importer runnability — 54 of 74 cannot run
+## Importer runnability — FIXED 2026-09-15 (BUG-05). Was 47 of 77; now 0
+
+**This section's findings are closed.** `scripts/_workspace.py` now resolves the research trees once,
+and 53 importers were rewritten to use it. RE-MEASURED 2026-09-15 by statically resolving every path
+expression in `scripts/*.py` (the same method as below, seeded with the helper's `WORKSPACE`/`WORK`):
+
+| Verdict | Before | After |
+|---|---:|---:|
+| external source missing | 47 | **0** |
+| external source resolves and exists | 8 | **55** |
+| no external read this analyser resolves (argv, APK, `shutil.copyfile`) | 22 | 13 |
+
+The helper resolves, in order: `$EVERKAI_WORKSPACE`; the workspace's location on this machine
+(`~/Documents/Codex/2026-09-07/referenced-chatgpt-conversation-this-is-an`, MEASURED to hold both
+`outputs/component-research/` and `work/isekai-research/`); then `REPO.parents[1]`, the original
+in-workspace layout. A candidate only counts if it actually holds the trees, and if none does the
+importer exits with a stated precondition naming every path it tried — **a missing workspace must
+never be filled in with invented numbers.**
+
+VERIFIED by running nine of the rewritten importers, all previously unrunnable:
+
+- The four *verifiers* pass, which also re-checks the shipped data against its source:
+  `import-staffing` (17 businesses / 57 bands / 442 quality rows), `import-medicine-recipes`,
+  `import-critical-actives`, `import-five-actives`.
+- Five *generators* reproduce their shipped file: `import-elixirs`, `import-trading-post`,
+  `import-apothecary` byte-identical; `import-tonic` and `import-fountain` byte-identical **after**
+  `scripts/apply-content-overrides.py`, which is the standing rule and is exactly what it is for
+  (both differed only on the Seraph/Succubus rename the override applies). `fountain-data.json` also
+  lost one stray whitespace-only line that no importer produces — a hand edit, now regenerated away.
+
+Three preconditions remain, and they are preconditions rather than defects:
+
+- `import-drakenberg-art`, `-facility-scenes`, `-village-map`, `-fishing-art`, `-character-idle`,
+  `-wardrobe-art` need `~/Desktop/ISEKAI/UnityDataAssetPack.apk` / `UnityStreamingAssetsPack.apk`.
+- `import-achievement-ui`, `-ui-sprites`, `-inventory-icons`, `-scene-ui` need an index path on
+  **argv**, pinned by `--sha256`.
+- `import-campaign-chapters`, `-opening`, `-opening-presentation`, `-rank-ladder` address `lib/`
+  through `Path('lib/…')`, so they must be run **from the repo root**. Unfixed, and separate from
+  BUG-05; noted here so the next reader does not re-diagnose it as the workspace problem.
+
+The original measurement follows, for the record.
+
+### Original finding (2026-09-12): 54 of 74 cannot run
 
 MEASURED by resolving every source path each importer actually opens:
 
@@ -300,7 +347,7 @@ readers (`import-farm-yield`, `import-fathoms`, `import-operations`, `import-bus
 among them — the four most parity-critical importers are the four that still work.
 
 **Consequence:** 54 importers cannot re-derive their output or re-check it against its source. Those
-tables are effectively frozen, and their assertions never run.
+tables are effectively frozen, and their assertions never run. *(Closed 2026-09-15 — see above.)*
 
 ## Scrapes that proved exact
 
@@ -328,10 +375,77 @@ One field-naming subtlety, not drift: `farm-data.json`'s `seconds`/`amount` do *
 `SimGame3PlantUpgrade` **level 1** exactly (MEASURED: 39/39 agree). The file is right; the field name
 invites a false drift report.
 
-## Files no importer writes (27) — unregenerable
+## Files no importer writes — RE-MEASURED 2026-09-15: 27 of 104, not 28 of 98
 
-MEASURED by resolving every `write_text`/`write_bytes`/`copyfile`/`json.dump` target in `scripts/`,
-including variable paths. 27 of 100 files have no producing importer, in three kinds:
+BUG-06 quoted "28 of 98 lib/*.json have no producing importer", from `docs/data-index.md` Flag 2.
+Both halves of that had drifted. RE-MEASURED 2026-09-15 across **104** `lib/*.json` on disk, by
+matching every write idiom in `scripts/` (`write_text`/`write_bytes` on a literal path *and* on a
+path held in a variable, `shutil.copyfile`'s destination, and `json.dump`), with a positive control
+first — the check must find `farm-data` ← `import-farm`, `museum-data` ← `import-museum`,
+`opening-data` ← `import-opening`, `default-talent-source` ← `import-default-talent` (a copyfile),
+`rank-ladder-data` ← `import-rank-ladder`, `special-blessing-data` ← `import-special-blessings`. It
+does; a first version that matched only the `.write_text` idiom missed the last two and would have
+over-reported orphans by five, which is how "28" was reached.
+
+| | Count |
+|---|---:|
+| written by an importer | 77 |
+| read or asserted by an importer, never written | 7 |
+| no importer mentions them at all | 20 |
+
+`operation-data` gained a producer (`import-operations`) since Flag 2 was written, and
+`roster-batch-evidence` lost its only reader when `import-family-scenes` was retired (BUG-07), so it
+moves from "importer input" to "untouched". Net: 27 unwritten, the same total by a different split.
+
+**Verifier-guarded (5)** — no script writes them, but a script *asserts* them against evidence and
+fails loudly on drift. Hand-maintained source of truth, and the safest of the three:
+`familiar-crit-data`, `familiar-dot-data`, `medicine-recipe-data`, `staffing-data`,
+`staffing-independent-data`. All five verifiers were RUN on 2026-09-15 and pass.
+
+**Importer inputs (2)** — hand-maintained files that importers read:
+`content-overrides` (the post-import rename policy), `inventory-display-data`.
+
+### The 20 with no importer at all — provenance, recorded not guessed
+
+MEASURED per file: the provenance key the file carries itself, and what reads it. "Hand-authored"
+below means exactly that — this project wrote the numbers and the file says so. None of these can be
+regenerated; a change to any of them is a hand edit and should be reviewed as one.
+
+| File | Provenance it carries | Read by |
+|---|---|---|
+| `adventure-rule-evidence` | `source` (APK `translate_v1_…mmc`) | *(nothing)* |
+| `artifact-investment-evidence` | `source` | *(nothing)* |
+| `drakenberg-layout` | `provenance` | `app/drakenberg-town.tsx`, `facility-scene.tsx`, 4 tests |
+| `familiar-trigger-data` | `provenance` | `lib/familiar-trigger-combat.mjs` |
+| `family-rule-evidence` | `source` + `method` | *(nothing)* |
+| `farm-order-policy` | `version` + `source` | `lib/farm-trade.mjs` |
+| `fishing-data` | `snapshot`, `localPolicy`, `supersededBy` | `tests/fishing-record-drift.test.mjs` only |
+| `hire-card-data` | `source` + `datasetSha256` | `lib/hire-cards.mjs` |
+| `inn-progression-data` | `source` + `provenance` | `lib/inn-progression.mjs`, `tests/inn-tables.test.mjs` |
+| `item-art-evidence` | **per row**, not top level: each row carries `source.path`, `source.sha256`, `sha256` | `tests/consumables.test.mjs` |
+| `kohaku-crown-data` | `sourceKeys`, `profileSource`, `profileSha256` | `lib/fishing.mjs`, `app/fishing-panel.tsx` |
+| `northern-data` | `source` + `sourceRules` + `localRules` | `lib/northern.mjs` |
+| `pupil-rule-evidence` | `source` | *(nothing)* |
+| `roster-batch-evidence` | **per row**: `source_portrait_sha256`, `render_evidence` | `lib/content-overrides.json`, 2 tests |
+| `source-character-index` | **NONE** — 299 rows of id/kind/name/title/artGroups with no source key | `lib/content-overrides.json`, `tests/content-overrides.test.mjs` |
+| `starter-habits` | `note` — the owner's private 78-task list, **must stay out of any public repo** | `lib/habits.mjs` |
+| `stella-activation-policy` | `version`, `originalValueVerified`, `reason` | `lib/stella.mjs` |
+| `system-maturity` | `note` — hand-maintained, guarded by `tests/system-maturity.test.mjs` | `app/drakenberg-town.tsx`, `facility-scene.tsx` |
+| `village-layout` | `provenance` | `app/village-map.tsx`, `tests/village-map.test.mjs` |
+| `workshop-policy-data` | **NONE** — `{current, versions}`, local policy with no source key | `lib/workshop-policy.mjs` |
+
+Two carry no provenance of any kind and should acquire one: `source-character-index` and
+`workshop-policy-data`. Everything else is hand-authored with its basis recorded in the file, which
+is the standard this section exists to enforce. `hire-card-data` remains the one to watch: it carries
+a verified Item sha but nothing can rebuild it.
+
+*Do not detect writers by the `.write_text` idiom alone.* Five files look orphaned that way but are
+written — `default-talent-source`, `employee-yield-data`, `original-blessing-data` and
+`special-blessing-data` by `shutil.copyfile`, and `insight-data` through a path held in a variable.
+
+### Original finding (2026-09-12), superseded above
+
+27 of 100 files have no producing importer, in three kinds:
 
 **Verifier-guarded (5)** — no script writes them, but a script *asserts* them against evidence and
 fails loudly on drift. Hand-maintained source of truth, and the safest of the three:

@@ -1,8 +1,9 @@
 """Import published character facts, never execute remote scripts. Run from project root."""
 import concurrent.futures, hashlib, json, pathlib, re, urllib.request
+from _workspace import WORKSPACE
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-AUDIT = ROOT.parent.parent / 'outputs/online-audit'
+AUDIT = WORKSPACE / 'outputs/online-audit'
 SHA = 'b49c78d0c06d535f6e1c62bdc9d5d666cd96e954'
 BASE = f'https://raw.githubusercontent.com/Zik-Ascend/isl-tools/{SHA}/wiki/'
 manifest = json.loads((AUDIT/'public-reference/wiki/wiki_manifest.json').read_text())

@@ -1,8 +1,9 @@
 """Import readable costume identities; captured artwork is admitted separately."""
 import hashlib,json
 from pathlib import Path
+from _workspace import WORK
 root=Path(__file__).resolve().parents[1]
-source=root.parent/'isekai-research/independent/wardrobe/packet.json'
+source=WORK/'isekai-research/independent/wardrobe/packet.json'
 expected='658ab55cd3650f70198a99cefbbfe2d115f441b5469df5a1f389d06fc3711d52'
 assert hashlib.sha256(source.read_bytes()).hexdigest()==expected
 p=json.loads(source.read_text())

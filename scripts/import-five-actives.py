@@ -2,8 +2,9 @@
 """Verify admitted five-active coefficients against reviewed recovered evidence."""
 from pathlib import Path
 import json
+from _workspace import WORK
 app=Path(__file__).resolve().parents[1]
-e=json.loads((app.parent/'isekai-research/independent/five-actives/five-actives-evidence.json').read_text())
+e=json.loads((WORK/'isekai-research/independent/five-actives/five-actives-evidence.json').read_text())
 rules={r['id']:r for r in json.loads((app/'lib/familiar-dot-data.json').read_text())['skills']}
 assert set(rules)=={x['petId'] for x in e['selected']}
 for x in e['selected']:

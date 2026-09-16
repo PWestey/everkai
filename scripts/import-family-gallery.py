@@ -2,8 +2,9 @@
 from pathlib import Path
 import json,hashlib
 from PIL import Image
+from _workspace import WORK
 app=Path(__file__).resolve().parents[1]
-source=app.parent/'isekai-research/independent/family-cg/cg-final-reference-map.json'
+source=WORK/'isekai-research/independent/family-cg/cg-final-reference-map.json'
 d=json.loads(source.read_text());out=app/'public/assets/family-gallery';out.mkdir(parents=True,exist_ok=True)
 rows=[];evidence=[];total=0
 for row in d['references']:

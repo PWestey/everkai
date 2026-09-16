@@ -1,7 +1,8 @@
 """Import numeric facts from pinned cached public data; execute no external code."""
 import json,re,html,hashlib
 from pathlib import Path
-root=Path(__file__).resolve().parents[1];source=root.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];source=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 raw=(source/'assets/pet_simulator.json').read_bytes();tables=json.loads(raw)
 manifest=json.loads((source/'wiki_manifest.json').read_text())
 records={};groups={};inherent={}

@@ -1,7 +1,8 @@
 """Join explicit named stall bonds; never infer faction membership from type."""
 from pathlib import Path
 import json,re,hashlib,subprocess
-root=Path(__file__).resolve().parents[1];ws=root.parent.parent
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];ws=WORKSPACE
 source=ws/'outputs/component-research/datasets/SkillBase.json';skills={x['id']:x['en'] for x in json.loads(source.read_text())}
 heroes=ws/'outputs/component-research/datasets/Hero.json';heroRows=json.loads(heroes.read_text())
 node='/Users/westmanfamily/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node'

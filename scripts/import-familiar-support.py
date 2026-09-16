@@ -1,7 +1,8 @@
 """Seven whole audited active kits; amounts from pinned public descriptions."""
 from pathlib import Path
 import hashlib,json,re,html
-app=Path(__file__).resolve().parents[1];root=app.parent.parent
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];root=WORKSPACE
 spec={
 'Pet_22241':('shield','front',5,0,'atk',[('shield',400,2,'primary','atk'),('regen',50,2,'primary','atk')]),
 'Pet_23341':('heal','lowest',3,20,'targetMaxHP',[('regen',5,2,'primary','targetMaxHP')]),

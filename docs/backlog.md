@@ -24,20 +24,24 @@ awakened characters, over a parchment field with a sort control and a class filt
 CSS-and-markup job in `roster-picker.tsx`, not another extraction: add the Hero/Wife card grounds as
 tile backgrounds keyed on rarity, the way the Pet fallback already works.
 
-### Town List view clips the longest notes
-`app/globals.css`, `.town-list button`. The row sits at 44px whatever its children need, so 5 of 18
-notes are cut (Businesses, School, Village stories, Mine Clearance, Northern Odyssey). Names and
-badges are fine.
+### ~~Town List view clips the longest notes~~ — FIXED, verified 2026-09-15
 
-Six diagnoses were wrong before the live cascade was measured: it is **not** `h-8` winning, not the
-`min-height` floor, not a specificity problem and not a `@layer` conflict — `height:auto` is
-unlayered and does win. Removing the floor and stacking the note both made it worse.
+The row once sat at 44px whatever its children needed, cutting 5 of 18 notes (Businesses, School,
+Village stories, Mine Clearance, Northern Odyssey). Six diagnoses were wrong before the live cascade
+was measured: **not** `h-8` winning, not the `min-height` floor, not specificity, not a `@layer`
+conflict — `height:auto` is unlayered and does win. Removing the floor and stacking the note both
+made it worse. The recommendation on file was to stop reusing the shadcn `Button` and render plain
+elements.
 
-**Fix:** stop reusing the shadcn `Button` for these rows; render them as plain elements so there is
-no fixed-height component behaviour to fight. Do not attempt another CSS override.
+**That turned out not to be necessary.** The `.town-list>button` block in `app/globals.css`
+(`height:auto !important`, `min-height:52px`, `align-items:stretch`) fixed it while keeping the
+shadcn `Button`, and the entry above simply never got closed.
 
-**Not lost meanwhile:** every facility header shows its full status and note, and each town plate's
-`aria-label` carries the complete text.
+MEASURED 2026-09-15 in the running app at 375x812: all 18 rows have `scrollHeight === clientHeight`
+(55px for a one-line note, 65px for two), and every `.maturity-line` has `scrollHeight ===
+clientHeight` and `scrollWidth === clientWidth`. Confirmed by eye in the same session — every note
+wraps in full. **Negative control:** injecting `height:44px;overflow:hidden` made all 18 rows report
+clipping, and removing it returned 0, so the measurement detects the defect it reports as gone.
 
 ### No onboarding
 There is no tutorial anywhere in the codebase — only the "START YOUR STORY" strip and the opening
@@ -212,24 +216,34 @@ alongside the newer one the UI actually calls.
   plus the five countries) and builds a pupil with **no `name` and no `grade`**, while `enrollPupil`
   validates against `SCHOOL_TYPES` (five countries only) and requires both. So `enroll` can mint a
   pupil shaped like an older save format.
-- **`habitOrder`** (`lib/habits.mjs:46`) vs **`habitReorder`** (`:47`). The Arrange modal dispatches
-  `habitReorder` through a `move()` helper, never the literal — which is why a literal-matching sweep
-  reports `habitOrder` as "stranded" and `habitReorder` as present. `habitOrder` replaces the whole
-  item list and requires every id; `habitReorder` permutes a subset within its group. Driven: the
-  orphan accepts a full reversed list and leaves `valid()` true, so it works — it is simply the older
-  design.
+- ~~**`habitOrder`** (`lib/habits.mjs:46`) vs **`habitReorder`** (`:47`)~~ — **REMOVED 2026-09-15.**
+  The Arrange modal dispatches `habitReorder` through a `move()` helper. MEASURED before deleting:
+  `habitOrder` appeared in exactly one place outside its own branch — the `ALLOWED` map in
+  `tests/dispatch.test.mjs` — so no app file, no test and no fixture drove it; and the `order:i`
+  field it wrote is read by nothing, because `sortHabitItems` sequences on `manualOrder ?? gateOrd`
+  and `validItem` does not even validate `order`. Unlike `enroll` it had no behaviour anyone pinned,
+  so it was a cleanup rather than an owner decision. `tests/dispatch.test.mjs` caught the stale
+  `ALLOWED` entry on the next run, which is the rot guard doing its job.
 
-Neither is reachable from the app, so neither is a live defect. **Do not delete blind:** both are
-guarded, `enroll` is refused for an unknown type, and `recruitAll`/`welcomeAll`/`welcome` sit in the
-same category with their own recommendation in `docs/free-action-audit.md`. Worth one deliberate pass
-over all six rather than piecemeal removal mid-slice.
+`enroll` is still not reachable from the app, and is not a live defect. **Do not delete it blind:**
+`recruitAll`/`welcomeAll`/`welcome`/`recruit` sit in the same category with their own recommendation
+in `docs/free-action-audit.md` (`recruit` joined that list on 2026-09-15 with BUG-14 — it had been
+passing the reachability guard on a tab id rather than a dispatch). Worth one deliberate pass over
+all five rather than piecemeal removal mid-slice.
 
 ## Records that drift
 
-### docs/parity-gaps.md is a dated snapshot
-Pinned at `e9ef386` and already wrong in places — its §12 Recruit row described the free roster this
-cycle replaced, and its Museum count says 32 where the data says 31. It carries a dated status note
-now. Treat per-row detail as stale until re-verified against the code, and prefer the live modules.
+### ~~docs/parity-gaps.md is a dated snapshot~~ — RETIRED 2026-09-15 (BUG-04)
+The file is now a pointer to the records that are maintained: `docs/parity-catalog.csv`,
+`lib/system-maturity.json`, `docs/data-provenance.md`, `docs/data-index.md` and `docs/faucet-map.md`.
+It was deleted rather than regenerated because the catalogue's 12 columns carry no Depth verdict and
+no test list, so a generator would have had to invent the two fields it was most read for.
+
+One claim in the entry above did **not** survive re-measurement: "its Museum count says 32 where the
+data says 31" — MEASURED 2026-09-15, `lib/museum-data.json` holds **32** records and
+`scripts/import-museum.py:25` asserts `len(records)==32`, so the snapshot's 32 was right. (`BUG-09`
+still records the count as settled at 31; that row, and `lib/museum*`, are another slice's to
+reconcile.) The other two examples were re-measured and do hold — see the retired file itself.
 
 ## Resolved
 

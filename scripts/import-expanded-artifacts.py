@@ -1,6 +1,7 @@
 import json,pathlib,re,html,hashlib
-ROOT=pathlib.Path(__file__).resolve().parents[1];AUDIT=ROOT.parent.parent/'outputs/online-audit';SOURCE=AUDIT/'public-reference/wiki'
-items={x['id']:x['en'] for x in json.loads((ROOT.parent.parent/'outputs/component-research/datasets/Item.json').read_text())}
+from _workspace import WORKSPACE
+ROOT=pathlib.Path(__file__).resolve().parents[1];AUDIT=WORKSPACE/'outputs/online-audit';SOURCE=AUDIT/'public-reference/wiki'
+items={x['id']:x['en'] for x in json.loads((WORKSPACE/'outputs/component-research/datasets/Item.json').read_text())}
 s=(ROOT/'lib/original-content.mjs').read_text();old=json.loads(s[s.index('{'):s.rindex('}')+1])['gear'];oldids={g['id'] for g in old}
 manifest=json.loads((SOURCE/'wiki_manifest.json').read_text());rules={};added=[];excluded=[]
 for e in manifest['entries']:

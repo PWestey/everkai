@@ -2,8 +2,9 @@
 """Import pinned community normal appraisal pools; reject incomplete or ambiguous joins."""
 import re,json,hashlib,html
 from pathlib import Path
+from _workspace import WORKSPACE
 app=Path(__file__).resolve().parents[1]
-src=app.parents[1]/'outputs/online-audit/public-reference/wiki/treasure-hunt/index.html'
+src=WORKSPACE/'outputs/online-audit/public-reference/wiki/treasure-hunt/index.html'
 raw=src.read_bytes(); text=raw.decode()
 def clean(x):return html.unescape(re.sub('<[^>]+>','',x)).strip()
 relics=[]
@@ -22,7 +23,7 @@ for i,(id,name) in enumerate([('Relic001','Original Ruins'),('Relic002','Memory 
 data={'provenance':{'url':'https://github.com/Zik-Ascend/isl-tools/blob/b49c78d0c06d535f6e1c62bdc9d5d666cd96e954/wiki/treasure-hunt/index.html','sha256':hashlib.sha256(raw).hexdigest(),'kind':'community snapshot; not version matched','policy':'normal pools only; rounding normalized'},'areas':areas,'relics':relics}
 (app/'lib/treasure-data.json').write_text(json.dumps(data,indent=2)+'\n');print(len(areas),'areas',len(relics),'relics')
 
-rule=app.parents[1]/'outputs/component-research/datasets/Rule.json'
+rule=WORKSPACE/'outputs/component-research/datasets/Rule.json'
 rules=[r for r in json.loads(rule.read_text()) if re.fullmatch(r'Rule:text:SimGame5_\d+',r['id'])]
 assert len(rules)==14
 (app/'lib/treasure-rule-evidence.json').write_text(json.dumps({'source':'local readable Rule.json','sha256':hashlib.sha256(rule.read_bytes()).hexdigest(),'records':rules},indent=2)+'\n')

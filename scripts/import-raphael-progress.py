@@ -1,6 +1,7 @@
 from pathlib import Path
 import re,html,json,hashlib
-app=Path(__file__).resolve().parents[1];w=app.parents[1];p=w/'outputs/online-audit/public-reference/wiki/events/raphael-stage/index.html';s=p.read_text();s=s[s.index('RaphaelStage_01_Task'):];tables=re.findall(r'<table[^>]*>(.*?)</table>',s,re.S)[:8];items={r['id']:r['en'] for r in json.loads((w/'outputs/component-research/datasets/Item.json').read_text())};rows=[]
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];w=WORKSPACE;p=w/'outputs/online-audit/public-reference/wiki/events/raphael-stage/index.html';s=p.read_text();s=s[s.index('RaphaelStage_01_Task'):];tables=re.findall(r'<table[^>]*>(.*?)</table>',s,re.S)[:8];items={r['id']:r['en'] for r in json.loads((w/'outputs/component-research/datasets/Item.json').read_text())};rows=[]
 for table in tables:
  for row in re.findall(r'<tr>(.*?)</tr>',table,re.S):
   cells=re.findall(r'<td>(.*?)</td>',row,re.S)

@@ -1,5 +1,6 @@
 import pathlib,re,html,json,hashlib
-ROOT=pathlib.Path(__file__).resolve().parents[1];source=ROOT.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+ROOT=pathlib.Path(__file__).resolve().parents[1];source=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 manifest=json.loads((source/'wiki_manifest.json').read_text());out={}
 for e in manifest['entries']:
  if e['category']!='family':continue

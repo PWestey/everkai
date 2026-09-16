@@ -1,6 +1,7 @@
 from pathlib import Path
 import re,html,json,hashlib
-root=Path(__file__).resolve().parents[1];workspace=root.parent.parent;p=workspace/'outputs/online-audit/public-reference/wiki/magic-farm/index.html';raw=p.read_bytes();s=raw.decode();plants=[]
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];workspace=WORKSPACE;p=workspace/'outputs/online-audit/public-reference/wiki/magic-farm/index.html';raw=p.read_bytes();s=raw.decode();plants=[]
 for m in re.finditer(r'<li[^>]+id="magic-farm-plant-(plant\d+)"(.*?)</article>',s,re.S|re.I):
  id,body=m.groups();name=html.unescape(re.search(r'<strong class="fish-antique-tooltip-title">(.*?)</strong>',body,re.S)[1]);level=re.search(r'<strong>Lv\. 1</strong>(.*?)(?:<strong>Lv\. 2</strong>|$)',body,re.S)[1];text=re.sub('<[^>]+>',' ',html.unescape(level));duration=re.search(r'Growth Time:\s*([\dhms ]+)',text);amount=re.search(r'Harvest Amount:\s*([\d,]+)',text)
  if not duration or not amount:continue

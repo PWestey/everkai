@@ -1,7 +1,8 @@
 """Import complete normal Power/Aptitude combinations from pinned local hub."""
 from pathlib import Path
 import re,html,json,hashlib
-root=Path(__file__).resolve().parents[1];p=root.parent.parent/'outputs/online-audit/public-reference/wiki/fishing/index.html';s=p.read_text();records=[]
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];p=WORKSPACE/'outputs/online-audit/public-reference/wiki/fishing/index.html';s=p.read_text();records=[]
 for b in re.findall(r'<article class="fish-combination-node".*?</article>',s,re.S):
  name=html.unescape(re.search(r'<h3>(.*?)</h3>',b)[1]);members=sorted(set(re.findall(r'/fishing/(F\d+)/thumb',b)));assert len(members)>=2
  effects={k:html.unescape(v) for k,v in re.findall(r'<strong>(Normal Skill|Crown Skill)</strong>\s*<span>(.*?)</span>',b,re.S)}

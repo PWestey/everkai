@@ -1,6 +1,7 @@
 """Read public familiar numeric metadata; never execute page scripts."""
 import concurrent.futures,hashlib,html,json,pathlib,re,urllib.request
-ROOT=pathlib.Path(__file__).resolve().parents[1];SOURCE=ROOT.parent.parent/'outputs/online-audit/public-reference/wiki'
+from _workspace import WORKSPACE
+ROOT=pathlib.Path(__file__).resolve().parents[1];SOURCE=WORKSPACE/'outputs/online-audit/public-reference/wiki'
 SHA='b49c78d0c06d535f6e1c62bdc9d5d666cd96e954';BASE=f'https://raw.githubusercontent.com/Zik-Ascend/isl-tools/{SHA}/wiki/'
 entries=[e for e in json.loads((SOURCE/'wiki_manifest.json').read_text())['entries'] if e['category']=='familiars']
 def extract(e):

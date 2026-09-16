@@ -1,7 +1,8 @@
 """Extract pinned Inn identity and unlock facts; no external scripts executed."""
 from pathlib import Path
 import re,html,json,hashlib
-root=Path(__file__).resolve().parents[1];workspace=root.parent.parent
+from _workspace import WORKSPACE
+root=Path(__file__).resolve().parents[1];workspace=WORKSPACE
 p=workspace/'outputs/online-audit/public-reference/wiki/inn/index.html';raw=p.read_bytes();s=raw.decode();stations=[];dishes=[]
 for category,out in [('stations',stations),('dishes',dishes)]:
  for match in re.finditer(r'<li id="inn-'+category+r'-(\d+)"(.*?)</li>',s,re.S):

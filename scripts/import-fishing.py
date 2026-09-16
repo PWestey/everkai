@@ -1,6 +1,7 @@
 """Import pinned fish effect evidence; no unverified descriptions become gameplay."""
 import pathlib,json,re,html,hashlib,urllib.request,concurrent.futures
-root=pathlib.Path(__file__).resolve().parents[1];base=root.parent.parent/'outputs/online-audit/public-reference/wiki';sha='b49c78d0c06d535f6e1c62bdc9d5d666cd96e954'
+from _workspace import WORKSPACE
+root=pathlib.Path(__file__).resolve().parents[1];base=WORKSPACE/'outputs/online-audit/public-reference/wiki';sha='b49c78d0c06d535f6e1c62bdc9d5d666cd96e954'
 es=[x for x in json.loads((base/'wiki_manifest.json').read_text())['entries'] if x['category']=='fishing']
 def read(e):
  p=base/e['url']/'index.html';url=f'https://raw.githubusercontent.com/Zik-Ascend/isl-tools/{sha}/wiki/{e["url"]}index.html'

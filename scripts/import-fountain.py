@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,re,hashlib
-app=Path(__file__).resolve().parents[1];ds=app.parents[1]/'outputs/component-research/datasets';rp=ds/'Rule.json';ip=ds/'Item.json';rules={r['id']:r['en'] for r in json.loads(rp.read_text())};items=json.loads(ip.read_text());out=[]
+from _workspace import WORKSPACE
+app=Path(__file__).resolve().parents[1];ds=WORKSPACE/'outputs/component-research/datasets';rp=ds/'Rule.json';ip=ds/'Item.json';rules={r['id']:r['en'] for r in json.loads(rp.read_text())};items=json.loads(ip.read_text());out=[]
 for n in range(4,16):
  key=f'Rule:text:Lottery_{n}';name,qty,pct=re.fullmatch(r'\s*(.+) x(\d+) ([\d.]+)%',rules[key]).groups();joins=[r['id'].removeprefix('Item:name:') for r in items if r['id'].startswith('Item:name:') and r['en']==name];joins=[j for j in joins if not j.endswith('_Show')];assert len(joins)<=1
  out.append(dict(id=f'Lottery_{n}',name=name,quantity=int(qty),weight=round(float(pct)*10),itemId=joins[0] if joins else None,sourceKey=key))
