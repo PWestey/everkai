@@ -53,8 +53,16 @@ import {ARTIFACT_CAP} from '../lib/artifacts.mjs';
 // records because those are the highest values valid() accepts. The previous figures -- 138,699
 // fixture, 827,408 ceiling, 4.23x shortfall -- were all measured against a level-60 ceiling and are
 // dead. Numbers here are pinned because they must not drift, but read them as this fixture's reach,
-// not as what the game can reach. Whether 1.99x is where default mode SHOULD land is a balance
-// question tied to the faucet work, not something this characterisation test decides.
+// not as what the game can reach.
+//
+// *** SETTLED 2026-09-16: THE OWNER ACCEPTED ~2x AS THE TARGET. ***
+// This was put to them with the measurement and three options (trim to ~1.0x, accept ~2x, or stop
+// treating the ceiling as a constraint) and they chose to accept it. The reasoning that makes it
+// defensible, recorded so it is not re-argued: 3,497,276 is what ONE REAL SAVE had reached, not the
+// original's own maximum, so a fully-maxed Everkai landing at 2x a non-maxed original save is
+// plausibly near true parity rather than over it.
+// CONSEQUENCE FOR FUTURE WORK: a change that moves this ceiling is no longer a defect by itself.
+// It is still worth REPORTING with before/after numbers, but it does not block a slice.
 
 const NOW=1767225600000;                 // fixed day, so habit-derived state is stable across runs
 const ID='hero_1';                       // the starting Fellow (Fifi), present on every new village
