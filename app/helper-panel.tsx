@@ -1,0 +1,27 @@
+import {Button} from '@/components/ui/button';
+import {Switch} from '@/components/ui/switch';
+import {HELPER_TASKS,helperState,helperBlocked} from '@/lib/helper.mjs';
+// The Little Helper (QOL-01). The original shows a menu of individually switchable chores; this is
+// the same shape, minus the purchase screen -- a finished daily habit is what sends the helper out.
+export default function HelperPanel({game,action,locked}:any){
+ const state=helperState(game),blocked=helperBlocked(game),on=HELPER_TASKS.filter(t=>state.tasks?.[t.id]===1).length;
+ const ran=state.ranAt?new Date(state.ranAt).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):null;
+ return <section>
+  <p>{on} of {HELPER_TASKS.length} chores switched on{ran?` · last sent out at ${ran}`:''}</p>
+  <div className="business-actions">
+   <Button disabled={locked||!!blocked||!on} onClick={()=>action('helperRun')}>Send the helper out</Button>
+   <Button variant="outline" disabled={locked} onClick={()=>HELPER_TASKS.forEach(t=>action('helperToggle',t.id,true))}>Switch all on</Button>
+  </div>
+  {blocked&&<p role="status">{blocked}</p>}
+  <ul className="helper-tasks">
+   {HELPER_TASKS.map(t=>{const enabled=state.tasks?.[t.id]===1;return <li key={t.id}>
+    <span>{t.label}</span>
+    <Switch checked={enabled} disabled={locked} aria-label={t.label} onCheckedChange={(v:boolean)=>action('helperToggle',t.id,v)}/>
+   </li>})}
+  </ul>
+  <details className="rules-note"><summary>What the helper will and will not do</summary>
+   <p>The helper only collects. It never spends your gold, trains anyone, or chooses an upgrade — those are yours. It taps the same buttons you would, in the same order, so it can never collect anything twice or hand you more than a day allows.</p>
+   <p>In the original this feature is sold. Here it is earned: finish one daily habit and the helper runs for the rest of the day.</p>
+  </details>
+ </section>;
+}

@@ -1074,3 +1074,15 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .fathom-panel .fathom-detail{position:static}
 .fathom-panel .fathom-detail small,.fathom-panel .fathom-detail strong,.fathom-panel .fathom-practice{letter-spacing:normal;text-transform:none}
 .fathom-panel .fathom-detail button{border-radius:8px!important;padding:6px 14px!important}
+
+/* Little Helper (QOL-01): one row per chore, switch on the right, thumb-reachable at phone width. */
+.helper-tasks{list-style:none;margin:12px 0;padding:0;display:grid;gap:2px}
+.helper-tasks li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 12px;border-radius:10px;background:rgba(255,255,255,.55)}
+.helper-tasks li:nth-child(odd){background:rgba(255,255,255,.8)}
+.helper-tasks span{font-size:15px;min-width:0}
+
+/* Little Helper entry point on Home, where the original puts it: above the objective banner, clear
+   of the bottom dock and of the right-hand scroll edge at phone width. */
+.village-helper{position:absolute;right:10px;bottom:196px;z-index:4;display:flex;align-items:center;gap:6px;padding:6px 12px;min-height:44px;border-radius:999px;background:rgba(255,252,244,.92);box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.village-helper img{width:22px;height:22px}
+.village-helper span{font-size:14px;font-weight:600;white-space:nowrap}
