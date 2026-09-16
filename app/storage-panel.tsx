@@ -9,30 +9,36 @@ import {FAMILY,GIFTS} from '@/lib/catalog.mjs';
 import {artifactRule} from '@/lib/artifacts.mjs';
 import {usableCount,consumableAmount,consumableLabel} from '@/lib/consumables.mjs';
 import {totalRate} from '@/lib/game.mjs';
+import {openingItemName} from '@/lib/opening.mjs';
 import itemArt from '@/lib/item-art.mjs';
 import display from '@/lib/inventory-display-data.json';
 import SuppliesPanel from './supplies-panel';
 import {SystemMenus} from './panel-pages';
 const inventoryIcon=(id:string)=>(inventoryIcons as Record<string,any>)[id]?.src?'./assets/'+(inventoryIcons as Record<string,any>)[id].src:giftIcon(id)||itemArt[id as keyof typeof itemArt];
-const categories=['Item','Events','Fragment','Combine'];
+const categories=['Item','Journey','Events','Fragment','Combine'];
 const registry:Record<string,any>=Object.fromEntries([...MATERIALS,...GEAR,...CONSUMABLES,...GIFTS].map(item=>[item.id,item]));
 const short=(name:string)=>name.split(/\s+/).slice(0,2).map(w=>w[0]).join('');
 export default function StoragePanel({game,action,locked,onNavigate}:any){
  const [category,setCategory]=useState('Item'),[selected,setSelected]=useState<string|null>(null),[shop,setShop]=useState(false),[shopPage,setShopPage]=useState(0),[recipient,setRecipient]=useState('');
  const source=display as Record<string,any>,family=FAMILY.filter(p=>game.family[p.id]),owner=family.some(p=>p.id===recipient)?recipient:family[0]?.id||'';
  const entries=Object.entries(game.inventory).filter(([,count])=>typeof count==='number'&&count>0).map(([id,count])=>({id,count:count as number,name:registry[id]?.name||source[id]?.name||id,rarity:artifactRule(id)?.rarity||source[id]?.rarity,activity:source[id]?.isActivity===true}));
- const visible=entries.filter(item=>category==='Item'?!item.activity:category==='Events'?item.activity:false);
+ // Chapter bosses pay into the journey's own reward locker, not the bag: after 1,917 stages a measured save
+ // held 91 recruitment tokens there while Storage showed two items. They are listed here too, and tapping one
+ // opens the Journey page where they are spent.
+ const locker=Object.entries(game.opening?.locker||{}).filter(([,n])=>typeof n==='number'&&n>0).map(([id,n])=>({id,count:n as number,name:openingItemName(id),rarity:undefined,activity:false,journey:true}));
+ const visible=(category==='Journey'?locker:entries.filter(item=>category==='Item'?!item.activity:category==='Events'?item.activity:false));
  const item=selected?registry[selected]:null,consumable=CONSUMABLES.find(x=>x.id===selected),gift=GIFTS.find(x=>x.id===selected),gear=GEAR.find(x=>x.id===selected),count=selected?game.inventory[selected]||0:0;
  const available=consumable?usableCount(game,consumable,owner,totalRate(game)):0;
  const openShop=(page=0)=>{setShopPage(page);setShop(true)};
  return <section className="storage-screen" aria-label="Storage inventory">
-  <div className="storage-summary"><span>{entries.length} kinds in your bag</span><Button variant="outline" onClick={()=>openShop()}>Supply shop</Button></div>
+  <div className="storage-summary"><span>{entries.length} kinds in your bag{locker.length?` · ${locker.length} journey rewards`:''}</span><Button variant="outline" onClick={()=>openShop()}>Supply shop</Button></div>
   <nav className="storage-tabs" aria-label="Inventory categories">{categories.map(name=><Button key={name} variant="ghost" aria-pressed={category===name} onClick={()=>setCategory(name)}>{name}</Button>)}</nav>
-  <div className="storage-grid" aria-label={category+' inventory'}>{visible.map(entry=><button key={entry.id} className={'storage-item rarity-'+String(entry.rarity||'plain').toLowerCase()} aria-label={entry.name+', '+entry.count.toLocaleString()+' owned'} onClick={()=>setSelected(entry.id)}>
+  <div className="storage-grid" aria-label={category+' inventory'}>{visible.map(entry=><button key={entry.id} className={'storage-item rarity-'+String(entry.rarity||'plain').toLowerCase()} aria-label={entry.name+', '+entry.count.toLocaleString()+' owned'} onClick={()=>(entry as any).journey?onNavigate?.('journey'):setSelected(entry.id)}>
    {inventoryIcon(entry.id)?<img src={inventoryIcon(entry.id)} alt=""/>:<span className="item-monogram" aria-hidden="true">{short(entry.name)}</span>}
    <span className="storage-item-name">{entry.name}</span><strong className="storage-count">{entry.count.toLocaleString()}</strong>
   </button>)}</div>
-  {!visible.length&&<p className="storage-empty">{category==='Combine'?'No combination recipes yet.':category==='Fragment'?'No supported fragments in your bag.':'Your '+(category==='Events'?'event ':'')+'bag is empty.'}</p>}
+  {category==='Journey'&&!!visible.length&&<p className="item-status">Journey rewards · tap one to open the Journey page, where they are used.</p>}
+  {!visible.length&&<p className="storage-empty">{category==='Journey'?'No journey rewards waiting.':category==='Combine'?'No combination recipes yet.':category==='Fragment'?'No supported fragments in your bag.':'Your '+(category==='Events'?'event ':'')+'bag is empty.'}</p>}
   <Dialog open={selected!==null} onOpenChange={open=>{if(!open)setSelected(null)}}><DialogContent className="item-detail-sheet"><DialogTitle>{item?.name||source[selected||'']?.name||selected}</DialogTitle><DialogDescription>{count.toLocaleString()} owned{(gear||source[selected||'']?.rarity)?' · Rarity '+(artifactRule(selected)?.rarity||source[selected||'']?.rarity):''}</DialogDescription>
    {selected&&inventoryIcon(selected)&&<img className="item-detail-art" src={inventoryIcon(selected)} alt=""/>}
    <p>{item?.description||item?.detail||(gift?`Adds ${gift.amount} ${gift.stat==='intimacy'?'Intimacy':'Blessing Power'}.`:'This item is kept in your bag.')}</p>
