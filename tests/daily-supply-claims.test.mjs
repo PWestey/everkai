@@ -40,6 +40,23 @@ test('a keepsake is a daily habit reward, not the whole museum at once',()=>{
  assert.deepEqual(Object.keys(pick.museum),[KEEPSAKES[3].id]);
  assert.match(act(pick,'claimKeepsake',T+H,KEEPSAKES[4].id).error,/already collected/);});
 
+test('event Stamina is a daily habit claim, not an unlimited free grant (ECON-08)',()=>{
+ let s=journal();
+ const ungated=act(s,'stageSupply',T,null,{seq:0});
+ assert.ok(ungated.error,'event Stamina must be refused before a daily habit is finished');
+ assert.match(ungated.error,/Complete a daily habit/);
+ s=daily(s);
+ const got=at(s,'stageSupply',T,null,{seq:0});
+ assert.equal(got.raphaelEvent.stamina,100,'one claim is 100 event Stamina');
+ const twice=act(got,'stageSupply',T+H,null,{seq:got.raphaelEvent.seq});
+ assert.ok(twice.error,'a second claim on the same day must be refused');
+ assert.match(twice.error,/already prepared/,'one claim a day');
+ assert.deepEqual(decode(JSON.stringify(got)),got);
+ // Negative control: tomorrow's habit opens it again, and nothing else does.
+ const next=T+24*H;const two=at(daily(got,next),'stageSupply',next,null,{seq:got.raphaelEvent.seq});
+ assert.equal(two.raphaelEvent.stamina,200);
+ assert.equal(valid({...got,raphaelEvent:{...got.raphaelEvent,supplyDay:7}}),false,'a malformed claim day is not a save');});
+
 test('the Workshop supply delivery is daily (ECON-10)',()=>{
  let s=funded(journal());s=at(s,'openEnterprise',T,'Building_301');s=at(s,'openWorkshop',T);
  assert.match(act(s,'restockWorkshop',T).error,/Complete a daily habit/);
