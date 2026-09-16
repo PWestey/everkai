@@ -40,7 +40,7 @@ export default function OpeningPanel({game:g,action,locked,onNavigate,initialPag
   // Reward bag as item tiles, 8 a page, each with its one action; only the pickers the visible items need.
   const WORKSHOP=['Item_HeroManagerment_Building','Item_StarUp_Building_1_1','Item_Strengthen_Equipment_1','Item_Quenching_Equipment_1','Item_Weapon_Equipment_1_1'];
   const LATER=(id:string)=>['Item_Battle_Inspire','Item_GetCE_10','Item_Appearance_Avatar_1'].includes(id)||id.startsWith('Item_Owner_');
-  const target=(id:string)=>id==='Item_GetDE_10'?'family':id==='Item_Building_Recruit_Increase_1'?'business':WORKSHOP.includes(id)||id==='gift1'||LATER(id)?null:'fellow';
+  const target=(id:string)=>id==='Item_GetDE_10'?'family':id==='Item_Building_Recruit_Increase_1'?'business':WORKSHOP.includes(id)||id==='gift1'||id==='Item_Token_Gacha_Universal'||LATER(id)?null:'fellow';
   const shown=bag.slice(bp*8,bp*8+8),needs=new Set(shown.map((x:any)=>target(x._id)));
   return <article className="school-card reward-bag"><h2>Opening rewards</h2>
   {needs.has('fellow')&&<><h4 className="pick-heading">Use on Fellow</h4>{heroSelect}</>}{needs.has('family')&&<><h4 className="pick-heading">Use on Family</h4>{familySelect}</>}{needs.has('business')&&<><h4 className="pick-heading">Use on business</h4>{businessSelect}</>}
@@ -49,10 +49,10 @@ export default function OpeningPanel({game:g,action,locked,onNavigate,initialPag
    <span className="reward-name">{openingItemName(x._id)}</span>
    {WORKSHOP.includes(x._id)?<Button variant="outline" onClick={()=>{setWorkPage(x._id==='Item_HeroManagerment_Building'?1:x._id==='Item_StarUp_Building_1_1'?0:4);setPage('Workshop')}}>Workshop</Button>
    :x._id==='gift1'?<Button variant="outline" onClick={()=>onNavigate?.('family')}>Give</Button>
-   :LATER(x._id)?<small>Coming later</small>
+   :x._id==='Item_Token_Gacha_Universal'?<>{btn('Pour into Fountain','openingUse',x._id,null)}<Button variant="outline" onClick={()=>onNavigate?.('fountain')}>Fountain</Button></>:LATER(x._id)?<small>Coming later</small>
    :btn('Use','openingUse',x._id,x._id==='Item_GetDE_10'?f:x._id==='Item_Building_Recruit_Increase_1'?business:h)}
   </div>})}</div>{!bag.length&&<p>No item rewards yet.</p>}
   {bag.length>8&&<div className="habit-pager"><Button variant="outline" disabled={!bp} onClick={()=>setBagPage(bp-1)}>Previous</Button><span>{bp+1}/{Math.ceil(bag.length/8)}</span><Button variant="outline" disabled={(bp+1)*8>=bag.length} onClick={()=>setBagPage(bp+1)}>Next</Button></div>}
-  <details className="rules-note"><summary>About these rules</summary><p>Gold, EXP and gifts enter their existing wallets. Manuals, star materials and artifact materials are spent in Workshop. Other items keep their original identity here. Local uses: EXP pack1000EXP; date pack100 Blessing Points; Talent pack/card+1 Aptitude; Power cards convert100 listed Power to1 Aptitude on your chosen Fellow; recruitment token chooses the first unowned catalog Fellow. Unimplemented items remain reserved.</p></details><Button onClick={()=>setPage('Workshop')}>Spend workshop materials</Button><Button onClick={()=>onNavigate?.('supplies')}>Open village bag</Button></article>})()}
+  <details className="rules-note"><summary>About these rules</summary><p>Gold, EXP and gifts enter their existing wallets. Manuals, star materials and artifact materials are spent in Workshop. Other items keep their original identity here. Local uses: EXP pack1000EXP; date pack100 Blessing Points; Talent pack/card+1 Aptitude; Power cards convert100 listed Power to1 Aptitude on your chosen Fellow; Fairy Bottles are poured into the Fountain of Wishes. Unimplemented items remain reserved.</p></details><Button onClick={()=>setPage('Workshop')}>Spend workshop materials</Button><Button onClick={()=>onNavigate?.('supplies')}>Open village bag</Button></article>})()}
  </section>;
 }
