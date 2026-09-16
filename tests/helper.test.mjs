@@ -11,6 +11,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
 import {INN_GUESTS} from '../lib/inn-guests.mjs';
+import {BAIT_STORAGE,fishingState} from '../lib/fishing.mjs';
 import {expoStepKey} from '../lib/expo.mjs';
 import {TREASURE_AREAS,TREASURE_RELICS,tileGem} from '../lib/treasure.mjs';
 import {FISH,FISHING_GROUNDS,groundLevel,fishingIndex,fishingLevel} from '../lib/fishing.mjs';
@@ -229,10 +230,19 @@ test('each chore dispatches the target its action actually expects',()=>{
  // would start-and-return in a loop and report 50 chores done for nothing.
  assert.equal(chore('treasure')(camp({stamina:0}),()=>{throw Error('must not dispatch with no stamina')},T).steps,0);
 
- // Positive control: with the system absent, each chore correctly does nothing rather than throwing.
- for(const id of ['expo','innGuests','farm','fishing','treasure','duplicates']){
+ // Positive control: with the system absent, these chores do nothing rather than throwing.
+ for(const id of ['expo','innGuests','farm','treasure','duplicates']){
   const out=chore(id)({},(()=>{throw Error('must not dispatch on an absent system')}),T);
   assert.equal(out.steps,0,`${id} dispatched on an empty save`);
+ }
+ // FISHING IS THE DELIBERATE EXCEPTION. A village that has never fished has no fishing subtree at all,
+ // and baitRefill is what creates it -- so this chore MUST reach for the refill on an empty save. It
+ // bailed early for a while after the refill moved behind it, which left a first-time player's fishing
+ // chore idle forever. Assert the exception rather than quietly dropping fishing from the loop.
+ {
+  const seen=[];
+  chore('fishing')({},(s,action)=>{seen.push(action);return {error:'stub'}},T);
+  assert.deepEqual(seen,['baitRefill'],'fishing opens the system with a refill and asks for nothing else');
  }});
 
 test('a save written before a chore existed gets it switched ON, not off',()=>{
@@ -249,7 +259,7 @@ test('a save written before a chore existed gets it switched ON, not off',()=>{
  assert.equal(helperEnabled(off,'fishing'),true);
  // And a run on the older save really does reach a chore it had no key for.
  const {seen}=spyRun(older);
- assert.ok(seen.includes('sowFarm')||seen.includes('harvestFarm')||seen.includes('castFish'),
+ assert.ok(seen.some(a=>['sowFarm','harvestFarm','castFish','roamQuick','treasureStart','banquetPrepare','northStart'].includes(a)),
   `a chore ran on the older save: ${[...new Set(seen)].join(', ')}`);});
 
 test('an old save without a helper record loads, and gains one only when used',()=>{
@@ -440,7 +450,7 @@ test('the two new chores never spend gold or crystals',()=>{
 test('every chore has its dispatch contract checked, not just the ones that broke',()=>{
  const primed={
   farm:{state:{farm:{plots:[null],knowledge:0,harvests:{}}},allow:['harvestFarm','waterFarm','sowFarm']},
-  fishing:{state:{fishing:{bait:5,catches:[],researched:[],displayed:[],skills:{},points:0}},allow:['castFish']},
+  fishing:{state:{fishing:{bait:5,catches:[],researched:[],displayed:[],skills:{},points:0}},allow:['castFish','baitRefill']},
   innGuests:{state:{inn:{menu:[INN_GUESTS[0].dish],served:9999,stations:{},popularity:1e12},fellows:{[INN_GUESTS[0].fellow]:{}}},allow:['serveInnSpecial']},
   expo:{state:{expo:{stalls:{},assigned:{},sequence:1,active:{sequence:1,step:0,slots:[],customers:[],rewards:[]},last:null,clears:[],spentCoins:0,transferredPearls:0}},allow:['serveExpo']},
   roaming:{state:{family:{},inventory:{},roaming:{policyVersion:1,seq:0,stamina:5,recoverAt:null,fame:0,travels:0,bonds:{},refillDay:null,history:[]}},allow:['roamGo','roamQuick','roamRefill']},
@@ -605,3 +615,31 @@ test('neither new chore can spend gold or crystals, and northTrain is never disp
  assert.ok(!seen.has('banquetBuy'),'the helper shopped');
  assert.ok(valid(out.state));
  for(const a of seen)assert.match(a,/^(banquet|north)/,`${a} is not one of these two systems`);});
+
+// A HABIT REFILL IS THE SCARCEST THING THE HELPER TOUCHES -- one a day, and clamped to what will fit.
+// baitRefill hands over min(12, storage - bait) and stamps refillDay EITHER WAY, so taking it on a
+// nearly-full stock throws most of it away. The helper used to do exactly that: the bait task sat at
+// position 7 and the fishing chore at 10, so it refilled before it fished.
+test('the helper never spends a habit refill into a nearly-full stock',()=>{
+ const busy=()=>{let s={...fresh(T),habits:starterHabits(T)};
+  for(const h of s.habits.items.filter(x=>x.freq==='daily').slice(0,20)){const r=act(s,'habitComplete',s.lastAt,h.id);if(!r.error)s=r.state}
+  return s};
+ const at=b=>{const s=busy();return {...s,fishing:{...fishingState(s),bait:b,refillDay:null}}};
+
+ // A nearly-full stock: the refill alone would hand over 5 of 12 and burn the day.
+ const full=at(BAIT_STORAGE-5);
+ const wasted=act(full,'baitRefill',full.lastAt);
+ assert.equal(fishingState(wasted.state).bait-(BAIT_STORAGE-5),5,'the naive order really does waste 7');
+
+ // Through the helper, the stock is fished down first, so the refill is not thrown away.
+ const run=act(full,'helperRun',full.lastAt);
+ assert.equal(run.error,undefined,run.error);
+ const f=fishingState(run.state);
+ const netIn=f.catches.length+f.bait-(BAIT_STORAGE-5);
+ assert.ok(netIn>5,`the helper brought in ${netIn} bait, more than the 5 a naive refill would have`);
+ assert.ok(f.catches.length>0,'and it actually fished');
+
+ // ORDER IS THE MECHANISM, so pin it: the fishing chore must come before the standalone bait task.
+ const ids=HELPER_TASKS.map(t=>t.id);
+ assert.ok(ids.indexOf('fishing')<ids.indexOf('bait'),
+  'the bait refill must run AFTER the fishing chore, or it refills into a full stock');});
