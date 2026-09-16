@@ -1,6 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
+import {INN_GUESTS} from '../lib/inn-guests.mjs';
+import {expoStepKey} from '../lib/expo.mjs';
 import {HELPER_TASKS,HELPER_RUN_CAP,CHORE_STEP_CAP,helperState,validHelper,helperAction,helperEnabled,bestPlant,bestGround} from '../lib/helper.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime();
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),a);return r.state};
@@ -117,6 +119,41 @@ test('validHelper refuses a tampered helper record',()=>{
  // Positive control: the shape this guard is meant to ACCEPT still passes, so it is not refusing all.
  assert.equal(validHelper({helper:{tasks:{museum:1,bait:0},ranAt:0}}),true);
  assert.equal(valid({...s,helper:{tasks:{museum:2},ranAt:0}}),false,'and valid() composes it');});
+
+// A chore that dispatches the WRONG TARGET is invisible to every test above: it simply never succeeds,
+// reports "nothing waiting", and looks like an idle system. Two shipped that way -- the Expo chore passed
+// stall ids to serveExpo, which compares against expoStepKey ("expo:1:step:0"), and the Inn chore read
+// s.inn.guests, which does not exist. So each chore's dispatch CONTRACT is pinned here directly: the
+// runners are reachable through HELPER_TASKS, and a stub act records what they ask for without needing a
+// save the validator would accept.
+test('each chore dispatches the target its action actually expects',()=>{
+ const chore=id=>HELPER_TASKS.find(t=>t.id===id).run;
+ const spyStub=()=>{const seen=[];return [seen,(state,action,now,target)=>{seen.push({action,target});return {error:'stub'}}]};
+
+ // Expo: the key is the CURRENT STEP of the active day, and is re-read each step.
+ const active={sequence:1,step:0,slots:[],customers:[],rewards:[]};
+ const expoSave={expo:{stalls:{},assigned:{},sequence:1,active,last:null,clears:[],spentCoins:0,transferredPearls:0}};
+ let [seen,stub]=spyStub();
+ chore('expo')(expoSave,stub,T);
+ assert.equal(seen.length,1,'the Expo chore dispatched');
+ assert.equal(seen[0].action,'serveExpo');
+ assert.equal(seen[0].target,expoStepKey(expoSave),`expected ${expoStepKey(expoSave)}, got ${seen[0].target}`);
+ assert.match(seen[0].target,/^expo:\d+:step:\d+$/,'a stall id would never match');
+
+ // Inn: the guest list is the shipped rule set, and the target must be one of its ids.
+ const guest=INN_GUESTS[0];
+ const innSave={inn:{menu:[guest.dish],served:9999,stations:{},popularity:1e12},fellows:{[guest.fellow]:{}}};
+ [seen,stub]=spyStub();
+ chore('innGuests')(innSave,stub,T);
+ assert.ok(seen.length>=1,'the Inn chore dispatched');
+ assert.equal(seen[0].action,'serveInnSpecial');
+ assert.ok(INN_GUESTS.some(r=>r.id===seen[0].target),`${seen[0].target} is not a guest id`);
+
+ // Positive control: with the system absent, each chore correctly does nothing rather than throwing.
+ for(const id of ['expo','innGuests','farm','fishing']){
+  const out=chore(id)({},(()=>{throw Error('must not dispatch on an absent system')}),T);
+  assert.equal(out.steps,0,`${id} dispatched on an empty save`);
+ }});
 
 test('a save written before a chore existed gets it switched ON, not off',()=>{
  // The bug this pins was found by looking at the panel, not by a test: a save that had used the helper
