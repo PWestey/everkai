@@ -1,4 +1,15 @@
 @import 'tailwindcss';
+/* Tailwind v4 scans the whole project for class names, and worktree-isolated agents check this repo
+   out again under .claude/worktrees/ -- so the scan was pulling class names out of OTHER checkouts and
+   a local build silently stopped matching CI. That breaks the project's own commit rule, which says to
+   rebuild locally and compare the bundle hash against the live site.
+   MEASURED 2026-09-15, same commit, tracked files verified identical, node_modules shared:
+     main tree, 6 worktrees present  -> assets/index-Dbbrz-oL.js   (twice, so it is deterministic)
+     clean worktree                  -> assets/index-BgRod1Ft.js   == the hash the live site serves
+   With these two lines, both trees build assets/index-LjYrHleM.js / offline ff40969fc2a46ad9 -- the
+   same bytes. dist/ is excluded for the same reason: a previous build's output must not feed the next. */
+@source not '../.claude';
+@source not '../dist';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 @theme inline {--color-background:var(--background);--color-foreground:var(--foreground);--color-popover:var(--popover);--color-popover-foreground:var(--foreground);--color-primary:var(--primary);--color-primary-foreground:#fff;--color-muted:#e1e5dc;--color-muted-foreground:#526252;--color-border:#c6cab7;--color-ring:#b18236;--radius-md:12px;--radius-lg:18px;--radius-xl:24px;}
