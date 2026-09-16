@@ -64,17 +64,6 @@ test('earned route: a five-familiar team clears all twelve floors on tower incom
  assert.ok(hours<24*120);
  console.log(`# earned tower: floor 12 after ${(hours/24).toFixed(1)} days; levels ${FAMILIARS.slice(0,5).map(p=>s.familiars[p.id].level).join('/')}`);});
 
-test('Stella fragments land once a day, only after a finished daily habit',()=>{
- let s={...fresh(T),habits:starterHabits(T)};s.fellows.hero_54=newFellow();
- const supply=(x,now=x.lastAt)=>act(x,'stellaSupply',now,'hero_54',{seq:stellaState(x).seq});
- assert.match(supply(s).error,/Complete a daily habit/);
- s=at(s,'habitComplete',T,s.habits.items.find(x=>x.freq==='daily').id);
- s=at(s,'stellaSupply',T,'hero_54',{seq:stellaState(s).seq});
- assert.equal(stellaState(s).stock.Item_Owner_HeroPiece_54,1000);
- assert.match(supply(s).error,/already prepared/,'a second press the same day is refused');
- // Negative control: the next day, with that day's habit done, it lands again.
- const tomorrow=T+24*H;let t=s;
- t=at(t,'habitComplete',tomorrow,t.habits.items.find(x=>x.freq==='daily').id);
- t=at(t,'stellaSupply',tomorrow,'hero_54',{seq:stellaState(t).seq});
- assert.equal(stellaState(t).stock.Item_Owner_HeroPiece_54,2000);
- assert.ok(totalRate(t)>=0);});
+// The Stella fragment test that stood here pinned the `stellaSupply` button, which is RETIRED:
+// fragments now drop from idle play (EVT-22). Its replacement is tests/stella-idle.test.mjs, which
+// pins the rate, the habit multiplier, and that settling often pays no more than settling once.
