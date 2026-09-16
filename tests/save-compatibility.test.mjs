@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {fresh,act,valid,decode} from '../lib/game.mjs';
+import {fresh,act,valid,decode,VALIDATORS,refusedBy} from '../lib/game.mjs';
+import {readFileSync} from 'node:fs';
 import {validMine,mineState,MINE_ROWS} from '../lib/mine-clearance.mjs';
 import {FARM_MAX_PLOTS} from '../lib/farm.mjs';
 
@@ -80,3 +81,31 @@ test('a save with more plots than the cap is trimmed, not refused',()=>{
  withCrop.farm.plots[0]={plant:'Plant1',harvestLevel:1,readyAt:T+60000,watered:false};
  const back=decode(JSON.stringify(withCrop));
  assert.deepEqual(back.farm.plots[0],withCrop.farm.plots[0],'plot 1 kept its crop');});
+
+// WHEN A SAVE IS REFUSED, THE PLAYER MUST BE TOLD BY WHAT. decode() names most subtrees individually
+// ("Invalid Museum collection.") but ends in a composite valid() of 40 terms that named nothing -- a
+// real save hit exactly that path and the message was "This is not a compatible village save.", which
+// is true and useless. VALIDATORS is the same list, named, so the refusal can say which term said no.
+//
+// The hole that would make this LIE is a term added to valid() and not to VALIDATORS, so that is what
+// this pins: the two are compared by reading valid()'s own source.
+test('every term valid() composes is named in VALIDATORS',()=>{
+ const src=readFileSync(new URL('../lib/game.mjs',import.meta.url),'utf8');
+ const body=src.match(/export function valid\(s\)\{return ([^}]*)\}/);
+ assert.ok(body,'the valid() extractor has drifted; fix it rather than deleting this test');
+ const terms=[...new Set([...body[1].matchAll(/(valid[A-Za-z0-9]+)\(s\)/g)].map(m=>m[1]))];
+ assert.ok(terms.length>=30,`read only ${terms.length} terms from valid()`);
+ assert.deepEqual(terms.sort(),Object.keys(VALIDATORS).sort(),
+  'valid() and VALIDATORS disagree -- a refused save would name the wrong system, or none');});
+
+test('refusedBy names the system, and says nothing about a healthy save',()=>{
+ const s=fresh(T);
+ assert.equal(refusedBy(s),'','a healthy save is refused by nothing');
+ // A deliberately broken subtree must be named, not merely detected.
+ assert.equal(refusedBy({...s,version:9}),'validV4');
+ assert.equal(refusedBy({...s,helper:{tasks:{nosuch:1},ranAt:0}}),'validHelper');
+ // And the thrown message carries it, which is the whole point.
+ try{decode(JSON.stringify({...s,helper:{tasks:{nosuch:1},ranAt:0}}));assert.fail('should have thrown')}
+ catch(e){assert.match(e.message,/Refused by: validHelper/)}
+ // A validator that THROWS is reported rather than crashing the load path.
+ assert.match(refusedBy({...s,fellows:null}),/^valid/);});
