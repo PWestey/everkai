@@ -1,0 +1,164 @@
+{
+ "sources": {
+  "logic/PetDispatch.json": "f9d64f3187f4bced28c9006e567242bf720d378323346f3fc49615c7db7628a0",
+  "logic/PetAttr.json": "96170490c3203b0bc2e87f6a7ccfc02f1402d020ca44c7beae879efb4b3faa15",
+  "logic/System.json": "d8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312",
+  "logic/split_reward/reward_petdispatch.json": "e47e2ab75825d99b3c4aa3210e75b799339716ac0b4d005a767c5083d19095d6",
+  "lang.json": "eaf68b9026fbe78da27dcbf2422ef6df780e188da884a83e31cd839b12fd37ad"
+ },
+ "combatAdd": {
+  "ATK": 15,
+  "HP": 1,
+  "SPD": 30
+ },
+ "critBP": 3000,
+ "coefficient": 0.5,
+ "quickBuyMaxTimes": 5,
+ "teamSize": 5,
+ "areas": [
+  {
+   "id": 1,
+   "towerLv": 20,
+   "floor": 1,
+   "power": 100000,
+   "hours": 20,
+   "base": {
+    "levelUp": 1000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 200,
+    "classUp": 0
+   },
+   "fragmentPools": 1
+  },
+  {
+   "id": 2,
+   "towerLv": 30,
+   "floor": 2,
+   "power": 200000,
+   "hours": 20,
+   "base": {
+    "levelUp": 2000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 400,
+    "classUp": 0
+   },
+   "fragmentPools": 2
+  },
+  {
+   "id": 3,
+   "towerLv": 50,
+   "floor": 2,
+   "power": 400000,
+   "hours": 20,
+   "base": {
+    "levelUp": 3000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 600,
+    "classUp": 0
+   },
+   "fragmentPools": 2
+  },
+  {
+   "id": 4,
+   "towerLv": 80,
+   "floor": 4,
+   "power": 800000,
+   "hours": 20,
+   "base": {
+    "levelUp": 4000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 800,
+    "classUp": 0
+   },
+   "fragmentPools": 3
+  },
+  {
+   "id": 5,
+   "towerLv": 120,
+   "floor": 5,
+   "power": 1600000,
+   "hours": 20,
+   "base": {
+    "levelUp": 5000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 1000,
+    "classUp": 0
+   },
+   "fragmentPools": 3
+  },
+  {
+   "id": 6,
+   "towerLv": 160,
+   "floor": 7,
+   "power": 3000000,
+   "hours": 20,
+   "base": {
+    "levelUp": 6000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 1250,
+    "classUp": 5
+   },
+   "fragmentPools": 3
+  },
+  {
+   "id": 7,
+   "towerLv": 200,
+   "floor": 8,
+   "power": 5000000,
+   "hours": 20,
+   "base": {
+    "levelUp": 7000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 1500,
+    "classUp": 10
+   },
+   "fragmentPools": 3
+  },
+  {
+   "id": 8,
+   "towerLv": 250,
+   "floor": 10,
+   "power": 10000000,
+   "hours": 20,
+   "base": {
+    "levelUp": 8000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 1750,
+    "classUp": 25
+   },
+   "fragmentPools": 2
+  },
+  {
+   "id": 9,
+   "towerLv": 300,
+   "floor": 12,
+   "power": 20000000,
+   "hours": 20,
+   "base": {
+    "levelUp": 9000,
+    "classUp": 0
+   },
+   "great": {
+    "levelUp": 2000,
+    "classUp": 50
+   },
+   "fragmentPools": 2
+  }
+ ]
+}
