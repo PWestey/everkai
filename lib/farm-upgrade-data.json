@@ -1,5 +1,5 @@
 {
- "provenance": "Imported from the original SimGame3PlantUpgrade, SimGame3Plant and SimGame3Farmland tables. upgradeCost on the row for level N is the price of the upgrade FROM level N to level N+1 -- which is why the 39 level-3 rows carry none: level 3 is terminal. risePercent is in hundredths of a percent (2500 = +25%). The affected business type is SimGame3Plant.country 1-5, which maps onto Inspiring/Diligent/Brave/Informed/Unfettered and agrees 39/39 with the effectText already in farm-level-data.json. plots is SimGame3Farmland: 40 plots, the first three free (isBaseUnlock 1), the rest priced in item 4 -- the original Diamond, which Everkai already maps to crystals in lib/opening.mjs. Generated inline (no scripts/ importer: the authoring agent was scoped to lib/farm*).",
+ "provenance": "Imported 2026-09-15 from the original config set. levels[].harvestsRequired is SimGame3PlantUpgrade.upgradeCost on the row for level N: the requirement to raise that plant from level N to N+1, which is why the 39 level-3 rows carry none -- level 3 is terminal. It is NOT a currency: the decompiled client compares it against that plant's own cumulative harvest record (SimGame3Manager:GetPlantUpNoticeById -> \"upgradeCost <= GetPlantRecordCount(plantId)\", which reads plants[id].recordCount, NOT the spendable stock plants[id].count). risePercent is hundredths of a percent (2500 = +25%). The affected business type is SimGame3Plant.country 1-5 mapped onto Inspiring/Diligent/Brave/Informed/Unfettered, which agrees 39/39 with the effectText already in farm-level-data.json. plots is SimGame3Field: the farm opens with plot 1 (isDefaultUnlock) and the other eleven are reclaimed with KNOWLEDGE (consume). Generated inline (no scripts/ importer: the authoring agent was scoped to lib/farm*).",
  "sources": [
   {
    "file": "SimGame3PlantUpgrade.json",
@@ -14,13 +14,13 @@
    "rows": 39
   },
   {
-   "file": "SimGame3Farmland.json",
-   "sha256": "0449c4dedf9bcbfb99afea07a6742c4c723e171438847b74d3c6c2c97da1fdd4",
-   "field": "consume, isBaseUnlock",
-   "rows": 40
+   "file": "SimGame3Field.json",
+   "sha256": "4ce079ae9e1301bbe39a2cf7bdb01afad853b8217e2a03689f5b3e1e0b37fcda",
+   "field": "consume, isDefaultUnlock, autoTakecare, oneclickHarvest, oneclickSow",
+   "rows": 12
   }
  ],
- "limits": "upgradeCost is a bare integer with no currency id, exactly like SimGame3Yield.consume, which Everkai already denominates in farm Knowledge -- so the ladder is charged in Knowledge on that same reading. That mapping is an INFERENCE from the shared table convention, not a recovered currency id. Plot prices carry an explicit id (\"4\"), so those are not inferred.",
+ "limits": "CORRECTION, recorded so it is not re-derived: an earlier pass read SimGame3Farmland (40 rows, consume item id \"4\" = Diamond) as the plot table and priced plots in crystals. That was wrong. Plots are SimGame3Field and are bought with Knowledge -- proved by the client (SimGame3Manager:ReqOpenField updates knowledgeScore and logs gain_know from=\"reclamation\"; LevelSimGame3:OnLevelLoaded creates one plot per zxSimGame3FieldConfigs row) and corroborated by the original rule text Rule:text:SimGame3Main_8 \"With enough Knowledge, go ask Maxim to reclaim more land plots!\" and Rule:text:SimGame3NPC1. What SimGame3Farmland IS was NOT determined; it is only established that it is not this. autoTakecare / oneclickHarvest / oneclickSow are carried here for provenance but Everkai has no automation system to attach them to yet.",
  "types": [
   "Inspiring",
   "Diligent",
@@ -36,12 +36,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 30
+     "harvestsRequired": 30
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 5000
+     "harvestsRequired": 5000
     },
     {
      "level": 3,
@@ -56,12 +56,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 30
+     "harvestsRequired": 30
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 5000
+     "harvestsRequired": 5000
     },
     {
      "level": 3,
@@ -76,12 +76,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 5000
+     "harvestsRequired": 5000
     },
     {
      "level": 3,
@@ -96,12 +96,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 90
+     "harvestsRequired": 90
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 5000
+     "harvestsRequired": 5000
     },
     {
      "level": 3,
@@ -116,12 +116,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 40
+     "harvestsRequired": 40
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 3000
+     "harvestsRequired": 3000
     },
     {
      "level": 3,
@@ -136,12 +136,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 3000
+     "harvestsRequired": 3000
     },
     {
      "level": 3,
@@ -156,12 +156,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -176,12 +176,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 40
+     "harvestsRequired": 40
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -196,12 +196,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 40
+     "harvestsRequired": 40
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -216,12 +216,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 100
+     "harvestsRequired": 100
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -236,12 +236,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -256,12 +256,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 90
+     "harvestsRequired": 90
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -276,12 +276,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 70
+     "harvestsRequired": 70
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -296,12 +296,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -316,12 +316,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 70
+     "harvestsRequired": 70
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -336,12 +336,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 90
+     "harvestsRequired": 90
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -356,12 +356,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 70
+     "harvestsRequired": 70
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -376,12 +376,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 90
+     "harvestsRequired": 90
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -396,12 +396,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 110
+     "harvestsRequired": 110
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -416,12 +416,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 100
+     "harvestsRequired": 100
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -436,12 +436,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 70
+     "harvestsRequired": 70
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -456,12 +456,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -476,12 +476,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -496,12 +496,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -516,12 +516,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -536,12 +536,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -556,12 +556,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -576,12 +576,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -596,12 +596,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -616,12 +616,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -636,12 +636,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -656,12 +656,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -676,12 +676,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -696,12 +696,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -716,12 +716,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -736,12 +736,12 @@
     {
      "level": 1,
      "risePercent": 10000,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 15000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -756,12 +756,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -776,12 +776,12 @@
     {
      "level": 1,
      "risePercent": 2500,
-     "upgradeCost": 60
+     "harvestsRequired": 60
     },
     {
      "level": 2,
      "risePercent": 5000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -796,12 +796,12 @@
     {
      "level": 1,
      "risePercent": 5000,
-     "upgradeCost": 50
+     "harvestsRequired": 50
     },
     {
      "level": 2,
      "risePercent": 8000,
-     "upgradeCost": 2000
+     "harvestsRequired": 2000
     },
     {
      "level": 3,
@@ -813,203 +813,99 @@
  "plots": [
   {
    "plot": 1,
-   "crystals": 0,
-   "baseUnlock": true
+   "knowledge": 0,
+   "baseUnlock": true,
+   "autoTakecare": false,
+   "oneclickHarvest": false,
+   "oneclickSow": false
   },
   {
    "plot": 2,
-   "crystals": 0,
-   "baseUnlock": true
+   "knowledge": 100,
+   "baseUnlock": false,
+   "autoTakecare": false,
+   "oneclickHarvest": false,
+   "oneclickSow": false
   },
   {
    "plot": 3,
-   "crystals": 0,
-   "baseUnlock": true
+   "knowledge": 300,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": false,
+   "oneclickSow": false
   },
   {
    "plot": 4,
-   "crystals": 500,
-   "baseUnlock": false
+   "knowledge": 600,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": false,
+   "oneclickSow": false
   },
   {
    "plot": 5,
-   "crystals": 1000,
-   "baseUnlock": false
+   "knowledge": 3000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": false
   },
   {
    "plot": 6,
-   "crystals": 1500,
-   "baseUnlock": false
+   "knowledge": 3000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": false
   },
   {
    "plot": 7,
-   "crystals": 2000,
-   "baseUnlock": false
+   "knowledge": 3000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": false
   },
   {
    "plot": 8,
-   "crystals": 2500,
-   "baseUnlock": false
+   "knowledge": 3000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": false
   },
   {
    "plot": 9,
-   "crystals": 3000,
-   "baseUnlock": false
+   "knowledge": 4000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": true
   },
   {
    "plot": 10,
-   "crystals": 3500,
-   "baseUnlock": false
+   "knowledge": 5000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": true
   },
   {
    "plot": 11,
-   "crystals": 4000,
-   "baseUnlock": false
+   "knowledge": 5000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": true
   },
   {
    "plot": 12,
-   "crystals": 4500,
-   "baseUnlock": false
-  },
-  {
-   "plot": 13,
-   "crystals": 5000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 14,
-   "crystals": 5500,
-   "baseUnlock": false
-  },
-  {
-   "plot": 15,
-   "crystals": 6000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 16,
-   "crystals": 6500,
-   "baseUnlock": false
-  },
-  {
-   "plot": 17,
-   "crystals": 7000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 18,
-   "crystals": 7500,
-   "baseUnlock": false
-  },
-  {
-   "plot": 19,
-   "crystals": 8000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 20,
-   "crystals": 8500,
-   "baseUnlock": false
-  },
-  {
-   "plot": 21,
-   "crystals": 9000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 22,
-   "crystals": 9500,
-   "baseUnlock": false
-  },
-  {
-   "plot": 23,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 24,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 25,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 26,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 27,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 28,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 29,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 30,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 31,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 32,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 33,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 34,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 35,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 36,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 37,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 38,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 39,
-   "crystals": 10000,
-   "baseUnlock": false
-  },
-  {
-   "plot": 40,
-   "crystals": 10000,
-   "baseUnlock": false
+   "knowledge": 10000,
+   "baseUnlock": false,
+   "autoTakecare": true,
+   "oneclickHarvest": true,
+   "oneclickSow": true
   }
  ]
 }

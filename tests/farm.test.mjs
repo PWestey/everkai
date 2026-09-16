@@ -7,19 +7,23 @@ test('39 source growth/yield rows and sow-water-offline-harvest conserve Knowled
  let s=run(fresh(1000),'openFarm');s=run(s,'sowFarm',0,'Plant1');assert.equal(s.farm.knowledge,10);s=run(s,'waterFarm',0);assert.equal(s.farm.knowledge,20);assert.ok(act(s,'waterFarm',1000,0).error);assert.ok(act(s,'harvestFarm',180999,0).error);
  s=settle(decode(JSON.stringify(s)),181000);s=run(s,'harvestFarm',0);assert.equal(s.farm.knowledge,26);assert.equal(s.farm.harvests.Plant1,10);assert.equal(s.farm.plots[0],null);assert.ok(act(s,'harvestFarm',181000,0).error);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
-// REBASELINED for BUG-36. SimGame3Farmland is the original's plot table: 40 rows, the first three
-// isBaseUnlock "1", the rest priced in item 4 -- the Diamond, which lib/opening.mjs already maps to
-// crystals -- at 500 + 500 a plot to 10,000, then flat 10,000 from plot 23.
-//   openFarm plots       old 1                       new 3   (FARM_BASE_PLOTS)
-//   plot cap             old 6                       new 40  (FARM_MAX_PLOTS)
-//   4th plot price       old 100 Knowledge (invented) new 500 crystals (SimGame3Farmland row 4)
-//   Knowledge after      old 14  (104-100+10)         new 114 (104+10, nothing spent from Knowledge)
-test('crystals expand plots on the original ladder; a ripened crop awards no extra global time or repeats',()=>{
- let s=run(fresh(1000),'openFarm');assert.equal(s.farm.plots.length,FARM_BASE_PLOTS);assert.equal(FARM_BASE_PLOTS,3);assert.equal(FARM_MAX_PLOTS,40);
+// REBASELINED for BUG-36. SimGame3Field is the original's plot table: 12 rows, only plot 1
+// isDefaultUnlock, the rest bought with KNOWLEDGE (consume) at 100/300/600/3000 x4/4000/5000/5000/
+// 10000 -- 37,000 for all twelve. (An earlier pass of this same test used SimGame3Farmland's 40
+// Diamond-priced rows; the client disproves it -- ReqOpenField updates knowledgeScore and logs
+// gain_know from="reclamation" -- as does Rule:text:SimGame3Main_8.)
+//   openFarm plots     old 1                        new 1   (unchanged, FARM_BASE_PLOTS)
+//   plot cap           old 6                        new 12  (FARM_MAX_PLOTS)
+//   2nd plot price     old 100 Knowledge (invented) new 100 Knowledge (SimGame3Field row 2)
+//   3rd plot price     old 200 Knowledge (invented) new 300 Knowledge (SimGame3Field row 3)
+//   Knowledge after    old 14  (104-100+10)         new 14  (104-100+10, same at this one step)
+test('Knowledge expands plots on the original ladder; a ripened crop awards no extra global time or repeats',()=>{
+ let s=run(fresh(1000),'openFarm');assert.equal(s.farm.plots.length,FARM_BASE_PLOTS);assert.equal(FARM_BASE_PLOTS,1);assert.equal(FARM_MAX_PLOTS,12);
  for(let n=0;n<4;n++){s=run(s,'sowFarm',0,'Plant1');s=run(s,'waterFarm',0);s=ripe(s);assert.throws(()=>act(s,'finishFarm',1000,0),/Unknown action/,'instant maturation is retired');s=run(s,'harvestFarm',0);}
  assert.equal(s.farm.knowledge,104);
- assert.match(act(s,'expandFarm',1000).error,/500 crystals/,'plot 4 is priced in crystals, not Knowledge');
- s={...s,crystals:500};s=run(s,'expandFarm');assert.equal(s.crystals,0);assert.equal(s.farm.knowledge,114);assert.equal(s.farm.plots.length,4);assert.equal(s.lastAt,1000);
+ s=run(s,'expandFarm');assert.equal(s.farm.knowledge,14);assert.equal(s.farm.plots.length,2);assert.equal(s.lastAt,1000);
+ // Plot 3 costs 300, which 14 Knowledge cannot reach -- the ladder is no longer a flat plots*100.
+ assert.match(act(s,'expandFarm',1000).error,/300 Knowledge/);
  s=run(s,'sowFarm',1,'Plant2');assert.ok(valid(s));assert.equal(s.farm.plots[0],null);
 });
 test('farm failures preserve crops and protect save/harvest capacity and prior income',()=>{
