@@ -4,7 +4,7 @@ import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {NativeSelect,NativeSelectOption} from '@/components/ui/native-select';
 import {BUSINESSES,businessCost,enterpriseState,enterpriseBreakdown,employeeRateFor,operationSlots,hireQuote,sourceEmployeeYield} from '@/lib/businesses.mjs';
-import {staffingStatus,staffingRule} from '@/lib/staffing.mjs';
+import {staffingStatus,staffingRule,enterpriseQuality,defaultQualityBonus,QUALITY_MAX} from '@/lib/staffing.mjs';
 import {fellowOperation} from '@/lib/operations.mjs';
 import {innGiftEmployeePercent} from '@/lib/inn-guests.mjs';
 import {fishingEmployeeBonus} from '@/lib/fishing.mjs';
@@ -34,8 +34,14 @@ export default function BusinessScene({game,action,locked,id='Building_101',onAp
  const cost=businessCost(id),sprite=buildings[id];
  const quote=b?hireQuote(game,id,batch):null;
  const slots=b?operationSlots(b.employees):0;
- const nextQuality=paid&&paid.quality<26?staffingRule(id,paid.quality+1):null;
- const rise=nextQuality&&paid?(nextQuality.yieldRise-staffingRule(id,paid.quality).yieldRise)/100:0;
+ // SL1-04. Quality used to render only when `paid` (i.e. only under APK growth), so a default save
+ // showed no quality row at all and `upgradeStaffQuality` had no button anywhere -- the ladder was
+ // unreachable in the UI as well as in the state. Both modes now read one pair of values.
+ const quality=b?paid?paid.quality:enterpriseQuality(id,b):0;
+ const qualityEarnings=b?paid?paid.bonus:defaultQualityBonus(id,b):0;
+ const nextQuality=b&&quality<QUALITY_MAX?staffingRule(id,quality+1):null;
+ const rise=nextQuality?(nextQuality.yieldRise-staffingRule(id,quality).yieldRise)/100:0;
+ const stock=game.staffingMaterials?.stock||0,stepCost=b&&quality<QUALITY_MAX?staffingRule(id,quality).cost:0;
  const assigned:string[]=b?.fellows??[];
  const tabs=['Growth',...(id==='Building_101'?['Service']:[])];
 
@@ -69,12 +75,20 @@ export default function BusinessScene({game,action,locked,id='Building_101',onAp
        <Button className="advancement-button" onClick={()=>setPanel('Growth')}>Improve</Button>
       </div>
 
-      {paid&&<div className="inn-quality-row">
-       <span>Quality Lv. {paid.quality} · earnings {num(paid.bonus*100)}%{nextQuality?` (next ${num(paid.bonus*100+rise)}%)`:''}</span>
-       {nextQuality&&<Button className="advancement-button" disabled={locked||(game.staffingMaterials?.stock||0)<staffingRule(id,paid.quality).cost} onClick={()=>action('upgradeStaffQuality',id)}>
-        Level Up · {num(game.staffingMaterials?.stock||0)}/{num(staffingRule(id,paid.quality).cost)}
-       </Button>}
-      </div>}
+      <div className="inn-quality-row">
+       <span>Quality Lv. {quality} · earnings {num(qualityEarnings*100)}%{nextQuality?` (next ${num(qualityEarnings*100+rise)}%)`:''} · staff limit {num(Math.max(5000,staffingRule(id,quality).cap))}</span>
+       {nextQuality
+        ? <Button className="advancement-button" disabled={locked||stock<stepCost} onClick={()=>action('upgradeStaffQuality',id)}>
+           Level Up · {num(stock)}/{num(stepCost)}
+          </Button>
+        : <span>Final quality</span>}
+      </div>
+      {/* The materials faucet was reachable only inside the APK-growth panel, so the button that pays
+          for the row above did not exist in a default save either. */}
+      <div className="inn-quality-row">
+       <span>Building materials · {num(stock)}</span>
+       <Button variant="outline" disabled={locked} onClick={()=>action('claimStaffingMaterials')}>Collect today&rsquo;s materials</Button>
+      </div>
 
       {id==='Building_201'&&onApothecary&&<Button variant="outline" onClick={onApothecary}>Open potion counter</Button>}
 
