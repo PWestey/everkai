@@ -878,6 +878,10 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .tower-floor dl div{padding:4px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px}
 .tower-floor dt{font-size:11px;color:#e5bd6a}.tower-floor dd{margin:0;font:700 15px Georgia,serif;color:#fff3d6}
 .tower-floor .tower-reward{color:#8a5a1c;font-weight:700}
+.tower-enemies{display:grid;gap:3px;margin:0;padding:0;list-style:none;font-size:12px;color:#4b3421;text-align:left}
+.tower-enemies li{padding:3px 6px;background:#f3e2bb;border-radius:4px}
+.explore-monster{width:96px;justify-self:center}.explore-monster>span{top:26%;display:grid;place-items:center}.explore-monster>span img{width:40px;height:40px;object-fit:contain}
+.familiar-forms ul{margin:0;padding-left:18px;color:#4b3421;font-size:13px}
 .tower-result{padding:8px 10px;border:2px solid #c49a55;border-radius:6px;background:#fbf0d4}
 .tower-result>summary{font:700 15px Georgia,serif;color:#4b3421}
 .tower-result.won{border-color:#c99a4e;box-shadow:inset 0 0 0 2px #f3cd6b88}.tower-result.won>summary{color:#7a5a12}

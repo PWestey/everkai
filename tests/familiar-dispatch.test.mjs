@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {FAMILIARS} from '../lib/familiars.mjs';
-import {towerKey} from '../lib/familiar-tower.mjs';
+import {towerKey,towerState} from '../lib/familiar-tower.mjs';
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 import data from '../lib/familiar-dispatch-data.json' with {type:'json'};
 import {DISPATCH_AREAS,DISPATCH_TEAM,dispatchState,dispatchArea,dispatchTeamPower,familiarPower,
@@ -11,12 +11,13 @@ const H=3600e3,T=new Date('2026-09-16T09:00:00').getTime();
 const at=(s,a,now=T,t=null,v=null)=>{const r=act(s,a,now,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),`invalid save after ${a}`);return r.state};
 /** The five strongest familiars by Power, which is the team the gates are calibrated against. */
 const strongest=n=>FAMILIARS.map(p=>({id:p.id,pw:familiarPower(p.id,{level:1,stars:0})})).sort((a,b)=>b.pw-a.pw||a.id.localeCompare(b.id)).slice(0,n).map(p=>p.id);
-/** A save with every familiar welcomed, tower floor 1 cleared, and the five strongest dispatch-ready. */
+/** A save with every familiar welcomed, original tower floor 20 cleared (area 1's PetDispatch.TowerLv), and the five strongest dispatch-ready. */
 function ready(levels=0){
  let s=at(fresh(T),'adoptFamiliars');
  const five=strongest(DISPATCH_TEAM);
  for(const id of five)s=at(s,'towerParty',T,id);
- s=at(s,'towerFight',T,towerKey(s));
+ // Since 2026-09-16 the tower is the original 300 floors; the untrained five clear the first 46.
+ while(towerState(s).cleared<20)s=at(s,'towerFight',T,towerKey(s));
  if(levels){s={...s,familiarSupplies:{levelUp:1e9,classUp:1e7,since:T}};
   for(const id of five)for(let i=0;i<levels/10;i++)s=at(s,'trainFamiliar',T,id,10);}
  for(const id of five)s=at(s,'dispatchTeam',T,id);
@@ -79,7 +80,7 @@ test('Pet_Dispatch_Text7/Text8: the tower floor gates the area and the team must
  assert.equal(act(s,'dispatchTeam',T,FAMILIARS.find(p=>!five.includes(p.id)).id).error,'Choose exactly 5 familiars.');
  // No tower floor cleared yet, so even area 1 is shut.
  assert.equal(dispatchUnlocked(s,1),false);
- assert.match(act(s,'dispatchStart',T,1).error,/Unlocks at floor 1 in the Familiar Tower/);
+ assert.match(act(s,'dispatchStart',T,1).error,/Unlocks at floor 20 in the Familiar Tower/);
  assert.equal(act(s,'dispatchStart',T,99).error,'Choose a dispatch area.');
 });
 
@@ -91,7 +92,7 @@ test('the Power gate refuses an underpowered team and admits a trained one',()=>
  assert.equal(dispatchTeamPower(s),307713,'60 levels on each of the five');
  assert.equal(act(s,'dispatchStart',T,1).error,undefined);
  // Higher areas stay shut on floors, not just power.
- assert.match(act(s,'dispatchStart',T,4).error,/floor 4/);
+ assert.match(act(s,'dispatchStart',T,4).error,/floor 80/);
 });
 
 test('a run pays its base reward on return, and nothing at all before the 20 hours are up',()=>{
@@ -168,7 +169,7 @@ test('NEGATIVE CONTROL: validFamiliarDispatch refuses every hand-edited dispatch
  bad({...d,team:d.team.slice(1),run:d.run},'a four-familiar team with a run out');
  bad({...d,run:{area:9,since:T}},'an area whose floor is not cleared');
  // Power gate: a run on an area the team cannot clear is refused even with the floor granted.
- const weak={...s,familiarTower:{...s.familiarTower,cleared:12},familiars:Object.fromEntries(Object.keys(s.familiars).map(id=>[id,{level:1,stars:0}]))};
+ const weak={...s,familiarTower:{...s.familiarTower,cleared:300},familiars:Object.fromEntries(Object.keys(s.familiars).map(id=>[id,{level:1,stars:0}]))};
  assert.equal(validFamiliarDispatch({...weak,familiarDispatch:{...d,run:{area:9,since:T}}}),false,'an underpowered run');
  assert.equal(validFamiliarDispatch({...s,familiarDispatch:undefined}),true,'an old save with no dispatch key is fine');
  // The whole-save guard must carry the refusal, not just the local one.

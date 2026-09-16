@@ -95,6 +95,8 @@ const ALLOWED=new Map([
  ['enroll','Superseded by enrollPupil (education.mjs), which the School panel dispatches. Validates PUPIL_TYPES and builds a pupil with no name or grade, so requiredLessons falls back to 6 instead of 100-280. NOT dead code: five test files dispatch it, education.test.mjs:14 pins the 6-lesson result, and opening.test.mjs drives it for the ChildGain/ChildEducation quest steps. Removing it needs an owner decision, not a cleanup.'],
  ['welcome','Family acquisition goes through summonRecruit and its cost table. See docs/free-action-audit.md.'],
  ['recruitAll','Test/CLI only; grants the whole roster at once.'],
+ ['adoptFamiliar','ECON-11 (2026-09-16): free familiar acquisition, now a test fixture only. Players get familiars from the starter choice (familiarStarter), contracts while Exploring (exploreCatch) and Familiar Tower floor rewards. About twenty test files build fixtures with it, the same call as `recruit`.'],
+ ['adoptFamiliars','ECON-11 (2026-09-16): grants all 71 familiars free; test fixture only, like recruitAll.'],
  ['welcomeAll','Test/CLI only; grants the whole family at once.'],
  ['upgrade','Alias handled by game.mjs:159, which rewrites it to train before adventureAction sees it.'],
  ['recruit','Free acquisition (game.mjs:257 grants the next unowned Fellow outright). The Recruit panel buys through summonRecruit and SUMMON_COSTS instead. Added 2026-09-15 with BUG-14: it had been passing this guard on a tab id, not a dispatch. NOT dead code -- docs/free-action-audit.md counts it in 40 test files, so it needs a fixture shim before removal, the same call as `welcome`.'],

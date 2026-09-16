@@ -505,7 +505,7 @@ test('every chore has its dispatch contract checked, not just the ones that brok
   villageEvents:{state:{habits:armed().habits},allow:['villageEvent','villageResolve','villageManageAccept','villageManageFinish']},
   raphael:{state:{habits:armed().habits,raphael:{cells:[{kind:'fan'},...Array(24).fill(null)],best:0,performances:0},raphaelEvent:{policyVersion:1,seq:4,stamina:20,consumed:10,run:{id:3},history:[],claims:[],locker:{Item_GetCE_10:5}}},allow:['stageComplete','stageClaim','stageTransfer','stageSupply','stageBegin']},
   familiarTower:{state:{familiars:{Pet_1191:{level:1,stars:0}}},allow:['towerParty','towerFight']},
-  dispatch:{state:{familiars:Object.fromEntries(FAMILIARS.map(p=>[p.id,{level:120,stars:0}])),familiarTower:{cleared:1}},allow:['dispatchCollect','dispatchTeam','dispatchStart']},
+  dispatch:{state:{familiars:Object.fromEntries(FAMILIARS.map(p=>[p.id,{level:120,stars:0}])),familiarTower:{policyVersion:2,cleared:25,attempts:25,party:[],last:null}},allow:['dispatchCollect','dispatchTeam','dispatchStart']},
   school:{state:{family:{wife_1:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}},allow:['activateGraduationBonds','graduateAll','expandSchool','enrollTripChild','enrollPupil','educateAllRound','educateBatch','educate']},
   campaign:{state:{},allow:['battle','patrol']},
   stella:{state:{fellows:{hero_54:{level:1,aptitude:10,skill:0,breaks:0,gear:null}}},allow:['stellaActivate','stellaUpgrade']},
