@@ -3,29 +3,34 @@ const run=(s,a,t=null,v=null,now=1000)=>{const r=act(s,a,now,t,v);assert.ok(!r.e
 test('all39 three-level source schedules are complete and level1 matches existing source',()=>{
  assert.equal(FARM_PLANTS.length,39);for(const p of FARM_PLANTS){const first=farmHarvestPlan(p.id);assert.equal(first.seconds,p.seconds);assert.equal(first.amount,p.amount);for(const level of [1,2,3]){const r=farmHarvestPlan(p.id,level);assert.ok(r.seconds>0&&r.amount>0);}}
 });
-// REBASELINED for BUG-41. Level 3 is no longer a free pick at sow time: SimGame3PlantUpgrade charges
-// upgradeCost 30 (Plant1 level 1 -> 2) then 5,000 (level 2 -> 3), so the test buys the ladder first.
-// Knowledge at harvest is UNCHANGED at 250: 5,030 granted - 30 - 5,000 + 10 sown + 240 growth.
+// REBASELINED for BUG-41. Level 3 is no longer a free pick at sow time: the original qualifies each
+// step on how many TIMES that plant has been grown -- 30 growings of Plant1 for level 1 -> 2, then
+// 5,000 for level 2 -> 3 -- and spends nothing. Its failure toast SG3PlantUpTips reads "accumulated
+// number of times planted is insufficient", so a bigger harvest never counts for more than one.
+// Knowledge at harvest is UNCHANGED at 250: 10 sown + 240 growth, because the ladder costs nothing.
 test('level3 schedule survives reload and harvests into existing stock after real elapsed time',()=>{
- let s=run(fresh(1000),'openFarm');s={...s,farm:{...s.farm,knowledge:5030}};
- s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,5000);assert.equal(s.farm.plantLevels.Plant1,2);
+ let s=run(fresh(1000),'openFarm');s={...s,farm:{...s.farm,records:{Plant1:5030}}};
+ s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,0,'reaching a level spends nothing');assert.equal(s.farm.plantLevels.Plant1,2);
  s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,0);assert.equal(s.farm.plantLevels.Plant1,3);
- assert.match(act(s,'upgradePlant',1000,'Plant1').error,/highest/,'level 3 is terminal -- no upgradeCost row exists');
+ assert.match(act(s,'upgradePlant',1000,'Plant1').error,/highest/,'level 3 is terminal -- no requirement row exists');
  s=run(s,'sowFarm',0,{plant:'Plant1',level:3});assert.equal(s.farm.plots[0].readyAt,7201000);assert.equal(s.farm.plots[0].harvestLevel,3);
  s=decode(JSON.stringify(s));s=run(s,'harvestFarm',0,null,7201000);assert.equal(s.farm.harvests.Plant1,100);assert.equal(s.farm.knowledge,250);assert.equal(s.farm.plots[0],null);assert.ok(act(s,'harvestFarm',7201000,0).error);
 });
-test('legacy growing crops retain level1; unbought, bad levels and full stock are refused',()=>{
+test('legacy growing crops retain level1; unearned, bad levels and full stock are refused',()=>{
  let s=run(fresh(1000),'openFarm');s=run(s,'sowFarm',0,'Plant1');delete s.farm.plots[0].harvestLevel;assert.ok(valid(s));s=ripe(s);s=run(s,'harvestFarm',0);assert.equal(s.farm.harvests.Plant1,10);
+ assert.equal(s.farm.records.Plant1,1,'one completed growing counts once, whatever its 10-unit yield');
  assert.ok(act(s,'sowFarm',1000,0,{plant:'Plant1',level:4}).error);
- // REBASELINED for BUG-41: level 2 must be bought (30 Knowledge, SimGame3PlantUpgrade Plant1 level 1)
- // before it can be sown. It used to be a free pick.
- assert.match(act(s,'sowFarm',1000,0,{plant:'Plant1',level:2}).error,/Upgrade this plant/);
- s={...s,farm:{...s.farm,knowledge:30}};s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,0);
+ // REBASELINED for BUG-41: level 2 must be EARNED (Plant1 grown 30 times) before it can be sown.
+ // It used to be a free pick. One growing is not enough; 29 more are needed.
+ assert.match(act(s,'sowFarm',1000,0,{plant:'Plant1',level:2}).error,/Reach harvest level 2/);
+ assert.match(act(s,'upgradePlant',1000,'Plant1').error,/Grow Rattle Grapes 29 more times/);
+ const knowledge=s.farm.knowledge;
+ s={...s,farm:{...s.farm,records:{Plant1:30}}};s=run(s,'upgradePlant','Plant1');assert.equal(s.farm.knowledge,knowledge,'no Knowledge is spent on the ladder');
  s=run(s,'sowFarm',0,{plant:'Plant1',level:2});s.farm.plots[0].harvestLevel=null;assert.ok(!valid(s));s.farm.plots[0].harvestLevel=2;s=ripe(s);s.farm.harvests.Plant1=1e9;const r=act(s,'harvestFarm',1000,0);assert.ok(r.error);assert.deepEqual(r.state.farm,s.farm);
 });
 test('interrupted higher-level harvest keeps crop and reward together until explicit retry',()=>{
- // REBASELINED for BUG-41: buy Plant1 level 2 for its upgradeCost of 30 Knowledge before sowing it.
- let s=run(fresh(1000),'openFarm');s={...s,farm:{...s.farm,knowledge:30}};s=run(s,'upgradePlant','Plant1');
+ // REBASELINED for BUG-41: Plant1 level 2 is earned by growing it 30 times, not bought.
+ let s=run(fresh(1000),'openFarm');s={...s,farm:{...s.farm,records:{Plant1:30}}};s=run(s,'upgradePlant','Plant1');
  s=run(s,'sowFarm',0,{plant:'Plant1',level:2});s=ripe(s);let raw=JSON.stringify(s),fail=false;const disk={getItem:()=>raw,setItem:(k,v)=>{if(fail)throw Error('full');raw=v}},p=createPersistence(()=>disk);p.load(1000);const old=raw;fail=true;assert.throws(()=>p.commit(act(p.current,'harvestFarm',1000,0).state));assert.equal(raw,old);
  fail=false;p.load(1000);assert.equal(p.current.farm.plots[0].harvestLevel,2);p.commit(act(p.current,'harvestFarm',1000,0).state);const r=createPersistence(()=>disk).load(1000);assert.equal(r.farm.harvests.Plant1,50);assert.equal(r.farm.plots[0],null);
 });
