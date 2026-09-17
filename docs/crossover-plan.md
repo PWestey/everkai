@@ -1,0 +1,72 @@
+# Crossover characters: the agreed plan
+
+163 characters — 95 from Marvel Strike Force, 68 from Star Wars: Galaxy of Heroes — enter Everkai as
+Fellows. Their art is already built (stills + idle clips rendered from the original 3D models, see
+`scripts/crossover/`); two of them, Spider-Man and Darth Vader, already play in the app behind
+`?crossover=1`. This file records what the owner decided on 2026-09-17 and the order the rest of the
+work happens in. The four measurement documents behind it are:
+
+- `docs/crossover-progression-plan.md` — rarity ladder, materials, the earnings ceiling
+- `docs/crossover-abilities-plan.md` — skills, talents, Insight, operations
+- `docs/crossover-collection-plan.md` — Stella, appearance, collection scores
+- `docs/crossover-storyline-plan.md` — arcs, unlock pacing, types
+
+Every number quoted below comes from those, which cite file:line. Where a number could not be measured
+they say so; do not quote one that isn't there (CLAUDE.md rule 1).
+
+## What the owner decided
+
+| # | Decision | Owner's choice |
+|---|---|---|
+| 1 | The earnings ceiling, which ~doubles with the roster | **Accept ~4x.** No Champions cap, no exclusion from `rosterOperation`. Pin the flag-on figure in its own test so the change is deliberate and visible. |
+| 2 | Unlock pacing | **Faster — about two months.** Halve the proposed 20/40/60 stage costs to **10/20/30**; the eight Isekai arcs keep `COMPLETIONS_PER_STAGE` 10. |
+| 3 | Types | **Spread the top picks.** Assign by role as planned, then deliberately re-assign the owner's highest-ranked characters across types so his favourites are also good earners. |
+| 4 | The power gap (no blessings, no Stella-style bonuses → ~0.33 of a maxed original) | **Give them equivalents.** A crossover-only bonus track that closes the gap, balanced against decision 1's already-raised ceiling. |
+
+Earlier decisions that stand: rarity **N for every crossover, climbing to the top** through the shipped
+14-step quality ladder; **no costumes**; unlocked by **playing its storyline**, not bought at the counter;
+one shared crossover shard pool rather than 163 Stella profiles; repo stays **public** for now.
+
+## Order of work
+
+1. **Fix the four defects that block a crossover Fellow from working at all.** Each is small and each is
+   a bug today, independent of this feature:
+   - `lib/operations.mjs` never calls `sourceId`, so a crossover in a business gives 0% where a median
+     original gives +150% — assigning one is worse than assigning nobody.
+   - `lib/events.mjs` infers Fellow-vs-Family from `startsWith('hero_')` and resolves through the
+     flag-gated `FELLOWS`; an `xover_*` stage would fail and `validEvents` would refuse the save.
+   - `validEvents` compares a stored `spent` against `stages * COMPLETIONS_PER_STAGE`, so per-arc stage
+     costs (decision 2) must be introduced with the eight existing arcs pinned at 10, or every save that
+     ever claimed a stage is refused. This is the mine-table lockout with a different table (rule 12).
+   - `templateCandidates('N', type)` is empty for all five types, so rarity N has no progression
+     template: pin the per-type SSR anchors `hero_101…105` (measured symmetric at 150% each).
+2. **Rarity as a display of quality.** Reuse the quality ladder unchanged — no new save state, no
+   `SAVE_VERSION` bump. Derive `displayRarity` from the stored quality tier. Keep the stored `rarity`
+   the bare string `"N"`, because a chained string loses the eight `["N"]`-gated fishing effects.
+3. **Stop the counter selling them.** `recruitPrice → null` for additions; the Recruit panel says which
+   storyline unlocks each one.
+4. **Arcs and unlocks.** 33 arcs, 163 stages, blocks of five down the owner's rank order so his most
+   wanted arrive first, at 10/20/30 completions per stage (decision 2). A test re-derives the grouping
+   from `selected-roster.json` so it cannot drift.
+5. **Abilities.** The 7-row rarity ladder plus one archetype word per character; names derived from each
+   row's `occupation`, no new prose. Crossover power must stay at or below an equivalent original at the
+   same investment — the ratio is arithmetic, not argument.
+6. **The equivalent bonus track (decision 4).** Design it against the ceiling from decision 1, measure
+   the maxed ratio against a maxed original, and pin both numbers.
+7. **Types (decision 3).** Assign by role, then spread the owner's top picks; report which characters
+   moved and what it does to earnings.
+8. **Shared Stella shards.** One 40-level curve, flat bonuses only, `percent: 0` on every row, minted at
+   the existing 500/day × habit multiplier so the faucet does not grow with roster size. Extend the
+   helper's Stella chore to it.
+9. **Backgrounds.** Re-render each approved character into a location from the corpus (Vader in the
+   Emperor's throne room, Wolverine at the X-Mansion); the owner swaps any pairing he dislikes.
+10. **Ship behind `?crossover=1`**, then switch on when the owner is happy.
+
+## Standing constraints
+
+- With the flag off, the catalogue, every collection total and every save must behave exactly as today;
+  a save that recruited crossovers must still load with the flag off.
+- Crossover media streams from `assets/crossover/` and never enters the precache (104.4 MB today).
+- These characters are not from the original APK: they live in the additions layer, the provenance tests
+  for original characters stay untouched, and every invented value is marked local.
+- Skill and arc text is short and original. No copyrighted bios, no retold plots.
