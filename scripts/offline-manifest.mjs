@@ -13,7 +13,10 @@
 //
 // Dropping a path from the manifest also reclaims it on existing installs: the worker's activate
 // step deletes every cached URL that is no longer wanted.
-export const STREAMED=[/^assets\/idle\//];
+//
+// The live Spine pilot's models (assets/spine/, see scripts/package-spine-model.mjs) stream for the
+// same reason: they are per-character media, and a failed load falls back to the idle clip or still.
+export const STREAMED=[/^assets\/idle\//,/^assets\/spine\//];
 
 /** True when a built file is fetched on demand rather than precached. */
 export const streamed=path=>STREAMED.some(pattern=>pattern.test(path));

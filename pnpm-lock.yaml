@@ -11,6 +11,9 @@ importers:
       '@base-ui/react':
         specifier: 1.7.0
         version: 1.7.0(@date-fns/tz@1.5.0)(@types/react@19.2.14)(date-fns@4.1.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@esotericsoftware/spine-webgl':
+        specifier: 4.1.56
+        version: 4.1.56
       '@shadcn/react':
         specifier: 0.3.0
         version: 0.3.0(@types/react@19.2.14)(react@19.2.6)
@@ -514,6 +517,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@esotericsoftware/spine-core@4.1.56':
+    resolution: {integrity: sha512-sJbqIof+yE7LbkImbJt2cHfYcGBqadABttx8RY3ggu4JCa0sZLGdh+tWwe0+aRoN/91VI0rGSgG16fmkZ7Hc8Q==}
+
+  '@esotericsoftware/spine-webgl@4.1.56':
+    resolution: {integrity: sha512-LNr/X4B81/rC96mzFV+L5LPnqaIj1v3RBCKTagmFlAd/2MtXcxwEatIQVPq487NigFwlrkvmxQuMpl1TRf3xxw==}
 
   '@floating-ui/core@1.8.0':
     resolution: {integrity: sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==}
@@ -3891,6 +3900,12 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.3':
     optional: true
+
+  '@esotericsoftware/spine-core@4.1.56': {}
+
+  '@esotericsoftware/spine-webgl@4.1.56':
+    dependencies:
+      '@esotericsoftware/spine-core': 4.1.56
 
   '@floating-ui/core@1.8.0':
     dependencies:
