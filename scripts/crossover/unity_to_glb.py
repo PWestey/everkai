@@ -20,6 +20,17 @@ from UnityPy.helpers.PackedBitVector import unpack_ints, unpack_floats
 
 EXCLUDE_MAT = re.compile(r'(vfx|shadow|_fx|fx_|glow|trail|web|smoke|flare|bolt|spark|holo|ghost|stealth|outline)', re.I)
 EXCLUDE_GO = re.compile(r'(^vfx|shadow|^fx|^WEB|lod[1-9])', re.I)
+# The character's own name is cut out of material names before EXCLUDE_MAT is applied: Ghost Rider,
+# Ghost-Spider and Black Bolt's body materials are Char_GhostRIder_/Char_GhostSpider_/Char_BlackBolt_Material.
+OWN_NAME = None
+
+def set_own_name(token):
+    global OWN_NAME
+    letters = re.sub(r'[^a-z0-9]', '', (token or '').lower())
+    OWN_NAME = re.compile('[_ -]?'.join(map(re.escape, letters)), re.I) if len(letters) >= 3 else None
+
+def excluded_material(name):
+    return bool(EXCLUDE_MAT.search(OWN_NAME.sub('', name) if OWN_NAME else name))
 
 # ---------------------------------------------------------------- math helpers
 
@@ -287,7 +298,7 @@ def renderer_list(nodes, report):
                     why = 'disabled'
                 elif EXCLUDE_GO.search(n.go.m_Name):
                     why = 'excluded object name'
-                elif any(EXCLUDE_MAT.search(x) for x in names):
+                elif any(excluded_material(x) for x in names):
                     why = 'excluded material'
                 if kind == 'SkinnedMeshRenderer':
                     mesh_ptr = r.m_Mesh
@@ -427,6 +438,41 @@ def pick_idle(cands, name_filter=None):
         if clip_kind(clip) != 'humanoid':
             yield clip, env, src
 
+def body_bones(env):
+    """Leaf names of the bones of the bundle's most-boned skinned mesh (the body rig), or None.
+    Most bones, not most vertices: Captain Carter's motorcycle and Captain America WW2's tank
+    out-vertex the body but carry 7 and 12 bones against its 71 and 72."""
+    best = (0, None)
+    for o in env.objects:
+        if o.type.name != 'SkinnedMeshRenderer':
+            continue
+        try:
+            r = o.read()
+            if len(r.m_Bones) > best[0] and not EXCLUDE_ROOT.search(r.m_GameObject.read().m_Name):
+                best = (len(r.m_Bones), r)
+        except Exception:
+            continue
+    if best[1] is None:
+        return None
+    names = set()
+    for b in best[1].m_Bones:
+        try:
+            names.add(leaf_key(b.read().m_GameObject.read().m_Name))
+        except Exception:
+            pass
+    return names or None
+
+def body_bound(clip, bones):
+    """Legacy clips only: True when the clip animates the body rig, False for a prop/cape-only clip
+    (Magneto _Prop, Beast Book, Mister Sinister _Cape, Kate Bishop Prop_Bow), None when unknown."""
+    if not bones or not clip.m_Legacy:
+        return None
+    paths = {c.m_Path for c in clip.m_CompressedRotationCurves}
+    for group in (clip.m_RotationCurves, clip.m_EulerCurves, clip.m_PositionCurves, clip.m_ScaleCurves):
+        paths |= {c.path for c in group}
+    hit = len({leaf_key(p) for p in paths if p} & bones)
+    return hit >= max(3, 0.2 * len(bones))
+
 def choose_clip(char_env, anim_envs, donors, want, token, archetypes, weapon, report):
     """Order: --clip; the character's own non-humanoid idle; a shared idle named for the character;
     the archetype's shared shell idle; a donor clip for the character's weapon class (retargeted by
@@ -439,8 +485,9 @@ def choose_clip(char_env, anim_envs, donors, want, token, archetypes, weapon, re
             if n == want:
                 return o.read(), env, src
         raise SystemExit(f'Clip {want} not found')
-    humanoid = []
+    humanoid, prop_only = [], []
     seen = set()
+    bones = body_bones(char_env)
     for clip, env, src in idle_matches(own):
         if clip.m_Name in seen:
             continue
@@ -448,7 +495,12 @@ def choose_clip(char_env, anim_envs, donors, want, token, archetypes, weapon, re
         if clip_kind(clip) == 'humanoid':
             humanoid.append(clip.m_Name)
             continue
+        if body_bound(clip, bones) is False:
+            prop_only.append((clip, env))
+            continue
         return clip, env, 'own'
+    if prop_only:
+        report['propOnlyIdles'] = [c.m_Name for c, _ in prop_only]
     if humanoid:
         report['humanoidIdles'] = sorted(set(humanoid))
     squash = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
@@ -469,6 +521,8 @@ def choose_clip(char_env, anim_envs, donors, want, token, archetypes, weapon, re
                 if n == dclip:
                     report['donor'] = {'class': cls, 'weapon': weapon, 'clip': dclip}
                     return o.read(), denv, 'donor'
+    if prop_only:
+        return prop_only[0][0], prop_only[0][1], 'own'
     return None, None, ('humanoid idle only (muscle retargeting not implemented) and no donor' if humanoid else 'no idle clip')
 
 def choose_root(env, want, report, curves, by_name):
@@ -500,6 +554,12 @@ def choose_root(env, want, report, curves, by_name):
     if not scored:
         raise SystemExit('No prefab root with a textured, active SkinnedMeshRenderer was found')
     scored.sort(key=lambda s: s[:3], reverse=True)
+    # Bound-bone counts within 2% (at least one bone) are a tie broken by vertices: Magneto's
+    # ST_Ent_Magneto binds 95 of the idle's 96 bones but carries the helmet, cape and metal ball
+    # that the bare Char_Magneto_Mesh_PREFAB (96) lacks. Measured: no other MSF root changes.
+    near = [x for x in scored if x[0] >= scored[0][0] - max(1, 0.02 * scored[0][0])]
+    near.sort(key=lambda s: (s[1], s[0], s[2]), reverse=True)
+    scored = near + scored[len(near):]
     report['rootCandidates'] = [{'name': s[3], 'boundBones': s[0], 'vertices': s[1], 'transforms': -s[2]} for s in scored[:8]]
     return scored[0][4]
 
@@ -617,6 +677,7 @@ def main():
         path, clipname = rest.rsplit(':', 1)
         donors.append((cls, (UnityPy.load(path), clipname)))
     token = a.token or re.sub(r'^(characters_|char_)|(_pre)?\.(asset)?bundle$', '', os.path.basename(a.bundle[0])).replace('_', '').lower()
+    set_own_name(token)
     containers = [k for o in env.objects if o.type.name == 'AssetBundle' for k, _ in o.read().m_Container]
     archetypes = sorted({m.group(1) + m.group(2) for c in containers for m in [re.search(r'/cd_(male|fem)(big|med|small)', c)] if m})
     clip, clip_env, mode = choose_clip(env, anim_envs, donors, a.clip, token, archetypes, a.weapon, report)
