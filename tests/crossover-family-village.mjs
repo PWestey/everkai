@@ -9,7 +9,7 @@ globalThis.location={search:'?crossover=1'};
 const T=new Date('2026-09-16T09:00:00').getTime();
 const {fresh,startingSave,act,valid,refusedBy,decode}=await import('../lib/game.mjs');
 const {starterHabits}=await import('../lib/habits.mjs');
-const {EVENTS,costPerStage,completionsEarned,stagePerson}=await import('../lib/events.mjs');
+const {EVENTS,CROSSOVER_EVENTS,costPerStage,completionsEarned,stagePerson}=await import('../lib/events.mjs');
 const {FAMILY,ORIGINAL_FAMILY,familyById,familyCatalogue}=await import('../lib/catalog.mjs');
 const {FATHOM_SLOTS,MAX_TIER,fathomBonus,openSlots,fathomsApply}=await import('../lib/fathoms.mjs');
 const {blessingRecipients,blessingPower,blessingPlan,BLESSINGS}=await import('../lib/blessings.mjs');
@@ -20,13 +20,18 @@ const {PUPIL_TYPES}=await import('../lib/school.mjs');
 const {buildCeiling,ORIGINAL_LIVE_SAVE}=await import('./crossover-ceiling-fixture.mjs');
 const {HABIT_DOMAINS}=await import('../lib/habits.mjs');
 
-const ID='xover_msf_jeangrey',ARC='XoverFamilyFixture',COST=30;
-// A FIXTURE arc, pushed on here rather than shipped: the 33 real crossover arcs are step 8 of
-// docs/crossover-family-plan.md. What is under test is that a `kind:'family'` stage whose member is an
-// ADDITION resolves, hands her over, and leaves a save validEvents accepts.
-EVENTS.push({id:ARC,name:'Family Fixture Arc',source:'test',costPerStage:COST,
- cast:[{id:ID,name:'Jean Grey',kind:'Family',title:'t',label:'Jean Grey'}],
- stages:[{step:1,member:ID,kind:'family'}]});
+const ID='xover_msf_jeangrey';
+// Her REAL shipped arc, looked up rather than named, so a regenerated lib/crossover-arc-data.json
+// moves this fixture with it. This used to be a synthetic arc pushed onto EVENTS in this process only
+// -- which meant the flag-off parent could not resolve it and had to check the rule-12 round trip
+// against a save with the `events` subtree stripped. With the 33 arcs shipped there is nothing
+// synthetic left: the whole save, ledger included, is handed to the parent as it stands.
+const ARC_EVENT=CROSSOVER_EVENTS.find(e=>e.stages.some(st=>st.member===ID));
+if(!ARC_EVENT)throw new Error(`${ID} is in no crossover arc`);
+const ARC=ARC_EVENT.id,COST=ARC_EVENT.costPerStage;
+const STEP=ARC_EVENT.stages.findIndex(st=>st.member===ID)+1;
+if(STEP!==1)throw new Error(`${ID} is step ${STEP} of ${ARC}; this fixture claims stage 1`);
+if(EVENTS.indexOf(ARC_EVENT)<0)throw new Error(`${ARC} is not in EVENTS`);
 
 const out={};
 const log=[];
@@ -86,11 +91,11 @@ out.familyKeys=Object.keys(s.family);
 out.valid=valid(s);
 out.refusedBy=refusedBy(s);
 out.save=JSON.stringify(s);
-// The SAME state without the fixture arc's ledger. The arc is pushed onto EVENTS in this process
-// only, so the flag-off parent cannot resolve it and decode() legitimately quarantines `events`.
-// This second save carries her, her progress and every other subtree, and must round-trip BYTE
-// IDENTICALLY with nothing quarantined -- that is the rule-12 claim, stated without a caveat.
-out.saveNoArc=JSON.stringify((({events,...rest})=>rest)(s));
+out.arc=ARC;
+// NEGATIVE CONTROL for the parent's "nothing was quarantined" claim: the same save whose ledger names
+// an arc nothing ships. The parent must see `events` dropped there and nowhere else -- otherwise
+// "nothing was quarantined" could simply mean decode() never quarantines anything.
+out.saveUnknownArc=JSON.stringify({...s,events:{...s.events,claimed:{XoverMsf99:1}}});
 out.log=log;
 out.errors=log.filter(x=>x.error);
 // A crossover member may NOT hold an apkBlessings record, in either mode, so her ladder stops at 36/24.
@@ -128,11 +133,24 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
  const fellowsOnly=buildCeiling({crossover:true,family:false});
  const c=buildCeiling({crossover:true});
  const trim=r=>({stage0:r.stage0,stage1:r.stage1,stage2:r.stage2,ceiling:r.ceiling,valid:r.valid,refusedBy:r.refusedBy,notes:r.notes});
+ // 133 crossover Fellows are too many to pin one by one, so the distribution is recorded instead: how
+ // many of them a crossover Family member blesses at all, and the flat/percent totals grouped. The two
+ // shipped prototypes keep their own named entry, because they are the rows whose numbers were
+ // measured by hand when this fixture was written.
+ const xoverFellows=Object.keys(c.state.fellows).filter(id=>id.startsWith('xover_'));
+ const blessed=xoverFellows.map(id=>[id,blessingPower(c.state,id)]);
+ const shape=JSON.stringify;
+ const buckets={};
+ for(const [,p] of blessed)buckets[shape(p)]=(buckets[shape(p)]||0)+1;
  out.ceiling={...trim(c),fellowsOnly:trim(fellowsOnly),
   ratio:+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(4),
   original:ORIGINAL_LIVE_SAVE,
   familyBlessingWorth:c.ceiling-fellowsOnly.ceiling,
-  perCrossoverFellowBlessing:Object.fromEntries(Object.keys(c.state.fellows).filter(id=>id.startsWith('xover_')).map(id=>[id,blessingPower(c.state,id)])),
+  crossoverFellowsInRoster:xoverFellows.length,
+  blessedCrossoverFellows:blessed.filter(([,p])=>p.flat>0||p.percent>0).length,
+  blessingBuckets:Object.fromEntries(Object.entries(buckets).map(([k,n])=>[k,n])),
+  perCrossoverFellowBlessing:Object.fromEntries(blessed.filter(([id])=>
+   ['xover_msf_spiderman','xover_swgoh_vaderduelsend'].includes(id))),
   pairings:FAMILY.filter(f=>f.addition).reduce((n,f)=>n+blessingRecipients(c.state,f.id).length,0),
   familyLadderMax:Math.max(...FAMILY.filter(f=>f.addition).map(f=>Math.max(c.state.family[f.id].flatBlessing||0,0))),
  };

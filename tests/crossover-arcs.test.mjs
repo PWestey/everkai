@@ -6,8 +6,8 @@ import {fresh,act,valid,decode,refusedBy,lastQuarantine,startingSave} from '../l
 import {starterHabits} from '../lib/habits.mjs';
 import {EVENTS,ISEKAI_EVENTS,CROSSOVER_EVENTS,COMPLETIONS_PER_STAGE,costPerStage,stageKind,stagePerson,
         validEvents,eventById,visibleEvents,unlockEvent,completionsEarned} from '../lib/events.mjs';
-import {ADDITION_FELLOWS,additionById,isAddition} from '../lib/everkai-additions.mjs';
-import {ORIGINAL_FELLOWS,FAMILY,fellowById} from '../lib/catalog.mjs';
+import {ADDITION_FAMILY,ADDITION_FELLOWS,additionById,additionFamilyById,additionFellowById,additionKind,isAddition} from '../lib/everkai-additions.mjs';
+import {ORIGINAL_FAMILY,ORIGINAL_FELLOWS,FAMILY,familyById,fellowById} from '../lib/catalog.mjs';
 import {recruitOffers,recruitPrice} from '../lib/summon.mjs';
 import {RARITY_N_ANCHORS} from '../scripts/crossover/pick-template.mjs';
 import {buildArcs,arcFileText,TIER_COST,tierOf,STAGES_PER_ARC} from '../scripts/crossover/build-arcs.mjs';
@@ -203,7 +203,12 @@ test('every Fellow stage names a shipped, resolvable character, and knows which 
  assert.equal(stagePerson({member:'xover_msf_nobody',kind:'fellows'}),null);
 });
 
-test('the 30 Family stages are exactly the documented split, and wait on the Family layer',()=>{
+// This test used to end `assert.equal(isAddition(st.member),false,'no Family addition records yet')`
+// with a sibling {todo:'the 30 Family records are a separate slice'} holding the assertion it wanted.
+// Both premises are dead: the Family layer is merged, so every Family stage now resolves. The todo
+// graduated into the body below, and what replaced the "no records yet" line is the claim that slice
+// was actually about -- a Family stage hands its member to s.family and never to s.fellows.
+test('the 30 Family stages are exactly the documented split, and each resolves as Family only',()=>{
  const familyStages=CROSSOVER_EVENTS.flatMap(e=>e.stages.filter(st=>st.kind==='family'));
  assert.equal(familyStages.length,30);
  const fromRoster=roster.characters.filter(c=>c.kind==='family').map(c=>c.id);
@@ -217,12 +222,31 @@ test('the 30 Family stages are exactly the documented split, and wait on the Fam
  // Positive control: a Fellow-side name must NOT be in the Family lists of that document's 30.
  const thirty=doc.slice(doc.indexOf('## The 30'),doc.indexOf('Women who stay Fellows'));
  assert.equal(thirty.includes('Wolverine'),false,'the probe is reading the right list');
- for(const st of familyStages)assert.equal(isAddition(st.member),false,'no Family addition records yet');
-});
-
-test('a Family stage will resolve once the Family additions layer lands',{todo:'docs/crossover-family-split.md: the 30 Family records are a separate slice, built in parallel'},()=>{
- for(const st of CROSSOVER_EVENTS.flatMap(e=>e.stages).filter(st=>st.kind==='family'))
-  assert.ok(stagePerson(st),`${st.member} does not resolve yet`);
+ for(const st of familyStages){
+  assert.equal(stageKind(st),'family',st.member);
+  assert.equal(isAddition(st.member),true,`${st.member} has no addition record`);
+  assert.equal(additionKind(st.member),'family',`${st.member} must be on the Family side`);
+  const person=stagePerson(st);
+  assert.ok(person,`${st.member} does not resolve`);
+  assert.equal(person.id,st.member);
+  // Resolved through familyById, not the flag-gated FAMILY array -- this process has no flag.
+  assert.equal(familyById(st.member),person);
+  assert.equal(FAMILY.some(p=>p.id===st.member),false,'and she is genuinely absent from the flag-off array');
+  assert.equal(ORIGINAL_FAMILY.some(p=>p.id===st.member),false,'never an original');
+  // THE KIND SEPARATION, which is what "a separate layer" bought: she must not resolve as a Fellow,
+  // or a stage handing her over could seat her in s.fellows and validVillage would accept it.
+  assert.equal(additionFellowById(st.member),null,`${st.member} must not resolve as a Fellow`);
+  assert.equal(fellowById(st.member),undefined,`${st.member} must not be in the Fellow index`);
+  assert.ok(additionFamilyById(st.member),`${st.member} must resolve as Family`);
+  assert.equal(ADDITION_FELLOWS.some(f=>f.id===st.member),false);
+  assert.equal(CROSSOVER_EVENTS.flatMap(e=>e.cast).find(c=>c.id===st.member).kind,'Family');
+ }
+ assert.deepEqual(familyStages.map(st=>st.member).sort(alpha),ADDITION_FAMILY.map(f=>f.id).sort(alpha),
+  'the 30 addition records and the 30 Family stages are the same set');
+ // NEGATIVE CONTROL on the resolution probe: an id nothing ships still resolves to nothing, so the
+ // 30 passes above are a fact about the data and not about stagePerson answering anything at all.
+ assert.equal(stagePerson({member:'xover_msf_nobody',kind:'family'}),null);
+ assert.equal(additionKind('xover_msf_nobody'),null);
 });
 
 // ---------------------------------------------------------------------------------------------------
@@ -235,8 +259,21 @@ test('all 163 carry one of the five types, and the additions agree with the rost
   assert.ok(TYPES.includes(c.roleType),`${c.id} roleType ${c.roleType}`);
   assert.ok(['fellows','family'].includes(c.kind),c.id);
   const record=additionById(c.id);
-  if(c.kind!=='fellows'){assert.equal(record,null,`${c.id} is Family and has no Fellow record`);continue}
   assert.ok(record,`${c.id} has no addition record`);
+  // The 30 Family rows have a roster `type` -- it is what section 5.1 assigned by role, and the arcs
+  // and prose are grouped with it -- but a Family CATALOGUE record carries `type:null`, measured: all
+  // 107 original Family do (tests/crossover-family.test.mjs pins that). So "agrees with the roster"
+  // means something different on each side, and both halves are stated here rather than skipped.
+  if(c.kind!=='fellows'){
+   assert.equal(additionFellowById(c.id),null,`${c.id} is Family and must not resolve as a Fellow`);
+   assert.ok(additionFamilyById(c.id),`${c.id} has no Family addition record`);
+   assert.equal(record.type,null,`${c.id} is Family: its catalogue type must be null, not ${record.type}`);
+   assert.ok(TYPES.includes(c.type),`${c.id} still needs a roster type for its arc grouping`);
+   assert.ok(c.character===record.name||c.character.startsWith(record.name),`${c.id}: ${record.name} vs ${c.character}`);
+   assert.equal(ORIGINAL_FAMILY.some(f=>f.id===record.template),true,`${c.id} borrows an original FAMILY template`);
+   continue;
+  }
+  assert.equal(additionFamilyById(c.id),null,`${c.id} is a Fellow and must not resolve as Family`);
   assert.equal(record.type,c.type,`${c.id}: the addition record and the roster disagree on type`);
   // The shipped prototypes carry their own shorter display name ("Darth Vader" for rank 1 Star Wars);
   // every generated row takes the roster's.

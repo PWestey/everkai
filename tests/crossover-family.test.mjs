@@ -18,7 +18,7 @@ import {familyScene} from '../lib/family-scenes.mjs';
 import {stagePerson,stageKind} from '../lib/events.mjs';
 import {dateIds} from '../lib/dating.mjs';
 import {streamed} from '../scripts/offline-manifest.mjs';
-import {installedCrossoverAssets,installedAsset} from '../scripts/crossover/installed-assets.mjs';
+import {installedCrossoverAssets,installedAsset,pendingCrossoverRows} from '../scripts/crossover/installed-assets.mjs';
 import {buildCeiling,ORIGINAL_LIVE_SAVE} from './crossover-ceiling-fixture.mjs';
 import blessingSource from '../lib/original-blessing-data.json' with {type:'json'};
 
@@ -84,7 +84,13 @@ test('30 Family rows, none dropped, none pretending to be an APK character',()=>
  assert.equal(ADDITION_FAMILY.length,30);
  assert.equal(ADDITION_FAMILY.length,data.family.length,'a family row was dropped by the loader');
  assert.equal(ADDITION_FAMILY_ROWS.length,30);
- assert.equal(ADDITION_FELLOWS.length,2,'the Fellow side is untouched by this slice');
+ // Both sides of the one data file, asserted together. This line read `2` while the Fellow layer was
+ // still two prototypes; the arcs slice landed the other 131, so it is 133 now and the Family count
+ // above must be unaffected by that -- which is the only thing this assertion was ever for.
+ assert.equal(ADDITION_FELLOWS.length,133,'the 133 Fellows of docs/crossover-family-split.md');
+ assert.equal(ADDITION_FELLOWS.length,data.fellows.length,'a Fellow row was dropped by the loader');
+ assert.equal(ADDITION_FELLOWS.length+ADDITION_FAMILY.length,163,'the whole crossover roster');
+ assert.equal(new Set([...ADDITION_FELLOWS,...ADDITION_FAMILY].map(f=>f.id)).size,163,'no id on both sides');
  const byGame=id=>additionById(id).source.game;
  assert.equal(ADDITION_FAMILY.filter(f=>byGame(f.id)==='MSF').length,20);
  assert.equal(ADDITION_FAMILY.filter(f=>byGame(f.id)==='SWGOH').length,10);
@@ -147,7 +153,26 @@ test('the installed media matches its recorded bytes and hashes, and streams rat
  assert.ok(bytes<3*1024*1024,`three Family samples add ${bytes} bytes`);
  // Every row not installed is still fully recorded, so nothing is lost and the later install is a copy.
  for(const r of ADDITION_FAMILY_ROWS)assert.ok(/^[0-9a-f]{64}$/.test(r.artSha256)&&/^[0-9a-f]{64}$/.test(r.clip.sha256),r.id);
- assert.equal(installedCrossoverAssets().length,10,'5 stills + 5 clips are measurable today');
+ // RE-MEASURED 2026-09-17, after the arcs slice installed the 131 remaining Fellow stills. This line
+ // read 10 ("5 stills + 5 clips") when the Family layer was the only crossover media in the tree.
+ // Counted from the files on disk, not asserted from the plan:
+ //   136 stills = 133 crossover Fellows + the 3 Family samples
+ //     5 clips  = the 2 Fellow prototypes + the same 3 Family samples
+ // The other 131 Fellow rows carry `clip:null` on purpose -- the 163 idle mp4s are ~98 MB and land
+ // with the shipping step -- so they contribute a still each and no clip.
+ const installedAll=installedCrossoverAssets();
+ assert.equal(installedAll.filter(p=>p.endsWith('.webp')).length,136,'133 Fellow stills + 3 Family samples');
+ assert.equal(installedAll.filter(p=>p.endsWith('.mp4')).length,5,'2 Fellow prototype clips + 3 Family samples');
+ assert.equal(installedAll.length,141);
+ // The 27 Family rows whose media has not landed are the ONLY pending rows: a Fellow row declaring no
+ // clip is not pending, it has nothing to install. NEGATIVE CONTROL for that, since the old predicate
+ // got the right count for the wrong reason -- an absent path must not read as an installed file.
+ assert.equal(pendingCrossoverRows().length,27,'the 27 Family rows still to install');
+ assert.deepEqual(pendingCrossoverRows().map(r=>r.id).sort(),
+  ADDITION_FAMILY_ROWS.filter(r=>!installedAsset(r.art)).map(r=>r.id).sort());
+ assert.equal(installedAsset(''),false,'an absent path is not an installed file');
+ assert.equal(installedAsset('crossover/'),false,'and neither is a directory that happens to exist');
+ assert.equal(installedAsset('crossover/xover_msf_jeangrey.webp'),true,'positive control');
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -172,11 +197,28 @@ test('recipient lists are re-derived from the rank rule, not trusted, and live o
  for(const f of ADDITION_FAMILY)assert.equal(blessingSource.recipients[f.id],undefined,'no crossover key in the APK blessing table');
  assert.equal(Object.values(blessingSource.recipients).reduce((n,a)=>n+a.length,0),593);
  assert.equal(Math.max(...Object.values(blessingSource.recipients).map(a=>a.length)),10,'positive control for "ten is the maximum"');
- // Today's shipped total: 30 Family x 1 reachable Fellow each, because only 2 of the planned 133
- // crossover Fellow rows exist. The rule regrows the lists to 10 each as those rows land, and nothing
- // stored in a save is derived from them (no apkBlessings record is ever written for an addition), so
- // regrowing cannot refuse an older save (CLAUDE.md rule 12).
- assert.equal(data.family.reduce((n,r)=>n+r.recipients.length,0),30);
+ // RE-DERIVED 2026-09-17. This read 30 -- "30 Family x 1 reachable Fellow each" -- because only 2 of
+ // the 133 crossover Fellow rows existed when the rule was written and a list can only name Fellows
+ // that resolve. The arcs slice landed the other 131, so the rule now yields its full ten each and the
+ // shipped lists were regrown by scripts/crossover/build-additions.mjs (300 = 30 x 10, the structural
+ // cap docs/crossover-family-plan.md 2.4 states). Nothing stored in a save is derived from these lists
+ // -- an addition never gains an apkBlessings record -- so regrowing them cannot refuse an older save
+ // (CLAUDE.md rule 12), which is why they were allowed to be short in the first place.
+ assert.equal(data.family.reduce((n,r)=>n+r.recipients.length,0),300,'30 Family x 10 = the structural cap');
+ for(const r of data.family)assert.equal(r.recipients.length,RECIPIENTS_PER_FAMILY,`${r.id} is short`);
+ // What the cap does NOT mean: 300 pairings over 133 Fellows is not full coverage. Measured, because
+ // the difference is what the ceiling below is worth -- 20 MSF Family reach 10 of the 113 MSF Fellows
+ // each and 10 SWGOH Family reach 10 of the 20 SWGOH Fellows, so some Fellows are named by nobody.
+ const named=new Set(data.family.flatMap(r=>r.recipients));
+ assert.equal(named.size,106,'106 of the 133 crossover Fellows are blessed by somebody');
+ assert.equal(data.fellows.length-named.size,27,'27 are named by no crossover Family member');
+ // And `rank` is load-bearing, not decoration: every Fellow row must carry the roster's own rank, or
+ // the rule sorts the whole pool as Infinity and "nearest in rank" silently becomes alphabetical.
+ // This is exactly what the 131 generated rows did before they were re-emitted with their rank.
+ for(const r of data.fellows)assert.ok(Number.isSafeInteger(r.rank)&&r.rank>=1,`${r.id} has no rank`);
+ for(const r of data.family)assert.ok(Number.isSafeInteger(r.rank)&&r.rank>=1,`${r.id} has no rank`);
+ assert.notDeepEqual(familyRecipients(data.family[0],data.fellows.map(({rank,...r})=>r)),data.family[0].recipients,
+  'NEGATIVE CONTROL: strip the ranks and the rule gives a different answer, so it really reads them');
  // THE RULE ITSELF, on a synthetic pool. With one crossover Fellow per franchise in the data today,
  // every arrangement of the rule produces the same one-id list -- so the assertions above cannot see a
  // change to it. This does: twelve MSF Fellows ranked 1..12, a Family member ranked 5, and the rule
@@ -365,23 +407,28 @@ test('flag ON: the whole Family loop works for a crossover member, and the save 
  assert.equal(out.apkOnAdditionRefused,true);
  assert.equal(out.valid,true,out.refusedBy);
  // THE RULE-12 CHECK, in the direction that matters: the flag-off parent loads the flag-on save.
- // `saveNoArc` is the same state minus the fixture arc's ledger, because the arc exists only in the
- // child process -- so on this side it must round-trip byte identically with NOTHING quarantined.
- const s=decode(out.saveNoArc);
+ // This used to have a caveat -- the child pushed a SYNTHETIC arc onto EVENTS, which this process
+ // cannot resolve, so the claim had to be made against a save with the `events` subtree stripped. The
+ // 33 real arcs ship now, so the child claims her OWN shipped arc (XoverMsf03 stage 1) and the whole
+ // save, ledger included, must round-trip byte identically with NOTHING quarantined.
+ assert.equal(out.arc,'XoverMsf03','her shipped arc, not a fixture');
+ const s=decode(out.save);
  assert.deepEqual([...lastQuarantine],[],'nothing may be dropped to make her save load');
  assert.ok(valid(s),refusedBy(s));
- assert.equal(JSON.stringify(s),out.saveNoArc,'byte-identical decode with the flag off');
+ assert.equal(JSON.stringify(s),out.save,'byte-identical decode with the flag off');
  assert.deepEqual(s.family[ONE],out.member,'her progress is intact, byte for byte');
  assert.deepEqual(s.bonds[ONE],{fellow:'hero_15',level:0,original:false});
  assert.equal(s.familyTrips.children[0].caretaker,ONE);
  assert.equal(s.school.pupils[0].caretaker,ONE);
+ assert.deepEqual(s.events,{policyVersion:1,spent:10,claimed:{XoverMsf03:1}},'and the crossover ledger survived');
  assert.ok(!FAMILY.some(f=>f.id===ONE),'and she is still not listed here');
- // With the arc's ledger present, only `events` is quarantined -- a synthetic-arc artefact, and proof
- // that `family`, `bonds`, `familyTrips` and `school` are NOT what decode has to give up.
- const withArc=decode(out.save);
- assert.deepEqual([...lastQuarantine],['events'],'only the unknown fixture arc is dropped');
- assert.deepEqual(withArc.family[ONE],out.member);
- assert.ok(withArc.bonds[ONE]&&withArc.familyTrips&&withArc.school.pupils.length);
+ // NEGATIVE CONTROL for "nothing was quarantined": the SAME save whose ledger names an arc nothing
+ // ships loses `events` and only `events` -- so the clean round trip above is a fact about her data
+ // and not about decode() never quarantining anything.
+ const unknown=decode(out.saveUnknownArc);
+ assert.deepEqual([...lastQuarantine],['events'],'an unknown arc is dropped, and nothing else is');
+ assert.deepEqual(unknown.family[ONE],out.member,'and she survives that too');
+ assert.ok(unknown.bonds[ONE]&&unknown.familyTrips&&unknown.school.pupils.length);
 });
 
 test('flag ON: Fathoms stay at 321.0 with 137 members -- the 321 -> 411 inflation cannot return',()=>{
@@ -405,37 +452,67 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
  assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(3),1.992);
 });
 
-// *** THE MEASURED FLAG-ON VILLAGE-EARNINGS CEILING, 2026-09-17. ***
-// The owner accepted ~4x (docs/crossover-plan.md decision 1) and docs/crossover-family-plan.md 2.2
-// projected ~3.95x. WHAT SHIPS TODAY MEASURES 2.015x, and the reason is not a balance change: that
-// projection assumes 163 crossover characters in the catalogue, and this build has FOUR -- two
-// crossover Fellows and, with this slice, thirty Family. The Fellow rows are steps 4-7 of
-// docs/crossover-plan.md. So this number is the floor of that projection, not a contradiction of it.
+// *** THE MEASURED FLAG-ON VILLAGE-EARNINGS CEILING, RE-MEASURED 2026-09-17 ON ALL 163. ***
+// This test pinned 7,046,651 (2.015x) when the catalogue held FOUR crossover characters -- the 2 Fellow
+// prototypes and these 30 Family. The arcs slice landed the other 131 Fellow rows, so the figure was
+// stale rather than wrong; it is re-measured here on the whole roster, and the recipient lists it
+// depends on were regrown from the rank rule at the same time (30 pairings -> the full 300).
 //
-// Decomposed, all four figures from tests/crossover-ceiling-fixture.mjs so both halves of every
-// difference come from the same code (CLAUDE.md rule 1):
-//   6,965,719  flag off                                      1.993x
-//   6,992,920  + the 2 crossover Fellows, maxed              1.999x   (+27,201)
-//   7,046,651  + the 30 crossover Family, blessings maxed    2.015x   (+53,731)
-// The Family side is worth +53,731 on a maxed roster today against the plan's +1,001,831 upper bound,
-// and the ratio between those is the ratio of reachable recipients: 30 pairings now against the 300
-// the rule yields once the 133 Fellow rows land. Per-recipient this is ALREADY at full strength --
-// Spider-Man receives +3,180,000 flat and +240% from his twenty MSF blessers -- which is why the
-// figure will climb steeply, not linearly, as recipients are added.
-test('flag ON: the village-earnings ceiling is 7,046,651 (2.015x), and the Family side is +53,731',()=>{
+// Decomposed, every figure from tests/crossover-ceiling-fixture.mjs so both halves of every difference
+// come from the same code (CLAUDE.md rule 1). The flag-off row is the positive control asserted above:
+//    6,965,719  flag off                                        1.993x
+//    9,979,855  + the 133 crossover Fellows, maxed              2.854x   (+3,014,136)
+//   10,914,679  + the 30 crossover Family, blessings maxed      3.121x     (+934,824)
+// The owner accepted ~4x (docs/crossover-plan.md decision 1) and docs/crossover-family-plan.md 2.2
+// projected ~3.95x with the Family side worth +1,001,831. The Family side now measures +934,824 --
+// within 7% of that projection, which is the part of the plan this layer was responsible for. The
+// whole-build ratio lands at 3.12x rather than 3.95x because the projection assumed the rarity ladder
+// too: all 163 ship at rarity N borrowing the per-type SSR anchor (docs/crossover-storyline-plan.md
+// 4.6 schedules the rarity work), so this is the floor of that projection, not a contradiction of it.
+//
+// The 300 pairings are the rule's own ceiling, not a shortfall: ten recipients each is the original
+// blessing table's measured maximum, so 30 x 10 is as far as this route can ever reach. Coverage is
+// where it stops short -- 106 of the 133 Fellows are named by somebody and 27 by nobody, because the
+// twenty MSF Family members' ten-wide windows overlap rather than spread.
+test('flag ON: the village-earnings ceiling is 10,914,679 (3.121x), and the Family side is +934,824',()=>{
  const {ceiling}=flagOn();
- assert.equal(ceiling.ceiling,7046651);
- assert.equal(ceiling.ratio,2.0149);
- assert.equal(ceiling.fellowsOnly.ceiling,6992920,'the 2 crossover Fellows alone');
- assert.equal(ceiling.familyBlessingWorth,53731,'what the 30 crossover Family are worth today');
- assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[2296509,4511209,6765313]);
- assert.equal(ceiling.notes.crossoverFamily,30);assert.equal(ceiling.notes.crossoverFellows,2);
+ assert.equal(ceiling.ceiling,10914679);
+ assert.equal(ceiling.ratio,3.1209);
+ assert.equal(ceiling.original,3497276,'the same denominator the flag-off control uses');
+ assert.equal(ceiling.fellowsOnly.ceiling,9979855,'the 133 crossover Fellows alone');
+ assert.equal(ceiling.familyBlessingWorth,934824,'what the 30 crossover Family are worth');
+ assert.equal(ceiling.ceiling-ceiling.fellowsOnly.ceiling,ceiling.familyBlessingWorth,'and it is a subtraction, not a quote');
+ assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[4078171,7498144,10633341]);
+ // The two states differ in the crossover FAMILY and nothing else, or the difference above is not the
+ // Family side's worth (CLAUDE.md rule 1).
+ assert.deepEqual([ceiling.stage0,ceiling.stage1],[ceiling.fellowsOnly.stage0,ceiling.fellowsOnly.stage1],
+  'both states are identical until the blessing stage');
+ assert.equal(ceiling.notes.crossoverFamily,30);assert.equal(ceiling.notes.crossoverFellows,133);
+ assert.equal(ceiling.fellowsOnly.notes.crossoverFamily,undefined,'the isolating state seats no crossover Family');
+ assert.equal(ceiling.fellowsOnly.notes.crossoverFellows,133,'and the same 133 Fellows');
  assert.equal(ceiling.notes.funded,137);assert.equal(ceiling.notes.trained,272,'30 more members x 2 ladders');
- assert.equal(ceiling.pairings,30,'the structural cap is 300; 30 crossover Fellows are reachable today');
+ assert.equal(ceiling.fellowsOnly.notes.funded,107);assert.equal(ceiling.fellowsOnly.notes.trained,212);
+ assert.equal(ceiling.crossoverFellowsInRoster,133,'all 133 are in the roster being measured');
+ assert.equal(ceiling.pairings,300,'30 x 10 -- the structural cap the rule can never exceed');
  assert.equal(ceiling.familyLadderMax,36,'and not one of them passed the classic ladder');
+ assert.equal(ceiling.blessedCrossoverFellows,106,'106 of 133 are blessed; 27 are named by nobody');
+ // The whole distribution, so a change to the rule shows up as a shape change rather than as one
+ // Fellow's number moving. Each bucket is n x (159,000 flat, +12%), the 36/24 cap per blesser.
+ assert.deepEqual(ceiling.blessingBuckets,{
+  '{"flat":0,"percent":0}':27,                  // named by nobody
+  '{"flat":159000,"percent":0.12}':32,          // 1 blesser
+  '{"flat":318000,"percent":0.24}':30,          // 2
+  '{"flat":477000,"percent":0.36}':14,          // 3
+  '{"flat":636000,"percent":0.48}':7,           // 4
+  '{"flat":795000,"percent":0.6}':11,           // 5
+  '{"flat":954000,"percent":0.72}':3,           // 6
+  '{"flat":1113000,"percent":0.84}':7,          // 7
+  '{"flat":1272000,"percent":0.96}':2,          // 8 -- the most any Fellow draws
+ });
+ assert.equal(Object.values(ceiling.blessingBuckets).reduce((a,b)=>a+b,0),133,'every Fellow is in exactly one bucket');
  assert.deepEqual(ceiling.perCrossoverFellowBlessing,{
-  xover_msf_spiderman:{flat:3180000,percent:2.4000000000000012},     // 20 MSF blessers x the 36/24 cap
-  xover_swgoh_vaderduelsend:{flat:1590000,percent:1.2000000000000002}, // 10 SWGOH blessers
+  xover_msf_spiderman:{flat:1272000,percent:0.96},        // 8 MSF blessers x the 36/24 cap
+  xover_swgoh_vaderduelsend:{flat:636000,percent:0.48},   // 4 SWGOH blessers
  });
  assert.ok(ceiling.valid,ceiling.refusedBy);
  assert.ok(ceiling.fellowsOnly.valid,ceiling.fellowsOnly.refusedBy);

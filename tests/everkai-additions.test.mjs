@@ -13,6 +13,7 @@ import {characterSkills} from '../lib/character-skills.mjs';
 import {stellaRule} from '../lib/stella.mjs';
 import {streamed} from '../scripts/offline-manifest.mjs';
 import {templateCandidates} from '../scripts/crossover/pick-template.mjs';
+import {buildRows,buildFamilyRows,dataFileText} from '../scripts/crossover/build-additions.mjs';
 import {decode,startingSave,valid} from '../lib/game.mjs';
 import progression from '../lib/original-progression-data.json' with {type:'json'};
 import talentSource from '../lib/default-talent-source.json' with {type:'json'};
@@ -109,8 +110,35 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
  assert.ok(bytes<16*1024*1024,`${data.fellows.length} additions carry ${bytes} bytes of media`);
 });
 
+const flagOn=(()=>{let v;return ()=>v??=JSON.parse(execFileSync(process.execPath,
+ [new URL('./crossover-flag-village.mjs',import.meta.url).pathname],{encoding:'utf8',maxBuffer:1<<28}))})();
+
+// THE FLAG-ON CENSUS over all 163. Measured in the child process, because the catalogue reads the flag
+// once at import and this one has no flag. Everything here was previously checked for the two
+// prototypes only; with 163 rows in the data it is the whole roster or nothing.
+test('flag ON: all 163 are listed, each in exactly one arc, and the counter sells none of them',()=>{
+ const {census:c}=flagOn();
+ assert.equal(c.rosterSize,163);
+ assert.deepEqual(c.fellows,{roster:133,listed:133,same:true,sameOrder:true},'133 crossover Fellows, in the roster\'s rank order');
+ assert.deepEqual(c.family,{roster:30,listed:30,same:true,sameOrder:false},'30 crossover Family; their rows are grouped by franchise, not ranked');
+ assert.deepEqual(c.originals,{fellows:159,family:107},'and the originals are untouched');
+ assert.deepEqual(c.totals,{fellows:292,family:137},'159+133 and 107+30');
+ // THE UNLOCK GATE, over the whole roster rather than over the two ids this village recruited.
+ assert.deepEqual(c.offeredAdditions,[],'the counter offers none of the 163');
+ assert.deepEqual(c.pricedAdditions,[],'and prices none of them');
+ assert.ok(c.offerCount>0,`positive control: the counter offered ${c.offerCount} originals in the same state`);
+ // ARCS: 163 stages, one per character, and the stage's `kind` is the roster's own split.
+ assert.equal(c.stageCount,163);
+ assert.deepEqual(c.inNoArc,[]);
+ assert.deepEqual(c.inTwoArcs,[]);
+ assert.deepEqual(c.kindDisagrees,[]);
+ // TYPES, flag on: a Fellow's catalogue type equals the roster's; the 30 Family carry null, as all 107
+ // original Family do (tests/crossover-arcs.test.mjs states both halves of that).
+ assert.deepEqual(c.typeDisagrees,[]);
+});
+
 test('flag on: listed, unlocked by its arc, trained and saved; flag off: that save still loads',()=>{
- const out=JSON.parse(execFileSync(process.execPath,[new URL('./crossover-flag-village.mjs',import.meta.url).pathname],{encoding:'utf8'}));
+ const out=flagOn();
  assert.deepEqual(out.listed,SHIPPED,'both are in FELLOWS with the flag on');
  // THE UNLOCK GATE. The counter offers neither, prices neither, and refuses each by pointing at the
  // arc -- so "playing its storyline" is the only route in, which is what the owner asked for.
@@ -166,9 +194,33 @@ test('the additions data file is only what the loader reads',()=>{
  assert.equal(JSON.parse(text).flag,'crossover');
  assert.ok(statSync(asset('crossover')).isDirectory());
  const KEYS=['art','artBytes','artSha256','clip','description','id','name','occupation','race','rank','rarity','source','template','title','type'];
- // `rank` is the owner's rank within its franchise (scratchpad selected-roster.json). It is in the
- // repo because the crossover Family blessing-recipient rule is derived FROM it, so a test can
- // re-derive the shipped lists instead of trusting them (tests/crossover-family.test.mjs).
+ // `rank` is the owner's rank within its franchise (scratchpad selected-roster.json, mirrored into
+ // lib/crossover-roster-data.json). It is in the repo because the crossover Family blessing-recipient
+ // rule is derived FROM it, so a test can re-derive the shipped lists instead of trusting them
+ // (tests/crossover-family.test.mjs). The 131 rows generated with the arcs slice arrived WITHOUT it,
+ // which silently turned "nearest in rank" into "alphabetical" for every recipient list; they were
+ // re-emitted with their ranks, and the generator check below is what stops that recurring.
  for(const r of data.fellows)assert.deepEqual(Object.keys(r).sort(),KEYS);
  for(const r of data.family||[])assert.deepEqual(Object.keys(r).sort(),[...KEYS,'recipients'].sort());
+});
+
+test('the whole data file is what scripts/crossover/build-additions.mjs emits, both arrays',()=>{
+ // The two arrays are COUPLED: familyRecipients() derives a Family member's recipients from the Fellow
+ // rows, so a Fellow row landing changes the Family half of the file. They were written by two agents
+ // in parallel and drifted exactly there -- 133 Fellow rows against recipient lists still derived from
+ // 2 of them. Re-deriving the whole file here, the way tests/crossover-arcs.test.mjs re-derives the
+ // arcs, is what makes that drift a red test instead of a stale number.
+ const text=readFileSync(new URL('../lib/everkai-additions-data.json',import.meta.url),'utf8');
+ const rows=buildRows();
+ const familyRows=buildFamilyRows(rows);
+ assert.equal(rows.length,133);assert.equal(familyRows.length,30);
+ assert.equal(text,dataFileText(rows,familyRows),'run scripts/crossover/build-additions.mjs');
+ // NEGATIVE CONTROL: drop one Fellow row and the Family half must move with it, or "coupled" is a
+ // claim about nothing. Wolverine is rank 2 Marvel, so he is inside several ten-wide windows.
+ const short=rows.filter(r=>r.id!=='xover_msf_wolverine');
+ const regrown=buildFamilyRows(short);
+ assert.notDeepEqual(regrown.map(r=>r.recipients),familyRows.map(r=>r.recipients),
+  'removing a Fellow row left every recipient list unchanged');
+ assert.equal(regrown.some(r=>r.recipients.includes('xover_msf_wolverine')),false,'and he is gone from them');
+ assert.equal(familyRows.some(r=>r.recipients.includes('xover_msf_wolverine')),true,'positive control: he was in them');
 });
