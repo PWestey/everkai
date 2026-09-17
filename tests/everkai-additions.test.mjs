@@ -7,8 +7,10 @@ import {ADDITION_FELLOWS,additionById,additionClip,crossoverEnabled,sourceId,isA
 import {FELLOWS,ORIGINAL_FELLOWS,fellowById,fellowCatalogue} from '../lib/catalog.mjs';
 import {originalCharacter} from '../lib/original-catalog.mjs';
 import {recruitOffers,recruitPrice,SUMMON_COSTS} from '../lib/summon.mjs';
-import {talentRule} from '../lib/talents.mjs';
+import {talentRule,crossoverTalentRule} from '../lib/talents.mjs';
 import {insightRule} from '../lib/insight.mjs';
+import {crossoverInsightRule} from '../lib/crossover-abilities.mjs';
+import {hasHeroRow} from '../lib/original-progression.mjs';
 import {characterSkills} from '../lib/character-skills.mjs';
 import {stellaRule} from '../lib/stella.mjs';
 import {streamed} from '../scripts/offline-manifest.mjs';
@@ -59,27 +61,42 @@ test('every addition is labelled as one and is not pretending to be an original 
  }
 });
 
-test('each addition borrows every per-id table from an original Fellow of the same rarity and type',()=>{
+test('each addition DERIVES every per-id table from its own rarity and type -- no template is read',()=>{
+ // This test used to document the PLACEHOLDER: every per-id original table is keyed by `hero_*` ids,
+ // so an addition borrowed its `template`'s rows through sourceId(). docs/crossover-plan.md order of
+ // work 5 removed that, because borrowing was a dominance bug -- a rarity-N crossover Fellow read an
+ // SSR anchor's base-Aptitude row (70-120 against an N original's 20) and its +150% appoint percent
+ // (against +80%). What replaces it is an 8-row rarity ladder plus one archetype word per character
+ // (lib/crossover-abilities.mjs). `template` survives as the art/rendering lineage it always was.
  for(const f of ADDITION_FELLOWS){
   const t=ORIGINAL_FELLOWS.find(x=>x.id===f.template);
   assert.ok(t,`${f.id} template ${f.template} is an original Fellow`);
-  // Rarity is deliberately NOT matched to the template's: every new addition is rarity N, and
-  // templateCandidates('N',type) is pinned to the per-type SSR anchor because rarity N has no
-  // template of its own (scripts/crossover/pick-template.mjs). The TYPE must still match, or
-  // lib/insight.mjs:9 silently drops Insight for the Fellow.
-  assert.equal(t.type,f.type,`${f.id} type must equal its template's`);
+  assert.equal(t.type,f.type,`${f.id} type still matches its art lineage's`);
   assert.equal(f.rarity,'N','every crossover Fellow ships at rarity N and climbs by DISPLAY only');
   assert.equal(templateCandidates(f.rarity,f.type)[0].id,f.template,'the documented pick rule chose it');
-  assert.equal(sourceId(f.id),f.template);
+  assert.equal(sourceId(f.id),f.template,'and sourceId still reports it, for the art lineage');
   assert.ok(SUMMON_COSTS[f.rarity],`${f.rarity} has a counter price`);
   // ...which the counter nonetheless refuses to quote: an addition joins through its storyline arc.
   assert.equal(recruitPrice(f.id),null,`${f.id} must not be for sale`);
-  assert.equal(talentRule(f.id),talentRule(f.template));assert.ok(talentRule(f.id));
-  assert.equal(insightRule(f.id),insightRule(f.template));assert.ok(insightRule(f.id));
-  assert.ok(progression.heroes[sourceId(f.id)]&&talentSource.heroes[sourceId(f.id)]);
+  // The talent tier is the fixed crossover rule, which happens to be the tier its lineage carries --
+  // so no save's talentCap moves -- and the Insight rule is the one for its OWN type.
+  assert.equal(talentRule(f.id),crossoverTalentRule());
+  assert.equal(talentRule(f.id).name,'Supreme Talent');
+  assert.equal(insightRule(f.id),crossoverInsightRule(f.id));
+  assert.equal(insightRule(f.id).type,f.type,`${f.id} Insight follows its own type`);
+  // No row in either original table is needed, or added: the ladder answers instead. NEGATIVE
+  // CONTROL for that claim -- the raw tables must NOT have grown a crossover key.
+  assert.equal(progression.heroes[f.id],undefined,`${f.id} must not be in the APK growth table`);
+  assert.equal(talentSource.heroes[f.id],undefined,`${f.id} must not be in the default talent source`);
+  assert.equal(hasHeroRow(startingSave(0),f.id),true,`${f.id} still has a growth row to climb`);
+  // The guide is generated, two rows, both trainable.
   const guide=characterSkills(f.id);
   assert.equal(guide.name,f.name);
-  assert.ok(guide.skills.length>0&&guide.skills.every(n=>!n.id.startsWith('Hero_Clothes_Talent_')),'no template costume talents');
+  assert.equal(guide.generated,true);
+  assert.equal(guide.skills.length,2,`${f.id} guide is the talent node and the Insight node`);
+  assert.equal(guide.skills[0].id,`Hero_Talent_Base_${talentRule(f.id).amount}`);
+  assert.equal(guide.skills[1].id,insightRule(f.id).skillId);
+  assert.ok(guide.skills.every(n=>!n.id.startsWith('Hero_Clothes_Talent_')),'no costume talents');
   // Character-specific Stella stays excluded -- there is no Angie-shaped profile for a crossover
   // Fellow. What it has instead is the ONE shared shard track (lib/crossover-stella.mjs): the same
   // 40 rows, the same 4,500 sink, and percent 0 on every row, so its type can never multiply its power.
@@ -88,6 +105,10 @@ test('each addition borrows every per-id table from an original Fellow of the sa
   assert.equal(stellaRule(f.id).type,null);
  }
  assert.equal(sourceId('hero_103'),'hero_103','originals map to themselves');
+ // And the originals' own resolution is untouched: a template original still reads its OWN guide
+ // profile, not a generated one. POSITIVE CONTROL that the generated branch is narrow.
+ assert.equal(characterSkills('hero_103').generated,undefined);
+ assert.ok(characterSkills('hero_103').skills.length>2);
 });
 
 test('art and idle clips exist, match their recorded bytes and hashes, and stream',()=>{

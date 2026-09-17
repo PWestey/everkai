@@ -91,11 +91,58 @@ one shared crossover shard pool rather than 163 Stella profiles; repo stays **pu
    `visibleEvents()` and `eventAction` are what the flag gates, and a flagged arc is refused with the
    same message as an arc that does not exist. **Not built: the 33 prologue scenes of §4.2** — deferred
    with step 6, because they move two pinned storybook counts and the gate does not depend on them.
-5. **Abilities.** The 7-row rarity ladder plus one archetype word per character; names derived from each
+5. **Abilities.** The rarity ladder plus one archetype word per character; names derived from each
    row's `occupation`, no new prose. Crossover power must stay at or below an equivalent original at the
    same investment — the ratio is arithmetic, not argument.
+   **SHIPPED 2026-09-17** in `lib/crossover-abilities.mjs` plus two generated data files. The ladder is
+   **8 badges, not 7** (LR exists, because `CROSSOVER_RARITY_TIERS` reaches it at quality 14) and every
+   magnitude is the measured MINIMUM for its badge across the originals whose rarity chain STARTS there:
+   base Aptitude 20/35/50/70/100/100/200/200 and appoint slot A 30/50/70/100/100/150/200/200, with slots
+   B and C the universal 20/30. `scripts/crossover/build-abilities.mjs` re-derives all of it from
+   `original-progression-data.json` + `operation-data.json` and **refuses to write unless it reproduces
+   docs/crossover-abilities-plan.md 1.5/1.6**, so the table is regenerable rather than trusted; `--check`
+   compares bytes. The ladder is read at the **climbed badge**, which is what makes the climb worth
+   something: one full climb moves a crossover Fellow 18,500 → 4,107,500 Power (**222x**, where the
+   badge-only version was 32.3x) and its operator slot +80% → +250%.
+   **The one column that does not climb is the talent tier**, and that is a save decision, not a balance
+   one: `validTalentLedger` re-derives every stored receipt from the CURRENT rule, so a tier that moved
+   would refuse a save that had already trained a talent, and `fellows` is not quarantinable — negative-
+   controlled, and it is the assertion that fails if the rule is lowered. It costs nothing to hold it
+   fixed: every tier is 1 Skill Pearl per Aptitude point and `aptitudeTrainingPlan` sells points directly
+   at the same 1:1 rate to the same 1,000 cap, so the tier decides clicks, never the price.
+   **NON-DOMINANCE, as arithmetic with the shipped `bondedPower`:** at every one of the 14 tiers and at
+   three investment levels, a crossover Fellow is `<=` EVERY original wearing the same badge. At N and at
+   UR*/LR the ratio is exactly **1.000** (those badges have one base-Aptitude value across all their
+   originals, so the minimum IS every original's value); at SSR, the widest badge (70–110), a maxed
+   crossover is **0.986** of the strongest SSR original. Earnings likewise: its level-200 appoint total
+   equals the weakest original of its badge in the building that original is built for. The one place it
+   is ahead is named and measured — 21 of 175 original records take the single-BUILDING form of slot B
+   and a crossover takes the TYPE form (the modal shape, 154 of 175), so in the other buildings of that
+   type it brings 20 points more. **Guide rows: TWO** (decision D3, the cheaper option), both trainable,
+   with the flavour name in a sibling field because `isPlayableTalent` compares the node's `name` against
+   its rule. `template` survives as the art lineage only (D4): no progression path reads it.
 6. **The equivalent bonus track (decision 4).** Design it against the ceiling from decision 1, measure
    the maxed ratio against a maxed original, and pin both numbers.
+   **SHIPPED 2026-09-17, and it is the shard track of step 8** — that is what the measurement decided.
+   Two changes had to land together, with opposite signs on the ceiling:
+   - `stellaBonus` summed Stella percent by TYPE and a crossover Fellow had no entry of its own, so its
+     type multiplied its whole power (Inspiring +184%, Diligent/Informed +122%, Brave/Unfettered +0%) —
+     an Inspiring crossover Fellow was worth **2.84x** a Brave one on identical records, for free.
+     Additions now read their own row only. Ceiling 10,872,947 → **9,311,898** (3.109x → 2.663x).
+   - The shared shard ladder then adds exactly 133 × 35,300 = **+4,694,900**, because `applyStella` adds
+     the own flat after every multiplier. Ceiling **14,006,798 = 4.005x**, against the accepted ~4x.
+   **Maxed crossover vs maxed original, both halves from the same `bondedPower` on the same finished
+   state:** 54,273,639 for every type, against a maxed ORIGINAL of the roster's middle type
+   (Diligent/Informed) at 54,049,915 — **1.004x**; 1.405x the median original of any type; 0.377x Angie,
+   the strongest there is. docs/crossover-abilities-plan.md 1.8 measured ~0.33x before this, so the gap
+   is closed rather than overshot, and type is no longer a power term at all (all five types now max at
+   one number).
+   **A further earned percent ladder was designed, built and priced against the same fixture, then
+   DROPPED** (CLAUDE.md rule 7: dropped with the reason). The 133 are worth 7,041,079 conversion, so a
+   uniform own-power +1% costs +70,411. Angie's shortest row is +5%: that alone is 4.106x and 1.054x.
+   Her full +122% is 6.461x and 2.27x. Nothing fits inside the accepted ceiling or the non-dominance
+   claim, so the price list is recorded in `tests/crossover-family.test.mjs` for the owner to act on in
+   one sentence instead.
 7. **Types (decision 3).** Assign by role, then spread the owner's top picks; report which characters
    moved and what it does to earnings. **SHIPPED 2026-09-17.** All 163 carry a `roleType` and a `type`
    in `lib/crossover-roster-data.json`; the 133 Fellow rows carry the same `type` in
@@ -125,6 +172,19 @@ one shared crossover shard pool rather than 163 Stella profiles; repo stays **pu
 8. **Shared Stella shards.** One 40-level curve, flat bonuses only, `percent: 0` on every row, minted at
    the existing 500/day × habit multiplier so the faucet does not grow with roster size. Extend the
    helper's Stella chore to it.
+   **SHIPPED 2026-09-17** in `lib/crossover-stella.mjs`: one `Item_Owner_XoverShard` pool, one profile
+   whose `cost` and `flat` columns are READ out of Angie's shipped rows at load (not copied, so they
+   cannot drift) with `percent: 0` on all 40, and the Elise `{0,0,0}` free activation. No new data file
+   and the four original profiles are untouched — `STELLA_PROFILES` is still exactly those four, because
+   a loop that reads a profile's id as its owner's id would otherwise try to activate a Fellow called
+   'crossover'. Measured: **1 crossover Fellow and 133 mint the same shards per day** (the mint pays per
+   profile, which is why 163 profiles was the trap); 4,500 a Fellow → **4.5 days** at the top habit
+   multiplier, 9 at none; **733,500 for all 163**, i.e. 733.5 days from one pool, and under the unmoved
+   1e6 per-item stock cap. `lib/helper.mjs` runStella now reaches it (it would otherwise have skipped
+   every crossover Fellow while claiming to run Stella) and keeps its contract test. Only widening:
+   `validStella`'s history bound 144 → 5,597 (41 rows × 133 owners). The crossover rows are also
+   **repriced against their own ladder**, which the four legacy ladders deliberately are not — this
+   track has never shipped, so there is no older save to break.
 9. **Backgrounds.** Re-render each approved character into a location from the corpus (Vader in the
    Emperor's throne room, Wolverine at the X-Mansion); the owner swaps any pairing he dislikes.
 10. **Ship behind `?crossover=1`**, then switch on when the owner is happy.

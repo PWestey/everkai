@@ -321,22 +321,40 @@ test('all 163 carry one of the five types, and the additions agree with the rost
 
 test('what the type moves are worth, measured through enterpriseBreakdown',()=>{
  // Type changes WHICH buildings a Fellow can ever stand in, and the families are not equal. Measured
- // here rather than quoted: a level-200 crossover Fellow borrows its type's anchor operation row
- // (+150%), and the value of its slot is the difference enterpriseBreakdown reports for that type's
- // best-paying building at the original's top workforce of 26,000.
+ // here rather than quoted: the value of a slot is the difference enterpriseBreakdown reports for that
+ // type's best-paying building at the original's top workforce of 26,000.
+ //
+ // RE-MEASURED 2026-09-17 with the abilities slice. A crossover Fellow's appoint percent is now its
+ // OWN rarity ladder's at the badge it has climbed to (lib/crossover-abilities.mjs), not its template
+ // original's fixed +150%: +80% at badge N where every character starts, +250% at LR where the climb
+ // ends. So the slot is worth less at the start and more at the end, and BOTH tiers are measured --
+ // one number would have hidden which end moved. The conclusion is unchanged either way, because
+ // every type's percent is the same at a given badge: the spread is scale-invariant at +12.7%.
  const WORKERS=26000;
  const best=type=>BUSINESSES.filter(b=>b.type===type).sort((a,b)=>b.employeeRate-a.employeeRate)[0];
- const slotValue=type=>{
+ /** The slot's gold/s for one type, with the operator at quality `q` -- i.e. wearing badge
+  *  CROSSOVER_RARITY_TIERS[q-1]. Quality is set directly: this pins the ARITHMETIC of a climbed
+  *  Fellow's slot, and the climb itself is driven through act() in tests/crossover-rarity.test.mjs. */
+ const slotValue=(type,q,want)=>{
   const who=roster.characters.find(c=>c.type===type&&c.kind==='fellows');
-  const b=best(type),base={...fresh(T),fellows:{...fresh(T).fellows,[who.id]:newFellow(200)}};
-  assert.equal(fellowOperation(base,who.id,b).percent,150,`${type} anchor percent`);
+  const b=best(type);let base={...fresh(T),fellows:{...fresh(T).fellows,[who.id]:newFellow(200)}};
+  if(q>1)base={...base,originalProgression:{policyVersion:1,claims:0,quality:{[who.id]:q},stock:{},receipts:[]},
+   trainingCosts:{policyVersion:2,baselineLevels:{},receipts:[]}};
+  assert.equal(fellowOperation(base,who.id,b).percent,want,`${type} at quality ${q}`);
   return enterpriseBreakdown({...base,enterprises:{[b.id]:{employees:WORKERS,fellows:[who.id]}}},b.id).total
        - enterpriseBreakdown({...base,enterprises:{[b.id]:{employees:WORKERS,fellows:[]}}},b.id).total;
  };
- const value=Object.fromEntries(TYPES.map(t=>[t,Math.round(slotValue(t))]));
+ const at=(q,want)=>Object.fromEntries(TYPES.map(t=>[t,Math.round(slotValue(t,q,want))]));
  assert.deepEqual(Object.fromEntries(TYPES.map(t=>[t,best(t).employeeRate])),
   {Brave:40,Diligent:80,Informed:50,Inspiring:70,Unfettered:60},'the per-worker rates the families differ by');
- assert.deepEqual(value,{Brave:1560006,Diligent:3120006,Informed:1950006,Inspiring:2730006,Unfettered:2340006});
+ // Badge N, quality 1 -- what a newly unlocked crossover Fellow's slot is worth. It was 1,560,006 to
+ // 3,120,006 when the Fellow borrowed the SSR anchor's +150%.
+ const fresh1=at(1,80);
+ assert.deepEqual(fresh1,{Brave:832003,Diligent:1664003,Informed:1040003,Inspiring:1456003,Unfettered:1248003});
+ // Badge LR, quality 14 -- the top of the climb, and now the higher end of the same spread.
+ const top=at(14,250);
+ assert.deepEqual(top,{Brave:2601303,Diligent:5201303,Informed:3251303,Inspiring:4551303,Unfettered:3901303});
+ for(const type of TYPES)assert.ok(top[type]>fresh1[type],`${type}: the climb must raise the slot`);
  // The owner's four named picks were Vader 1, Wolverine 2, Hulk 5, Thor 6 -- all Brave, the weakest.
  // Three of the four moved. VADER'S TYPE WAS RE-DECIDED WITH THE RARITY SLICE, once retemplating him to
  // hero_101 removed the reason he was frozen (docs/crossover-storyline-plan.md 4.6), and the answer is
@@ -346,16 +364,19 @@ test('what the type moves are worth, measured through enterpriseBreakdown',()=>{
  //    Unfettered 3, Diligent 4, Informed 4, Inspiring 6), and moving him to Inspiring would leave Brave
  //    with TWO -- below the >=3 share every type is pinned to -- so it makes the spread less even;
  //  - what moving him WOULD be worth is measured here so the owner can call for it in one sentence:
- //    Inspiring raises his operator slot from +1,560,006 to +2,730,006 gold/s (+75%) and, because
- //    stellaBonus sums Stella percent by TYPE, his maxed power from 18,973,639 to 53,885,134
- //    (tests/crossover-family.test.mjs pins both). That is the trade; the spread guard is why it was
- //    not taken unasked.
- const worth=key=>roster.characters.filter(c=>c.rank<=10).reduce((n,c)=>n+value[c[key]],0);
- assert.equal(worth('roleType'),42900120);
- assert.equal(worth('type'),48360120,'+12.7% across the top twenty by rank');
- assert.ok(worth('type')>worth('roleType'),'the spread is worth more, not just more even');
+ //    Inspiring raises his operator slot from +832,003 to +1,456,003 gold/s at badge N (+75%), and from
+ //    +2,601,303 to +4,551,303 at badge LR. It is worth NOTHING in power any more: `stellaBonus` used to
+ //    sum Stella percent by TYPE, which made an Inspiring crossover Fellow worth 2.84x a Brave one, and
+ //    that was fixed on 2026-09-17 (tests/crossover-family.test.mjs pins every type at one number now).
+ //    So the whole trade is the operator slot, which is what type was chosen for in the first place.
+ const worth=(key,value)=>roster.characters.filter(c=>c.rank<=10).reduce((n,c)=>n+value[c[key]],0);
+ assert.equal(worth('roleType',fresh1),22880060);
+ assert.equal(worth('type',fresh1),25792060,'+12.7% across the top twenty by rank');
+ assert.equal(+((worth('type',fresh1)/worth('roleType',fresh1)-1)*100).toFixed(1),12.7);
+ assert.equal(+((worth('type',top)/worth('roleType',top)-1)*100).toFixed(1),12.7,'the same spread at the top of the climb');
+ assert.ok(worth('type',fresh1)>worth('roleType',fresh1),'the spread is worth more, not just more even');
  assert.equal(additionById('xover_swgoh_vaderduelsend').type,'Brave','rank 1 Star Wars stays Brave');
- assert.equal(value.Inspiring-value.Brave,1170000,'what the alternative is worth in slot value');
+ assert.equal(fresh1.Inspiring-fresh1.Brave,624000,'what the alternative is worth in slot value at badge N');
 });
 
 test('the crossover prose is short, original, and carries none of the rewritten wording',()=>{

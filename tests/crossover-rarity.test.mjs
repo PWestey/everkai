@@ -5,7 +5,8 @@ import {CROSSOVER_RARITY_TIERS,CROSSOVER_RARITY_TOP,crossoverRarity,displayRarit
 import {rarityIcon,petCardIcon,petFrameIcon,cardRarity,RARITY_ICON_ALIAS} from '../lib/ui-sprites.mjs';
 import {FELLOWS,FAMILY,ORIGINAL_FELLOWS,ORIGINAL_FAMILY,fellowById} from '../lib/catalog.mjs';
 import {ADDITION_FELLOWS,ADDITION_FAMILY,additionById,sourceId} from '../lib/everkai-additions.mjs';
-import {qualityRule,sourceQuality,sourceCap,DAILY_BREACH,SOURCE_MATERIALS} from '../lib/original-progression.mjs';
+import {qualityRule,sourceQuality,sourceCap,DAILY_BREACH,SOURCE_MATERIALS,heroRow} from '../lib/original-progression.mjs';
+import {crossoverLadder} from '../lib/crossover-abilities.mjs';
 import {recruitRarity,recruitOffers} from '../lib/summon.mjs';
 import {fishingBonuses} from '../lib/fishing.mjs';
 import {bondedPower,newFellow} from '../lib/adventure.mjs';
@@ -184,15 +185,28 @@ test('what one full climb shows and costs, measured end to end',()=>{
  let exp=0;for(let l=1;l<=749;l++)exp+=progression.levels[l].cost;
  assert.equal(exp,5851457490,'plus the Fellow EXP to level 750');
  // WORTH: both halves from Everkai's own bondedPower on the same state (CLAUDE.md rule 1).
+ // RE-MEASURED 2026-09-17 with the abilities slice (docs/crossover-plan.md order of work 5). It used
+ // to be 64,750 -> 2,092,500 (32.3x) and it is 18,500 -> 4,107,500 (222.0x) now, because the badge
+ // stopped being decoration: the base-Aptitude row is read from the rarity LADDER at the badge the
+ // character has climbed to (lib/crossover-abilities.mjs) instead of borrowed from a template original
+ // that never moved. Both ends changed for the same reason. The bottom fell because a rarity-N Fellow
+ // now reads the N row, 20, where it used to read its SSR anchor's 70 -- which is the dominance the
+ // slice removed. The top rose because quality 14 shows the LR badge and reads 200, the measured UR*
+ // row. So the climb is now the single largest lever a crossover Fellow has, which is what "all start
+ // at N and can be upgraded to the top" is supposed to mean.
  const low=bondedPower(at(VADER,1),VADER),high=bondedPower(at(VADER,14),VADER);
- assert.deepEqual([low,high],[64750,2092500]);
- assert.equal(+(high/low).toFixed(1),32.3,'a 32.3x power multiplier on one character');
- // And it is the TEMPLATE's growth row it climbs on: hero_101 at 70, not hero_113 at 120. Retemplating
- // Vader with this slice cost him exactly that difference, which is why it is stated here.
+ assert.deepEqual([low,high],[18500,4107500]);
+ assert.equal(+(high/low).toFixed(1),222,'a 222x power multiplier on one character');
+ // The ladder rungs it climbs, spelled out, against the originals they were measured from.
+ assert.deepEqual([1,5,9,13,14].map(q=>crossoverLadder(q).baseAptitude),[20,50,100,200,200]);
+ assert.deepEqual([1,5,9,13,14].map(q=>CROSSOVER_RARITY_TIERS[q-1]),['N','SR','SSR+','UR*','LR']);
+ // `template` no longer feeds ANY of this -- it survives only as the art/rendering lineage it always
+ // documented (docs/crossover-abilities-plan.md 8, decision D4). Positive control that it is still
+ // recorded, and the measurement that made retemplating Vader look like a loss is now moot: his row
+ // is the ladder's, not hero_101's.
  assert.equal(sourceId(VADER),'hero_101');
  assert.deepEqual([progression.heroes.hero_101,progression.heroes.hero_113],[70,120]);
- const coef=progression.levels[750].coefficient;
- assert.equal(coef*(10+(120-10)+65)-high,775000,'hero_113 would have maxed 775,000 higher (-27.0%)');
+ assert.equal(heroRow(at(VADER,14),VADER),200,'neither 70 nor 120: the UR*/LR rung of its own ladder');
 });
 
 test('the climb is reachable: quality 1 -> 2 through act(), and the badge follows',()=>{

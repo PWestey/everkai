@@ -31,30 +31,37 @@ const own=(s,id,level=1)=>({...s,fellows:{...s.fellows,[id]:newFellow(level)}});
 // 1. lib/operations.mjs never called sourceId()
 // ---------------------------------------------------------------------------------------------------
 
-test('a crossover Fellow operates at its template percent, and no original row moved',()=>{
- // Measured before the fix: fellowOperation(s,'xover_msf_spiderman',Building_501) -> {known:false,
+test('a crossover Fellow operates at its OWN rarity ladder, and no original row moved',()=>{
+ // Measured before step 1: fellowOperation(s,'xover_msf_spiderman',Building_501) -> {known:false,
  // percent:0}, so the Fellow occupied an operator slot and contributed nothing where the median
- // original contributes +150%. Assigning one was worse than leaving the slot empty.
+ // original contributes +150%. Assigning one was worse than leaving the slot empty. Step 1 fixed that
+ // by borrowing the template's row through sourceId(); the abilities slice (docs/crossover-plan.md
+ // order of work 5) replaced the borrowed row with the character's OWN rarity ladder, because
+ // borrowing handed a rarity-N Fellow the SSR anchor's +150% where an N original earns +80%.
  const resort=definition('Building_501');       // Unfettered, Spider-Man's own type
  const archery=definition('Building_801');      // Brave, Vader's own type
+ // The ladder's shape at badge N, which is where every crossover Fellow starts: slot A 30 at Lv.1,
+ // +20 at Lv.50, +30 at Lv.200 -- every column the measured MINIMUM for rarity N, so this is exact
+ // parity with the five original N Fellows rather than a nerf (tests/crossover-abilities.test.mjs
+ // proves the non-dominance for all eight badges).
  for(const [id,building] of [[SPIDER,resort],[VADER,archery]]){
-  const template=sourceId(id);
-  assert.notEqual(template,id,`${id} borrows a template`);
-  for(const level of [1,49,50,199,200,300]){
-   const s=own(own(fresh(T),id,level),template,level);
-   const got=fellowOperation(s,id,building),want=fellowOperation(s,template,building);
+  for(const [level,want] of [[1,30],[49,30],[50,50],[199,50],[200,80],[300,80]]){
+   const s=own(fresh(T),id,level);
+   const got=fellowOperation(s,id,building);
    assert.equal(got.known,true,`${id} is known at level ${level}`);
-   assert.equal(got.percent,want.percent,`${id} equals ${template} at level ${level}`);
-   assert.deepEqual(got.next.map(e=>e.minLevel),want.next.map(e=>e.minLevel));
+   assert.equal(got.percent,want,`${id} at level ${level}`);
    assert.ok(got.percent>0,`${id} earns something at level ${level}`);
   }
  }
- // The measured anchor shape: 100% at L1, +20% at L50, +30% at L200, to its OWN type only.
  const s=own(fresh(T),SPIDER,200);
- assert.equal(fellowOperation(s,SPIDER,resort).percent,150,'the median original total');
+ assert.equal(fellowOperation(s,SPIDER,resort).percent,80,'the rarity-N total, all three slots');
  assert.equal(fellowOperation(s,SPIDER,archery).percent,0,'and nothing to another type');
- assert.equal(fellowOperation(own(fresh(T),SPIDER,1),SPIDER,resort).percent,100);
- assert.equal(fellowOperation(own(fresh(T),SPIDER,50),SPIDER,resort).percent,120);
+ assert.deepEqual(fellowOperation(own(fresh(T),SPIDER,1),SPIDER,resort).next.map(e=>e.minLevel),[50,200]);
+ // `template` is no longer read by ANY progression path -- it survives as the art lineage it always
+ // documented. NEGATIVE CONTROL for that claim: the template's own percent is 150 and the Fellow's is
+ // 80 at the same level, so a re-introduced sourceId() here would disagree.
+ assert.equal(sourceId(SPIDER),'hero_103');
+ assert.equal(fellowOperation(own(s,'hero_103',200),'hero_103',resort).percent,150);
 
  // Every one of the 175 original rows is unchanged: each Fellow's percent is recomputed straight from
  // its OWN row in lib/operation-data.json, so a misrouted sourceId() would disagree here even though
@@ -94,7 +101,7 @@ test('a crossover Fellow assigned to a business actually raises that business bo
  assert.equal(canOperate(SPIDER,definition('Building_801')),false,'and only there');
  const resort=definition('Building_501');
  const s={...own(fresh(T),SPIDER,200),enterprises:{Building_501:{employees:5000,fellows:[SPIDER]}}};
- assert.equal(assignedOperation(s,resort),1.5,'+150% reaches assignedOperation');
+ assert.equal(assignedOperation(s,resort),0.8,'+80% -- the rarity-N ladder -- reaches assignedOperation');
  assert.equal(enterpriseBreakdown(s,'Building_501').bonus>0,true);
  const empty={...s,enterprises:{Building_501:{employees:5000,fellows:[]}}};
  assert.ok(enterpriseBreakdown(s,'Building_501').total>enterpriseBreakdown(empty,'Building_501').total,
