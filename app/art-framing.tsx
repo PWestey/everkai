@@ -13,18 +13,18 @@ const fraction=(token:string|undefined,fallback:number)=>{
  *  layout (cover in portrait, contain in landscape and the Art dialog) is read back and respected,
  *  and the art is never shown smaller than it is without framing. Renders whose art fills the frame
  *  are left untouched. */
-export function useArtFraming(ref:RefObject<HTMLImageElement|HTMLVideoElement|null>,path:string|undefined){
+export function useArtFraming(ref:RefObject<HTMLImageElement|HTMLVideoElement|null>,path:string|undefined,fill=false){
  useLayoutEffect(()=>{
   const el=ref.current,measured=artBounds(path);
   if(!el||!measured)return;
   const parent=el.parentElement,apply=()=>{
    const style=getComputedStyle(el),[px,py]=style.objectPosition.split(/\s+/);
-   const transform=artTransform(measured.bounds,{width:el.clientWidth,height:el.clientHeight},style.objectFit==='cover'?'cover':'contain',[fraction(px,.5),fraction(py,.5)]);
+   const transform=artTransform(measured.bounds,{width:el.clientWidth,height:el.clientHeight},style.objectFit==='cover'?'cover':'contain',[fraction(px,.5),fraction(py,.5)],fill);
    el.style.transformOrigin='0 0';el.style.transform=transform||'';
   };
   el.style.backgroundColor=measured.surround;if(parent)parent.style.backgroundColor=measured.surround;
   apply();
   const observer=new ResizeObserver(apply);observer.observe(el);
   return ()=>{observer.disconnect();el.style.transform='';el.style.transformOrigin='';el.style.backgroundColor='';if(parent)parent.style.backgroundColor=''};
- },[ref,path]);
+ },[ref,path,fill]);
 }

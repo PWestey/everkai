@@ -52,3 +52,20 @@ test('roster cards lift low or small art to the arch and keep full-frame renders
   assert.ok(top+height*b[1]<=cardH*.06,'art top sits at the arch '+b);
  }
 });
+
+// Owner, 2026-09-16: "Costumes ... aren't zoomed in to focus on the character." A costume render is a
+// painted card inside a flat surround, and fitting the card INSIDE the character screen left a margin
+// of surround around a small card. In a cover layout a costume now zooms until the card covers the box.
+test('a costume card covers the portrait character screen; a lone figure is still fitted inside',()=>{
+ const card=[.3,.2167,.8688,.7375],box={width:390,height:736};
+ const parse=t=>t.match(/translate\((-?[\d.]+)px,(-?[\d.]+)px\) scale\(([\d.]+)\)/).slice(1).map(Number);
+ const [tx,ty,zoom]=parse(artTransform(card,box,'cover',[.5,.5],true));
+ // Content box of a 2:3 render under object-fit cover in a 390x736 box.
+ const k=Math.max(390/(2/3),736),cw=k*2/3,cl=(390-cw)/2,ct=(736-k)/2;
+ const left=tx+zoom*(cl+card[0]*cw),right=tx+zoom*(cl+card[2]*cw),top=ty+zoom*(ct+card[1]*k),bottom=ty+zoom*(ct+card[3]*k);
+ assert.ok(left<=0.5&&right>=389.5&&top<=0.5&&bottom>=735.5,`card covers the box: ${[left,right,top,bottom].map(n=>n.toFixed(1))}`);
+ // Negative control: without fill, the same card is fitted inside with a margin, which was the defect.
+ const [fx,fy,fz]=parse(artTransform(card,box,'cover',[.5,.5]));
+ assert.ok(fz<zoom&&fx+fz*(cl+card[0]*cw)>1,'the old framing left a margin');
+ // The Art dialog (contain) still shows the whole card, fill or not.
+ assert.equal(artTransform(card,box,'contain',[.5,.5],true),artTransform(card,box,'contain',[.5,.5]));});

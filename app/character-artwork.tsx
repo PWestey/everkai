@@ -7,7 +7,7 @@ import {useArtFraming} from './art-framing';
 export function characterClip(person:any){const clip=(clips as Record<string,any>)[person.costumeId||person.id];return clip?.owner===person.id&&(clip.costumeId||null)===(person.costumeId||null)?clip:null}
 export default function CharacterArtwork({person,large=false,suspended=false}:any){
  const clip=characterClip(person),video=useRef<HTMLVideoElement>(null),still=useRef<HTMLImageElement>(null),resumeAfterCover=useRef(false),[failed,setFailed]=useState(false),[playing,setPlaying]=useState(false);
- useArtFraming(video,clip&&!failed?clip.src:undefined);useArtFraming(still,!clip||failed?person.art:undefined);
+ useArtFraming(video,clip&&!failed?clip.src:undefined,!!person.costumeId);useArtFraming(still,!clip||failed?person.art:undefined,!!person.costumeId);
  useEffect(()=>{
   const el=video.current;if(!el||!clip||failed)return;
   const media=matchMedia('(prefers-reduced-motion: reduce)');
