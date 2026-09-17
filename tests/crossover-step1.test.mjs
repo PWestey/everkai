@@ -5,7 +5,7 @@ import {fresh,act,valid,decode,refusedBy,lastQuarantine} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
 import {BUSINESSES,enterpriseBreakdown,canOperate} from '../lib/businesses.mjs';
 import {fellowOperation,assignedOperation} from '../lib/operations.mjs';
-import {EVENTS,COMPLETIONS_PER_STAGE,costPerStage,stageKind,stagePerson,stageOwned,
+import {EVENTS,ISEKAI_EVENTS,CROSSOVER_EVENTS,COMPLETIONS_PER_STAGE,costPerStage,stageKind,stagePerson,stageOwned,
         validEvents,eventById,eventClaimed,completionsEarned,completionsAvailable} from '../lib/events.mjs';
 import {ADDITION_FELLOWS,sourceId,isAddition} from '../lib/everkai-additions.mjs';
 import {ORIGINAL_FELLOWS,FELLOWS,FAMILY,fellowById} from '../lib/catalog.mjs';
@@ -133,8 +133,10 @@ const xoverArc=(costPerStage=10)=>({id:'XoverFixture',name:'Fixture Arc',source:
 test('a stage says which side of the village it belongs to, in data, not by id prefix',()=>{
  // Positive control first: the declared kind must agree with the prefix rule it replaces for all 35
  // shipped stages, or `spent` and the ownership check would change meaning for an existing save.
+ // Scoped to the eight Isekai arcs: the 33 crossover arcs are exactly the case the prefix rule got
+ // wrong, and tests/crossover-arcs.test.mjs asserts their kinds against the roster instead.
  let stages=0;
- for(const e of EVENTS){
+ for(const e of ISEKAI_EVENTS){
   const cast=new Map(e.cast.map(c=>[c.id,c.kind]));
   for(const st of e.stages){
    stages++;
@@ -194,20 +196,21 @@ test('stage cost is per arc, and the eight Isekai arcs are pinned at 10 so old s
  // shipped arcs refuses every save that ever claimed a stage -- and `events` is quarantinable, so the
  // player would silently lose their arc progress and their ledger. This is the mine-table lockout of
  // 2026-09-16 with a different table.
- assert.equal(EVENTS.length,8);
- const stages=EVENTS.reduce((n,e)=>n+e.stages.length,0);
+ assert.equal(ISEKAI_EVENTS.length,8);
+ assert.equal(EVENTS.length,8+CROSSOVER_EVENTS.length,'EVENTS holds every arc; only the panel and eventAction are gated');
+ const stages=ISEKAI_EVENTS.reduce((n,e)=>n+e.stages.length,0);
  assert.equal(stages,35);
- for(const e of EVENTS){
+ for(const e of ISEKAI_EVENTS){
   assert.equal(e.costPerStage,10,`${e.id} must stay at 10: saves store spent = stages x this`);
   assert.equal(costPerStage(e.id),10);
  }
  assert.equal(costPerStage('NotAnArc'),COMPLETIONS_PER_STAGE,'an unknown arc falls back to 10');
  // The exact ledger a save that finished every Isekai arc holds: 350 spent, and nothing else.
  let done=fresh(T);
- for(const e of EVENTS)for(const st of e.stages)done=stageKind(st)==='fellows'
+ for(const e of ISEKAI_EVENTS)for(const st of e.stages)done=stageKind(st)==='fellows'
   ?{...done,fellows:{...done.fellows,[st.member]:newFellow()}}
   :{...done,family:{...done.family,[st.member]:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}};
- const claimed=Object.fromEntries(EVENTS.map(e=>[e.id,e.stages.length]));
+ const claimed=Object.fromEntries(ISEKAI_EVENTS.map(e=>[e.id,e.stages.length]));
  assert.equal(stages*10,350,'the whole Isekai cast still costs 350 completions');
  assert.equal(validEvents({...done,events:{policyVersion:1,spent:350,claimed}}),true,'350 is still the price');
  for(const wrong of [340,349,351,360,0])

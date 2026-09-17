@@ -878,3 +878,52 @@ player does — reuse it; note it needs ~125 simulated days for a tier-3 arc, an
 11. **Whether a quarantined `events` subtree keeping free crossover Fellows matters to the owner.**
     §6.3 states the behaviour. It is pre-existing, so I did not change it, but with 163 Fellows at
     stake rather than 28 the stakes are larger.
+
+---
+
+## 9. What shipped, 2026-09-17, and what it measured
+
+Tasks 5, 7, 8 and 10 of §7, plus the type decision of §5.2. Files:
+`lib/crossover-roster-data.json` (the owner's rank order, `kind`, `roleType`, `type`, and the text),
+`lib/crossover-arc-data.json` (generated), `scripts/crossover/build-arcs.mjs`,
+`scripts/crossover/build-additions.mjs`, `tests/crossover-arcs.test.mjs`.
+
+**Costs are the owner's halved ladder, not §4.1's.** Decision 2 of `docs/crossover-plan.md` halves
+20/40/60 to **10/20/30**, so the table in §4.1 is superseded: tier 1 = 40 characters × 10 = 400,
+tier 2 = 60 × 20 = 1,200, tier 3 = 63 × 30 = 1,890 — **3,490 completions** for the 163, 3,840 with the
+eight Isekai arcs. Tier 1 landing on 10 is a coincidence of the halving, not a shared constant: every
+arc carries its own `costPerStage`.
+
+**Measured pace** (income from `lib/starter-habits.json` through `lib/habits.mjs`, cost from
+`lib/crossover-arc-data.json`; the day-by-day series is walked, not divided — 78, 56, 56, 56, 56, 71,
+56 …, 2,064 in 35 days, 8,194 in 140, **58.5/day**):
+
+| Milestone | Completions | Full journal | Half the journal |
+|---|---|---|---|
+| **1st crossover character** | 10 | **day 1** | day 1 |
+| First arc complete (5) | 50 | day 1 | day 1 |
+| 10th | 100 | day 2 | day 3 |
+| Tier 1 done (40) | 400 | day 7 | day 14 |
+| Half the cast (82) | 1,240 | day 21 | day 42 |
+| Tier 2 done (100) | 1,600 | day 27 | day 54 |
+| **All 163** | 3,490 | **day 60** | day 120 |
+| All 198, with the Isekai arcs | 3,840 | day 66 | day 132 |
+
+That is the "about two months" the owner asked for, measured rather than estimated.
+
+**Types.** §5.3's role assignment stands as `roleType` (Brave 44, Unfettered 35, Informed 34,
+Inspiring 27, Diligent 23). Five rows then moved for decision 3, each still defensible under §5.1 and
+each carrying its reason in the data: **Wolverine** Brave→Unfettered (a loner), **Hulk**
+Brave→Diligent (the steadfast), **Thor (Infinity War)** Brave→Inspiring (a figurehead),
+**Ahsoka Tano** Brave→Diligent (a training master), **Captain America (WWII)** Inspiring→Diligent (a
+drill instructor). Shipped distribution: Brave 40, Unfettered 36, Informed 34, Inspiring 27,
+Diligent 26. Of the top twenty by rank, Brave now holds 3 rather than 7 and Diligent 4 rather than 1,
+worth +12.7% in best-building operator value. **Vader stays Brave** — §4.6's retemplating owns that.
+
+**Answers to §8's open list.** (2) is now measurable at the shipped prices, above. (5) and (6) are
+recorded as choices in the data, with `typeMoved` reasons. (1), (3), (4) and (7)–(11) stay open;
+(8) and (10) are still open because the 33 prologue scenes were **not** built: they move
+`tests/opening-presentation.test.mjs`'s pinned `54`/`505`, and the gate the owner asked for — a
+character joins only by finishing its stage — does not depend on them. The 30 Family stages carry
+`kind:"family"` and their ids from `docs/crossover-family-split.md`; they resolve when that layer
+lands, which `tests/crossover-arcs.test.mjs` holds as a `{todo}` test.

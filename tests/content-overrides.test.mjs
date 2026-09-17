@@ -24,7 +24,12 @@ test('no shipped character profile carries the original infernal wording',()=>{
 // The Demon Slayer crossover is licensed-IP naming, restored 2026-09-15, not the infernal wording this
 // guard exists to keep out. `Isekai Demon Hunter Arc` is the original's own title for that event
 // (docs/event-catalog.md section 4.1) and ships as the name of its lite-event arc (EVT-21).
-const CROSSOVER=/Demon[- ]Slayer|Isekai Demon Hunter Arc/i;
+// `Daredevil (Modern)` is the same case one franchise further out: it is the owner's own name for
+// rank 22 of his crossover roster (lib/crossover-roster-data.json), matched by /devil/ purely as a
+// substring of a character's name. Exempted by that exact name, not by file and not by key, so a
+// crossover row that really did carry the original's infernal wording would still be caught, which
+// tests/crossover-arcs.test.mjs negative-controls over the 163 rows directly.
+const CROSSOVER=/Demon[- ]Slayer|Isekai Demon Hunter Arc|Daredevil/i;
 test('no live data file carries it either, so a regenerated import cannot quietly undo this',()=>{
  const offenders=[];
  for(const f of readdirSync(new URL('../lib/',import.meta.url))){

@@ -17,7 +17,10 @@ import {decode,startingSave,valid} from '../lib/game.mjs';
 import progression from '../lib/original-progression-data.json' with {type:'json'};
 import talentSource from '../lib/default-talent-source.json' with {type:'json'};
 
-const IDS=['xover_msf_spiderman','xover_swgoh_vaderduelsend'];
+/** The two prototypes: the only rows with an installed idle clip, and the only two whose rarity is not
+ *  N. Everything else is asserted over the whole file, so 131 more rows cannot arrive unchecked. */
+const SHIPPED=['xover_msf_spiderman','xover_swgoh_vaderduelsend'];
+const IDS=data.fellows.map(r=>r.id);
 const asset=p=>new URL('../public/assets/'+p,import.meta.url);
 
 test('the flag is ?crossover=1 exactly, and Node never has it',()=>{
@@ -33,11 +36,14 @@ test('flag off: the catalogue is exactly the original one',()=>{
  assert.deepEqual(recruitOffers(startingSave(0)).filter(o=>isAddition(o.id)),[],'nothing extra at the counter');
  assert.deepEqual(fellowCatalogue(true).slice(0,159),ORIGINAL_FELLOWS,'additions only append');
  assert.deepEqual(fellowCatalogue(true).slice(159).map(f=>f.id),IDS);
+ assert.equal(IDS.length,133,'the 133 Fellows of docs/crossover-family-split.md; the 30 Family are a separate layer');
+ assert.deepEqual(IDS.filter(id=>SHIPPED.includes(id)),SHIPPED);
 });
 
 test('every addition is labelled as one and is not pretending to be an original character',()=>{
- assert.equal(ADDITION_FELLOWS.length,2);
+ assert.equal(ADDITION_FELLOWS.length,133);
  assert.deepEqual(ADDITION_FELLOWS.map(f=>f.id),IDS);
+ assert.equal(new Set(IDS).size,IDS.length,'no id twice');
  for(const f of ADDITION_FELLOWS){
   assert.match(f.id,/^xover_(msf|swgoh)_[a-z0-9]+$/,f.id);
   assert.equal(originalCharacter(f.id),undefined,`${f.id} collides with an APK id`);
@@ -53,11 +59,16 @@ test('each addition borrows every per-id table from an original Fellow of the sa
  for(const f of ADDITION_FELLOWS){
   const t=ORIGINAL_FELLOWS.find(x=>x.id===f.template);
   assert.ok(t,`${f.id} template ${f.template} is an original Fellow`);
-  assert.equal(t.rarity,f.rarity);assert.equal(t.type,f.type);
+  // Rarity is deliberately NOT matched to the template's: every new addition is rarity N, and
+  // templateCandidates('N',type) is pinned to the per-type SSR anchor because rarity N has no
+  // template of its own (scripts/crossover/pick-template.mjs). The TYPE must still match, or
+  // lib/insight.mjs:9 silently drops Insight for the Fellow.
+  assert.equal(t.type,f.type,`${f.id} type must equal its template's`);
   assert.equal(templateCandidates(f.rarity,f.type)[0].id,f.template,'the documented pick rule chose it');
   assert.equal(sourceId(f.id),f.template);
   assert.ok(SUMMON_COSTS[f.rarity],`${f.rarity} has a counter price`);
-  assert.deepEqual(recruitPrice(f.id),SUMMON_COSTS[f.rarity]);
+  // ...which the counter nonetheless refuses to quote: an addition joins through its storyline arc.
+  assert.equal(recruitPrice(f.id),null,`${f.id} must not be for sale`);
   assert.equal(talentRule(f.id),talentRule(f.template));assert.ok(talentRule(f.id));
   assert.equal(insightRule(f.id),insightRule(f.template));assert.ok(insightRule(f.id));
   assert.ok(progression.heroes[sourceId(f.id)]&&talentSource.heroes[sourceId(f.id)]);
@@ -70,36 +81,77 @@ test('each addition borrows every per-id table from an original Fellow of the sa
 });
 
 test('art and idle clips exist, match their recorded bytes and hashes, and stream',()=>{
- let bytes=0;
+ let bytes=0,clips=0;
  for(const r of data.fellows){
   const f=additionById(r.id),clip=additionClip(f);
-  const art=readFileSync(asset(r.art)),mp4=readFileSync(asset(clip.src));
-  assert.equal(art.length,r.artBytes);assert.equal(createHash('sha256').update(art).digest('hex'),r.artSha256);
+  const art=readFileSync(asset(r.art));
+  assert.equal(art.length,r.artBytes,r.id);assert.equal(createHash('sha256').update(art).digest('hex'),r.artSha256,r.id);
+  assert.equal(art.subarray(8,12).toString(),'WEBP',r.id);
+  assert.ok(streamed('assets/'+r.art),r.art+' would be precached');
+  bytes+=art.length;
+  // The 131 rows added with the arcs carry clip:null: the idle mp4s are 98 MB and are installed with
+  // the shipping step, and app/character-artwork.tsx already falls back to the still when there is no
+  // clip. A row that DOES declare one must have the file, byte for byte.
+  if(!r.clip){assert.equal(clip,null,`${r.id} declares no clip`);continue}
+  clips++;
+  const mp4=readFileSync(asset(clip.src));
   assert.equal(mp4.length,clip.bytes);assert.equal(createHash('sha256').update(mp4).digest('hex'),clip.sha256);
-  assert.equal(art.subarray(8,12).toString(),'WEBP');
   assert.deepEqual([clip.width,clip.height,clip.fps],[1024,1536,12]);
   assert.ok(Math.abs(clip.frames/clip.fps-clip.encodedDuration)<0.05);
   assert.equal(clip.owner,r.id);assert.equal(additionClip({...f,costumeId:'C1'}),null);
-  for(const p of [r.art,clip.src])assert.ok(streamed('assets/'+p),p+' would be precached');
-  bytes+=art.length+mp4.length;
+  assert.ok(streamed('assets/'+clip.src),clip.src+' would be precached');
+  bytes+=mp4.length;
  }
- assert.ok(bytes<3*1024*1024,`two additions add ${bytes} bytes`);
+ assert.deepEqual(data.fellows.filter(r=>r.clip).map(r=>r.id),SHIPPED,'only the two prototypes have clips yet');
+ assert.equal(clips,2);
+ // None of this is in the precache (STREAMED excludes assets/crossover/), so the budget guard in
+ // tests/offline-manifest.test.mjs cannot move. This is the download-on-demand total.
+ assert.ok(bytes<16*1024*1024,`${data.fellows.length} additions carry ${bytes} bytes of media`);
 });
 
-test('flag on: listed, offered, recruited, trained and saved; flag off: that save still loads',()=>{
+test('flag on: listed, unlocked by its arc, trained and saved; flag off: that save still loads',()=>{
  const out=JSON.parse(execFileSync(process.execPath,[new URL('./crossover-flag-village.mjs',import.meta.url).pathname],{encoding:'utf8'}));
- assert.deepEqual(out.listed,IDS);
- assert.deepEqual(out.offered.map(o=>o.id),IDS);
+ assert.deepEqual(out.listed,SHIPPED,'both are in FELLOWS with the flag on');
+ // THE UNLOCK GATE. The counter offers neither, prices neither, and refuses each by pointing at the
+ // arc -- so "playing its storyline" is the only route in, which is what the owner asked for.
+ assert.deepEqual(out.offered,[],'the counter does not sell additions');
+ for(const r of out.counterRefusals){
+  assert.equal(r.price,null,`${r.id} still has a price`);
+  assert.match(r.error,/joins by playing .+, not at the counter\./,r.id);
+ }
+ assert.deepEqual(out.arcs,['XoverMsf01','XoverSwgoh01'],'stage 1 of each prototype\'s own arc');
+ assert.equal(out.need,20,'two tier-1 stages at 10 completions each');
+ assert.equal(out.spent,20,'and exactly that was spent');
+ assert.equal(out.available,out.earnedBeforeClaims-20,'the ledger moved by the price, nothing else');
+ assert.equal(out.visibleArcs,41,'the panel lists all 41 arcs with the flag on');
  assert.deepEqual(out.log.filter(x=>x.error),[],'every action succeeded');
  assert.equal(out.valid,true,out.refusedBy);
- for(const id of IDS){assert.equal(out.fellows[id].level,6);assert.equal(out.fellows[id].talentLevel,5);assert.ok(Number.isFinite(out.power[id])&&out.power[id]>0)}
+ for(const id of SHIPPED){assert.equal(out.fellows[id].level,6);assert.equal(out.fellows[id].talentLevel,5);assert.ok(Number.isFinite(out.power[id])&&out.power[id]>0)}
  // This process has no flag: the village loads, keeps both Fellows and their progress, and lists neither.
  const s=decode(out.save);
  assert.ok(valid(s));
- assert.deepEqual(IDS.map(id=>s.fellows[id]),IDS.map(id=>out.fellows[id]));
- assert.equal(s.summon.recruited.filter(x=>IDS.includes(x.id)).length,2);
+ assert.deepEqual(SHIPPED.map(id=>s.fellows[id]),SHIPPED.map(id=>out.fellows[id]));
+ assert.equal(JSON.stringify(s),out.save,'byte-identical with the flag off');
+ assert.deepEqual(s.events,{policyVersion:1,spent:20,claimed:{XoverMsf01:1,XoverSwgoh01:1}},'the crossover ledger survived');
  assert.ok(s.originalProgression,'original growth stayed on');
- assert.ok(!FELLOWS.some(f=>IDS.includes(f.id)));
+ assert.ok(!FELLOWS.some(f=>SHIPPED.includes(f.id)));
+});
+
+test('a recruit receipt written before additions left the counter still validates',()=>{
+ // Section 4.4 of docs/crossover-storyline-plan.md, verified rather than argued: validSummon checks a
+ // receipt for a string id, a known kind, an integer `paid`, a known currency and that the character
+ // is owned -- it never re-derives the price. So a flag-on save that BOUGHT Spider-Man for 2 Acquaint
+ // Stones before this change keeps its receipt after recruitPrice went null.
+ const base=startingSave(0),id=SHIPPED[0];
+ const s={...base,fellows:{...base.fellows,[id]:base.fellows.hero_1},
+  summon:{policyVersion:1,seq:1,stoneFragments:0,stones:0,insigniaFragments:0,valiant:0,archangel:0,starShards:0,
+   days:[],weeks:[],recruited:[{id,kind:'fellows',paid:2,currency:'stones'}]}};
+ assert.equal(recruitPrice(id),null,'and it really is unpriced now');
+ assert.equal(valid(s),true,'the old receipt is still accepted');
+ // NEGATIVE CONTROL: the same receipt for a character the village does not own must still be refused,
+ // so the pass above is a fact about validSummon and not about it ignoring receipts.
+ const notOwned={...s,fellows:base.fellows};
+ assert.equal(valid(notOwned),false);
 });
 
 test('an unknown xover id is still refused: resolution comes from the data, not the prefix',()=>{
