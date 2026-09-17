@@ -1,5 +1,5 @@
 import {Button} from '@/components/ui/button';
-import {EVENTS,COMPLETIONS_PER_STAGE,completionsAvailable,eventClaimed} from '@/lib/events.mjs';
+import {EVENTS,COMPLETIONS_PER_STAGE,completionsAvailable,costPerStage,eventClaimed} from '@/lib/events.mjs';
 // Lite habit-events (EVT-21). One card per crossover; each step introduces one of its cast and is paid
 // for with habit completions, which is the only currency this game mints.
 export default function EventPanel({game,action,locked}:any){
@@ -8,15 +8,15 @@ export default function EventPanel({game,action,locked}:any){
   <p>{available.toLocaleString()} habit completion{available===1?'':'s'} banked · {COMPLETIONS_PER_STAGE} opens the next step of any arc</p>
   <div className="event-cards">
    {EVENTS.map((e:any)=>{
-    const done=eventClaimed(game,e.id),total=e.stages.length,next=done<total?e.cast[done]:null;
+    const done=eventClaimed(game,e.id),total=e.stages.length,next=done<total?e.cast[done]:null,cost=costPerStage(e.id);
     return <article className="school-card" key={e.id}>
      <h3>{e.name}</h3>
      <p className="small-note">{e.source} · {done} of {total} joined</p>
      <progress value={done} max={total}/>
      <p>{e.cast.map((c:any,i:number)=><span key={c.id} className={i<done?'event-met':'event-unmet'}>{c.label||c.name}{i<e.cast.length-1?' · ':''}</span>)}</p>
      {next
-      ? <Button disabled={locked||available<COMPLETIONS_PER_STAGE} onClick={()=>action('eventClaim',e.id)}>
-         {available<COMPLETIONS_PER_STAGE?`${COMPLETIONS_PER_STAGE-available} more habits to meet ${next.label||next.name}`:`Meet ${next.label||next.name} · ${COMPLETIONS_PER_STAGE} completions`}
+      ? <Button disabled={locked||available<cost} onClick={()=>action('eventClaim',e.id)}>
+         {available<cost?`${cost-available} more habits to meet ${next.label||next.name}`:`Meet ${next.label||next.name} · ${cost} completions`}
         </Button>
       : <p className="item-status">Arc complete — the whole cast is in your village.</p>}
     </article>})}
