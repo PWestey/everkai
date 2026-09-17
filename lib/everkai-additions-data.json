@@ -11,6 +11,7 @@
    "rarity": "SSR",
    "type": "Unfettered",
    "description": "A quick-witted wall-crawler who dropped into the village through a tear in the sky. He patrols the rooftops at dusk, trades jokes for directions, and never walks past someone who needs a hand.",
+   "rank": 1,
    "template": "hero_103",
    "art": "crossover/xover_msf_spiderman.webp",
    "clip": {
@@ -21,7 +22,7 @@
     "height": 1536,
     "fps": 12,
     "frames": 24,
-    "encodedDuration": 2.0
+    "encodedDuration": 2
    },
    "artSha256": "bb610153086550ac3aee616e2c0258c366eb305ed09d2a1b88206916d5a1a121",
    "artBytes": 61388,
@@ -44,6 +45,7 @@
    "rarity": "UR",
    "type": "Brave",
    "description": "An armored warlord who arrived with his helmet cracked open from a fight long past. Villagers keep their distance, yet he lights the watchtower every night and says little about the road that led him here.",
+   "rank": 1,
    "template": "hero_113",
    "art": "crossover/xover_swgoh_vaderduelsend.webp",
    "clip": {
@@ -54,7 +56,7 @@
     "height": 1536,
     "fps": 12,
     "frames": 36,
-    "encodedDuration": 3.0
+    "encodedDuration": 3
    },
    "artSha256": "9e251508e1d1fb7a5712358efa5e17cd196b5ea69f12ca7fa2a39684968edc02",
    "artBytes": 38786,
@@ -65,6 +67,1118 @@
     "bundleSha256": "dd18e078990a9672f4f6f215cd3e14d8a3eb7456f77e359353fb4e32f503aa33",
     "prefab": "unit.char_vaderduelsend_pre",
     "clip": "hmn_sbr_vaderduelsend_homescreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  }
+ ],
+ "family": [
+  {
+   "id": "xover_msf_invisiblewomanmcu",
+   "name": "Invisible Woman",
+   "title": "Unseen Guardian",
+   "occupation": "Field Scientist",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "A steady newcomer who keeps the village calm when storms come in off the water. She reads by the window most evenings, mends what the children break without being asked, and would rather be useful than noticed.",
+   "rank": 23,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_invisiblewomanmcu.webp",
+   "clip": {
+    "src": "crossover/xover_msf_invisiblewomanmcu-idle.mp4",
+    "bytes": 1392412,
+    "sha256": "491b1eb23dd8d0191407f1ac41f57ed38cb843db8f9a15e21eb05309d8a433bc",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 80,
+    "encodedDuration": 6.666667
+   },
+   "artSha256": "e8a4ffffd288e2061d46d055ac92b62b88e2b407e668a18d6e00dbe61e466dca",
+   "artBytes": 41808,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "InvisibleWomanMCU",
+    "bundle": "characters_invisiblewomanmcu.assetbundle",
+    "bundleSha256": "3aa8234cd0eb1c02dae9b02d5a1478ac63ce1a1a0622662cc3ce247f61679a60",
+    "prefab": "Char_InvisibleWomanMCU_Mesh_PREFAB",
+    "clip": "Anim_InvisibleWomanMCU_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_emmafrost",
+   "name": "Emma Frost",
+   "title": "The White Tutor",
+   "occupation": "Schoolmistress",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "She arrived in white with a trunk of books and opened a small reading room above the inn. Precise, unhurried, and warmer than she lets on once a conversation has earned her attention.",
+   "rank": 52,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_emmafrost.webp",
+   "clip": {
+    "src": "crossover/xover_msf_emmafrost-idle.mp4",
+    "bytes": 130847,
+    "sha256": "d51410941d039197ce217808daf6e201b45726a8cc2736cd22bb40b69ba92afb",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 24,
+    "encodedDuration": 2
+   },
+   "artSha256": "8fcbd673c7945a96ba59de9eca9b148da4fe781c4ed67808f5d002e3aa71a4f6",
+   "artBytes": 28478,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "EmmaFrost",
+    "bundle": "characters_emmafrost.assetbundle",
+    "bundleSha256": "15d21eb988ef72846983b31de30f3bf7ce0c71c99c46c6c7954b3ce1868b2c24",
+    "prefab": "Char_EmmaFrost_Mesh_PREFAB",
+    "clip": "Anim_EmmaFrost_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_agathaharkness",
+   "name": "Agatha Harkness",
+   "title": "Village Elder",
+   "occupation": "Herbalist",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "The oldest cottage on the lane is hers, and so is the herb garden behind it. She remembers every name in the village, brews a tea for every complaint, and enjoys being underestimated.",
+   "rank": 74,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_agathaharkness.webp",
+   "clip": {
+    "src": "crossover/xover_msf_agathaharkness-idle.mp4",
+    "bytes": 424875,
+    "sha256": "49ecceb5f8c8bb6bec1edf8b739591effaa6ab39dde7cf2942f8bcc60c29474d",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 36,
+    "encodedDuration": 3
+   },
+   "artSha256": "2501200255f7e7da47efe1e12b26ecc26a20ccf026d33c96387aecd2a6887b3a",
+   "artBytes": 37382,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "AgathaHarkness",
+    "bundle": "characters_agathaharkness.assetbundle",
+    "bundleSha256": "1dd6ecab784288b98fa56d95dea404c623ccf2df5175a93d4636bb7f885deebb",
+    "prefab": "ST_Ent_AgathaHarkness",
+    "clip": "Anim_AgathaHarkness_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_sersi",
+   "name": "Sersi",
+   "title": "Stonewright",
+   "occupation": "Sculptor",
+   "race": "Eternal",
+   "rarity": "N",
+   "type": null,
+   "description": "A sculptor who came for the local stone and stayed for the company. She turns quarry offcuts into garden figures, hums while she works, and finds ordinary village days genuinely lovely.",
+   "rank": 91,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_sersi.webp",
+   "clip": {
+    "src": "crossover/xover_msf_sersi-idle.mp4",
+    "bytes": 1967965,
+    "sha256": "6a5e8c513e3a051d246be68c375dd1d6385f8c28d1c0fe40a564aceb6273b270",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 112,
+    "encodedDuration": 9.333333
+   },
+   "artSha256": "0186b68f6ffe5dadfcfb9da82c4bde122045888e8e02737b9ee516654551457c",
+   "artBytes": 36476,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Sersi",
+    "bundle": "characters_sersi.assetbundle",
+    "bundleSha256": "7777c35a03e5727d1ff8c0e3b6c1876d857d3f5511ca8fc6bb6db5c9f8544398",
+    "prefab": "Char_Sersi_Mesh_PREFAB",
+    "clip": "Anim_Sersi_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_scarletwitch",
+   "name": "Scarlet Witch",
+   "title": "Hearth Warden",
+   "occupation": "Charm-Weaver",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "She keeps the hearth charms above every door in the village and repairs them herself when the wind takes one. Quiet company, quick to worry about other people, slow to ask anything for herself.",
+   "rank": 14,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_scarletwitch.webp",
+   "clip": {
+    "src": "crossover/xover_msf_scarletwitch-idle.mp4",
+    "bytes": 301223,
+    "sha256": "92d04feee629969bdf2ad1a8a3ea567099a05a56e5247c71e2a35a6c66c30831",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 18,
+    "encodedDuration": 1.5
+   },
+   "artSha256": "dbdb4fc550d2dce36149a5cec43516fb929acfeaa01a1eb653c281969e0f8699",
+   "artBytes": 41950,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "ScarletWitch",
+    "bundle": "characters_scarletwitch.assetbundle",
+    "bundleSha256": "6655492f2a3ef4a01987d40950c5bb74010189b862f5f953e6d165d511242af4",
+    "prefab": "Char_ScarletWitch_Mesh_PREFAB",
+    "clip": "Anim_ScarletWitch_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_jeangrey",
+   "name": "Jean Grey",
+   "title": "Quiet Listener",
+   "occupation": "Counsellor",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "She listens more than she speaks, which is why half the village ends up telling her things. She keeps a garden bench free for whoever needs it and always seems to know when the kettle should go on.",
+   "rank": 11,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_jeangrey.webp",
+   "clip": {
+    "src": "crossover/xover_msf_jeangrey-idle.mp4",
+    "bytes": 199037,
+    "sha256": "59e83697f3db68528c2e9759f74b11b6bc7a86659b5f1ee8a4d3131c7dfc9d9f",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 24,
+    "encodedDuration": 2
+   },
+   "artSha256": "5e60b404925509361dbbec4f8d16939b7bdfb43493ab58236fdad3db16c94391",
+   "artBytes": 36200,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "JeanGrey",
+    "bundle": "characters_jeangrey.assetbundle",
+    "bundleSha256": "e65ea29e7fc03e92f8fc07528eb283ebd93c19e7ca91b917ae756bb5bb15f635",
+    "prefab": "Char_JeanGrey_Mesh_PREFAB",
+    "clip": "Anim_JeanGrey_Shell_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_storm",
+   "name": "Storm",
+   "title": "Weather Reader",
+   "occupation": "Harvest Warden",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "She reads the sky better than the almanac and tells the farmers when to cut and when to wait. Formal at first, wonderful at a festival, and fiercely loyal once she calls a place home.",
+   "rank": 21,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_storm.webp",
+   "clip": {
+    "src": "crossover/xover_msf_storm-idle.mp4",
+    "bytes": 410919,
+    "sha256": "9e0d3c4be8361c07b1e7a875a8f88c92bb9f43257e63ff3765ae3a6035e6daf0",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 32,
+    "encodedDuration": 2.666667
+   },
+   "artSha256": "17e28aba259bc22cb1d6a140789a336e90156370eb1a3fe2dd51d32fd91b67c4",
+   "artBytes": 39100,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Storm",
+    "bundle": "characters_storm.assetbundle",
+    "bundleSha256": "3bc7047ba515d2dc714c3905fac0806336db82579d23fc5fd94137006408bac2",
+    "prefab": "Char_Storm_Mesh_PREFAB_EMBER",
+    "clip": "Anim_Storm_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_medusa",
+   "name": "Medusa",
+   "title": "Visiting Queen",
+   "occupation": "Envoy",
+   "race": "Inhuman",
+   "rarity": "N",
+   "type": null,
+   "description": "A visiting queen who asked for lodging like anyone else and pays her board on time. She braids her long hair differently for every occasion and takes the village’s small ceremonies very seriously.",
+   "rank": 80,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_medusa.webp",
+   "clip": {
+    "src": "crossover/xover_msf_medusa-idle.mp4",
+    "bytes": 243574,
+    "sha256": "c8f42dc1b40021434c0c90e53a65032688b916dbac6d76b8b3548e2d3f5c0d1d",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 24,
+    "encodedDuration": 2
+   },
+   "artSha256": "1ed93def8b4d590af4f8a14a7ca6424fbee0a55f55fe981731370b44ae5ff744",
+   "artBytes": 35696,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Medusa",
+    "bundle": "characters_medusa.assetbundle",
+    "bundleSha256": "7a124f63f338b302a9876bdb92acf04d34797a107df596604b9ebe58055ed7e3",
+    "prefab": "Char_Medusa_Mesh_PREFAB",
+    "clip": "Anim_Medusa_Shell_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_jessicajones",
+   "name": "Jessica Jones",
+   "title": "Finder of Lost Things",
+   "occupation": "Investigator",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She took the room over the tavern and the job nobody else wanted: finding what the village loses. Blunt, tired, dependable, and much kinder about it than her tone suggests.",
+   "rank": 71,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_jessicajones.webp",
+   "clip": {
+    "src": "crossover/xover_msf_jessicajones-idle.mp4",
+    "bytes": 352765,
+    "sha256": "f1f836b51dc3bf7c59d2554a00710f3b20b6bdfbd7db8198c74c8024039b97f2",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 32,
+    "encodedDuration": 2.666667
+   },
+   "artSha256": "3abecf0d010a586fc3259ea377f102051805c9da17d33f3ecf80b878d9e81b62",
+   "artBytes": 32904,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "JessicaJones",
+    "bundle": "characters_jessicajones.assetbundle",
+    "bundleSha256": "f5e8b6c5fcc9c9dafab2df558c4493bb9a065d75a405bd86738b9904a816610e",
+    "prefab": "Char_JessicaJones_Mesh_PREFAB",
+    "clip": "Anim_MaleMed_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_sharoncarter",
+   "name": "Sharon Carter",
+   "title": "Border Warden",
+   "occupation": "Road Warden",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She walks the boundary road at dawn and knows every cart that comes through. Practical company, good at plans, and privately relieved to be somewhere small enough to learn by heart.",
+   "rank": 90,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_sharoncarter.webp",
+   "clip": {
+    "src": "crossover/xover_msf_sharoncarter-idle.mp4",
+    "bytes": 295474,
+    "sha256": "7a00a021fba5aa5bfab36f05228eb8e6dfc377580b90da27c38a6cd16124c103",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 28,
+    "encodedDuration": 2.333333
+   },
+   "artSha256": "b0547f5ec157160960e5c6323635c8d4244680a16c0e9cba1e33015bcf603eab",
+   "artBytes": 32302,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "SharonCarter",
+    "bundle": "characters_sharoncarter.assetbundle",
+    "bundleSha256": "24d6a05d3511ef06a9680c6338827f5e69ef65ddf05d0afffeb75c9350da1274",
+    "prefab": "Char_SharonCarter_Mesh_PREFAB",
+    "clip": "Anim_SharonCarter_Shell_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_mariahill",
+   "name": "Maria Hill",
+   "title": "Village Organiser",
+   "occupation": "Quartermaster",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "Give her a muddle and she will hand you back a list. She keeps the storehouse ledgers, the festival rota and the repair queue, and complains about all three while doing them well.",
+   "rank": 89,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_mariahill.webp",
+   "clip": {
+    "src": "crossover/xover_msf_mariahill-idle.mp4",
+    "bytes": 164500,
+    "sha256": "e4f6c3c3a3f08ec4d795a833f38302969dd402f1436f5e0cb624e20feda3520a",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 22,
+    "encodedDuration": 1.833333
+   },
+   "artSha256": "529e63aa3fb29c7c2f81e71723c695d9b2f5a83eb7abd724c823d9e604963f42",
+   "artBytes": 31652,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "MariaHill",
+    "bundle": "characters_mariahill.assetbundle",
+    "bundleSha256": "ec17f2495bf9cd6494df2cb8a56f369b196fa13b26c6837285608fb32b48612d",
+    "prefab": "Char_MariaHill_Mesh_PREFAB",
+    "clip": "Anim_MariaHill_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_mockingbird",
+   "name": "Mockingbird",
+   "title": "Hedgerow Mapper",
+   "occupation": "Naturalist",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "A naturalist who maps the hedgerows and argues cheerfully with anyone about birds. She takes her notebook on every walk, and her walks are how most of her friendships start.",
+   "rank": 94,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_mockingbird.webp",
+   "clip": {
+    "src": "crossover/xover_msf_mockingbird-idle.mp4",
+    "bytes": 680186,
+    "sha256": "51c61bc89f51a5d2b0a519acb3d81d984ba631dcf4f4aab9ef44361a7e8f7bf1",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 40,
+    "encodedDuration": 3.333333
+   },
+   "artSha256": "c0b0247a44f0081e93c738a15b9f4869b9e6712c5ab253bce411b82f7c0e66d6",
+   "artBytes": 45260,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Mockingbird",
+    "bundle": "characters_mockingbird.assetbundle",
+    "bundleSha256": "dcfd9d186f4e0e684b72ecb55ecf37799e66e7a604f61306aae7376ef3f77e52",
+    "prefab": "Char_Mockingbird_Mesh_PREFAB",
+    "clip": "Anim_Mockingbird_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_blackcat",
+   "name": "Black Cat",
+   "title": "Night Cat",
+   "occupation": "Locksmith",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She turned up with a lockpick set and a talent for opening things people had given up on. Charming, a little smug, and unexpectedly gentle with anyone who trusts her first.",
+   "rank": 70,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_blackcat.webp",
+   "clip": {
+    "src": "crossover/xover_msf_blackcat-idle.mp4",
+    "bytes": 592733,
+    "sha256": "a0b62d21bf482712c5435b664ea653a3692be5562d5e3d624390b43efccb8b1e",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 48,
+    "encodedDuration": 4
+   },
+   "artSha256": "fd2852d859dc0e1aca8d60ba9f6d4abc142d3962df5c9e7194c63d93e817cbcd",
+   "artBytes": 39854,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "BlackCat",
+    "bundle": "characters_blackcat.assetbundle",
+    "bundleSha256": "e3474c8e8e4c716b8320be54001f1a313e6dcc97cb3d7065b28cb963dfd800ed",
+    "prefab": "Char_BlackCat_Mesh_PREFAB",
+    "clip": "Anim_BlackCat_Shell_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_mystique",
+   "name": "Mystique",
+   "title": "Many Faces",
+   "occupation": "Playhouse Actor",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "The playhouse stood empty until she arrived; now it sells out. She plays every part herself, keeps her own history vague, and is easier company than her reputation promises.",
+   "rank": 53,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_mystique.webp",
+   "clip": {
+    "src": "crossover/xover_msf_mystique-idle.mp4",
+    "bytes": 508098,
+    "sha256": "458283a65baecd780ad7aac0a3edcd2362ca4aca5ecd5547eaeda9253e0a58db",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 48,
+    "encodedDuration": 4
+   },
+   "artSha256": "c0a98d54fd64ff9df89cc61db89024410f45cc5365bdcd3807b5703b107caa35",
+   "artBytes": 39368,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Mystique",
+    "bundle": "characters_mystique.assetbundle",
+    "bundleSha256": "a2476c83ec86a22884f3db515b46eb04cbcec72ed1795248b0ef6a60681c30f5",
+    "prefab": "Char_Mystique_Mesh_PREFAB_EMBER",
+    "clip": "Anim_Mystique_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_morganlefay",
+   "name": "Morgan Le Fay",
+   "title": "Old-Road Scholar",
+   "occupation": "Rune Scholar",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "A scholar of old roads and older markings, here to copy the standing stones above the valley. Grand in manner, curious in private, and delighted whenever someone asks her a real question.",
+   "rank": 77,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_morganlefay.webp",
+   "clip": {
+    "src": "crossover/xover_msf_morganlefay-idle.mp4",
+    "bytes": 654676,
+    "sha256": "69b761c0d7a279dfbca61cd9ba9608d837a8888aeb9fb17f542d8fa8e1bf0449",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 40,
+    "encodedDuration": 3.333333
+   },
+   "artSha256": "f73883526350b30d67d977b3fdbe83cc0b1bba8657283fe14affffe5168002a7",
+   "artBytes": 42768,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "MorganLeFay",
+    "bundle": "characters_morganlefay.assetbundle",
+    "bundleSha256": "3feb7956a65a9825e0d9222b770116ae170dcbb15d4bfca097493805e25c3e85",
+    "prefab": "Char_MorganLeFay_Mesh_PREFAB",
+    "clip": "Anim_Phoenix_Skin01_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_kittypryde",
+   "name": "Kitty Pryde",
+   "title": "Wall-Reader",
+   "occupation": "Builder’s Apprentice",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "The youngest builder on the crew and the one who spots the fault in a wall first. Talks fast, works faster, and treats the village dog as a colleague.",
+   "rank": 61,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_kittypryde.webp",
+   "clip": {
+    "src": "crossover/xover_msf_kittypryde-idle.mp4",
+    "bytes": 203509,
+    "sha256": "89fdf664c31abd79c8e715da9edbc465f3ef93d8d708130f219018e63438f4a5",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 20,
+    "encodedDuration": 1.666667
+   },
+   "artSha256": "ed871c877b4b3a9d24ef4f169d6249356b9732a8f299640f074269f54a2ceef7",
+   "artBytes": 36066,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "KittyPryde",
+    "bundle": "characters_kittypryde.assetbundle",
+    "bundleSha256": "3efd5f3f20e658a2e4cd2f417e0a476fa075c1fa37d685e312daf7fd6b3758a6",
+    "prefab": "Char_KittyPryde_Mesh_PREFAB",
+    "clip": "Anim_KittyPryde_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_psylocke",
+   "name": "Psylocke",
+   "title": "Dawn Instructor",
+   "occupation": "Dojo Instructor",
+   "race": "Mutant",
+   "rarity": "N",
+   "type": null,
+   "description": "She cleared the old barn and turned it into a training floor open to anyone at dawn. Exacting about form, generous with her time, and calm in a way the village borrows from her.",
+   "rank": 67,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_psylocke.webp",
+   "clip": {
+    "src": "crossover/xover_msf_psylocke-idle.mp4",
+    "bytes": 469372,
+    "sha256": "e1d8749cfaaf8b2e9317054b789b0d66e33892d82a3d8a513b1deaf993aaf046",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 48,
+    "encodedDuration": 4
+   },
+   "artSha256": "a40d7d56d8d96cb9cc8a141ea0b5fea7d8130da561cb2baa1aae2932073f9eb8",
+   "artBytes": 37196,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Psylocke",
+    "bundle": "characters_psylocke.assetbundle",
+    "bundleSha256": "b1b78b65ee9fefbc10065c71494f94996c365ec0dadac848668d2a773c221e2b",
+    "prefab": "ST_Ent_Psylocke",
+    "clip": "Anim_Psylocke_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_captaincarter",
+   "name": "Captain Carter",
+   "title": "Shield of the Old War",
+   "occupation": "Militia Trainer",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She hung up the shield and took up the militia drill instead. Straight-backed, dryly funny, and quietly pleased that the hardest thing she does now is teach.",
+   "rank": 87,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_captaincarter.webp",
+   "clip": {
+    "src": "crossover/xover_msf_captaincarter-idle.mp4",
+    "bytes": 483526,
+    "sha256": "3be3a6bb17ec94eed7876337173d6895d34eaec221ff8458019d32d5a5a2e540",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 32,
+    "encodedDuration": 2.666667
+   },
+   "artSha256": "66059ea20b745be498fb7318e73657a6abd34077946cd59af7abfb40591b9445",
+   "artBytes": 47534,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "CaptainCarter",
+    "bundle": "characters_captaincarter.assetbundle",
+    "bundleSha256": "73589663d6598f98c39a447168a1ea4d6d69d14f39dedcbb76b3b80b4a77e8d4",
+    "prefab": "Char_CaptainCarter_Mesh_PREFAB",
+    "clip": "Anim_CaptainCarter_ShellIdle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_thena",
+   "name": "Thena",
+   "title": "Ageless Guard",
+   "occupation": "Armourer",
+   "race": "Eternal",
+   "rarity": "N",
+   "type": null,
+   "description": "She keeps the forge company more than the tavern and mends tools nobody thought worth mending. Long silences, exact work, and a slow friendliness that lasts once it arrives.",
+   "rank": 95,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_thena.webp",
+   "clip": {
+    "src": "crossover/xover_msf_thena-idle.mp4",
+    "bytes": 175288,
+    "sha256": "5a03110903a0756abd11ec7fef08fe9a90269d1ec83b2b13ef20a61b58949c17",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 28,
+    "encodedDuration": 2.333333
+   },
+   "artSha256": "dcb7d1225625d7306e5f30907d8e98d905b81b7cc54e574f93ade5fa667dab40",
+   "artBytes": 29992,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Thena",
+    "bundle": "characters_thena.assetbundle",
+    "bundleSha256": "2514a2c52c1bf3e5d00764973c5a71e0bbc7502cc70c6ec9b31ce3a5b849644d",
+    "prefab": "Char_Thena_Mesh_PREFAB",
+    "clip": "Anim_Thena_Shell_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_msf_dagger",
+   "name": "Dagger",
+   "title": "Lightbearer",
+   "occupation": "Infirmary Healer",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She sits with the sick and the sleepless and leaves a light burning in the infirmary window. Softly spoken, stubborn about rest, and the first person anyone fetches at night.",
+   "rank": 92,
+   "template": "wife_2",
+   "art": "crossover/xover_msf_dagger.webp",
+   "clip": {
+    "src": "crossover/xover_msf_dagger-idle.mp4",
+    "bytes": 157528,
+    "sha256": "1b77a395bd7a69fe152e564eb5ca44fdc720436f413c4378a74b290b3be089a5",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 24,
+    "encodedDuration": 2
+   },
+   "artSha256": "0be899415375f6082d0d18cba1dabe63290b705de6c5d412d73a1c7ac2635191",
+   "artBytes": 32166,
+   "recipients": [
+    "xover_msf_spiderman"
+   ],
+   "source": {
+    "game": "MSF",
+    "assetId": "Dagger",
+    "bundle": "characters_dagger.assetbundle",
+    "bundleSha256": "e81f387c60a4cadb40fe11fa573f633a877cea60463e6d76ac8fee4c797073dc",
+    "prefab": "Char_Dagger_Mesh_PREFAB",
+    "clip": "Anim_Dagger_Idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_padmeamidala",
+   "name": "Padmé Amidala",
+   "title": "Village Voice",
+   "occupation": "Diplomat",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She speaks for the village at the market courts and comes home with better prices than anyone expected. Gracious, exact, and happiest at a table where everyone is heard.",
+   "rank": 14,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_padmeamidala.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_padmeamidala-idle.mp4",
+    "bytes": 809801,
+    "sha256": "beb95189ff45632d31a81e84beed0a4612fb647739a416ce508192cd0083d6bb",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 87,
+    "encodedDuration": 7.25
+   },
+   "artSha256": "b14fa7799d816f9b7a8744e5e2b9cef2b3a2317778960b4f772381863128bfc7",
+   "artBytes": 26826,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "PADMEAMIDALA",
+    "bundle": "char_padmegeonosis_pre.bundle",
+    "bundleSha256": "d1630a8253a11761bf98313bd942901d0b70d637918fc273552555d1a203e5e8",
+    "prefab": "unit.char_padmegeonosis_pre",
+    "clip": "hmn_pst_padmegeonosis_homescreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_glleia",
+   "name": "Leia Organa",
+   "title": "Harvest Chair",
+   "occupation": "Organiser",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "Put her in a room with a problem and she will chair it. She organises the harvest, the repairs and the arguments, and has never once let a promise slide.",
+   "rank": 2,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_glleia.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_glleia-idle.mp4",
+    "bytes": 971192,
+    "sha256": "edced7ea901336df48f209c162c7427db5f803d3eae9c283c29a83bcf02bf1b4",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 80,
+    "encodedDuration": 6.666667
+   },
+   "artSha256": "51889ba32f8e73c215209e33f236c220b3eca138a0ac7f225231ca0346d7e6f7",
+   "artBytes": 29448,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "GLLEIA",
+    "bundle": "char_leia_gl_pre.bundle",
+    "bundleSha256": "9db46f90b3f45f48f6ccd4aae664c973f498fea17266089567a97c0cfa66ec8c",
+    "prefab": "unit.char_leia_GL_pre",
+    "clip": "hmn_pst_leia_GL_detailscreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_monmothma",
+   "name": "Mon Mothma",
+   "title": "Council Chair",
+   "occupation": "Statesperson",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She chairs the village council with a steady hand and a very long memory. Formal, fair, and surprisingly warm over tea once the minutes are closed.",
+   "rank": 32,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_monmothma.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_monmothma-idle.mp4",
+    "bytes": 516013,
+    "sha256": "942e56241c472cb48d65bc229df78c7f4cdffcc9801396317095ab5a4651fc75",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 73,
+    "encodedDuration": 6.083333
+   },
+   "artSha256": "73c4f31e2d8bda656c9bdf788fe4a560dcc6470ab2b014f3013e1ce25d520767",
+   "artBytes": 26252,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "MONMOTHMA",
+    "bundle": "char_monmothma_pre.bundle",
+    "bundleSha256": "23b7fc7b646093fd1bdf0ba7f3474b61942872314554a52b12b6463d340b975d",
+    "prefab": "unit.char_monmothma_pre",
+    "clip": "hmn_monmothma_homescreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_luminaraunduli",
+   "name": "Luminara Unduli",
+   "title": "Patient Teacher",
+   "occupation": "Meditation Tutor",
+   "race": "Mirialan",
+   "rarity": "N",
+   "type": null,
+   "description": "She teaches stillness at the hill shrine each morning to whoever climbs up. Patient beyond reason, sparing with praise, and a steady presence on a hard day.",
+   "rank": 66,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_luminaraunduli.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_luminaraunduli-idle.mp4",
+    "bytes": 201119,
+    "sha256": "da3da48d1e5b934a8db07bdf2a24cfcdc944ca9056d323589b9458fbb4991c2e",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 25,
+    "encodedDuration": 2.083333
+   },
+   "artSha256": "e53e2093bdbcfeca2db1510f1a664e05373de63d2307d80f7bf77dd47b61ced7",
+   "artBytes": 27206,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "LUMINARAUNDULI",
+    "bundle": "char_luminara_pre.bundle",
+    "bundleSha256": "48f42ff7bcb5b4eac4e32a6a699e80380de7e4ac855fa4fc7bfa44180bbf4f30",
+    "prefab": "unit.char_luminara_pre",
+    "clip": "hmn_sbr_idle_luminara",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_sateleshan",
+   "name": "Satele Shan",
+   "title": "Keeper in Exile",
+   "occupation": "Temple Keeper",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "A temple keeper in exile who sweeps her own steps and asks for no ceremony. Reserved, watchful, and unshakeable once she decides a place is worth protecting.",
+   "rank": 38,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_sateleshan.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_sateleshan-idle.mp4",
+    "bytes": 342071,
+    "sha256": "b682b28fd1319c935a6d6d9ace1b6587a1d40570df61de26a28ff4e733b502bc",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 36,
+    "encodedDuration": 3
+   },
+   "artSha256": "e77d0ee8268904520445375d5db7fbdb85305af6c65d1752e5d8b292ada47748",
+   "artBytes": 33862,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "SATELESHAN",
+    "bundle": "char_sateleshan_pre.bundle",
+    "bundleSha256": "3d6b84b8aceaa4e6d6be6fa996f8fc47a1428875f3edd033b5a5651a77eec453",
+    "prefab": "unit.char_sateleshan_pre",
+    "clip": "hmn_sbr_sateleshan_homescreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_bastilashan",
+   "name": "Bastila Shan",
+   "title": "Battle Seer",
+   "occupation": "Sparring Tutor",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She runs the sparring circle behind the inn and reads a bout three moves before it happens. Proud, quick to correct, and loyal to a fault to the people she trains.",
+   "rank": 40,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_bastilashan.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_bastilashan-idle.mp4",
+    "bytes": 1008416,
+    "sha256": "739c954221dff9f2a19069bb451a6aa9fd9b9733ba16ee727c199fa78b0fc4e0",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 76,
+    "encodedDuration": 6.333333
+   },
+   "artSha256": "6f292e587c1b754882d1459cd9a07fa1373c9c05fd57441de0dc1c04f3d75cba",
+   "artBytes": 32626,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "BASTILASHAN",
+    "bundle": "char_bastilashan_pre.bundle",
+    "bundleSha256": "4acaf41be49cc0323b1b777675c280427d72ed84aa0aaec251a237711a5c8b82",
+    "prefab": "unit.char_bastilashan_pre",
+    "clip": "hmn_bastila_homescrn_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_barrissoffee",
+   "name": "Barriss Offee",
+   "title": "Ward of the Infirmary",
+   "occupation": "Healer",
+   "race": "Mirialan",
+   "rarity": "N",
+   "type": null,
+   "description": "The infirmary is tidier since she came, and so are its records. She works late, forgets meals, and is gently immovable about everyone else’s recovery.",
+   "rank": 65,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_barrissoffee.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_barrissoffee-idle.mp4",
+    "bytes": 149544,
+    "sha256": "52748836d480536bb8171c2c17d14ec0416e3ecb630733fc63465aa959af6866",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 28,
+    "encodedDuration": 2.333333
+   },
+   "artSha256": "6bdd2c2086a54690413cc165b1fa1f1333c7c84447d7fd98acb0861476baad8f",
+   "artBytes": 20370,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "BARRISSOFFEE",
+    "bundle": "char_barriss_light_pre.bundle",
+    "bundleSha256": "0971f0fb565e2878574d116ede29b7be4989f9c7c5dbb51315eb079745c0fa28",
+    "prefab": "unit.char_barriss_light_pre",
+    "clip": "hmn_sbr_barrissoffee_homescreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_marajade",
+   "name": "Mara Jade",
+   "title": "Quiet Courier",
+   "occupation": "Courier",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She carries messages over the pass in weather nobody else will ride out in. Guarded about her past, easy about the present, and better company on a long road than in a crowd.",
+   "rank": 50,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_marajade.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_marajade-idle.mp4",
+    "bytes": 581414,
+    "sha256": "be8dc789fdd8a1ec7e9e09c139d8ad700acd25de78b047a245fa6903187e327a",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 46,
+    "encodedDuration": 3.833333
+   },
+   "artSha256": "1b3b7c64842922dbbf25e8190f93dbc5ebb53a284413fa525d0b1d16e694d375",
+   "artBytes": 38048,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "MARAJADE",
+    "bundle": "char_marajade_pre.bundle",
+    "bundleSha256": "5f6f4788319adbb87ad230732d12841a21c7c558c915be36b717d6270ae3e75b",
+    "prefab": "unit.char_marajade_pre",
+    "clip": "hmn_sbr_marajade_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_aaylasecura",
+   "name": "Aayla Secura",
+   "title": "Grove Keeper",
+   "occupation": "Beast Tamer",
+   "race": "Twi’lek",
+   "rarity": "N",
+   "type": null,
+   "description": "She keeps the grove beyond the orchard and the animals that live in it. Unhurried, direct, and the only person in the village the goats will obey.",
+   "rank": 62,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_aaylasecura.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_aaylasecura-idle.mp4",
+    "bytes": 229534,
+    "sha256": "81580e8dac4a51a0d64f07ab76ce2bd83ac11a2043def7add60286ad5e1b4b52",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 25,
+    "encodedDuration": 2.083333
+   },
+   "artSha256": "f183e193a7eaf6df5e7c28ec927e4ca96df13d9fad620cdcdd02d780547b1f16",
+   "artBytes": 27066,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "AAYLASECURA",
+    "bundle": "char_aaylasecura_pre.bundle",
+    "bundleSha256": "01c5a3221d3bfc2139a6eee11fb12195e9fa43abf72186450d488c6eee22bed5",
+    "prefab": "unit.char_aaylasecura_pre",
+    "clip": "hmn_sbr_idle_luminara",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_caradune",
+   "name": "Cara Dune",
+   "title": "Crossroads Marshal",
+   "occupation": "Marshal",
+   "race": "Human",
+   "rarity": "N",
+   "type": null,
+   "description": "She keeps the peace at the crossroads gate and breaks up more arguments than fights. Broad humour, short patience for nonsense, and reliably first to help lift something heavy.",
+   "rank": 63,
+   "template": "wife_2",
+   "art": "crossover/xover_swgoh_caradune.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_caradune-idle.mp4",
+    "bytes": 1130884,
+    "sha256": "c95dec5185796be92bef10d017bc31bc90fa5769d97fa2b64c6743a5d5a85e7f",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 82,
+    "encodedDuration": 6.833333
+   },
+   "artSha256": "4c29525c7cef1230d6f4dadd583877f104f14990d4f1cbb07fe8049875717a1c",
+   "artBytes": 30582,
+   "recipients": [
+    "xover_swgoh_vaderduelsend"
+   ],
+   "source": {
+    "game": "SWGOH",
+    "assetId": "CARADUNE",
+    "bundle": "char_caradune_pre.bundle",
+    "bundleSha256": "36d12ce2afcb1b7acc7ecb6e7e41e47a7e1d86a2c030b385d076471ee167fbf8",
+    "prefab": "unit.char_caradune_pre",
+    "clip": "hmn_rfl_caradune_homescreen_idle",
     "pipeline": "scripts/crossover/build-character.py"
    }
   }

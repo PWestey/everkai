@@ -9,9 +9,13 @@ import {join} from 'node:path';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 import costumes from '../lib/wardrobe-assets.json' with {type:'json'};
 import clips from '../lib/character-idle-data.json' with {type:'json'};
+import {installedCrossoverAssets} from './crossover/installed-assets.mjs';
 
 const root=new URL('..',import.meta.url).pathname,assets=join(root,'public/assets');
-const paths=[...new Set([...[...FELLOWS,...FAMILY].flatMap(f=>[f.art,f.portrait]),...costumes.map(c=>c.art),...Object.values(clips).map(c=>c.src)].filter(Boolean))].sort();
+// installedCrossoverAssets() is added UNCONDITIONALLY: FELLOWS/FAMILY are flag-gated and Node never
+// has the flag, so without it no crossover render is ever measured and every one of them loses its
+// framing transform. Art bounds are a static property of a file, not of a feature flag.
+const paths=[...new Set([...[...FELLOWS,...FAMILY].flatMap(f=>[f.art,f.portrait]),...costumes.map(c=>c.art),...Object.values(clips).map(c=>c.src),...installedCrossoverAssets()].filter(Boolean))].sort();
 const bin=join(mkdtempSync(join(tmpdir(),'art-bounds-')),'measure');
 execFileSync('swiftc',['-O','-suppress-warnings',join(root,'scripts/measure-art-bounds.swift'),'-o',bin],{stdio:'inherit'});
 const rows=[];

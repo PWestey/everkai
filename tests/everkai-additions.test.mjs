@@ -113,5 +113,10 @@ test('the additions data file is only what the loader reads',()=>{
  const text=readFileSync(new URL('../lib/everkai-additions-data.json',import.meta.url),'utf8');
  assert.equal(JSON.parse(text).flag,'crossover');
  assert.ok(statSync(asset('crossover')).isDirectory());
- for(const r of data.fellows)assert.deepEqual(Object.keys(r).sort(),['art','artBytes','artSha256','clip','description','id','name','occupation','race','rarity','source','template','title','type']);
+ const KEYS=['art','artBytes','artSha256','clip','description','id','name','occupation','race','rank','rarity','source','template','title','type'];
+ // `rank` is the owner's rank within its franchise (scratchpad selected-roster.json). It is in the
+ // repo because the crossover Family blessing-recipient rule is derived FROM it, so a test can
+ // re-derive the shipped lists instead of trusting them (tests/crossover-family.test.mjs).
+ for(const r of data.fellows)assert.deepEqual(Object.keys(r).sort(),KEYS);
+ for(const r of data.family||[])assert.deepEqual(Object.keys(r).sort(),[...KEYS,'recipients'].sort());
 });

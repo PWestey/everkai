@@ -3,6 +3,7 @@ import {Button} from '@/components/ui/button';
 import {TRIPS,TRIPS_PER_DAY,tripsLeft,waitingChildren,tripPlan} from '@/lib/family-trips.mjs';
 import {PUPIL_TYPES} from '@/lib/school.mjs';
 import {schoolCapacity} from '@/lib/education.mjs';
+import {familyById} from '@/lib/catalog.mjs';
 // Family trips are the original's TWO paid dates and the only route to a child: Rule:text:Wife_16,
 // "Dates with family members are divided into Sailing Trip and Airship Journey". Every cost, limit
 // and gain shown here is read back from lib/family-trips.mjs so the screen and the rules cannot drift.
@@ -10,7 +11,10 @@ export default function FamilyTripPanel({game,person,action,locked}:any){
  const [type,setType]=useState(PUPIL_TYPES[0].id);
  const member=game.family?.[person.id];
  const left=tripsLeft(game),waiting=waitingChildren(game),full=game.school.pupils.length>=schoolCapacity(game);
- const name=(id:string)=>game.family?.[id]?(id===person.id?person.name:id.replace('wife_','Family member ')):id;
+ // familyById now, not a prefix strip: stripping an id prefix that a crossover id does not have left
+ // the raw `xover_*` id on screen for another caretaker's child (D4). Falls back to the id only for
+ // content the game no longer knows.
+ const name=(id:string)=>game.family?.[id]?(id===person.id?person.name:familyById(id)?.name??id):id;
  return <section className="family-trips"><h2>Family trips</h2>
   {/* management-hint, not small-note: `.character-sheet:not(.system-sheet) .small-note` is
       display:none, and this panel always renders inside the Family character sheet, so a

@@ -3,7 +3,7 @@ import {Lock} from 'lucide-react';
 import {countryIcon} from '@/lib/ui-sprites.mjs';
 const TYPES=['Inspiring','Diligent','Brave','Informed','Unfettered'];
 import {Button} from '@/components/ui/button';
-import {FATHOM_SLOTS,FATHOM_STEPS,MAX_TIER,FATHOM_DAILY_MAX,ACTIONS_PER_SLOT,openSlots,slotTier,fathomBonus,habitActions,fathomState} from '@/lib/fathoms.mjs';
+import {FATHOM_SLOTS,FATHOM_STEPS,MAX_TIER,FATHOM_DAILY_MAX,ACTIONS_PER_SLOT,openSlots,slotTier,fathomBonus,habitActions,fathomState,fathomsApply} from '@/lib/fathoms.mjs';
 import {habitEarnings,habitDay} from '@/lib/habits.mjs';
 // The ladder had no screen: fathomAdvance was dispatched in game.mjs and covered by tests, but no
 // app path reached it, so the strand worth 30.4% of the original's building multiplier was
@@ -13,6 +13,10 @@ export default function FathomPanel({game,id,action,locked}:any){
  const [pick,setPick]=useState<number|null>(null);
  const member=game.family?.[id];
  if(!member)return <p>Welcome this family member to practise Fathoms.</p>;
+ // Said plainly rather than shown as 0/36 open and a row of +0% type bonuses, which reads as a bug.
+ if(!fathomsApply(id))return <article className="family-detail fathom-panel"><h2>Family Fathoms</h2>
+  <p className="management-hint">Fathoms are the village’s own quenching tradition, and its {FATHOM_SLOTS.length} slots are recorded for the original cast only — this companion has no record in them, so she has no Fathoms to practise and adds nothing to the business bonuses.</p>
+  <p>She supports the village through blessings, bonds, dates, trips and the school instead.</p></article>;
  const open=openSlots(game,id),actions=habitActions(game);
  const f=fathomState(game),today=habitDay(game.lastAt),{dailies}=habitEarnings(game.habits,game.lastAt);
  const allowance=Math.min(FATHOM_DAILY_MAX,dailies),used=f.day===today?f.used:0,left=Math.max(0,allowance-used);

@@ -548,6 +548,45 @@ per-member multiplier: §2.3 shows what per-member additive strands do to this e
 
 Each step is independently shippable and each one is green before the next begins.
 
+**LANDED 2026-09-17: steps 1-7, 9, 10 (in part), 11 and 12.** `tests/crossover-family.test.mjs`
+(18 tests) plus the flag-on child `tests/crossover-family-village.mjs` and the shared ceiling fixture
+`tests/crossover-ceiling-fixture.mjs`. Every guard was negative-controlled by breaking the production
+line it watches: 20 of 21 breakages failed the intended test with the intended message. THE ONE THAT
+DID NOT is recorded rather than glossed -- deleting `isAddition(id)` from `validBlessings`' apkBlessings
+clause changes nothing observable, because the snapshot-equality check at the same site already refuses
+an addition's record (`source.recipients[<an addition>]` is `undefined`). That clause is
+defence-in-depth, it is not independently testable, and the test says so at the assertion.
+
+What landed, against this list: **D1** is fixed with `ORIGINAL_FAMILY` / `familyCatalogue()` /
+`familyById()` (`lib/catalog.mjs`) and `lib/game.mjs`'s Family clause now reads `familyById(id)`; the
+30 rows are in `lib/everkai-additions-data.json` under a new `family` array, read by `ADDITION_FAMILY`
+(`lib/everkai-additions.mjs`) with a kind-SEPARATE lookup, because one shared `additionById` would let
+a save seat a Family addition in `s.fellows`. **D2, D3, D4, D5, D6, D8, D9** are fixed. **D7** is
+measured and turned out to be half a defect: the crossover renders fill their 2:3 frame, so a null
+`artBounds()` is the correct answer for them -- what was genuinely missing is the per-clip `motion`
+measurement, and `scripts/measure-art-bounds.mjs` now includes installed crossover assets
+unconditionally (they are flag-gated out of `FELLOWS`/`FAMILY`, which is why Node never measured them).
+Blessings ship §2.4 exactly: default 36/24 in both modes, recipients drawn only from crossover Fellows,
+no `apkBlessings` record. Fathoms ship §2.3: excluded at `openSlots`, pinned at `fathomBonus('Diligent')
+=== 321.0` with 137 members. `welcomeAll`/`recruitAll` exclude additions (F5), and a targeted `welcome`
+now names the storyline instead of reporting "All current family members have arrived."
+
+**The measured ceiling is 7,046,651 = 2.015x**, not the ~3.95x §2.2 projected, and the difference is
+roster size rather than balance: that projection assumes 163 crossover characters and this build has
+32 -- two crossover Fellows and these thirty Family. Decomposed, all from the one fixture:
+6,965,719 flag off -> 6,992,920 with the 2 crossover Fellows maxed -> 7,046,651 with the 30 Family
+blessing them. The Family side is worth **+53,731** today against §2.2's +1,001,831 upper bound, and
+the gap is reachable recipients: 30 pairings now against the 300 the rule yields once the 133 Fellow
+rows land. Per recipient it is ALREADY at full strength -- Spider-Man takes +3,180,000 flat and +240%
+from his twenty MSF blessers -- so the figure will climb steeply as Fellow rows arrive, not linearly.
+
+**Deliberately left for later:** step 8 (the 33 storyline arcs, so no crossover Family member is
+reachable in play yet -- the flag-on test unlocks one through a fixture arc); `recruitPrice -> null`
+for additions, which is `docs/crossover-plan.md` step 3 and still lets the counter sell a crossover at
+its rarity price with the flag on, exactly as it does for the two shipped Fellows; media for 27 of the
+30 (three samples are installed, all 30 rows carry their bytes and hashes); and D10, D11, D12, which
+are the cosmetic flag-gated `FAMILY` reads this task did not cover.
+
 1. **Fix D1.** Add `ORIGINAL_FAMILY`, `familyCatalogue(withAdditions)` and `familyById(id)` to
    `lib/catalog.mjs`, mirroring `:15-21` exactly. Guard `originalProfile` so an addition never reaches
    it (`lib/original-catalog.mjs:14` throws). Switch `lib/game.mjs:112` to `familyById(id)`. Test: a
