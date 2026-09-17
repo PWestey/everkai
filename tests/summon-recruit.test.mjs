@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
-import {summonState,recruitOffers,recruitPrice,RECRUIT_RECEIPTS,RANK_FELLOWS} from '../lib/summon.mjs';
+import {summonState,recruitOffers,recruitPrice,RECRUIT_RECEIPTS,RANK_FELLOWS,validSummon} from '../lib/summon.mjs';
 import {newFellow} from '../lib/adventure.mjs';
 const T=new Date('2026-09-21T09:00:00').getTime();
 const seq=s=>summonState(s).seq;
@@ -86,3 +86,25 @@ test('saves written before the counter existed still load',()=>{
  const r=act(old,'summonRecruit',old.lastAt,'hero_60',{seq:0});
  assert.equal(r.error,undefined,r.error);
  assert.ok(valid(r.state));});
+
+// The receipt log must never become the thing that stops a player finishing the roster: a completionist
+// hit "Recruitment record is full." at 200 receipts while the counter offered 244 characters.
+test('the receipt cap is above everything the counter can ever sell',()=>{
+ const s=fresh(T);
+ const offers=recruitOffers(s).length;
+ assert.ok(offers>200,`positive control: the counter really offers more than the old cap (${offers})`);
+ assert.ok(RECRUIT_RECEIPTS>=offers*1.5,`cap ${RECRUIT_RECEIPTS} leaves no room above ${offers} offers`);
+ // A full-roster log still loads, which is the shape the old cap refused.
+ // A receipt has to name someone the village owns, so the fixture recruits every offered FELLOW for
+ // real (a fresh village owns no Family, and their record shape is not this test's subject).
+ const ids=recruitOffers(s).map(o=>o.id);
+ const owned={...s,fellows:{...s.fellows},family:{...s.family}};
+ const receipts=ids.map(id=>{
+  const kind=id.startsWith('wife_')?'family':'fellows';
+  // The same records summonRecruit writes, so the fixture is the shape a real full roster has.
+  owned[kind][id]??=kind==='fellows'?newFellow():{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1};
+  return {id,kind,paid:0,currency:'stoneFragments'};
+ });
+ const full={...owned,summon:{...summonState(s),recruited:receipts}};
+ assert.ok(receipts.length>200,`positive control: ${receipts.length} Fellow receipts is past the old cap`);
+ assert.equal(validSummon(full),true,'a save holding one receipt per offered Fellow is valid');});
