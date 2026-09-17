@@ -4,10 +4,17 @@ import RosterPicker from './roster-picker';
 import {FELLOWS,FAMILY} from '@/lib/catalog.mjs';
 import {summonState,recruitPrice,RANK_FELLOWS,CURRENCY_NAMES,STONE_FRAGMENTS_PER_STONE,INSIGNIA_FRAGMENTS_PER_INSIGNIA,SUMMON_KINDS,summonDay,weekStartDay,WEEK_DAYS_FOR_BONUS,WEEK_AREAS_FOR_BONUS,STONE_FRAGMENTS_PER_DAILY,STONE_FRAGMENTS_DAILY_CAP,PERFECT_DAY_BONUS} from '@/lib/summon.mjs';
 import {habitEarnings} from '@/lib/habits.mjs';
+import {isAddition} from '@/lib/everkai-additions.mjs';
+import {unlockEvent} from '@/lib/events.mjs';
 
 /** rarityIcon has no sprite for a chain like "SSR -> UR", and the price comes from the head anyway. */
 const head=(rarity:string)=>String(rarity||'').split(' ->')[0].trim();
-const priceLabel=(id:string)=>{if(RANK_FELLOWS.has(id))return `Rank ${RANK_FELLOWS.get(id)}`;const c=recruitPrice(id);if(!c)return 'No price recorded';
+/** Everkai additions are not sold here (lib/summon.mjs recruitPrice). The counter has to say what the
+ *  route actually is, or 163 characters read as "No price recorded", which looks like a data fault. */
+const storyLabel=(id:string)=>isAddition(id)?`Story · ${unlockEvent(id)?.name??'not in an arc yet'}`:null;
+const priceLabel=(id:string)=>{if(RANK_FELLOWS.has(id))return `Rank ${RANK_FELLOWS.get(id)}`;
+ const story=storyLabel(id);if(story)return story;
+ const c=recruitPrice(id);if(!c)return 'No price recorded';
  const [currency,amount]=Object.entries(c)[0] as [string,number];
  if(!amount)return 'Free';
  return `${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`;};
@@ -49,9 +56,13 @@ export default function RecruitPanel({game,action,locked}:any){
   {person&&<article className="school-card recruit-invite">
    <h3>{person.name}</h3>
    <p>{head(person.rarity)}{person.type?' · '+person.type:''} · {priceLabel(person.id)}</p>
-   <Button disabled={locked||!afford||!cost} onClick={()=>{run('summonRecruit',person.id);setSelected(null)}}>
-    {RANK_FELLOWS.has(person.id)?`Joins at player rank ${RANK_FELLOWS.get(person.id)}`:cost?(!amount?'Invite · free':afford?`Invite for ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`:`Needs ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`):'No price recorded'}
-   </Button>
+   {isAddition(person.id)
+    ? <p className="item-status">{unlockEvent(person.id)?.name
+       ?`Not for sale. ${person.name} joins by playing ${unlockEvent(person.id)?.name} on the Events tab.`
+       :`Not for sale, and not in a storyline yet.`}</p>
+    : <Button disabled={locked||!afford||!cost} onClick={()=>{run('summonRecruit',person.id);setSelected(null)}}>
+       {RANK_FELLOWS.has(person.id)?`Joins at player rank ${RANK_FELLOWS.get(person.id)}`:cost?(!amount?'Invite · free':afford?`Invite for ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`:`Needs ${amount} ${CURRENCY_NAMES[currency as keyof typeof CURRENCY_NAMES]}`):'No price recorded'}
+      </Button>}
   </article>}
 
   <div className="roster-cards">

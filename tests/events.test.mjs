@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
-import {EVENTS,COMPLETIONS_PER_STAGE,completionsAvailable,completionsEarned,eventClaimed,validEvents,eventById} from '../lib/events.mjs';
+import {EVENTS,ISEKAI_EVENTS,CROSSOVER_EVENTS,COMPLETIONS_PER_STAGE,completionsAvailable,completionsEarned,eventClaimed,validEvents,eventById} from '../lib/events.mjs';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime();
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),a);return r.state};
@@ -81,11 +81,17 @@ test('the ledger is checked, so a claimed stage that was never paid for is refus
  assert.equal(valid(s),true);});
 
 test('every event names real, shipped characters and a reachable cast',()=>{
- assert.equal(EVENTS.length,8);
+ // Scoped to the eight Isekai arcs, exactly as it was before the 33 crossover arcs existed: those
+ // are asserted separately in tests/crossover-arcs.test.mjs, and their cast is not in the flagless
+ // catalogue by design. EVENTS still holds all 41 so validEvents can check any save.
+ assert.equal(ISEKAI_EVENTS.length,8);
+ assert.equal(EVENTS.length,ISEKAI_EVENTS.length+CROSSOVER_EVENTS.length);
+ assert.ok(ISEKAI_EVENTS.every(e=>!e.flag),'an Isekai arc is never flagged');
+ const EVENTS_=ISEKAI_EVENTS;
  // Resolved by ID, never by name: Shinobu Kocho, Aqua and Roxy Migurdia each ship as a Fellow AND a
  // Family record, and a name-based generator dropped all six. Where a name repeats, the label must
  // disambiguate, or the player sees the same person listed twice with no way to tell them apart.
- for(const e of EVENTS){
+ for(const e of EVENTS_){
   const names=e.cast.map(c=>c.name);
   for(const c of e.cast){
    if(names.filter(n=>n===c.name).length>1)assert.notEqual(c.label,c.name,`${c.id} shares a name and needs a label`);
@@ -95,7 +101,7 @@ test('every event names real, shipped characters and a reachable cast',()=>{
  }
  const ids=new Set([...FELLOWS,...FAMILY].map(p=>p.id));
  let stages=0;
- for(const e of EVENTS){
+ for(const e of EVENTS_){
   assert.ok(e.stages.length>0,e.id);
   stages+=e.stages.length;
   assert.equal(e.stages.length,e.cast.length,`${e.id}: one stage per cast member`);
