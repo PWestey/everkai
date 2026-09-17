@@ -281,7 +281,10 @@ test('all 163 carry one of the five types, and the additions agree with the rost
   // lib/insight.mjs:9 requires an addition's type to EQUAL its template's type, or Insight silently
   // disappears for it. With the per-type anchors that holds by construction; pinned so a hand edit
   // of one without the other fails here.
-  if(record.rarity==='N')assert.equal(record.template,RARITY_N_ANCHORS[c.type],`${c.id} must borrow its type's rarity-N anchor`);
+  // Unconditional since the rarity slice: the generator derives rarity, type and template together,
+  // so there is no row left whose rarity is not N and no row off its type's anchor.
+  assert.equal(record.rarity,'N',`${c.id} rarity`);
+  assert.equal(record.template,RARITY_N_ANCHORS[c.type],`${c.id} must borrow its type's rarity-N anchor`);
   assert.equal(ORIGINAL_FELLOWS.find(f=>f.id===record.template).type,c.type);
  }
  const count=key=>Object.fromEntries(TYPES.map(t=>[t,roster.characters.filter(c=>c[key]===t).length]));
@@ -307,11 +310,13 @@ test('all 163 carry one of the five types, and the additions agree with the rost
  assert.equal(top.filter(c=>c.type==='Brave').length,3);
  assert.equal(top.filter(c=>c.type==='Diligent').length,4,'measured before: 1');
  for(const t of TYPES)assert.ok(top.filter(c=>c.type===t).length>=3,`${t} has no share of the top 20`);
- // The two shipped prototypes did NOT churn: their type and template are what they always were.
+ // The two shipped prototypes keep their TYPES; their templates were re-pointed at their type's
+ // rarity-N anchor with the rarity slice (Vader hero_113 -> hero_101), which is what freed his type to
+ // move at all. It measurably did not: the spread below is what decides that, and it says stay.
  assert.equal(additionById('xover_msf_spiderman').type,'Unfettered');
  assert.equal(additionById('xover_msf_spiderman').template,'hero_103');
  assert.equal(additionById('xover_swgoh_vaderduelsend').type,'Brave');
- assert.equal(additionById('xover_swgoh_vaderduelsend').template,'hero_113');
+ assert.equal(additionById('xover_swgoh_vaderduelsend').template,'hero_101');
 });
 
 test('what the type moves are worth, measured through enterpriseBreakdown',()=>{
@@ -333,14 +338,24 @@ test('what the type moves are worth, measured through enterpriseBreakdown',()=>{
   {Brave:40,Diligent:80,Informed:50,Inspiring:70,Unfettered:60},'the per-worker rates the families differ by');
  assert.deepEqual(value,{Brave:1560006,Diligent:3120006,Informed:1950006,Inspiring:2730006,Unfettered:2340006});
  // The owner's four named picks were Vader 1, Wolverine 2, Hulk 5, Thor 6 -- all Brave, the weakest.
- // Three of the four moved; Vader stays Brave because he is a SHIPPED row whose template is the UR
- // Brave anchor, and retyping him means retemplating him (docs/crossover-storyline-plan.md 4.6
- // schedules that with the rarity work, where the aptitude change is visible rather than incidental).
+ // Three of the four moved. VADER'S TYPE WAS RE-DECIDED WITH THE RARITY SLICE, once retemplating him to
+ // hero_101 removed the reason he was frozen (docs/crossover-storyline-plan.md 4.6), and the answer is
+ // still Brave -- measured, not inherited:
+ //  - the role rule (section 5.1) assigns Brave: a duelist and warlord who keeps the watchtower;
+ //  - the spread the owner asked for is already met across the top twenty (asserted above: Brave 3,
+ //    Unfettered 3, Diligent 4, Informed 4, Inspiring 6), and moving him to Inspiring would leave Brave
+ //    with TWO -- below the >=3 share every type is pinned to -- so it makes the spread less even;
+ //  - what moving him WOULD be worth is measured here so the owner can call for it in one sentence:
+ //    Inspiring raises his operator slot from +1,560,006 to +2,730,006 gold/s (+75%) and, because
+ //    stellaBonus sums Stella percent by TYPE, his maxed power from 18,973,639 to 53,885,134
+ //    (tests/crossover-family.test.mjs pins both). That is the trade; the spread guard is why it was
+ //    not taken unasked.
  const worth=key=>roster.characters.filter(c=>c.rank<=10).reduce((n,c)=>n+value[c[key]],0);
  assert.equal(worth('roleType'),42900120);
  assert.equal(worth('type'),48360120,'+12.7% across the top twenty by rank');
  assert.ok(worth('type')>worth('roleType'),'the spread is worth more, not just more even');
- assert.equal(additionById('xover_swgoh_vaderduelsend').type,'Brave','rank 1 Star Wars stays where he shipped');
+ assert.equal(additionById('xover_swgoh_vaderduelsend').type,'Brave','rank 1 Star Wars stays Brave');
+ assert.equal(value.Inspiring-value.Brave,1170000,'what the alternative is worth in slot value');
 });
 
 test('the crossover prose is short, original, and carries none of the rewritten wording',()=>{

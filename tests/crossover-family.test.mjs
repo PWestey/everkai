@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import data from '../lib/everkai-additions-data.json' with {type:'json'};
 import {ADDITION_FAMILY,ADDITION_FELLOWS,ADDITION_FAMILY_ROWS,additionById,additionFamilyById,additionFellowById,additionKind,additionClip,additionRecipients,isAddition,sourceId} from '../lib/everkai-additions.mjs';
 import {FAMILY,ORIGINAL_FAMILY,familyById,familyCatalogue,fellowById,FELLOWS} from '../lib/catalog.mjs';
-import {familyRecipients,RECIPIENTS_PER_FAMILY} from '../lib/crossover-recipients.mjs';
+import {familyRecipients,familyRecipientMap,RECIPIENTS_PER_FAMILY} from '../lib/crossover-recipients.mjs';
 import {affinityIds} from '../lib/public-reference.mjs';
 import {originalCharacter,originalProfile} from '../lib/original-catalog.mjs';
 import {decode,startingSave,valid,refusedBy,act,fresh,lastQuarantine} from '../lib/game.mjs';
@@ -180,8 +180,9 @@ test('the installed media matches its recorded bytes and hashes, and streams rat
 // ---------------------------------------------------------------------------------------------
 
 test('recipient lists are re-derived from the rank rule, not trusted, and live outside the APK table',()=>{
+ const derived=familyRecipientMap(data.family,data.fellows);
  for(const r of data.family){
-  assert.deepEqual(r.recipients,familyRecipients(r,data.fellows),`${r.id} recipients drifted from the rule`);
+  assert.deepEqual(r.recipients,derived[r.id],`${r.id} recipients drifted from the rule`);
   assert.deepEqual(additionRecipients(r.id),r.recipients);
   assert.ok(r.recipients.length<=RECIPIENTS_PER_FAMILY,'ten is the original table\'s own maximum');
   assert.equal(new Set(r.recipients).size,r.recipients.length);
@@ -206,36 +207,57 @@ test('recipient lists are re-derived from the rank rule, not trusted, and live o
  // (CLAUDE.md rule 12), which is why they were allowed to be short in the first place.
  assert.equal(data.family.reduce((n,r)=>n+r.recipients.length,0),300,'30 Family x 10 = the structural cap');
  for(const r of data.family)assert.equal(r.recipients.length,RECIPIENTS_PER_FAMILY,`${r.id} is short`);
- // What the cap does NOT mean: 300 pairings over 133 Fellows is not full coverage. Measured, because
- // the difference is what the ceiling below is worth -- 20 MSF Family reach 10 of the 113 MSF Fellows
- // each and 10 SWGOH Family reach 10 of the 20 SWGOH Fellows, so some Fellows are named by nobody.
- const named=new Set(data.family.flatMap(r=>r.recipients));
- assert.equal(named.size,106,'106 of the 133 crossover Fellows are blessed by somebody');
- assert.equal(data.fellows.length-named.size,27,'27 are named by no crossover Family member');
+ // COVERAGE, RE-CUT 2026-09-17. The rule used to start each window at the first Fellow ranked at or
+ // above the Family member's own rank, and the 20 MSF Family hold ranks 11..95 -- so their ten-wide
+ // windows piled up: 300 pairings reached only 106 of the 133 Fellows, 27 were blessed by NOBODY and
+ // one (Spider-Man) was blessed by 8. The bands are dealt now (lib/crossover-recipients.mjs), which is
+ // as even as a franchise-respecting rule can be. Measured, all of it, from the shipped file:
+ const count=Object.fromEntries(data.fellows.map(r=>[r.id,0]));
+ for(const r of data.family)for(const id of r.recipients)count[id]++;
+ const blessed=Object.values(count).filter(n=>n>0).length;
+ assert.equal(blessed,133,'every crossover Fellow is blessed by at least one crossover Family member');
+ assert.equal(Object.values(count).filter(n=>!n).length,0,'none is blessed by nobody');
+ assert.equal(Math.min(...Object.values(count)),1);
+ assert.equal(Math.max(...Object.values(count)),3,'and none is blessed by many more than the rest');
+ // Inside a franchise the spread is exact -- +-1 -- and the two franchises differ only because the
+ // owner's roster splits 20 Family : 75 Fellows against 10 : 58, which the rule cannot change.
+ const perGame=g=>{const ids=data.fellows.filter(r=>r.source.game===g).map(r=>r.id).map(id=>count[id]);
+  return {fellows:ids.length,family:data.family.filter(r=>r.source.game===g).length,
+   pairings:ids.reduce((a,b)=>a+b,0),min:Math.min(...ids),max:Math.max(...ids)}};
+ assert.deepEqual(perGame('MSF'),{fellows:75,family:20,pairings:200,min:2,max:3});
+ assert.deepEqual(perGame('SWGOH'),{fellows:58,family:10,pairings:100,min:1,max:2});
  // And `rank` is load-bearing, not decoration: every Fellow row must carry the roster's own rank, or
  // the rule sorts the whole pool as Infinity and "nearest in rank" silently becomes alphabetical.
  // This is exactly what the 131 generated rows did before they were re-emitted with their rank.
  for(const r of data.fellows)assert.ok(Number.isSafeInteger(r.rank)&&r.rank>=1,`${r.id} has no rank`);
  for(const r of data.family)assert.ok(Number.isSafeInteger(r.rank)&&r.rank>=1,`${r.id} has no rank`);
- assert.notDeepEqual(familyRecipients(data.family[0],data.fellows.map(({rank,...r})=>r)),data.family[0].recipients,
+ assert.notDeepEqual(familyRecipientMap(data.family,data.fellows.map(({rank,...r})=>r)),derived,
   'NEGATIVE CONTROL: strip the ranks and the rule gives a different answer, so it really reads them');
- // THE RULE ITSELF, on a synthetic pool. With one crossover Fellow per franchise in the data today,
- // every arrangement of the rule produces the same one-id list -- so the assertions above cannot see a
- // change to it. This does: twelve MSF Fellows ranked 1..12, a Family member ranked 5, and the rule
- // must take her ten nearest downward in rank and WRAP. Without it, "re-derived, not trusted" is
- // vacuous, which is exactly what negative-controlling this file exposed.
+ // THE RULE ITSELF, on a synthetic pool, because the shipped assertions above cannot tell one
+ // arrangement of it from another. Twelve MSF Fellows ranked 1..12 and three MSF Family: each takes her
+ // own ten-wide BAND of the rank order in Family rank order, wrapping, so the bands tile instead of
+ // overlapping.
  const pool=Array.from({length:12},(_,i)=>({id:'syn_'+(i+1),rank:i+1,source:{game:'MSF'}}));
- const her={id:'syn_family',rank:5,source:{game:'MSF'}};
- assert.deepEqual(familyRecipients(her,pool),
-  ['syn_5','syn_6','syn_7','syn_8','syn_9','syn_10','syn_11','syn_12','syn_1','syn_2'],
-  'ten nearest in rank within her franchise, wrapping');
- assert.equal(familyRecipients(her,pool).length,RECIPIENTS_PER_FAMILY);
- assert.deepEqual(familyRecipients({...her,rank:1},pool).map(x=>+x.slice(4)),[1,2,3,4,5,6,7,8,9,10],'from the top of the order');
- assert.deepEqual(familyRecipients({...her,rank:99},pool).map(x=>+x.slice(4)),[1,2,3,4,5,6,7,8,9,10],'past the end wraps to the start');
- assert.deepEqual(familyRecipients(her,[...pool,{id:'syn_sw',rank:1,source:{game:'SWGOH'}}]).includes('syn_sw'),false,'never across franchises');
- // Her rank 5 is past every rank in a 3-Fellow pool, so the insertion point wraps to the start.
- assert.deepEqual(familyRecipients(her,pool.slice(0,3)),['syn_1','syn_2','syn_3'],'a short pool yields only what exists');
- assert.deepEqual(familyRecipients(her,[]),[],'and nothing when her franchise has none');
+ const sisters=[{id:'syn_a',rank:5,source:{game:'MSF'}},{id:'syn_b',rank:7,source:{game:'MSF'}},{id:'syn_c',rank:40,source:{game:'MSF'}}];
+ const map=familyRecipientMap(sisters,pool);
+ assert.deepEqual(map.syn_a,['syn_1','syn_2','syn_3','syn_4','syn_5','syn_6','syn_7','syn_8','syn_9','syn_10'],'band 0');
+ assert.deepEqual(map.syn_b,['syn_11','syn_12','syn_1','syn_2','syn_3','syn_4','syn_5','syn_6','syn_7','syn_8'],'band 1, wrapping');
+ assert.deepEqual(map.syn_c,['syn_9','syn_10','syn_11','syn_12','syn_1','syn_2','syn_3','syn_4','syn_5','syn_6'],'band 2');
+ // Every Fellow in the pool is covered, and by at most one more blesser than any other: 30 pairings
+ // over 12 Fellows is 2 or 3 each. That is the property the shipped lists inherit.
+ const synCount=pool.map(f=>Object.values(map).filter(l=>l.includes(f.id)).length);
+ assert.deepEqual([Math.min(...synCount),Math.max(...synCount),synCount.reduce((a,b)=>a+b,0)],[2,3,30]);
+ // NEGATIVE CONTROL for the band: the OLD rule gave her the ten nearest her own rank, so the rank-5
+ // member started at syn_5 and the rank-7 member at syn_7 -- overlapping by eight. A band cannot.
+ assert.notDeepEqual(map.syn_b.slice(0,1),['syn_7'],'a band is not "the ten nearest her own rank"');
+ // Twelve Fellows cannot hold three disjoint bands of ten, so they overlap where they wrap -- which is
+ // exactly how 30 pairings spread 2-3 apiece over 12. The shipped pools are 75 and 58 wide.
+ assert.equal(map.syn_a.filter(x=>map.syn_b.includes(x)).length,8,'bands overlap only by the wrap');
+ assert.equal(familyRecipients(sisters[0],pool,sisters).length,RECIPIENTS_PER_FAMILY);
+ assert.deepEqual(familyRecipients(sisters[0],[...pool,{id:'syn_sw',rank:1,source:{game:'SWGOH'}}],sisters).includes('syn_sw'),false,'never across franchises');
+ // A short pool yields only what exists -- a band may not name the same Fellow twice.
+ assert.deepEqual(familyRecipients(sisters[0],pool.slice(0,3),sisters),['syn_1','syn_2','syn_3']);
+ assert.deepEqual(familyRecipients(sisters[0],[],sisters),[],'and nothing when her franchise has none');
 });
 
 test('a crossover Family member is capped at the shipped 36/24 ladder and blesses only her own list',()=>{
@@ -452,37 +474,49 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
  assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(3),1.992);
 });
 
-// *** THE MEASURED FLAG-ON VILLAGE-EARNINGS CEILING, RE-MEASURED 2026-09-17 ON ALL 163. ***
-// This test pinned 7,046,651 (2.015x) when the catalogue held FOUR crossover characters -- the 2 Fellow
-// prototypes and these 30 Family. The arcs slice landed the other 131 Fellow rows, so the figure was
-// stale rather than wrong; it is re-measured here on the whole roster, and the recipient lists it
-// depends on were regrown from the rank rule at the same time (30 pairings -> the full 300).
+// *** THE MEASURED FLAG-ON VILLAGE-EARNINGS CEILING, RE-MEASURED 2026-09-17 AFTER THE RARITY SLICE. ***
+// History of this number, because each move had a cause: 7,046,651 (2.015x) with FOUR crossover
+// characters, 10,914,679 (3.121x) once the other 131 Fellow rows landed, and 10,872,947 (3.109x) now.
+// The last move is -41,732 and it is entirely the RECIPIENT RE-CUT (see the coverage test above): the
+// same 300 pairings spread over all 133 Fellows instead of piling on 106 of them. Retemplating the two
+// prototypes to their type's rarity-N anchor moved nothing here -- `fellowsOnly` is unchanged at
+// 9,979,855 -- because `data.heroes[template]` is only read when originalProgression is ON and this
+// fixture is default mode (breaks 13, level 750).
 //
 // Decomposed, every figure from tests/crossover-ceiling-fixture.mjs so both halves of every difference
 // come from the same code (CLAUDE.md rule 1). The flag-off row is the positive control asserted above:
 //    6,965,719  flag off                                        1.993x
 //    9,979,855  + the 133 crossover Fellows, maxed              2.854x   (+3,014,136)
-//   10,914,679  + the 30 crossover Family, blessings maxed      3.121x     (+934,824)
+//   10,872,947  + the 30 crossover Family, blessings maxed      3.109x     (+893,092)
 // The owner accepted ~4x (docs/crossover-plan.md decision 1) and docs/crossover-family-plan.md 2.2
-// projected ~3.95x with the Family side worth +1,001,831. The Family side now measures +934,824 --
-// within 7% of that projection, which is the part of the plan this layer was responsible for. The
-// whole-build ratio lands at 3.12x rather than 3.95x because the projection assumed the rarity ladder
-// too: all 163 ship at rarity N borrowing the per-type SSR anchor (docs/crossover-storyline-plan.md
-// 4.6 schedules the rarity work), so this is the floor of that projection, not a contradiction of it.
+// projected ~3.95x with the Family side worth +1,001,831; it measures +893,092, i.e. 89% of that.
+// The whole-build ratio lands at 3.11x rather than 3.95x because the projection assumed the rarity
+// ladder was WORTH something in power. Measured, it is not: the ladder is climbed through
+// originalProgression, this ceiling is the default-mode one, and lib/crossover-rarity.mjs adds a
+// DISPLAY tier only -- no save field, no power term (tests/crossover-rarity.test.mjs pins that the
+// eight ["N"]-gated fishing effects a crossover Fellow draws are identical at quality 1 and 14).
+//
+// WHY THE CEILING IS NOT LINEAR IN THE BLESSING COUNT, which is the whole reason the re-cut moved it:
+// `stellaBonus` sums the percent of every Stella entry of the SAME TYPE (lib/stella.mjs:58) and a
+// crossover Fellow has no entry of its own, so its TYPE multiplies its whole power -- Inspiring +184%,
+// Diligent and Informed +122%, Brave and Unfettered +0%. A blessing landing on an Inspiring crossover
+// Fellow is therefore worth 2.84x one landing on a Brave one. Both are pinned below: this is the
+// largest earnings consequence a crossover Fellow's type has, an order above the operator-slot value
+// tests/crossover-arcs.test.mjs measures (+1,560,006 to +3,120,006 gold/s). Pre-existing and left
+// alone deliberately -- it is inside the accepted ceiling and step 6 of docs/crossover-plan.md is
+// where the crossover power gap is being designed (CLAUDE.md rule 7: deferred, with the reason).
 //
 // The 300 pairings are the rule's own ceiling, not a shortfall: ten recipients each is the original
-// blessing table's measured maximum, so 30 x 10 is as far as this route can ever reach. Coverage is
-// where it stops short -- 106 of the 133 Fellows are named by somebody and 27 by nobody, because the
-// twenty MSF Family members' ten-wide windows overlap rather than spread.
-test('flag ON: the village-earnings ceiling is 10,914,679 (3.121x), and the Family side is +934,824',()=>{
+// blessing table's measured maximum, so 30 x 10 is as far as this route can ever reach.
+test('flag ON: the village-earnings ceiling is 10,872,947 (3.109x), and the Family side is +893,092',()=>{
  const {ceiling}=flagOn();
- assert.equal(ceiling.ceiling,10914679);
- assert.equal(ceiling.ratio,3.1209);
+ assert.equal(ceiling.ceiling,10872947);
+ assert.equal(ceiling.ratio,3.109);
  assert.equal(ceiling.original,3497276,'the same denominator the flag-off control uses');
  assert.equal(ceiling.fellowsOnly.ceiling,9979855,'the 133 crossover Fellows alone');
- assert.equal(ceiling.familyBlessingWorth,934824,'what the 30 crossover Family are worth');
+ assert.equal(ceiling.familyBlessingWorth,893092,'what the 30 crossover Family are worth');
  assert.equal(ceiling.ceiling-ceiling.fellowsOnly.ceiling,ceiling.familyBlessingWorth,'and it is a subtraction, not a quote');
- assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[4078171,7498144,10633341]);
+ assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[4078171,7498144,10591609]);
  // The two states differ in the crossover FAMILY and nothing else, or the difference above is not the
  // Family side's worth (CLAUDE.md rule 1).
  assert.deepEqual([ceiling.stage0,ceiling.stage1],[ceiling.fellowsOnly.stage0,ceiling.fellowsOnly.stage1],
@@ -495,25 +529,27 @@ test('flag ON: the village-earnings ceiling is 10,914,679 (3.121x), and the Fami
  assert.equal(ceiling.crossoverFellowsInRoster,133,'all 133 are in the roster being measured');
  assert.equal(ceiling.pairings,300,'30 x 10 -- the structural cap the rule can never exceed');
  assert.equal(ceiling.familyLadderMax,36,'and not one of them passed the classic ladder');
- assert.equal(ceiling.blessedCrossoverFellows,106,'106 of 133 are blessed; 27 are named by nobody');
+ assert.equal(ceiling.blessedCrossoverFellows,133,'every one of the 133 is blessed by somebody now');
  // The whole distribution, so a change to the rule shows up as a shape change rather than as one
- // Fellow's number moving. Each bucket is n x (159,000 flat, +12%), the 36/24 cap per blesser.
+ // Fellow's number moving. Each bucket is n x (159,000 flat, +12%), the 36/24 cap per blesser. Before
+ // the re-cut this ran from 0 to 8 blessers with 27 Fellows on zero; it is 1 to 3 now.
  assert.deepEqual(ceiling.blessingBuckets,{
-  '{"flat":0,"percent":0}':27,                  // named by nobody
-  '{"flat":159000,"percent":0.12}':32,          // 1 blesser
-  '{"flat":318000,"percent":0.24}':30,          // 2
-  '{"flat":477000,"percent":0.36}':14,          // 3
-  '{"flat":636000,"percent":0.48}':7,           // 4
-  '{"flat":795000,"percent":0.6}':11,           // 5
-  '{"flat":954000,"percent":0.72}':3,           // 6
-  '{"flat":1113000,"percent":0.84}':7,          // 7
-  '{"flat":1272000,"percent":0.96}':2,          // 8 -- the most any Fellow draws
+  '{"flat":159000,"percent":0.12}':16,          // 1 blesser  -- 16 SWGOH Fellows
+  '{"flat":318000,"percent":0.24}':67,          // 2
+  '{"flat":477000,"percent":0.36}':50,          // 3 -- the most any Fellow draws
  });
  assert.equal(Object.values(ceiling.blessingBuckets).reduce((a,b)=>a+b,0),133,'every Fellow is in exactly one bucket');
+ assert.deepEqual(ceiling.blessingCounts,{1:16,2:67,3:50},'and the same shape counted as blessers');
  assert.deepEqual(ceiling.perCrossoverFellowBlessing,{
-  xover_msf_spiderman:{flat:1272000,percent:0.96},        // 8 MSF blessers x the 36/24 cap
-  xover_swgoh_vaderduelsend:{flat:636000,percent:0.48},   // 4 SWGOH blessers
+  xover_msf_spiderman:{flat:477000,percent:0.36},         // 3 MSF blessers x the 36/24 cap
+  xover_swgoh_vaderduelsend:{flat:318000,percent:0.24},   // 2 SWGOH blessers
  });
+ // The type multiplier that makes the total non-linear, measured rather than described.
+ assert.deepEqual(ceiling.stellaPercentByType,{Unfettered:0,Brave:0,Diligent:122,Informed:122,Inspiring:184});
+ assert.deepEqual(ceiling.maxedPowerByType,
+  {Unfettered:18973639,Brave:18973639,Diligent:42121478,Informed:42121478,Inspiring:53885134});
+ assert.equal(+(ceiling.maxedPowerByType.Inspiring/ceiling.maxedPowerByType.Brave).toFixed(2),2.84,
+  'an Inspiring crossover Fellow maxes at 2.84x a Brave one, on identical records');
  assert.ok(ceiling.valid,ceiling.refusedBy);
  assert.ok(ceiling.fellowsOnly.valid,ceiling.fellowsOnly.refusedBy);
 });

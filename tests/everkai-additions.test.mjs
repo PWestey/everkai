@@ -12,14 +12,17 @@ import {insightRule} from '../lib/insight.mjs';
 import {characterSkills} from '../lib/character-skills.mjs';
 import {stellaRule} from '../lib/stella.mjs';
 import {streamed} from '../scripts/offline-manifest.mjs';
-import {templateCandidates} from '../scripts/crossover/pick-template.mjs';
+import {templateCandidates,RARITY_N_ANCHORS as ANCHORS} from '../scripts/crossover/pick-template.mjs';
 import {buildRows,buildFamilyRows,dataFileText} from '../scripts/crossover/build-additions.mjs';
 import {decode,startingSave,valid} from '../lib/game.mjs';
 import progression from '../lib/original-progression-data.json' with {type:'json'};
 import talentSource from '../lib/default-talent-source.json' with {type:'json'};
 
-/** The two prototypes: the only rows with an installed idle clip, and the only two whose rarity is not
- *  N. Everything else is asserted over the whole file, so 131 more rows cannot arrive unchecked. */
+/** The two prototypes: the only rows with an installed idle clip. They used to be the only two whose
+ *  rarity was not N as well -- Spider-Man SSR, Vader UR, both authored before the owner's "N for every
+ *  crossover" decision -- and the generator now DERIVES rarity, type and template on every row, so all
+ *  133 are N on their type's anchor. Everything else is asserted over the whole file, so 131 more rows
+ *  cannot arrive unchecked. */
 const SHIPPED=['xover_msf_spiderman','xover_swgoh_vaderduelsend'];
 const IDS=data.fellows.map(r=>r.id);
 const asset=p=>new URL('../public/assets/'+p,import.meta.url);
@@ -65,6 +68,7 @@ test('each addition borrows every per-id table from an original Fellow of the sa
   // template of its own (scripts/crossover/pick-template.mjs). The TYPE must still match, or
   // lib/insight.mjs:9 silently drops Insight for the Fellow.
   assert.equal(t.type,f.type,`${f.id} type must equal its template's`);
+  assert.equal(f.rarity,'N','every crossover Fellow ships at rarity N and climbs by DISPLAY only');
   assert.equal(templateCandidates(f.rarity,f.type)[0].id,f.template,'the documented pick rule chose it');
   assert.equal(sourceId(f.id),f.template);
   assert.ok(SUMMON_COSTS[f.rarity],`${f.rarity} has a counter price`);
@@ -202,6 +206,28 @@ test('the additions data file is only what the loader reads',()=>{
  // re-emitted with their ranks, and the generator check below is what stops that recurring.
  for(const r of data.fellows)assert.deepEqual(Object.keys(r).sort(),KEYS);
  for(const r of data.family||[])assert.deepEqual(Object.keys(r).sort(),[...KEYS,'recipients'].sort());
+});
+
+test('rarity, type and template are DERIVED, so a roster retype cannot leave them disagreeing',()=>{
+ // The two prototypes are the regression: carried through untouched, Spider-Man kept rarity SSR and
+ // Vader kept rarity UR on hero_113, the UR Brave anchor -- and that template is why the arcs slice
+ // could not retype him (docs/crossover-plan.md order of work 7). Deriving all three at the generator
+ // is what unblocks it, so it is asserted here and not just in the emitted bytes.
+ const roster=JSON.parse(readFileSync(new URL('../lib/crossover-roster-data.json',import.meta.url),'utf8'));
+ const byId=new Map(roster.characters.map(c=>[c.id,c]));
+ for(const r of data.fellows){
+  const c=byId.get(r.id);
+  assert.equal(r.type,c.type,`${r.id} type disagrees with the roster`);
+  assert.equal(r.rarity,'N',r.id);
+  assert.equal(r.template,ANCHORS[r.type],`${r.id} is not on its type's anchor`);
+ }
+ assert.deepEqual(SHIPPED.map(id=>additionById(id)).map(f=>[f.rarity,f.type,f.template]),
+  [['N','Unfettered','hero_103'],['N','Brave','hero_101']],'and the two prototypes moved with the rest');
+ // NEGATIVE CONTROL: hand the generator a roster row with a different type and both the template and
+ // the emitted type must follow it. Done through the rule rather than by editing the shipped file.
+ const moved={...byId.get(SHIPPED[1]),type:'Inspiring'};
+ assert.equal(ANCHORS[moved.type],'hero_104','the anchor for the new type');
+ assert.notEqual(ANCHORS[moved.type],additionById(SHIPPED[1]).template,'and it is not the one he ships with');
 });
 
 test('the whole data file is what scripts/crossover/build-additions.mjs emits, both arrays',()=>{

@@ -71,6 +71,12 @@ So today rarity is **a price tag and an icon**. That is what makes the owner's a
 rarity badge costs almost nothing, and the *power* half has to be bolted onto an existing ladder.
 
 > **Latent defect found while sweeping (pre-existing, not introduced by this slice).**
+> **RESOLVED 2026-09-17 for the crossover half, and only that half.** The ladder ships as a DISPLAY
+> derivation (`lib/crossover-rarity.mjs`): the stored string stays the bare `"N"`, so a crossover
+> Fellow's fish bonuses are identical at quality 1 and 14 (pinned, with a `["UR"]`-gated effect as the
+> negative control), and the rarity-to-power coupling this note warned about cannot arise by accident.
+> The 32 chained ORIGINAL Fellows still receive no rarity-gated fish bonus: unchanged, pre-existing,
+> and R4 in §6 still owns it. As written:
 > `lib/fishing.mjs:60` compares `profile?.rarity` — the raw catalogue string — against a validated list
 > of `['N','R','SR','SSR','SSR+','UR']` (`lib/fishing.mjs:67`). A Fellow whose rarity is the chain
 > `"SSR -> UR"` therefore matches **nothing**, so **32 original Fellows silently receive no
@@ -327,6 +333,9 @@ Icon_Rarity_N_1  R_1  SR_1  SSR_1  SSRPlus_1  UR_1  URPlus_1  LR_1
 So **`Icon_Rarity_LR_1` exists** — the top of the ladder has art, and the mapping in the table above is
 fully renderable except for one rung:
 
+> **FIXED 2026-09-17** — `'UR*':'URPlus'` shipped in `lib/ui-sprites.mjs`, and `LR` was folded onto
+> the six-wide PetList card ramp for the same reason; both negative-controlled in
+> `tests/crossover-rarity.test.mjs`. As written:
 > **`UR*` has no icon.** `rarityIcon` (`lib/ui-sprites.mjs:6`) aliases only `{'SSR+':'SSRPlus',
 > 'UR+':'URPlus'}`, so `rarityIcon('UR*')` asks for `Icon_Rarity_UR*_1`, which is not a key, and returns
 > `null`. `cardRarity` (`lib/ui-sprites.mjs:16`) *does* strip a trailing `*`; `rarityIcon` does not.

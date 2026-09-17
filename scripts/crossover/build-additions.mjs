@@ -28,9 +28,17 @@ import {createHash} from 'node:crypto';
 import roster from '../../lib/crossover-roster-data.json' with {type:'json'};
 import shipped from '../../lib/everkai-additions-data.json' with {type:'json'};
 import {RARITY_N_ANCHORS} from './pick-template.mjs';
-import {familyRecipients} from '../../lib/crossover-recipients.mjs';
+import {familyRecipientMap} from '../../lib/crossover-recipients.mjs';
 
 export const NEW_RARITY='N';
+/** Rarity, type and template are DERIVED on every row, generated or carried through, exactly as `rank`
+ *  is: rarity is N for every crossover character and the template is its type's rarity-N anchor, so
+ *  leaving a shipped row's own values in place is how the two prototypes kept a pre-decision rarity
+ *  (Spider-Man SSR, Vader UR) and how Vader kept the UR Brave anchor hero_113 -- which in turn froze
+ *  his type, because retyping him would have left type and template disagreeing. Deriving all three
+ *  here means a type change in lib/crossover-roster-data.json is enough to move a character. */
+const derived=c=>({rarity:NEW_RARITY,type:c.type,template:anchor(c)});
+const anchor=c=>{const t=RARITY_N_ANCHORS[c.type];if(!t)throw new Error(`${c.id}: no rarity-N anchor for type ${c.type}`);return t};
 const KEYS=['id','name','title','occupation','race','rarity','type','description','rank','template','art','clip','artSha256','artBytes','source'];
 /** The Family rows carry one authored table of their own, and it sits between the media and the
  *  provenance -- see lib/everkai-additions.mjs. */
@@ -52,9 +60,10 @@ export function buildRows({build=process.env.CROSSOVER_BUILD,install=false}={}){
  for(const c of roster.characters){
   if(c.kind!=='fellows')continue;
   const already=shipped.fellows.find(f=>f.id===c.id);
-  // A row already in the file keeps its own measured media bytes and prose; only `rank` is re-mirrored
-  // from the roster, which is where it came from (it is a verbatim mirror, so this is idempotent).
-  if(already){rows.push({...already,rank:c.rank});continue}
+  // A row already in the file keeps its own measured media bytes and prose; `rank` plus the three
+  // derived fields are re-mirrored from the roster, which is where they came from (it is a verbatim
+  // mirror and the derivation is pure, so this is idempotent).
+  if(already){rows.push({...already,rank:c.rank,...derived(c)});continue}
   if(!build)throw new Error(`CROSSOVER_BUILD is not set and ${c.id} is not shipped yet`);
   const dir=`${build}/${c.id}/`;
   const manifest=JSON.parse(readFileSync(dir+'manifest.json','utf8'));
@@ -65,10 +74,8 @@ export function buildRows({build=process.env.CROSSOVER_BUILD,install=false}={}){
   if(art.length!==manifest.still.bytes)throw new Error(`${c.id}: still byte count does not match its manifest`);
   if(art.subarray(8,12).toString()!=='WEBP')throw new Error(`${c.id}: still is not a webp`);
   if(install)copyFileSync(dir+manifest.still.file,new URL(manifest.still.file,assetDir));
-  const template=RARITY_N_ANCHORS[c.type];
-  if(!template)throw new Error(`${c.id}: no rarity-N anchor for type ${c.type}`);
   rows.push({id:c.id,name:c.character,title:c.title,occupation:c.occupation,race:c.race,
-   rarity:NEW_RARITY,type:c.type,description:c.description,rank:c.rank,template,
+   ...derived(c),description:c.description,rank:c.rank,
    art:'crossover/'+manifest.still.file,clip:null,artSha256:sha,artBytes:art.length,
    source:{game:manifest.game,assetId:manifest.assetId,bundle:manifest.bundle,bundleSha256:manifest.bundleSha256,
     prefab:manifest.root,clip:manifest.clip,pipeline:'scripts/crossover/build-character.py'}});
@@ -83,12 +90,16 @@ export function buildRows({build=process.env.CROSSOVER_BUILD,install=false}={}){
  *  rule 12, which is why these lists are allowed to move when Fellow rows land. */
 export function buildFamilyRows(fellowRows){
  const ranked=new Map(roster.characters.map(c=>[c.id,c]));
- return (shipped.family||[]).map(r=>{
+ const ranks=(shipped.family||[]).map(r=>{
   const c=ranked.get(r.id);
   if(!c)throw new Error(`${r.id} is not in lib/crossover-roster-data.json`);
   if(c.kind!=='family')throw new Error(`${r.id} is a ${c.kind} row in the roster, not family`);
-  return inOrder({...r,rank:c.rank,recipients:familyRecipients({...r,rank:c.rank},fellowRows)},FAMILY_KEYS);
+  return {...r,rank:c.rank};
  });
+ // Derived from the WHOLE Family list at once: a member's band of the rank order is decided by her
+ // place among the Family of her franchise, so the lists are only even taken together.
+ const lists=familyRecipientMap(ranks,fellowRows);
+ return ranks.map(r=>inOrder({...r,recipients:lists[r.id]},FAMILY_KEYS));
 }
 
 export const dataFileText=(rows,familyRows=buildFamilyRows(rows))=>

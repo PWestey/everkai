@@ -435,7 +435,10 @@ Recommendation, in two parts, neither of which adds a save field:
 2. **Add a derived `displayRarity(s,id)`** that reads the ladder token for the Fellow's *stored*
    quality tier, so the card frame actually climbs as the owner upgrades. Ladder
    `N → R → SR → SSR → SSR+ → UR`; mapping **LOCAL**: tiers 1–2 → N, 3–4 → R, 5–6 → SR, 7–9 → SSR,
-   10–11 → SSR+, 12–14 → UR. Pure function of `s.originalProgression.quality[id]`, which
+   10–11 → SSR+, 12–14 → UR. **SHIPPED 2026-09-17** with the progression plan's §3.3 mapping instead —
+   the same idea two rungs longer (13 → `UR*`, 14 → `LR`, both of which have art once the two sprite
+   defects are fixed), so the top of the ladder is the top of the original's, as the owner asked.
+   Pure function of `s.originalProgression.quality[id]`, which
    `validOriginalProgression` already validates (`lib/original-progression.mjs:26`). No new state,
    no validator change.
 
@@ -457,7 +460,10 @@ Measured, this is save-safe and the blast radius is two Fellows:
 - The one real effect: base aptitude is `data.heroes[template]`, **70 for the SSR anchors vs 120 for
   the UR anchors**. `xover_swgoh_vaderduelsend` currently borrows `hero_113` (120) and would move to
   `hero_101` (70) — a one-time −50 base aptitude for a Fellow that exists only in the owner's own
-  flag-on test save. Flagged rather than hidden.
+  flag-on test save. Flagged rather than hidden. **DONE 2026-09-17**, and measured at the two ends of
+  the ladder: −46,250 power at quality 1 / level 100 (−41.7%) and **−775,000 at quality 14 / level 750
+  (−27.0%)**. `talentRule` and `insightRule` are identical for the two anchors, so a save carrying his
+  talent, insight and quality ledgers from the previous build decodes byte-identically.
 
 ---
 

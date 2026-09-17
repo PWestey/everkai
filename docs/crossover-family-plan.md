@@ -263,16 +263,33 @@ Why each part:
   range, and 10 maximises how much of the crossover power gap closes. Measured price: +1,001,831
   (§2.2), ceiling 2.28×.
 - **Recipients are crossover Fellows, not original ones.** This is what decision 4 asked for. 30
-  Family × 10 = **300 pairings over 133 crossover Fellows = 2.26 blessings each**, against the
+  Family × 10 = **300 pairings over 133 crossover Fellows = 2.26 blessings each** (every one of them
+  blessed, 1–3 apiece, since the 2026-09-17 re-cut below), against the
   original Fellows' measured **593 pairings over 153 blessed Fellows = 3.88 each**. So a crossover
   Fellow receives **58% of an original Fellow's blessing support** — deliberately under parity, and
   the cap is structural: 30 Family at the original's 10-recipient maximum cannot exceed 300 pairings,
   so this route can close at most 58% of the gap no matter how it is arranged. Reaching parity would
   need 17.2 recipients per Family, well outside the original's range.
-- **Assignment rule** (so it cannot drift): each crossover Family member blesses the 10 crossover
-  Fellows nearest her in the owner's rank order within her own franchise, wrapping; re-derived by test
-  from `selected-roster.json` and `lib/everkai-additions-data.json`, never hard-coded — the same
+- **Assignment rule** (so it cannot drift): each crossover Family member blesses her own **ten-wide
+  band** of her franchise's rank order, bands dealt in Family rank order and wrapping; re-derived by
+  test from `selected-roster.json` and `lib/everkai-additions-data.json`, never hard-coded — the same
   discipline `docs/crossover-storyline-plan.md` uses for arcs.
+
+  **RE-CUT 2026-09-17.** The rule first shipped as "the ten nearest her in rank", which *overlapped*:
+  the 20 MSF Family hold ranks 11–95, so their windows piled onto the same Fellows. Measured on the
+  full data, the 300 pairings reached only **106 of the 133** Fellows, **27 were blessed by nobody**
+  and Spider-Man was blessed by **8**. Dealing the bands instead gives **133 of 133 blessed, min 1,
+  max 3** — exactly even inside each franchise (MSF 200 pairings over 75 Fellows → 2 or 3 each; SWGOH
+  100 over 58 → 1 or 2 each). The franchises differ only because the owner's roster splits 20 Family :
+  75 Fellows against 10 : 58, which no assignment rule can change. Still 300 pairings, still ten each,
+  so nothing left the original table's measured range.
+
+  It **lowered** the ceiling, by 41,732 (10,914,679 → 10,872,947; the Family side 934,824 → 893,092).
+  That is not rounding: `stellaBonus` sums Stella percent across every entry of the **same type**
+  (`lib/stella.mjs:58`) and a crossover Fellow has no entry of its own, so its **type** multiplies its
+  whole power — Inspiring +184%, Diligent and Informed +122%, Brave and Unfettered +0%. Concentrated
+  blessings happened to sit on better-multiplied Fellows. Both halves are pinned in
+  `tests/crossover-family.test.mjs`.
 
 **Two code changes this requires, both small and both already implied by existing defects:**
 

@@ -10,9 +10,10 @@ const T=new Date('2026-09-16T09:00:00').getTime();
 const {fresh,startingSave,act,valid,refusedBy,decode}=await import('../lib/game.mjs');
 const {starterHabits}=await import('../lib/habits.mjs');
 const {EVENTS,CROSSOVER_EVENTS,costPerStage,completionsEarned,stagePerson}=await import('../lib/events.mjs');
-const {FAMILY,ORIGINAL_FAMILY,familyById,familyCatalogue}=await import('../lib/catalog.mjs');
+const {FAMILY,ORIGINAL_FAMILY,familyById,familyCatalogue,FELLOWS:FELLOW_CATALOGUE}=await import('../lib/catalog.mjs');
 const {FATHOM_SLOTS,MAX_TIER,fathomBonus,openSlots,fathomsApply}=await import('../lib/fathoms.mjs');
 const {blessingRecipients,blessingPower,blessingPlan,BLESSINGS}=await import('../lib/blessings.mjs');
+const {bondedPower:bondedPowerAt}=await import('../lib/adventure.mjs');
 const {familyBonus}=await import('../lib/progression.mjs');
 const {recruitOffers}=await import('../lib/summon.mjs');
 const {TRIPS}=await import('../lib/family-trips.mjs');
@@ -142,7 +143,19 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
  const shape=JSON.stringify;
  const buckets={};
  for(const [,p] of blessed)buckets[shape(p)]=(buckets[shape(p)]||0)+1;
+ // The per-TYPE Stella percent a crossover Fellow inherits. stellaBonus sums the percent of every
+ // Stella entry of the SAME TYPE (lib/stella.mjs:58), and a crossover Fellow has no entry of its own,
+ // so its type decides a multiplier on its WHOLE power -- which is why the ceiling is not linear in the
+ // blessing count and why re-cutting the recipient lists moves it at all.
+ const {stellaBonus}=await import('../lib/stella.mjs');
+ const stellaByType={};
+ for(const f of FELLOW_CATALOGUE.filter(f=>f.addition))stellaByType[f.type]??=stellaBonus(c.state,f.id).percent;
+ const powerByType={};
+ for(const f of FELLOW_CATALOGUE.filter(f=>f.addition))powerByType[f.type]??=bondedPowerAt(c.state,f.id);
  out.ceiling={...trim(c),fellowsOnly:trim(fellowsOnly),
+  stellaPercentByType:stellaByType,
+  maxedPowerByType:powerByType,
+  blessingCounts:(()=>{const h={};for(const id of xoverFellows){const k=Math.round(blessingPower(c.state,id).flat/159000);h[k]=(h[k]||0)+1}return h})(),
   ratio:+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(4),
   original:ORIGINAL_LIVE_SAVE,
   familyBlessingWorth:c.ceiling-fellowsOnly.ceiling,

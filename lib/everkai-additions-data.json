@@ -8,7 +8,7 @@
    "title": "Friendly Neighborhood Hero",
    "occupation": "Web-Slinger",
    "race": "Human",
-   "rarity": "SSR",
+   "rarity": "N",
    "type": "Unfettered",
    "description": "A quick-witted wall-crawler who dropped into the village through a tear in the sky. He patrols the rooftops at dusk, trades jokes for directions, and never walks past someone who needs a hand.",
    "rank": 1,
@@ -1892,11 +1892,11 @@
    "title": "Duel's End",
    "occupation": "Sith Lord",
    "race": "Human",
-   "rarity": "UR",
+   "rarity": "N",
    "type": "Brave",
    "description": "An armored warlord who arrived with his helmet cracked open from a fight long past. Villagers keep their distance, yet he lights the watchtower every night and says little about the road that led him here.",
    "rank": 1,
-   "template": "hero_113",
+   "template": "hero_101",
    "art": "crossover/xover_swgoh_vaderduelsend.webp",
    "clip": {
     "src": "crossover/xover_swgoh_vaderduelsend-idle.mp4",
@@ -3372,16 +3372,16 @@
    "artSha256": "e8a4ffffd288e2061d46d055ac92b62b88e2b407e668a18d6e00dbe61e466dca",
    "artBytes": 41808,
    "recipients": [
-    "xover_msf_thing",
-    "xover_msf_venom",
-    "xover_msf_captainmarvel",
-    "xover_msf_humantorch",
-    "xover_msf_nickfury",
-    "xover_msf_doctoroctopus",
-    "xover_msf_ultgreengoblin",
-    "xover_msf_punisher",
-    "xover_msf_blackwidow",
-    "xover_msf_namor"
+    "xover_msf_antman",
+    "xover_msf_blade",
+    "xover_msf_gamora",
+    "xover_msf_rocketraccoon",
+    "xover_msf_rogue",
+    "xover_msf_shangchi",
+    "xover_msf_groot",
+    "xover_msf_hawkeye",
+    "xover_msf_moonknight",
+    "xover_msf_beast"
    ],
    "source": {
     "game": "MSF",
@@ -3418,16 +3418,16 @@
    "artSha256": "8fcbd673c7945a96ba59de9eca9b148da4fe781c4ed67808f5d002e3aa71a4f6",
    "artBytes": 28478,
    "recipients": [
+    "xover_msf_gambit",
+    "xover_msf_ghostrider",
+    "xover_msf_kingpin",
+    "xover_msf_kamalakhan",
+    "xover_msf_shehulk",
+    "xover_msf_vision",
+    "xover_msf_adamwarlock",
     "xover_msf_nightcrawler",
     "xover_msf_wintersoldier",
-    "xover_msf_cable",
-    "xover_msf_colossus",
-    "xover_msf_juggernaut",
-    "xover_msf_mrsinister",
-    "xover_msf_quicksilver",
-    "xover_msf_ultspiderman",
-    "xover_msf_blackbolt",
-    "xover_msf_hela"
+    "xover_msf_cable"
    ],
    "source": {
     "game": "MSF",
@@ -3464,16 +3464,16 @@
    "artSha256": "2501200255f7e7da47efe1e12b26ecc26a20ccf026d33c96387aecd2a6887b3a",
    "artBytes": 37382,
    "recipients": [
-    "xover_msf_drax",
-    "xover_msf_ghostspider",
-    "xover_msf_americachavez",
-    "xover_msf_katebishop",
-    "xover_msf_x23",
-    "xover_msf_coulson",
-    "xover_msf_electro",
-    "xover_msf_magik",
-    "xover_msf_mantis",
-    "xover_msf_nebula"
+    "xover_msf_ultgreengoblin",
+    "xover_msf_punisher",
+    "xover_msf_blackwidow",
+    "xover_msf_namor",
+    "xover_msf_starlord",
+    "xover_msf_antman",
+    "xover_msf_blade",
+    "xover_msf_gamora",
+    "xover_msf_rocketraccoon",
+    "xover_msf_rogue"
    ],
    "source": {
     "game": "MSF",
@@ -3510,16 +3510,16 @@
    "artSha256": "0186b68f6ffe5dadfcfb9da82c4bde122045888e8e02737b9ee516654551457c",
    "artBytes": 36476,
    "recipients": [
-    "xover_msf_nicominoru",
-    "xover_msf_spiderman",
-    "xover_msf_wolverine",
-    "xover_msf_captainamericaww2",
-    "xover_msf_ironmaninfinitywar",
-    "xover_msf_hulk",
-    "xover_msf_thorinfinitywar",
-    "xover_msf_doom",
-    "xover_msf_magneto",
-    "xover_msf_thanosendgame"
+    "xover_msf_phoenix",
+    "xover_msf_loki",
+    "xover_msf_blackpanther",
+    "xover_msf_deadpool",
+    "xover_msf_mrfantasticmcu",
+    "xover_msf_xavier",
+    "xover_msf_silversurfer",
+    "xover_msf_cyclops",
+    "xover_msf_daredevilmodern",
+    "xover_msf_thing"
    ],
    "source": {
     "game": "MSF",
@@ -3556,6 +3556,8 @@
    "artSha256": "dbdb4fc550d2dce36149a5cec43516fb929acfeaa01a1eb653c281969e0f8699",
    "artBytes": 41950,
    "recipients": [
+    "xover_msf_phoenix",
+    "xover_msf_loki",
     "xover_msf_blackpanther",
     "xover_msf_deadpool",
     "xover_msf_mrfantasticmcu",
@@ -3563,9 +3565,7 @@
     "xover_msf_silversurfer",
     "xover_msf_cyclops",
     "xover_msf_daredevilmodern",
-    "xover_msf_thing",
-    "xover_msf_venom",
-    "xover_msf_captainmarvel"
+    "xover_msf_thing"
    ],
    "source": {
     "game": "MSF",
@@ -3602,16 +3602,16 @@
    "artSha256": "5e60b404925509361dbbec4f8d16939b7bdfb43493ab58236fdad3db16c94391",
    "artBytes": 36200,
    "recipients": [
-    "xover_msf_phoenix",
-    "xover_msf_loki",
-    "xover_msf_blackpanther",
-    "xover_msf_deadpool",
-    "xover_msf_mrfantasticmcu",
-    "xover_msf_xavier",
-    "xover_msf_silversurfer",
-    "xover_msf_cyclops",
-    "xover_msf_daredevilmodern",
-    "xover_msf_thing"
+    "xover_msf_spiderman",
+    "xover_msf_wolverine",
+    "xover_msf_captainamericaww2",
+    "xover_msf_ironmaninfinitywar",
+    "xover_msf_hulk",
+    "xover_msf_thorinfinitywar",
+    "xover_msf_doom",
+    "xover_msf_magneto",
+    "xover_msf_thanosendgame",
+    "xover_msf_doctorstrange"
    ],
    "source": {
     "game": "MSF",
@@ -3648,8 +3648,6 @@
    "artSha256": "17e28aba259bc22cb1d6a140789a336e90156370eb1a3fe2dd51d32fd91b67c4",
    "artBytes": 39100,
    "recipients": [
-    "xover_msf_daredevilmodern",
-    "xover_msf_thing",
     "xover_msf_venom",
     "xover_msf_captainmarvel",
     "xover_msf_humantorch",
@@ -3657,7 +3655,9 @@
     "xover_msf_doctoroctopus",
     "xover_msf_ultgreengoblin",
     "xover_msf_punisher",
-    "xover_msf_blackwidow"
+    "xover_msf_blackwidow",
+    "xover_msf_namor",
+    "xover_msf_starlord"
    ],
    "source": {
     "game": "MSF",
@@ -3694,16 +3694,16 @@
    "artSha256": "1ed93def8b4d590af4f8a14a7ca6424fbee0a55f55fe981731370b44ae5ff744",
    "artBytes": 35696,
    "recipients": [
-    "xover_msf_x23",
-    "xover_msf_coulson",
-    "xover_msf_electro",
-    "xover_msf_magik",
-    "xover_msf_mantis",
-    "xover_msf_nebula",
-    "xover_msf_yelena",
-    "xover_msf_nicominoru",
-    "xover_msf_spiderman",
-    "xover_msf_wolverine"
+    "xover_msf_vision",
+    "xover_msf_adamwarlock",
+    "xover_msf_nightcrawler",
+    "xover_msf_wintersoldier",
+    "xover_msf_cable",
+    "xover_msf_colossus",
+    "xover_msf_juggernaut",
+    "xover_msf_mrsinister",
+    "xover_msf_quicksilver",
+    "xover_msf_ultspiderman"
    ],
    "source": {
     "game": "MSF",
@@ -3740,16 +3740,16 @@
    "artSha256": "3abecf0d010a586fc3259ea377f102051805c9da17d33f3ecf80b878d9e81b62",
    "artBytes": 32904,
    "recipients": [
-    "xover_msf_kraventhehunter",
-    "xover_msf_bishop",
-    "xover_msf_drax",
-    "xover_msf_ghostspider",
-    "xover_msf_americachavez",
-    "xover_msf_katebishop",
-    "xover_msf_x23",
-    "xover_msf_coulson",
-    "xover_msf_electro",
-    "xover_msf_magik"
+    "xover_msf_xavier",
+    "xover_msf_silversurfer",
+    "xover_msf_cyclops",
+    "xover_msf_daredevilmodern",
+    "xover_msf_thing",
+    "xover_msf_venom",
+    "xover_msf_captainmarvel",
+    "xover_msf_humantorch",
+    "xover_msf_nickfury",
+    "xover_msf_doctoroctopus"
    ],
    "source": {
     "game": "MSF",
@@ -3786,7 +3786,6 @@
    "artSha256": "b0547f5ec157160960e5c6323635c8d4244680a16c0e9cba1e33015bcf603eab",
    "artBytes": 32302,
    "recipients": [
-    "xover_msf_nicominoru",
     "xover_msf_spiderman",
     "xover_msf_wolverine",
     "xover_msf_captainamericaww2",
@@ -3795,7 +3794,8 @@
     "xover_msf_thorinfinitywar",
     "xover_msf_doom",
     "xover_msf_magneto",
-    "xover_msf_thanosendgame"
+    "xover_msf_thanosendgame",
+    "xover_msf_doctorstrange"
    ],
    "source": {
     "game": "MSF",
@@ -3832,16 +3832,16 @@
    "artSha256": "529e63aa3fb29c7c2f81e71723c695d9b2f5a83eb7abd724c823d9e604963f42",
    "artBytes": 31652,
    "recipients": [
-    "xover_msf_nicominoru",
-    "xover_msf_spiderman",
-    "xover_msf_wolverine",
-    "xover_msf_captainamericaww2",
-    "xover_msf_ironmaninfinitywar",
-    "xover_msf_hulk",
-    "xover_msf_thorinfinitywar",
-    "xover_msf_doom",
-    "xover_msf_magneto",
-    "xover_msf_thanosendgame"
+    "xover_msf_americachavez",
+    "xover_msf_katebishop",
+    "xover_msf_x23",
+    "xover_msf_coulson",
+    "xover_msf_electro",
+    "xover_msf_magik",
+    "xover_msf_mantis",
+    "xover_msf_nebula",
+    "xover_msf_yelena",
+    "xover_msf_nicominoru"
    ],
    "source": {
     "game": "MSF",
@@ -3878,16 +3878,16 @@
    "artSha256": "c0b0247a44f0081e93c738a15b9f4869b9e6712c5ab253bce411b82f7c0e66d6",
    "artBytes": 45260,
    "recipients": [
-    "xover_msf_spiderman",
-    "xover_msf_wolverine",
-    "xover_msf_captainamericaww2",
-    "xover_msf_ironmaninfinitywar",
-    "xover_msf_hulk",
-    "xover_msf_thorinfinitywar",
-    "xover_msf_doom",
-    "xover_msf_magneto",
-    "xover_msf_thanosendgame",
-    "xover_msf_doctorstrange"
+    "xover_msf_antman",
+    "xover_msf_blade",
+    "xover_msf_gamora",
+    "xover_msf_rocketraccoon",
+    "xover_msf_rogue",
+    "xover_msf_shangchi",
+    "xover_msf_groot",
+    "xover_msf_hawkeye",
+    "xover_msf_moonknight",
+    "xover_msf_beast"
    ],
    "source": {
     "game": "MSF",
@@ -3924,16 +3924,16 @@
    "artSha256": "fd2852d859dc0e1aca8d60ba9f6d4abc142d3962df5c9e7194c63d93e817cbcd",
    "artBytes": 39854,
    "recipients": [
-    "xover_msf_kraventhehunter",
-    "xover_msf_bishop",
-    "xover_msf_drax",
-    "xover_msf_ghostspider",
-    "xover_msf_americachavez",
-    "xover_msf_katebishop",
-    "xover_msf_x23",
-    "xover_msf_coulson",
-    "xover_msf_electro",
-    "xover_msf_magik"
+    "xover_msf_thorinfinitywar",
+    "xover_msf_doom",
+    "xover_msf_magneto",
+    "xover_msf_thanosendgame",
+    "xover_msf_doctorstrange",
+    "xover_msf_phoenix",
+    "xover_msf_loki",
+    "xover_msf_blackpanther",
+    "xover_msf_deadpool",
+    "xover_msf_mrfantasticmcu"
    ],
    "source": {
     "game": "MSF",
@@ -3970,16 +3970,16 @@
    "artSha256": "c0a98d54fd64ff9df89cc61db89024410f45cc5365bdcd3807b5703b107caa35",
    "artBytes": 39368,
    "recipients": [
-    "xover_msf_nightcrawler",
-    "xover_msf_wintersoldier",
-    "xover_msf_cable",
     "xover_msf_colossus",
     "xover_msf_juggernaut",
     "xover_msf_mrsinister",
     "xover_msf_quicksilver",
     "xover_msf_ultspiderman",
     "xover_msf_blackbolt",
-    "xover_msf_hela"
+    "xover_msf_hela",
+    "xover_msf_lukecage",
+    "xover_msf_nova",
+    "xover_msf_jubilee"
    ],
    "source": {
     "game": "MSF",
@@ -4016,16 +4016,16 @@
    "artSha256": "f73883526350b30d67d977b3fdbe83cc0b1bba8657283fe14affffe5168002a7",
    "artBytes": 42768,
    "recipients": [
-    "xover_msf_americachavez",
-    "xover_msf_katebishop",
-    "xover_msf_x23",
-    "xover_msf_coulson",
-    "xover_msf_electro",
-    "xover_msf_magik",
-    "xover_msf_mantis",
-    "xover_msf_nebula",
-    "xover_msf_yelena",
-    "xover_msf_nicominoru"
+    "xover_msf_shangchi",
+    "xover_msf_groot",
+    "xover_msf_hawkeye",
+    "xover_msf_moonknight",
+    "xover_msf_beast",
+    "xover_msf_gambit",
+    "xover_msf_ghostrider",
+    "xover_msf_kingpin",
+    "xover_msf_kamalakhan",
+    "xover_msf_shehulk"
    ],
    "source": {
     "game": "MSF",
@@ -4062,16 +4062,16 @@
    "artSha256": "ed871c877b4b3a9d24ef4f169d6249356b9732a8f299640f074269f54a2ceef7",
    "artBytes": 36066,
    "recipients": [
-    "xover_msf_ultspiderman",
-    "xover_msf_blackbolt",
-    "xover_msf_hela",
-    "xover_msf_lukecage",
-    "xover_msf_nova",
-    "xover_msf_jubilee",
     "xover_msf_sentry",
     "xover_msf_kraventhehunter",
     "xover_msf_bishop",
-    "xover_msf_drax"
+    "xover_msf_drax",
+    "xover_msf_ghostspider",
+    "xover_msf_americachavez",
+    "xover_msf_katebishop",
+    "xover_msf_x23",
+    "xover_msf_coulson",
+    "xover_msf_electro"
    ],
    "source": {
     "game": "MSF",
@@ -4108,16 +4108,16 @@
    "artSha256": "a40d7d56d8d96cb9cc8a141ea0b5fea7d8130da561cb2baa1aae2932073f9eb8",
    "artBytes": 37196,
    "recipients": [
-    "xover_msf_jubilee",
-    "xover_msf_sentry",
-    "xover_msf_kraventhehunter",
-    "xover_msf_bishop",
-    "xover_msf_drax",
-    "xover_msf_ghostspider",
-    "xover_msf_americachavez",
-    "xover_msf_katebishop",
-    "xover_msf_x23",
-    "xover_msf_coulson"
+    "xover_msf_magik",
+    "xover_msf_mantis",
+    "xover_msf_nebula",
+    "xover_msf_yelena",
+    "xover_msf_nicominoru",
+    "xover_msf_spiderman",
+    "xover_msf_wolverine",
+    "xover_msf_captainamericaww2",
+    "xover_msf_ironmaninfinitywar",
+    "xover_msf_hulk"
    ],
    "source": {
     "game": "MSF",
@@ -4154,16 +4154,16 @@
    "artSha256": "66059ea20b745be498fb7318e73657a6abd34077946cd59af7abfb40591b9445",
    "artBytes": 47534,
    "recipients": [
-    "xover_msf_yelena",
-    "xover_msf_nicominoru",
-    "xover_msf_spiderman",
-    "xover_msf_wolverine",
-    "xover_msf_captainamericaww2",
-    "xover_msf_ironmaninfinitywar",
-    "xover_msf_hulk",
-    "xover_msf_thorinfinitywar",
-    "xover_msf_doom",
-    "xover_msf_magneto"
+    "xover_msf_blackbolt",
+    "xover_msf_hela",
+    "xover_msf_lukecage",
+    "xover_msf_nova",
+    "xover_msf_jubilee",
+    "xover_msf_sentry",
+    "xover_msf_kraventhehunter",
+    "xover_msf_bishop",
+    "xover_msf_drax",
+    "xover_msf_ghostspider"
    ],
    "source": {
     "game": "MSF",
@@ -4200,16 +4200,16 @@
    "artSha256": "dcb7d1225625d7306e5f30907d8e98d905b81b7cc54e574f93ade5fa667dab40",
    "artBytes": 29992,
    "recipients": [
-    "xover_msf_spiderman",
-    "xover_msf_wolverine",
-    "xover_msf_captainamericaww2",
-    "xover_msf_ironmaninfinitywar",
-    "xover_msf_hulk",
-    "xover_msf_thorinfinitywar",
-    "xover_msf_doom",
-    "xover_msf_magneto",
-    "xover_msf_thanosendgame",
-    "xover_msf_doctorstrange"
+    "xover_msf_gambit",
+    "xover_msf_ghostrider",
+    "xover_msf_kingpin",
+    "xover_msf_kamalakhan",
+    "xover_msf_shehulk",
+    "xover_msf_vision",
+    "xover_msf_adamwarlock",
+    "xover_msf_nightcrawler",
+    "xover_msf_wintersoldier",
+    "xover_msf_cable"
    ],
    "source": {
     "game": "MSF",
@@ -4246,16 +4246,16 @@
    "artSha256": "0be899415375f6082d0d18cba1dabe63290b705de6c5d412d73a1c7ac2635191",
    "artBytes": 32166,
    "recipients": [
-    "xover_msf_nicominoru",
-    "xover_msf_spiderman",
-    "xover_msf_wolverine",
-    "xover_msf_captainamericaww2",
-    "xover_msf_ironmaninfinitywar",
-    "xover_msf_hulk",
-    "xover_msf_thorinfinitywar",
-    "xover_msf_doom",
-    "xover_msf_magneto",
-    "xover_msf_thanosendgame"
+    "xover_msf_venom",
+    "xover_msf_captainmarvel",
+    "xover_msf_humantorch",
+    "xover_msf_nickfury",
+    "xover_msf_doctoroctopus",
+    "xover_msf_ultgreengoblin",
+    "xover_msf_punisher",
+    "xover_msf_blackwidow",
+    "xover_msf_namor",
+    "xover_msf_starlord"
    ],
    "source": {
     "game": "MSF",
@@ -4292,6 +4292,8 @@
    "artSha256": "b14fa7799d816f9b7a8744e5e2b9cef2b3a2317778960b4f772381863128bfc7",
    "artBytes": 26826,
    "recipients": [
+    "xover_swgoh_chewbaccalegendary",
+    "xover_swgoh_c3polegendary",
     "xover_swgoh_supremeleaderkyloren",
     "xover_swgoh_glrey",
     "xover_swgoh_darthbane",
@@ -4299,9 +4301,7 @@
     "xover_swgoh_grandadmiralthrawn",
     "xover_swgoh_darthrevan",
     "xover_swgoh_bensolo",
-    "xover_swgoh_bobafettscion",
-    "xover_swgoh_jabbathehutt",
-    "xover_swgoh_jedimastermacewindu"
+    "xover_swgoh_bobafettscion"
    ],
    "source": {
     "game": "SWGOH",
@@ -4338,6 +4338,7 @@
    "artSha256": "51889ba32f8e73c215209e33f236c220b3eca138a0ac7f225231ca0346d7e6f7",
    "artBytes": 29448,
    "recipients": [
+    "xover_swgoh_vaderduelsend",
     "xover_swgoh_anakinknight",
     "xover_swgoh_jediknightluke",
     "xover_swgoh_hansolo",
@@ -4346,8 +4347,7 @@
     "xover_swgoh_sithpalpatine",
     "xover_swgoh_jedimasterkenobi",
     "xover_swgoh_r2d2legendary",
-    "xover_swgoh_grandmasteryoda",
-    "xover_swgoh_chewbaccalegendary"
+    "xover_swgoh_grandmasteryoda"
    ],
    "source": {
     "game": "SWGOH",
@@ -4384,16 +4384,16 @@
    "artSha256": "73c4f31e2d8bda656c9bdf788fe4a560dcc6470ab2b014f3013e1ce25d520767",
    "artBytes": 26252,
    "recipients": [
-    "xover_swgoh_mandalorbokatan",
-    "xover_swgoh_darthmalak",
-    "xover_swgoh_darthnihilus",
-    "xover_swgoh_cassianundercover",
-    "xover_swgoh_darthtraya",
-    "xover_swgoh_admiralackbar",
-    "xover_swgoh_jediknightcal",
-    "xover_swgoh_ezraexile",
-    "xover_swgoh_epixfinn",
-    "xover_swgoh_starkiller"
+    "xover_swgoh_jabbathehutt",
+    "xover_swgoh_jedimastermacewindu",
+    "xover_swgoh_masterquigon",
+    "xover_swgoh_themandalorianbeskararmor",
+    "xover_swgoh_countdooku",
+    "xover_swgoh_grievous",
+    "xover_swgoh_administratorlando",
+    "xover_swgoh_darthmalgus",
+    "xover_swgoh_grandmofftarkin",
+    "xover_swgoh_mandalorbokatan"
    ],
    "source": {
     "game": "SWGOH",
@@ -4430,16 +4430,16 @@
    "artSha256": "e53e2093bdbcfeca2db1510f1a664e05373de63d2307d80f7bf77dd47b61ced7",
    "artBytes": 27206,
    "recipients": [
-    "xover_swgoh_gopherants",
-    "xover_swgoh_padawansabine",
-    "xover_swgoh_vaderduelsend",
-    "xover_swgoh_anakinknight",
-    "xover_swgoh_jediknightluke",
-    "xover_swgoh_hansolo",
-    "xover_swgoh_glahsokatano",
-    "xover_swgoh_darthsidious",
-    "xover_swgoh_sithpalpatine",
-    "xover_swgoh_jedimasterkenobi"
+    "xover_swgoh_cassianundercover",
+    "xover_swgoh_darthtraya",
+    "xover_swgoh_admiralackbar",
+    "xover_swgoh_jediknightcal",
+    "xover_swgoh_ezraexile",
+    "xover_swgoh_epixfinn",
+    "xover_swgoh_starkiller",
+    "xover_swgoh_asajventress",
+    "xover_swgoh_generalsyndulla",
+    "xover_swgoh_sabinewrens3"
    ],
    "source": {
     "game": "SWGOH",
@@ -4476,16 +4476,16 @@
    "artSha256": "e77d0ee8268904520445375d5db7fbdb85305af6c65d1752e5d8b292ada47748",
    "artBytes": 33862,
    "recipients": [
+    "xover_swgoh_darthmalak",
+    "xover_swgoh_darthnihilus",
+    "xover_swgoh_cassianundercover",
+    "xover_swgoh_darthtraya",
     "xover_swgoh_admiralackbar",
     "xover_swgoh_jediknightcal",
     "xover_swgoh_ezraexile",
     "xover_swgoh_epixfinn",
     "xover_swgoh_starkiller",
-    "xover_swgoh_asajventress",
-    "xover_swgoh_generalsyndulla",
-    "xover_swgoh_sabinewrens3",
-    "xover_swgoh_jynerso",
-    "xover_swgoh_kananjarruss3"
+    "xover_swgoh_asajventress"
    ],
    "source": {
     "game": "SWGOH",
@@ -4522,16 +4522,16 @@
    "artSha256": "6f292e587c1b754882d1459cd9a07fa1373c9c05fd57441de0dc1c04f3d75cba",
    "artBytes": 32626,
    "recipients": [
-    "xover_swgoh_jediknightcal",
-    "xover_swgoh_ezraexile",
-    "xover_swgoh_epixfinn",
-    "xover_swgoh_starkiller",
-    "xover_swgoh_asajventress",
     "xover_swgoh_generalsyndulla",
     "xover_swgoh_sabinewrens3",
     "xover_swgoh_jynerso",
     "xover_swgoh_kananjarruss3",
-    "xover_swgoh_epixpoe"
+    "xover_swgoh_epixpoe",
+    "xover_swgoh_sawgerrera",
+    "xover_swgoh_luthenrael",
+    "xover_swgoh_bb8",
+    "xover_swgoh_grandinquisitor",
+    "xover_swgoh_hk47"
    ],
    "source": {
     "game": "SWGOH",
@@ -4568,16 +4568,16 @@
    "artSha256": "6bdd2c2086a54690413cc165b1fa1f1333c7c84447d7fd98acb0861476baad8f",
    "artBytes": 20370,
    "recipients": [
-    "xover_swgoh_gopherants",
-    "xover_swgoh_padawansabine",
-    "xover_swgoh_vaderduelsend",
-    "xover_swgoh_anakinknight",
-    "xover_swgoh_jediknightluke",
-    "xover_swgoh_hansolo",
-    "xover_swgoh_glahsokatano",
-    "xover_swgoh_darthsidious",
-    "xover_swgoh_sithpalpatine",
-    "xover_swgoh_jedimasterkenobi"
+    "xover_swgoh_masterquigon",
+    "xover_swgoh_themandalorianbeskararmor",
+    "xover_swgoh_countdooku",
+    "xover_swgoh_grievous",
+    "xover_swgoh_administratorlando",
+    "xover_swgoh_darthmalgus",
+    "xover_swgoh_grandmofftarkin",
+    "xover_swgoh_mandalorbokatan",
+    "xover_swgoh_darthmalak",
+    "xover_swgoh_darthnihilus"
    ],
    "source": {
     "game": "SWGOH",
@@ -4614,16 +4614,16 @@
    "artSha256": "1b3b7c64842922dbbf25e8190f93dbc5ebb53a284413fa525d0b1d16e694d375",
    "artBytes": 38048,
    "recipients": [
-    "xover_swgoh_epixpoe",
-    "xover_swgoh_sawgerrera",
-    "xover_swgoh_luthenrael",
-    "xover_swgoh_bb8",
-    "xover_swgoh_grandinquisitor",
-    "xover_swgoh_hk47",
     "xover_swgoh_cadbane",
     "xover_swgoh_captainrex",
     "xover_swgoh_darthsion",
-    "xover_swgoh_kylekatarn"
+    "xover_swgoh_kylekatarn",
+    "xover_swgoh_directorkrennic",
+    "xover_swgoh_ig12",
+    "xover_swgoh_gopherants",
+    "xover_swgoh_padawansabine",
+    "xover_swgoh_vaderduelsend",
+    "xover_swgoh_anakinknight"
    ],
    "source": {
     "game": "SWGOH",
@@ -4660,16 +4660,16 @@
    "artSha256": "f183e193a7eaf6df5e7c28ec927e4ca96df13d9fad620cdcdd02d780547b1f16",
    "artBytes": 27066,
    "recipients": [
-    "xover_swgoh_ig12",
-    "xover_swgoh_gopherants",
-    "xover_swgoh_padawansabine",
-    "xover_swgoh_vaderduelsend",
-    "xover_swgoh_anakinknight",
     "xover_swgoh_jediknightluke",
     "xover_swgoh_hansolo",
     "xover_swgoh_glahsokatano",
     "xover_swgoh_darthsidious",
-    "xover_swgoh_sithpalpatine"
+    "xover_swgoh_sithpalpatine",
+    "xover_swgoh_jedimasterkenobi",
+    "xover_swgoh_r2d2legendary",
+    "xover_swgoh_grandmasteryoda",
+    "xover_swgoh_chewbaccalegendary",
+    "xover_swgoh_c3polegendary"
    ],
    "source": {
     "game": "SWGOH",
@@ -4706,16 +4706,16 @@
    "artSha256": "4c29525c7cef1230d6f4dadd583877f104f14990d4f1cbb07fe8049875717a1c",
    "artBytes": 30582,
    "recipients": [
-    "xover_swgoh_ig12",
-    "xover_swgoh_gopherants",
-    "xover_swgoh_padawansabine",
-    "xover_swgoh_vaderduelsend",
-    "xover_swgoh_anakinknight",
-    "xover_swgoh_jediknightluke",
-    "xover_swgoh_hansolo",
-    "xover_swgoh_glahsokatano",
-    "xover_swgoh_darthsidious",
-    "xover_swgoh_sithpalpatine"
+    "xover_swgoh_supremeleaderkyloren",
+    "xover_swgoh_glrey",
+    "xover_swgoh_darthbane",
+    "xover_swgoh_maul",
+    "xover_swgoh_grandadmiralthrawn",
+    "xover_swgoh_darthrevan",
+    "xover_swgoh_bensolo",
+    "xover_swgoh_bobafettscion",
+    "xover_swgoh_jabbathehutt",
+    "xover_swgoh_jedimastermacewindu"
    ],
    "source": {
     "game": "SWGOH",

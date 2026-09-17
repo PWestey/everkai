@@ -54,6 +54,24 @@ one shared crossover shard pool rather than 163 Stella profiles; repo stays **pu
 2. **Rarity as a display of quality.** Reuse the quality ladder unchanged — no new save state, no
    `SAVE_VERSION` bump. Derive `displayRarity` from the stored quality tier. Keep the stored `rarity`
    the bare string `"N"`, because a chained string loses the eight `["N"]`-gated fishing effects.
+   **SHIPPED 2026-09-17** in `lib/crossover-rarity.mjs`: `displayRarity(s,id)` maps the stored
+   `s.originalProgression.quality[id]` onto eight badges over the fourteen tiers —
+   N·N·R·R·SR·SR·SSR·SSR·SSR+·SSR+·UR·UR·UR\*·LR (a **local** choice, two tiers per badge, the shape
+   §1.3 of the progression plan measured in the original's own advancement). Surfaced on the roster
+   tiles, the character screen and the Recruit panel, which — measured — are the only places a Fellow's
+   rarity can reach a crossover character: the Fellow album joins the *original* record index by id and
+   every story-library scene names an original, so neither can show one until step 6 adds prologue
+   scenes (pinned in `tests/crossover-rarity.test.mjs`). The eight-fold `["N"]` fishing claim was
+   verified before being relied on (8 of 66 non-empty gates in `lib/fishing-species.json`) and the
+   stored string never moves, so the badge is **not** a power term: an `["N"]`-gated effect pays the
+   same at quality 1 and 14, and a `["UR"]`-gated one pays nothing at quality 14 even though the badge
+   reads UR. Two sprite defects fixed on the way: `rarityIcon('UR*')` returned `null` (no alias — it
+   also silently affected the 3 original `UR*` records) and `LR` had no card ground; both now resolve
+   at every tier. **Cost of one full climb, unchanged from `data.quality`:** 291 material units, binding
+   tier-2 material 69, i.e. **7 days** of daily-habit `claimDailyBreach` for one character, plus
+   **5,851,457,490** Fellow EXP to reach level 750 — and it is worth **64,750 → 2,092,500 power
+   (32.3×)** on the per-type SSR anchor. No `SAVE_VERSION` bump: a fully climbed village round-trips
+   byte-identically.
 3. **Stop the counter selling them.** `recruitPrice → null` for additions; the Recruit panel says which
    storyline unlocks each one. **SHIPPED 2026-09-17.** `recruitPrice` returns `null` for
    `isAddition(id)` the way it already did for the 22 rank-up Fellows, so `recruitOffers` drops them
@@ -89,6 +107,21 @@ one shared crossover shard pool rather than 163 Stella profiles; repo stays **pu
    42,900,120 to 48,360,120 gold/s of slot value (**+12.7%**) and Brave holds 3 of them instead of 7.
    Vader (Star Wars rank 1) stays Brave: he is a shipped row whose template is the UR Brave anchor, and
    retyping him means retemplating him, which §4.6 schedules with the rarity work.
+   **RETEMPLATED 2026-09-17 with step 2.** `scripts/crossover/build-additions.mjs` now *derives*
+   `rarity`, `type` and `template` on every row — generated or carried through — the way it already
+   re-mirrored `rank`, so type and template can no longer disagree for any of the 133. That moved
+   exactly three values: Spider-Man `SSR→N`, Vader `UR→N` and Vader's template `hero_113→hero_101`
+   (the Brave SSR anchor). **Vader's final type is Brave**, re-decided rather than inherited: the role
+   rule (§5.1) assigns it, the spread decision 3 asked for is already met across the top twenty by rank
+   (Brave 3, Unfettered 3, Diligent 4, Informed 4, Inspiring 6), and moving him to Inspiring would leave
+   Brave with two — under the ≥3 share per type that `tests/crossover-arcs.test.mjs` pins. What the
+   alternative is worth is measured and pinned so the owner can call for it in a sentence: Inspiring
+   would raise his operator slot from +1,560,006 to +2,730,006 gold/s and his maxed power from
+   18,973,639 to 53,885,134. Retemplating costs him `data.heroes` 120→70, i.e. **−775,000 power
+   (−27.0%)** at quality 14 — the change §4.6 predicted, now visible rather than incidental — and
+   nothing else: `talentRule` and `insightRule` are *identical* for `hero_101` and `hero_113`
+   (Supreme Talent 3/3/cap 20, Brave Insight I), so a previous-build save carrying Vader's
+   `originalTalent`, insight and quality ledgers decodes byte-identically.
 8. **Shared Stella shards.** One 40-level curve, flat bonuses only, `percent: 0` on every row, minted at
    the existing 500/day × habit multiplier so the faucet does not grow with roster size. Extend the
    helper's Stella chore to it.
