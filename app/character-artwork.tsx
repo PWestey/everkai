@@ -5,8 +5,9 @@ import FamilyArtStage from './family-art-stage';
 import clips from '@/lib/character-idle-data.json';
 import {spineModel,spinePilotEnabled} from '@/lib/spine-pilot.mjs';
 import {useArtFraming} from './art-framing';
+import {additionClip} from '@/lib/everkai-additions.mjs';
 const SpineCharacter=lazy(()=>import('./spine-character'));
-export function characterClip(person:any){const clip=(clips as Record<string,any>)[person.costumeId||person.id];return clip?.owner===person.id&&(clip.costumeId||null)===(person.costumeId||null)?clip:null}
+export function characterClip(person:any){const clip=(clips as Record<string,any>)[person.costumeId||person.id]||additionClip(person);return clip?.owner===person.id&&(clip.costumeId||null)===(person.costumeId||null)?clip:null}
 const reducedMotion=()=>typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 export default function CharacterArtwork({person,large=false,suspended=false}:any){
  const clip=characterClip(person),video=useRef<HTMLVideoElement>(null),still=useRef<HTMLImageElement>(null),resumeAfterCover=useRef(false),[failed,setFailed]=useState(false),[playing,setPlaying]=useState(false);

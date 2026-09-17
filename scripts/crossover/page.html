@@ -1,0 +1,159 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+// Shared by the offline renderer (render.mjs) and, in spirit, by the app's live viewer.
+// SWGOH: unlit dual matcap (mask.R picks the shiny matcap), which is what its shader keywords say.
+// MSF: lit standard material with the DXT5nm normal map decoded in the shader.
+function swgohMaterial(src, extras, tex) {
+  const m = new THREE.MeshMatcapMaterial({map: src.map, matcap: extras._MatCap ? tex(extras._MatCap.index) : null});
+  const matB = extras._MatCapB ? tex(extras._MatCapB.index) : m.matcap;
+  const mask = extras._Mask ? tex(extras._Mask.index) : null;
+  const f = extras.floats || {};
+  m.onBeforeCompile = (sh) => {
+    sh.uniforms.matcapB = {value: matB};
+    sh.uniforms.maskMap = {value: mask};
+    sh.uniforms.hasMask = {value: mask ? 1 : 0};
+    sh.uniforms.brightA = {value: f._Brightness ?? 1};
+    sh.uniforms.brightB = {value: f._BrightnessB ?? 1};
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nuniform sampler2D matcapB; uniform sampler2D maskMap; uniform float hasMask; uniform float brightA; uniform float brightB;')
+      .replace('vec4 matcapColor = texture2D( matcap, uv );',
+        `vec4 matcapA = texture2D( matcap, uv ); vec4 matcapBc = texture2D( matcapB, uv );
+         float sel = hasMask > 0.5 ? texture2D( maskMap, vMapUv ).r : 1.0;
+         vec4 matcapColor = mix( matcapBc * brightB, matcapA * brightA, sel ) * 2.0;`);
+  };
+  m.userData.custom = 'swgoh-matcap';
+  return m;
+}
+
+function msfMaterial(src, extras, tex) {
+  const m = new THREE.MeshStandardMaterial({map: src.map, roughness: 0.62, metalness: 0.0});
+  if (extras._BumpMap) {
+    m.normalMap = tex(extras._BumpMap.index);
+    m.normalMap.colorSpace = THREE.NoColorSpace;
+    m.onBeforeCompile = (sh) => {
+      // Unity DXT5nm: x in alpha, y in green, z reconstructed.
+      sh.fragmentShader = sh.fragmentShader.replace('#include <normal_fragment_maps>',
+        `vec4 nraw = texture2D( normalMap, vNormalMapUv );
+         vec3 mapN; mapN.xy = vec2(nraw.a, nraw.g) * 2.0 - 1.0; mapN.z = sqrt(max(0.0, 1.0 - dot(mapN.xy, mapN.xy)));
+         mapN.xy *= normalScale;
+         normal = normalize( tbn * mapN );`);
+    };
+  }
+  m.userData.custom = 'msf-standard';
+  return m;
+}
+
+window.setup = async (opts) => {
+  const W = opts.width, H = opts.height;
+  const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, preserveDrawingBuffer: true});
+  renderer.setPixelRatio(1);
+  renderer.setSize(W, H);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.NoToneMapping;
+  renderer.setClearColor(0x000000, 0);
+  document.body.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const gltf = await new GLTFLoader().loadAsync(opts.glb);
+  const model = gltf.scene;
+  const texCache = new Map();
+  const parser = gltf.parser;
+  const texList = await Promise.all((parser.json.textures || []).map((_, i) => parser.getDependency('texture', i)));
+  const tex = (i) => { const t = texList[i]; t.flipY = false; return t; };
+  model.traverse((o) => {
+    if (!o.isMesh) return;
+    o.frustumCulled = false;
+    const ex = o.material.userData || {};
+    const extras = ex;
+    if (opts.style === 'swgoh') o.material = swgohMaterial(o.material, extras, tex);
+    else o.material = msfMaterial(o.material, extras, tex);
+    if (o.material.map) o.material.map.colorSpace = THREE.SRGBColorSpace;
+    if (o.material.matcap) o.material.matcap.colorSpace = THREE.SRGBColorSpace;
+  });
+  // SWGOH sabers are particle VFX in Unity. The GLB keeps their empty transforms, so a node named
+  // like vfx_swd_saber_chld_<colour> gets a simple emissive blade along its local -Y, starting at the hilt's emitter end (checked against the hilt in the render). The blade
+  // length comes from its 'Tron Trail' child when present (Vader: 1.122 m), else 1.0.
+  if (opts.sabers !== false) {
+    const colours = {red: 0xff2a1a, blue: 0x2a7bff, green: 0x3dff5a, purple: 0xb04dff, yellow: 0xffd23a, white: 0xf4f4ff, orange: 0xff8a1a, cyan: 0x3de8ff};
+    const found = [];
+    model.traverse((o) => { const m = /saber_chld_([a-z]+)/i.exec(o.name); if (m && !/trail|glow/i.test(o.name)) found.push([o, m[1].toLowerCase()]); });
+    for (const [node, colourName] of found) {
+      const colour = colours[colourName] ?? colours.red;
+      let length = 1.0;
+      node.traverse((c) => { if (/tron trail/i.test(c.name)) length = Math.abs(c.position.y) || length; });
+      const blade = new THREE.Group();
+      // Blade starts at the emitter end of the hilt mesh (its most negative local Y), not at the pommel.
+      let start = 0;
+      if (node.parent && node.parent.isMesh) { node.parent.geometry.computeBoundingBox(); start = Math.min(0, node.parent.geometry.boundingBox.min.y - node.position.y); }
+      const core = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.013, length, 16, 1), new THREE.MeshBasicMaterial({color: 0xffffff}));
+      const glow1 = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.03, length * 1.01, 16, 1), new THREE.MeshBasicMaterial({color: colour, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false}));
+      const glow2 = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.06, length * 1.03, 16, 1), new THREE.MeshBasicMaterial({color: colour, transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false}));
+      for (const b of [glow2, glow1, core]) { b.position.y = start - length / 2; b.userData.noBounds = true; b.frustumCulled = false; blade.add(b); }
+      core.renderOrder = 2; glow1.renderOrder = 3; glow2.renderOrder = 4;
+      node.add(blade);
+    }
+    window.__sabers = found.map(([n, c]) => n.name + ':' + c);
+  }
+  model.rotation.y = (opts.yaw || 0) * Math.PI / 180;
+  scene.add(model);
+  // Lights (only the MSF standard material uses them).
+  scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x3a3140, 1.35));
+  const key = new THREE.DirectionalLight(0xfff4e6, 2.4); key.position.set(-2.2, 3.2, 3.5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xcfe0ff, 1.6); rim.position.set(2.5, 2.0, -2.5); scene.add(rim);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.55); fill.position.set(2.0, 0.5, 3.0); scene.add(fill);
+
+  const mixer = new THREE.AnimationMixer(model);
+  const clip = gltf.animations[0];
+  let action = null;
+  if (clip) { action = mixer.clipAction(clip); action.play(); }
+  const duration = clip ? clip.duration : 0;
+  const pose = (t) => { if (action) { mixer.setTime(t); } model.updateMatrixWorld(true); };
+
+  // Bounds over the whole loop, from skinned vertex positions.
+  const box = new THREE.Box3();
+  const v = new THREE.Vector3();
+  const samples = clip ? 12 : 1;
+  for (let s = 0; s < samples; s++) {
+    pose(duration * s / samples);
+    model.traverse((o) => {
+      if (!o.isMesh || o.userData.noBounds) return;
+      const p = o.geometry.attributes.position;
+      const step = Math.max(1, Math.floor(p.count / 1500));
+      for (let i = 0; i < p.count; i += step) {
+        v.fromBufferAttribute(p, i);
+        if (o.isSkinnedMesh) o.applyBoneTransform(i, v);
+        v.applyMatrix4(o.matrixWorld);
+        box.expandByPoint(v);
+      }
+    });
+  }
+  const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+  // Frame like the Isekai stills: full body, head near 12% from the top, feet near 88%.
+  const fov = opts.fov || 18;
+  const camera = new THREE.PerspectiveCamera(fov, W / H, 0.05, 200);
+  const targetFrac = opts.heightFraction || 0.74;
+  // Fit height (full body) and width (wide characters such as Hulk or R2-D2 would otherwise be cropped).
+  const visibleH = Math.max(size.y / targetFrac, size.x / ((W / H) * (opts.widthFraction || 0.9)));
+  const dist = (visibleH / 2) / Math.tan(THREE.MathUtils.degToRad(fov / 2));
+  const lookY = center.y + (opts.verticalOffset || 0) * visibleH;
+  const elev = THREE.MathUtils.degToRad(opts.elevation || 4);
+  camera.position.set(center.x, lookY + Math.sin(elev) * dist, center.z + Math.cos(elev) * dist);
+  camera.lookAt(center.x, lookY, center.z);
+  window.__state = {renderer, scene, camera, pose, duration, bounds: {min: box.min.toArray(), max: box.max.toArray()}};
+  return {duration, bounds: window.__state.bounds, clip: clip ? clip.name : null, tracks: clip ? clip.tracks.length : 0};
+};
+
+window.frame = (t) => {
+  const s = window.__state;
+  s.pose(t);
+  s.renderer.render(s.scene, s.camera);
+  return s.renderer.domElement.toDataURL('image/png');
+};
+window.__ready = true;
+</script>
+</body></html>

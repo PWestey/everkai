@@ -1,0 +1,72 @@
+{
+ "policy": "Everkai additions are characters that do NOT come from the original APK. They are shown only when the page is opened with ?crossover=1. Text is written for Everkai; art and clips are rendered by scripts/crossover/build-character.py from the owner's private MSF/SWGOH asset corpus. Each row borrows the progression tables (talent, Insight, skill guide, original growth) of its `template`, an original Fellow of the same rarity and type.",
+ "flag": "crossover",
+ "fellows": [
+  {
+   "id": "xover_msf_spiderman",
+   "name": "Spider-Man",
+   "title": "Friendly Neighborhood Hero",
+   "occupation": "Web-Slinger",
+   "race": "Human",
+   "rarity": "SSR",
+   "type": "Unfettered",
+   "description": "A quick-witted wall-crawler who dropped into the village through a tear in the sky. He patrols the rooftops at dusk, trades jokes for directions, and never walks past someone who needs a hand.",
+   "template": "hero_103",
+   "art": "crossover/xover_msf_spiderman.webp",
+   "clip": {
+    "src": "crossover/xover_msf_spiderman-idle.mp4",
+    "bytes": 513292,
+    "sha256": "8b3030cc0e2d4bbdf8d61aeb71192f0f56efa72a038366b3643392f092d289ce",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 24,
+    "encodedDuration": 2.0
+   },
+   "artSha256": "bb610153086550ac3aee616e2c0258c366eb305ed09d2a1b88206916d5a1a121",
+   "artBytes": 61388,
+   "source": {
+    "game": "MSF",
+    "assetId": "SpiderMan",
+    "bundle": "characters_spiderman.assetbundle",
+    "bundleSha256": "d1b899b0dcdab74d6c4a1b82f3dc7abf38ab5e9b02ab190c53cbba9205a7dbdc",
+    "prefab": "Char_Spiderman_Mesh_PREFAB_EMBER",
+    "clip": "Anim_SpiderMan_Shell_Idle_Updated",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  },
+  {
+   "id": "xover_swgoh_vaderduelsend",
+   "name": "Darth Vader",
+   "title": "Duel's End",
+   "occupation": "Sith Lord",
+   "race": "Human",
+   "rarity": "UR",
+   "type": "Brave",
+   "description": "An armored warlord who arrived with his helmet cracked open from a fight long past. Villagers keep their distance, yet he lights the watchtower every night and says little about the road that led him here.",
+   "template": "hero_113",
+   "art": "crossover/xover_swgoh_vaderduelsend.webp",
+   "clip": {
+    "src": "crossover/xover_swgoh_vaderduelsend-idle.mp4",
+    "bytes": 488838,
+    "sha256": "110d53d73a9577395c1a0b1f73cfbfdb36d3f6cdacef256ed22f8d2f84482238",
+    "width": 1024,
+    "height": 1536,
+    "fps": 12,
+    "frames": 36,
+    "encodedDuration": 3.0
+   },
+   "artSha256": "9e251508e1d1fb7a5712358efa5e17cd196b5ea69f12ca7fa2a39684968edc02",
+   "artBytes": 38786,
+   "source": {
+    "game": "SWGOH",
+    "assetId": "VADERDUELSEND",
+    "bundle": "char_vaderduelsend_pre.bundle",
+    "bundleSha256": "dd18e078990a9672f4f6f215cd3e14d8a3eb7456f77e359353fb4e32f503aa33",
+    "prefab": "unit.char_vaderduelsend_pre",
+    "clip": "hmn_sbr_vaderduelsend_homescreen_idle",
+    "pipeline": "scripts/crossover/build-character.py"
+   }
+  }
+ ]
+}

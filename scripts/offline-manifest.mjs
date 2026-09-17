@@ -16,7 +16,10 @@
 //
 // The live Spine pilot's models (assets/spine/, see scripts/package-spine-model.mjs) stream for the
 // same reason: they are per-character media, and a failed load falls back to the idle clip or still.
-export const STREAMED=[/^assets\/idle\//,/^assets\/spine\//];
+//
+// Everkai additions (assets/crossover/, rendered by scripts/crossover/build-character.py) stream too:
+// they are shown only behind ?crossover=1, so no player without the flag should download them.
+export const STREAMED=[/^assets\/idle\//,/^assets\/spine\//,/^assets\/crossover\//];
 
 /** True when a built file is fetched on demand rather than precached. */
 export const streamed=path=>STREAMED.some(pattern=>pattern.test(path));
