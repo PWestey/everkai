@@ -3,19 +3,21 @@
 //
 // Stages 0-3 reproduce tests/fellow-power.test.mjs's pinned ceiling exactly -- 2,269,308 -> 4,484,008
 // -> 6,684,380 -> 6,965,719 -- and that reproduction IS the positive control for anything measured on
-// top of it (CLAUDE.md rule 2). The flag-on variant adds stage 4: the crossover Fellows this build
-// actually ships, recruited at the counter and maxed like the rest, and the 30 crossover Family
-// welcomed and trained on the shipped default 36/24 blessing ladder.
+// top of it (CLAUDE.md rule 2). The flag-on variant seats the crossover Fellows this build actually
+// ships -- recruited at the counter and maxed like the rest -- plus the 30 crossover Family welcomed
+// and trained on the shipped default 36/24 blessing ladder, and adds stage 4: their shared Stella
+// shard track (lib/crossover-stella.mjs), which is the equivalent bonus track of
+// docs/crossover-plan.md order of work 6. Stage 4 is a no-op with the flag off.
 //
 // Imported by tests/crossover-family.test.mjs (no flag) and tests/crossover-family-village.mjs
 // (?crossover=1, in its own process because the catalogue reads the flag once at import).
 import {withItems,grantFragments,allKeepsakes,stockConsumable} from './progression-helpers.mjs';
 import {startingSave,act,valid,refusedBy} from '../lib/game.mjs';
 import {rosterOperation} from '../lib/businesses.mjs';
-import {GEAR,STAR_CAP,CONSUMABLES,newFellow} from '../lib/adventure.mjs';
+import {GEAR,STAR_CAP,CONSUMABLES,newFellow,bondedPower} from '../lib/adventure.mjs';
 import {ARTIFACT_CAP} from '../lib/artifacts.mjs';
 import {ARTIFACT_ECHOES} from '../lib/artifact-echo.mjs';
-import {STELLA_PROFILES,stellaState,stellaActivation} from '../lib/stella.mjs';
+import {STELLA_PROFILES,stellaState,stellaActivation,stellaEntry,CROSSOVER_STELLA,crossoverStella} from '../lib/stella.mjs';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 
 const NOW=1767225600000;                 // the same fixed day tests/fellow-power.test.mjs uses
@@ -25,8 +27,9 @@ const maxedRecords=s=>({...s,fellows:Object.fromEntries(Object.keys(s.fellows).m
  [id,{level:750,aptitude:1000,skill:20,breaks:13,gear:BEST.id,stars:STAR_CAP,gearLevel:ARTIFACT_CAP}]))});
 const FRESH_FAMILY={intimacy:0,blessingPower:10,points:0,skill:0,relationship:1};
 
-/** @param {{crossover?:boolean,family?:boolean}} options `family:false` seats the crossover FELLOWS
- *  but not the 30 crossover Family, which is what isolates the Family blessing contribution. */
+/** @param {{crossover?:boolean,family?:boolean}} options `family:false` seats the
+ *  crossover FELLOWS but not the 30 crossover Family, which is what isolates the Family blessing
+ *  contribution. */
 export function buildCeiling({crossover=false,family=true}={}){
  const notes={};
  let s=maybe(startingSave(NOW),'recruitAll');
@@ -97,8 +100,31 @@ export function buildCeiling({crossover=false,family=true}={}){
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
  notes.echoes=enabled;
+ const stage3=Math.round(rosterOperation(s));
+
+ // Stage 4 -- THE SHARED CROSSOVER SHARD TRACK (lib/crossover-stella.mjs). One pool, 4,500 shards per
+ // crossover Fellow, Angie's own flat column. Shards are minted the way stage 1 mints fragments --
+ // through the same sandbox grant ledger validStella reconciles -- because how they are EARNED has its
+ // own pacing measurement (500/day x the habit multiplier, one pool); what this stage measures is the
+ // legal ceiling the track puts in reach. Flag off there are no crossover Fellows, so it is a no-op and
+ // the ceiling === stage3, which is what makes the flag-off control below still reproduce fellow-power.
+ let shards=0;
+ const crossovers=Object.keys(s.fellows).filter(crossoverStella);
+ if(crossovers.length){
+  s=grantFragments(s,crossovers[0],Math.ceil(crossovers.length*CROSSOVER_STELLA.levels.reduce((n,r)=>n+r.cost,0)/1000));
+  for(const id of crossovers){
+   s=maybe(s,'stellaActivate',id,{seq:stellaState(s).seq});
+   const before=s;s=maybe(s,'stellaUpgrade',id,{seq:stellaState(s).seq,count:'max'});
+   if(s!==before&&stellaEntry(s,id)?.level===CROSSOVER_STELLA.levels.length)shards++;
+  }
+  notes.shardTracksMaxed=shards;
+ }
  const ceiling=Math.round(rosterOperation(s));
- return {stage0,stage1,stage2,ceiling,valid:valid(s),refusedBy:refusedBy(s),notes,state:s};
+ // What the crossover Fellows are worth in the finished state, so any proposal to give them a further
+ // own-power PERCENT can be priced without rebuilding the fixture: a uniform +1% across them is worth
+ // exactly crossoverWorth/100 more conversion (docs/crossover-plan.md order of work 6).
+ const crossoverWorth=Math.round(Object.keys(s.fellows).filter(crossoverStella).reduce((n,id)=>n+bondedPower(s,id)/1000,0));
+ return {stage0,stage1,stage2,stage3,ceiling,crossoverWorth,valid:valid(s),refusedBy:refusedBy(s),notes,state:s};
 }
 /** The reference point every ratio in this file is taken against: the total Fellow power on the
  *  original's own live save, divided by its own recovered HeroConversionRate. Both halves come from

@@ -80,7 +80,12 @@ test('each addition borrows every per-id table from an original Fellow of the sa
   const guide=characterSkills(f.id);
   assert.equal(guide.name,f.name);
   assert.ok(guide.skills.length>0&&guide.skills.every(n=>!n.id.startsWith('Hero_Clothes_Talent_')),'no template costume talents');
-  assert.equal(stellaRule(f.id),undefined,'character-specific Stella stays excluded');
+  // Character-specific Stella stays excluded -- there is no Angie-shaped profile for a crossover
+  // Fellow. What it has instead is the ONE shared shard track (lib/crossover-stella.mjs): the same
+  // 40 rows, the same 4,500 sink, and percent 0 on every row, so its type can never multiply its power.
+  assert.equal(stellaRule(f.id)?.id,'crossover',`${f.id} must use the shared shard track`);
+  assert.equal(stellaRule(f.id).itemId,'Item_Owner_XoverShard');
+  assert.equal(stellaRule(f.id).type,null);
  }
  assert.equal(sourceId('hero_103'),'hero_103','originals map to themselves');
 });

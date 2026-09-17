@@ -467,56 +467,77 @@ test('flag ON: Fathoms stay at 321.0 with 137 members -- the 321 -> 411 inflatio
 
 test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the positive control',()=>{
  const c=buildCeiling();
- assert.deepEqual([c.stage0,c.stage1,c.stage2,c.ceiling],[2269308,4484008,6684380,6965719],
+ assert.deepEqual([c.stage0,c.stage1,c.stage2,c.stage3],[2269308,4484008,6684380,6965719],
   'if this drifts, nothing measured on top of it means anything');
+ // Stage 4 -- the shared crossover shard track -- is a no-op with no crossover Fellow in the roster,
+ // which is what lets the same fixture be the control for the flag-on measurement below.
+ assert.equal(c.ceiling,c.stage3,'the shard stage must not touch a village with no crossover Fellow');
+ assert.equal(c.crossoverWorth,0);
  assert.deepEqual(c.notes,{originalFamily:107,funded:107,trained:212,echoes:32});
+ assert.equal(c.notes.shardTracksMaxed,undefined,'and it must not even record a note');
  assert.ok(c.valid,c.refusedBy);
  assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(3),1.992);
 });
 
-// *** THE MEASURED FLAG-ON VILLAGE-EARNINGS CEILING, RE-MEASURED 2026-09-17 AFTER THE RARITY SLICE. ***
-// History of this number, because each move had a cause: 7,046,651 (2.015x) with FOUR crossover
-// characters, 10,914,679 (3.121x) once the other 131 Fellow rows landed, and 10,872,947 (3.109x) now.
-// The last move is -41,732 and it is entirely the RECIPIENT RE-CUT (see the coverage test above): the
-// same 300 pairings spread over all 133 Fellows instead of piling on 106 of them. Retemplating the two
-// prototypes to their type's rarity-N anchor moved nothing here -- `fellowsOnly` is unchanged at
-// 9,979,855 -- because `data.heroes[template]` is only read when originalProgression is ON and this
-// fixture is default mode (breaks 13, level 750).
+// *** THE MEASURED FLAG-ON CEILING, RE-MEASURED 2026-09-17 AFTER THE STELLA TYPE FIX AND THE SHARD
+// *** TRACK (docs/crossover-plan.md order of work 6 and 8).
 //
-// Decomposed, every figure from tests/crossover-ceiling-fixture.mjs so both halves of every difference
-// come from the same code (CLAUDE.md rule 1). The flag-off row is the positive control asserted above:
-//    6,965,719  flag off                                        1.993x
-//    9,979,855  + the 133 crossover Fellows, maxed              2.854x   (+3,014,136)
-//   10,872,947  + the 30 crossover Family, blessings maxed      3.109x     (+893,092)
-// The owner accepted ~4x (docs/crossover-plan.md decision 1) and docs/crossover-family-plan.md 2.2
-// projected ~3.95x with the Family side worth +1,001,831; it measures +893,092, i.e. 89% of that.
-// The whole-build ratio lands at 3.11x rather than 3.95x because the projection assumed the rarity
-// ladder was WORTH something in power. Measured, it is not: the ladder is climbed through
-// originalProgression, this ceiling is the default-mode one, and lib/crossover-rarity.mjs adds a
-// DISPLAY tier only -- no save field, no power term (tests/crossover-rarity.test.mjs pins that the
-// eight ["N"]-gated fishing effects a crossover Fellow draws are identical at quality 1 and 14).
+// History of this number, because each move had a cause: 7,046,651 (2.015x) with four crossover
+// characters, 10,914,679 (3.121x) once the other 131 Fellow rows landed, 10,872,947 (3.109x) after the
+// recipient re-cut, and 14,006,798 (4.005x) now. This last move is two changes with opposite signs, and
+// they are pinned SEPARATELY below so neither can hide the other:
 //
-// WHY THE CEILING IS NOT LINEAR IN THE BLESSING COUNT, which is the whole reason the re-cut moved it:
-// `stellaBonus` sums the percent of every Stella entry of the SAME TYPE (lib/stella.mjs:58) and a
-// crossover Fellow has no entry of its own, so its TYPE multiplies its whole power -- Inspiring +184%,
-// Diligent and Informed +122%, Brave and Unfettered +0%. A blessing landing on an Inspiring crossover
-// Fellow is therefore worth 2.84x one landing on a Brave one. Both are pinned below: this is the
-// largest earnings consequence a crossover Fellow's type has, an order above the operator-slot value
-// tests/crossover-arcs.test.mjs measures (+1,560,006 to +3,120,006 gold/s). Pre-existing and left
-// alone deliberately -- it is inside the accepted ceiling and step 6 of docs/crossover-plan.md is
-// where the crossover power gap is being designed (CLAUDE.md rule 7: deferred, with the reason).
+//    6,965,719  flag off (the positive control above)                          1.993x
+//    9,311,898  + the 133 crossover Fellows and 30 crossover Family, maxed     2.663x   (+2,346,179)
+//   14,006,798  + their shared Stella shard track at level 40                  4.005x   (+4,694,900)
 //
-// The 300 pairings are the rule's own ceiling, not a shortfall: ten recipients each is the original
-// blessing table's measured maximum, so 30 x 10 is as far as this route can ever reach.
-test('flag ON: the village-earnings ceiling is 10,872,947 (3.109x), and the Family side is +893,092',()=>{
+// 1. THE STELLA TYPE FIX took the middle row DOWN from 10,872,947 to 9,311,898, i.e. -1,561,049.
+//    `stellaBonus` summed the percent of every activated Stella of the SAME TYPE, and a crossover
+//    Fellow has no entry of its own, so its TYPE alone multiplied its whole power: Inspiring +184%,
+//    Diligent/Informed +122%, Brave/Unfettered +0%. On identical maxed records an Inspiring crossover
+//    Fellow was worth 2.84x a Brave one -- type choice was silently the largest power lever in the
+//    slice, an order above the operator-slot value it was chosen for (tests/crossover-arcs.test.mjs:
+//    +1,560,006 to +3,120,006 gold/s), and it was free. Additions now read their OWN Stella row only
+//    (lib/stella.mjs). MEASURED CONSEQUENCE, pinned below: maxedPowerByType is now ONE number for all
+//    five types, so the ratio is 1.00 instead of 2.84 and type is no longer a power term at all. The
+//    159 original Fellows are untouched -- the flag-off control above is byte-identical.
+//
+// 2. THE SHARED SHARD TRACK took it UP by exactly 133 x 35,300 = +4,694,900. That is not a coincidence
+//    and it is worth knowing why: `applyStella` adds the own `flat` AFTER every multiplier, and the
+//    crossover ladder's percent column is zero, so the level-40 flat of 35,300,000 converts 1:1 through
+//    rosterOperation's /1000. One pool, 4,500 shards per Fellow, 733,500 for all 163 at 500-1,000/day.
+//
+// THE EQUIVALENT BONUS TRACK IS THAT SHARD TRACK, and the measurement is what decided it (order of
+// work 6 asked for a track that closes the gap, balanced against decision 1's accepted ~4x):
+//   * before this slice a maxed crossover Fellow reached 18,973,639 (Brave/Unfettered) to 53,885,134
+//     (Inspiring); docs/crossover-abilities-plan.md 1.8 put that at ~0.33 of a maxed original;
+//   * it now reaches 54,273,639 for every type, against a maxed ORIGINAL of the roster's own middle
+//     type (Diligent/Informed) at 54,049,915 -- 1.004x, measured on the same finished state with the
+//     same bondedPower (CLAUDE.md rule 1). The gap is closed, not overshot.
+//   * A FURTHER percent ladder was designed, built and priced against this fixture before being
+//     DROPPED (CLAUDE.md rule 7: dropped with the reason, not filed). `crossoverWorth` is what the 133
+//     are worth in the finished state, so a uniform own-power +1% costs crossoverWorth/100 = +70,411
+//     conversion. Angie's percent column starts at +5%, which is +352,054 -> 14,358,852 = 4.106x and a
+//     maxed crossover at 1.054x its original counterpart; her full +122% is 22,596,915 = 6.461x and
+//     2.27x. So the shortest row that exists already breaks both the accepted ceiling and the
+//     non-dominance claim, and nothing fits. If the owner wants crossovers stronger, this is the price
+//     list and it is one sentence to act on.
+//
+// The 300 pairings are the blessing rule's own ceiling, not a shortfall: ten recipients each is the
+// original blessing table's measured maximum, so 30 x 10 is as far as that route can ever reach.
+test('flag ON: the ceiling is 14,006,798 (4.005x) -- the type fix -1,561,049, the shard track +4,694,900',()=>{
  const {ceiling}=flagOn();
- assert.equal(ceiling.ceiling,10872947);
- assert.equal(ceiling.ratio,3.109);
+ assert.equal(ceiling.ceiling,14006798);
+ assert.equal(ceiling.ratio,4.0051);
  assert.equal(ceiling.original,3497276,'the same denominator the flag-off control uses');
- assert.equal(ceiling.fellowsOnly.ceiling,9979855,'the 133 crossover Fellows alone');
- assert.equal(ceiling.familyBlessingWorth,893092,'what the 30 crossover Family are worth');
+ assert.equal(ceiling.stage3,9311898,'the roster before the shard track: 10,872,947 before the type fix');
+ assert.equal(ceiling.ceiling-ceiling.stage3,4694900,'and the track is worth exactly 133 x 35,300');
+ assert.equal(ceiling.notes.shardTracksMaxed,133,'every crossover Fellow reached level 40');
+ assert.equal(ceiling.crossoverWorth,7041079,'what the 133 are worth, for pricing any further percent');
+ assert.equal(ceiling.fellowsOnly.ceiling,13469481,'the 133 crossover Fellows without the 30 Family');
+ assert.equal(ceiling.familyBlessingWorth,537317,'what the 30 crossover Family are worth');
  assert.equal(ceiling.ceiling-ceiling.fellowsOnly.ceiling,ceiling.familyBlessingWorth,'and it is a subtraction, not a quote');
- assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[4078171,7498144,10591609]);
+ assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[4078171,6292871,9030560]);
  // The two states differ in the crossover FAMILY and nothing else, or the difference above is not the
  // Family side's worth (CLAUDE.md rule 1).
  assert.deepEqual([ceiling.stage0,ceiling.stage1],[ceiling.fellowsOnly.stage0,ceiling.fellowsOnly.stage1],
@@ -530,9 +551,8 @@ test('flag ON: the village-earnings ceiling is 10,872,947 (3.109x), and the Fami
  assert.equal(ceiling.pairings,300,'30 x 10 -- the structural cap the rule can never exceed');
  assert.equal(ceiling.familyLadderMax,36,'and not one of them passed the classic ladder');
  assert.equal(ceiling.blessedCrossoverFellows,133,'every one of the 133 is blessed by somebody now');
- // The whole distribution, so a change to the rule shows up as a shape change rather than as one
- // Fellow's number moving. Each bucket is n x (159,000 flat, +12%), the 36/24 cap per blesser. Before
- // the re-cut this ran from 0 to 8 blessers with 27 Fellows on zero; it is 1 to 3 now.
+ // The whole blessing distribution, so a change to the rule shows up as a shape change rather than as
+ // one Fellow's number moving. Each bucket is n x (159,000 flat, +12%), the 36/24 cap per blesser.
  assert.deepEqual(ceiling.blessingBuckets,{
   '{"flat":159000,"percent":0.12}':16,          // 1 blesser  -- 16 SWGOH Fellows
   '{"flat":318000,"percent":0.24}':67,          // 2
@@ -544,14 +564,44 @@ test('flag ON: the village-earnings ceiling is 10,872,947 (3.109x), and the Fami
   xover_msf_spiderman:{flat:477000,percent:0.36},         // 3 MSF blessers x the 36/24 cap
   xover_swgoh_vaderduelsend:{flat:318000,percent:0.24},   // 2 SWGOH blessers
  });
- // The type multiplier that makes the total non-linear, measured rather than described.
- assert.deepEqual(ceiling.stellaPercentByType,{Unfettered:0,Brave:0,Diligent:122,Informed:122,Inspiring:184});
+});
+
+// THE TYPE MULTIPLIER, before and after, as its own test: it is the finding this slice exists to fix
+// and it must not be able to come back quietly.
+test('flag ON: a crossover Fellow’s TYPE is no longer a power term -- 2.84x became 1.00x',()=>{
+ const {ceiling}=flagOn();
+ // Every type now sums to zero typed percent, because an addition reads its own row only.
+ assert.deepEqual(ceiling.stellaPercentByType,{Unfettered:0,Brave:0,Diligent:0,Informed:0,Inspiring:0});
+ // MEASURED BEFORE THE FIX: {Unfettered:18973639, Brave:18973639, Diligent:42121478,
+ // Informed:42121478, Inspiring:53885134}, i.e. Inspiring/Brave = 2.84.
  assert.deepEqual(ceiling.maxedPowerByType,
-  {Unfettered:18973639,Brave:18973639,Diligent:42121478,Informed:42121478,Inspiring:53885134});
- assert.equal(+(ceiling.maxedPowerByType.Inspiring/ceiling.maxedPowerByType.Brave).toFixed(2),2.84,
-  'an Inspiring crossover Fellow maxes at 2.84x a Brave one, on identical records');
- assert.ok(ceiling.valid,ceiling.refusedBy);
- assert.ok(ceiling.fellowsOnly.valid,ceiling.fellowsOnly.refusedBy);
+  {Unfettered:54273639,Brave:54273639,Diligent:54273639,Informed:54273639,Inspiring:54273639});
+ assert.equal(+(ceiling.maxedPowerByType.Inspiring/ceiling.maxedPowerByType.Brave).toFixed(2),1.00,
+  'on identical records every type must now max at the same Power');
+ assert.equal(new Set(Object.values(ceiling.maxedPowerByType)).size,1,'one number, not five');
+});
+
+// THE POINT OF THE WHOLE SLICE, in one ratio: is a maxed crossover Fellow an EQUIVALENT of a maxed
+// original, or better than one? Both halves are bondedPower over the same finished flag-on state.
+test('flag ON: a maxed crossover Fellow is 1.004x a maxed original of the roster’s middle type',()=>{
+ const {ceiling}=flagOn();
+ const x=ceiling.maxedCrossover,o=ceiling.maxedOriginal;
+ assert.deepEqual(x,{min:50691526,median:52482583,max:54273639},'the 133, sorted');
+ assert.deepEqual(o,{min:13600470,q25:24346809,median:38625334,q75:58329933,max:143963933},'the 159, sorted');
+ // The originals' own power spread is 10.6x wide, entirely because of which four characters have a
+ // recovered Stella page and which types those four feed -- so "a maxed original" is not one number
+ // and the comparison has to say WHICH one. Three of them, measured:
+ assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),1.004,'vs the middle type');
+ assert.equal(+(x.max/o.median).toFixed(3),1.405,'vs the median original of any type');
+ assert.equal(+(x.max/o.max).toFixed(3),0.377,'vs Angie, the strongest original there is');
+ assert.deepEqual(ceiling.maxedOriginalByType,
+  {Unfettered:22559446,Brave:22886040,Diligent:54049915,Informed:54049915,Inspiring:66787902});
+ // And the reverse claim the plan started from: docs/crossover-abilities-plan.md 1.8 measured a maxed
+ // crossover at ~0.33 of a maxed original before any of this. It is 1.004x of its counterpart now, so
+ // the gap the owner asked to close is closed -- and a further percent track would overshoot it (see
+ // the price list in the ceiling test above).
+ assert.ok(x.max<o.max,'no crossover Fellow may pass the strongest original');
+ assert.ok(x.max/ceiling.maxedOriginalByType.Inspiring<1,'nor an Inspiring original');
 });
 
 // ---------------------------------------------------------------------------------------------
