@@ -3,7 +3,8 @@
 
 Works on both corpora measured so far:
   * MSF: legacy AnimationClips (keyframe + packed-quaternion rotation curves, string paths)
-  * SWGOH: Mecanim generic clips (streamed/dense/constant clip data, CRC32 path hashes)
+  * SWGOH: Mecanim generic clips (streamed/dense/constant clip data, CRC32 path hashes), and
+    humanoid muscle clips converted through the bundle's Avatar (humanoid.py)
 
 Unity is left-handed; glTF is right-handed. We mirror X: positions (-x,y,z), quaternions
 (x,-y,-z,w), matrices S*M*S, and triangle winding reversed. UV v is flipped (1-v) because
@@ -241,7 +242,7 @@ def build_tree(root_go):
     def walk(go, parent, path, active):
         tr = trof(go)
         n = Node(tr, go, parent, path)
-        n.active = active and bool(go.m_IsActive)
+        n.active = active and (bool(go.m_IsActive) or parent is None)  # SWGOH saves some prefab roots inactive; the game activates them on spawn
         n.index = len(nodes)
         nodes.append(n)
         by_tr[tr.object_reader.path_id] = n
@@ -577,6 +578,177 @@ def rest_pose(env):
             rest.setdefault(leaf_key(name), ((q.x, q.y, q.z, q.w), (p.x, p.y, p.z)))
     return rest
 
+# ---------------------------------------------------------------- SWGOH humanoid (muscle) clips
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import humanoid  # noqa: E402
+
+def humanoid_avatars(env):
+    """(avatar object, HumanoidAvatar) for every Avatar in env that has a human body."""
+    out = []
+    for o in env.objects:
+        if o.type.name == 'Avatar':
+            try:
+                out.append((o, humanoid.HumanoidAvatar(o.read_typetree())))
+            except (ValueError, KeyError, IndexError):
+                pass
+    return out
+
+def choose_humanoid_clip(env, avatars, humanoid_donors, weapon, report):
+    """The character's own humanoid idle when its bundle carries a humanoid Avatar, else a humanoid
+    donor idle (muscle space is avatar independent, so this is Unity's own retargeting). Returns
+    (clip, env, mode) or (None, None, None)."""
+    if not avatars:
+        return None, None, None
+    own = [(clip, cenv) for clip, cenv, src in idle_matches(clip_candidates([env], 'own')) if clip_kind(clip) == 'humanoid']
+    if own:
+        # build-character.py retries the next candidate when the rendered loop is not seamless.
+        report['humanoidIdleCandidates'] = list(dict.fromkeys(c.m_Name for c, _ in own))
+        return own[0][0], own[0][1], 'humanoid'
+    for cls, (denv, dclip) in humanoid_donors:
+        if cls in (weapon, '*'):
+            for n, o, cenv, src in clip_candidates([denv], 'donor'):
+                if n == dclip and clip_kind(o.read()) == 'humanoid':
+                    report['donor'] = {'class': cls, 'weapon': weapon, 'clip': dclip, 'retarget': 'humanoid avatar'}
+                    return o.read(), denv, 'humanoid-donor'
+    return None, None, None
+
+def humanoid_keys(avatar):
+    return [(('hash', zlib.crc32(p.encode()), p), 'r', None) for p in avatar.paths if p]
+
+def pick_avatar(avatars, nodes):
+    """The humanoid avatar whose Animator sits in this prefab tree, with that animator's node path."""
+    by_path = {}
+    for n in nodes:
+        for c in components(n.go, 'Animator'):
+            try:
+                by_path[c.read().m_Avatar.m_PathID] = n
+            except Exception:
+                pass
+    for o, av in avatars:
+        n = by_path.get(o.path_id)
+        if n is not None:
+            return av, n
+    # no Animator link: the avatar whose paths resolve best
+    best = max(avatars, key=lambda a: sum(1 for p in a[1].paths if p and any(x.path.endswith(p) for x in nodes)))
+    return best[1], None
+
+def humanoid_tracks(clip, avatar, anim_node, nodes, fps, report):
+    """{node index: {'r': fn, 't': fn}} in Unity local space for the human bones of `avatar`."""
+    md = MuscleClipData(clip)
+    duration = md.stop - md.start
+    index_of, offset = {}, 0
+    for b in clip.m_ClipBindingConstant.genericBindings:
+        if b.typeID == 95 and b.customType == 8:
+            index_of[int(b.attribute)] = offset
+        offset += binding_size(b)
+    frames = max(2, int(round(duration * fps)) + 1)
+    times = np.linspace(0, duration, frames).astype(np.float32)
+    values = humanoid.sample_values(md, index_of, times.astype(np.float64))
+    # Unity binds human bones inside the Animator's subtree even when the prefab inserts wrappers the
+    # avatar never saw (SWGOH: the Animator is on the prefab root, the avatar says 'pelvicJNT', the
+    # prefab has 'Scaler/pelvicJNT'), so match the avatar path as a suffix, shortest path first.
+    base = (anim_node.path + '/') if anim_node is not None and anim_node.path else ''
+    scope = sorted((n for n in nodes if n.path.startswith(base)), key=lambda n: n.path.count('/'))
+    def node_for(p):
+        return next((n for n in scope if n.path == base + p or n.path.endswith('/' + p)), None)
+    hips_i = avatar.bone_node['Hips']
+    hips_node = node_for(avatar.paths[hips_i])
+    if hips_node is None:
+        raise SystemExit(f'humanoid: hips {avatar.paths[hips_i]} not in the prefab')
+    # hips parent chain between the animator and the hips (normally empty): rest transforms
+    chain_q, chain_t, chain_s = np.array((0.0, 0.0, 0.0, 1.0)), np.zeros(3), np.ones(3)
+    anc, n = [], hips_node.parent
+    while n is not None and n is not anim_node:
+        anc.append(n)
+        n = n.parent
+    for a in reversed(anc):
+        q, p, s = a.tr.m_LocalRotation, a.tr.m_LocalPosition, a.tr.m_LocalScale
+        chain_t = chain_t + humanoid.qrot(chain_q, np.array((p.x, p.y, p.z)) * chain_s)
+        chain_q = humanoid.qmul(chain_q, np.array((q.x, q.y, q.z, q.w)))
+        chain_s = chain_s * np.array((s.x, s.y, s.z))
+    report.setdefault('warnings', [])
+    if np.abs(chain_s - 1).max() > 1e-3:
+        report['warnings'].append(f'humanoid: wrapper scale {chain_s.round(4).tolist()} between animator and hips (hips kept in model units)')
+    rot = {i: [] for i, ax in enumerate(avatar.axes) if ax is not None and i != hips_i}
+    hips_t, hips_q, checks, muscle_max = [], [], [], 0.0
+    for f in range(frames):
+        v = {k: float(arr[f]) for k, arr in values.items()}
+        muscle_max = max([muscle_max] + [abs(v.get(humanoid.MUSCLE_BASE + k, 0.0)) for k in range(humanoid.BODY_MUSCLES)])
+        local, (ht, hq) = avatar.pose(v)
+        for i in rot:
+            rot[i].append(local[i])
+        checks.append(avatar.check_pose(local, (ht, hq)))
+        inv = humanoid.qconj(chain_q)
+        hips_t.append(humanoid.qrot(inv, ht - chain_t))  # avatar space is the unscaled model space
+        hips_q.append(humanoid.qmul(inv, hq))
+    lookup = lambda arr: (lambda t, arr=arr: arr[min(frames - 1, max(0, int(round(float(t) / duration * (frames - 1))) if duration > 0 else 0))])
+    tracks, missing = {}, []
+    for i, arr in rot.items():
+        n = node_for(avatar.paths[i])
+        if n is None:
+            missing.append(avatar.paths[i])
+            continue
+        tracks[n.index] = {'r': lookup(arr)}
+    tracks[hips_node.index] = {'r': lookup(hips_q), 't': lookup(hips_t)}
+    head = [c['headAboveHips'] for c in checks]
+    ref_head = avatar.check_pose(avatar.pose_q, (avatar.pose_t[hips_i], avatar.pose_q[hips_i]))
+    report['humanoid'] = {'avatar': avatar.name, 'animator': anim_node.path if anim_node is not None else None, 'bones': len(tracks),
+                          'missingBones': missing, 'maxAbsMuscle': round(muscle_max, 3), 'twistDistribution': 'not applied',
+                          'referenceOrientationErrorDeg': round(avatar.reference_orientation_error_deg, 3),
+                          'comCalibration': [round(float(x), 4) for x in avatar.com_offset],
+                          'headAboveHips': {'min': round(min(head), 4), 'max': round(max(head), 4), 'reference': round(ref_head['headAboveHips'], 4)},
+                          'footY': {'min': round(min(c['footY'] for c in checks), 4), 'max': round(max(c['footY'] for c in checks), 4), 'reference': round(ref_head['footY'], 4)},
+                          'hipsY': {'min': round(min(c['hipsY'] for c in checks), 4), 'max': round(max(c['hipsY'] for c in checks), 4), 'reference': round(ref_head['hipsY'], 4)},
+                          'loopSeamDeg': round(max(math.degrees(2 * math.acos(min(1.0, abs(float(np.dot(a[0], a[-1])))))) for a in rot.values()), 3) if rot else 0}
+    return duration, tracks
+
+def nested_generic_tracks(env, nodes, main_animator, duration, report):
+    """Sidekicks nested in the prefab with their own generic Animator (Grogu in Mando's pram, BD-1 on
+    Cal's shoulder) keep their own idle, bound only inside their subtree and time-scaled to a whole
+    number of loops of the main clip."""
+    own = clip_candidates([env], 'own')
+    generic_avatars = {}
+    for o in env.objects:
+        if o.type.name == 'Avatar':
+            t = o.read_typetree()
+            if sum(1 for x in t['m_Avatar']['m_Human']['data']['m_HumanBoneIndex'] if x >= 0) < 10:
+                generic_avatars[o.path_id] = t['m_Name']
+    out, used = {}, []
+    for n in nodes:
+        if n is main_animator:
+            continue
+        for c in components(n.go, 'Animator'):
+            try:
+                name = generic_avatars.get(c.read().m_Avatar.m_PathID)
+            except Exception:
+                continue
+            token = re.sub(r'_?meshavatar$', '', (name or '').lower())
+            if not token:
+                continue
+            cands = [(clip, cenv) for clip, cenv, _ in idle_matches(own, lambda nm, t=token: t in nm.lower()) if clip_kind(clip) == 'generic']
+            if not cands:
+                continue
+            clip, cenv = min(cands, key=lambda x: abs(float(x[0].m_MuscleClip.m_StopTime - x[0].m_MuscleClip.m_StartTime) - duration))
+            sub_duration, curves = read_curves(clip, [cenv])
+            subtree = [x for x in nodes if x.path == n.path or x.path.startswith(n.path + '/')]
+            resolve = make_resolver([Node(x.tr, x.go, None, x.path[len(n.path) + 1:]) for x in subtree])
+            index_by_rel = {x.path[len(n.path) + 1:]: x.index for x in subtree}
+            loops_n = max(1, round(duration / sub_duration)) if sub_duration > 0 else 1
+            k = sub_duration * loops_n / duration if duration > 0 else 1.0
+            bound = 0
+            for key, ch, fn in curves:
+                r = resolve(key)
+                if r is None or ch not in ('r', 't', 's', 'e'):
+                    continue
+                gi = index_by_rel[r.path]
+                out.setdefault(gi, {})[ch] = (lambda t, fn=fn, k=k, d=sub_duration: fn((t * k) % d if d > 0 else 0.0))
+                bound += 1
+            used.append({'animator': n.path, 'clip': clip.m_Name, 'duration': round(sub_duration, 3), 'timeScale': round(k, 4), 'boundCurves': bound})
+    if used:
+        report['nestedClips'] = used
+    return out
+
 def qmul(a, b):
     ax, ay, az, aw = a
     bx, by, bz, bw = b
@@ -663,7 +835,8 @@ def main():
     ap.add_argument('--clip')
     ap.add_argument('--anim-bundle', action='append', default=[], help='shared clip bundles searched after the character bundle')
     ap.add_argument('--donor', action='append', default=[], help='CLASS=bundle:clip; a generic clip retargeted by bone name when the own idle is humanoid')
-    ap.add_argument('--weapon', help='weapon class for --donor (default: from the humanoid idle name, e.g. hmn_sbr_ -> sbr)')
+    ap.add_argument('--humanoid-donor', action='append', default=[], help='CLASS=bundle:clip; a humanoid (muscle) idle played through this bundle\'s humanoid Avatar when it has no own humanoid idle')
+    ap.add_argument('--weapon',help='weapon class for --donor (default: from the humanoid idle name, e.g. hmn_sbr_ -> sbr)')
     ap.add_argument('--token', help='name token for shared clips (default: from the bundle file name)')
     ap.add_argument('--fps', type=float, default=30.0)
     ap.add_argument('--max-texture', type=int, default=1024)
@@ -680,7 +853,17 @@ def main():
     set_own_name(token)
     containers = [k for o in env.objects if o.type.name == 'AssetBundle' for k, _ in o.read().m_Container]
     archetypes = sorted({m.group(1) + m.group(2) for c in containers for m in [re.search(r'/cd_(male|fem)(big|med|small)', c)] if m})
-    clip, clip_env, mode = choose_clip(env, anim_envs, donors, a.clip, token, archetypes, a.weapon, report)
+    avatars = humanoid_avatars(env)
+    humanoid_donors = []
+    for spec in a.humanoid_donor:
+        cls, rest = spec.split('=', 1)
+        path, clipname = rest.rsplit(':', 1)
+        humanoid_donors.append((cls, (UnityPy.load(path), clipname)))
+    clip, clip_env, mode = (None, None, None) if a.clip else choose_humanoid_clip(env, avatars, humanoid_donors, a.weapon, report)
+    if clip is None:
+        clip, clip_env, mode = choose_clip(env, anim_envs, donors, a.clip, token, archetypes, a.weapon, report)
+        if clip is not None and avatars and clip_kind(clip) == 'humanoid':
+            mode = 'humanoid'
     if clip is None:
         report['clip'] = None
         report['clipFailure'] = mode
@@ -689,7 +872,8 @@ def main():
         raise SystemExit(f'no usable idle clip: {mode}; own clips: {report.get("clipsAvailable")}')
     by_name = mode == 'donor'
     duration, curves = read_curves(clip, [clip_env, env])
-    root_go = choose_root(env, a.root, report, curves, by_name)
+    human = mode in ('humanoid', 'humanoid-donor')
+    root_go = choose_root(env, a.root, report, curves + [k for _, av in avatars for k in humanoid_keys(av)] if human else curves, by_name)
     report['root'] = root_go.m_Name
     nodes, by_tr = build_tree(root_go)
     report['transforms'] = len(nodes)
@@ -801,8 +985,14 @@ def main():
         stats['triangles'] += tri_total
         if skinned:
             joints = []
-            for b in r.m_Bones:
+            for bi_, b in enumerate(r.m_Bones):
                 jn = by_tr.get(b.m_PathID)
+                if jn is None and b.m_PathID == 0:
+                    # A null bone slot (SWGOH Sith Eternal Emperor: slot 0 of palpatine_gl_pre_mesh). Unity skins
+                    # such vertices with the identity; bind them to the renderer's root bone (or node) instead.
+                    jn = by_tr.get(r.m_RootBone.m_PathID) if r.m_RootBone and r.m_RootBone.m_PathID else n
+                    used_by = int(np.count_nonzero((idx == bi_) & (wts > 0))) if skinned else 0
+                    report['warnings'].append(f'{mesh.m_Name}: bone slot {bi_} is null ({used_by} weighted vertices); bound to {jn.path or "root"}')
                 if jn is None:
                     raise SystemExit(f'{mesh.m_Name}: bone {b.m_PathID} outside the chosen root')
                 joints.append(jn.index)
@@ -856,6 +1046,13 @@ def main():
                 out['t'] = (lambda t, f=tr['t'], tpos=tpos, dpos=dpos, ratio=ratio: tpos + (f(t) - dpos) * ratio)
             tracks[ni] = out
         report['clip']['retarget'] = 'donor rotations by bone name'
+    if human:
+        av, anim_node = pick_avatar(avatars, nodes)
+        duration, htracks = humanoid_tracks(clip, av, anim_node, nodes, a.fps, report)
+        for ni, tr in htracks.items():
+            tracks.setdefault(ni, {}).update(tr)
+        tracks.update(nested_generic_tracks(env, nodes, anim_node, duration, report))
+        report['clip'].update({'kind': 'humanoid', 'source': 'own' if mode == 'humanoid' else 'humanoid-donor', 'retarget': 'muscle space through the avatar' if mode == 'humanoid' else 'donor muscle clip through this avatar'})
     report['clip']['animatedNodes'] = len(tracks)
     report['clip']['unresolvedPaths'] = sorted(str(u) for u in unresolved)[:20]
     report['clip']['unresolvedCount'] = len(unresolved)

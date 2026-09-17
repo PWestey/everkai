@@ -13,10 +13,12 @@ Requirements (checked, never installed silently except the npm render tools in W
 
 Steps, each recorded in WORKDIR/<id>/manifest.json with timings:
   1. resolve the model bundle from Characters/<asset-id>/asset-references.json
-  2. unity_to_glb.py: idle clip (own -> shared MSF storytelling idle -> SWGOH weapon-class donor),
-     then the prefab root that clip binds to best (ties: most textured, active skinned vertices).
-     Donor clips (SWGOH Humanoid idles) are retargeted by bone name and marked reviewRequired:
-     measured on a 6-character sample they range from fine (Leia) to broken (Yoda, Chewbacca).
+  2. unity_to_glb.py: idle clip (SWGOH with a humanoid Avatar: own humanoid idle -> humanoid donor idle;
+     otherwise own -> shared MSF storytelling idle -> SWGOH weapon-class donor), then the prefab root
+     that clip binds to best (ties: most textured, active skinned vertices). Humanoid (muscle) clips go
+     through the character's own Avatar (humanoid.py); nested sidekicks with their own generic Animator
+     (Grogu, BD-1) keep their own idle. Donor clips are marked reviewRequired: a humanoid donor keeps the
+     character's proportions but borrows the motion; a generic donor (bone names) can break proportions.
   3. render.mjs: three.js in headless Chrome, 1024x1536, 12 fps, whole loops only
   4. compose.py: procedural 2:3 backdrop, still WebP q85 and composited frames
   5. encode-h264.swift: AVFoundation H.264 (no ffmpeg with H.264 on this Mac)
@@ -33,6 +35,15 @@ HERE = Path(__file__).resolve().parent
 DONORS = [('sbr', 'char_vaderduelsend_pre.bundle', 'hmn_sbr_vaderduelsend_homescreen_idle'),
           ('pst', 'char_han_pre.bundle', 'hmn_pst_hansolo_homescreen_idle'),
           ('*', 'char_han_pre.bundle', 'hmn_pst_hansolo_homescreen_idle')]
+# SWGOH characters whose bundle has a humanoid Avatar but no humanoid idle of its own play another
+# character's humanoid (muscle) idle through their own avatar: Unity's own retargeting, so proportions
+# hold, but the motion is borrowed and the row stays reviewRequired. Picked by role, looked at in renders.
+HUMANOID_DONORS = {'MAUL': ('char_revan_dark_pre.bundle', 'hmn_sbr_revan_dark_homeidle'),
+                   'AAYLASECURA': ('char_luminara_pre.bundle', 'hmn_sbr_idle_luminara'),
+                   'GRANDMOFFTARKIN': ('char_thrawnadmiral_pre.bundle', 'hmn_thrawn_idle'),
+                   'ADMIRALACKBAR': ('char_thrawnadmiral_pre.bundle', 'hmn_thrawn_idle'),
+                   'CADBANE': ('char_bobafett_old_pre.bundle', 'hmn_pst_bobafett_old_detailscreen_idle'),
+                   '*': ('char_poe_tros_pre.bundle', 'hmn_pst_poe_tros_homeidle')}
 
 def sh(cmd, **kw):
     r = subprocess.run(cmd, capture_output=True, text=True, **kw)
@@ -111,11 +122,14 @@ def main():
         # bundle holds a name-matched or archetype (MaleMed/FemMed/MaleBig) shell idle on the same rig.
         cmd += ['--anim-bundle', str(raw_bundles / 'base_pack_1_storytelling_anims.assetbundle')]
     else:
-        # 38 of the 68 selected SWGOH characters idle on Humanoid muscle clips, which this exporter does
-        # not retarget. Those borrow a generic-rig idle of the same weapon class, matched by bone name.
+        # 45 of the 68 selected SWGOH characters have a humanoid Avatar; their muscle idles are converted
+        # through it. The bone-name donor below is only the fallback for a character with neither.
         for cls, bundle_file, clip_name in DONORS:
             if (raw_bundles / bundle_file).exists():
                 cmd += ['--donor', f'{cls}={raw_bundles / bundle_file}:{clip_name}']
+        bundle_file, clip_name = HUMANOID_DONORS.get(a.asset_id, HUMANOID_DONORS['*'])
+        if (raw_bundles / bundle_file).exists() and bundle_file != bundle_name:
+            cmd += ['--humanoid-donor', f'*={raw_bundles / bundle_file}:{clip_name}']
     (work / 'model.json').unlink(missing_ok=True)
     r = subprocess.run(cmd, capture_output=True, text=True)
     export = json.loads((work / 'model.json').read_text()) if (work / 'model.json').exists() else {}
@@ -158,10 +172,18 @@ def main():
                 'still': {'file': still.name, 'bytes': still.stat().st_size, 'sha256': sha256(still)},
                 'clipFile': {'file': mp4.name, 'bytes': enc['bytes'], 'sha256': sha256(mp4), 'width': enc['width'], 'height': enc['height'],
                              'fps': enc['fps'], 'frames': enc['frames'], 'encodedDuration': round(enc['frames'] / enc['fps'], 6)},
-                'checks': checks, 'failures': failures, 'reviewRequired': export['clip']['source'] == 'donor', 'timings': timings, 'seconds': round(time.time() - t0, 1),
+                'checks': checks, 'failures': failures, 'reviewRequired': export['clip']['source'] in ('donor', 'humanoid-donor'), 'humanoid': export.get('humanoid'), 'nestedClips': export.get('nestedClips'), 'timings': timings, 'seconds': round(time.time() - t0, 1),
                 'warnings': export.get('warnings', [])}
     (work / 'manifest.json').write_text(json.dumps(manifest, indent=1) + '\n')
     print(json.dumps({k: manifest[k] for k in ('id', 'clip', 'clipSource', 'reviewRequired', 'failures', 'seconds', 'timings')}))
+    candidates = export.get('humanoidIdleCandidates') or []
+    if failures == ['seamless'] and manifest['clip'] in candidates and candidates.index(manifest['clip']) + 1 < len(candidates):
+        # A detail-screen idle can open with a fast move that never returns (Grand Inquisitor's saber spin);
+        # the character's next humanoid idle usually loops. Passing --clip makes this a single retry.
+        nxt = candidates[candidates.index(manifest['clip']) + 1]
+        print(f'{cid}: {manifest["clip"]} is not seamless; retrying with {nxt}', file=sys.stderr)
+        sys.stdout.flush()
+        sys.exit(subprocess.run([sys.executable, *sys.argv, '--clip', nxt]).returncode)
     if failures:
         raise SystemExit(f'{cid}: checks failed {failures}; inspect {work}/frames and comp before installing')
 
