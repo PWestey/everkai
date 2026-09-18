@@ -1,6 +1,13 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,decode,valid} from '../lib/game.mjs';import {encounterAdvice} from '../lib/encounter-advice.mjs';import {FRONTIER} from '../lib/frontier.mjs';
-test('fresh ready encounters do not recommend spending; blocked stage offers valid affordable gain',()=>{
- const s=fresh(1000);assert.equal(encounterAdvice(s).ready,true);const b=act(s,'battle',1000,1).state,a=encounterAdvice(b);assert.equal(a.ready,false);assert.ok(a.options.length);for(const o of a.options){const r=act(b,o.action,1000,o.target,o.value);assert.ok(!r.error,r.error);assert.ok(valid(r.state));if(o.action!=='buySupply')assert.ok(o.after>a.power);}assert.deepEqual(encounterAdvice(decode(JSON.stringify(b))),a);
+test('a funded ready stage recommends nothing; a boss above your Power offers valid affordable gain',()=>{
+ // A normal stage can no longer block on Power -- Power only sets its price -- so the blocked case is
+ // a BOSS. Stage 24 is chapter 4-6, atk 12,300 from the original's LevelBoss row, against a fresh
+ // roster's 10,000 ladder Power.
+ const s={...fresh(1000),gold:1e9};assert.equal(encounterAdvice(s).ready,true);
+ const b={...s,adventure:{...s.adventure,cleared:23}},a=encounterAdvice(b);
+ assert.equal(a.required,12300);assert.equal(a.ready,false);assert.ok(a.options.length);
+ for(const o of a.options){const r=act(b,o.action,1000,o.target,o.value);assert.ok(!r.error,r.error);assert.ok(valid(r.state));if(o.action!=='buySupply')assert.ok(o.after>a.power);}
+ assert.deepEqual(encounterAdvice(decode(JSON.stringify(b))),a);
 });
 test('gold gate recommends only collectible gold and capped ready saves recommend nothing',()=>{
  let s=fresh(1000);s.gold=0;let a=encounterAdvice(s);assert.equal(a.blockedOnGold,true);assert.equal(a.options[0].action,'collect');assert.ok(!act(s,'collect',1000).error);s.pending=0;assert.equal(encounterAdvice(s).options.length,0);

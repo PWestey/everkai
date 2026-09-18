@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
-import {PATROL_RECOVERY_MS,PATROL_CEILING,patrolCharges,patrolReadyAt} from '../lib/adventure.mjs';
+import {PATROL_RECOVERY_MS,PATROL_CEILING,patrolCharges,patrolReadyAt,STAGES} from '../lib/adventure.mjs';
 
 // BUG-40. Measured before the fix: `patrol` was accepted 1,000 times at ONE frozen timestamp, 1,200 EXP
 // each at stage 30, with the entry gold returned on every win -- so Fellow EXP had no rate at all and
@@ -22,7 +22,10 @@ test('a save with no stamp starts full, and five patrols exhaust the bucket at o
  const xp=s.fellowXP,gold=s.gold;
  for(let i=0;i<PATROL_CEILING;i++){s=ok(s,'patrol',30);assert.equal(patrolCharges(s),PATROL_CEILING-1-i);}
  assert.equal(s.adventure.patrols,PATROL_CEILING);
- assert.equal(s.fellowXP,xp+PATROL_CEILING*40*30,'40 EXP per stage id, five times -- 6,000, not 1,200,000');
+ // Patrol EXP is the stage's OWN Fellow EXP from the original's table (stage 30 = chapter 5's boss,
+ // item '1' count 1,776), not the invented 40 x stage id it used to be.
+ assert.equal(STAGES[29].xp,1776,'stage 30 is chapter 5-6, the boss row that awards 1,776 Fellow EXP');
+ assert.equal(s.fellowXP,xp+PATROL_CEILING*STAGES[29].xp,'the stage table value, five times -- never an unmetered faucet');
  assert.equal(s.gold,gold,'the entry deposit still returns on victory');
  // The sixth is refused at the same timestamp, and refusing writes nothing at all.
  const refused=act(s,'patrol',s.lastAt,30);

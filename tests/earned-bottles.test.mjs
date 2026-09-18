@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {fountainState,BOTTLES_PER_DAILY,BOTTLE_REFILL_MAX} from '../lib/fountain.mjs';
-import {STAGE_BOTTLES,FRESH_FOUNTAIN} from '../lib/adventure.mjs';
+import {stageBottles,FRESH_FOUNTAIN,STAGES} from '../lib/adventure.mjs';
 import {starterHabits} from '../lib/habits.mjs';
 const T=new Date('2026-09-17T09:00:00').getTime();
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.equal(r.error,undefined,r.error);assert.ok(valid(r.state),a);return r.state;};
@@ -14,12 +14,16 @@ test('Fairy Bottles are earned, never prepared by a button',()=>{
  assert.equal(fountainState(s).bottles,0);
  assert.throws(()=>act(s,'wishSupply',T,null,{seq:0}),/Unknown action/,'the free bottle faucet is gone');});
 
-test('clearing a stage releases bottles without fabricating Fairy entitlements',()=>{
+test('bottles come from the boss row, one per boss, not a flat three per stage',()=>{
  let s={...fresh(T),gold:1000000};
- s=run(s,'battle',1);
- assert.equal(fountainState(s).bottles,STAGE_BOTTLES);
+ // The original awards Item_Token_Gacha_Universal on the BOSS row only. Normal stages release none.
+ for(let i=1;i<=5;i++){s=run(s,'battle',i);assert.equal(stageBottles(STAGES[i-1]),0,`stage ${i} is normal`);}
+ assert.equal(fountainState(s).bottles,0,'five normal stages release nothing -- the old flat 3/stage was invented');
+ assert.equal(stageBottles(STAGES[5]),1,'stage 6 is chapter 1-6, the boss, and its row carries exactly one token');
+ s=run(s,'battle',6);
+ assert.equal(fountainState(s).bottles,1);
  assert.equal(fountainState(s).total,0,'total counts fairies released by wishing, not bottles granted');
- assert.equal(s.adventure.cleared,1);
+ assert.equal(s.adventure.cleared,6);
  assert.ok(valid(s));assert.deepEqual(decode(JSON.stringify(s)),s);});
 
 test('the inlined fountain default cannot drift from fountainState',()=>{

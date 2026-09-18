@@ -26,7 +26,15 @@ test('fresh player reaches all chapters through ordinary income, stages, supplie
  let s=fresh(1000);assert.ok(act(s,'startFrontier',1000,1).error);s=run(s,'collect',null,null,s.lastAt+28800000);
  for(const f of FELLOWS.filter(f=>f.id!=='hero_15').slice(0,2)){s=run(s,'recruit',f.id);s=run(s,'party',f.id);}
  const ids=[...s.adventure.party];for(const id of ids)for(let i=0;i<90;i++){s=run(s,'buySupply','Item_Talent_Hero_1');s=run(s,'aptitude',id);}
- for(let stage=1;stage<=30;stage++){s=run(s,'battle',stage);for(const id of ids){const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}}
+ // On the original's ladder a stage is a gold SINK -- it charges its own table price and pays back
+ // Fellow EXP, never gold -- so the walk has to fund itself from village income between stages. That
+ // is the "ordinary income" this test is named for; it used to be free because the invented ladder
+ // paid back twice its fee.
+ for(let stage=1;stage<=30;stage++){
+  s=run(s,'collect',null,null,s.lastAt+28800000);
+  s=run(s,'battle',stage);
+  for(const id of ids){const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}
+ }
  // Walk to the zero-break cap, limit-break once, and confirm the cap moved. Both loops carry a
  // guard: an earlier version trained to a hardcoded level with no bound, and when the cost curve
  // changed under it the walk ran for 28 minutes instead of failing. Assert against fellowCap rather
@@ -39,6 +47,9 @@ test('fresh player reaches all chapters through ordinary income, stages, supplie
   while(s.fellows[id].level<fellowCap(s.fellows[id])&&guard++<3000){s=run(s,'patrol',30,null,s.lastAt+PATROL_RECOVERY_MS);const r=act(s,'train',s.lastAt,id,'max');if(!r.error)s=r.state;}
   assert.equal(s.fellows[id].level,fellowCap(s.fellows[id]),'a zero-break Fellow must reach the quality-1 cap of 100');
   assert.equal(s.fellows[id].level,100);
+  // Limit-Break Tokens used to fall out of every fifth stage. That was an invented drop and it is
+  // gone; the supply shop is now the ordinary-income route to one, at 1,000 gold.
+  while(s.inventory.local_limit_token<1){s=run(s,'collect',null,null,s.lastAt+28800000);const r=act(s,'buySupply',s.lastAt,'local_limit_token');if(!r.error)s=r.state;}
   s=run(s,'limitBreak',id);
   assert.equal(fellowCap(s.fellows[id]),150,'one limit break moves the cap to quality tier 2');
  }

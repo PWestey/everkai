@@ -507,7 +507,9 @@ test('every chore has its dispatch contract checked, not just the ones that brok
   familiarTower:{state:{familiars:{Pet_1191:{level:1,stars:0}}},allow:['towerParty','towerFight']},
   dispatch:{state:{familiars:Object.fromEntries(FAMILIARS.map(p=>[p.id,{level:120,stars:0}])),familiarTower:{policyVersion:2,cleared:25,attempts:25,party:[],last:null}},allow:['dispatchCollect','dispatchTeam','dispatchStart']},
   school:{state:{family:{wife_1:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}},allow:['activateGraduationBonds','graduateAll','expandSchool','enrollTripChild','enrollPupil','educateAllRound','educateBatch','educate']},
-  campaign:{state:{},allow:['battle','patrol']},
+  // The default-on campaign chore patrols only, so it needs a cleared stage to patrol.
+  campaign:{state:{adventure:{cleared:6,party:['hero_15'],patrols:0,lastBattle:null}},allow:['patrol']},
+  campaignBattles:{state:{gold:1e9},allow:['battle']},
   stella:{state:{fellows:{hero_54:{level:1,aptitude:10,skill:0,breaks:0,gear:null}}},allow:['stellaActivate','stellaUpgrade']},
   journeyAuto:{state:{opening:{cleared:30,rank:5,events:[]}},allow:['openingAuto']},
   journey:{state:{opening:{claimed:0,rank:1,fame:0,city:[],events:['A101']}},allow:['openingClaim','openingEvent','openingPromote','openingRecruit']},
@@ -721,7 +723,10 @@ const allDailies=(s,at=s.lastAt)=>{for(const h of s.habits.items.filter(x=>x.fre
 
 test('a spending task is OFF when absent, every other new task is ON, and both survive a round trip',()=>{
  const spenders=HELPER_TASKS.filter(t=>t.defaultOff);
- assert.deepEqual(spenders.map(t=>t.id),['journeyAuto'],'exactly one default-off task, and it is the gold spender');
+ // Both default-off tasks spend gold on stages: journeyAuto Full-Autos the journey ladder, and
+ // campaignBattles clears new village stages, which on the original's table only ever costs gold.
+ assert.deepEqual(spenders.map(t=>t.id),['journeyAuto','campaignBattles'],'the default-off tasks are exactly the gold spenders');
+ assert.ok(spenders.every(t=>t.group==='spending'),'and they are the whole of the spending group');
  const s=armed();
  // An OLD save: a tasks map written before any of these ids existed.
  const old={...s,helper:{tasks:{village:1,museum:0},ranAt:0}};
@@ -886,10 +891,18 @@ test('the Inn, Workshop, Raphael, Fountain, village and campaign chores all chan
  const wish=choreRun('fountain',s);
  assert.ok(wish.ok.includes('bottleRefill')&&wish.ok.includes('wishDraw'));
  assert.ok(wish.state.fountain.history.every(h=>h.count>=10),'no single wishes');
- // Village walk, and the campaign (which can only add gold).
+ // Village walk, and the campaign. On the original's ladder a stage only ever TAKES gold, so the
+ // default-on chore patrols (deposit refunded in the same action, gold cannot fall) and clearing new
+ // stages moved to the default-off spending group.
  assert.ok(choreRun('villageEvents',s).ok.includes('villageEvent'));
- const camp=choreRun('campaign',s);
- assert.ok(camp.ok.includes('battle')&&camp.state.adventure.cleared>0&&camp.state.gold>=s.gold);});
+ const patrolled={...s,adventure:{...s.adventure,cleared:6}};
+ const camp=choreRun('campaign',patrolled);
+ assert.ok(camp.ok.includes('patrol'),`the campaign chore patrolled: ${camp.seen.join(' ')}`);
+ assert.ok(camp.state.gold>=patrolled.gold,`gold fell ${patrolled.gold} -> ${camp.state.gold}`);
+ assert.ok(camp.state.fellowXP>patrolled.fellowXP,'and the patrol actually paid its stage EXP');
+ const cleared=choreRun('campaignBattles',{...s,gold:1e9});
+ assert.ok(cleared.ok.includes('battle')&&cleared.state.adventure.cleared>0,`stages cleared: ${cleared.seen.join(' ')}`);
+ assert.ok(cleared.state.gold<1e9,'and clearing them spent gold, which is why that chore is default-off');});
 
 test('the journey, achievements, free recruits, farm orders, Inn gifts and Expo chores all pay out',()=>{
  const s=armed();
