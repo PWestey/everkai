@@ -55,7 +55,9 @@ peak"** — no per-hero term worth nine figures, and no account-wide floor worth
 | 13 | **Fishing** `Fish`/`Fish_G_` → `coef`, `percent`, `extradd`, `FishCombination` `finalpercent` 5,000 ×2. **Uncapped** (`maxUpgradeLevel 99,999,999`) | `fishingBonuses` best profile: flat 3,195,000 · aptitude 176 · percent 132 (`lib/fishing.mjs:60`) | **D** | comparable | the original's is unbounded; not measurable from tables |
 | 14 | **Activity skills** `Hero_Activity_Skill` 49 rows, `finalpercent` 2,000 each | nothing | **A** | +20% each | ×11.2 |
 | 15 | **Tower Defense / Medicine / Farm / Relics** feeding `coef` via `heroskilltalent` | the systems exist (`lib/familiar-tower.mjs`, `lib/apothecary.mjs`, `lib/farm.mjs`) but none is a term in `bondedPower` | **A** (as power sources) | ×1.2–×2 | ~3,000 talent |
-| 16 | **Village: `heroconversion`** — hero Power enters building yield as a **`base`** part (`MainCityManager.lua:392`) | `rosterOperation = Σ bondedPower/1000` (`lib/businesses.mjs:95`), added once per open business inside `enterpriseRate` (`:120-123`) | **D — structure differs** | see §3 | see §3 |
+| 16 | **Village: `heroconversion`** — `GetHeroAddProsperity` (`UnderlingManager.lua:2345-2370`): per building, `Power × HeroConversionRate/10000` enters as a **`base`** part and is run through that building's own `(1+percent)×(1+extrapercent)`, then summed over buildings. `HeroConversionRate` = **10 for all 17 real buildings, 0 for the Bank** | `rosterOperation = Σ bondedPower/1000` (`lib/businesses.mjs:95`) is added to `employeeIncome` **inside** the `×(1+businessBonus.total)` and summed per business (`:120-123`) | **P — structure is right** | — | — |
+| 16b | …but the original's `percent` for a building sums **8 strands** (`CalBuildingOtherAdd`, `MainCityManager.lua:400-412`) plus `benefitcard` as `extrapercent`, reaching **×212** from quality (+11,200%) and bank (+1,990%) alone | `businessBonus.total` has **4** (`assignedOperation + quality + family + farm`, `lib/businesses.mjs:106`). The code comment at `:98-100` already says the original has twelve and Everkai has two | **D** | ×2–×5 short | **×212 short** |
+| 16c | The **Bank is excluded** from hero conversion (`HeroConversionRate: 0`) | every open business receives `rosterOperation` | **D** | ~+6% too high | ~+6% too high |
 | 17 | **Village: assigned heroes** — `dispatchconversion` = the assigned hero's `Hero_Appoint_Base_1` **skill level** only, 5,000+500×299 = **+1,545%** each, 5 heroes ⇒ **+7,725%** (`MainCityManager.lua:421-436`) | `assignedOperation` (`lib/operations.mjs`) multiplies business income; not the original's curve | **D** | the original's staffing multiplier is far larger | ×78 on one bucket |
 | 18 | **Village: quality + bank** — `BuildingQuality.yieldRise` 0→1,120,000 (**+11,200%**) and `CityBank.cityIncomeRate` 0→199,000 (**+1,990%**), both summed into the same `percent` | `businessBonus.total` = `assignedOperation + quality + fathomBonus + farm` (`lib/businesses.mjs:106`) | **D** | — | the original's `percent` bucket for yield reaches ×212 from these two alone |
 | 19 | **Village: `Wife###_NewHalo_1`** — 89 rows writing `yield` percent, **1,604,500 (+16,045%)** account-wide | nothing equivalent | **A** | large | ×161 |
@@ -74,7 +76,7 @@ the owner is actually looking at.
 | **4** | **Stars are in the wrong bucket** (#4) | +7,500,000 flat and ~+35% `totalpercent`, currently delivered as +35% aptitude | 444 `finalpercent` rows unrepresented | Cheap to fix — the table is 7 rows — and it moves both the peak and the floor. |
 | **5** | **Talent cap of 1000** (#5) | ≈ parity today | **86×** | Harmless now, fatal later: it is a hard ceiling where the original has an open-ended sum. |
 | **6** | **Costumes carry no power** (#10) | ×2 – ×5 | ×85 | 178 rows of `Hero_Clothes_Talent_#` (900 each) and 76 of `Hero_Clothes_ExtraSkill_#` (8,000 percent each) are already extracted and unused. |
-| **7** | **Village staffing curve** (#17, #18, #19) | — | ×212 from quality+bank, ×161 from Wife yield halos | Affects earnings, not Power. See §3. |
+| **7** | **Village `percent` stack is 4 strands, not 8** (#16b, #17, #18, #19) | ×2–×5 on all village income | ×212 from quality+bank, ×161 from Wife yield halos | Affects earnings, not Power — but it multiplies `rosterOperation` too, so a power rebuild and this compound. |
 | **8** | **The `/10` divisor in default mode** (`lib/adventure.mjs:107`) | **×5.81** | ×5.81 | Not a parity gap — it is the difference between Everkai's two modes. `originalProgression` already removes it. Worth naming because it is most of the visible "under 2,000,000". |
 
 ### The combination that explains the 150×
@@ -186,14 +188,11 @@ current build and decode it with the rebuilt one. No power change has been made 
 these documents change no behaviour — so there is nothing to run it against yet. It must run before
 any of the gaps above is closed.
 
-## 5. What could not be measured, and the measurement that would settle it
+## 5. What still could not be measured, and the measurement that would settle it
 
-1. **`heroconversion`** — the term by which hero Power enters building yield
-   (`MainCityManager.lua:392`). Server-side; the client only reads the part. `docs/slice-buildings.md`
-   records `totalFellowPower × 10/10000`, and `lib/businesses.mjs:95` implements exactly that, but
-   the derivation is INFERRED. **Settled by:** one `SYNC` payload from the replacement server
-   alongside a known roster total, or the server's own yield code. This is the most load-bearing
-   unmeasured number in the project.
+1. ~~**`heroconversion`**~~ — **SETTLED 2026-09-18, see §1 row 16.** A first draft of this document
+   listed it here as server-side and unmeasurable; that was a false absence from searching only
+   `MainCityManager.lua`. `UnderlingManager.lua:2345-2370` computes it in the open.
 2. **Hero base ATK** — INFERRED as `initialATK + riseATK × coefficientADH(level)` by analogy with
    `EquipmentManager.lua:239`. **Settled by:** one hero's `base` part read off a live prop sync at
    two known levels.

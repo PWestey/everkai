@@ -259,11 +259,40 @@ local power = math.floor((staffCount * yield + heroconversion) * (1 + percent/10
   its `Hero_Appoint_Base_1` skill only** — `Initial 5,000 + Level 500 × (level-1)`, maxUpgradeLevel
   300 ⇒ **154,500 (+1,545%) per hero, 5 heroes ⇒ +7,725%**. No ATK/Talent/Power is read on this path.
   MEASURED, and it is the answer to "does the assigned hero's Power drive the building": **no.**
-- **`heroconversion` is the hero-Power → village-earnings edge, and it is server-side.** The client
-  only *reads* the part; nothing in `readable/*.lua` computes it. `docs/slice-buildings.md` records
-  it as `totalFellowPower × 10/10000`; that is **INFERRED** and it is the single most load-bearing
-  unmeasured term in this document. **The measurement that would settle it:** one `SYNC` packet from
-  the private server alongside a known roster total, or the replacement server's own yield code.
+- **`heroconversion` is the hero-Power → village-earnings edge, and it is MEASURED** —
+  `UnderlingManager.lua:2345-2370`, `GetHeroAddProsperity(heroId)`:
+
+  ```lua
+  local fight = zzPropMgr:GetHeroFight(heroId)          -- ONE hero's displayed Power
+  local total = 0
+  for k, buildingId in ipairs(zzMainCityMgr:GetBuildingList()) do
+      local buildConf = zxBuildingBaseConfigs:GetConfig(buildingId)
+      if buildConf then
+          local heroToBuildingBase = fight * buildConf.HeroConversionRate / 10000
+          local building = zzPropMgr:CalcProp("building", buildingId, "yield",
+              { base = { buildingbase = { count = 0 },
+                         heroconversion = { count = heroToBuildingBase } } })
+          total = total + building
+      end
+  end
+  return total
+  ```
+
+  So **one hero's marginal contribution to prosperity is `Power × HeroConversionRate/10000`, run
+  through *each* building's own `(1+percent) × (1+extrapercent)` stack, and summed over every
+  building.** `HeroConversionRate` is **10 for all 17 real buildings and 0 for the Bank**
+  (`BuildingBase.json`) — so the rate is `Power/1000` per building and **the Bank is excluded**.
+  That constant-looking column is load-bearing, not the placeholder it resembles.
+
+  This is the most important edge in the graph, because Power enters as a **`base`** part: it is
+  multiplied by the same ×212-scale `percent` stack (quality + bank + staffing) as the building's
+  own yield. Power and the village multiplier compound.
+
+  > **Corrected 2026-09-18.** The first version of this document said this term was server-side and
+  > unmeasurable. That was a false absence, produced by scoping the search to `MainCityManager.lua`.
+  > A sweep of the whole `readable/` tree finds `heroconversion` in four files —
+  > `MainCityManager.lua`, `Doc_Player_MainCityManager.lua`, `PanelBuildingInfo.lua:393` and
+  > `UnderlingManager.lua:2360`. Rule 2 exists for exactly this and was not run before the claim.
 
 Prosperity is the account-wide aggregate: `PropManager` tracks `totalProsperityPower`,
 `cityProsperityPower`, `vassalProsperityPower` (`:129-131`), all server-pushed. It gates player
@@ -382,7 +411,7 @@ graph TD
   XADD --> POW
   TPCT --> POW
 
-  POW -->|"heroconversion (SERVER-SIDE, INFERRED)"| YIELD["Building yield<br/>(level x yield.count + heroconversion)<br/>x (1+percent) x (1+extrapercent)"]
+  POW -->|"heroconversion = Power x 10/10000 per building<br/>UnderlingManager.lua:2354 (MEASURED)"| YIELD["Building yield<br/>(level x yield.count + heroconversion)<br/>x (1+percent) x (1+extrapercent)"]
   APP["Hero_Appoint_Base_1 level<br/>+1,545% per assigned hero<br/>MainCityManager:421"] --> YIELD
   BQ --> YIELD
   BANK["CityBank 200 rows<br/>cityIncomeRate to +1,990%"] --> YIELD
@@ -411,7 +440,8 @@ graph TD
    sources that *sum* into one bucket (+7,725% + 11,200% + 1,990% ⇒ ×212) and then multiply
    `building.level × yield.count`. MEASURED.
 6. **Power → yield → gold → level → Power.** The only closed loop, and it runs through the one
-   term nobody has measured (`heroconversion`).
+   `heroconversion` edge, which is now measured (`UnderlingManager.lua:2354`): hero Power enters
+   building yield as a `base` part, so it is multiplied by the building `percent` stack too.
 
 ## 9. Placeholders and traps found on the way
 
