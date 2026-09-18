@@ -10,7 +10,8 @@ The trigger, from the owner:
 > power upgrades."
 
 Both halves of his report reproduce exactly from the original's own tables, and his 1.79M reproduces
-exactly from Everkai's. The conclusion is **not** "Everkai is missing most of the original's power
+exactly from Everkai's. §1.4 adds the owner's live "Power Details" panel for two heroes and reproduces
+both displayed totals to the unit (2,665,123,377 and 456,778,931). The conclusion is **not** "Everkai is missing most of the original's power
 sources" — Everkai's per-Fellow ceiling is *higher* than the original's few-weeks hero. The defect is
 **the shape of the curve**: the original pays a large FLAT term per hero from the first rank of every
 system, and Everkai pays almost nothing until a handful of endgame systems are maxed.
@@ -138,6 +139,107 @@ being touched.
 | `finalpercent` | 495 | `totalpercent` |
 | `extradd` | 467 | `extradd` (flat, added AFTER the multiplicative stack) |
 | *(id `talent`, no propType)* | 2,212 | `coef` — the Talent multiplier |
+
+### 1.4 Ground truth: the owner's "Power Details" panel, reconciled exactly (added 2026-09-18)
+
+Screenshots from the owner's emulator (`scratchpad/emu/shinobu-power-{1,2}.png`,
+`orivita-{1,2,3}.png`). Account: roster 4.938B over 58 heroes, 12.24B/s. **Both displayed totals now
+reproduce exactly — 2,665,123,377 and 456,778,931 — to the unit.**
+
+**First, what produces the number on that panel.** The panel is `UI/Hero/CompHeroPropPower.lua`
+(decompiled from `apk-audit/lua/main_game/UI/Hero/CompHeroPropPower.lua` with the LJD tool; it is not
+in `private-server/readable/`). Its headline is
+
+```lua
+self.txt_Fight.text = StringUtil.PropertyNumberBySplitter(data.Fight)   -- = server's "totalPower" prop
+```
+
+so **the client does not compute the displayed Power; the server sends it.** The rows beneath are
+individual *parts* the server also sends, each read with `CalcPropSubPart` — and they do not have to
+sum to the headline. On this account the server is the owner's **private replacement server**, and
+the function that produces `totalPower` is
+`~/Library/Application Support/IsekaiPrivate/game/outputs/private-server/progression.py`
+`_without_pledge` / `power` (the live copy; the one under `Documents/Codex/.../outputs` is older and
+lacks the `star_commercial` aura term). Run read-only against a copy of today's `state/player.json`
+(script `scratchpad/decompose.py`), it returns exactly the panel's Power for both heroes.
+
+**The composition — one additive percent bucket, flats after, one small final multiplier:**
+
+```
+Aptitude = floor( Σ talent sources × (10000 + Σ coefpercent) / 10000 )
+Power    = floor( ( floor(ADH(level) × Aptitude × (10000 + Σ percent) / 10000) + Σ flat )
+                  × (10000 + petFinal) / 10000 )            [× (10000 + pledgeFinal)/10000 if pledged]
+```
+
+This is the client `Formula_ADD` shape with `extrapercent` = 0, `coef×(1+coefpercent)` = Aptitude, and
+`totalpercent` = the familiar final bonus. **Every "Power Percentage Bonus" row is a part of the same
+`percent` bucket** — `CompHeroPropPower.lua` reads Stars as `FORMULA_PERCENT/"herostar"`, Family as
+`FORMULA_PERCENT/"beautyskillII"`, Artifacts as `FORMULA_PERCENT/"equipmentquenching"` — so they
+**add**, they do not multiply. The coordinator's multiplicative fit (2.546B / 433.3M) landed near by
+coincidence; the additive fit (~1.01B) was the right structure but was missing hidden parts.
+
+| | Shinobu (264, Lv 600) | Orivita (114, Lv 550) |
+|---|---|---|
+| ADH(level) `HeroLevel.coefficientADH` | 10,400 | 8,935 |
+| Σ talent sources (raw) | 12,283 | 2,677 |
+| Σ coefpercent (origin 500 / aura 250) | ×1.05 | ×1.025 |
+| **Aptitude used by the server** | **12,897** | **2,743** |
+| Σ percent (bp) | **166,100** → ×17.61 | **106,350** → ×11.635 |
+| base term `ADH × Apt × (1+Σpct)` | 2,362,008,168 | 285,158,782 |
+| Σ flat | 238,112,200 | 160,479,200 |
+| × familiar final (250 bp) | ×1.025 | ×1.025 |
+| **Power** | **2,665,123,377** ✔ | **456,778,931** ✔ |
+
+Percent parts (bp): Shinobu — Family 26,150 · Artifacts 17,000 · **Stella 95,200** · Stars 3,000 ·
+Fish 1,250 · Familiar 8,000 · **aura 11,500** · Origin Boost 4,000. Orivita — Family 24,100 ·
+Artifacts 16,900 · **Stella 47,500** · Stars 3,000 · Fish 3,250 · Familiar 8,000 · aura 3,600.
+Flat parts: Shinobu — Stella 223,500,000 · item/fellow flat 7,266,000 · Family 3,051,000 · Familiar
+1,750,000 · Stars 1,500,000 · Fish 1,031,000 · museum 14,200. Orivita — Stella 149,000,000 · Family
+5,900,000 · Fish 2,251,000 · Familiar 1,750,000 · Stars 1,500,000 · growth ("Skill") 64,000 · museum 14,200.
+
+**Why the panel's rows don't add up — the hidden parts, and which bucket each panel row maps to:**
+
+| Panel row | Server part / bucket | Shown correctly? |
+|---|---|---|
+| Base "(Determined by Aptitude)" | `base` × `AllTalents` (`coef`×`coefpercent`) | **omits familiar talent** (316 / 128) — see below |
+| Stars +30% | `percent/herostar` | yes |
+| Family +261.5% / +241% | `percent/beautyskillII` | yes |
+| Artifacts +170% / +169% | `percent/equipmentquenching` | yes |
+| Origin Boost +40% | client field `LRSpSkill.atkPercent`; server adds it to `percent` | yes (value), LR heroes only |
+| Skill +0% | `percent/skillpercent` | **Stella's 95,200 / 47,500 bp is sent as `percent/underlingskillpower`, which no panel row reads — the largest term on the page is invisible** |
+| Familiar +0% | reads pet parts the server never sends | **hides 8,000 bp percent, 1.75M flat and the 250 bp final** |
+| Fish +0% / +0 | reads the `Fish_to_*` system props, not the hero's parts | **hides 1,250–3,250 bp and 1.0–2.3M flat** |
+| *(no row)* | star-commercial aura, folded into `percent` | **hides 11,500 / 3,600 bp** |
+| Stars fixed +0 | panel reads `extradd/herostar_val`; server sends `extradd/herostar` | **hides 1.5M** |
+| Item +0 | server's `item` part is net of the others; the 7.266M fellow flat is inside it but the panel shows 0 | **hides 7.266M (Shinobu)** |
+| Stella +223.5M / +149M, Family +3.051M / +5.9M | `extradd` | yes |
+
+**"Base (Determined by Aptitude)" is exactly `HeroLevel.coefficientADH(level) × displayed Aptitude`:**
+10,400 × 12,565 = **130,676,000** ("130.6M") and 8,935 × 2,612 = **23,338,220** ("23.34M"). That
+pins **talent-as-coef**: Aptitude is a straight multiplier on the level coefficient, not a
+percentage. The displayed Aptitude is
+`floor((Σ talent − familiar talent) × (1 + coefpercent))` = (12,283 − 316) × 1.05 = **12,565** and
+(2,677 − 128) × 1.025 = **2,612**; the server multiplies by the full 12,897 / 2,743.
+
+**Caveat, stated once and meant:** the *formula shape* (additive `percent` bucket, flats outside it,
+talent as a multiplier on ADH) is the client's own `Formula_ADD`. The *assignment of each system to a
+bucket* and the familiar/aura/fish magnitudes are the **replacement server's reconstruction** of a
+private save — a previous agent's code, not retail. Stella's 223.5M flat and 95,000 bp percent,
+however, match `HeroSpirit.json` rank 20 for hero 264 row for row (§6), so the dominant term is sourced.
+
+**What this changes in the rest of this document:**
+
+1. **Stella is ~58% of both heroes, and more of it arrives through the percent than the flat.**
+   Shinobu: flat 223.5M + percent 95,200 bp on a 134.1M base term ≈ 1.54B of 2.665B = **57.7%**.
+   Orivita: 149M + 47,500 bp on 24.5M ≈ 272M of 456.8M = **59.6%**. §3b's "70–90% of it is the flat"
+   is wrong for developed heroes: at high aptitude the Spirit *percent* outgrows the Spirit flat.
+2. **Aptitude is the second lever, and Everkai caps it.** Shinobu's 12,897 is 12.9× Everkai's
+   `aptitude ≤ 1000`; 5,948 of it is one source (the aptitude/talent-level skills) and 3,397 is a
+   form/costume system. Step 5 of the plan (§7) is worth more than its table row implies.
+3. **The target Everkai should mirror is this formula**, not the four-bucket product in §1.2:
+   `(ADH × Aptitude × (1 + Σpercent) + Σflat) × (1 + final)`. Everkai's `bondedPower` already has
+   this shape in its APK branch (`sourceCoefficient × aptitude × … + flats`); what it lacks is the
+   per-Fellow Spirit percent, aptitude above 1,000, and the aura term.
 
 ---
 
@@ -280,8 +382,9 @@ tables, it is comfortably inside them. Two ways to land exactly on the owner's f
      ( 3,566 x 2,600 x 10.6 + 228,400,000 )                                 = 326,678,960
 ```
 
-**300 million is reachable in the original's own tables, and 70–90% of it is one number: the hero's own
-`HeroSpirit` `extradd` ladder.** The base term — level, talent, stars, equipment, everything Everkai
+**300 million is reachable in the original's own tables, and most of it is one system: the hero's own
+`HeroSpirit` ladder.** *(Corrected by §1.4: on the owner's real Shinobu and Orivita, Spirit is ~58% of
+Power, and at high aptitude more of it arrives through the Spirit **percent** than the flat.)* The base term — level, talent, stars, equipment, everything Everkai
 currently models — contributes the remaining 10–30%.
 
 For scale at the true ceiling: the same hero at level 500 (`coefficientADH` 7,590) with talent 5,990
@@ -441,6 +544,11 @@ numbers the owner actually reported, because they are the two the player sees:
 ## 6. Is the Stella/Spirit import the biggest single term?
 
 **It is the biggest by a wide margin — and what is shipped today is 0.87% of it.**
+
+Confirmed on the owner's own heroes (§1.4): Spirit is **57.7%** of Shinobu's 2,665,123,377 and
+**59.6%** of Orivita's 456,778,931 — flat (223.5M / 149M) plus percent (95,200 / 47,500 bp) together.
+Note the percent half is sent as `percent/underlingskillpower`, which the Power Details panel never
+displays, so the owner has never seen the largest term on his own heroes.
 
 The original has **two** families of per-hero Spirit flat ladders in `SkillBase.json`/`SkillLevel.json`,
 both indexed from `HeroSpirit.json`:
