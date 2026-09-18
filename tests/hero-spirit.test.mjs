@@ -193,6 +193,28 @@ test('pacing, both halves from the shipped tables: 722 days of kept habits for t
  assert.deepEqual([Math.min(...costs),Math.max(...costs)],[298,30000]);
 });
 
+test('a flat-only ladder\u2019s receipt does not claim a typed bonus it has not got',()=>{
+ // Found by eye in the browser, which is the only way an `app/` string can be found (CLAUDE.md). The
+ // message keyed its typed clause on the profile having a TYPE, and every imported per-owner profile
+ // carries its owner's real type -- so buying a level on a flat-only ladder reported
+ // "Tigirl Stella 5 saved - +7,500,000 own Power - Brave Power +0%". It keys on the LADDER now.
+ let s=grantFragments(own('hero_111'),'hero_111',1);
+ s=go(s,'stellaActivate','hero_111',{seq:stellaState(s).seq});
+ const r=act(s,'stellaUpgrade',s.lastAt,'hero_111',{seq:stellaState(s).seq,count:5});
+ assert.equal(r.error,undefined);
+ assert.ok(!/Power \+0%/.test(r.message),`a flat-only receipt claims a typed bonus: ${r.message}`);
+ assert.ok(/own Power/.test(r.message),r.message);
+ // POSITIVE CONTROL: a ladder that DOES carry a percent still says so, so the clause was not just
+ // deleted. hero_56 (Liz) is the Diligent owner.
+ let d=grantFragments(own('hero_56'),'hero_56',1);
+ d=go(d,'stellaActivate','hero_56',{seq:stellaState(d).seq});
+ const rd=act(d,'stellaUpgrade',d.lastAt,'hero_56',{seq:stellaState(d).seq,count:5});
+ assert.equal(rd.error,undefined);
+ assert.ok(/Diligent Power \+\d+%/.test(rd.message),rd.message);
+ // And the crossover pool, which has no type at all, must not report "null Power".
+ assert.ok(!/null/.test(r.message)&&!/null/.test(rd.message));
+});
+
 test('the pool is genuinely shared: what one Fellow spends, the next cannot',()=>{
  let s=grantFragments(own('hero_1','hero_15'),'hero_1',2);   // 2,000 shards, one pool, two owners
  assert.equal(stellaState(s).stock[SPIRIT_SHARD_ITEM],2000);
