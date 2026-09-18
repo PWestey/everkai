@@ -57,15 +57,27 @@ export function buildCeiling({crossover=false,family=true}={}){
  s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
  const stage0=Math.round(rosterOperation(s));
 
- // Stage 1 -- STELLA.
+ // Stage 1 -- STELLA. Since 2026-09-18 this is every original Fellow, not four: lib/hero-spirit.mjs
+ // gives each one a per-owner profile built from the original's own HeroSpirit table. Fragments are
+ // minted through the sandbox grant ledger validStella reconciles, because how they are EARNED has its
+ // own pacing measurement (one shared pool, 500/day x the habit multiplier); what this stage measures is
+ // the legal ceiling the tracks put in reach. `notes.stellaTracks` records how many actually maxed, so
+ // a profile that silently stops being reachable shows up as a count rather than as a moved total.
+ let tracks=0;
  for(const p of STELLA_PROFILES.filter(p=>s.fellows[p.id]&&stellaActivation(p.id))){
   s=maybe(s,'stellaActivate',p.id,{seq:stellaState(s).seq});
-  for(let i=0;i<200;i++){
-   s=grantFragments(s,p.id);
+  // The WHOLE ladder is funded up front, then bought. Granting 1,000 at a time and stopping at the
+  // first refusal silently left the 25 most expensive ladders part-built -- a single level near the top
+  // of an 18,000-shard ladder costs more than 1,000 on its own -- and a ceiling that quietly stops
+  // short is worse than no ceiling. `notes.stellaTracks` below is the guard that would have caught it.
+  s=grantFragments(s,p.id,Math.ceil(p.levels.reduce((n,r)=>n+r.cost,0)/1000));
+  for(let i=0;i<3;i++){
    const before=s;s=maybe(s,'stellaUpgrade',p.id,{seq:stellaState(s).seq,count:'max'});
    if(s===before)break;
   }
+  if(stellaEntry(s,p.id)?.level===p.levels.length)tracks++;
  }
+ notes.stellaTracks=tracks;
  const stage1=Math.round(rosterOperation(s));
 
  // Stage 2 -- BLESSINGS. welcomeAll seats the ORIGINAL family only.
@@ -124,7 +136,7 @@ export function buildCeiling({crossover=false,family=true}={}){
  // own-power PERCENT can be priced without rebuilding the fixture: a uniform +1% across them is worth
  // exactly crossoverWorth/100 more conversion (docs/crossover-plan.md order of work 6).
  const crossoverWorth=Math.round(Object.keys(s.fellows).filter(crossoverStella).reduce((n,id)=>n+bondedPower(s,id)/1000,0));
- return {stage0,stage1,stage2,stage3,ceiling,crossoverWorth,valid:valid(s),refusedBy:refusedBy(s),notes,state:s};
+ return {stage0,stage1,stage2,stage3,stage4:stage3,ceiling,crossoverWorth,valid:valid(s),refusedBy:refusedBy(s),notes,state:s};
 }
 /** The reference point every ratio in this file is taken against: the total Fellow power on the
  *  original's own live save, divided by its own recovered HeroConversionRate. Both halves come from

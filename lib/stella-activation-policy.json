@@ -1,9 +1,9 @@
 {
   "id": "private-typed-stella-activation-v1",
   "version": 1,
-  "kind": "authored",
-  "originalValueVerified": false,
-  "reason": "No independent explicit activation row recovered. Preserve existing v86 chosen benefit without treating ambiguous community typography or extrapolation as evidence.",
+  "kind": "recovered",
+  "originalValueVerified": true,
+  "reason": "SUPERSEDED 2026-09-18. This file said 'No independent explicit activation row recovered' and treated the +2% as authored. The original's own table has it: HeroSpirit.json rank 0 grants each of these four heroes their PowerPercent halo at level 1, and SkillLevel.json gives that level the value 200 -- hundredths of a percent, i.e. +2%. The VALUES are now read from lib/hero-spirit-data.json (lib/hero-spirit.mjs); what survives here is the POLICY IDS, because validStella pins a stored level-0 row's activationPolicy against the current one and a v86 save must keep decoding.",
   "owners": {
     "hero_52": {
       "cost": 0,
@@ -27,5 +27,6 @@
       "activationPolicy": "private-elise-stella-activation-v1"
     }
   },
-  "eliseBoundary": "Separate authored free activation grants no Power; original activation unverified. Paid source rows begin at Stella1."
+  "eliseBoundary": "CORRECTED 2026-09-18. hero_190's activation granted 0 on the authored reading. The original grants her the same +2% as the other three (HeroSpirit hero_190 rank 0 -> Hero190_PowerPercent_1 level 1 = 200). Her separate policy id is KEPT so a save that recorded the 0 still decodes, and the four legacy ladders are still never repriced, so that save keeps the 0 it recorded. Paid source rows begin at rank 1.",
+  "informedRepointBoundary": "hero_52 (Angie) owned the only Informed type-wide percent in the whole table and the 2026-09-17 roster trim deleted her. hero_74 carries her ladder unchanged (lib/hero-spirit.mjs). Her own entry stays here so old receipts still resolve. The re-pointing is local; not one value is new."
 }

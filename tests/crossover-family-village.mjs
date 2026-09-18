@@ -133,7 +133,7 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
  // Fellows' own power: `fellowsOnly` seats the crossover Fellows and no crossover Family.
  const fellowsOnly=buildCeiling({crossover:true,family:false});
  const c=buildCeiling({crossover:true});
- const trim=r=>({stage0:r.stage0,stage1:r.stage1,stage2:r.stage2,stage3:r.stage3,ceiling:r.ceiling,crossoverWorth:r.crossoverWorth,valid:r.valid,refusedBy:r.refusedBy,notes:r.notes});
+ const trim=r=>({stage0:r.stage0,stage1:r.stage1,stage2:r.stage2,stage3:r.stage3,stage4:r.stage4,ceiling:r.ceiling,crossoverWorth:r.crossoverWorth,valid:r.valid,refusedBy:r.refusedBy,notes:r.notes});
  // 133 crossover Fellows are too many to pin one by one, so the distribution is recorded instead: how
  // many of them a crossover Family member blesses at all, and the flat/percent totals grouped. The two
  // shipped prototypes keep their own named entry, because they are the rows whose numbers were

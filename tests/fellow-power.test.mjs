@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import {startingSave,act,valid} from '../lib/game.mjs';
 import {rosterOperation} from '../lib/businesses.mjs';
 import {bondedPower,fellowCap,fellowFactor,fellowPower,starredAptitude,GEAR,STAR_CAP,STAR_APTITUDE_PERCENT,CONSUMABLES} from '../lib/adventure.mjs';
-import {STELLA_PROFILES,stellaState,stellaActivation} from '../lib/stella.mjs';
+import {STELLA_PROFILES,stellaState,stellaActivation,stellaEntry} from '../lib/stella.mjs';
 import {ARTIFACT_ECHOES} from '../lib/artifact-echo.mjs';
 import {qualityRule,sourceCoefficient} from '../lib/original-progression.mjs';
 import operations from '../lib/operation-data.json' with {type:'json'};
@@ -296,19 +296,31 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
  // then upgraded to the top of its own ladder, paid from the free sandbox fragment faucet. Every call
  // is {seq}-guarded, so each one has to carry the wallet's current sequence number.
  const owners=STELLA_PROFILES.filter(p=>s.fellows[p.id]&&stellaActivation(p.id));
- assert.equal(owners.length,3,'the shipped stella profiles with an activation policy have changed: hero_52 (Angie) owned the Informed one and was deleted 2026-09-17');
+ // REBASELINED 2026-09-18: 3 -> 111. Everkai shipped four Stella profiles scraped from four community
+ // character pages; the original's own HeroSpirit.json has 126 tracks and lib/hero-spirit.mjs imports
+ // every one that a shipped Fellow owns (scripts/import-hero-spirit.py, whose positive control
+ // reproduces all four of the old ones to the digit). 88 of the 111 have a real track; the other 23 get
+ // the smallest recovered ladder, because the owner asked that everyone have one and the original gives
+ // its low-rarity characters none.
+ assert.equal(owners.length,111,'every shipped original Fellow has an activatable Stella ladder');
+ let maxed=0;
  for(const p of owners){
   const activated=maybe(s,'stellaActivate',p.id,{seq:stellaState(s).seq});
   assert.notEqual(activated,s,`stella ${p.id} refused activation; the policy set has drifted`);
   s=activated;
-  for(let i=0;i<200;i++){
-   s=grantFragments(s,p.id);
+  // Funded in one grant, then bought. Granting 1,000 at a time and stopping at the first refusal left
+  // the 25 most expensive ladders part-built -- one level near the top of an 18,000-shard ladder costs
+  // more than 1,000 by itself -- and silently understated this stage by millions.
+  s=grantFragments(s,p.id,Math.ceil(p.levels.reduce((n,r)=>n+r.cost,0)/1000));
+  for(let i=0;i<3;i++){
    const before=s;
    s=maybe(s,'stellaUpgrade',p.id,{seq:stellaState(s).seq,count:'max'});
    if(s===before)break;
   }
+  if(stellaEntry(s,p.id)?.level===p.levels.length)maxed++;
  }
- assert.equal(Math.round(rosterOperation(s)),2920105,'stella is worth +1,303,619 over the fixture');
+ assert.equal(maxed,111,'every ladder must reach its own top, or this stage understates itself');
+ assert.equal(Math.round(rosterOperation(s)),13656809,'stella is worth +12,040,323 over the fixture (it was +1,303,619 with four scraped profiles)');
  assert.ok(valid(s),'the stella save must be legal');
 
  // Stage 2 -- BLESSINGS. welcomeAll is the family counterpart of recruitAll; without it a save holds
@@ -333,7 +345,7 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
  }
  // 208 of 210: two (family, key) pairs refuse with 'No supported ungated Fellows are available'.
  assert.equal(trained,200,'the trainable (family, blessing) pair count has moved (212 before the 2026-09-17 roster trim)');
- assert.equal(Math.round(rosterOperation(s)),4441749,'blessings are worth +1,521,644 over stella');
+ assert.equal(Math.round(rosterOperation(s)),15394471,'blessings are worth +1,737,662 over stella');
  assert.ok(valid(s),'the blessing save must be legal');
 
  // Stage 3 -- ARTIFACT ECHOES. An Echo only enables when its OWN named artifact is equipped on its
@@ -352,7 +364,7 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
  assert.equal(enabled,27,'every named Echo must enable once its own artifact is equipped');
- assert.equal(Math.round(rosterOperation(s)),4655637);
+ assert.equal(Math.round(rosterOperation(s)),15642961);
  assert.ok(valid(s),'THE WHOLE 4,096,763 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
 
  // The parity statement this file exists to make, in one assertion. REBASELINED 2026-09-15 (E4-02/E4-03):
@@ -360,7 +372,18 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
  // original's live-save 3,497,276 rather than falling short of it. The shortfall ratio flipped from
  // 1.16x short to 1.17x over. Both halves of this ratio are the original's own live-save total against
  // Everkai's own rosterOperation, so it compares Everkai's reach to the original's, not two sources.
- assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,1.33,
+ // *** 4.47x, UP FROM 1.33x, AND THIS IS THE SLICE'S HEADLINE NUMBER. *** Two changes, both parity
+ // fixes rather than balance choices, and both measured before they were built:
+ //   + importing the original's own 126 Stella tracks instead of the four scraped ones, which is what
+ //     puts an own-flat ladder worth 15,300,000 to 223,500,000 on every Fellow;
+ //   - correcting applyStella to the original's stacking order (the flat is an `extradd`, added after
+ //     the typed multiplier, not inside it), which on its own takes this fixture DOWN 4,655,637 ->
+ //     4,519,467 and takes the import down 24,932,927 -> 15,642,961. Without that correction the same
+ //     import measures 7.13x.
+ // Against the ~4x the owner accepted for the FLAG-ON ceiling (docs/crossover-plan.md 1) this is 4.47x
+ // flag-off and 6.49x flag-on (tests/crossover-family.test.mjs). That is over budget and is reported as
+ // such; it is not hidden behind a rebaselined constant.
+ assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,4.47,
   'default mode now passes the original live-save total; it used to fall 1.16x short');
 });
 

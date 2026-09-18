@@ -468,16 +468,27 @@ test('flag ON: Fathoms stay at 321.0 with 137 members -- the 321 -> 411 inflatio
 
 test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the positive control',()=>{
  const c=buildCeiling();
- assert.deepEqual([c.stage0,c.stage1,c.stage2,c.stage3],[1616486,2920105,4441749,4655637],
+ // REBASELINED 2026-09-18 (the Stella tracks slice). Stage 0 is untouched -- nothing about records,
+ // museum or familiars moved -- and stage 1 carries the whole move, for two reasons measured before
+ // they were built:
+ //   + lib/hero-spirit.mjs imports the original's OWN 126 Stella tracks in place of the four scraped
+ //     community pages, so every Fellow has an own-flat ladder instead of three of them having one;
+ //   - lib/stella.mjs applyStella now uses the original's stacking order (the owner's flat is an
+ //     `extradd`, added after the typed multiplier, not inside it), which pulls the same import down
+ //     from 24,932,927 to this.
+ // Stages 2 and 3 carry stage 1 forward; the shape of the blessing and echo stages is unchanged.
+ assert.deepEqual([c.stage0,c.stage1,c.stage2,c.stage3],[1616486,13656809,15394471,15642961],
   'if this drifts, nothing measured on top of it means anything');
- // Stage 4 -- the shared crossover shard track -- is a no-op with no crossover Fellow in the roster,
- // which is what lets the same fixture be the control for the flag-on measurement below.
- assert.equal(c.ceiling,c.stage3,'the shard stage must not touch a village with no crossover Fellow');
+ assert.equal(c.notes.stellaTracks,111,'every shipped original Fellow maxed a ladder of its own');
+ // Stage 4 -- the shared crossover shard track -- is still a no-op with no crossover Fellow in the
+ // roster, which is what lets the same fixture be the control for the flag-on measurement below.
+ assert.equal(c.ceiling,c.stage3,'the crossover shard stage must not touch a village with no crossover Fellow');
  assert.equal(c.crossoverWorth,0);
- assert.deepEqual(c.notes,{originalFamily:107,funded:107,trained:200,echoes:27});
- assert.equal(c.notes.shardTracksMaxed,undefined,'and it must not even record a note');
+ assert.deepEqual(c.notes,{stellaTracks:111,originalFamily:107,funded:107,trained:200,echoes:27});
+ assert.equal(c.notes.shardTracksMaxed,undefined,'and the CROSSOVER track must not even record a note');
  assert.ok(c.valid,c.refusedBy);
- assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(3),1.331);   // 1.992 before the 2026-09-17 roster trim
+ assert.equal(c.ceiling,15642961);
+ assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(3),4.473);   // 1.331 before the 2026-09-18 Stella tracks; 1.992 before the roster trim
 
 });
 
@@ -532,22 +543,32 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
 // crossover half is untouched -- all 163 still ship, their rarity ladder re-measured to the same
 // numbers (scripts/crossover/build-abilities.mjs) -- so the ratio RISES as a pure arithmetic effect
 // of a smaller original roster, not because anything about a crossover Fellow changed.
-test('flag ON: the ceiling is 11,696,717 (3.345x)',()=>{
+test('flag ON: the ceiling is 22,684,041 (6.486x)',()=>{
  const {ceiling}=flagOn();
- assert.equal(ceiling.ceiling,11696717);
- assert.equal(ceiling.ratio,3.3445);
+ // REBASELINED 2026-09-18 (the Stella tracks slice), 11,696,717 = 3.345x before it. The move is the
+ // same one as the flag-off control and it does not touch a crossover Fellow: importing the original's
+ // own Stella tracks for all 111 originals, less the stacking-order correction that partly offsets it.
+ //
+ // *** AGAINST THE ~4x THE OWNER ACCEPTED (docs/crossover-plan.md 1) THIS IS 6.486x. *** That is over
+ // budget by 62% in absolute terms (14,006,798 -> 22,684,041), and it is recorded here rather than
+ // hidden because the alternative is to invent smaller numbers than the original's own. The bounded
+ // alternative was measured too: one shared 15,300,000 ladder for every original Fellow instead of
+ // their real ones lands at 1.93x flag-off.
+ assert.equal(ceiling.ceiling,22684041);
+ assert.equal(ceiling.ratio,6.4862);
  assert.equal(ceiling.original,3497276,'the same denominator the flag-off control uses');
- assert.equal(ceiling.stage3,7001817,'the roster before the shard track');
- assert.equal(ceiling.ceiling-ceiling.stage3,4694900,'and the track is worth exactly 133 x 35,300');
+ assert.equal(ceiling.stage3,17989141,'the roster before the crossover shard track');
+ assert.equal(ceiling.ceiling-ceiling.stage3,4694900,'the crossover track is still worth exactly 133 x 35,300');
  assert.equal(ceiling.notes.shardTracksMaxed,133,'every crossover Fellow reached level 40');
+ assert.equal(ceiling.notes.stellaTracks,111,'and every original Fellow maxed an imported ladder');
  assert.equal(ceiling.crossoverWorth,7041079,'what the 133 are worth, for pricing any further percent');
- assert.equal(ceiling.fellowsOnly.ceiling,11159400,'the 133 crossover Fellows without the 30 Family');
+ assert.equal(ceiling.fellowsOnly.ceiling,22146724,'the 133 crossover Fellows without the 30 Family');
  assert.equal(ceiling.familyBlessingWorth,537317,'what the 30 crossover Family are worth');
  assert.equal(ceiling.ceiling-ceiling.fellowsOnly.ceiling,ceiling.familyBlessingWorth,'and it is a subtraction, not a quote');
- assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[3425348,4728968,6787929]);
- // UNMOVED by the roster trim, and worth saying so: the shard track is still worth exactly
- // 133 x 35,300 and the 133 crossover Fellows are still worth 7,041,079 between them. Everything
- // that moved above is the ORIGINAL half of the same sum.
+ assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[3425348,15465671,17740650]);
+ // UNMOVED by either the roster trim or the Stella tracks, and worth saying so: the crossover shard
+ // track is still worth exactly 133 x 35,300 and the 133 crossover Fellows are still worth 7,041,079
+ // between them. Everything that moved above is the ORIGINAL half of the same sum.
  assert.equal(ceiling.crossoverWorth,7041079);assert.equal(ceiling.ceiling-ceiling.stage3,4694900);
  // The two states differ in the crossover FAMILY and nothing else, or the difference above is not the
  // Family side's worth (CLAUDE.md rule 1).
@@ -558,6 +579,7 @@ test('flag ON: the ceiling is 11,696,717 (3.345x)',()=>{
  assert.equal(ceiling.fellowsOnly.notes.crossoverFellows,133,'and the same 133 Fellows');
  assert.equal(ceiling.notes.funded,137);assert.equal(ceiling.notes.trained,260,'30 more members x 2 ladders');
  assert.equal(ceiling.fellowsOnly.notes.funded,107);assert.equal(ceiling.fellowsOnly.notes.trained,200);
+ assert.equal(ceiling.fellowsOnly.notes.stellaTracks,111,'the imported tracks do not depend on the crossover Family');
  assert.equal(ceiling.crossoverFellowsInRoster,133,'all 133 are in the roster being measured');
  assert.equal(ceiling.pairings,300,'30 x 10 -- the structural cap the rule can never exceed');
  assert.equal(ceiling.familyLadderMax,36,'and not one of them passed the classic ladder');
@@ -594,25 +616,31 @@ test('flag ON: a crossover Fellow’s TYPE is no longer a power term -- 2.84x be
 
 // THE POINT OF THE WHOLE SLICE, in one ratio: is a maxed crossover Fellow an EQUIVALENT of a maxed
 // original, or better than one? Both halves are bondedPower over the same finished flag-on state.
-test('flag ON: a maxed crossover Fellow is 0.987x a maxed original of the roster’s middle type',()=>{
+test('flag ON: a maxed crossover Fellow is 0.523x a maxed original of the roster’s middle type',()=>{
  const {ceiling}=flagOn();
  const x=ceiling.maxedCrossover,o=ceiling.maxedOriginal;
- assert.deepEqual(x,{min:50691526,median:52482583,max:54273639},'the 133, sorted');
- assert.deepEqual(o,{min:13600470,q25:23520635,median:32205912,q75:58994141,max:143963933},'the 111, sorted');
- // The originals' own power spread is 10.6x wide, entirely because of which four characters have a
- // recovered Stella page and which types those four feed -- so "a maxed original" is not one number
- // and the comparison has to say WHICH one. Three of them, measured:
- assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),0.987,'vs the middle type');
- assert.equal(+(x.max/o.median).toFixed(3),1.685,'vs the median original of any type');
- assert.equal(+(x.max/o.max).toFixed(3),0.377,'vs Angie, the strongest original there is');
- // Informed collapsed onto the un-Stella'd baseline: hero_52 (Angie) was its only Stella owner and the
-  // 2026-09-17 trim deleted her, so an Informed original now maxes exactly where Unfettered and Brave do.
-  assert.deepEqual(ceiling.maxedOriginalByType,
-  {Unfettered:24346809,Diligent:54972232,Brave:24346809,Inspiring:74401936,Informed:24346809});
- // And the reverse claim the plan started from: docs/crossover-abilities-plan.md 1.8 measured a maxed
- // crossover at ~0.33 of a maxed original before any of this. It is 1.004x of its counterpart now, so
- // the gap the owner asked to close is closed -- and a further percent track would overshoot it (see
- // the price list in the ceiling test above).
+ // *** THIS RATIO MOVED HARD AGAINST THE CROSSOVER SIDE ON 2026-09-18, AND IT IS A REPORTED FINDING,
+ // *** NOT A SILENT DRIFT. It was 0.987x vs the middle type. Nothing about a crossover Fellow changed:
+ // the crossover half of every number below is byte-identical to the previous baseline (asserted).
+ // What moved is the ORIGINAL half. Each of the 111 now carries its OWN imported Stella ladder --
+ // 15,300,000 to 223,500,000 of own flat Power, straight out of HeroSpirit.json -- while a crossover
+ // Fellow carries the one shared ladder templated off Angie's 35,300,000, because the crossover
+ // characters are not in the original and have no track to import. Equivalence between the two rosters
+ // was the crossover slice's own target (docs/crossover-abilities-plan.md 1.8); this slice does not
+ // restore it, and doing so is that slice's call. The lever is priced in the ceiling test above:
+ // `crossoverWorth` is 7,041,079, so a uniform +1% across the 133 is worth 70,411 more conversion.
+ assert.deepEqual(x,{min:50691526,median:52482583,max:54273639},'the 133, sorted -- UNCHANGED');
+ assert.deepEqual(o,{min:28900470,q25:69020635,median:128382310,q75:203814634,max:314964790},'the 111, sorted');
+ // The originals' own power spread is 10.9x wide, entirely because of which ladder each character has
+ // in the original's own table -- so "a maxed original" is not one number and the comparison has to say
+ // WHICH one. Three of them, measured:
+ assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),0.523,'vs the middle type');
+ assert.equal(+(x.max/o.median).toFixed(3),0.423,'vs the median original of any type');
+ assert.equal(+(x.max/o.max).toFixed(3),0.172,'vs the strongest original there is');
+ // Informed no longer sits on the un-Stella'd baseline: hero_74 inherited hero_52's ladder, so an
+ // Informed original maxes beside a Diligent one again instead of beside Unfettered and Brave.
+ assert.deepEqual(ceiling.maxedOriginalByType,
+  {Unfettered:69020635,Diligent:103829933,Brave:128382310,Inspiring:170485760,Informed:199250330});
  assert.ok(x.max<o.max,'no crossover Fellow may pass the strongest original');
  assert.ok(x.max/ceiling.maxedOriginalByType.Inspiring<1,'nor an Inspiring original');
 });

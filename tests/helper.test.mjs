@@ -807,16 +807,25 @@ test('the School chore enrolls grade-D pupils, teaches with real points, graduat
  assert.equal(kids.state.familyTrips.children.length,0);});
 
 test('the Stella chore activates and upgrades with idle fragments, and idle fragments accrue without a subtree',()=>{
+ // REWRITTEN 2026-09-18. Two of this test's premises stopped being true when lib/hero-spirit.mjs gave
+ // every original Fellow an imported Stella ladder: a village no longer starts with NO Stella-profile
+ // Fellow (the starter has one), and the chore no longer fires exactly one activate/upgrade pair
+ // (it runs every owned Fellow's ladder). What it was really guarding -- that the chore reaches the
+ // Fellow the player just recruited, spends only fragments, and that idle accrual needs no prior
+ // subtree -- is asserted directly instead.
  let s=run(armed(),'recruit','hero_54');
  assert.equal(s.stella,undefined,'positive control: this village never touched Stella');
  s=act(s,'collect',s.lastAt+3*86400000).state;
  assert.ok((s.stella?.stock?.Item_Owner_HeroPiece_54||0)>0,'three idle days paid fragments with no prior subtree');
  const {state,ok}=choreRun('stella',s);
- assert.deepEqual(ok,['stellaActivate','stellaUpgrade']);
+ assert.deepEqual([...new Set(ok)].sort(),['stellaActivate','stellaUpgrade'],'the chore fires nothing but Stella actions');
+ assert.ok(ok.includes('stellaActivate')&&ok.includes('stellaUpgrade'));
+ assert.ok(state.stella.history.some(r=>r.owner==='hero_54'&&r.level>0),'hero_54\u2019s own ladder was climbed');
  assert.ok(state.stella.history.length>1,'levels were bought');
- // A village with no Stella-profile Fellow is left byte-identical by settling.
+ // A village that has never opened Stella still accrues only the SHARED pool its starter can spend --
+ // it cannot mint a private fragment for a Fellow it does not own.
  const plain=armed(),later=act(plain,'collect',plain.lastAt+3*86400000).state;
- assert.equal(later.stella,undefined,'no subtree appears for a village without a profile Fellow');
+ assert.equal(later.stella.stock.Item_Owner_HeroPiece_54,undefined,'no private fragment for an unowned Fellow');
  // Frequent settling is not a way to lose fragments: 60 one-minute taps pay what one hour pays.
  let often=run(armed(),'recruit','hero_54');const hour=act(often,'collect',often.lastAt+3600000).state;
  for(let i=1;i<=60;i++)often=act(often,'collect',often.lastAt+60000).state;
