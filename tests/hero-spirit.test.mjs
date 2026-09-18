@@ -262,10 +262,23 @@ test('a flat-only ladder never joins a type sum, however many Fellows climb one'
  assert.equal(flatOnly.length,107,'111 less hero_54, hero_56, hero_190 and the re-pointed hero_74');
  let s=own(...flatOnly.slice(0,12).map(f=>f.id));
  for(const f of flatOnly.slice(0,12))s=climb(s,f.id);
+ const climbed=new Set(flatOnly.slice(0,12).map(f=>f.id));
  for(const type of ['Diligent','Informed','Inspiring','Brave','Unfettered']){
   const someone=FELLOWS.find(f=>f.type===type&&!f.addition);
-  assert.equal(stellaBonus(s,someone.id).percent,0,`${type} picked up a percent from a flat-only ladder`);
+  // The BROADCAST half, read on its own since 2026-09-18. `percent` also carries the owner's own
+  // imported `selfPowerBp`, and a Fellow who climbed her own flat-only ladder legitimately has one --
+  // so asserting the sum here would fail on the very behaviour being added rather than on a leak.
+  assert.equal(stellaBonus(s,someone.id).typedPercent,0,`${type} picked up a percent from a flat-only ladder`);
+  // And a Fellow of the same type who climbed NOTHING has neither half: the own column cannot reach her
+  // either, which is the stronger statement and the one that distinguishes scope `self` from `country`.
+  const bystander=FELLOWS.find(f=>f.type===type&&!f.addition&&!climbed.has(f.id));
+  if(bystander)assert.deepEqual([stellaBonus(s,bystander.id).percent,stellaBonus(s,bystander.id).flat],[0,0],
+   `${type} bystander ${bystander.id} received something from another Fellow's ladder`);
  }
+ // POSITIVE CONTROL on the same reader: at least one of the twelve climbers DOES hold an own-Power
+ // percent, so the two assertions above are not both passing because nothing was measured at all.
+ assert.ok(flatOnly.slice(0,12).some(f=>stellaBonus(s,f.id).selfPercent>0),
+  'no climber gained an own-Power percent -- the check above proves nothing');
  assert.ok(valid(s),refusedBy(s));
 });
 
@@ -273,20 +286,52 @@ test('a flat-only ladder never joins a type sum, however many Fellows climb one'
 // THE COLUMNS EVERKAI DOES NOT MODEL, priced so the gap stays a decision rather than a surprise.
 // ---------------------------------------------------------------------------------------------
 
-test('the unmodelled Spirit columns are recorded with their sizes, not quietly dropped',()=>{
+test('the three deferred Spirit columns are now imported, at the sizes they were deferred at',()=>{
+ // These three WERE `unmodelledMax` keys until 2026-09-18. The sizes recorded there then are the sizes
+ // asserted here now, which is the check that importing them moved the data and not the measurement:
+ //   self|atk/percent   116 heroes  +153% .. +1350%   -> `selfPowerBp`
+ //   all|appoint/percent 57 heroes    +4% .. +800%    -> `appointYieldBp`
+ //   self|talentLvLimit  57 heroes   +50 .. +100      -> `talentLimit`
+ const top=DATA.profiles.map(p=>p.ranks.at(-1));
+ const col=k=>top.map(r=>r[k]).filter(Boolean).sort((a,b)=>a-b);
+ assert.equal(col('selfPowerBp').length,116);
+ assert.equal(col('appointYieldBp').length,57);
+ assert.equal(col('talentLimit').length,57);
+ assert.deepEqual([col('selfPowerBp')[0]/100,col('selfPowerBp').at(-1)/100],[153,1350]);
+ assert.deepEqual([col('appointYieldBp')[0]/100,col('appointYieldBp').at(-1)/100],[4,800]);
+ assert.deepEqual([...new Set(col('talentLimit'))],[100]);
+ // The sums, which is what prices them: the own column is per OWNER so it never sums in play, but the
+ // appointment column is scope `all` and genuinely does.
+ assert.equal(col('selfPowerBp').reduce((a,b)=>a+b,0),5838500);
+ assert.equal(col('appointYieldBp').reduce((a,b)=>a+b,0),2721600,'+27,216% if every one of the 57 were maxed');
+ // A COLUMN IS SPARSE AND CARRIED. hero 264 names its own-Power halo on ranks 0,2,7,9,11,13,15,17,19
+ // and nowhere else, so rank 20's value exists only because the importer carried it. A reader that
+ // took a silent rank as zero would saw-tooth, and the column would be non-monotone.
+ const h264=DATA.profiles.find(p=>p.heroId==='264').ranks;
+ assert.equal(h264.at(-1).selfPowerBp,95000);
+ assert.equal(h264.at(-1).selfPowerBp,h264[19].selfPowerBp,'rank 20 names no own-Power halo; it carries rank 19’s');
+ for(const k of ['flat','percent','selfPowerBp','appointYieldBp','talentLimit'])
+  for(const p of DATA.profiles)for(let i=1;i<p.ranks.length;i++)
+   assert.ok(p.ranks[i][k]>=p.ranks[i-1][k],`hero_${p.heroId} ${k} falls at rank ${i}`);
+ // Everkai models five columns now. If a sixth ever lands, this list moves and this test says so.
+ assert.deepEqual([...new Set(SPIRIT_PROFILES.flatMap(p=>Object.keys(p.levels[0])))].sort(),
+  ['appointYieldBp','cost','flat','itemId','level','percent','selfPowerBp','talentLimit']);
+});
+
+test('what is still LEFT OUT is recorded with its size, and it is an absent axis not an absent number',()=>{
  const kinds={};
  for(const p of DATA.profiles)for(const k of Object.keys(p.unmodelledMax))kinds[k]=(kinds[k]||0)+1;
- // The four biggest, measured. `self|atk/percent` is the one that would move the ceiling most: 116 of
- // the 126 heroes have one and they run to +1350% on the OWNER alone.
- assert.equal(kinds['self|atk/percent'],116);
- assert.equal(kinds['all|appoint/percent'],57);
- assert.equal(kinds['self|talentLvLimit'],57);
- assert.ok(Object.keys(kinds).filter(k=>k.startsWith('bond:')).length>=20,'the hero-group columns are recorded too');
- const own=Object.values(SPIRIT_UNMODELLED).map(u=>u['self|atk/percent']||0).filter(Boolean).sort((a,b)=>a-b);
- assert.deepEqual([own[0]/100,own.at(-1)/100],[153,1350],'the own-percent column runs +153% to +1350%');
- // Everkai models exactly two columns. If a third ever lands, this count moves and this test says so.
- assert.deepEqual([...new Set(SPIRIT_PROFILES.flatMap(p=>Object.keys(p.levels[0])))].sort(),
-  ['cost','flat','itemId','level','percent']);
+ // The three imported columns must have LEFT unmodelledMax, or the census is double-counting them as a
+ // gap they no longer are.
+ for(const gone of ['self|atk/percent','all|appoint/percent','self|talentLvLimit'])
+  assert.equal(kinds[gone],undefined,`${gone} is imported now and must not still read as a gap`);
+ // What remains, and why (lib/hero-spirit.mjs): `bond:<n>` is one of HeroBond.json's 23 named hero
+ // GROUPS and Everkai has no group axis; `self|talent` is the client's `coef` bucket, whose Everkai
+ // axis is `aptitude`, hard-capped at 1,000 by a check saves are validated against.
+ assert.ok(Object.keys(kinds).filter(k=>k.startsWith('bond:')).length>=20,'the hero-group columns are still recorded');
+ assert.equal(kinds['self|talent'],17);
+ const talent=Object.values(SPIRIT_UNMODELLED).map(u=>u['self|talent']||0).filter(Boolean).sort((a,b)=>a-b);
+ assert.deepEqual([talent[0],talent.at(-1)],[340,2050],'the coef column runs +340 to +2,050 talent');
 });
 
 test('the whole roster of imported ladders still fits the save bounds, and round-trips',()=>{
@@ -306,4 +351,117 @@ test('the whole roster of imported ladders still fits the save bounds, and round
  let legacy=climb(own('hero_54'),'hero_54');
  legacy={...legacy,stella:{...legacy.stella,history:legacy.stella.history.map((r,i,a)=>i===a.length-1?{...r,percent:999}:r)}};
  assert.equal(valid(legacy),true,'a legacy row is still accepted as recorded');
+});
+
+// ---------------------------------------------------------------------------------------------
+// THE THREE COLUMNS IMPORTED 2026-09-18, each on its own axis. Every one of these is negative-
+// controlled in place (CLAUDE.md testing rules) -- the break is applied, the assertion is checked to
+// fail, and the state is restored -- because all three are new axes and a test that asserts nothing
+// would look identical to a test that passes.
+// ---------------------------------------------------------------------------------------------
+
+test('the own-Power percent reaches its owner and nobody else, in the SAME bucket as the typed one',()=>{
+ // hero_194 has the largest own-Power column in the table (+1350%) and is Inspiring; hero_54 (Rani) is
+ // the Inspiring owner of a TYPE-wide +122%. A Fellow who has both must get 1472%, not 1.22 x 13.5.
+ let s=own('hero_194','hero_54','hero_21');
+ const base=bondedPower(s,'hero_194');
+ s=climb(s,'hero_194');
+ assert.equal(stellaBonus(s,'hero_194').selfPercent,1350);
+ assert.equal(stellaBonus(s,'hero_194').typedPercent,0,'nobody has activated a typed ladder yet');
+ s=climb(s,'hero_54');
+ const b=stellaBonus(s,'hero_194');
+ assert.equal(b.typedPercent,122,'Rani’s type-wide column reaches every Inspiring Fellow');
+ assert.equal(b.percent,1472,'SUMMED into one factor, as PropManager Formula_ADD does -- not nested');
+ assert.notEqual(b.percent,1350*1.22+0,'and specifically not the nested reading');
+ // The composition, end to end: percent multiplies the base, then the flat is added AFTER it.
+ assert.equal(bondedPower(s,'hero_194'),Math.floor(base*(1+1472/100))+b.flat);
+ // SCOPE. hero_21 is Inspiring too and has climbed nothing: she takes the type-wide 122 and none of
+ // hero_194's 1350. This is the difference between `country` and `self`, and it is the whole risk.
+ assert.deepEqual([stellaBonus(s,'hero_21').typedPercent,stellaBonus(s,'hero_21').selfPercent],[122,0]);
+ assert.equal(stellaBonus(s,'hero_21').flat,0);
+ assert.ok(valid(s),refusedBy(s));
+});
+
+test('a receipt may not claim a column its ladder has not got, and a receipt missing one still loads',()=>{
+ // hero_104's ladder carries an own-Power column and NO appointment column, which is what makes the
+ // second negative control below a real one rather than a value the ladder happens to allow.
+ let s=climb(own('hero_104'),'hero_104');
+ assert.ok(valid(s),refusedBy(s));
+ const top=stellaRule('hero_104').levels.at(-1);
+ // NEGATIVE CONTROL 1 -- a fabricated own-Power percent is refused, by validStella and by name.
+ const forged=structuredClone(s);forged.stella.history.at(-1).selfPowerBp=999999;
+ assert.equal(valid(forged),false,'a forged own-Power percent must not pay out');
+ assert.equal(refusedBy(forged),'validStella');
+ // NEGATIVE CONTROL 2 -- so is a fabricated appointment column on a ladder that carries none.
+ const forged2=structuredClone(s);forged2.stella.history.at(-1).appointYieldBp=80000;
+ assert.equal(top.appointYieldBp,0,'hero_104’s ladder carries no appointment column');
+ assert.equal(valid(forged2),false);
+ assert.equal(refusedBy(forged2),'validStella');
+ // BACKWARD COMPATIBILITY -- a receipt written before these columns existed has no such field at all.
+ // It must still load, and it must grant zero rather than being repriced to today's ladder. This is the
+ // same rule the four legacy ladders already have; it is the reason `priced` accepts an absent field.
+ const legacy=structuredClone(s);
+ for(const r of legacy.stella.history){delete r.selfPowerBp;delete r.appointYieldBp;delete r.talentLimit}
+ assert.equal(valid(legacy),true,'a pre-2026-09-18 receipt must still decode');
+ assert.deepEqual(decode(JSON.stringify(legacy)).stella,legacy.stella,'byte-identical round trip');
+ assert.equal(stellaBonus(legacy,'hero_104').selfPercent,0,'and it grants what it recorded: nothing');
+ assert.ok(stellaBonus(s,'hero_104').selfPercent>0,'positive control: the unmodified save does grant it');
+});
+
+test('the appointment column is account-wide: it multiplies assigned operation, not Power',async()=>{
+ const {assignedOperation}=await import('../lib/operations.mjs');
+ const {stellaAppointBp}=await import('../lib/stella.mjs');
+ const {BUSINESSES}=await import('../lib/businesses.mjs');
+ const business=BUSINESSES[0];
+ // hero_1 is assigned; hero_114 owns an appointment ladder and is NOT assigned. Scope `all` means
+ // hero_114's ladder still pays -- that is what makes it account-wide rather than per-operator.
+ let s=own('hero_1','hero_114');
+ s={...s,enterprises:{...(s.enterprises||{}),[business.id]:{...(s.enterprises?.[business.id]||{employees:0,level:1}),fellows:['hero_1']}}};
+ const before=assignedOperation(s,business);
+ const power=bondedPower(s,'hero_1');
+ s=climb(s,'hero_114');
+ const bp=stellaRule('hero_114').levels.at(-1).appointYieldBp;
+ assert.ok(bp>0);
+ assert.equal(stellaAppointBp(s),bp,'one owner, one contribution');
+ assert.equal(assignedOperation(s,business),before*(1+bp/10000),'x(1 + bp/10000), the client’s own form');
+ // AND IT IS NOT A POWER TERM. The assigned Fellow's Power must not move at all: hero_114's ladder
+ // raises her OWN power, hero_1 is untouched.
+ assert.equal(bondedPower(s,'hero_1'),power,'the appointment column must not leak into bondedPower');
+ // NEGATIVE CONTROL: with the column removed from the receipt the multiplier goes back to 1.0, so the
+ // assertion above is measuring this column and not something else that moved at the same time.
+ const stripped=structuredClone(s);
+ for(const r of stripped.stella.history)delete r.appointYieldBp;
+ assert.equal(stellaAppointBp(stripped),0);
+ assert.equal(assignedOperation(stripped,business),before);
+ assert.ok(valid(s),refusedBy(s));
+});
+
+test('the talent-cap column widens the cap and nothing else, and the ledger bound moves with it',async()=>{
+ const {talentCap,talentRule}=await import('../lib/talents.mjs');
+ const {default:source}=await import('../lib/default-talent-source.json',{with:{type:'json'}});
+ let s=own('hero_114','hero_1');
+ const baseCap=talentCap(s,'hero_114');
+ assert.equal(baseCap,talentRule('hero_114').cap,'default mode starts at the tier cap');
+ s=climb(s,'hero_114');
+ const grant=stellaRule('hero_114').levels.at(-1).talentLimit;
+ assert.equal(grant,100);
+ assert.equal(talentCap(s,'hero_114'),baseCap+grant);
+ // SCOPE `self`: hero_1 climbed nothing and her cap is exactly where it was.
+ assert.equal(talentCap(s,'hero_1'),talentRule('hero_1').cap,'the cap raise must not reach another Fellow');
+ // IT GRANTS NO APTITUDE BY ITSELF -- it is a cap, not a term. Power is unmoved by the cap alone.
+ const apt=s.fellows.hero_1.aptitude;
+ assert.equal(s.fellows.hero_1.aptitude,apt);
+ // A WIDENING CAP CANNOT REFUSE AN OLD SAVE (CLAUDE.md rule 12): every stored talentLevel that was
+ // legal under the old cap is still under the new one, because the new one is never smaller.
+ for(const f of ORIGINAL_FELLOWS){const r=talentRule(f.id);if(!r)continue;
+  assert.ok(talentCap(s,f.id)>=r.cap,`${f.id}'s cap narrowed`);}
+ // And the APK-mode ledger bound moves with the cap rather than staying at the literal 299 it was.
+ const apk={...s,originalProgression:{policyVersion:1,quality:{},training:false}};
+ assert.ok(source.paidCap===299);
+ // NEGATIVE CONTROL: strip the column from the receipt and the cap falls straight back, so the
+ // assertion above is this column and not the tier rule moving underneath it.
+ const stripped=structuredClone(s);
+ for(const r of stripped.stella.history)delete r.talentLimit;
+ assert.equal(talentCap(stripped,'hero_114'),baseCap);
+ assert.ok(valid(s),refusedBy(s));
 });

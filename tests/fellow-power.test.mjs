@@ -8,6 +8,7 @@ import {ARTIFACT_ECHOES} from '../lib/artifact-echo.mjs';
 import {qualityRule,sourceCoefficient} from '../lib/original-progression.mjs';
 import operations from '../lib/operation-data.json' with {type:'json'};
 import {ARTIFACT_CAP} from '../lib/artifacts.mjs';
+import SPIRIT_DATA from '../lib/hero-spirit-data.json' with {type:'json'};
 
 // The Fellow power spine, pinned AS IT IS TODAY. This is a characterisation test, not an aspiration:
 // every number below was measured by running this code, and a change that moves any of them should
@@ -276,7 +277,7 @@ test('default mode: records + museum + familiars reach 1,616,486 -- NOT the ceil
 // because a ceiling reachable only by minting an illegal save is not a ceiling.
 // ---------------------------------------------------------------------------------------------
 
-test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes take it 2.88x past the fixture',()=>{
+test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes take it 16.7x past the fixture',()=>{
  // Stage 0 -- the fixture above, rebuilt here so this test stands alone if that one is edited.
  let s=maxedRecords(roster());
  s=maybe(allKeepsakes(s),'acceptMuseum');
@@ -320,7 +321,12 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
   if(stellaEntry(s,p.id)?.level===p.levels.length)maxed++;
  }
  assert.equal(maxed,111,'every ladder must reach its own top, or this stage understates itself');
- assert.equal(Math.round(rosterOperation(s)),13656809,'stella is worth +12,040,323 over the fixture (it was +1,303,619 with four scraped profiles)');
+ // REBASELINED AGAIN 2026-09-18: 13,656,809 -> 19,597,345, and the whole +5,940,536 is ONE column.
+ // `self | atk percent` -- the owner's own Power percent, 116 of the 126 tracks, +153% to +1350% --
+ // was carried as `unmodelledMax` and is now imported. It joins the SAME `percent` bucket the
+ // type-wide column already used (PropManager.lua:99-117 sums every contributing system into one
+ // factor), so nothing multiplies twice: applyStella is byte-identical, only stellaBonus's sum grew.
+ assert.equal(Math.round(rosterOperation(s)),19597345,'stella is worth +17,980,859 over the fixture (+1,303,619 with four scraped profiles; +12,040,323 before the own-Power percent)');
  assert.ok(valid(s),'the stella save must be legal');
 
  // Stage 2 -- BLESSINGS. welcomeAll is the family counterpart of recruitAll; without it a save holds
@@ -345,7 +351,7 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
  }
  // 208 of 210: two (family, key) pairs refuse with 'No supported ungated Fellows are available'.
  assert.equal(trained,200,'the trainable (family, blessing) pair count has moved (212 before the 2026-09-17 roster trim)');
- assert.equal(Math.round(rosterOperation(s)),15394471,'blessings are worth +1,737,662 over stella');
+ assert.equal(Math.round(rosterOperation(s)),25877947,'blessings are worth +6,280,602 over stella (+1,737,662 before the own-Power percent, which multiplies the blessing flat too)');
  assert.ok(valid(s),'the blessing save must be legal');
 
  // Stage 3 -- ARTIFACT ECHOES. An Echo only enables when its OWN named artifact is equipped on its
@@ -364,7 +370,7 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
  assert.equal(enabled,27,'every named Echo must enable once its own artifact is equipped');
- assert.equal(Math.round(rosterOperation(s)),15642961);
+ assert.equal(Math.round(rosterOperation(s)),26956296);
  assert.ok(valid(s),'THE WHOLE 4,096,763 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
 
  // The parity statement this file exists to make, in one assertion. REBASELINED 2026-09-15 (E4-02/E4-03):
@@ -380,11 +386,33 @@ test('the real default-mode ceiling is 4,655,637: stella, blessings and echoes t
  //     the typed multiplier, not inside it), which on its own takes this fixture DOWN 4,655,637 ->
  //     4,519,467 and takes the import down 24,932,927 -> 15,642,961. Without that correction the same
  //     import measures 7.13x.
- // Against the ~4x the owner accepted for the FLAG-ON ceiling (docs/crossover-plan.md 1) this is 4.47x
- // flag-off and 6.49x flag-on (tests/crossover-family.test.mjs). That is over budget and is reported as
- // such; it is not hidden behind a rebaselined constant.
- assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,4.47,
-  'default mode now passes the original live-save total; it used to fall 1.16x short');
+ // *** RE-ANCHORED 2026-09-18. READ THIS BEFORE READING THE RATIO BELOW. ***
+ // 3,497,276 is ONE REAL PLAYER'S few-weeks save, and the "~4x budget" it used to carry rested on a
+ // misreading of it as a single hero's power. It is a ROSTER TOTAL of 3,497,276,469 over ~150 heroes
+ // -- ~23M average against his own reported 300M top and 5M floor (docs/power-parity-audit.md 5). So
+ // this line is now a PACING CHECK and is named as one. A move here is worth reporting; it is not a
+ // budget and it does not block a slice.
+ assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,7.71,
+  'PACING against one real few-weeks save -- not a parity target');
+ // *** THE SECOND PIN: THE ORIGINAL'S OWN TABLE MAXIMUM. *** Every one of the original's 126 Spirit
+ // tracks at its top rank, summed, under the original's own HeroConversionRate divisor of 10/10000.
+ // 13,861,950. Both halves of THIS ratio are ceilings, which is what the old anchor could never be.
+ // It still understates the original: it counts one bucket (`extradd`) of one system, for 126 heroes
+ // of 181, and none of the base term, talent, percent stack, stars, museum, fishing or the
+ // account-wide floor. So 1.94x is an UPPER bound on the overshoot, not the overshoot.
+ const TABLE_MAX=Math.round(SPIRIT_DATA.profiles.reduce((n,p)=>n+p.ranks.at(-1).flat,0)/1000);
+ assert.equal(TABLE_MAX,13861950);
+ assert.equal(Math.round(rosterOperation(s)/TABLE_MAX*1000)/1000,1.945);
+ // *** AND THE PER-FELLOW PIN, which is the number the owner actually reported seeing. His best hero
+ // on the original after a few weeks was ~300,000,000, and 70-90% of it was that hero's own Spirit
+ // `extradd` -- whose table maximum is 223,500,000. Everkai's strongest fully-maxed Fellow:
+ const top=Math.max(...Object.keys(s.fellows).map(id=>bondedPower(s,id)));
+ assert.equal(top,623250916);
+ assert.equal(Math.max(...SPIRIT_DATA.profiles.map(p=>p.ranks.at(-1).flat)),223500000,
+  'the original single biggest Spirit flat, for scale');
+ assert.equal(Math.round(top/300_000_000*1000)/1000,2.078);
+ // And the floor, the other number he reported (">5 million on the worst hero"):
+ assert.equal(Math.min(...Object.keys(s.fellows).map(id=>bondedPower(s,id))),28900470);
 });
 
 test('APK growth mode passes the original outright: one Fellow alone is worth 44.6M Power',()=>{

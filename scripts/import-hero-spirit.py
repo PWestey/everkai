@@ -35,18 +35,32 @@ WHAT THE MEASUREMENT SAID (2026-09-18), and it settles two questions Everkai had
    It also means the +2% "authored" ACTIVATION was never authored: it is the original's own rank-0
    value. Including for hero_190, whose Everkai activation grants 0 -- see lib/stella-activation-policy.json.
 
-WHAT EVERKAI DOES NOT MODEL, recorded here with its size so the gap is costed rather than forgotten.
-Across the 126 tracks the effect kinds are:
-    126  self | atk extradd      the owner's own flat Power        15,300,000 .. 223,500,000   MODELLED
-    116  self | atk percent      the owner's OWN Power percent          153% .. 1350%          NOT modelled
-      4  country | atk percent   type-wide Power percent                 62% .. 122%           MODELLED
-     57  all | appoint percent   every Fellow's appointment yield        400% .. 800%          NOT modelled
-     57  self | talentLvLimit    the owner's talent level cap          +100 levels              NOT modelled
-     29+ bond | talent / percent a named hero group's talent or Power                          NOT modelled
-Adding the own-percent column alone moves Everkai's flag-off ceiling from 4,655,637 to 93,369,986
-(26.7x the original's live-save reference, against the ~4x the owner accepted), which is why it is
-deferred rather than dropped. The FULL table is emitted below regardless, so pricing the rest is a
-data question and not another research pass.
+WHAT THE 126 TRACKS GRANT, and what this script now emits per rank (2026-09-18, the owner's call to
+import everything measurable):
+    126  self | atk extradd      the owner's own flat Power        15,300,000 .. 223,500,000   `flat`
+    116  self | atk percent      the owner's OWN Power percent          153% .. 1350%          `selfPowerBp`
+      4  country | atk percent   type-wide Power percent                 62% .. 122%           `percent`
+     57  all | appoint percent   every Fellow's appointment yield          4% .. 800%          `appointYieldBp`
+     57  self | talentLvLimit    the owner's talent level cap          +50 .. +100 levels       `talentLimit`
+     17  self | talent           the owner's own talent (coef)         +340 .. +2,050          unmodelledMax
+     29+ bond | talent / percent a NAMED HERO GROUP's talent or Power                          unmodelledMax
+The last two stay in `unmodelledMax` rather than becoming columns, for two different reasons that are
+both about Everkai having no axis rather than about effort:
+  * `bond:<n>` is a hero GROUP -- HeroBond.json's 23 named rosters. Everkai has no group-membership
+    axis at all (its nearest neighbour, `lib/bonds.mjs`, is a per-PAIR intimacy level), so shipping
+    these would mean inventing the grouping as well as the bonus. Left out on the owner's own
+    instruction, and carried in the data so a future bond axis can price them without re-reading.
+  * `self | talent` is the client's `coef` bucket. Everkai's coef axis IS `aptitude`, and `aptitude` is
+    hard-capped at 1,000 by validAdventure -- a bound a SAVE is checked against. Widening it is
+    docs/power-parity-audit.md's step 5 ("highest blow-up risk", "requires raising or removing the cap"),
+    a separate owner-sized decision, and it was not in the three columns the owner named.
+
+A COLUMN IS SPARSE AND CUMULATIVE, which is the one thing a reader has to get right. `flat` and the
+country `percent` are named on every rank, but `HeroN_NewHalo_2/3/4` appear only on the ranks that
+RAISE them -- hero 264 names its own-Power percent on ranks 0,2,7,9,11,13,15,17,19 and nowhere else.
+The value is the halo's cumulative total at the level that rank asks for, so a rank that does not name
+it KEEPS the previous rank's value. Reading a silent rank as zero would make every one of these columns
+saw-tooth; `carry` below is that rule, and the monotonicity assert is what would catch losing it.
 
 Output: lib/hero-spirit-data.json -- every hero, every rank, every effect, resolved. Nothing is
 selected, filtered or rounded here; lib/ decides what to ship.
@@ -222,37 +236,71 @@ def column(rank, kind, propType, stat='atk'):
     return hits[0] if hits else None
 
 
+#: The five per-rank columns, as (emitted name, scope kind, propType, stat). Every one is a CUMULATIVE
+#: total at the level its rank asks for, and every one is carried forward across ranks that do not name
+#: it -- see the module docstring. `self/extradd` and `country/percent` were already emitted; the other
+#: three are the columns the owner asked for on 2026-09-18.
+COLUMNS = (
+    ('flat', 'self', 'extradd', 'atk'),
+    ('percent', 'country', 'percent', 'atk'),
+    ('selfPowerBp', 'self', 'percent', 'atk'),
+    ('appointYieldBp', 'all', 'percent', 'appoint'),
+    ('talentLimit', 'self', None, 'talentLvLimit'),
+)
+#: The (kind, propType, stat) triples COLUMNS consumes, so the unmodelled census below cannot
+#: double-count a column as a gap. Derived from COLUMNS rather than repeated, so adding a column
+#: cannot leave a stale exclusion behind.
+MODELLED_KEYS = {(kind, propType, stat) for _, kind, propType, stat in COLUMNS}
+
 compact = []
 for p in profiles:
     country_id = None
     unmodelled = {}
     rows = []
+    # The carry. A rank that does not name a halo keeps the previous rank's cumulative value.
+    carry = {name: 0 for name, *_ in COLUMNS}
     for rank in p['ranks']:
-        flat = column(rank, 'self', 'extradd')
-        pct = column(rank, 'country', 'percent')
-        if pct is not None:
-            cid = pct['scope']['id']
-            assert country_id in (None, cid), (p['heroId'], country_id, cid)
-            country_id = cid
-        rows.append({'rank': rank['rank'], 'cost': rank['cost'],
-                     'flat': (flat or {}).get('value') or 0,
-                     'percent': ((pct or {}).get('value') or 0)})
+        for name, kind, propType, stat in COLUMNS:
+            hit = column(rank, kind, propType, stat)
+            if hit is not None and hit['value'] is not None:
+                carry[name] = hit['value']
+            if name == 'percent' and hit is not None:
+                cid = hit['scope']['id']
+                assert country_id in (None, cid), (p['heroId'], country_id, cid)
+                country_id = cid
+        rows.append({'rank': rank['rank'], 'cost': rank['cost'], **carry})
         for e in rank['effects']:
             if e['value'] is None:
                 continue
-            if e['scope']['kind'] == 'self' and e['propType'] == 'extradd':
-                continue
-            if e['scope']['kind'] == 'country':
+            if (e['scope']['kind'], e['propType'], e['stat']) in MODELLED_KEYS:
                 continue
             key = e['scope']['kind'] + (':' + e['scope']['id'] if 'id' in e['scope'] else '')
             key += '|' + (e['stat'] or '?') + ('/' + e['propType'] if e['propType'] else '')
             unmodelled[key] = max(unmodelled.get(key, 0), e['value'])
-    # A rank's flat and percent are CUMULATIVE totals, so they may only ever climb.
+    # Every emitted column is a CUMULATIVE total, so it may only ever climb. This is also the assert
+    # that would catch losing the carry above: without it a sparse column saw-tooths back to 0.
     for a, b in zip(rows, rows[1:]):
-        assert b['flat'] >= a['flat'] and b['percent'] >= a['percent'], (p['heroId'], a, b)
+        for name, *_ in COLUMNS:
+            assert b[name] >= a[name], (p['heroId'], name, a[name], b[name])
     compact.append({'heroId': p['heroId'], 'itemId': p['itemId'], 'itemName': p['itemName'],
                     'country': country_id, 'ranks': rows,
                     'unmodelledMax': dict(sorted(unmodelled.items()))})
+
+# Rule 2 again, on the three NEW columns: a reader that silently resolved nothing would emit zeros
+# everywhere and look exactly like "the original does not grant these". Positive control, from the
+# hero the audit transcribes by hand (docs/power-parity-audit.md 3b): hero 264's rank-20 row.
+_264 = next(c for c in compact if c['heroId'] == '264')['ranks'][20]
+assert (_264['flat'], _264['selfPowerBp'], _264['appointYieldBp'], _264['talentLimit']) == \
+       (223500000, 95000, 80000, 100), _264
+# and the carry itself: rank 20 names NEITHER NewHalo_2 NOR NewHalo_3, so those two values are only
+# there because they were carried from ranks 6 and 19.
+assert _264['selfPowerBp'] == next(c for c in compact if c['heroId'] == '264')['ranks'][19]['selfPowerBp']
+# Negative control on the same reader: the four SelfPowerAdd heroes Everkai already shipped carry NONE
+# of the three new columns, so a reader that invented values would show up here.
+for h in ('52', '54', '56', '190'):
+    r = next(c for c in compact if c['heroId'] == h)['ranks'][-1]
+    assert (r['selfPowerBp'], r['appointYieldBp'], r['talentLimit']) == (0, 0, 0), (h, r)
+print('new-column control: hero 264 rank 20 resolves and carries; the four shipped heroes stay empty')
 
 out = {
     'policyVersion': 1,
@@ -266,7 +314,15 @@ out = {
                  'decides which columns Everkai models.'),
     'countries': sorted(country),
     'bonds': bonds,
-    'modelled': 'Per rank: cost, the owner\'s own flat Power (self/atk extradd) and the type-wide percent (country/atk percent). Both are cumulative totals at that rank, not deltas.',
+    'modelled': ('Per rank: cost, then five CUMULATIVE totals at that rank (not deltas), each carried '
+                 'forward across ranks that do not name its halo. `flat` = the owner\'s own flat Power '
+                 '(self/atk extradd, the client\'s extradd bucket). `percent` = the type-wide Power '
+                 'percent (country/atk percent) and `selfPercent` = the owner\'s OWN Power percent '
+                 '(self/atk percent) -- DIFFERENT SCOPES OF THE SAME `percent` BUCKET, which is why '
+                 'they are summed together and not applied one after the other. `appointPercent` = '
+                 'all/appoint percent, an account-wide percent on the appointment yield. `talentLimit` '
+                 '= self/talentLvLimit, a raise to the owner\'s talent LEVEL cap. All four percent-ish '
+                 'columns are hundredths of a percent; talentLimit is a count of levels.'),
     'profiles': compact,
 }
 (ROOT / 'lib/hero-spirit-data.json').write_text(json.dumps(out, indent=1) + '\n')

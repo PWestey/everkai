@@ -228,9 +228,26 @@ test('type stops being a power lever: five crossover Fellows on identical record
  // Only FOUR profiles in the whole imported table carry a country percent, so only three types get one
  // (hero_54 and hero_190 are both Inspiring). The other two types sum to zero however many Fellows have
  // climbed a ladder, which is the check that the 107 flat-only ladders never leak into a type sum.
- const byType={};for(const f of FELLOWS.filter(f=>!f.addition))byType[f.type]??=stellaBonus(s,f.id).percent;
+ //
+ // READ `typedPercent`, NOT `percent`, SINCE 2026-09-18. `percent` is now the SUM of the broadcast half
+ // and the owner's own imported `selfPowerBp` -- one bucket, as the client composes it -- so reading the
+ // sum here would have shown Brave 303 and Inspiring 487 and looked exactly like the leak this test
+ // exists to catch. `typedPercent` is the broadcast half alone, which is the only half that can reach a
+ // Fellow who bought nothing, and it is unchanged by the import.
+ const byType={};for(const f of FELLOWS.filter(f=>!f.addition))byType[f.type]??=stellaBonus(s,f.id).typedPercent;
  assert.deepEqual(byType,{Informed:122,Inspiring:184,Diligent:122,Brave:0,Unfettered:0});
- assert.equal(stellaBonus(s,'hero_74').percent,122,'and the new Informed owner receives her own track');
+ assert.equal(stellaBonus(s,'hero_74').typedPercent,122,'and the new Informed owner receives her own track');
+ // And the split is exact, so `percent` cannot quietly stop being the sum of the two halves.
+ for(const f of FELLOWS.filter(f=>!f.addition)){const b=stellaBonus(s,f.id);
+  assert.equal(b.percent,b.selfPercent+b.typedPercent,`${f.id} percent is not selfPercent + typedPercent`);}
+ // THE OWN HALF STAYS WITH ITS OWNER, which is the new claim this import makes. hero_194 has the
+ // largest own-Power column in the whole table (+1350%); every other Inspiring Fellow must see none of
+ // it, and hero_194 must see all of it.
+ assert.equal(stellaBonus(s,'hero_194').selfPercent,1350);
+ const otherInspiring=FELLOWS.filter(f=>!f.addition&&f.type==='Inspiring'&&f.id!=='hero_194');
+ assert.ok(otherInspiring.length>1);
+ assert.equal(otherInspiring.filter(f=>stellaBonus(s,f.id).selfPercent===1350).length,0,
+  'hero_194’s own-Power percent must not reach another Inspiring Fellow');
  assert.ok(valid(s),refusedBy(s));
 });
 

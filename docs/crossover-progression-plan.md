@@ -400,9 +400,29 @@ or echoes:
 (The 2,234 average exceeds `hero_1`'s 1,317.5 because `data.heroes[]` talent ranges 20–200 across the
 180 rows; `hero_1` sits near the bottom, `hero_103` — Spider-Man's template — is 70.)
 
-**Against the accepted ceiling.** `tests/fellow-power.test.mjs:12-64` records the settled position: the
+**Against the accepted ceiling.**
+
+> **CORRECTED 2026-09-18 — the 1.99× in this section and the next is dead, and so is the budget built on
+> it.** The denominator, 3,497,276, is **one real player's few-weeks save**, not the original's maximum,
+> and it was additionally *misread as a single hero's power* when it is a **roster total of
+> 3,497,276,469** over ~150 heroes — ~23M average against the owner's own reported 300M top and 5M
+> floor. `docs/power-parity-audit.md` §5 has the derivation. The figure has since moved to **1.331×**
+> (the 2026-09-17 roster trim), **4.473×** (importing the original's own 126 Stella tracks) and
+> **7.708×** (importing the three deferred Spirit columns) — none of which is an overshoot of anything,
+> because the ratio was never a budget. It is now a **pacing check**, named `ORIGINAL_LIVE_SAVE_PACING`
+> in `tests/crossover-ceiling-fixture.mjs`, which carries the whole argument. The pin that *is* a
+> ceiling-to-ceiling comparison is **`ORIGINAL_SPIRIT_TABLE_MAX` = 13,861,950** — every one of the
+> original's 126 Spirit tracks at its top rank, under the original's own `HeroConversionRate` divisor —
+> against which Everkai's flag-off ceiling is **1.945×**, and that denominator counts one bucket of one
+> system for 126 heroes of 181, so even 1.945× is an *upper bound* on the overshoot.
+>
+> **Read the R1 row in the decision table below the same way.** Its "1.99× → ~4.0×" arithmetic about the
+> 163 climbable Fellows is still correct *as arithmetic*; what is wrong is calling either end of it a
+> ceiling that was exceeded.
+
+`tests/fellow-power.test.mjs:12-64` records the position as it stood: the
 original's live save reached **3,497,276,469 total power → 3,497,276 `rosterOperation`**, Everkai's
-fully-assembled fixture reaches **6,965,719 (1.99×)**, and *"SETTLED 2026-09-16: THE OWNER ACCEPTED ~2×
+fully-assembled fixture reached **6,965,719 (1.99×)**, and *"SETTLED 2026-09-16: THE OWNER ACCEPTED ~2×
 AS THE TARGET."*
 
 **ANSWER TO THE QUESTION ASKED: yes — 163 climbable characters inflate village earnings past the
