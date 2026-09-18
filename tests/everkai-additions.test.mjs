@@ -281,3 +281,20 @@ test('the whole data file is what scripts/crossover/build-additions.mjs emits, b
  assert.equal(regrown.some(r=>r.recipients.includes('xover_msf_wolverine')),false,'and he is gone from them');
  assert.equal(familyRows.some(r=>r.recipients.includes('xover_msf_wolverine')),true,'positive control: he was in them');
 });
+
+// The home-screen app opens without a query string, so the owner could not see the crossover
+// characters from it. The switch is now remembered per device -- and never inside the save.
+test('?crossover=1 is remembered on the device, and ?crossover=0 forgets it',()=>{
+ const mem=new Map(),store={getItem:k=>mem.has(k)?mem.get(k):null,setItem:(k,v)=>mem.set(k,String(v)),removeItem:k=>mem.delete(k)};
+ assert.equal(crossoverEnabled('',store),false,'off until asked for');
+ assert.equal(crossoverEnabled('?crossover=1',store),true);
+ assert.equal(crossoverEnabled('',store),true,'a later launch with no query remembers it');
+ assert.equal(crossoverEnabled('?crossover=0',store),false,'an explicit 0 turns it off');
+ assert.equal(crossoverEnabled('',store),false,'and that is remembered too');
+ // Negative controls: anything but an exact 1 neither turns it on nor stores it.
+ for(const junk of ['?crossover=true','?crossover','?spine=1'])assert.equal(crossoverEnabled(junk,store),false,junk);
+ assert.equal(mem.size,0);
+ // A storage that throws (private browsing) falls back to the query string alone.
+ const broken={getItem(){throw Error('denied')},setItem(){throw Error('denied')},removeItem(){throw Error('denied')}};
+ assert.equal(crossoverEnabled('?crossover=1',broken),true);
+ assert.equal(crossoverEnabled('',broken),false);});
