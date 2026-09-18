@@ -1,5 +1,13 @@
 # Artifact quenching, measured in full (F12-03)
 
+> **STALE RATIO, CORRECTED 2026-09-18.** Every "×N of the original" in this document divides by
+> **3,497,276**, which is *one real player's few-weeks save* — not the original's maximum — and which
+> was additionally misread as a single hero's power when it is a **roster total of 3,497,276,469**.
+> `docs/power-parity-audit.md` §5 has the derivation. The constant is now named
+> `ORIGINAL_LIVE_SAVE_PACING` and is a pacing check, not a budget; the ceiling-to-ceiling pin is
+> `ORIGINAL_SPIRIT_TABLE_MAX` = 13,861,950. The absolute figures below are still what they measured on
+> the day; the *verdicts* drawn from the ratio ("already overshoots", "over budget") are withdrawn.
+
 Quenching is the original's largest artifact-side power lever and Everkai does not have it. This file
 is the complete measurement, so that implementing it later is transcription rather than research —
 and it records why it is **deferred rather than shipped**: on today's numbers it would take Everkai's

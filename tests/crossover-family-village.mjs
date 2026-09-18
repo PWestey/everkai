@@ -18,7 +18,7 @@ const {familyBonus}=await import('../lib/progression.mjs');
 const {recruitOffers}=await import('../lib/summon.mjs');
 const {TRIPS}=await import('../lib/family-trips.mjs');
 const {PUPIL_TYPES}=await import('../lib/school.mjs');
-const {buildCeiling,ORIGINAL_LIVE_SAVE}=await import('./crossover-ceiling-fixture.mjs');
+const {buildCeiling,ORIGINAL_LIVE_SAVE_PACING,ORIGINAL_SPIRIT_TABLE_MAX}=await import('./crossover-ceiling-fixture.mjs');
 const {HABIT_DOMAINS}=await import('../lib/habits.mjs');
 
 const ID='xover_msf_jeangrey';
@@ -133,7 +133,7 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
  // Fellows' own power: `fellowsOnly` seats the crossover Fellows and no crossover Family.
  const fellowsOnly=buildCeiling({crossover:true,family:false});
  const c=buildCeiling({crossover:true});
- const trim=r=>({stage0:r.stage0,stage1:r.stage1,stage2:r.stage2,stage3:r.stage3,ceiling:r.ceiling,crossoverWorth:r.crossoverWorth,valid:r.valid,refusedBy:r.refusedBy,notes:r.notes});
+ const trim=r=>({stage0:r.stage0,stage1:r.stage1,stage2:r.stage2,stage3:r.stage3,stage4:r.stage4,ceiling:r.ceiling,crossoverWorth:r.crossoverWorth,village:r.village,fellow:r.fellow,valid:r.valid,refusedBy:r.refusedBy,notes:r.notes});
  // 133 crossover Fellows are too many to pin one by one, so the distribution is recorded instead: how
  // many of them a crossover Family member blesses at all, and the flat/percent totals grouped. The two
  // shipped prototypes keep their own named entry, because they are the rows whose numbers were
@@ -156,7 +156,8 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
   stellaPercentByType:stellaByType,
   maxedPowerByType:powerByType,
   blessingCounts:(()=>{const h={};for(const id of xoverFellows){const k=Math.round(blessingPower(c.state,id).flat/159000);h[k]=(h[k]||0)+1}return h})(),
-  ratio:+(c.ceiling/ORIGINAL_LIVE_SAVE).toFixed(4),
+  ratio:+(c.ceiling/ORIGINAL_LIVE_SAVE_PACING).toFixed(4),   // a PACING check, not a parity target -- see the constant
+  vsTableMax:+(c.ceiling/ORIGINAL_SPIRIT_TABLE_MAX).toFixed(3),
   // The maxed-crossover-vs-maxed-original comparison the equivalent bonus track is sized against
   // (docs/crossover-plan.md order of work 6). Both halves are bondedPower on the SAME finished state.
   ...(()=>{const st=c.state,q=(a,f)=>a[Math.floor((a.length-1)*f)];
@@ -167,7 +168,8 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
    return {maxedCrossover:{min:px[0],median:q(px,.5),max:px.at(-1)},
     maxedOriginal:{min:po[0],q25:q(po,.25),median:q(po,.5),q75:q(po,.75),max:po.at(-1)},
     maxedOriginalByType:Object.fromEntries(Object.entries(byType).map(([k,v])=>[k,q(v.sort((a,b)=>a-b),.5)]))}})(),
-  original:ORIGINAL_LIVE_SAVE,
+  original:ORIGINAL_LIVE_SAVE_PACING,
+  tableMax:ORIGINAL_SPIRIT_TABLE_MAX,
   familyBlessingWorth:c.ceiling-fellowsOnly.ceiling,
   crossoverFellowsInRoster:xoverFellows.length,
   blessedCrossoverFellows:blessed.filter(([,p])=>p.flat>0||p.percent>0).length,

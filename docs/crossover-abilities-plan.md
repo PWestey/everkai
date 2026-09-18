@@ -1,5 +1,13 @@
 # Crossover abilities plan — skills, talents, Insight and the rest of the per-Fellow surface
 
+> **STALE RATIO, CORRECTED 2026-09-18.** Every "×N of the original" in this document divides by
+> **3,497,276**, which is *one real player's few-weeks save* — not the original's maximum — and which
+> was additionally misread as a single hero's power when it is a **roster total of 3,497,276,469**.
+> `docs/power-parity-audit.md` §5 has the derivation. The constant is now named
+> `ORIGINAL_LIVE_SAVE_PACING` and is a pacing check, not a budget; the ceiling-to-ceiling pin is
+> `ORIGINAL_SPIRIT_TABLE_MAX` = 13,861,950. The absolute figures below are still what they measured on
+> the day; the *verdicts* drawn from the ratio ("already overshoots", "over budget") are withdrawn.
+
 **Slice:** the per-Fellow progression tables for the 163 Everkai-addition Fellows (95 Marvel Strike
 Force + 68 SWGOH) shipped behind `?crossover=1`. Everything per-Fellow *except* rarity assignment
 (separate slice) and Stella/costumes (separate slice).

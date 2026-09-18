@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,settle,valid,decode} from '../lib/game.mjs';
-import {stellaState,STELLA_IDLE_PER_DAY,STELLA_PROFILES,settleStella} from '../lib/stella.mjs';
+import {stellaState,STELLA_IDLE_PER_DAY,STELLA_PROFILES,settleStella,SPIRIT_SHARD_ITEM} from '../lib/stella.mjs';
 import {starterHabits,habitEarnings} from '../lib/habits.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime(),DAY=86400000;
 const ITEM='Item_Owner_HeroPiece_54';
@@ -44,9 +44,28 @@ test('fragments accrue only for a Stella profile the player owns',()=>{
  const f=fresh(T);
  const stranger={...f,habits:starterHabits(T),stella:{policyVersion:1,seq:0,stock:{},grants:[],history:[]}};
  assert.equal(f.fellows.hero_54,undefined,'a fresh village does not own hero_54');
- assert.deepEqual(stellaState(settle(stranger,T+30*DAY)).stock,{},'30 idle days pay an unowned profile nothing');
+ // NARROWED 2026-09-18. This used to assert the whole stock stayed EMPTY, which stopped being true
+ // when every original Fellow got a shared village track -- a fresh village owns hero_15, so it mints
+ // village shards now. The claim being protected is per PROFILE, so it is asserted per profile: not
+ // one fragment of a private ladder the village does not own.
+ const stranded=stellaState(settle(stranger,T+30*DAY)).stock;
+ assert.equal(stranded[ITEM],undefined,'30 idle days pay an unowned profile nothing');
+ // NARROWED 2026-09-18. This used to assert the whole stock stayed EMPTY, which stopped being true when
+ // every original Fellow got an imported Stella ladder: a fresh village owns hero_15, so it mints the
+ // shared shard those ladders spend. The claim being protected is per PROFILE, so it is asserted per
+ // profile: not one fragment of a PRIVATE ladder whose owner the village does not have.
+ for(const p of STELLA_PROFILES.filter(p=>p.itemId!==SPIRIT_SHARD_ITEM))
+  assert.equal(stranded[p.itemId],undefined,`${p.id} paid a village that cannot spend it`);
  // Positive control: the same 30 days DO pay once the Fellow is owned.
- assert.ok(held(settle(owner(),T+30*DAY))>0);});
+ assert.ok(held(settle(owner(),T+30*DAY))>0);
+ // ...and the shared pool, the one thing a fresh village CAN spend, really did accrue -- otherwise the
+ // assertions above would pass on a mint that had simply stopped running.
+ assert.ok(stranded[SPIRIT_SHARD_ITEM]>0,'the shared pool is what a starter Fellow\u2019s ladder spends');
+ // And it is paid ONCE, not once per owned profile: 108 of them share that item (lib/hero-spirit.mjs).
+ // NEGATIVE CONTROL for the dedupe in settleStella -- without it this is 30 days x 108.
+ const two={...owner(),fellows:{...owner().fellows,hero_1:owner().fellows.hero_54}};
+ assert.equal(stellaState(settle(two,T+30*DAY)).stock[SPIRIT_SHARD_ITEM],stranded[SPIRIT_SHARD_ITEM],
+  'a second shared-pool owner must not double the shared pool');});
 
 test('the ledger still reconciles, so a tampered stock is refused',()=>{
  const s=settle(owner(),T+3*DAY);

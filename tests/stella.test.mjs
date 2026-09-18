@@ -1,17 +1,35 @@
-import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';import {fresh,act,valid,decode,settle,totalRate} from '../lib/game.mjs';import {newFellow,bondedPower} from '../lib/adventure.mjs';import {STELLA_PROFILES,stellaState,stellaEntry,stellaPlan,stellaBonus,STELLA_IDLE_PER_DAY} from '../lib/stella.mjs';import {createPersistence} from '../lib/persistence.mjs';import {BUSINESSES} from '../lib/businesses.mjs';import {FELLOWS} from '../lib/catalog.mjs';
+import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';import {fresh,act,valid,decode,settle,totalRate} from '../lib/game.mjs';import {newFellow,bondedPower} from '../lib/adventure.mjs';import {STELLA_PROFILES,stellaState,stellaEntry,stellaPlan,stellaBonus,STELLA_IDLE_PER_DAY} from '../lib/stella.mjs';import {createPersistence} from '../lib/persistence.mjs';import {BUSINESSES} from '../lib/businesses.mjs';import {FELLOWS} from '../lib/catalog.mjs';import SOURCE from '../lib/stella-data.json' with {type:'json'};
 const result=(s,a,id='hero_54',count=1)=>act(s,a,s.lastAt,id,{seq:stellaState(s).seq,count}),go=(s,a,id='hero_54',count=1)=>{const r=result(s,a,id,count);assert.equal(r.error,undefined);assert.ok(valid(r.state),a);return r.state;};
 // hero_52 (Angie) and hero_102 (Jewlry) were both deleted in the owner's 2026-09-17 roster trim, so a
-// village cannot own either one any more. Their ROWS stay: stellaRule reads STELLA_PROFILES, so dropping
-// Angie's would refuse every save that had ever levelled her (validStella), and lib/crossover-stella.mjs
-// templates the shared crossover track off that exact row. hero_102 stood in here for "an owned Fellow
-// with NO Stella profile" -- hero_15, the starter, is the same case and still ships.
-const OWNABLE=STELLA_PROFILES.filter(p=>FELLOWS.some(f=>f.id===p.id));
+// village cannot own either one any more. Angie's ROW stays: stellaRule reads STELLA_PROFILES, so
+// dropping it would refuse every save that had ever levelled her (validStella), and
+// lib/crossover-stella.mjs templates the shared crossover track off that exact row.
+//
+// REWRITTEN 2026-09-18. There is no longer such a thing as "an owned Fellow with NO Stella profile":
+// STELLA_PROFILES is one profile per original Fellow now, imported from the original's own HeroSpirit
+// table (lib/hero-spirit.mjs, scripts/import-hero-spirit.py). The four this file was written around are
+// still in it, unchanged -- the importer's positive control reproduces their cost, flat and percent
+// columns to the digit -- so every assertion below still measures what it always did; it just names the
+// four explicitly instead of taking the whole array.
+const LEGACY=['hero_54','hero_56','hero_190','hero_52'];
+const OWNABLE=STELLA_PROFILES.filter(p=>LEGACY.includes(p.id)&&FELLOWS.some(f=>f.id===p.id));
 const setup=()=>{const s=fresh(1000);for(const id of [...OWNABLE.map(p=>p.id),'hero_101','hero_59'])s.fellows[id]=newFellow();return s;};
 test('all source upgrade rows use exact owner fragments and cumulative effects, with full cap',()=>{
- assert.equal(STELLA_PROFILES.length,4);assert.equal(OWNABLE.length,3,'Angie was deleted 2026-09-17; her row stays for old saves and for the crossover track');
+ assert.equal(STELLA_PROFILES.length,112,'111 shipped Fellows plus hero_52, whose row outlives her');
+ assert.equal(OWNABLE.length,3,'Angie was deleted 2026-09-17; her row stays for old saves and for the crossover track');
+ // The four scraped rows and the four imported ones are the same table. Anything else means the
+ // importer drifted, and tests/hero-spirit.test.mjs would then be measuring the drift, not the original.
+ for(const p of STELLA_PROFILES.filter(p=>LEGACY.includes(p.id))){
+  const src=SOURCE.profiles.find(r=>r.id===p.id);
+  assert.deepEqual(p.levels.map(r=>[r.level,r.cost,r.flat,r.percent]),src.levels.map(r=>[r.level,r.cost,r.flat,r.percent]),p.id);
+ }
  for(const p of OWNABLE){let s=setup();s=go(s,'stellaActivate',p.id);for(let i=0;i<6;i++)s=grantFragments(s,p.id);const stock=s.stella.stock[p.itemId];let spent=0;for(const row of p.levels){s=go(s,'stellaUpgrade',p.id);spent+=row.cost;assert.deepEqual({level:stellaEntry(s,p.id).level,flat:stellaEntry(s,p.id).flat,percent:stellaEntry(s,p.id).percent},{level:row.level,flat:row.flat,percent:row.percent});}assert.equal(s.stella.stock[p.itemId],stock-spent);assert.equal(s.stella.history.length,p.levels.length+1);assert.ok(result(s,'stellaUpgrade',p.id).error);assert.deepEqual(decode(JSON.stringify(s)).stella,s.stella);}});
-test('typed effect targets correct current and future Fellows, never increments base aptitude or levels',()=>{let s=setup();const original=structuredClone(s.fellows),unaffected=bondedPower(s,'hero_15');s=go(s,'stellaActivate');s=grantFragments(s);s=go(s,'stellaUpgrade');assert.equal(bondedPower(s,'hero_54'),Math.floor((100+500000)*1.05));assert.equal(bondedPower(s,'hero_15'),unaffected);assert.deepEqual(s.fellows,original);s=go(s,'stellaUpgrade');assert.equal(stellaEntry(s,'hero_54').flat,1000000);assert.equal(stellaBonus(s,'hero_54').percent,8);assert.equal(bondedPower(s,'hero_54'),Math.floor((100+1000000)*1.08));delete s.fellows.hero_59;s=go(s,'stellaActivate','hero_56');s.fellows.hero_59=newFellow(2);assert.equal(stellaBonus(s,'hero_59').percent,2);});
-test('eligibility, activation, cross-fragment spending, stale and batch affordability boundaries',()=>{let s=fresh(1000);assert.ok(result(s,'stellaActivate').error);s=setup();assert.ok(result(s,'stellaActivate','hero_101').error);assert.ok(result(s,'stellaUpgrade').error);s=go(s,'stellaActivate');assert.ok(result(s,'stellaActivate').error);assert.ok(result(s,'stellaUpgrade').error);s=grantFragments(s,'hero_56');assert.ok(result(s,'stellaUpgrade').error);s=grantFragments(s);const plan=stellaPlan(s,'hero_54',5);s=go(s,'stellaUpgrade','hero_54',5);assert.equal(stellaEntry(s,'hero_54').level,5);assert.equal(s.stella.stock.Item_Owner_HeroPiece_54,1000-plan.cost);const seq=s.stella.seq;s=go(s,'stellaUpgrade','hero_54','max');assert.ok(act(s,'stellaUpgrade',s.lastAt,'hero_54',{seq}).error);assert.ok(stellaPlan(s,'hero_54',1).rows.length===0);});
+test('typed effect targets correct current and future Fellows, never increments base aptitude or levels',()=>{let s=setup();const original=structuredClone(s.fellows),unaffected=bondedPower(s,'hero_15');s=go(s,'stellaActivate');s=grantFragments(s);s=go(s,'stellaUpgrade');assert.equal(bondedPower(s,'hero_54'),Math.floor(100*1.05)+500000,'the original\u2019s order: percent first, then the flat extradd');assert.equal(bondedPower(s,'hero_15'),unaffected);assert.deepEqual(s.fellows,original);s=go(s,'stellaUpgrade');assert.equal(stellaEntry(s,'hero_54').flat,1000000);assert.equal(stellaBonus(s,'hero_54').percent,8);assert.equal(bondedPower(s,'hero_54'),Math.floor(100*1.08)+1000000);delete s.fellows.hero_59;s=go(s,'stellaActivate','hero_56');s.fellows.hero_59=newFellow(2);assert.equal(stellaBonus(s,'hero_59').percent,2);});
+test('eligibility, activation, cross-fragment spending, stale and batch affordability boundaries',()=>{let s=fresh(1000);assert.ok(result(s,'stellaActivate').error);s=setup();
+ // hero_101 used to stand in for "an owned Fellow with no Stella profile". Every original Fellow has
+ // one now, so the refusal is checked on a Fellow the roster trim DELETED instead -- which is the case
+ // that still has to be refused, and the one a real save can actually present.
+ assert.ok(result(s,'stellaActivate','hero_105').error);assert.ok(result(s,'stellaUpgrade').error);s=go(s,'stellaActivate');assert.ok(result(s,'stellaActivate').error);assert.ok(result(s,'stellaUpgrade').error);s=grantFragments(s,'hero_56');assert.ok(result(s,'stellaUpgrade').error);s=grantFragments(s);const plan=stellaPlan(s,'hero_54',5);s=go(s,'stellaUpgrade','hero_54',5);assert.equal(stellaEntry(s,'hero_54').level,5);assert.equal(s.stella.stock.Item_Owner_HeroPiece_54,1000-plan.cost);const seq=s.stella.seq;s=go(s,'stellaUpgrade','hero_54','max');assert.ok(act(s,'stellaUpgrade',s.lastAt,'hero_54',{seq}).error);assert.ok(stellaPlan(s,'hero_54',1).rows.length===0);});
 test('failed activation/upgrade persists fragments and exact retry once; receipts survive offline',()=>{let s=setup();s=grantFragments(s);let raw=JSON.stringify(s),fail=false;const p=createPersistence(()=>({getItem:()=>raw,setItem:(_,v)=>{if(fail)throw Error('quota');raw=v}}));p.load(1000);fail=true;assert.throws(()=>p.commit(go(p.current,'stellaActivate')));assert.equal(stellaEntry(p.current,'hero_54'),null);fail=false;p.load(1000);p.commit(go(p.current,'stellaActivate'));const prior=structuredClone(p.current.stella);fail=true;assert.throws(()=>p.commit(go(p.current,'stellaUpgrade','hero_54',5)));assert.deepEqual(p.current.stella,prior);fail=false;p.load(1000);p.commit(go(p.current,'stellaUpgrade','hero_54',5));const final=structuredClone(p.current.stella);p.load(86400000);
  // Offline no longer leaves Stella untouched: fragments drop from idle play now (EVT-22), so the
  // LEDGER is what must survive a day away, while stock grows by exactly the idle accrual and no more.
@@ -35,12 +53,22 @@ test('all 111 owned Fellows receive each latest typed contribution exactly once'
  // for another Informed Fellow, or re-pointing an authored track at someone else -- an owner decision.
  const {FELLOWS}=await import('../lib/catalog.mjs');let s=fresh(1000);for(const f of FELLOWS)s.fellows[f.id]=newFellow();const base=structuredClone(s);for(const p of OWNABLE){s=go(s,'stellaActivate',p.id);s=grantFragments(s,p.id);s=go(s,'stellaUpgrade',p.id,5);}
  assert.equal(Object.keys(s.fellows).length,111);
- assert.deepEqual(STELLA_PROFILES.filter(p=>!OWNABLE.includes(p)).map(p=>[p.id,p.type]),[['hero_52','Informed']]);
- for(const f of FELLOWS){const owner=OWNABLE.find(p=>p.id===f.id),typed=OWNABLE.filter(p=>p.type===f.type),flat=owner?2500000:0,percent=typed.length*17;assert.equal(bondedPower(s,f.id),Math.floor((bondedPower(base,f.id)+flat)*(1+percent/100)),f.id);}
+ // The one profile in the whole set that no village can own: hero_52's, kept for old receipts.
+ assert.deepEqual(STELLA_PROFILES.filter(p=>!FELLOWS.some(f=>f.id===p.id)).map(p=>[p.id,p.type]),[['hero_52','Informed']]);
+ // REBASELINED 2026-09-18 for the ORIGINAL's stacking order: the owner's flat is an `extradd`, added
+ // after the typed multiplier, not inside it (lib/stella.mjs applyStella, PropManager.lua:116). Only
+ // the three LEGACY owners are climbed here, so every other Fellow's own flat is still zero and the
+ // assertion is exactly the typed-contribution one it has always been.
+ for(const f of FELLOWS){const owner=OWNABLE.find(p=>p.id===f.id),typed=OWNABLE.filter(p=>p.type===f.type),flat=owner?2500000:0,percent=typed.length*17;assert.equal(bondedPower(s,f.id),Math.floor(bondedPower(base,f.id)*(1+percent/100))+flat,f.id);}
 });
 test('Elise has separate zero activation, 1500 paid total, cap20 and mixed historical owners',()=>{
  let s=setup();s=go(s,'stellaActivate','hero_54');delete s.stella.history[0].activationPolicy;s.stella.history[0].percent=3;const legacy=structuredClone(s.stella.history);
- s=go(s,'stellaActivate','hero_190');assert.equal(stellaEntry(s,'hero_190').activationPolicy,'private-elise-stella-activation-v1');assert.equal(stellaEntry(s,'hero_190').percent,0);assert.equal(stellaBonus(s,'hero_190').percent,3);
+  // CORRECTED 2026-09-18. Elise's activation granted 0 because no source for it had been recovered and
+ // lib/stella-activation-policy.json said so ("original activation unverified"). The original's own
+ // table has it: HeroSpirit hero_190 rank 0 grants Hero190_PowerPercent_1 level 1 = 200, i.e. +2%,
+ // exactly like the other three. Her POLICY ID is unchanged, so a v86 save that recorded 0 still
+ // decodes and keeps the 0 it recorded -- the four legacy ladders are still never repriced.
+ s=go(s,'stellaActivate','hero_190');assert.equal(stellaEntry(s,'hero_190').activationPolicy,'private-elise-stella-activation-v1');assert.equal(stellaEntry(s,'hero_190').percent,2);assert.equal(stellaBonus(s,'hero_190').percent,5);
  for(let i=0;i<2;i++)s=grantFragments(s,'hero_190');s=go(s,'stellaUpgrade','hero_190','max');assert.equal(stellaEntry(s,'hero_190').level,20);assert.equal(s.stella.stock.Item_Owner_HeroPiece_190,500);assert.equal(stellaEntry(s,'hero_190').flat,15300000);assert.equal(stellaBonus(s,'hero_190').percent,65);assert.deepEqual(s.stella.history.slice(0,1),legacy);assert.ok(result(s,'stellaUpgrade','hero_190').error);
  const bad=structuredClone(s);bad.stella.history.at(-1).level=21;assert.equal(valid(bad),false);assert.deepEqual(decode(JSON.stringify(s)).stella,s.stella);
 });

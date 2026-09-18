@@ -4,7 +4,7 @@ import {grantFragments} from './progression-helpers.mjs';
 import {fresh,act,valid,refusedBy,decode,settle,QUARANTINABLE,lastQuarantine} from '../lib/game.mjs';
 import {newFellow,bondedPower} from '../lib/adventure.mjs';
 import {STELLA_PROFILES,ALL_STELLA_PROFILES,STELLA_HISTORY_MAX,STELLA_IDLE_PER_DAY,CROSSOVER_STELLA,crossoverStella,
- stellaRule,stellaState,stellaEntry,stellaPlan,stellaBonus,stellaActivation,settleStella} from '../lib/stella.mjs';
+ stellaRule,stellaState,stellaEntry,stellaPlan,stellaBonus,stellaActivation,settleStella,spiritShard,SPIRIT_SHARD_ITEM} from '../lib/stella.mjs';
 import {CROSSOVER_SHARD_ITEM,ownsCrossoverStella} from '../lib/crossover-stella.mjs';
 import stellaSource from '../lib/stella-data.json' with {type:'json'};
 import {FELLOWS} from '../lib/catalog.mjs';
@@ -55,10 +55,21 @@ test('the crossover ladder IS Angie’s shipped cost and flat columns, with perc
  assert.equal(CROSSOVER_STELLA.levels.at(-1).flat,35300000,'and the same own-Power ceiling');
  assert.equal(CROSSOVER_STELLA.itemId,CROSSOVER_SHARD_ITEM);
  assert.equal(CROSSOVER_STELLA.type,null,'no type, so it can never join an original type’s percent sum');
- // The four original profiles are untouched, and the array every original consumer reads is still four.
- assert.equal(STELLA_PROFILES.length,4);
- assert.deepEqual(STELLA_PROFILES.map(p=>p.id).sort(),['hero_190','hero_52','hero_54','hero_56']);
- assert.equal(ALL_STELLA_PROFILES.length,5);
+ // WHAT THIS TRACK TEMPLATES OFF DID NOT MOVE, although everything around it did. On 2026-09-18
+ // STELLA_PROFILES stopped being the four scraped rows and became one profile per original Fellow,
+ // imported from the original's own HeroSpirit table (lib/hero-spirit.mjs). The assertions above read
+ // ANGIE out of lib/stella-data.json -- the untouched four-row import -- which is exactly the file this
+ // track still templates off, so its ladder is unchanged by that.
+ assert.equal(STELLA_PROFILES.length,112,'111 shipped Fellows plus hero_52, whose row outlives her');
+ assert.equal(ALL_STELLA_PROFILES.length,113,'those plus the one shared crossover pool');
+ assert.deepEqual(ALL_STELLA_PROFILES.filter(p=>p.type===null).map(p=>p.id),['crossover'],
+  'exactly one profile has many owners; every other one is per-owner');
+ for(const id of ['hero_52','hero_54','hero_56','hero_190'])
+  assert.ok(STELLA_PROFILES.some(p=>p.id===id),`${id} must still have a profile`);
+ // NEGATIVE CONTROL on "read from the table, not copied": the crossover ladder must be Angie's own
+ // fragment column, not the shared shard every imported original track now spends.
+ assert.equal(CROSSOVER_STELLA.levels[0].itemId,CROSSOVER_SHARD_ITEM);
+ assert.notEqual(CROSSOVER_STELLA.levels[0].itemId,SPIRIT_SHARD_ITEM);
 });
 
 test('the track reaches every crossover FELLOW and nothing else -- not Family, not an original',()=>{
@@ -69,13 +80,25 @@ test('the track reaches every crossover FELLOW and nothing else -- not Family, n
  for(const f of ADDITION_FAMILY)assert.equal(stellaRule(f.id),undefined,f.id);
  assert.equal(ADDITION_FAMILY.length,30);
  assert.equal(crossoverStella('xover_msf_nobody'),false,'resolution comes from the data, not the prefix');
- // And the 159 originals keep exactly the four profiles they had.
+ // And the originals keep exactly the profiles they had -- Angie's row still resolves for old receipts.
  assert.equal(stellaRule('hero_52')?.itemId,'Item_Owner_HeroPiece_52');
- assert.equal(stellaRule('hero_1'),undefined);
+ // hero_1 used to resolve to NOTHING. Since 2026-09-18 every original Fellow has a track of their own,
+ // spending a SHARED shard that is not the crossover one -- so neither pool can ever be spent on the
+ // other's ladders. That partition is the thing this test exists to hold.
+ assert.equal(stellaRule('hero_1')?.itemId,SPIRIT_SHARD_ITEM);
+ assert.notEqual(stellaRule('hero_1').itemId,CROSSOVER_SHARD_ITEM);
+ for(const f of ADDITION_FELLOWS)assert.equal(spiritShard(f.id),false,`${f.id} is in both pools`);
  assert.equal(stellaActivation(XOVER)?.activationPolicy,'crossover-shard-activation-v1');
  assert.deepEqual([stellaActivation(XOVER).cost,stellaActivation(XOVER).flat,stellaActivation(XOVER).percent],[0,0,0],
   'the Elise precedent: free, grants nothing, opens the paid ladder');
- assert.equal(stellaActivation('hero_1'),null);
+ // hero_1 now has the imported tracks' own free activation, and it must NOT be the crossover one.
+ assert.equal(stellaActivation('hero_1')?.activationPolicy,'hero-spirit-activation-v1');
+ assert.notEqual(stellaActivation('hero_1').activationPolicy,stellaActivation(XOVER).activationPolicy);
+ // NEGATIVE CONTROL that the profile set reads the shipped roster and not "anything that is not a
+ // crossover id": a Fellow the trim deleted, and a Fellow that never existed, resolve to nothing.
+ assert.equal(stellaActivation('hero_105'),null);
+ assert.equal(stellaRule('hero_105'),undefined);
+ assert.equal(stellaRule('hero_nobody'),undefined);
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -94,13 +117,20 @@ test('the faucet does not grow with the roster: 1 crossover Fellow and 133 mint 
  // Angie AND a crossover Fellow accrues into two separate items at the same per-item rate.
  const both=settleStella(own('hero_52',XOVER),T,T+DAY);
  assert.equal(both.stella.stock['Item_Owner_HeroPiece_52'],both.stella.stock[CROSSOVER_SHARD_ITEM]);
- // A village with no crossover Fellow and no profile Fellow still writes NOTHING -- the byte-identity
- // guard that protects every flag-off save and every sim.
- assert.equal(settleStella(fresh(T),T,T+DAY).stella,undefined);
+ // A village with no crossover Fellow writes NO CROSSOVER shards. It used to write no subtree at all;
+ // since 2026-09-18 every village owns a village-track Fellow, so it writes the village pool and only
+ // that -- which is the guard that keeps a flag-off save from carrying a crossover ledger it never
+ // earned. Sharpened, not weakened: the absence is now asserted per ITEM rather than by the subtree
+ // being missing, which would have passed for a save holding crossover shards under any other key.
+ const plain=settleStella(fresh(T),T,T+DAY);
+ assert.equal(plain.stella.stock[CROSSOVER_SHARD_ITEM],undefined,'no crossover shards without a crossover Fellow');
+ assert.ok(plain.stella.stock[SPIRIT_SHARD_ITEM]>0,'and the imported tracks\u2019 shared pool is what it does accrue');
  assert.equal(ownsCrossoverStella(fresh(T)),false);
- // NEGATIVE CONTROL: crossover FAMILY alone does not open the faucet, because nothing could spend it.
+ // NEGATIVE CONTROL: crossover FAMILY alone does not open the CROSSOVER faucet, because nothing could
+ // spend it. (The village pool still runs, because the starter Fellow can spend that one.)
  const s=fresh(T);
- assert.equal(settleStella({...s,family:{...s.family,[ADDITION_FAMILY[0].id]:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}},T,T+DAY).stella,undefined);
+ const familyOnly=settleStella({...s,family:{...s.family,[ADDITION_FAMILY[0].id]:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}},T,T+DAY);
+ assert.equal(familyOnly.stella.stock[CROSSOVER_SHARD_ITEM],undefined);
 });
 
 test('the pool is genuinely shared: 4,500 spent on one Fellow is 4,500 the next cannot spend',()=>{
@@ -121,8 +151,12 @@ test('the pool is genuinely shared: 4,500 spent on one Fellow is 4,500 the next 
 });
 
 test('all 133 ladders fit inside the widened history bound and the unmoved stock cap',()=>{
- assert.equal(STELLA_HISTORY_MAX,144+41*133,'144 for the four originals, 41 rows x 133 crossover owners');
- assert.equal(STELLA_HISTORY_MAX,5597);
+ // 2026-09-18: STELLA_PROFILES became one profile per original Fellow, so the per-owner term grew from
+ // 144 rows to the sum over 112 imported ladders. The crossover term is unchanged. WIDENING only, which
+ // is the only direction a save-compatible change may move a bound.
+ assert.equal(STELLA_HISTORY_MAX,STELLA_PROFILES.reduce((n,p)=>n+p.levels.length+1,0)+41*133);
+ assert.equal(STELLA_HISTORY_MAX,8125,'5,597 before the imported tracks');
+ assert.ok(STELLA_HISTORY_MAX>5597,'the bound may only ever widen, or an old save stops decoding');
  // 733,500 shards for all 163 -- under the per-item 1e6 cap, so that bound does NOT move.
  assert.ok(4500*ADDITION_FELLOWS.length<1e6,'the shared sink must stay inside the shipped stock cap');
  let s=own(...ADDITION_FELLOWS.map(f=>f.id));
@@ -159,10 +193,12 @@ test('an addition takes NO typed percent from the original Stellas; an original 
  assert.equal(stellaEntry(s,'hero_56').percent,122,'Liz’s own ladder reached its top');
  // The ORIGINAL half -- unchanged behaviour, and the positive control for the assertion below.
  assert.equal(stellaBonus(s,'hero_56').percent,122);
- // Her own flat and her own +122%, in the shipped order: floor((power + flat) x (1 + percent/100)).
- // The 1-unit slack is the un-floored base inside bondedPower -- `before.angie` is already floored.
- assert.ok(Math.abs(bondedPower(s,'hero_56')-Math.floor((before.angie+35300000)*2.22))<=1,
-  `${bondedPower(s,'hero_56')} is not floor((${before.angie} + 35,300,000) x 2.22)`);
+ // Her own flat and her own +122%, in the ORIGINAL's order: floor(power x (1 + percent/100)) + flat.
+ // REBASELINED 2026-09-18 -- this read floor((power + flat) x 2.22) until the client was read and the
+ // flat turned out to be an `extradd`, added after every multiplier (PropManager.lua:116). The 1-unit
+ // slack is the un-floored base inside bondedPower; `before.angie` is already floored.
+ assert.ok(Math.abs(bondedPower(s,'hero_56')-(Math.floor(before.angie*2.22)+35300000))<=1,
+  `${bondedPower(s,'hero_56')} is not floor(${before.angie} x 2.22) + 35,300,000`);
  // The ADDITION half -- zero percent, and its power has not moved at all.
  assert.equal(stellaBonus(s,informed).percent,0,'MEASURED BEFORE THE FIX: 122');
  assert.equal(bondedPower(s,informed),before.x,'another Fellow’s Stella must not touch it');
@@ -173,23 +209,45 @@ test('an addition takes NO typed percent from the original Stellas; an original 
 test('type stops being a power lever: five crossover Fellows on identical records max identically',()=>{
  const types=['Inspiring','Diligent','Brave','Informed','Unfettered'];
  const picks=types.map(t=>ADDITION_FELLOWS.find(f=>f.type===t).id);
- // hero_52 (Angie) was deleted 2026-09-17 and her Informed track went with her, so three of the four
- // original ladders are climbable. The point of the test is that the five crossover picks END EQUAL,
- // which is if anything a harder thing to hold when the typed percents are uneven.
+ // hero_52 (Angie) was deleted 2026-09-17 and her Informed track went with her; hero_74 inherited that
+ // exact ladder on 2026-09-18, so four of the five per-owner ladders are climbable again. The point of
+ // the test is that the five crossover picks END EQUAL, which is if anything a harder thing to hold
+ // when the typed percents are uneven -- and they are more uneven now, not less.
  const owners=STELLA_PROFILES.filter(p=>FELLOWS.some(f=>f.id===p.id));
- assert.equal(owners.length,3);
+ assert.equal(owners.length,111,'every shipped original Fellow has an imported ladder since 2026-09-18');
  let s=own(...owners.map(p=>p.id),...picks);
  for(const p of owners)s=climb(s,p.id);
  // Before the fix these five differed by 2.84x on identical records. Now they are one number.
  const powers=picks.map(id=>bondedPower(s,id));
  assert.equal(new Set(powers).size,1,`still differs by type: ${JSON.stringify(powers)}`);
  assert.deepEqual(picks.map(id=>stellaBonus(s,id).percent),[0,0,0,0,0]);
- // POSITIVE CONTROL: the originals of those same types do still differ, by exactly the sums that used
- // to leak onto the crossovers -- Inspiring 184 (Rani 122 + Elise 62) and Diligent 122. Informed is 0
- // because its only owner, Angie, was deleted on 2026-09-17: her row is still in STELLA_PROFILES but
- // nobody can own it, so the track pays nothing to anyone.
- const byType={};for(const p of STELLA_PROFILES)byType[p.type]=stellaBonus(s,p.id).percent;
- assert.deepEqual(byType,{Informed:0,Inspiring:184,Diligent:122});
+ // POSITIVE CONTROL: the originals of those same types do still differ, by exactly the sums that leak
+ // onto nobody now -- Inspiring 184 (Rani 122 + Elise 62), Diligent 122, and Informed 122 again since
+ // hero_74 took over Angie's ladder unchanged. Angie's own row is still in STELLA_PROFILES and still
+ // unownable, which is why reading it through her id would give 0; the sum is read per TYPE.
+ // Only FOUR profiles in the whole imported table carry a country percent, so only three types get one
+ // (hero_54 and hero_190 are both Inspiring). The other two types sum to zero however many Fellows have
+ // climbed a ladder, which is the check that the 107 flat-only ladders never leak into a type sum.
+ //
+ // READ `typedPercent`, NOT `percent`, SINCE 2026-09-18. `percent` is now the SUM of the broadcast half
+ // and the owner's own imported `selfPowerBp` -- one bucket, as the client composes it -- so reading the
+ // sum here would have shown Brave 303 and Inspiring 487 and looked exactly like the leak this test
+ // exists to catch. `typedPercent` is the broadcast half alone, which is the only half that can reach a
+ // Fellow who bought nothing, and it is unchanged by the import.
+ const byType={};for(const f of FELLOWS.filter(f=>!f.addition))byType[f.type]??=stellaBonus(s,f.id).typedPercent;
+ assert.deepEqual(byType,{Informed:122,Inspiring:184,Diligent:122,Brave:0,Unfettered:0});
+ assert.equal(stellaBonus(s,'hero_74').typedPercent,122,'and the new Informed owner receives her own track');
+ // And the split is exact, so `percent` cannot quietly stop being the sum of the two halves.
+ for(const f of FELLOWS.filter(f=>!f.addition)){const b=stellaBonus(s,f.id);
+  assert.equal(b.percent,b.selfPercent+b.typedPercent,`${f.id} percent is not selfPercent + typedPercent`);}
+ // THE OWN HALF STAYS WITH ITS OWNER, which is the new claim this import makes. hero_194 has the
+ // largest own-Power column in the whole table (+1350%); every other Inspiring Fellow must see none of
+ // it, and hero_194 must see all of it.
+ assert.equal(stellaBonus(s,'hero_194').selfPercent,1350);
+ const otherInspiring=FELLOWS.filter(f=>!f.addition&&f.type==='Inspiring'&&f.id!=='hero_194');
+ assert.ok(otherInspiring.length>1);
+ assert.equal(otherInspiring.filter(f=>stellaBonus(s,f.id).selfPercent===1350).length,0,
+  'hero_194’s own-Power percent must not reach another Inspiring Fellow');
  assert.ok(valid(s),refusedBy(s));
 });
 
@@ -254,18 +312,26 @@ test('the Little Helper’s Stella chore reaches the shared track, and keeps its
  assert.equal(state.crystals,s.crystals);
  assert.equal(stellaState(state).stock[CROSSOVER_SHARD_ITEM],10000-4500-stellaEntry(state,XOVER2)?.level*0-
   CROSSOVER_STELLA.levels.slice(0,stellaEntry(state,XOVER2)?.level||0).reduce((n,r)=>n+r.cost,0));
- // NEGATIVE CONTROL: with no crossover Fellow owned it is a no-op that writes no subtree.
+ // NEGATIVE CONTROL: with no crossover Fellow owned it spends NO crossover shards. Since 2026-09-18 it
+ // is no longer a no-op -- the same chore now runs the shared VILLAGE track for the originals it owns --
+ // so the control is per ITEM, which is the claim that actually matters and is strictly narrower than
+ // \"it wrote no subtree\".
  const plain=HELPER_TASKS.find(x=>x.id==='stella').run(own('hero_1'),act,T);
- assert.equal(plain.state.stella,undefined,'no ledger for a village with nothing on this track');
+ assert.equal(stellaState(plain.state).stock[CROSSOVER_SHARD_ITEM],undefined,'no crossover shards were minted or spent');
+ assert.equal(stellaState(plain.state).history.some(r=>r.itemId===CROSSOVER_SHARD_ITEM),false,'and no crossover row was written');
 });
 
 test('settle writes no crossover ledger for a village that owns none, at any elapsed time',()=>{
- // The byte-identity guard the flag-off contract rests on, driven through settle() rather than
- // settleStella() so the whole pipeline is covered.
+ // The flag-off guard, driven through settle() rather than settleStella() so the whole pipeline is
+ // covered. REWRITTEN 2026-09-18: it used to assert the whole subtree was absent, which stopped being
+ // true when every village gained a village-pool Fellow. The claim it was protecting -- that a flag-off
+ // village never accrues a currency only a crossover Fellow can spend -- is asserted directly instead.
  const s=fresh(T);
  for(const days of [0.5,3,30]){
   const out=settle(s,T+days*DAY);
-  assert.equal(out.stella,undefined,`${days} days wrote a stella subtree onto a village with no profile`);
+  assert.equal(out.stella.stock[CROSSOVER_SHARD_ITEM],undefined,`${days} days minted crossover shards onto a village with no crossover Fellow`);
+  assert.equal(out.stella.idle?.[CROSSOVER_SHARD_ITEM],undefined,`${days} days recorded crossover idle onto a village with no crossover Fellow`);
+  assert.ok(valid(out),refusedBy(out));
  }
  // POSITIVE CONTROL: the same call on a village that DOES own a crossover Fellow writes one.
  assert.ok(settle(own(XOVER),T+DAY).stella.stock[CROSSOVER_SHARD_ITEM]>0);
