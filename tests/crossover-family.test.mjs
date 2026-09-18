@@ -134,10 +134,11 @@ test('a Family addition borrows one template, and it is an original Family membe
 
 test('the installed media matches its recorded bytes and hashes, and streams rather than precaching',()=>{
  const installed=ADDITION_FAMILY_ROWS.filter(r=>installedAsset(r.art));
- // THREE samples on purpose. The remaining 27 are wired but not installed, so the repo does not grow
- // before the bulk install step of docs/crossover-plan.md.
- assert.equal(installed.length,3,'exactly three of the 30 ship their media in this step');
- assert.deepEqual(installed.map(r=>r.id).sort(),['xover_msf_jeangrey','xover_msf_scarletwitch','xover_swgoh_glleia']);
+ // ALL 30 now. This read "exactly three of the 30 ship their media in this step" while the Family
+ // layer was being built and only three samples were in the tree; the village build of 2026-09-17 is
+ // the bulk install step of docs/crossover-plan.md, so the sample is the whole list.
+ assert.equal(installed.length,30,'all 30 Family ship their media');
+ assert.deepEqual(installed.map(r=>r.id).sort(),ADDITION_FAMILY_ROWS.map(r=>r.id).sort());
  let bytes=0;
  for(const r of installed){
   const f=additionById(r.id),clip=additionClip(f);
@@ -150,26 +151,26 @@ test('the installed media matches its recorded bytes and hashes, and streams rat
   for(const p of [r.art,clip.src])assert.ok(streamed('assets/'+p),p+' would be precached');
   bytes+=art.length+mp4.length;
  }
- assert.ok(bytes<3*1024*1024,`three Family samples add ${bytes} bytes`);
- // Every row not installed is still fully recorded, so nothing is lost and the later install is a copy.
+ // MEASURED from the installed files: 8,374,846 bytes of stills + 33,135,387 bytes of idle clips.
+ assert.equal(bytes,41510233,`the 30 Family add ${bytes} bytes`);
+ // Every row records both hashes, so what is on disk can always be checked against what was measured.
  for(const r of ADDITION_FAMILY_ROWS)assert.ok(/^[0-9a-f]{64}$/.test(r.artSha256)&&/^[0-9a-f]{64}$/.test(r.clip.sha256),r.id);
- // RE-MEASURED 2026-09-17, after the arcs slice installed the 131 remaining Fellow stills. This line
- // read 10 ("5 stills + 5 clips") when the Family layer was the only crossover media in the tree.
- // Counted from the files on disk, not asserted from the plan:
- //   136 stills = 133 crossover Fellows + the 3 Family samples
- //     5 clips  = the 2 Fellow prototypes + the same 3 Family samples
- // The other 131 Fellow rows carry `clip:null` on purpose -- the 163 idle mp4s are ~98 MB and land
- // with the shipping step -- so they contribute a still each and no clip.
+ // RE-MEASURED 2026-09-17 after the village install, the last of three times this line moved: it read
+ // 10 ("5 stills + 5 clips") when the Family layer was the only crossover media in the tree, then 141
+ // when the arcs slice installed the 131 remaining Fellow stills. Counted from the files on disk:
+ //   163 stills = 133 crossover Fellows + 30 crossover Family
+ //   163 clips  = one idle mp4 each, for the same 163
+ // Nothing is pending any more, so `pendingCrossoverRows()` reports the empty list. That claim is only
+ // worth making with a POSITIVE CONTROL beneath it, because an empty list is also what a broken
+ // predicate returns (CLAUDE.md rule 2).
  const installedAll=installedCrossoverAssets();
- assert.equal(installedAll.filter(p=>p.endsWith('.webp')).length,136,'133 Fellow stills + 3 Family samples');
- assert.equal(installedAll.filter(p=>p.endsWith('.mp4')).length,5,'2 Fellow prototype clips + 3 Family samples');
- assert.equal(installedAll.length,141);
- // The 27 Family rows whose media has not landed are the ONLY pending rows: a Fellow row declaring no
- // clip is not pending, it has nothing to install. NEGATIVE CONTROL for that, since the old predicate
- // got the right count for the wrong reason -- an absent path must not read as an installed file.
- assert.equal(pendingCrossoverRows().length,27,'the 27 Family rows still to install');
- assert.deepEqual(pendingCrossoverRows().map(r=>r.id).sort(),
-  ADDITION_FAMILY_ROWS.filter(r=>!installedAsset(r.art)).map(r=>r.id).sort());
+ assert.equal(installedAll.filter(p=>p.endsWith('.webp')).length,163,'133 Fellow stills + 30 Family stills');
+ assert.equal(installedAll.filter(p=>p.endsWith('.mp4')).length,163,'one idle clip each');
+ assert.equal(installedAll.length,326);
+ assert.deepEqual(pendingCrossoverRows(),[],'every crossover row has its media installed');
+ // POSITIVE CONTROL for that empty list: the predicate behind it can still answer no.
+ assert.equal(installedAsset('crossover/xover_msf_nobody.webp'),false,'the predicate really can say no');
+ assert.equal(installedAsset(ADDITION_FAMILY_ROWS[0].art),true,'and really can say yes');
  assert.equal(installedAsset(''),false,'an absent path is not an installed file');
  assert.equal(installedAsset('crossover/'),false,'and neither is a directory that happens to exist');
  assert.equal(installedAsset('crossover/xover_msf_jeangrey.webp'),true,'positive control');

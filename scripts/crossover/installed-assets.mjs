@@ -6,11 +6,13 @@
 // no framing transform was applied to any of them, and art-framing.test.mjs could not catch it because
 // the paths it checks never mention them (docs/crossover-family-plan.md D7).
 //
-// The set is computed from the additions data INTERSECTED with what is on disk, because the media lands
-// in batches: 30 crossover Family rows carry their art path and hashes, and only three of them ship
-// their files so far (the full install is a later step of docs/crossover-plan.md). Both the generator
-// and the test read this one function, so they stay in lockstep as the rest of the media arrives --
-// nothing has to be edited when it does.
+// The set is computed from the additions data INTERSECTED with what is on disk, because the media
+// landed in batches: three Family samples, then 131 more Fellow stills with the arcs slice, and finally
+// all 326 files (163 stills + 163 idle clips) with the village install of 2026-09-17. Both the
+// generator and the test read this one function, so they stayed in lockstep through every batch and
+// nothing had to be edited when one arrived. The intersection is kept now that the set is complete:
+// it is what makes `pendingCrossoverRows()` able to report a regression rather than assume there is
+// none, and it is the only reason a half-copied install would be caught.
 import {statSync} from 'node:fs';
 import {ALL_ADDITION_ROWS} from '../../lib/everkai-additions.mjs';
 

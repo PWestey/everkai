@@ -121,9 +121,10 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
   assert.equal(art.subarray(8,12).toString(),'WEBP',r.id);
   assert.ok(streamed('assets/'+r.art),r.art+' would be precached');
   bytes+=art.length;
-  // The 131 rows added with the arcs carry clip:null: the idle mp4s are 98 MB and are installed with
-  // the shipping step, and app/character-artwork.tsx already falls back to the still when there is no
-  // clip. A row that DOES declare one must have the file, byte for byte.
+  // Every row declares a clip now: the shipping step installed all 163 stills and all 163 idle mp4s
+  // from the village build. The `clip:null` branch survives as the contract app/character-artwork.tsx
+  // still relies on -- a row without a clip falls back to its still -- and is asserted below to be
+  // taken by nobody, which is a stronger statement than deleting it.
   if(!r.clip){assert.equal(clip,null,`${r.id} declares no clip`);continue}
   clips++;
   const mp4=readFileSync(asset(clip.src));
@@ -134,11 +135,14 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
   assert.ok(streamed('assets/'+clip.src),clip.src+' would be precached');
   bytes+=mp4.length;
  }
- assert.deepEqual(data.fellows.filter(r=>r.clip).map(r=>r.id),SHIPPED,'only the two prototypes have clips yet');
- assert.equal(clips,2);
- // None of this is in the precache (STREAMED excludes assets/crossover/), so the budget guard in
- // tests/offline-manifest.test.mjs cannot move. This is the download-on-demand total.
- assert.ok(bytes<16*1024*1024,`${data.fellows.length} additions carry ${bytes} bytes of media`);
+ assert.deepEqual(data.fellows.filter(r=>!r.clip).map(r=>r.id),[],'every Fellow ships an idle clip after the village install');
+ assert.equal(clips,133);
+ // MEASURED 2026-09-17 from the installed files, not from the plan: the 133 Fellows carry 34,678,548
+ // bytes of stills and 153,265,555 bytes of idle clips. None of it is in the precache (STREAMED
+ // excludes assets/crossover/), so the budget guard in tests/offline-manifest.test.mjs cannot move --
+ // this is the download-on-demand total, and it is pinned so a re-render cannot quietly double it.
+ assert.equal(bytes,187944103,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
+ assert.ok(bytes<256*1024*1024,'and the on-demand total stays inside a quarter gigabyte');
 });
 
 const flagOn=(()=>{let v;return ()=>v??=JSON.parse(execFileSync(process.execPath,
