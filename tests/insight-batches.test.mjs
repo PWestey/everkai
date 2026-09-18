@@ -1,3 +1,4 @@
+import {APTITUDE_CAP} from '../lib/aptitude-cap.mjs'; // was a flat 1,000 until 2026-09-18
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,settle,totalRate} from '../lib/game.mjs';
 import {FELLOWS} from '../lib/catalog.mjs';import {newFellow} from '../lib/adventure.mjs';
@@ -23,7 +24,7 @@ for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[i
 test('affordable previews match admitted results at currency, level and Aptitude boundaries',()=>{
  let s=stock(fresh(1000));s.insight.balances.Item_Hero_Talent_Country_5=399;
  assert.deepEqual(insightTrainingPlan(s,'hero_15',5),{count:3,cost:300,level:3,aptitude:13,balance:99});s=go(s,'trainInsight','hero_15',5);assert.equal(s.insight.balances.Item_Hero_Talent_Country_5,99);
- s=stock(s);s.fellows.hero_15.aptitude=999;assert.equal(insightTrainingPlan(s,'hero_15','max').count,1);s=go(s,'trainInsight','hero_15','max');assert.equal(s.fellows.hero_15.aptitude,1000);assert.ok(act(s,'trainInsight',s.lastAt,'hero_15',1).error);
+ s=stock(s);s.fellows.hero_15.aptitude=APTITUDE_CAP-1;assert.equal(insightTrainingPlan(s,'hero_15','max').count,1);s=go(s,'trainInsight','hero_15','max');assert.equal(s.fellows.hero_15.aptitude,APTITUDE_CAP);assert.ok(act(s,'trainInsight',s.lastAt,'hero_15',1).error);
  for(const value of [0,-1,1.5,10,'5',{},Infinity]){assert.equal(insightTrainingPlan(s,'hero_15',value).count,0);assert.ok(act(s,'trainInsight',s.lastAt,'hero_15',value).error);}
 });
 test('legacy30 saves gain no automatic levels or rewards and may explicitly train beyond30',()=>{

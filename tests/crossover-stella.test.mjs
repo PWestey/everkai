@@ -367,9 +367,13 @@ test('RULE 12: a previous-build save whose mine receipt was dug at the OLD typed
  const receipt=s.mineClearance.history[0];
  assert.equal(receipt.owner,id);
  assert.equal(receipt.power,11563344,'what the previous build measured with the +184% type sum live');
- // The same Fellow on the same records is weaker now, by exactly the multiplier that was removed.
- assert.equal(bondedPower(s,id),4071600);
- assert.equal(+(receipt.power/bondedPower(s,id)).toFixed(2),2.84,'the Inspiring type sum, now gone');
+ // The same Fellow on the same records is weaker now. It was 4,071,600 (x2.84 below the receipt: the
+ // Inspiring type sum, gone) until 2026-09-18, when Power moved to the original's additive composition
+ // (lib/adventure.mjs powerParts): its 7 stars (+35%) and skill 20 (+100%) now ADD in one percent bucket
+ // -- 1 + 0.35 + 1.00 = x2.35 -- where they used to multiply, x1.35 x x2 = x2.70. A second derived move
+ // on the same stored receipt, which is exactly why this test decodes the save rather than trusting it.
+ assert.equal(bondedPower(s,id),3543800);
+ assert.equal(+(receipt.power/bondedPower(s,id)).toFixed(2),3.26,'the type sum AND the additive stars/skill');
  // ...and the save still loads, with nothing quarantined. It is no longer a BYTE-IDENTICAL round trip,
  // and that is the 2026-09-17 roster trim rather than anything to do with Stella or the mine: this
  // fixture owns nearly the whole original roster, so 48 of its Fellows are now released on load and

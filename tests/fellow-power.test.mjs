@@ -10,6 +10,10 @@ import operations from '../lib/operation-data.json' with {type:'json'};
 import {ARTIFACT_CAP} from '../lib/artifacts.mjs';
 import SPIRIT_DATA from '../lib/hero-spirit-data.json' with {type:'json'};
 
+// *** 2026-09-18: POWER NOW FOLLOWS THE ORIGINAL'S OWN COMPOSITION (lib/adventure.mjs powerParts). ***
+// Every pinned figure below that moved records its previous value beside it; the history further down
+// this header predates that change and is kept as the record of how each earlier number arose.
+//
 // The Fellow power spine, pinned AS IT IS TODAY. This is a characterisation test, not an aspiration:
 // every number below was measured by running this code, and a change that moves any of them should
 // have to say so out loud rather than drift silently.
@@ -97,48 +101,53 @@ const maxedRecords=s=>({...s,fellows:Object.fromEntries(Object.keys(s.fellows).m
 // ---------------------------------------------------------------------------------------------
 
 const ADVENTURE=readFileSync(new URL('../lib/adventure.mjs',import.meta.url),'utf8');
-/** The single line that defines bondedPower. It is one long expression on purpose (lib/adventure.mjs:66),
- *  which is exactly why the contributor stack is worth extracting rather than eyeballing. */
-const bondedPowerSource=()=>ADVENTURE.split('\n').find(l=>l.startsWith('export const bondedPower='));
-/** Every function called inside that expression. `floor` and `find` are Math.floor and Array.prototype
- *  .find -- language, not game rules -- so they are dropped rather than pinned. */
-const contributors=()=>[...new Set([...bondedPowerSource().matchAll(/([A-Za-z][A-Za-z0-9_]*)\(/g)]
- .map(m=>m[1]).filter(n=>!['floor','find'].includes(n)))];
+/** The body of powerParts -- the one function every Fellow Power reading goes through since 2026-09-18.
+ *  (It used to be a single 761-character `export const bondedPower=` line; bondedPower is now
+ *  `powerParts(s,id).power`, so the contributor stack lives in powerParts and is extracted from there.) */
+const powerPartsSource=()=>{const i=ADVENTURE.indexOf('export function powerParts(');if(i<0)return null;
+ const j=ADVENTURE.indexOf('\n}\n',i);return j<0?null:ADVENTURE.slice(i,j+2);};
+/** Every function called inside it. `floor`, `round`, `find`, `values`, `reduce` are language, and `total`,
+ *  `bp` and `composePower` are the bucket arithmetic itself (pinned separately against the owner's two real
+ *  panels in tests/power-composition.test.mjs), so they are dropped rather than pinned as contributors. */
+const LANGUAGE=['floor','round','find','values','reduce','total','bp','composePower','powerParts'];
+const contributors=()=>[...new Set([...powerPartsSource().matchAll(/([A-Za-z][A-Za-z0-9_]*)\(/g)]
+ .map(m=>m[1]).filter(n=>!LANGUAGE.includes(n)))];
 
-test('the bondedPower extractor still works (guards this whole file against a silent regex break)',()=>{
- const line=bondedPowerSource();
- assert.ok(line,'no `export const bondedPower=` line in lib/adventure.mjs; the pattern has drifted');
- // It is a 761-character single expression today. A short line means it was reformatted or split,
- // and the symbol sweep below would then silently cover only part of the stack.
- assert.ok(line.length>500,`bondedPower line is only ${line.length} chars; it has been reformatted`);
+test('the powerParts extractor still works (guards this whole file against a silent regex break)',()=>{
+ const body=powerPartsSource();
+ assert.ok(body,'no `export function powerParts(` in lib/adventure.mjs; the pattern has drifted');
+ assert.ok(/export const bondedPower=\(s,id\)=>powerParts\(s,id\)\.power;/.test(ADVENTURE),'bondedPower must read powerParts, or this sweep covers the wrong function');
+ // A short body means it was split across helpers, and the sweep below would cover only part of it.
+ assert.ok(body.length>900,`powerParts is only ${body.length} chars; it has been split or reformatted`);
  const found=contributors();
  assert.ok(found.length>10,`extracted only ${found.length} contributors; the pattern has drifted`);
- // One known symbol per source shape, so losing any single one fails here rather than vacuously.
  for(const [known,why] of [['blessingPower','an imported bonus function'],
-                           ['starredAptitude','a same-module helper'],
-                           ['applyStella','the outermost wrapper'],
-                           ['elixirPower','the flat term added last']])
+                           ['fellowStars','a same-module helper'],
+                           ['stellaBonus','the Stella flat AND percent, now inside the buckets'],
+                           ['elixirPower','a flat part']])
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('bondedPower sums exactly these fifteen contributors, and no others',()=>{
- // The full spine. Adding a sixteenth is a real parity change and must edit this list deliberately.
+test('powerParts reads exactly these thirteen contributors, and no others',()=>{
+ // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
+ // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
+ // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
+ // wrappers around it; originalProgression/sourceCoefficient are folded into levelADH, the one place the
+ // two modes differ; stellaBonus and fellowStars are read directly.
  assert.deepEqual(contributors().sort(),[
-  'applyStella',          // stella.mjs      -- own flat + typed % , applied outermost
-  'artifactBonus',        // artifacts.mjs   -- (perLevel x gearLevel-1) aptitude
-  'artifactEchoBonus',    // artifact-echo   -- named/family equipment echo: aptitude + %
-  'bondFactor',           // bonds.mjs       -- family bond, +2% per level, inside the % stack
-  'blessingPower',        // blessings.mjs   -- family Fellow/Advanced blessing: flat + %
-  'elixirPower',          // elixirs.mjs     -- flat, added after every multiplier
-  'familiarBonus',        // familiar-nodes  -- flat + aptitude + % + finalPercent
-  'fellowPower',          // local           -- the default-mode base: (80+20*level) x fellowFactor
-  'fishingBonuses',       // fishing.mjs     -- flat + aptitude + %, typed and rarity-gated
-  'museumBonus',          // museum.mjs      -- aptitude + basicPowerPercent + powerPercent
-  'originalProgression',  // the mode switch between the two base branches
-  'sourceAptitudeBonus',  // APK branch      -- hero base talent + quality talent
-  'sourceCoefficient',    // APK branch      -- HeroLevel.coefficientADH, the original's own curve
-  'specialAptitude',      // special-blessings -- family special blessing aptitude
-  'starredAptitude',      // local           -- aptitude x (1 + stars x 5%)
+  'artifactBonus',        // talent  -- (perLevel x gearLevel-1), the original's Equipment riseTalent
+  'artifactEchoBonus',    // talent + percent
+  'blessingPower',        // flat + percent  -- Family (panel: FORMULA_PERCENT/"beautyskillII")
+  'bondFactor',           // percent -- family bond, +2% a level
+  'elixirPower',          // flat    -- the panel's "Item" part
+  'familiarBonus',        // talent + percent + flat + final -- EVERKAI-ONLY magnitude (EVERKAI_ONLY_PARTS)
+  'fellowStars',          // percent -- the panel's FORMULA_PERCENT/"herostar"
+  'fishingBonuses',       // talent + percent + flat
+  'levelADH',             // adh     -- HeroLevel.coefficientADH (APK) or (80+20*level)/10 (default)
+  'museumBonus',          // talent + percent (basicPowerPercent) + final (powerPercent)
+  'sourceAptitudeBonus',  // talent  -- the hero row's initialTalent + quality talent (APK only)
+  'specialAptitude',      // talent  -- family special blessing
+  'stellaBonus',          // flat + percent -- the panel's extradd and the hidden percent/underlingskillpower
  ].sort());
 });
 
@@ -216,7 +225,9 @@ test('museum is the one external contributor reachable with no other system buil
 // numbers did not move at all (the single-Fellow ceiling below is untouched), and neither did the
 // shape of the curve -- 111/159 of the old roster is 0.70, and 1,616,486/2,269,308 is 0.71, the
 // difference being that the 48 were not an even slice of the rarity mix.
-test('default mode: records + museum + familiars reach 1,616,486 -- NOT the ceiling, see the header',()=>{
+// REBASELINED 2026-09-18 -- Power moved to the original's additive composition (lib/adventure.mjs
+// powerParts; docs/power-parity-audit.md 9). Every figure below records its value before that change.
+test('default mode: records + museum + familiars reach 1,317,357 -- NOT the ceiling, see the header',()=>{
  let s=roster();
  assert.equal(Object.keys(s.fellows).length,111);
  // An untrained full roster is worth almost nothing: 111 x 100 / 1000.
@@ -231,12 +242,16 @@ test('default mode: records + museum + familiars reach 1,616,486 -- NOT the ceil
  // Every record maxed instead: levels, aptitude, skill, best gear, artifact level 200, seven stars.
  // REBASELINED 2026-09-15 (F11): 744,732 -> 1,348,957, entirely from gearLevel 20 -> ARTIFACT_CAP 200.
  s=maxedRecords(s);
- assert.equal(Math.round(rosterOperation(s)),941725);
+ // 941,725 before 2026-09-18: stars (+35%) and skill (+100%) now ADD in one bucket (x2.35) instead of
+ // multiplying (x2.70), but stars now reach the gear and artifact Aptitude too, which they never did.
+ assert.equal(Math.round(rosterOperation(s)),968850);
  s=maybe(allKeepsakes(s),'acceptMuseum');
  // REBASELINED 2026-09-15: 822,420 -> 1,195,714 -> 2,162,475. The museum stage moved first because all
  // 32 keepsakes now carry their original effect (+60 basicPowerPercent instead of +6, and no
  // powerPercent at all), and again because maxedRecords now uses ARTIFACT_CAP (F11).
- assert.equal(Math.round(rosterOperation(s)),1509652);
+ // 1,509,652 before 2026-09-18: the museum's +60% joins the same bucket (+0.60 on x2.35) instead of
+ // multiplying the whole base (x1.60).
+ assert.equal(Math.round(rosterOperation(s)),1218191);
 
  // Familiars are the largest single external contributor: inherent flat Power up to 3,000,000 plus
  // 199 activatable nodes each. Binding is strictly 1:1, so only 71 of 154 Fellows can ever hold one.
@@ -254,7 +269,8 @@ test('default mode: records + museum + familiars reach 1,616,486 -- NOT the ceil
  assert.equal(bound,71,'familiar binding is 1:1; 71 familiars cover 71 of the 111 Fellows');
  // REBASELINED 2026-09-15: 907,328 -> 1,284,793 (E4-02/E4-03, the museum stage) -> 2,269,308 (F11,
  // maxedRecords now uses the shipped ARTIFACT_CAP of 200 instead of the retired provisional 20).
- assert.equal(Math.round(rosterOperation(s)),1616486);
+ // 1,616,486 before 2026-09-18.
+ assert.equal(Math.round(rosterOperation(s)),1317357);
 
  // The whole fixture is a legal save, so this is genuinely reached and not a minted state. It is NOT
  // the ceiling: stella, blessings and artifact echoes are all still at zero here, and driving them
@@ -277,7 +293,7 @@ test('default mode: records + museum + familiars reach 1,616,486 -- NOT the ceil
 // because a ceiling reachable only by minting an illegal save is not a ceiling.
 // ---------------------------------------------------------------------------------------------
 
-test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes take it 16.7x past the fixture',()=>{
+test('the real default-mode ceiling is 14,537,869: stella, blessings and echoes take it 11.0x past the fixture',()=>{
  // Stage 0 -- the fixture above, rebuilt here so this test stands alone if that one is edited.
  let s=maxedRecords(roster());
  s=maybe(allKeepsakes(s),'acceptMuseum');
@@ -291,7 +307,7 @@ test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes 
  // A bond pays by stage now (ECON-29). The ceiling trains every familiar to stage 10 AFTER its nodes were
  // activated at level 1, so the node set -- and therefore the pinned figure -- is what it always was.
  s={...s,familiars:Object.fromEntries(Object.entries(s.familiars).map(([id,p])=>[id,{...p,level:Math.max(450,p.level)}]))};
- assert.equal(Math.round(rosterOperation(s)),1616486,'stage 0 must match the fixture above');
+ assert.equal(Math.round(rosterOperation(s)),1317357,'stage 0 must match the fixture above (1,616,486 before 2026-09-18)');
 
  // Stage 1 -- STELLA. Four profiles ship with a private activation policy; each is activated once and
  // then upgraded to the top of its own ladder, paid from the free sandbox fragment faucet. Every call
@@ -326,7 +342,10 @@ test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes 
  // was carried as `unmodelledMax` and is now imported. It joins the SAME `percent` bucket the
  // type-wide column already used (PropManager.lua:99-117 sums every contributing system into one
  // factor), so nothing multiplies twice: applyStella is byte-identical, only stellaBonus's sum grew.
- assert.equal(Math.round(rosterOperation(s)),19597345,'stella is worth +17,980,859 over the fixture (+1,303,619 with four scraped profiles; +12,040,323 before the own-Power percent)');
+ // 19,597,345 before 2026-09-18. Stella's percent used to wrap the WHOLE Fellow (applyStella) -- base,
+ // museum, familiar flat and all; it is now one more part of the base term's additive bucket, which is
+ // where the owner's live panel puts it (percent/underlingskillpower, docs/power-parity-audit.md 1.4).
+ assert.equal(Math.round(rosterOperation(s)),14143031,'stella is worth +12,825,674 over the fixture (+17,980,859 when its percent wrapped everything)');
  assert.ok(valid(s),'the stella save must be legal');
 
  // Stage 2 -- BLESSINGS. welcomeAll is the family counterpart of recruitAll; without it a save holds
@@ -351,7 +370,9 @@ test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes 
  }
  // 208 of 210: two (family, key) pairs refuse with 'No supported ungated Fellows are available'.
  assert.equal(trained,200,'the trainable (family, blessing) pair count has moved (212 before the 2026-09-17 roster trim)');
- assert.equal(Math.round(rosterOperation(s)),25877947,'blessings are worth +6,280,602 over stella (+1,737,662 before the own-Power percent, which multiplies the blessing flat too)');
+ // 25,877,947 before 2026-09-18: the blessing flat is no longer multiplied by Stella's percent, and the
+ // blessing percent now adds to Stella's instead of being multiplied by it.
+ assert.equal(Math.round(rosterOperation(s)),14461838,'blessings are worth +318,807 over stella (+6,280,602 when Stella multiplied them)');
  assert.ok(valid(s),'the blessing save must be legal');
 
  // Stage 3 -- ARTIFACT ECHOES. An Echo only enables when its OWN named artifact is equipped on its
@@ -370,7 +391,7 @@ test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes 
   const before=s;s=maybe(s,'enableArtifactEcho',r.fellow);if(s!==before)enabled++;
  }
  assert.equal(enabled,27,'every named Echo must enable once its own artifact is equipped');
- assert.equal(Math.round(rosterOperation(s)),26956296);
+ assert.equal(Math.round(rosterOperation(s)),14537869,'26,956,296 before 2026-09-18');
  assert.ok(valid(s),'THE WHOLE 4,096,763 SAVE MUST BE LEGAL -- otherwise it is not a reachable ceiling');
 
  // The parity statement this file exists to make, in one assertion. REBASELINED 2026-09-15 (E4-02/E4-03):
@@ -392,7 +413,8 @@ test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes 
  // -- ~23M average against his own reported 300M top and 5M floor (docs/power-parity-audit.md 5). So
  // this line is now a PACING CHECK and is named as one. A move here is worth reporting; it is not a
  // budget and it does not block a slice.
- assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,7.71,
+ // 7.71 before 2026-09-18.
+ assert.equal(Math.round(rosterOperation(s)/3_497_276*100)/100,4.16,
   'PACING against one real few-weeks save -- not a parity target');
  // *** THE SECOND PIN: THE ORIGINAL'S OWN TABLE MAXIMUM. *** Every one of the original's 126 Spirit
  // tracks at its top rank, summed, under the original's own HeroConversionRate divisor of 10/10000.
@@ -402,22 +424,25 @@ test('the real default-mode ceiling is 26,956,296: stella, blessings and echoes 
  // account-wide floor. So 1.94x is an UPPER bound on the overshoot, not the overshoot.
  const TABLE_MAX=Math.round(SPIRIT_DATA.profiles.reduce((n,p)=>n+p.ranks.at(-1).flat,0)/1000);
  assert.equal(TABLE_MAX,13861950);
- assert.equal(Math.round(rosterOperation(s)/TABLE_MAX*1000)/1000,1.945);
+ assert.equal(Math.round(rosterOperation(s)/TABLE_MAX*1000)/1000,1.049,'1.945 before 2026-09-18');
  // *** AND THE PER-FELLOW PIN, which is the number the owner actually reported seeing. His best hero
  // on the original after a few weeks was ~300,000,000, and 70-90% of it was that hero's own Spirit
  // `extradd` -- whose table maximum is 223,500,000. Everkai's strongest fully-maxed Fellow:
  const top=Math.max(...Object.keys(s.fellows).map(id=>bondedPower(s,id)));
- assert.equal(top,623250916);
+ // 623,250,916 before 2026-09-18 -- 2.08x the owner's 300M. Under the original's composition the
+ // strongest fully-maxed default-mode Fellow lands at 0.95x of it.
+ assert.equal(top,285273823);
  assert.equal(Math.max(...SPIRIT_DATA.profiles.map(p=>p.ranks.at(-1).flat)),223500000,
   'the original single biggest Spirit flat, for scale');
- assert.equal(Math.round(top/300_000_000*1000)/1000,2.078);
+ assert.equal(Math.round(top/300_000_000*1000)/1000,0.951);
  // And the floor, the other number he reported (">5 million on the worst hero"):
- assert.equal(Math.min(...Object.keys(s.fellows).map(id=>bondedPower(s,id))),28900470);
+ assert.equal(Math.min(...Object.keys(s.fellows).map(id=>bondedPower(s,id))),26274696,'28,900,470 before 2026-09-18');
 });
 
-test('APK growth mode passes the original outright: one Fellow alone is worth 44.6M Power',()=>{
+test('APK growth mode passes the original outright: one Fellow alone is worth 39.7M Power',()=>{
  // Level 750 at quality 14 with aptitude 1000 and seven stars, on the original's own coefficient
- // curve: floor(15500 x (1000 x 1.35 + (35-10) + 65) x (1 + 20 x 0.05)).
+ // curve and composition: floor(15500 x (1000 + (35-10) + 65) x (1 + 0.35 stars + 1.00 skill)).
+ // It was floor(15500 x (1000 x 1.35 + 25 + 65) x 2) = 44,640,000 before 2026-09-18.
  let s=maybe(roster(),'activateOriginalProgression');
  assert.ok(s.originalProgression,'APK growth must activate on a fresh full roster');
  const fellows=Object.fromEntries(Object.keys(s.fellows).map(id=>
@@ -425,9 +450,11 @@ test('APK growth mode passes the original outright: one Fellow alone is worth 44
  const quality=Object.fromEntries(Object.keys(s.fellows).map(id=>[id,14]));
  s={...s,fellows,originalProgression:{...s.originalProgression,quality}};
  // Pinned to Kaity (hero_15), whose talent terms the formula above spells out; the full roster owns her.
- assert.equal(bondedPower(s,'hero_15'),44_640_000);
- assert.equal(Math.round(rosterOperation(s)),5_129_260);
- // 1.5x the original's measured live-save conversion of 3,497,276 (2.0x before the 2026-09-17 roster
+ assert.equal(bondedPower(s,'hero_15'),39_703_250);
+ assert.equal(bondedPower(s,'hero_15'),Math.floor(15500*(1000+25+65)*23500/10000),'the formula in the comment, exactly');
+ assert.equal(Math.round(rosterOperation(s)),4_611_769,'5,129,260 before 2026-09-18');
+ // 1.32x the original's measured live-save conversion of 3,497,276 (1.5x before the 2026-09-18 additive
+ // composition, 2.0x before the 2026-09-17 roster
  // trim narrowed the village-wide sum) -- so the parity shortfall is a
  // property of DEFAULT mode's caps, not of the power formula, which is the original's own.
  assert.ok(rosterOperation(s)>3_497_276);

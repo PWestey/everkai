@@ -1,3 +1,4 @@
+import {APTITUDE_CAP} from '../lib/aptitude-cap.mjs'; // was a flat 1,000 until 2026-09-18
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,totalRate} from '../lib/game.mjs';
 import {insightRule,insightState,insightLevel} from '../lib/insight.mjs';
@@ -13,7 +14,7 @@ test('default stable skill joins preserve old saves and enable typed progression
 test('Insight balances are typed/shared, levels per Fellow, and costs stop at documented cap',()=>{
  let s=run(fresh(1000),'recruit','hero_1');s=stock(s,'hero_15');assert.ok(act(s,'trainInsight',1000,'hero_1').error);s=stock(s,'hero_1');s=run(s,'trainInsight','hero_1');assert.equal(insightLevel(s,'hero_15'),0);assert.equal(s.insight.balances.Item_Hero_Talent_Country_5,1000);
  for(let n=0;n<30;n++){s=stock(s,'hero_15');for(let j=0;j<10;j++)s=run(s,'trainInsight','hero_15');}assert.equal(insightLevel(s,'hero_15'),300);assert.equal(s.fellows.hero_15.aptitude,310);assert.ok(act(s,'trainInsight',1000,'hero_15').error);
- const capped={...s,fellows:{...s.fellows,hero_1:{...s.fellows.hero_1,aptitude:1000}}};assert.ok(act(capped,'trainInsight',1000,'hero_1').error);assert.ok(act(s,'insightRefill',1000,'missing').error);
+ const capped={...s,fellows:{...s.fellows,hero_1:{...s.fellows.hero_1,aptitude:APTITUDE_CAP}}};assert.ok(act(capped,'trainInsight',1000,'hero_1').error);assert.ok(act(s,'insightRefill',1000,'missing').error);
 });
 test('corrupt Insight state is rejected and failed writes preserve both cost and effect',()=>{
  let s=stock(fresh(1000),'hero_15');for(const i of [{balances:[],levels:{}},{balances:{unknown:10},levels:{}},{balances:{},levels:{hero_15:301}},{balances:{},levels:{hero_1:1}},{balances:{},levels:{hero_15:1.5}}]){const bad={...s,insight:i};assert.equal(valid(bad),false);assert.throws(()=>decode(JSON.stringify(bad)));}

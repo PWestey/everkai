@@ -1,3 +1,4 @@
+import {APTITUDE_CAP} from '../lib/aptitude-cap.mjs'; // was a flat 1,000 until 2026-09-18
 import test from 'node:test';import {ripe} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {fresh,act,decode,valid,totalRate} from '../lib/game.mjs';import {farmOrder,farmTrade,FARM_ESSENCES} from '../lib/farm-trade.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);return r.state};
@@ -9,7 +10,7 @@ test('crop order → Dew → matching essence → Aptitude closes the local rewa
 });
 test('stale orders, repeated essence use and capacity errors never consume rewards',()=>{
  let s=setup(),order=farmOrder(s.farm,0);s=run(s,'deliverFarmOrder',0,order.key);assert.ok(act(s,'deliverFarmOrder',1000,0,order.key).error);assert.notEqual(farmOrder(s.farm,0).key,order.key);
- s=run(s,'buyFarmEssence','SG3TalentCountry2');const capped={...s,fellows:{...s.fellows,hero_1:{...s.fellows.hero_1,aptitude:1000}}};assert.ok(act(capped,'useFarmEssence',1000,'hero_1','SG3TalentCountry2').error);assert.equal(capped.farm.trade.essences.SG3TalentCountry2,1);
+ s=run(s,'buyFarmEssence','SG3TalentCountry2');const capped={...s,fellows:{...s.fellows,hero_1:{...s.fellows.hero_1,aptitude:APTITUDE_CAP}}};assert.ok(act(capped,'useFarmEssence',1000,'hero_1','SG3TalentCountry2').error);assert.equal(capped.farm.trade.essences.SG3TalentCountry2,1);
  s=run(s,'useFarmEssence','hero_1','SG3TalentCountry2');assert.ok(act(s,'useFarmEssence',1000,'hero_1','SG3TalentCountry2').error);assert.ok(act(s,'buyFarmEssence',1000,'SG3TalentCountry2').error);
 });
 test('optional trade validates policy, quantities, counters and old-rate essence settlement',()=>{
@@ -33,7 +34,7 @@ test('batch exchange and use equal repeated legacy actions and preserve remainde
 });
 test('batch planning respects storage, matching ownership, aptitude and invalid input',()=>{
  let s=funded();s.farm.trade.essences[essence]=1e9-2;s=run(s,'buyFarmEssence',essence,'max');assert.equal(s.farm.trade.dew,27);assert.equal(s.farm.trade.essences[essence],1e9);
- s.fellows.hero_1.aptitude=998;s=run(s,'useFarmEssence','hero_1',{essence,amount:5});assert.equal(s.fellows.hero_1.aptitude,1000);assert.equal(s.farm.trade.essences[essence],1e9-2);
+ s.fellows.hero_1.aptitude=APTITUDE_CAP-2;s=run(s,'useFarmEssence','hero_1',{essence,amount:5});assert.equal(s.fellows.hero_1.aptitude,APTITUDE_CAP);assert.equal(s.farm.trade.essences[essence],1e9-2);
  assert.equal(essencePlan(s,essence,'use','max','hero_15').count,0);
  for(const amount of [0,-1,2,1.5,'all'])assert.ok(act(s,'buyFarmEssence',s.lastAt,essence,amount).error);
  assert.ok(act(s,'useFarmEssence',s.lastAt,'hero_1',{essence,amount:'max'}).error);

@@ -21,6 +21,14 @@ Source: `~/Documents/Codex/2026-09-07/isekai-parallel-roaming/data/{SkillBase,He
 
 ## Ours, and labelled as such
 
+> **2026-09-18: the +5% moved bucket, not magnitude.** In Fellow Power a star is now +500 basis points in
+> the one additive `percent` bucket (`STAR_POWER_BP`, lib/adventure.mjs powerParts) -- the bucket the
+> original's Power Details panel reads stars from (`FORMULA_PERCENT/"herostar"`,
+> docs/power-parity-audit.md 1.4) -- instead of a multiplier on Aptitude. The starter buildings still
+> read it as +5% Aptitude through `fellowFactor`, which is Everkai's own income model and not Power. The
+> original's own magnitudes (`HeroStar.riseADH` to 6,000 bp and `extraAtk` flats to 7,500,000) are not
+> imported; that is a separate, measured decision.
+
 **+5% Aptitude per star, seven stars, costing 10/20/30/50/70/100/140 shards** (420 for a full
 Fellow). A perfect day pays 10 shards, so the first star lands after one perfect day and a maxed
 Fellow is about 42 of them. These are local balance, in the same class as artifact upgrade costs,

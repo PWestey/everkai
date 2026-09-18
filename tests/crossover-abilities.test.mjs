@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {APTITUDE_CAP} from '../lib/aptitude-cap.mjs';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
@@ -189,10 +189,10 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
  assert.deepEqual(rows,[
   [1,'N','fresh',6000,6000,6000,1],
   [1,'N','mid',296000,296000,296000,1],
-  [1,'N','ceiling',5222550,5222550,5222550,1],
+  [1,'N','ceiling',5375683,5375683,5375683,1],   // 5,222,550 before the 2026-09-18 additive composition
   [14,'LR','fresh',79500,79500,79500,1],
   [14,'LR','mid',1899530,1899530,1899530,1],
-  [14,'LR','ceiling',95108000,95108000,95108000,1],
+  [14,'LR','ceiling',99003150,99003150,99003150,1], // 95,108,000 before it
  ]);
  // Equality at both ends is the intended answer, not a coincidence: rarity N has exactly one value
  // across all five originals (20), and UR* has exactly one across its two (200), so "the measured
@@ -204,8 +204,10 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
  const mine=bondedPower(at(XOVER,q,rec),XOVER);
  const best=Math.max(...originalsAt('SSR').map(f=>bondedPower(at(f.id,q,rec),f.id)));
  assert.ok(mine<best,`SSR ceiling: ${mine} is not below the strongest SSR original ${best}`);
- assert.deepEqual([mine,best],[30481500,30901500]);
- assert.equal(+(mine/best).toFixed(3),0.986,'at the widest badge a crossover is 98.6% of the strongest');
+ // 30,481,500 / 30,901,500 (0.986) before the 2026-09-18 additive Power composition; the ratio barely
+ // moves because both sides take the same stars/skill re-bucketing and differ only in the hero row.
+ assert.deepEqual([mine,best],[31497637,31991137]);
+ assert.equal(+(mine/best).toFixed(3),0.985,'at the widest badge a crossover is 98.5% of the strongest');
 });
 
 test('earnings: the appoint total equals the weakest original of the same badge, never more',()=>{
@@ -256,10 +258,11 @@ test('the talent tier is fixed, and fixing it costs nothing because a point cost
  for(const r of tiers)assert.equal(r.cost/r.amount,1,`${r.name} is not 1 pearl per point`);
  assert.deepEqual([...new Set(tiers.map(r=>r.name))].sort(),['Ordinary Talent','Outstanding Talent','Supreme Talent']);
  // ...and the tier cap is not a ceiling either: Aptitude is sold directly at the same 1:1 rate to the
- // same 1,000 cap, so what the tier changes is clicks.
+ // same cap -- APTITUDE_CAP, the original's measured 31,122 since 2026-09-18 (it was a flat 1,000, when
+ // this read [990,990]) -- so what the tier changes is clicks.
  const XOVER=ADDITION_FELLOWS[0].id;
- const s={...at(XOVER,1,{level:1}),inventory:{...fresh(T).inventory,Item_Talent_Hero_1:2000}};
- assert.deepEqual([aptitudeTrainingPlan(s,XOVER,'max').count,aptitudeTrainingPlan(s,XOVER,'max').cost],[990,990]);
+ const s={...at(XOVER,1,{level:1}),inventory:{...fresh(T).inventory,Item_Talent_Hero_1:APTITUDE_CAP+1000}};
+ assert.deepEqual([aptitudeTrainingPlan(s,XOVER,'max').count,aptitudeTrainingPlan(s,XOVER,'max').cost],[APTITUDE_CAP-10,APTITUDE_CAP-10]);
  // WHY IT IS FIXED, negative-controlled on the mechanism rather than described: validTalents refuses a
  // talentLevel above the CURRENT rule's cap, so a rule that climbed with the badge would refuse a save
  // that had already trained past the lower tier's cap. Demonstrated on an original whose rule IS the

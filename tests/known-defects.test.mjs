@@ -279,8 +279,10 @@ test('ECON-29 fixed: 71 binds on untrained familiars leave village income where 
  // crossover Fellows were restored): the 2026-09-17 roster trim narrowed the roster the bind ladder
  // draws from again. The RATIO, which is what this control is for, is unchanged: 1,233,035 / 91,990.7
  // is 13.4x, the same multiple as before.
+ // 1,233,036 since 2026-09-18: Power's final multiplier is now exact integer basis points
+ // (lib/adventure.mjs powerParts), which moves one Fellow's floor by a unit. The ratio is unchanged.
  const trained={...v,familiars:Object.fromEntries(Object.keys(v.familiars).map(id=>[id,{level:450,stars:0}]))};
- assert.equal(Math.round(totalRate(trained)),1_233_035);
+ assert.equal(Math.round(totalRate(trained)),1_233_036);
  assert.equal(Math.round(totalRate(trained)/totalRate(v)*10)/10,13.4,'the 13.4x the control exists to see');
 });
 

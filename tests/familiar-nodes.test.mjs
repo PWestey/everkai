@@ -31,7 +31,9 @@ test('node activation settles old income, increases roster income, and rejects m
 test('inherent effects apply only while bound, independently of node activation',()=>{
  let s=staged(setup());const base=bondedPower(s,'hero_15');s=run(s,'bindFamiliar',pet,'hero_15');
  assert.deepEqual(familiarBonus(s,'hero_15'),{flat:3000000,aptitude:0,percent:0,finalPercent:15});
- assert.equal(bondedPower(s,'hero_15'),Math.floor((base+3000000)*1.15));assert.equal(s.familiarNodes,undefined);
+ // The familiar's flat is a `flat` part and its final percent a `final` part (lib/adventure.mjs powerParts),
+ // in exact basis points since 2026-09-18 -- `*1.15` in floating point landed one unit low.
+ assert.equal(bondedPower(s,'hero_15'),Math.floor((base+3000000)*11500/10000));assert.equal(s.familiarNodes,undefined);
  s=run(s,'unbindFamiliar');assert.equal(bondedPower(s,'hero_15'),base);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('inherent binding and unbinding settle elapsed income at the previous rate',()=>{

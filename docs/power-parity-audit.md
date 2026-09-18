@@ -1,6 +1,6 @@
 # Power parity audit — why a level-312 Fellow shows 1.79M and the original's showed 300M
 
-Measured 2026-09-18. **No gameplay code changed by this document.** Every number below is either read
+Measured 2026-09-18. **§§1–8 changed no gameplay code; §9 records the implementation that followed.** Every number below is either read
 out of a table whose path is given, or produced by running the repo's own `lib/`.
 
 The trigger, from the owner:
@@ -668,3 +668,178 @@ objects:
 3. **The parity target.** *Recommendation: retire "1.99× / 1.33× of the live save" as the headline and
    replace it with two per-Fellow targets — displayed Power at a given level, and the weakest owned
    Fellow's Power — both taken against the original's own tables at the same level.*
+
+---
+
+## 9. Implemented 2026-09-18: Fellow Power on the original's composition
+
+**Gameplay code changed by this section.** `lib/adventure.mjs` `powerParts` / `composePower` /
+`bondedPower`, `lib/aptitude-cap.mjs` (+ `lib/aptitude-cap-data.json`, `scripts/import-aptitude-cap.py`),
+and every call site that hard-coded the old 1,000 Aptitude cap. Guarded by
+`tests/power-composition.test.mjs` (the two panels to the unit, the bucket table, Stella-once, the
+Everkai-only familiar, both modes, the cap, the stored-value bounds) and `tests/power-pacing.test.mjs`
+(pacing pins and the rule-12 decode).
+
+```
+Aptitude = floor( Σ talent × (1 + Σ coefpercent/1e4) )
+Power    = floor( ( floor(ADH(level) × Aptitude × (1 + Σ percent/1e4)) + Σ flat ) × (1 + Σ final/1e4) )
+```
+
+`composePower` fed the §1.4 bucket sums returns **2,665,123,377** and **456,778,931** — the owner's two
+displayed totals — and ADH × displayed Aptitude returns the panel's "Base" rows (130,676,000 and
+23,338,220). Nesting the percent parts, or wrapping the flats in Stella's percent (the old spine's two
+shapes), does not (negative-control test).
+
+### 9.1 The bucket mapping
+
+| Everkai source | lib | Original system (panel row / server part) | Bucket | Before 2026-09-18 |
+|---|---|---|---|---|
+| Level | `levelADH` | `HeroLevel.coefficientADH` | **ADH** | APK: same. Default: `(80+20·L)` with a `/10` on Aptitude — now folded into the column as `(80+20·L)/10`, identical arithmetic |
+| Trained Aptitude (`fellow.aptitude`: talent levels, pearls, items, essences, insight) | record | talent-level skills `Hero_Talent_Base_N` etc. | **talent** | talent |
+| Hero row `initialTalent` + quality talent (APK only) | `sourceAptitudeBonus` | `Hero.initialTalent`, `HeroQuality.Talent` | **talent** | talent |
+| Equipped artifact base + level | `GEAR.aptitude`, `artifactBonus` | `Equipment.initialTalent + riseTalent` | **talent** | talent |
+| Family special blessing | `specialAptitude` | Wife bless talent | **talent** | talent |
+| Museum keepsake / relic Aptitude | `museumBonus.aptitude` | Exhibit `talent` rows | **talent** | talent |
+| Fishing Aptitude | `fishingBonuses.aptitude` | Fish `talent` | **talent** | talent |
+| Artifact Echo Aptitude | `artifactEchoBonus.aptitude` | EquipmentSkill talent | **talent** | talent |
+| — (no Everkai source) | | pet type 4, star-commercial aura | **coefpercent** | — |
+| Stars, +5% each (Everkai magnitude) | `fellowStars × 500` | `percent/herostar` | **percent** | ×(1+5%·stars) **on Aptitude only** |
+| Fellow skill, +5% a level (Everkai magnitude) | `skill × 500` | `percent/skillpercent` ("Skill") | **percent** | separate ×(1+0.05·skill) |
+| Family bonds, +2% a level | `bondFactor−1` | family/intimacy percent | **percent** | percent (unchanged) |
+| Family Advanced Blessing | `blessingPower.percent` | `percent/beautyskillII` | **percent** | percent (unchanged) |
+| Museum `atk/percent` (basicPowerPercent) | `museumBonus` | Exhibit `percent` | **percent** | separate ×(1+m%) on the base |
+| Fishing percent | `fishingBonuses.percent` | Fish `percent` | **percent** | percent (unchanged) |
+| Artifact Echo percent | `artifactEchoBonus.percent` | EquipmentSkill percent | **percent** | percent (unchanged) |
+| **Stella percent** (typed + own `selfPowerBp`) | `stellaBonus.percent` | `percent/underlingskillpower` (hidden on the panel) | **percent** | **outer wrapper over everything, flats included** (`applyStella`, retired) |
+| Family Fellow Blessing flat | `blessingPower.flat` | Family `extradd` | **flat** | flat |
+| Fishing flat | `fishingBonuses.flat` | Fish `extradd` | **flat** | flat |
+| **Stella flat** (`HeroN_Power_M`) | `stellaBonus.flat` | `extradd` | **flat** | flat, added last (unchanged position) |
+| Fountain elixirs | `elixirPower` | "Item" flat | **flat** | added after museum/familiar finals but INSIDE Stella's percent wrapper; now a plain flat part (receipts still say `scope:'final-flat'` — a stored label, not re-written) |
+| Museum `atk/finalpercent` (powerPercent) | `museumBonus` | `totalpercent` | **final** | separate multiplier |
+| **Familiar** flat / Aptitude / percent / finalPercent | `familiarBonus` | pet types 1/2/3/5 | flat / talent / percent / **final** — every part named `familiar` (`EVERKAI_ONLY_PARTS`) | same buckets; final multiplied museum's instead of adding |
+
+**Stella is counted once.** The Stella import already put the whole percent half — the type-wide
+column and the owner's own `selfPowerBp` — into `stellaBonus.percent`. Nothing new was added from
+`HeroSpirit`; the change is *where* it goes: one part of the additive bucket, on ADH × Aptitude only,
+exactly as the server sends it. `applyStella` is retired. Tested: on a Fellow with only a Stella track,
+`percent.stella` is the whole of `stellaBonus.percent`, `flat.stella` its flat, every other part zero,
+and `bondedPower === powerParts().power` (a re-introduced outer factor fails the test).
+
+**Stella talent (`self | talent`, 17 heroes, up to +2,050) is still not modelled.** Its blocker was the
+1,000 Aptitude cap; that is gone, so it is now a pure import step (per-rank talent is not in
+`lib/hero-spirit-data.json`, only `unmodelledMax`). Deferred with that reason.
+
+**The familiar node grid** is left in place: nothing stored is removed or re-priced (every activated node
+and bond stays), its parts sit in the buckets the original's pets write (PetInfo.lua:848-852), and each
+is named `familiar` (`EVERKAI_ONLY_PARTS`) so a later re-price can find all of it. A test binds a
+trained familiar and asserts no non-`familiar` part moves. Its *derived* Power does move, because
+Stella's percent no longer multiplies its flat and its final now adds to the museum's. See 9.7.
+
+### 9.2 The Aptitude cap: 31,122, measured
+
+`scripts/import-aptitude-cap.py` → `lib/aptitude-cap-data.json` → `lib/aptitude-cap.mjs`. For each of the
+181 heroes: its `heroBaseSkill` talent skills at `maxUpgradeLevel` (300), plus their summed per-level
+amount × every `talentLvLimit` that reaches it (`self` Aura/Spirit rows by id prefix, `rare` by rarity,
+`all`, and `bless` via the blessing recipients; 597 rows, census asserted). The maximum is **hero_253:
+5,400 + 18 × 1,429 = 31,122**, and hero_253 ships, so the maximum over Everkai's 111 originals is the same
+number (tested). Shinobu's measured 12,897 sits inside it. One cap for every Fellow, both modes: per-hero
+caps run 720 → 31,122 and would refuse saves that legally hold 1,000 today. Every hard-coded 1,000 now
+reads `APTITUDE_CAP` (validAdventure, the pearl/talent/insight/essence/opening-item planners and guards,
+encounter advice, and the aptitude ledger's per-key bound). Widening only; CAP+1 is still refused.
+What paces Aptitude is unchanged: talent levels stop at `talentCap`, pearls double every 2,500 bought.
+
+### 9.3 Before → after, per Fellow
+
+| Fellow | mode | before | after |
+|---|---|---|---|
+| fresh (level 1, Aptitude 10) | default | 100 | **100** |
+| fresh | APK | 6,000 | **6,000** |
+| L312, Aptitude 1,000, skill 20, ★7, best gear L1 (the owner's "under 2M" record) | default | 1,794,880 | **1,589,164** |
+| same | APK | 10,662,340 | **9,595,214** |
+| L750, Aptitude 1,000, skill 20, ★7, best gear L200 | APK | 89,528,000 | **92,446,650** |
+| same + museum, familiar, every Stella track maxed, blessings, bonds (hero_1) | default | 59,424,908 | **34,489,373** |
+| same | APK | 455,347,316 | **201,104,269** |
+| same, Aptitude at the new cap (31,122) | APK | 455,347,316 (cap 1,000) | **2,381,298,483** |
+| strongest Fellow of the fully-maxed ceiling fixture | default | 623,250,916 | **285,273,823** (0.95× the owner's 300M) |
+| weakest Fellow of that fixture | default | 28,900,470 | **26,274,696** |
+
+Records-only Fellows move little (stars now also reach gear and artifact Aptitude; stars and skill add
+instead of multiplying). The large drop is the Stella percent: it used to multiply the museum, familiar,
+blessing and Stella flats and every other percent; it now adds to the percent bucket on ADH × Aptitude,
+where the owner's panel puts it. The large rise is the cap.
+
+### 9.4 The two modes
+
+One composition (`composePower`) in both. APK growth: ADH = `HeroLevel.coefficientADH`, plus the hero
+row's talent as a talent part. Default: ADH = `(80+20·level)/10` — the old default arithmetic, with the
+`/10` that sat on `fellowFactor` folded into the column, so a fresh default Fellow is still exactly 100 and
+`ladderPower`'s pre-existing ×100 adapter is untouched. Everything in this section applies to **both**
+modes: the buckets, the Stella re-bucketing and the cap (`validAdventure` is mode-agnostic). The starter
+buildings (`buildingRate`, `fellowFactor`) are Everkai's own income model, not Power, and are unchanged.
+
+### 9.5 Downstream of Power, re-measured
+
+| Consumer | How Power enters | Effect |
+|---|---|---|
+| Village earnings, `rosterOperation` | Σ Power/1000 per business = `Power × HeroConversionRate/1e4`; `BuildingBase.HeroConversionRate` is **10 on all 17 buildings Everkai ships**, including `Building_1101` "Bank" — the rate-0 row is the separate `Building_Bank` id, so the audit gap #16c ("the Bank is excluded") does not apply | linear in Power; see the pacing pins (9.6) |
+| Stage ladder | `ladderPower` = roster Σ (×100 default); normal stages priced by (atk/Power)^¼, bosses need Power > atk | lower Power → slightly dearer stages (day-30 save: next stage 2,976 → 3,197 gold); bosses gate later |
+| Mine Clearance | one deployment per Fellow per day, `after = min(TOTAL, before + power)`; receipt stores `power` ≤ 1e15 | fewer kills per day (day-30 save: 55 → 51 guardians from a full day's deployments); receipts checked as stored (9.7) |
+| Trading Post | duel won iff Fellow Power ≥ opponent (50 / 250 / 1,000); run stores `power` ≤ 1e15 | no change: every trained Fellow clears all three either way |
+| Northern Odyssey | `atk = clamp(floor(√rosterPower/5), 2, 200)`; run stores `power` ≤ 1e15 | saturated at 200 either way (roster Power ≫ 1e6) |
+| Frontier | wave Power 2,000–14,800 vs one Fellow or the party | no change: cleared either way |
+| Expo | `sales = floor(power × …)`; slot stores `power` ≤ **1e12** | no change in play; bound checked below |
+| Familiar Tower / explore / dispatch | no Fellow Power input (measured: none imports adventure/businesses power) | none |
+| Achievements `rosterPower` | `floor(rosterOperation × 1000)` as progress; the validator stores only claimed ids | progress moves; claimed steps stay valid |
+| Crossover ceilings | `tests/crossover-family.test.mjs` | flag-off 26,956,296 → 14,537,869; flag-on 33,997,375 → 20,874,032; gold/s 136.3B → 73.6B (flag-off) and 171.9B → 105.6B (flag-on); a maxed crossover Fellow vs a maxed Diligent original **0.295× → 0.621×** |
+
+**Stored-value validators.** The worst reachable case — every Fellow at Aptitude 31,122 on top of the whole
+maxed ceiling fixture — measures one Fellow at 1,166,117,215 (default) / 10,060,013,132 (APK), a roster at
+56,556,832,299 / 480,946,676,241 and `ladderPower` at 5,655,683,229,900 / 480,946,676,241. Every bound that
+stores a Power holds with room: Expo slot 1e12 (~100×), mine / trading-post / Northern 1e15 (~2,000×),
+`lastBattle` 1e18. So **no validator needed widening**; the test pins the margins. `MAX_GOLD` 1e15 and
+`MAX_FELLOW_XP` 1e13 are clamps on wallets (collect uses `min`), not validators a save can fail.
+
+### 9.6 Pacing pins
+
+*(Added with the sim fixtures; see below.)*
+
+### 9.7 Saves (rule 12)
+
+Power is derived and nothing recomputes a stored Power, so it moves without breaking a save — proven,
+not assumed. `tests/power-pacing.test.mjs` decodes a save written by the previous build (3d47df4): 30
+simulated days of APK-growth habit play with 28 trained Fellows (to level 515), 491 paid Stella ranks,
+29 Mine Clearance receipts and 446 Trading Post runs. It round-trips **byte-identically**, is valid, and
+nothing is quarantined. Its last mine receipt stores the Power the old build measured (350,926,067 for
+hero_195) against 234,476,657 today, and its last duel 74,575,030 against 57,557,802 — both validators
+check the stored value and still accept it; a receipt tampered to overshoot its own stored Power, or a
+duel whose `won` contradicts its stored Power, is still refused. The earlier rule-12 fixtures
+(`crossover-stella-save-31c3b32-mine.json`, `roster-trim-save-a0efe2b-invested.json` and the familiar
+saves) all still pass. No `SAVE_VERSION` bump: nothing required was added; the only bounds that moved
+(the Aptitude cap and the ledger's per-key bound) widened.
+
+### 9.8 Owner decisions (rule 9 — batched, each with the recommendation work proceeds on)
+
+1. **The familiar node grid** (PWR-03). Still Everkai-only magnitude, now isolated in parts named
+   `familiar`. *Recommendation: re-price its node effects downward in a later slice; never remove an
+   activated node or bond.* Nothing was re-priced here.
+2. **Star and skill magnitudes stay Everkai's (+5% each).** Only their bucket moved. The original's
+   `HeroStar.riseADH` (to 6,000 bp) and `extraAtk` flats (400,000 → 7,500,000) are measured and not
+   imported. *Recommendation: import them with their `needHeroLevel` gates as the next Power slice.*
+3. **One global Aptitude cap (31,122)** rather than per-hero caps (720–31,122, shipped in the data file).
+   *Recommendation: keep one cap; per-hero caps would refuse real saves holding 1,000.*
+4. **Default mode keeps its `(80+20·level)/10` column** rather than `HeroLevel.coefficientADH`. It is a
+   scale adapter that `ladderPower`'s ×100 already assumes. *Recommendation: leave it; APK growth is the
+   parity mode.*
+5. **Stella `self | talent`** (PWR-04) is unblocked by the cap and still unimported. *Recommendation:
+   import per rank as a `stella` talent part.*
+
+### 9.9 Negative controls
+
+Every new guard was broken on purpose and seen to fail on the intended test (scratchpad
+`power-rebuild/negctl.py`, restores the file after each): nesting the percent bucket; flats inside the
+percent factor; stars back onto Aptitude; Stella's percent as an outer factor again; Stella's percent part
+dropped; a familiar flat leaking into a non-familiar part; the default level column drifting; the cap back
+to 1,000; the validator's cap bound removed; the ledger bound left at 1,000; a ×1,000 Power scale (the
+stored-value bounds test); a new contributor slipping into `powerParts` (the extractor); the mine and
+trading-post validators bounding stored Power below what the old build wrote (the rule-12 decode). 14/14
+fired.
