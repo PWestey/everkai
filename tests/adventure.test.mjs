@@ -36,7 +36,7 @@ test('party changes cannot duplicate Fellows, include unowned IDs or remove the 
 test('material shop spends gold and equipment shop spends crystals',()=>{let s={...fresh(0),gold:500,crystals:100};s=act(s,'buySupply',0,'Item_Talent_Hero_1').state;assert.equal(s.gold,300);assert.equal(s.crystals,100);s=act(s,'buySupply',0,GEAR[0].id).state;assert.equal(s.crystals,70);assert.equal(s.inventory[GEAR[0].id],1);assert(act({...s,crystals:0},'buySupply',0,GEAR[0].id).error)});
 test('the campaign walks the original ladder in order and refuses to skip ahead',()=>{
  let s=supplied(fresh(0));s.fellows.hero_15.aptitude=1000;s.gold=1e9;
- // Ten stages is enough to cross a boss (stage 6) and start chapter 2; the full 18,000 are walked in
+ // Ten stages is enough to cross a boss (stage 6) and start chapter 2; the full 36,000 are walked in
  // tests/adventure-ladder.test.mjs against the table.
  for(let i=1;i<=10;i++){const r=act(s,'battle',0,i);assert.equal(r.error,undefined,`stage ${i}: ${r.error}`);s=decode(JSON.stringify(r.state))}
  assert.equal(s.adventure.cleared,10);

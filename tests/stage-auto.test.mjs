@@ -8,13 +8,13 @@ import {OPENING,OPENING_STAGES,LAST_CHAPTER,openingPower,openingQuote,openingAut
 // D1. The parity catalogue carried "THE CAMPAIGN SPINE ENDS AT CHAPTER 6 (nextDeferredTask
 // Main_task_001490 at order 157)" alongside a later line recording a 63,000-stage import. Both
 // cannot be true. These assertions pin what the measurement found, so the stale half cannot return:
-// the STAGE ladder runs chapters 1-3000, and what actually stops short is the QUEST chain, which is
+// the STAGE ladder runs chapters 1-6000 (1-3000 until the 2026-09-18 extension), and what actually stops short is the QUEST chain, which is
 // a different spine and is not blocked by missing data.
 // ---------------------------------------------------------------------------------------------
-test('D1: the stage ladder is the full 3,000 chapters; the quest chain is what stops at 136',()=>{
- assert.equal(LAST_CHAPTER,3000);
- assert.equal(OPENING_STAGES.length,63000,'63,000 stages, not a six-chapter prefix');
- assert.equal(OPENING_STAGES.at(-1)._id,'3000-6-0');
+test('D1: the stage ladder is the imported 6,000 chapters; the quest chain is what stops at 136',()=>{
+ assert.equal(LAST_CHAPTER,6000);
+ assert.equal(OPENING_STAGES.length,126000,'126,000 stages, not a six-chapter prefix');
+ assert.equal(OPENING_STAGES.at(-1)._id,'6000-6-0');
  // The quest chain is the OTHER spine. 136 imported tasks, ending on a StageClear of the chapter-6
  // boss, with nextTask Main_task_001490 -- the row that the stale note read as a hard stop.
  assert.equal(OPENING.tasks.length,136);
@@ -33,7 +33,7 @@ test('D1: the stage ladder is the full 3,000 chapters; the quest chain is what s
 test('D1 negative control: a truncated stage ladder fails the pin',()=>{
  const truncated=OPENING_STAGES.slice(0,126);
  assert.equal(truncated.at(-1)._id,'6-6-0','126 stages really is the six-chapter prefix');
- assert.notEqual(truncated.length,63000,'the pin above would fail on a six-chapter ladder');
+ assert.notEqual(truncated.length,126000,'the pin above would fail on a six-chapter ladder');
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -121,12 +121,12 @@ test('D2: Full-Auto refuses on an unstarted journey',()=>{
 // This started life as a test that filled the queue and asserted the stop. It PASSED with the stop
 // deleted, because the fill could never reach the cap -- a silently skipped assertion. The reason is
 // worth recording rather than hiding: Everkai defines 12 roadside events against a 25-deep queue, so
-// the StageBattleEventLimit stop is sourced but DORMANT. It becomes reachable only when the 5,988
-// deferred sourceEventIds are imported (D1). Asserting the arithmetic keeps the dormancy measured.
+// the StageBattleEventLimit stop is sourced but DORMANT. It becomes reachable only when the 11,988
+// deferred sourceEventIds (5,988 in chapters 7-3000, 6,000 in 3001-6000) are imported (D1). Asserting the arithmetic keeps the dormancy measured.
 test('D2: the roadside-queue stop is sourced but unreachable until events are imported',()=>{
  const definable=OPENING.stageEvents.length;
  assert.equal(definable,12,'positive control: the 12 opening roadside events really are defined');
  assert.equal(OPENING_STAGES.filter(x=>x.stageEventId).length,definable,'and only those stages queue one');
- assert.equal(OPENING_STAGES.filter(x=>x.sourceEventId).length,5988,'5,988 more are named but not defined');
+ assert.equal(OPENING_STAGES.filter(x=>x.sourceEventId).length,11988,'11,988 more are named but not defined');
  assert.ok(definable<eventLimit(1),`${definable} definable events cannot fill a ${eventLimit(1)}-deep queue`);
 });

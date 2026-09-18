@@ -1,12 +1,24 @@
 #!/usr/bin/env python3
-"""Import campaign chapters 7-3000 (after the six opening chapters) from the original stage tables.
+"""Import campaign chapters 7-6000 (after the six opening chapters) from the original stage tables.
 
 Sources, plainly readable config tables in the private-server workspace:
   BattleNormal.json  normal encounters: atk, gold consume, stageId, item1 (Fellow EXP), item5 (Fame)
   LevelBoss.json     chapter bosses (N-6-0): atk, stageId, reward items
   Chapter.json       each chapter's background id
 The tables hold 12,000 chapters (BattleNormal 240,000 rows = 20 x 12,000; LevelBoss and Chapter 12,000
-each, no gaps). Everkai ships 7-3000; LAST is a scope choice, not a data limit.
+each, no gaps). Everkai ships 7-6000; LAST is a scope choice, not a data limit.
+Rows for chapters 7-3000 are pinned to the sha256 of what shipped before the 6,000 extension (a596db8).
+
+Why 6,000 and not 12,000 (measured 2026-09-18, this script with LAST swapped, then `pnpm build`):
+  LAST    file bytes  gzip -9   node decode   retained heap   boss atk at LAST
+  3000     2,406,456    633,990      72 ms        47.8 MB      1,191,000,000
+  6000     5,059,574  1,141,546     148 ms        96.4 MB      52,620,000,000
+  12000   10,851,054  2,163,432     291 ms       193.7 MB      3,012,000,000,000,000
+The file is a static JSON import, so Vite inlines it into the main index-*.js chunk: it is precached
+and parsed on every first load. 12,000 would add ~8.4 MB of JS and ~146 MB of heap to every boot, and
+from chapter 10,757 a single stage's base gold (the sum of its four `consume` counts) exceeds
+MAX_GOLD (1e15, lib/limits.mjs), so those stages could not be paid at parity Power. 6,000 already
+covers the owner's real roster (3,497,276,469 first falls short at chapter 4,322's 3,501,000,000 boss).
 
 Output format 2 (lib/campaign-chapters-data.json) is compact: rows are tuples in stage order and _id,
 stageId and the consume/inspire item id ('3', gold) are derived, because they are fully determined by
@@ -31,10 +43,13 @@ D=Path('/Users/westmanfamily/Documents/Codex/2026-09-07/your/outputs/private-ser
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def table(name):
     x=json.loads((D/name).read_text());return x[next(iter(x))] if isinstance(x,dict) else x
-FIRST,LAST=7,3000
+FIRST,LAST=7,6000
 FIRST_STAGE_ID=127  # chapter 6's boss is stage 126 in lib/opening-data.json
 # sha256 of json.dumps({'battles','bosses','backgrounds'}, compact) for chapters 7-50 as format 1 shipped them.
 SHIPPED_7_50='4d9d798606140f30efffe11e21c8b33ce9ef5339f7b8bae7fa1dac87a553f111'
+# Same digest scheme over chapters 7-3000 as a596db8 shipped them (lib/campaign-chapters-data.json sha256
+# 3d9c029f42502fa412415ffccf6b749d3f813ba9eee43ddaab4e2d92bf52b702, decoded by this script's decode()).
+SHIPPED_7_3000='6ba956d05510875f4fe1b7c111543567e8a83faa3d2708c56b14582a34647d4e'
 DROPPED={'Item_Weapon_Equipment_1_2','Item_Weapon_Equipment_2_1','Item_Weapon_Equipment_2_2','Item_Weapon_Equipment_3_1'}
 chapter=lambda r:int(r['_id'].split('-')[0])
 opening=json.loads(Path('lib/opening-data.json').read_text())
@@ -69,12 +84,15 @@ for c in sorted(all_chapters,key=lambda c:int(c['_id'])):
     if FIRST<=n<=LAST:backgrounds[str(n)]={'source':c['background'],'shown':ART[c['background']]}
 assert list(backgrounds)==[str(n) for n in range(FIRST,LAST+1)]
 
-# Chapters 7-50 must be exactly what format 1 shipped.
-old=lambda n:FIRST<=n<=50
-subset={'battles':[r for r in battles if old(chapter(r))],'bosses':[r for r in boss_rows if old(chapter(r))],
-        'backgrounds':{k:v for k,v in backgrounds.items() if old(int(k))}}
-got=hashlib.sha256(json.dumps(subset,separators=(',',':')).encode()).hexdigest()
-assert got==SHIPPED_7_50,('chapters 7-50 no longer match what shipped',got)
+# Chapters 7-50 must be exactly what format 1 shipped, and 7-3000 exactly what a596db8 shipped.
+def digest_to(last):
+    old=lambda n:FIRST<=n<=last
+    subset={'battles':[r for r in battles if old(chapter(r))],'bosses':[r for r in boss_rows if old(chapter(r))],
+            'backgrounds':{k:v for k,v in backgrounds.items() if old(int(k))}}
+    return hashlib.sha256(json.dumps(subset,separators=(',',':')).encode()).hexdigest()
+for last,pin in ((50,SHIPPED_7_50),(3000,SHIPPED_7_3000)):
+    got=digest_to(last);assert got==pin,(f'chapters 7-{last} no longer match what shipped',got)
+ALL_ROWS=digest_to(LAST)
 
 # Encode (format 2). Every derived value is checked against the source row before it is dropped.
 def place(c,i):return f'{c}-{i//4+1}-{i%4+1}',FIRST_STAGE_ID+(c-FIRST)*21+i
@@ -102,7 +120,7 @@ out={'format':2,'firstChapter':FIRST,'lastChapter':LAST,'firstStageId':FIRST_STA
      'backgroundArt':{k:v for k,v in ART.items() if any(b['source']==k for b in backgrounds.values())},
      'backgrounds':[backgrounds[str(n)]['source'] for n in range(FIRST,LAST+1)],
      'provenance':{'BattleNormal.json':sha(D/'BattleNormal.json'),'LevelBoss.json':sha(D/'LevelBoss.json'),'Chapter.json':sha(D/'Chapter.json'),
-                   'chapters7to50Sha256':SHIPPED_7_50,'droppedBossItems':sorted(dropped),'eventsDeferred':'sourceEventId only; see script header'}}
+                   'chapters7to50Sha256':SHIPPED_7_50,'chapters7to3000Sha256':SHIPPED_7_3000,'allRowsSha256':ALL_ROWS,'droppedBossItems':sorted(dropped),'eventsDeferred':'sourceEventId only; see script header'}}
 
 # Decode in Python the same way lib/opening.mjs does and require an exact round trip.
 def decode(d):
@@ -121,4 +139,4 @@ dump=lambda x:json.dumps(x,separators=(',',':'))
 assert dump(decode(json.loads(dump(out))))==dump((battles,boss_rows,backgrounds)),'format 2 does not round-trip'
 Path('lib/campaign-chapters-data.json').write_text(dump(out)+'\n')
 print('chapters',FIRST,'-',LAST,'battles',len(battles),'bosses',len(boss_rows),'stageIds',ids[0],'-',ids[-1],'dropped',sorted(dropped),
-      'bytes',Path('lib/campaign-chapters-data.json').stat().st_size)
+      'bytes',Path('lib/campaign-chapters-data.json').stat().st_size,'allRowsSha256',ALL_ROWS)
