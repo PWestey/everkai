@@ -9,18 +9,18 @@ import {validFrontier} from '../lib/frontier.mjs';
 
 test('the ladder is the original table row for row, at stage granularity',()=>{
  // Chapter.json gives every chapter levelNormal 1-5 plus one levelBoss, and each normal stage holds
- // four BattleNormal rows. 3,000 imported chapters x 6 stages = 18,000; 3,000 x 21 battles = 63,000.
- assert.equal(OPENING_STAGES.length,63000,'the imported battle rows');
- assert.equal(STAGES.length,18000,'six stages a chapter over 3,000 chapters');
- assert.equal(STAGES.filter(s=>s.boss).length,3000,'exactly one boss a chapter');
+ // four BattleNormal rows. 6,000 imported chapters x 6 stages = 36,000; 6,000 x 21 battles = 126,000.
+ assert.equal(OPENING_STAGES.length,126000,'the imported battle rows');
+ assert.equal(STAGES.length,36000,'six stages a chapter over 6,000 chapters');
+ assert.equal(STAGES.filter(s=>s.boss).length,6000,'exactly one boss a chapter');
  assert.ok(STAGES.every(s=>s.boss===(s.id%6===0)),'the boss is the sixth stage of every chapter');
  assert.ok(STAGES.every(s=>s.chapter===Math.ceil(s.id/6)),'six stages a chapter, with no gaps');
- assert.ok(STAGES.every((s,i)=>s.id===i+1),'ids are 1..18,000 in ladder order');
+ assert.ok(STAGES.every((s,i)=>s.id===i+1),'ids are 1..36,000 in ladder order');
  // Rebuild every stage straight from the battle rows and demand an exact match. This is the guard
  // that a future re-import cannot silently change the curve.
  const byStage=new Map();
  for(const b of OPENING_STAGES){const k=b._id.split('-').slice(0,2).join('-');if(!byStage.has(k))byStage.set(k,[]);byStage.get(k).push(b)}
- assert.equal(byStage.size,18000);
+ assert.equal(byStage.size,36000);
  for(const s of STAGES){
   const rows=byStage.get(`${s.chapter}-${s.section}`);
   assert.ok(rows,`no source rows for ${s.chapter}-${s.section}`);
@@ -37,15 +37,18 @@ test('the curve actually goes somewhere -- the old one topped out at 7,401',()=>
  assert.equal(STAGES[0].atk,1350,'chapter 1-1, the hardest of its four BattleNormal rows');
  assert.equal(STAGES[5].atk,3000,'chapter 1-6, the LevelBoss row');
  assert.equal(STAGES[29].atk,16850,'stage 30 -- where the whole previous ladder ENDED, at 7,401');
- assert.equal(STAGES[STAGES.length-1].atk,1191000000,'chapter 3,000 boss');
+ assert.equal(STAGES[17999].atk,1191000000,'chapter 3,000 boss -- the top of the ladder before the 6,000 extension');
+ assert.equal(STAGES[STAGES.length-1].atk,52620000000,'chapter 6,000 boss');
  assert.ok(STAGES[STAGES.length-1].atk/STAGES[29].atk>70000,'the rebuilt ladder runs four orders of magnitude past the old one');
  // MEASURED, not assumed: the boss curve never falls, but it is not strictly increasing either.
- // 119 of its 2,999 steps are flat, all of them past chapter ~2,690, where the table's four
+ // 119 of its first 2,999 steps are flat, all of them past chapter ~2,690, where the table's four
  // significant figures round two neighbouring chapters to the same value (1,000,000,000 twice, then
- // 1,001,000,000 twice, and so on). No boss is ever easier than one before it.
+ // 1,001,000,000 twice, and so on); chapters 3001-6000 add 141 more, 260 of 5,999 in all. No boss is ever
+ // easier than one before it.
  const bosses=STAGES.filter(s=>s.boss);
  assert.ok(bosses.every((b,i)=>i===0||b.atk>=bosses[i-1].atk),'no boss is easier than the one before it');
- assert.equal(bosses.filter((b,i)=>i>0&&b.atk===bosses[i-1].atk).length,119,'and the only flat steps are the table rounding ties');
+ assert.equal(bosses.filter((b,i)=>i>0&&i<3000&&b.atk===bosses[i-1].atk).length,119,'and the only flat steps are the table rounding ties');
+ assert.equal(bosses.filter((b,i)=>i>0&&b.atk===bosses[i-1].atk).length,260);
  assert.equal(bosses.filter((b,i)=>i>0&&b.atk<bosses[i-1].atk).length,0,'the curve never falls');
  assert.ok(bosses.every((b,i)=>i<10||b.atk>bosses[i-10].atk),'and it always rises across a ten-chapter window');
 });
@@ -147,11 +150,33 @@ test('MIGRATION: an old save keeps its exact progress, gains no free clears, and
 test('save bounds widened, and still bound',()=>{
  const base=fresh(0);
  const at=c=>({...base,adventure:{...base.adventure,cleared:c}});
- assert.ok(valid(at(18000)),'the top of the ladder is a legal save');
- assert.ok(!valid(at(18001)),'one past the end is not');
- assert.throws(()=>decode(JSON.stringify(at(18001))));
+ // Widened exactly as far as the data goes: 18,000 -> 36,000, the stage count of chapters 1-6,000.
+ assert.equal(STAGES.length,36000);
+ assert.ok(valid(at(18000)),'the old top of the ladder is still a legal save');
+ assert.ok(valid(at(18001)),'and one past it now is, because chapter 3,001 exists');
+ assert.ok(valid(at(36000)),'the new top of the ladder is a legal save');
+ assert.ok(!valid(at(36001)),'one past the end is not');
+ assert.throws(()=>decode(JSON.stringify(at(36001))));
+ const fought=n=>({...base,adventure:{...base.adventure,cleared:n,lastBattle:{stage:n,power:1,won:true,kind:'battle'}}});
+ assert.ok(valid(fought(36000)));assert.ok(!valid(fought(36001)),'lastBattle.stage is bound by the same ladder');
  assert.ok(!valid(at(-1)));
  const battle=p=>({...base,adventure:{...base.adventure,cleared:1,lastBattle:{stage:1,power:p,won:true,kind:'battle'}}});
  assert.ok(valid(battle(1e15)),'roster Power past 1e12 is legal -- the Stella/Spirit import will reach it');
  assert.ok(!valid(battle(1e19)));
+});
+
+test('RULE 12: a save at the top of the old 3,000-chapter ladder loads byte-identically and walks on',()=>{
+ // What the ladder's length feeds: the `cleared` and `lastBattle.stage` bounds (adventure), the
+ // `opening.cleared` bound, and "every chapter cleared" (a missing next stage). None is stored in a save,
+ // so the old top -- cleared 18,000 / opening 63,000, the furthest the previous build could write -- must
+ // decode unchanged and simply find chapter 3,001 waiting. (The 14-day sim save written by the previous
+ // build was also decoded by both builds, identically; see the commit message.)
+ let s=act(fresh(0),'openingStart',0).state;
+ s={...s,gold:1e14,adventure:{...s.adventure,cleared:18000,lastBattle:{stage:18000,power:1191000001,won:true,kind:'battle'}},opening:{...s.opening,cleared:63000}};
+ const text=JSON.stringify(s);
+ assert.equal(JSON.stringify(decode(text)),text,'decodes byte-identically');
+ assert.equal(stageAt(18001).chapter,3001);assert.equal(OPENING_STAGES[63000]._id,'3001-1-1');
+ for(const id of ['hero_15','hero_1','hero_4','hero_3'])s.fellows[id]={level:750,aptitude:1000,skill:20,breaks:13,gear:null};
+ const r=act(s,'battle',0,18001);assert.equal(r.error,undefined,r.error);
+ assert.equal(r.state.adventure.cleared,18001);assert.ok(valid(r.state));assert.deepEqual(decode(JSON.stringify(r.state)),r.state);
 });
