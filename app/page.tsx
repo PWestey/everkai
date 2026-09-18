@@ -7,6 +7,7 @@ import {rosterOrder,rosterStep} from '@/lib/roster-filter.mjs';
 import CharacterScreen from './character-screen';
 import {wardrobeAppearance} from '@/lib/wardrobe.mjs';
 import {openingTask,openingRequirement} from '@/lib/opening.mjs';
+import {lateChaptersWanted,loadLateChapters} from '@/lib/stage-ladder.mjs';
 import {openingObjective} from '@/lib/opening-presentation.mjs';
 import MineClearancePanel from './mine-clearance-panel';
 import NorthernPanel from './northern-panel';
@@ -74,6 +75,10 @@ export default function App(){
  function saveFailure(){ready.current=false;setSaveFailed(true);setPanel(true);if(storage.current.current){state.current=storage.current.current;setGame(state.current)}setSaveStatus('Saving paused — no new changes applied');}
  function persist(next:any){try{const saved=storage.current.commit(next);state.current=saved;setGame(saved);setSaveStatus('Saved on this device');return true}catch{saveFailure();return false}}
  function loadSaved(){try{const saved=storage.current.load(Date.now());state.current=saved;setGame(saved);ready.current=true;setSaveFailed(false);setFailedLoad(false);setLoadError('');setQuarantined(lastQuarantine.slice());setSaveStatus('Saved on this device');return true}catch(error:any){setLoadError(String(error?.message||error||''));saveFailure();setFailedLoad(!storage.current.current);return false}}
+ // Chapters 3,001-6,000 are a separate chunk (lib/stage-ladder.mjs), fetched only once this save's progress
+ // nears them; lateTick re-renders when they land, and coming back online retries a failed fetch.
+ const [lateTick,setLateTick]=useState(0);
+ useEffect(()=>{if(!loaded||!lateChaptersWanted(game))return;let live=true;const load=()=>loadLateChapters().then(()=>{if(live)setLateTick(t=>t+1)},()=>{});load();window.addEventListener('online',load);return()=>{live=false;window.removeEventListener('online',load)}},[loaded,game.adventure?.cleared,(game as any).opening?.cleared,lateTick]);
  useEffect(()=>{loadSaved();setLoaded(true);
   // Actions save immediately. The display clock does not need a disk write;
   // checkpoints bound idle recovery, and leaving the page also checkpoints.

@@ -1,6 +1,6 @@
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {Button} from '@/components/ui/button';
-import {OPENING_STAGES,openingPower,openingProsperity,rankCost,rankEarnings,MAX_RANK} from '@/lib/opening.mjs';
+import {OPENING_COUNT,openingPower,openingProsperity,rankCost,rankEarnings,MAX_RANK} from '@/lib/opening.mjs';
 import {totalRate} from '@/lib/game.mjs';
 
 const compact=(n:number)=>new Intl.NumberFormat('en-US',{notation:'compact',maximumFractionDigits:1}).format(n);
@@ -17,7 +17,7 @@ export default function WayfarerProfile({game,open,onOpenChange,action,onNavigat
  // The engine checks openingProsperity(state, totalRate(state)) against rankEarnings(rank); read the same pair.
  const earnings=openingProsperity(game,totalRate(game)),need=rankEarnings(rank);
  const top=rank>=MAX_RANK,fameShort=!top&&fame<cost,earningsShort=!top&&earnings<need;
- const facts:[string,string][]=[['Fellows',Object.keys(game.fellows||{}).length.toLocaleString()],['Family',Object.keys(game.family||{}).length.toLocaleString()],['Power',compact(openingPower(game))],['Stages',`${cleared}/${OPENING_STAGES.length}`]];
+ const facts:[string,string][]=[['Fellows',Object.keys(game.fellows||{}).length.toLocaleString()],['Family',Object.keys(game.family||{}).length.toLocaleString()],['Power',compact(openingPower(game))],['Stages',`${cleared}/${OPENING_COUNT}`]];
  const go=(id:string)=>{onOpenChange(false);onNavigate(id)};
  return <Dialog open={open} onOpenChange={onOpenChange}><DialogContent className="wayfarer-profile">
   <img className="wayfarer-art" src="./assets/wayfarer/wayfarer.jpg" alt="The Wayfarer, standing in the village"/>

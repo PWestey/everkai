@@ -19,7 +19,12 @@
 //
 // Everkai additions (assets/crossover/, rendered by scripts/crossover/build-character.py) stream too:
 // they are shown only behind ?crossover=1, so no player without the flag should download them.
-export const STREAMED=[/^assets\/idle\//,/^assets\/spine\//,/^assets\/crossover\//];
+//
+// Stage-ladder chapters 3,001-6,000 (lib/campaign-chapters-late-data.json, built as the Vite chunk
+// assets/campaign-chapters-late-data-<hash>.js) stream as well: lib/stage-ladder.mjs imports them only when
+// a save's progress nears chapter 3,000, so a player who never gets there never downloads the ~2 MB, and it
+// never enters the install. Anchored to that exact chunk name so no other build chunk can match it.
+export const STREAMED=[/^assets\/idle\//,/^assets\/spine\//,/^assets\/crossover\//,/^assets\/campaign-chapters-late-data-[A-Za-z0-9_-]+\.js$/];
 
 /** True when a built file is fetched on demand rather than precached. */
 export const streamed=path=>STREAMED.some(pattern=>pattern.test(path));

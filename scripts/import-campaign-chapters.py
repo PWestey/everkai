@@ -137,6 +137,25 @@ def decode(d):
     return bt,bs,bg
 dump=lambda x:json.dumps(x,separators=(',',':'))
 assert dump(decode(json.loads(dump(out))))==dump((battles,boss_rows,backgrounds)),'format 2 does not round-trip'
-Path('lib/campaign-chapters-data.json').write_text(dump(out)+'\n')
+
+# THE SPLIT (2026-09-18). Chapters 7-SPLIT ship in the main bundle; SPLIT+1..LAST go to a second file that
+# lib/stage-ladder.mjs imports lazily, only once a save's progress nears chapter SPLIT. Measured in Chrome
+# with iPhone emulation on the built client: startup JS heap after GC 38.9 MB at 3,000 chapters against
+# 70.1 MB at 6,000 (fresh save), so the later half costs every player ~31 MB they may never reach.
+# Both files are format 2 and carry the same itemIds and backgroundArt; the main file also carries a small
+# `late` index (chapter range, stage ids and the late file's sha256), which is all the synchronous
+# validators need to accept progress up to LAST before the rows arrive.
+SPLIT=3000
+k=SPLIT-FIRST+1
+late={**out,'firstChapter':SPLIT+1,'firstStageId':place(SPLIT+1,0)[1],'battles':enc_battles[k*20:],'bosses':enc_bosses[k:],
+      'backgrounds':out['backgrounds'][k:]}
+late_text=dump(late)+'\n'
+early={**out,'lastChapter':SPLIT,'battles':enc_battles[:k*20],'bosses':enc_bosses[:k],'backgrounds':out['backgrounds'][:k],
+       'late':{'file':'campaign-chapters-late-data.json','firstChapter':SPLIT+1,'lastChapter':LAST,'firstStageId':place(SPLIT+1,0)[1],
+               'battles':len(late['battles']),'bosses':len(late['bosses']),'sha256':hashlib.sha256(late_text.encode()).hexdigest()}}
+b1,s1,g1=decode(json.loads(dump(early)));b2,s2,g2=decode(json.loads(late_text))
+assert dump((b1+b2,s1+s2,{**g1,**g2}))==dump((battles,boss_rows,backgrounds)),'the split does not round-trip to the whole table'
+Path('lib/campaign-chapters-data.json').write_text(dump(early)+'\n')
+Path('lib/campaign-chapters-late-data.json').write_text(late_text)
 print('chapters',FIRST,'-',LAST,'battles',len(battles),'bosses',len(boss_rows),'stageIds',ids[0],'-',ids[-1],'dropped',sorted(dropped),
-      'bytes',Path('lib/campaign-chapters-data.json').stat().st_size,'allRowsSha256',ALL_ROWS)
+      'bytes',Path('lib/campaign-chapters-data.json').stat().st_size,'+',Path('lib/campaign-chapters-late-data.json').stat().st_size,'allRowsSha256',ALL_ROWS)

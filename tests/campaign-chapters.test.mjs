@@ -3,7 +3,12 @@ import {createHash} from 'node:crypto';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {OPENING_STAGES,CAMPAIGN,LAST_CHAPTER,OPENING,decodeCampaign,openingBossReady} from '../lib/opening.mjs';
 import {openingChapterName} from '../lib/opening-presentation.mjs';
-import raw from '../lib/campaign-chapters-data.json' with {type:'json'};
+import main from '../lib/campaign-chapters-data.json' with {type:'json'};
+import lateRaw from '../lib/campaign-chapters-late-data.json' with {type:'json'};
+// Chapters 7-3000 ship in the main file, 3001-6000 in the lazily loaded late file (lib/stage-ladder.mjs).
+// `raw` is the two joined back into the one format-2 table, which is what every pin below is over.
+const {late:_index,...mainRows}=main;
+const raw={...mainRows,lastChapter:lateRaw.lastChapter,battles:[...main.battles,...lateRaw.battles],bosses:[...main.bosses,...lateRaw.bosses],backgrounds:[...main.backgrounds,...lateRaw.backgrounds]};
 import scenes from '../lib/stage-scene-data.json' with {type:'json'};
 
 const chapterOf=s=>Number(s._id.split('-')[0]);
@@ -85,7 +90,9 @@ test('decoded rows keep the opening row shape and derive ids from position',()=>
  for(const b of CAMPAIGN.battles)assert.equal(Object.keys(b).filter(k=>k!=='sourceEventId').join(),keys,b._id);
  assert.deepEqual(Object.keys(CAMPAIGN.bosses[0]),['_id','atk','inspireConsumeBase','stageId','items']);
  assert.deepEqual(OPENING_STAGES.find(s=>s._id==='73-4-3').consume.map(c=>c.id),['3']);
- assert.equal(raw.format,2);assert.ok(JSON.stringify(raw).length<5_100_000,'6,000 compact chapters stay under 5.1 MB (measured 5,059,748 bytes; 1,141,681 gzip -9). It is inlined into the precached main chunk: see scripts/import-campaign-chapters.py for why 12,000 is not');});
+ assert.equal(raw.format,2);assert.ok(JSON.stringify(raw).length<5_100_000,'6,000 compact chapters stay under 5.1 MB (measured 5,059,748 bytes; 1,141,681 gzip -9): see scripts/import-campaign-chapters.py for why 12,000 is not');
+ // Only chapters 7-3000 are in the main file, which is inlined into the precached main chunk; 3001-6000 load lazily.
+ assert.equal(main.lastChapter,3000);assert.ok(JSON.stringify(main).length<2_450_000,'the main-bundle half stays at the 3,000-chapter size (2,406,847 bytes)');});
 
 test('every chapter background resolves to a shipped stage scene',()=>{
  const shipped=new Set(Object.values(scenes.chapters).map(c=>c.background));

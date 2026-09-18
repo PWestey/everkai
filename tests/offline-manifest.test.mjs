@@ -40,7 +40,7 @@ test('the precache stays within a size a phone will actually grant',async()=>{
 });
 
 test('the streaming rule is narrow and anchored, so it cannot swallow the app shell',()=>{
- assert.equal(STREAMED.length,3);
+ assert.equal(STREAMED.length,4);
  // The Spine pilot's runtime is a build chunk named after its module (assets/spine-character-<hash>.js):
  // it must stay precached so live playback works offline; only the model directory streams.
  for(const keep of ['index.html','assets/index-abc123.js','assets/kaity-idle.webp','assets/facility-scenes/recruit.webp','assets/wardrobe/x.webp','assets/spine-character-abc123.js','assets/spine.js'])
@@ -52,6 +52,10 @@ test('the streaming rule is narrow and anchored, so it cannot swallow the app sh
  assert.equal(streamed('assets/crossover/xover_msf_spiderman.webp'),true);
  assert.equal(streamed('assets/crossover-abc123.js'),false);
  assert.equal(streamed('assets/village/spine/x.skel'),false);
+ // The late stage chapters stream (lib/stage-ladder.mjs loads them lazily); nothing else named like them does.
+ assert.equal(streamed('assets/campaign-chapters-late-data-CmHZxQT-.js'),true);
+ for(const keep of ['assets/index-B_Q4-_Mh.js','assets/campaign-chapters-data-abc.js','assets/x/campaign-chapters-late-data-abc.js','assets/campaign-chapters-late-data-abc.js.map'])
+  assert.equal(streamed(keep),false,keep+' must not match the late-chapter rule');
  // Anchored at the start: a path merely containing the word must not match.
  assert.equal(streamed('assets/village/idle/x.mp4'),false);
 });
