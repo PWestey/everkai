@@ -3,7 +3,10 @@ import {startingSave,act,valid,refusedBy} from '../lib/game.mjs';
 import {bondedPower,powerParts,composePower,levelADH,defaultADH,EVERKAI_ONLY_PARTS,STAR_POWER_BP,SKILL_POWER_BP,ladderPower,validAdventure} from '../lib/adventure.mjs';
 import {sourceCoefficient,sourceAptitudeBonus} from '../lib/original-progression.mjs';
 import {stellaBonus,stellaState,STELLA_PROFILES} from '../lib/stella.mjs';
-import {APTITUDE_CAP,LEGACY_APTITUDE_CAP,APTITUDE_CAP_SOURCE} from '../lib/aptitude-cap.mjs';
+import {APTITUDE_CAP,LEGACY_APTITUDE_CAP,APTITUDE_CAP_SOURCE,PEARL_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';
+import {aptitudeTrainingPlan} from '../lib/adventure.mjs';
+import {talentTrainingPlan,talentRule} from '../lib/talents.mjs';
+import {readFileSync as readSrc,readdirSync} from 'node:fs';
 import {validAptitudeLedger} from '../lib/aptitude-ledger.mjs';
 import {ORIGINAL_FELLOWS} from '../lib/catalog.mjs';
 import {withItems,grantFragments} from './progression-helpers.mjs';
@@ -148,6 +151,41 @@ test('validAdventure accepts the cap and refuses one past it; a legacy 1,000 sti
  assert.equal(validAptitudeLedger({fellows:{hero_1:f}}),true);
  const over={...f,aptitudeLedger:{policyVersion:1,entries:{'item:Item_Talent_Hero_1':{paid:APTITUDE_CAP+1,gain:APTITUDE_CAP+1}}}};
  assert.equal(validAptitudeLedger({fellows:{hero_1:{...over,aptitude:APTITUDE_CAP}}}),false,'a key gaining past the cap is refused');
+});
+
+test('direct Skill Pearl training stops at the old 1,000; every original source keeps the 31,122 bound',()=>{
+ // Owner-delegated balancing decision (power-parity-audit 9.8.6 / 9.10): the pearl -> Aptitude trade is
+ // Everkai-only, and uncapped it bought one Fellow to 31,122 by simulated day 30.
+ assert.equal(PEARL_APTITUDE_CAP,1000);assert.equal(PEARL_APTITUDE_CAP,LEGACY_APTITUDE_CAP);
+ const s0=startingSave(NOW);
+ const s={...withFellow(s0,'hero_1',{aptitude:990}),inventory:{...s0.inventory,Item_Talent_Hero_1:50000}};
+ assert.deepEqual(aptitudeTrainingPlan(s,'hero_1','max'),{count:10,cost:10,aptitude:1000},'pearls fill to 1,000 and no further');
+ const r=act(s,'aptitude',s.lastAt,'hero_1','max');assert.ok(!r.error,r.error);assert.equal(r.state.fellows.hero_1.aptitude,1000);
+ const again=act(r.state,'aptitude',s.lastAt,'hero_1',1);
+ assert.match(again.error||'',/only up to 1,000/,'the refusal tells the player why it stopped');
+ // A Fellow already past 1,000 from other sources: no pearl offer, but the save is still valid and the
+ // talent-level route (the original's rule) still trains toward APTITUDE_CAP.
+ const high={...withFellow(s0,'hero_1',{aptitude:5000}),inventory:{...s0.inventory,Item_Talent_Hero_1:50000}};
+ assert.equal(aptitudeTrainingPlan(high,'hero_1','max').count,0);
+ assert.equal(validAdventure(high),true,'a Fellow above 1,000 is never refused by the pearl cap');
+ assert.ok(talentRule('hero_1'),'positive control: hero_1 has a talent rule');
+ assert.ok(talentTrainingPlan(high,'hero_1','max').aptitude>5000,'talent levels still raise Aptitude past 1,000');
+ // It is a PLANNER limit, never a validator: no save can be refused by it. Enforced on the source, since a
+ // validator bound here would refuse the crossover build's own 31,122-trained saves.
+ const users=readdirSync(new URL('../lib/',import.meta.url)).filter(f=>f.endsWith('.mjs')&&f!=='aptitude-cap.mjs')
+  .filter(f=>readSrc(new URL('../lib/'+f,import.meta.url),'utf8').includes('PEARL_APTITUDE_CAP'));
+ assert.deepEqual(users,['adventure.mjs']);
+ const adv=readSrc(new URL('../lib/adventure.mjs',import.meta.url),'utf8');
+ const at=adv.indexOf('export function validAdventure'),validator=adv.slice(at,adv.indexOf('\nexport ',at+1));
+ assert.ok(validator.includes('APTITUDE_CAP'),'positive control: the validator slice holds the real cap bound');
+ assert.ok(!validator.includes('PEARL_APTITUDE_CAP'),'validAdventure must not bound Aptitude by the pearl cap');
+ const ledger=readSrc(new URL('../lib/aptitude-ledger.mjs',import.meta.url),'utf8');
+ assert.ok(!ledger.includes('PEARL_APTITUDE_CAP')&&!/LEGACY_APTITUDE_CAP/.test(ledger),'the ledger keeps the 31,122 per-key bound');
+ // Behaviourally too: a save written by crossover@3854d3a, whose planner sold pearls to 31,122, holds a pearl
+ // ledger entry far past 1,000. It must still load.
+ const bought={...s0.fellows.hero_1,aptitude:20000,aptitudeLedger:{policyVersion:1,entries:{'item:Item_Talent_Hero_1':{paid:19990,gain:19990}}}};
+ assert.equal(validAptitudeLedger({fellows:{hero_1:bought}}),true,'a pearl ledger past 1,000 (from the uncapped build) still loads');
+ assert.equal(validAdventure(withFellow(s0,'hero_1',bought)),true);
 });
 
 // ---------------------------------------------------------------------------------------------------

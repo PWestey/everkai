@@ -1,4 +1,4 @@
-import test from 'node:test';import {APTITUDE_CAP} from '../lib/aptitude-cap.mjs';import assert from 'node:assert/strict';
+import test from 'node:test';import {APTITUDE_CAP,PEARL_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
@@ -258,11 +258,12 @@ test('the talent tier is fixed, and fixing it costs nothing because a point cost
  for(const r of tiers)assert.equal(r.cost/r.amount,1,`${r.name} is not 1 pearl per point`);
  assert.deepEqual([...new Set(tiers.map(r=>r.name))].sort(),['Ordinary Talent','Outstanding Talent','Supreme Talent']);
  // ...and the tier cap is not a ceiling either: Aptitude is sold directly at the same 1:1 rate to the
- // same cap -- APTITUDE_CAP, the original's measured 31,122 since 2026-09-18 (it was a flat 1,000, when
- // this read [990,990]) -- so what the tier changes is clicks.
+ // same 1,000 -- direct pearl training stops at PEARL_APTITUDE_CAP even though APTITUDE_CAP is the original's
+ // measured 31,122 since 2026-09-18 -- so what the tier changes is clicks.
  const XOVER=ADDITION_FELLOWS[0].id;
  const s={...at(XOVER,1,{level:1}),inventory:{...fresh(T).inventory,Item_Talent_Hero_1:APTITUDE_CAP+1000}};
- assert.deepEqual([aptitudeTrainingPlan(s,XOVER,'max').count,aptitudeTrainingPlan(s,XOVER,'max').cost],[APTITUDE_CAP-10,APTITUDE_CAP-10]);
+ assert.equal(PEARL_APTITUDE_CAP,1000);
+ assert.deepEqual([aptitudeTrainingPlan(s,XOVER,'max').count,aptitudeTrainingPlan(s,XOVER,'max').cost],[990,990]);
  // WHY IT IS FIXED, negative-controlled on the mechanism rather than described: validTalents refuses a
  // talentLevel above the CURRENT rule's cap, so a rule that climbed with the badge would refuse a save
  // that had already trained past the lower tier's cap. Demonstrated on an original whose rule IS the
