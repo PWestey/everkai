@@ -48,3 +48,40 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
  const trade={...s,tradingPost:{...s.tradingPost,history:[...h.slice(0,-1),{...last,team:[{...last.team[0],won:!last.team[0].won},...last.team.slice(1)]}]}};
  assert.equal(validTradingPost(trade),false);
 });
+
+// ---------------------------------------------------------------------------------------------------
+// PACING PINS -- the owner's call: keep the appointment-yield column faithful and guard with pacing, not a
+// cap. Each fixture is 30 / 90 / 180 simulated days of normal habit play (scratchpad sim/sim-pins-cap.mjs:
+// APK growth, `earned` policy -- only costed, gated or time-recovering actions -- spending Stella shards and
+// training Aptitude up to the build's own cap), written by THIS build. `before` is the same policy run
+// on the previous build (3d47df4), where the cap was 1,000. Every number is exact, so any move is loud;
+// the ratio bands underneath say which moves count as a runaway rather than a re-baseline.
+//
+// What the pins say, read plainly: village gold/s stays within 0.96x-1.24x of the old build at every
+// checkpoint. The strongest Fellow is 5.9x-8.5x the old one, because the Aptitude cap is now the original's
+// 31,122 and direct Skill Pearl training reaches it by day 30 -- that is the lever to watch (owner decision
+// 6 in docs/power-parity-audit.md 9.8). The weakest Fellow stays within 0.86x-1.70x. The roster is SMALLER (16-17
+// Fellows against 28-31): the gold went into pearls instead of recruits.
+// ---------------------------------------------------------------------------------------------------
+const PINS=[
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
+  before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
+  before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
+  before:{goldPerSecond:8248950146,top:460219606,bottom:20331834,fellows:31}},
+];
+for(const p of PINS)test(`pacing, day ${p.day}: gold/s ${p.now.goldPerSecond.toLocaleString('en-US')}, top ${p.now.top.toLocaleString('en-US')}, bottom ${p.now.bottom.toLocaleString('en-US')}`,()=>{
+ const raw=load(p.file),s=decode(raw);
+ assert.equal(JSON.stringify(s),raw,'the fixture is a save this build wrote and reads back untouched');
+ assert.ok(valid(s),refusedBy(s));
+ const all=powers(s);
+ const now={goldPerSecond:Math.round(effectiveRate(s,s.lastAt)),top:Math.max(...all),bottom:Math.min(...all),fellows:all.length};
+ // A runaway is anything outside these bands against the previous build's own run. They are wide on
+ // purpose: a re-balance may move a pin, but a factor of 3 on income or 20 on the top Fellow is a defect.
+ const r=k=>now[k]/p.before[k];
+ assert.ok(r('goldPerSecond')>0.5&&r('goldPerSecond')<2,`day ${p.day}: gold/s is ${r('goldPerSecond').toFixed(2)}x the previous build`);
+ assert.ok(r('top')<20,`day ${p.day}: the top Fellow is ${r('top').toFixed(1)}x the previous build`);
+ assert.ok(r('bottom')>0.25&&r('bottom')<4,`day ${p.day}: the bottom Fellow is ${r('bottom').toFixed(2)}x the previous build`);
+ assert.deepEqual(now,p.now);
+});

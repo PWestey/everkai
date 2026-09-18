@@ -801,7 +801,32 @@ stores a Power holds with room: Expo slot 1e12 (~100×), mine / trading-post / N
 
 ### 9.6 Pacing pins
 
-*(Added with the sim fixtures; see below.)*
+`tests/power-pacing.test.mjs`. Scratchpad `sim/sim-pins-cap.mjs` (sim-v2 plus two policy changes: it
+spends idle Stella shards one rank at a time on the best income gain per shard — the stock sim never
+spent them, so no Stella term ever reached a pacing number — and it trains Aptitude up to the build's own
+cap instead of a hard-coded 1,000), APK growth, `earned` policy. The three saves this build wrote are the
+fixtures; `before` is the same policy on 3d47df4. Exact pins, plus runaway bands (gold/s 0.5–2×, top
+< 20×, bottom 0.25–4× of before).
+
+| day | gold/s before → after | top Fellow before → after | bottom Fellow before → after | Fellows owned |
+|---|---|---|---|---|
+| 30 | 3,965,436,060 → **4,923,957,499** (1.24×) | 364,195,900 → **2,146,877,316** (5.9×) | 9,519,535 → **16,210,487** | 28 → 16 |
+| 90 | 6,913,806,855 → **6,637,997,008** (0.96×) | 443,154,590 → **3,701,223,720** (8.4×) | 20,058,869 → **17,275,670** | 31 → 17 |
+| 180 | 8,248,950,146 → **9,285,714,088** (1.13×) | 460,219,606 → **3,909,900,285** (8.5×) | 20,331,834 → **17,618,893** | 31 → 17 |
+
+Decomposed, because the two changes pull opposite ways — the same run with the Aptitude policy held at
+1,000 (composition only): day 30 2,311,764,907 / 230,796,106 / 9,050,034; day 90 5,404,947,644 /
+257,649,411 / 26,800,807; day 180 6,186,448,810 / 260,261,323 / 27,183,227. **The composition alone takes
+income down 22–42% and the top Fellow down 37–43%; the cap then takes the top Fellow up 9–15×.** Direct Skill
+Pearl training reaches 31,122 on hero_195 by day 30 (pearls double every 2,500, which is ~4e9 gold for one
+Fellow's 31,000 — cheap at billions a second), so the top of the roster is now paced by nothing but the
+cap. Village income stays within 0.96–1.24× because the player buys pearls instead of recruits.
+
+Downstream in the same runs: Mine Clearance clears 49–60 guardians a day against 31–36 before (the top
+Fellow alone goes deeper); the next stage's price falls (2,976 → 2,523 gold at day 30); the opening
+journey still finishes all 63,000 battles by day 180; Northern Odyssey stays saturated at ATK 200;
+Trading Post and Frontier are won either way. All three rule-12 decodes of the previous build's 30-, 90-
+and 180-day saves are byte-identical and valid (the 30-day one is the committed fixture).
 
 ### 9.7 Saves (rule 12)
 
@@ -832,6 +857,12 @@ saves) all still pass. No `SAVE_VERSION` bump: nothing required was added; the o
    parity mode.*
 5. **Stella `self | talent`** (PWR-04) is unblocked by the cap and still unimported. *Recommendation:
    import per rank as a `stella` talent part.*
+6. **Direct Skill Pearl training now paces the top of the roster by the cap alone** (9.6: the top Fellow
+   hits 31,122 Aptitude by day 30 and is 5.9–8.5× the old build's; gold/s moves only 0.96–1.24×). It is an
+   Everkai-only faucet — the original has no pearl → Aptitude trade; its talent comes from talent LEVELS,
+   each capped. *Recommendation: route pearl training through talent levels (the original's rule), i.e.
+   retire direct `aptitude` training or cap it at the old 1,000, and keep the measured 31,122 as the bound
+   for everything else. Not done here: it is a faucet decision, and the pacing pins will show it move.*
 
 ### 9.9 Negative controls
 
@@ -841,5 +872,5 @@ percent factor; stars back onto Aptitude; Stella's percent as an outer factor ag
 dropped; a familiar flat leaking into a non-familiar part; the default level column drifting; the cap back
 to 1,000; the validator's cap bound removed; the ledger bound left at 1,000; a ×1,000 Power scale (the
 stored-value bounds test); a new contributor slipping into `powerParts` (the extractor); the mine and
-trading-post validators bounding stored Power below what the old build wrote (the rule-12 decode). 14/14
-fired.
+trading-post validators bounding stored Power below what the old build wrote (the rule-12 decode); a
+×10 Power runaway and a halved `rosterOperation` divisor (the pacing pins). 16/16 fired.
