@@ -1,6 +1,6 @@
 {
  "policyVersion": 1,
- "note": "Lite habit-events (EVT-21). The original ran these as timed mega events with their own minigames (map exploration, match-3, sparring, gacha, power ranking) -- see docs/event-catalog.md section 4.4. Everkai keeps only what a single-player habit game can honestly keep: the CAST and the sense of an arc. Each stage is paid for with habit completions, which is the one currency this game actually mints. CAST IS RESOLVED BY ID, never by name. Shinobu Kocho, Aqua and Roxy Migurdia each ship as TWO records (one Fellow, one Family) with identical titles -- one character, two records, so both are stages and the record kind labels them. A name-based generator dropped all six. It also nearly added wife_148 \"Lucy - Principal of the Magic Corps\" to the Fairy Tail arc: a different character who merely shares the name with wife_161 \"Lucy - Celestial Spirit Wizard\", who is the Fairy Tail one. Identify by id and title, never by translated name.",
+ "note": "Lite habit-events (EVT-21). The original ran these as timed mega events with their own minigames (map exploration, match-3, sparring, gacha, power ranking) -- see docs/event-catalog.md section 4.4. Everkai keeps only what a single-player habit game can honestly keep: the CAST and the sense of an arc. Each stage is paid for with habit completions, which is the one currency this game actually mints. CAST IS RESOLVED BY ID, never by name. Shinobu Kocho, Aqua and Roxy Migurdia each ship as TWO records (one Fellow, one Family) with identical titles -- one character, two records, so both are stages and the record kind labels them. A name-based generator dropped all six. It also nearly added wife_148 \"Lucy - Principal of the Magic Corps\" to the Fairy Tail arc: a different character who merely shares the name with wife_161 \"Lucy - Celestial Spirit Wizard\", who is the Fairy Tail one. Identify by id and title, never by translated name. TRIMMED 2026-09-17: the owner deleted six of these characters with the rest of his roster trim (Benimaru, Fafnir, Kanna, Bell Cranel, Kazuma, Rudeus Greyrat), so five arcs lost cast. Their stages are gone, but the SURVIVING stages keep their ORIGINAL `step` numbers, gaps and all -- `step` is not an index, and those numbers are the only map from a stored `claimed` count, which was written against the arc as it was, to the arc as it is. lib/release-removed.mjs uses exactly that to migrate an old save and to hand back the habit completions the vanished stages cost. `removedStages` on an arc lists the ORIGINAL step numbers the 2026-09-17 roster trim deleted and who was on them. A stored `claimed` count was written against the arc as it WAS, so that list is the only way to translate it -- lib/release-removed.mjs subtracts the removed steps that fall within the count and hands the habit completions back. It runs only while the save still owns one of those members, which is what makes it idempotent.",
  "source": "docs/event-catalog.md sections 4.1 and 4.4 (names and ids); lib/catalog.mjs (cast, resolved by name at build time, not hand-typed)",
  "localNumbers": "COMPLETIONS_PER_STAGE is a LOCAL number, not the original's. The original gated event heroes on event currency and gacha pity, neither of which exists here. 10 completions a stage is stated here so it can be argued with rather than discovered in the code. Each arc now carries its own costPerStage; the eight Isekai arcs are PINNED at 10 and must stay 10, because s.events.spent is a stored value derived from it (CLAUDE.md rule 12) and every save that ever claimed a stage would be refused if it moved.",
  "events": [
@@ -112,13 +112,6 @@
      "label": "Rimuru Tempest"
     },
     {
-     "id": "hero_144",
-     "name": "Benimaru",
-     "kind": "Fellow",
-     "title": "Samurai General of the Ogres",
-     "label": "Benimaru"
-    },
-    {
      "id": "wife_144",
      "name": "Shuna",
      "kind": "Family",
@@ -140,11 +133,6 @@
      "kind": "fellows"
     },
     {
-     "step": 2,
-     "member": "hero_144",
-     "kind": "fellows"
-    },
-    {
      "step": 3,
      "member": "wife_144",
      "kind": "family"
@@ -153,6 +141,12 @@
      "step": 4,
      "member": "wife_168",
      "kind": "family"
+    }
+   ],
+   "removedStages": [
+    {
+     "step": 2,
+     "member": "hero_144"
     }
    ]
   },
@@ -177,25 +171,11 @@
      "label": "Elma"
     },
     {
-     "id": "hero_142",
-     "name": "Kanna",
-     "kind": "Fellow",
-     "title": "Self-paced Young Dragon",
-     "label": "Kanna"
-    },
-    {
      "id": "hero_74",
      "name": "Lucoa",
      "kind": "Fellow",
      "title": "Strange-Eyed Dragon Mystic",
      "label": "Lucoa"
-    },
-    {
-     "id": "hero_141",
-     "name": "Fafnir",
-     "kind": "Fellow",
-     "title": "Unsleeping Strategist",
-     "label": "Fafnir"
     }
    ],
    "stages": [
@@ -210,19 +190,19 @@
      "kind": "fellows"
     },
     {
-     "step": 3,
-     "member": "hero_142",
-     "kind": "fellows"
-    },
-    {
      "step": 4,
      "member": "hero_74",
      "kind": "fellows"
+    }
+   ],
+   "removedStages": [
+    {
+     "step": 3,
+     "member": "hero_142"
     },
     {
      "step": 5,
-     "member": "hero_141",
-     "kind": "fellows"
+     "member": "hero_141"
     }
    ]
   },
@@ -232,13 +212,6 @@
    "source": "DanMachi",
    "costPerStage": 10,
    "cast": [
-    {
-     "id": "hero_167",
-     "name": "Bell Cranel",
-     "kind": "Fellow",
-     "title": "Rabbit Foot",
-     "label": "Bell Cranel"
-    },
     {
      "id": "wife_253",
      "name": "Hestia",
@@ -263,11 +236,6 @@
    ],
    "stages": [
     {
-     "step": 1,
-     "member": "hero_167",
-     "kind": "fellows"
-    },
-    {
      "step": 2,
      "member": "wife_253",
      "kind": "family"
@@ -281,6 +249,12 @@
      "step": 4,
      "member": "wife_156",
      "kind": "family"
+    }
+   ],
+   "removedStages": [
+    {
+     "step": 1,
+     "member": "hero_167"
     }
    ]
   },
@@ -349,13 +323,6 @@
    "costPerStage": 10,
    "cast": [
     {
-     "id": "hero_184",
-     "name": "Kazuma",
-     "kind": "Fellow",
-     "title": "Average Adventurer",
-     "label": "Kazuma"
-    },
-    {
      "id": "hero_185",
      "name": "Darkness",
      "kind": "Fellow",
@@ -386,11 +353,6 @@
    ],
    "stages": [
     {
-     "step": 1,
-     "member": "hero_184",
-     "kind": "fellows"
-    },
-    {
      "step": 2,
      "member": "hero_185",
      "kind": "fellows"
@@ -410,6 +372,12 @@
      "member": "wife_173",
      "kind": "family"
     }
+   ],
+   "removedStages": [
+    {
+     "step": 1,
+     "member": "hero_184"
+    }
    ]
   },
   {
@@ -418,13 +386,6 @@
    "source": "Mushoku Tensei",
    "costPerStage": 10,
    "cast": [
-    {
-     "id": "hero_176",
-     "name": "Rudeus Greyrat",
-     "kind": "Fellow",
-     "title": "Grand Mage",
-     "label": "Rudeus Greyrat"
-    },
     {
      "id": "wife_160",
      "name": "Sylphiette Greyrat",
@@ -449,11 +410,6 @@
    ],
    "stages": [
     {
-     "step": 1,
-     "member": "hero_176",
-     "kind": "fellows"
-    },
-    {
      "step": 2,
      "member": "wife_160",
      "kind": "family"
@@ -467,6 +423,12 @@
      "step": 4,
      "member": "wife_159",
      "kind": "family"
+    }
+   ],
+   "removedStages": [
+    {
+     "step": 1,
+     "member": "hero_176"
     }
    ]
   },

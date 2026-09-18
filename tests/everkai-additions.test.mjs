@@ -37,11 +37,12 @@ test('the flag is ?crossover=1 exactly, and Node never has it',()=>{
 
 test('flag off: the catalogue is exactly the original one',()=>{
  assert.equal(FELLOWS,ORIGINAL_FELLOWS,'the same array, not a filtered copy');
- assert.equal(FELLOWS.length,159);
+ assert.equal(FELLOWS.length,111);   // 159 before the owner's 2026-09-17 roster trim
+
  assert.ok(FELLOWS.every(f=>originalCharacter(f.id)&&!isAddition(f.id)));
  assert.deepEqual(recruitOffers(startingSave(0)).filter(o=>isAddition(o.id)),[],'nothing extra at the counter');
- assert.deepEqual(fellowCatalogue(true).slice(0,159),ORIGINAL_FELLOWS,'additions only append');
- assert.deepEqual(fellowCatalogue(true).slice(159).map(f=>f.id),IDS);
+ assert.deepEqual(fellowCatalogue(true).slice(0,111),ORIGINAL_FELLOWS,'additions only append');
+ assert.deepEqual(fellowCatalogue(true).slice(111).map(f=>f.id),IDS);
  assert.equal(IDS.length,133,'the 133 Fellows of docs/crossover-family-split.md; the 30 Family are a separate layer');
  assert.deepEqual(IDS.filter(id=>SHIPPED.includes(id)),SHIPPED);
 });
@@ -151,8 +152,8 @@ test('flag ON: all 163 are listed, each in exactly one arc, and the counter sell
  assert.equal(c.rosterSize,163);
  assert.deepEqual(c.fellows,{roster:133,listed:133,same:true,sameOrder:true},'133 crossover Fellows, in the roster\'s rank order');
  assert.deepEqual(c.family,{roster:30,listed:30,same:true,sameOrder:false},'30 crossover Family; their rows are grouped by franchise, not ranked');
- assert.deepEqual(c.originals,{fellows:159,family:107},'and the originals are untouched');
- assert.deepEqual(c.totals,{fellows:292,family:137},'159+133 and 107+30');
+ assert.deepEqual(c.originals,{fellows:111,family:107},'and the originals are untouched');
+ assert.deepEqual(c.totals,{fellows:244,family:137},'111+133 and 107+30');
  // THE UNLOCK GATE, over the whole roster rather than over the two ids this village recruited.
  assert.deepEqual(c.offeredAdditions,[],'the counter offers none of the 163');
  assert.deepEqual(c.pricedAdditions,[],'and prices none of them');

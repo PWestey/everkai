@@ -138,8 +138,8 @@ const xoverArc=(costPerStage=10)=>({id:'XoverFixture',name:'Fixture Arc',source:
  stages:[{step:1,member:SPIDER,kind:'fellows'}]});
 
 test('a stage says which side of the village it belongs to, in data, not by id prefix',()=>{
- // Positive control first: the declared kind must agree with the prefix rule it replaces for all 35
- // shipped stages, or `spent` and the ownership check would change meaning for an existing save.
+ // Positive control first: the declared kind must agree with the prefix rule it replaces for all 29
+ // shipped stages (35 before the 2026-09-17 roster trim), or `spent` and the ownership check would change meaning for an existing save.
  // Scoped to the eight Isekai arcs: the 33 crossover arcs are exactly the case the prefix rule got
  // wrong, and tests/crossover-arcs.test.mjs asserts their kinds against the roster instead.
  let stages=0;
@@ -154,7 +154,7 @@ test('a stage says which side of the village it belongs to, in data, not by id p
    assert.ok(stagePerson(st),`${st.member} resolves to a catalogue record`);
   }
  }
- assert.equal(stages,35,'all 35 shipped stages');
+ assert.equal(stages,29,'all 29 shipped stages (35 before the 2026-09-17 roster trim)');
  // An xover_* stage: the prefix rule sent it to s.family and it failed the catalogue lookup.
  const st={step:1,member:SPIDER,kind:'fellows'};
  assert.equal(SPIDER.startsWith('hero_'),false,'the old rule would have called this Family');
@@ -206,22 +206,23 @@ test('stage cost is per arc, and the eight Isekai arcs are pinned at 10 so old s
  assert.equal(ISEKAI_EVENTS.length,8);
  assert.equal(EVENTS.length,8+CROSSOVER_EVENTS.length,'EVENTS holds every arc; only the panel and eventAction are gated');
  const stages=ISEKAI_EVENTS.reduce((n,e)=>n+e.stages.length,0);
- assert.equal(stages,35);
+ assert.equal(stages,29);   // 35 before the owner's 2026-09-17 roster trim deleted six of the cast
+
  for(const e of ISEKAI_EVENTS){
   assert.equal(e.costPerStage,10,`${e.id} must stay at 10: saves store spent = stages x this`);
   assert.equal(costPerStage(e.id),10);
  }
  assert.equal(costPerStage('NotAnArc'),COMPLETIONS_PER_STAGE,'an unknown arc falls back to 10');
- // The exact ledger a save that finished every Isekai arc holds: 350 spent, and nothing else.
+ // The exact ledger a save that finished every Isekai arc holds: 290 spent, and nothing else.
  let done=fresh(T);
  for(const e of ISEKAI_EVENTS)for(const st of e.stages)done=stageKind(st)==='fellows'
   ?{...done,fellows:{...done.fellows,[st.member]:newFellow()}}
   :{...done,family:{...done.family,[st.member]:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}};
  const claimed=Object.fromEntries(ISEKAI_EVENTS.map(e=>[e.id,e.stages.length]));
- assert.equal(stages*10,350,'the whole Isekai cast still costs 350 completions');
- assert.equal(validEvents({...done,events:{policyVersion:1,spent:350,claimed}}),true,'350 is still the price');
- for(const wrong of [340,349,351,360,0])
-  assert.equal(validEvents({...done,events:{policyVersion:1,spent:wrong,claimed}}),false,`${wrong} is not 350`);
+ assert.equal(stages*10,290,'the whole Isekai cast still costs 290 completions');
+ assert.equal(validEvents({...done,events:{policyVersion:1,spent:290,claimed}}),true,'290 is the price now');
+ for(const wrong of [280,289,291,300,350,0])
+  assert.equal(validEvents({...done,events:{policyVersion:1,spent:wrong,claimed}}),false,`${wrong} is not 290`);
  assert.equal(validEvents({...fresh(T),events:{policyVersion:1,spent:0,claimed:{}}}),true);
  // A differently priced arc: the owner's 10/20/30 ladder must be expressible.
  for(const cost of [10,20,30]){
@@ -285,7 +286,10 @@ test('rarity N resolves a progression template for every type: the per-type SSR 
  const types=[...new Set(ORIGINAL_FELLOWS.map(f=>f.type))].sort();
  assert.deepEqual(types,['Brave','Diligent','Informed','Inspiring','Unfettered']);
  assert.deepEqual(Object.keys(RARITY_N_ANCHORS).sort(),types);
- assert.deepEqual(Object.values(RARITY_N_ANCHORS).sort(),['hero_101','hero_102','hero_103','hero_104','hero_105']);
+ // hero_102 (Diligent) and hero_105 (Informed) were deleted in the owner's 2026-09-17 roster trim and
+ // were re-anchored by the SAME rule; their replacements' operation rows are identical in shape, so
+ // the symmetry this pin exists for is intact (scripts/crossover/pick-template.mjs).
+ assert.deepEqual(Object.values(RARITY_N_ANCHORS).sort(),['hero_101','hero_103','hero_104','hero_106','hero_133']);
  const raw=new Map(operations.records.map(r=>[r.fellow,r]));
  for(const type of types){
   const got=templateCandidates('N',type);
@@ -309,12 +313,17 @@ test('rarity N resolves a progression template for every type: the per-type SSR 
  }
  // Rarity N had no candidate under the unpinned rule, and still has none by rarity alone -- the pin is
  // what supplies one. Positive control that the rule is not simply returning everything now.
- assert.deepEqual(ORIGINAL_FELLOWS.filter(f=>f.rarity==='N').map(f=>f.id),['hero_1','hero_2','hero_3','hero_4','hero_5']);
+ // hero_2 and hero_5 went in the owner's 2026-09-17 roster trim; three of the original five remain,
+ // all still in FREE_ROSTER, so rarity N still has no candidate by rarity alone.
+ assert.deepEqual(ORIGINAL_FELLOWS.filter(f=>f.rarity==='N').map(f=>f.id),['hero_1','hero_3','hero_4']);
  assert.deepEqual(templateCandidates('N','NotAType'),[],'an unknown type still has no anchor');
  assert.deepEqual(templateCandidates('LR','Brave'),[],'and an unpinned empty rarity is still empty');
- // Non-N rarities are untouched: the two shipped prototypes still pick what they picked.
+ // Non-N rarities still resolve by the unpinned rule. Spider-Man's SSR/Unfettered pick is unchanged;
+ // Vader's UR/Brave pick moved because hero_113 (Leon) was deleted on 2026-09-17, so the rule's
+ // 'lowest-numbered' clause now lands on hero_134. Nothing reads `template` for progression any more
+ // (lib/crossover-abilities.mjs derives from the rarity ladder), so this only moves a provenance row.
  assert.equal(templateCandidates('SSR','Unfettered')[0].id,'hero_103');
- assert.equal(templateCandidates('UR','Brave')[0].id,'hero_113');
+ assert.equal(templateCandidates('UR','Brave')[0].id,'hero_134');
 });
 
 test('every shipped addition resolves a template whose progression rows exist',()=>{

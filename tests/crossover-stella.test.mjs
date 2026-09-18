@@ -7,6 +7,7 @@ import {STELLA_PROFILES,ALL_STELLA_PROFILES,STELLA_HISTORY_MAX,STELLA_IDLE_PER_D
  stellaRule,stellaState,stellaEntry,stellaPlan,stellaBonus,stellaActivation,settleStella} from '../lib/stella.mjs';
 import {CROSSOVER_SHARD_ITEM,ownsCrossoverStella} from '../lib/crossover-stella.mjs';
 import stellaSource from '../lib/stella-data.json' with {type:'json'};
+import {FELLOWS} from '../lib/catalog.mjs';
 import {ADDITION_FELLOWS,ADDITION_FAMILY} from '../lib/everkai-additions.mjs';
 import {HELPER_TASKS} from '../lib/helper.mjs';
 import {starterHabits} from '../lib/habits.mjs';
@@ -25,8 +26,10 @@ const T=new Date('2026-09-16T09:00:00').getTime();
 const DAY=86400000;
 const XOVER=ADDITION_FELLOWS[0].id, XOVER2=ADDITION_FELLOWS[1].id;
 const ANGIE=stellaSource.profiles.find(p=>p.id==='hero_52');
-/** Seat Fellows on a fresh village. `hero_52` is Angie, the one original whose own ladder this track
- *  reads, so a test that needs both halves of a comparison can own her too. */
+/** Seat Fellows on a fresh village. This track reads ANGIE's own ladder (hero_52), but the owner
+ *  deleted her on 2026-09-17 so no village can own her any more: her ROW stays (lib/crossover-stella.mjs
+ *  templates off it, and old saves need stellaRule to resolve her), and the comparisons below moved to
+ *  hero_56 (Liz), whose ladder tops out at the same 122% on the Diligent side. */
 const own=(...ids)=>{const s=fresh(T);return {...s,habits:starterHabits(T),fellows:{...s.fellows,...Object.fromEntries(ids.map(id=>[id,newFellow()]))}}};
 const go=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,`${a} ${t}: ${r.error}`);return r.state};
 const maybe=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);return r.error?s:r.state};
@@ -142,42 +145,51 @@ test('all 133 ladders fit inside the widened history bound and the unmoved stock
 // exactly today's.
 // ---------------------------------------------------------------------------------------------
 
-test('an addition takes NO typed percent from the four original Stellas; an original still takes all of it',()=>{
- // Angie is Informed. Seat her, one Informed crossover Fellow and one Informed ORIGINAL, then climb
- // Angie's own ladder to the top: +122% Informed.
- const informed=ADDITION_FELLOWS.find(f=>f.type==='Informed').id;
- const original=stellaSource.profiles.find(p=>p.id==='hero_52').type;
- assert.equal(original,'Informed','this test is built on Angie being Informed');
- let s=own('hero_52',informed,'hero_105');
- const before={x:bondedPower(s,informed),angie:bondedPower(s,'hero_52')};
- s=climb(s,'hero_52');
- assert.equal(stellaEntry(s,'hero_52').percent,122,'Angie’s own ladder reached its top');
+test('an addition takes NO typed percent from the original Stellas; an original still takes all of it',()=>{
+ // Liz (hero_56) is Diligent. Seat her, one Diligent crossover Fellow and one Diligent ORIGINAL, then
+ // climb her own ladder to the top: +122% Diligent. This ran on Angie (hero_52, Informed) until the
+ // 2026-09-17 roster trim deleted her; hero_56's ladder reaches the identical 122%, so the measurement
+ // is the same one.
+ const informed=ADDITION_FELLOWS.find(f=>f.type==='Diligent').id;
+ const original=stellaSource.profiles.find(p=>p.id==='hero_56').type;
+ assert.equal(original,'Diligent','this test is built on Liz being Diligent');
+ let s=own('hero_56',informed,'hero_106');
+ const before={x:bondedPower(s,informed),angie:bondedPower(s,'hero_56')};
+ s=climb(s,'hero_56');
+ assert.equal(stellaEntry(s,'hero_56').percent,122,'Liz’s own ladder reached its top');
  // The ORIGINAL half -- unchanged behaviour, and the positive control for the assertion below.
- assert.equal(stellaBonus(s,'hero_52').percent,122);
+ assert.equal(stellaBonus(s,'hero_56').percent,122);
  // Her own flat and her own +122%, in the shipped order: floor((power + flat) x (1 + percent/100)).
  // The 1-unit slack is the un-floored base inside bondedPower -- `before.angie` is already floored.
- assert.ok(Math.abs(bondedPower(s,'hero_52')-Math.floor((before.angie+35300000)*2.22))<=1,
-  `${bondedPower(s,'hero_52')} is not floor((${before.angie} + 35,300,000) x 2.22)`);
+ assert.ok(Math.abs(bondedPower(s,'hero_56')-Math.floor((before.angie+35300000)*2.22))<=1,
+  `${bondedPower(s,'hero_56')} is not floor((${before.angie} + 35,300,000) x 2.22)`);
  // The ADDITION half -- zero percent, and its power has not moved at all.
  assert.equal(stellaBonus(s,informed).percent,0,'MEASURED BEFORE THE FIX: 122');
  assert.equal(bondedPower(s,informed),before.x,'another Fellow’s Stella must not touch it');
  // And every OTHER original of that type keeps the typed percent, which is the behaviour being preserved.
- assert.equal(stellaBonus(s,'hero_105').percent,122);
+ assert.equal(stellaBonus(s,'hero_106').percent,122);
 });
 
 test('type stops being a power lever: five crossover Fellows on identical records max identically',()=>{
  const types=['Inspiring','Diligent','Brave','Informed','Unfettered'];
  const picks=types.map(t=>ADDITION_FELLOWS.find(f=>f.type===t).id);
- let s=own('hero_52','hero_54','hero_56','hero_190',...picks);
- for(const p of STELLA_PROFILES)s=climb(s,p.id);        // all four originals at their top
+ // hero_52 (Angie) was deleted 2026-09-17 and her Informed track went with her, so three of the four
+ // original ladders are climbable. The point of the test is that the five crossover picks END EQUAL,
+ // which is if anything a harder thing to hold when the typed percents are uneven.
+ const owners=STELLA_PROFILES.filter(p=>FELLOWS.some(f=>f.id===p.id));
+ assert.equal(owners.length,3);
+ let s=own(...owners.map(p=>p.id),...picks);
+ for(const p of owners)s=climb(s,p.id);
  // Before the fix these five differed by 2.84x on identical records. Now they are one number.
  const powers=picks.map(id=>bondedPower(s,id));
  assert.equal(new Set(powers).size,1,`still differs by type: ${JSON.stringify(powers)}`);
  assert.deepEqual(picks.map(id=>stellaBonus(s,id).percent),[0,0,0,0,0]);
  // POSITIVE CONTROL: the originals of those same types do still differ, by exactly the sums that used
- // to leak onto the crossovers -- Inspiring 184 (Rani 122 + Elise 62), Informed/Diligent 122, the rest 0.
+ // to leak onto the crossovers -- Inspiring 184 (Rani 122 + Elise 62) and Diligent 122. Informed is 0
+ // because its only owner, Angie, was deleted on 2026-09-17: her row is still in STELLA_PROFILES but
+ // nobody can own it, so the track pays nothing to anyone.
  const byType={};for(const p of STELLA_PROFILES)byType[p.type]=stellaBonus(s,p.id).percent;
- assert.deepEqual(byType,{Informed:122,Inspiring:184,Diligent:122});
+ assert.deepEqual(byType,{Informed:0,Inspiring:184,Diligent:122});
  assert.ok(valid(s),refusedBy(s));
 });
 
@@ -212,7 +224,7 @@ test('a crossover Stella row is REPRICED against its own ladder, unlike the four
  assert.equal(valid(badActivation),false);
  // POSITIVE CONTROL that repricing is CROSSOVER-ONLY: the four originals are deliberately not
  // repriced, because a v86 save keeps the benefit it recorded (tests/stella.test.mjs).
- let o=climb(own('hero_52'),'hero_52');
+ let o=climb(own('hero_56'),'hero_56');
  const legacy={...o,stella:{...o.stella,history:o.stella.history.map((r,j)=>j===o.stella.history.length-1?{...r,percent:999}:r)}};
  assert.equal(valid(legacy),true,'an original row is still accepted as recorded');
 });
@@ -292,11 +304,18 @@ test('RULE 12: a previous-build save whose mine receipt was dug at the OLD typed
  // The same Fellow on the same records is weaker now, by exactly the multiplier that was removed.
  assert.equal(bondedPower(s,id),4071600);
  assert.equal(+(receipt.power/bondedPower(s,id)).toFixed(2),2.84,'the Inspiring type sum, now gone');
- // ...and the save still loads, unchanged, with nothing quarantined.
+ // ...and the save still loads, with nothing quarantined. It is no longer a BYTE-IDENTICAL round trip,
+ // and that is the 2026-09-17 roster trim rather than anything to do with Stella or the mine: this
+ // fixture owns nearly the whole original roster, so 48 of its Fellows are now released on load and
+ // refunded (lib/release-removed.mjs). What must not move is everything else -- so the round trip is
+ // asserted to be STABLE instead, and the receipt this test is about is compared row for row.
  const back=decode(raw);
  assert.ok(valid(back),refusedBy(back));
- assert.equal(JSON.stringify(back),raw,'byte-identical round trip');
  assert.deepEqual(lastQuarantine,[],'nothing may be dropped');
+ assert.deepEqual(decode(JSON.stringify(back)),back,'the released save is stable');
+ assert.deepEqual(back.mineClearance,s.mineClearance,'the mine ledger is untouched by the release');
+ assert.deepEqual(back.fellows[id],s.fellows[id],'and so is the crossover Fellow the receipt names');
+ assert.equal(Object.keys(s.fellows).length-Object.keys(back.fellows).length,48,'exactly the 48 the trim deleted left');
  // NEGATIVE CONTROL for the guard that makes this safe: a receipt whose `after` exceeds what its own
  // stored power allows IS still refused, so "it decoded" does not mean validMine stopped checking.
  const bad={...s,mineClearance:{...s.mineClearance,history:[{...receipt,after:receipt.after+1,

@@ -108,7 +108,16 @@ test('every event names real, shipped characters and a reachable cast',()=>{
   for(const st of e.stages)assert.ok(ids.has(st.member),`${e.id} names ${st.member}, which is not in the catalogue`);
   assert.equal(new Set(e.stages.map(s=>s.member)).size,e.stages.length,`${e.id} lists someone twice`);
  }
- assert.equal(stages,35,'every shipped crossover RECORD is reachable, including the six characters that ship twice');
+ assert.equal(stages,29,'every shipped crossover RECORD is reachable, including the six characters that ship twice');
+ // 35 before the owner's 2026-09-17 roster trim deleted six of the cast (Benimaru, Fafnir, Kanna,
+ // Bell Cranel, Kazuma, Rudeus Greyrat). Their stages are gone; the surviving stages in the five
+ // affected arcs keep their ORIGINAL `step` numbers, which is the only map from a stored `claimed`
+ // count -- written against the arc as it was -- to the arc as it is (lib/release-removed.mjs).
+ assert.deepEqual(EVENTS_.filter(e=>e.stages.some((st,i)=>st.step!==i+1)).map(e=>e.id).sort(),
+  ['DanMachi','Konosuba','Maidragon','Mushoku','TenSura']);
+ for(const e of EVENTS_)assert.deepEqual(e.stages.map(st=>st.step),[...e.stages.map(st=>st.step)].sort((a,b)=>a-b),e.id+' steps are still in order');
+ assert.ok(EVENTS_.every(e=>e.stages.length>=2),'every arc still has a cast to meet');
+ assert.deepEqual(EVENTS_.map(e=>e.stages.length),[7,3,3,3,4,4,3,2],'LycoReco was already a two-hander and lost nobody');
  // Positive control on the membership probe: an id the catalogue really lacks is not accepted.
  assert.equal(ids.has('hero_99999'),false);
- assert.equal(stages*COMPLETIONS_PER_STAGE,350,'the whole cast costs 350 habit completions');});
+ assert.equal(stages*COMPLETIONS_PER_STAGE,290,'the whole cast costs 290 habit completions');});

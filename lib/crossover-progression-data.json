@@ -26,38 +26,38 @@
   "N": {
    "baseAptitude": 20,
    "operationSlotA": 30,
-   "originals": 5,
-   "uncensoredOperationRows": 5
+   "originals": 3,
+   "uncensoredOperationRows": 3
   },
   "R": {
    "baseAptitude": 35,
    "operationSlotA": 50,
-   "originals": 15,
-   "uncensoredOperationRows": 15
+   "originals": 3,
+   "uncensoredOperationRows": 3
   },
   "SR": {
    "baseAptitude": 50,
    "operationSlotA": 70,
-   "originals": 29,
-   "uncensoredOperationRows": 27
+   "originals": 20,
+   "uncensoredOperationRows": 18
   },
   "SSR": {
    "baseAptitude": 70,
    "operationSlotA": 100,
-   "originals": 64,
-   "uncensoredOperationRows": 49
+   "originals": 45,
+   "uncensoredOperationRows": 33
   },
   "SSR+": {
    "baseAptitude": 100,
    "operationSlotA": 100,
-   "originals": 20,
-   "uncensoredOperationRows": 2
+   "originals": 18,
+   "uncensoredOperationRows": 1
   },
   "UR": {
    "baseAptitude": 100,
    "operationSlotA": 150,
-   "originals": 24,
-   "uncensoredOperationRows": 24
+   "originals": 20,
+   "uncensoredOperationRows": 20
   },
   "UR*": {
    "baseAptitude": 200,

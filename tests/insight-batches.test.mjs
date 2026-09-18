@@ -6,7 +6,7 @@ import {insightRule,insightState,insightTrainingPlan} from '../lib/insight.mjs';
 // stock the exact material that Fellow spends, at the amount the old grant gave.
 const stock=(s,id='hero_15')=>{const i=insightState(s),k=insightRule(id).materialId;return {...s,insight:{...i,balances:{...i.balances,[k]:(i.balances[k]||0)+1000}}};};import {createPersistence} from '../lib/persistence.mjs';
 const go=(s,a,id='hero_15',value=null)=>{const r=act(s,a,s.lastAt,id,value);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state;};
-test('all mapped playable Fellows reach300 using exactly30000 of their type and preserve prior Aptitude',()=>{
+test('all mapped playable Fellows reach 300 using exactly30000 of their type and preserve prior Aptitude',()=>{
  let s=fresh(1000);for(const f of FELLOWS)s.fellows[f.id]=newFellow();let count=0;const totals={};
  for(const f of FELLOWS){const rule=insightRule(f.id);if(!rule)continue;count++;totals[rule.materialId]=(totals[rule.materialId]||0)+30000;
  for(let j=0;j<30;j++)s=stock(s,f.id);
@@ -17,7 +17,8 @@ test('all mapped playable Fellows reach300 using exactly30000 of their type and 
  // track was unreachable on a Fellow the original explicitly types (Hero.json "60": country "5",
  // heroBaseSkill contains Hero_Talent_Country5Base_1). Every shipped Fellow now reaches exactly one
  // rule; tests/fellow-type-coverage.test.mjs guards that this stays true.
- assert.equal(count,159);for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[id],0);assert.deepEqual(decode(JSON.stringify(s)),s);
+ assert.equal(count,111);   // 159 until the owner's 2026-09-17 roster trim took 48 Fellows out
+for(const [id,spent] of Object.entries(totals))assert.equal(s.insight.balances[id],0);assert.deepEqual(decode(JSON.stringify(s)),s);
 });
 test('affordable previews match admitted results at currency, level and Aptitude boundaries',()=>{
  let s=stock(fresh(1000));s.insight.balances.Item_Hero_Talent_Country_5=399;

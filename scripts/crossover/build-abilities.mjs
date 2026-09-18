@@ -38,13 +38,19 @@ const slot=(row,minLevel)=>row.effects.filter(e=>e.minLevel===minLevel).reduce((
 
 /** The expected shape, straight out of docs/crossover-abilities-plan.md 1.5/1.6. If the measurement
  *  below stops reproducing this, the tables are NOT derived from what their note claims. */
+// RE-MEASURED 2026-09-17 after the owner's roster trim. `n` is the only column that moved -- 159
+// originals became 111 -- and EVERY derived value stayed exactly where it was: the min/median/max of
+// each badge's base Aptitude and its slot-A minimum are identical to the pre-trim measurement, badge
+// for badge. So the crossover ladder this file writes is byte-identical apart from its census columns,
+// and no crossover character's power moved by a point. The `n` values are kept rather than dropped
+// because they are what catches a badge quietly emptying out.
 const EXPECTED={
- N:{n:5,baseAptitude:[20,20,20],slotA:30},
- R:{n:15,baseAptitude:[35,35,35],slotA:50},
- SR:{n:29,baseAptitude:[50,50,75],slotA:70},
- SSR:{n:64,baseAptitude:[70,80,110],slotA:100},
- 'SSR+':{n:20,baseAptitude:[100,100,100],slotA:100},
- UR:{n:24,baseAptitude:[100,120,160],slotA:150},
+ N:{n:3,baseAptitude:[20,20,20],slotA:30},
+ R:{n:3,baseAptitude:[35,35,35],slotA:50},
+ SR:{n:20,baseAptitude:[50,50,75],slotA:70},
+ SSR:{n:45,baseAptitude:[70,80,110],slotA:100},
+ 'SSR+':{n:18,baseAptitude:[100,100,100],slotA:100},
+ UR:{n:20,baseAptitude:[100,120,160],slotA:150},
  'UR*':{n:2,baseAptitude:[200,200,200],slotA:200},
 };
 export function deriveLadder(){

@@ -238,7 +238,12 @@ test('earnings: the appoint total equals the weakest original of the same badge,
  // building, a crossover of the same badge brings 20 points more in the OTHER buildings of that type.
  const building=operationData.records.filter(r=>r.effects.some(e=>e.building));
  assert.equal(building.length,21,'the count this exception is worth');
- const gaps=building.map(r=>bestOf(r)-Math.min(...BUSINESSES.filter(b=>b.type===fellowById(r.fellow)?.type).map(b=>raw(r,b,200))));
+ // The 21 rows are a property of lib/operation-data.json and are untouched by the 2026-09-17 roster
+ // trim. Twelve of them now name a Fellow the trim deleted, so fellowById cannot type them and the
+ // gap cannot be computed; the nine that remain all still show the same 20.
+ const typed=building.filter(r=>fellowById(r.fellow));
+ assert.equal(typed.length,9,'nine of the 21 building-scoped rows still name a shipped Fellow');
+ const gaps=typed.map(r=>bestOf(r)-Math.min(...BUSINESSES.filter(b=>b.type===fellowById(r.fellow).type).map(b=>raw(r,b,200))));
  assert.deepEqual([...new Set(gaps)],[20],'and its size: exactly slot B, in every case');
 });
 

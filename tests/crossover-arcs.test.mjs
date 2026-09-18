@@ -108,7 +108,10 @@ test('arc shape: 33 arcs, 19 Marvel and 14 Star Wars, each inside the proven 2-7
  assert.equal(CROSSOVER_EVENTS.filter(e=>e.franchise==='Marvel').length,19);
  assert.equal(CROSSOVER_EVENTS.filter(e=>e.franchise==='Star Wars').length,14);
  assert.equal(EVENTS.length,41,'with the eight Isekai arcs');
- assert.equal(EVENTS.reduce((n,e)=>n+e.stages.length,0),198);
+ // 198 before the owner's 2026-09-17 roster trim deleted six Isekai cast members; the 33 crossover
+ // arcs lost nobody, so the whole difference is on the Isekai side.
+ assert.equal(EVENTS.reduce((n,e)=>n+e.stages.length,0),192);
+ assert.equal(CROSSOVER_EVENTS.reduce((n,e)=>n+e.stages.length,0),163,'all 163 crossover stages are untouched');
  const isekai=new Set(ISEKAI_EVENTS.map(e=>e.id));
  for(const e of CROSSOVER_EVENTS){
   assert.match(e.id,/^Xover(Msf|Swgoh)\d\d$/,e.id);
@@ -136,7 +139,8 @@ test('stage costs are the owner’s 10/20/30 by tier, and the Isekai arcs are st
  assert.equal(arcData.flag,'crossover');
  assert.ok(/LOCAL/.test(arcData.localNumbers),'the three prices are declared LOCAL in the data file');
  for(const e of ISEKAI_EVENTS)assert.equal(costPerStage(e.id),10,`${e.id} must stay at 10 (rule 12)`);
- assert.equal(ISEKAI_EVENTS.reduce((n,e)=>n+e.stages.length*costPerStage(e.id),0),350);
+ assert.equal(ISEKAI_EVENTS.reduce((n,e)=>n+e.stages.length*costPerStage(e.id),0),290);   // 350 before the 2026-09-17 trim
+
  const perTier={1:0,2:0,3:0};
  for(const franchise of ['Marvel','Star Wars']){
   const arcs=CROSSOVER_EVENTS.filter(e=>e.franchise===franchise);

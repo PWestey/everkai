@@ -38,11 +38,11 @@
       "introduce": "The Great Onmyoji of Touno Island, powerful in magic and revered by humans, onis, and spirits alike. However, she is a mischievous girl, often surprising others with her unexpected words and actions."
     },
     "hero_171": {
-      "introduce": "A rider from the Empyrean who loves racing. Free-spirited and untamed, Gale makes her living by taking commissions from the high courts. When money runs low, she challenges thugs to street races and wins back their stolen gold\u2014fair and square. Feared by every criminal she has ever outrun, yet untouchable to them."
+      "introduce": "A rider from the Empyrean who loves racing. Free-spirited and untamed, Gale makes her living by taking commissions from the high courts. When money runs low, she challenges thugs to street races and wins back their stolen gold—fair and square. Feared by every criminal she has ever outrun, yet untouchable to them."
     },
     "hero_172": {
       "occupation": "President of the Empyrean",
-      "introduce": "The president of the Empyrean, who oversees countless laws and statutes. Her words are graceful, yet usually carry hidden motives. She excels at entangling her opponents in layers of convoluted bureaucratic language. When negotiating with her, be extremely cautious\u2014devastating costs may hide deep within the most inconspicuous contract clauses."
+      "introduce": "The president of the Empyrean, who oversees countless laws and statutes. Her words are graceful, yet usually carry hidden motives. She excels at entangling her opponents in layers of convoluted bureaucratic language. When negotiating with her, be extremely cautious—devastating costs may hide deep within the most inconspicuous contract clauses."
     },
     "hero_180": {
       "introduce": "A seraph from another world who rules the Holy Empire of Lubelius as a living deity. Noble and elegant with immense power, she holds a surprising fondness for maid outfits under her cold outlook."
@@ -368,5 +368,424 @@
       ]
     }
   ],
-  "restoredItemsNote": "Crossover gear for the Demon Slayer characters removed in e70a8e6. Their descriptions read 'A blade carried by Demon-Slayer Swordsmen', and they are named for people the game no longer ships. Demon Blade Benizakura is NOT one of these: it is a Fairy Tail crossover modelled after Erza's weapons, so it is renamed rather than removed. Restored 2026-09-15 with their characters."
+  "restoredItemsNote": "Crossover gear for the Demon Slayer characters removed in e70a8e6. Their descriptions read 'A blade carried by Demon-Slayer Swordsmen', and they are named for people the game no longer ships. Demon Blade Benizakura is NOT one of these: it is a Fairy Tail crossover modelled after Erza's weapons, so it is renamed rather than removed. Restored 2026-09-15 with their characters.",
+  "removedNote": "The owner's roster trim, 2026-09-17: 48 Fellows deleted outright and 173 of the 258 costumes removed, from the picks spreadsheet he filled in. Every entry here leaves lib/catalog.mjs's REMOVED set, which is what takes them out of the catalogue and what the save ledgers (trading post runs, Mine Clearance history, APK progression receipts, Stella history) whitelist so an old save naming one still loads. Their art is deleted outright -- stills and idle clips -- which is the point of the trim: the published site was 852 MB against a 1 GB push limit with 219 MB of crossover art still to land. No Family member was deleted.",
+  "removed": [
+    {
+      "id": "hero_2",
+      "name": "Maxim",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_5",
+      "name": "Pump",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_11",
+      "name": "Björnson",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_13",
+      "name": "Lincale",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_14",
+      "name": "Woolf",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_16",
+      "name": "Geast",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_17",
+      "name": "Meaden",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_18",
+      "name": "Dr.Dotor",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_19",
+      "name": "Prim",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_20",
+      "name": "Guarg",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_22",
+      "name": "Hawker",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_23",
+      "name": "Rogile",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_24",
+      "name": "Arake",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_25",
+      "name": "Boatter",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_52",
+      "name": "Angie",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_55",
+      "name": "Moork",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_62",
+      "name": "Grayce",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_65",
+      "name": "Brotein",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_66",
+      "name": "Witty",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_67",
+      "name": "Emma",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_69",
+      "name": "Floaty",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_76",
+      "name": "Huowang Dade",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_79",
+      "name": "Fawna",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_102",
+      "name": "Jewlry",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_105",
+      "name": "Augustine",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_113",
+      "name": "Leon",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_116",
+      "name": "Nierus",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_119",
+      "name": "Paat",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_120",
+      "name": "Eter & NAL",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_123",
+      "name": "Shiki",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_124",
+      "name": "Flos",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_129",
+      "name": "Black",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_141",
+      "name": "Fafnir",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_142",
+      "name": "Kanna",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_144",
+      "name": "Benimaru",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_148",
+      "name": "Master Tongxuan",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_153",
+      "name": "Salvo",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_157",
+      "name": "Super",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_160",
+      "name": "Avar",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_161",
+      "name": "Mulberry",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_167",
+      "name": "Bell Cranel",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_170",
+      "name": "Magellan",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_176",
+      "name": "Rudeus Greyrat",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_184",
+      "name": "Kazuma",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_192",
+      "name": "Mescal",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_193",
+      "name": "Maren",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_198",
+      "name": "Future Maxim",
+      "reason": "owner roster trim 2026-09-17"
+    },
+    {
+      "id": "hero_212",
+      "name": "Ao Li",
+      "reason": "owner roster trim 2026-09-17"
+    }
+  ],
+  "removedCostumesNote": "The 173 costume ids removed with the same trim. Recorded rather than kept: their rows are gone from lib/wardrobe-data.json and lib/wardrobe-assets.json, so this is the only remaining list of what the owner gave up. Wardrobe ownership is cosmetic only (no stat or collection reward), so a save that owned one loses nothing but the skin.",
+  "removedCostumes": [
+    "H101C2",
+    "H101C3",
+    "H101C4",
+    "H102C1",
+    "H102C2",
+    "H102C3",
+    "H102C4",
+    "H102C5",
+    "H103C1",
+    "H103C2",
+    "H104C1",
+    "H104C2",
+    "H104C3",
+    "H104C5",
+    "H104C6",
+    "H105C1",
+    "H106C2",
+    "H111C2",
+    "H112C1",
+    "H116C1",
+    "H117C1",
+    "H117C2",
+    "H117C4",
+    "H118C1",
+    "H119C1",
+    "H119C2",
+    "H11C1",
+    "H120C1",
+    "H120C2",
+    "H124C1",
+    "H128C1",
+    "H12C1",
+    "H130C1",
+    "H132C1",
+    "H134C1",
+    "H135C1",
+    "H13C1",
+    "H13C2",
+    "H148C1",
+    "H14C1",
+    "H151C2",
+    "H152C1",
+    "H152C3",
+    "H153C1",
+    "H155C1",
+    "H155C2",
+    "H156C1",
+    "H157C1",
+    "H157C2",
+    "H158C2",
+    "H159C1",
+    "H159C3",
+    "H160C1",
+    "H160C2",
+    "H161C1",
+    "H164C1",
+    "H16C1",
+    "H16C2",
+    "H17C1",
+    "H17C2",
+    "H18C1",
+    "H190C1",
+    "H191C1",
+    "H191C3",
+    "H191C4",
+    "H192C1",
+    "H192C2",
+    "H193C1",
+    "H193C2",
+    "H193C3",
+    "H19C1",
+    "H19C2",
+    "H19C3",
+    "H1C2",
+    "H1C3",
+    "H1C4",
+    "H1C5",
+    "H20C1",
+    "H215C1",
+    "H21C1",
+    "H22C1",
+    "H23C1",
+    "H23C2",
+    "H24C1",
+    "H24C2",
+    "H24C3",
+    "H25C1",
+    "H25C2",
+    "H2C1",
+    "H2C2",
+    "H308C1",
+    "H3C1",
+    "H3C2",
+    "H3C3",
+    "H3C4",
+    "H4C2",
+    "H4C3",
+    "H4C4",
+    "H52C1",
+    "H52C2",
+    "H52C3",
+    "H53C1",
+    "H53C2",
+    "H55C1",
+    "H56C2",
+    "H5C1",
+    "H61C1",
+    "H61C2",
+    "H62C1",
+    "H65C1",
+    "H66C1",
+    "H71C1",
+    "H71C2",
+    "H72C1",
+    "W101C2",
+    "W101C3",
+    "W102C1",
+    "W102C3",
+    "W102C4",
+    "W102C5",
+    "W103C1",
+    "W103C3",
+    "W103C4",
+    "W104C2",
+    "W104C3",
+    "W104C4",
+    "W105C1",
+    "W105C3",
+    "W105C4",
+    "W106C2",
+    "W106C3",
+    "W111C2",
+    "W111C3",
+    "W112C1",
+    "W112C2",
+    "W112C3",
+    "W113C1",
+    "W115C2",
+    "W115C3",
+    "W11C2",
+    "W11C3",
+    "W14C2",
+    "W155C1",
+    "W15C2",
+    "W15C3",
+    "W15C4",
+    "W17C1",
+    "W18C1",
+    "W18C3",
+    "W191C1",
+    "W191C3",
+    "W191C4",
+    "W19C1",
+    "W1C1",
+    "W1C2",
+    "W21C1",
+    "W3C1",
+    "W4C1",
+    "W4C3",
+    "W52C1",
+    "W52C3",
+    "W52C4",
+    "W53C2",
+    "W53C3",
+    "W54C2",
+    "W54C3",
+    "W54C4",
+    "W55C2",
+    "W59C1",
+    "W5C1",
+    "W5C2",
+    "W63C1",
+    "W64C2"
+  ]
 }

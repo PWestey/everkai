@@ -15,7 +15,7 @@ async function walk(base,path=''){
 
 test('every character idle clip is streamed, never precached',()=>{
  const srcs=Object.values(clips).map(c=>c.src);
- assert.equal(srcs.length,516,'the clip manifest still covers the whole roster');
+ assert.equal(srcs.length,297,'the clip manifest still covers the whole roster (516 before the 2026-09-17 trim)');
  for(const src of srcs)assert.ok(streamed('assets/'+src),src+' would be precached');
 });
 

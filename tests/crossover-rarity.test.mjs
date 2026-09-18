@@ -256,13 +256,13 @@ test('the three surfaces that can show a crossover rarity are the three that wer
  // the wiring has to be extended with it.
  assert.equal(searchCharacters('Hero').filter(c=>String(c.id).startsWith('xover_')).length,0,'album: no crossover records');
  assert.equal(searchCharacters('Wife').filter(c=>String(c.id).startsWith('xover_')).length,0);
- assert.ok(searchCharacters('Hero').length>150,`positive control: ${searchCharacters('Hero').length} album records exist`);
+ assert.ok(searchCharacters('Hero').length>100,`positive control: ${searchCharacters('Hero').length} album records exist`);  // 176 before the 2026-09-17 roster trim, 128 after
  assert.equal(ALL_STORY_SCENES.filter(s=>s.characterId.startsWith('xover_')).length,0,'library: no crossover scenes');
  assert.ok(ALL_STORY_SCENES.length>50,`positive control: ${ALL_STORY_SCENES.length} scenes exist`);
  // The Recruit counter shows a rarity for everyone it lists; it lists no addition, which is the other
  // half of why the panel shows the climbed badge only for one already joined.
  assert.deepEqual(recruitOffers(startingSave(T)).filter(o=>o.id.startsWith('xover_')),[]);
- assert.equal(FELLOWS.length,159,'flag off, as Node always is');
+ assert.equal(FELLOWS.length,111,'flag off, as Node always is');
  assert.equal(FAMILY.length,107);
  assert.equal(data.fellows.length,133);
 });

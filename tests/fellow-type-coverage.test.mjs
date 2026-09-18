@@ -29,7 +29,7 @@ import {canOperate} from '../lib/businesses.mjs';
 const TYPES=['Inspiring','Diligent','Brave','Informed','Unfettered'];
 
 test('every shipped Fellow carries one of the five original types',()=>{
- assert.equal(FELLOWS.length,159,'the Fellow roster size has moved');
+ assert.equal(FELLOWS.length,111,'the Fellow roster size has moved (159 before the 2026-09-17 roster trim)');
  const untyped=FELLOWS.filter(f=>!f.type).map(f=>`${f.id} (${f.name})`);
  assert.deepEqual(untyped,[],
   `these Fellows have no type and are therefore inert in businesses, insight, fishing, frontier, `+
@@ -38,7 +38,11 @@ test('every shipped Fellow carries one of the five original types',()=>{
  // The original's five countries, and roughly even. A silent collapse to one type would still pass
  // the checks above, so pin the split.
  const split={};for(const f of FELLOWS)split[f.type]=(split[f.type]||0)+1;
- assert.deepEqual(split,{Unfettered:32,Diligent:32,Informed:32,Brave:33,Inspiring:30});
+ // 32/32/32/33/30 before the owner's 2026-09-17 roster trim. The trim was made per character, not per
+ // type, so the split stayed roughly even: Informed is the tightest at 18 and still fills every
+ // Informed business (tests/businesses.test.mjs pins that floor).
+ assert.deepEqual(split,{Unfettered:25,Diligent:25,Brave:20,Inspiring:23,Informed:18});
+ assert.equal(Object.values(split).reduce((a,b)=>a+b,0),FELLOWS.length);
 });
 
 test('every shipped Fellow carries a rarity',()=>{
@@ -63,7 +67,7 @@ test('every Fellow listed in an Insight rule can actually reach it',()=>{
    assert.equal(insightRule(id),rule,`${id} is listed under ${rule.type} but insightRule() refuses it`);
   }
  }
- assert.equal(reachable,159,'every shipped Fellow must reach exactly one Insight rule');
+ assert.equal(reachable,111,'every shipped Fellow must reach exactly one Insight rule (159 before the 2026-09-17 trim)');
 });
 
 test('hero_60 is typed Unfettered and is no longer locked out of typed systems',()=>{

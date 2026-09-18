@@ -148,7 +148,11 @@
    "id": "B4",
    "rank": 3,
    "reward": "Reward_PlayLevel_Reward_03_Hero",
-   "fellow": "hero_2"
+   "fellow": "hero_71",
+   "substituted": {
+    "was": "hero_2",
+    "why": "hero_2 (Maxim) was deleted in the owner 2026-09-17 roster trim and was the only free INFORMED Fellow before rank 28. The opening quest chain is strictly sequential and Main_task_001040 requires dispatching a Fellow to the Apothecary (Building_201, Informed), so an empty slot here dead-ends every new village. hero_71 (Barbara) is the lowest-rarity surviving Informed Fellow that is not already granted free elsewhere. The other 13 emptied slots are LEFT EMPTY: their ranks are past the point where the Recruit counter and the Fountain are open, and every business type has a free Fellow by rank 5 again."
+   }
   },
   {
    "id": "A2",
@@ -276,6 +280,7 @@
   "CityAssignEvent.json": "b2959fed2948e4d6ce45db183650a029361b92148b41e969fefa8182ed041c0d",
   "Rewards.json": "b0888d102dd6c008f0f3897d580451d0bb2285789d03810eac9f4ac4f784d659",
   "Item.json": "c2ebdd64dfdbb6fa803319d541ea5d1bff9f31d3bad153f1755b0b6e5997152f",
-  "note": "Rank r promotes to r+1 for fameToNext Fame once village earnings reach earningsToNext per second (Level.json expNeed / prosperityNeed of row r)."
+  "note": "Rank r promotes to r+1 for fameToNext Fame once village earnings reach earningsToNext per second (Level.json expNeed / prosperityNeed of row r).",
+  "localSubstitution": "encounters[].fellow is the original CityAssignEvent table except B4, whose `substituted` field records the one local change and why. Ranks, Fame and earnings requirements are untouched."
  }
 }

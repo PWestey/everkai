@@ -22,7 +22,12 @@ import talentSource from '../../lib/default-talent-source.json' with {type:'json
 // the five are exactly symmetric -- 100% at L1, +20% at L50, +30% at L200 = 150% to their own type --
 // so a rarity-N addition borrows the median original's operation row with no invented value, and its
 // Insight rule's type agrees with its own type (the lib/insight.mjs:9 requirement).
-export const RARITY_N_ANCHORS=Object.freeze({Brave:'hero_101',Diligent:'hero_102',Unfettered:'hero_103',Inspiring:'hero_104',Informed:'hero_105'});
+// RE-ANCHORED 2026-09-17: hero_102 (Diligent) and hero_105 (Informed) were deleted in the owner's
+// roster trim. Their replacements were chosen by the SAME rule -- the lowest-numbered counter-sold SSR
+// of that type with every per-id table -- and their lib/operation-data.json rows are BYTE-IDENTICAL in
+// shape to the ones they replace: 100% at L1, +20% at L50, +30% at L200 to their own type, the exact
+// symmetry the paragraph above depends on. So nothing an addition derives from its anchor moved.
+export const RARITY_N_ANCHORS=Object.freeze({Brave:'hero_101',Diligent:'hero_106',Unfettered:'hero_103',Inspiring:'hero_104',Informed:'hero_133'});
 export function templateCandidates(rarity,type){
  const pinned=rarity==='N'?RARITY_N_ANCHORS[type]:null;
  return FELLOWS.filter(f=>(pinned?f.id===pinned:f.rarity===rarity&&f.type===type)&&f.type===type&&talentRule(f.id)&&insightRule(f.id)&&characterSkills(f.id)

@@ -9,7 +9,9 @@ test('reference facts match audited identities and exclude online-only IDs',()=>
  assert.equal(FELLOWS.find(f=>f.id==='hero_15').rarity,'R');
  assert.equal(FELLOWS.find(f=>f.id==='hero_15').type,'Unfettered');
  assert.equal(FAMILY.find(f=>f.id==='wife_2').rarity,'N');
- assert.deepEqual(affinityIds('wife_2'),['hero_12','hero_5']);
+ // hero_5 (Pump) was Charlotte's other documented affinity and was deleted on 2026-09-17; affinityIds
+ // drops a removed id, so her bond now trains hero_12 alone.
+ assert.deepEqual(affinityIds('wife_2'),['hero_12']);
  assert.equal(referenceFor('hero_261'),null);
 });
 test('documented bond trains all owned paired Fellows once, not arbitrary Fellows, and persists',()=>{
@@ -19,8 +21,11 @@ test('documented bond trains all owned paired Fellows once, not arbitrary Fellow
  s=run(s,'recruit','hero_12').state;s.family.wife_2.points=100;
  s=run(s,'bondTrain','wife_2').state;
  assert.equal(s.family.wife_2.points,80);assert.equal(bondFactor(s,'hero_12'),1.02);assert.equal(bondFactor(s,'hero_15'),1);
- s=run(s,'recruit','hero_5').state;
- assert.equal(bondFactor(s,'hero_5'),1.02);
+ // Negative control for the same removal: recruiting a Fellow who is NOT on her affinity list gains
+ // nothing from her bond. hero_5 used to be on it and is no longer in the catalogue at all.
+ s=run(s,'recruit','hero_101').state;
+ assert.equal(bondFactor(s,'hero_101'),1);
+ assert.equal(run(s,'recruit','hero_5').error!==undefined,true,'a deleted Fellow cannot be recruited');
  assert.deepEqual(decode(JSON.stringify(s)),s);assert.ok(valid(s));
 });
 test('legacy custom bonds retain targets and training until an explicit switch',()=>{

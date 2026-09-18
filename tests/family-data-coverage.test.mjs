@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {FAMILY,FELLOWS} from '../lib/catalog.mjs';
+import {FAMILY,FELLOWS,REMOVED} from '../lib/catalog.mjs';
 import blessings from '../lib/original-blessing-data.json' with {type:'json'};
 import special from '../lib/special-blessing-data.json' with {type:'json'};
 import {FAMILY_PICTURES} from '../lib/family-gallery.mjs';
@@ -22,6 +22,7 @@ const familyIds = new Set(FAMILY.map(f => f.id));
 const fellowIds = new Set(FELLOWS.map(f => f.id));
 
 test('blessing recipient tables ship the exact derived cast, in lockstep with each other', () => {
+ // Unchanged by the 2026-09-17 roster trim, deliberately: see the recipient loop below.
  // ORIGINAL (WifeBless.json): 798 rows, 739 carrying a heroid, 129 distinct wifeid, 58 spirit-gated.
  // Restricted to the 107 Family members Everkai rosters that is 651 pairs; dropping the 49 spirit-gated
  // ones leaves 602; keeping only heroes in Everkai's 159-Fellow roster leaves 593.
@@ -40,7 +41,12 @@ test('blessing recipient tables ship the exact derived cast, in lockstep with ea
  for (const [wife, heroes] of Object.entries(blessings.recipients)) {
   assert.ok(familyIds.has(wife), wife + ' is not a shipped Family member');
   assert.equal(new Set(heroes).size, heroes.length, wife + ' has duplicate recipients');
-  for (const hero of heroes) assert.ok(fellowIds.has(hero), wife + ' blesses unshipped ' + hero);
+  // A recipient must be a shipped Fellow OR one the 2026-09-17 roster trim deleted. The lists CANNOT be
+  // filtered: validBlessings pins a stored blessing record's `recipients` against this exact array
+  // (lib/blessings.mjs:47) and validSpecialBlessings does the same, so dropping an id would refuse every
+  // save that ever blessed that Family member. A removed id is inert anyway -- blessingSupport only
+  // credits a Fellow the village owns, and a released one is gone from s.fellows.
+  for (const hero of heroes) assert.ok(fellowIds.has(hero) || REMOVED.has(hero), wife + ' blesses unknown ' + hero);
  }
 });
 
@@ -91,9 +97,10 @@ test('date pictures and costumes ship the counts the catalogue quotes', () => {
  // ORIGINAL WifeClothes.json: 111 rows. EVERKAI ships 101 of them; the 10 absent all belong to six
  // members (wife_16, wife_56, wife_60, wife_71, wife_117, wife_163) who are not on Everkai's roster,
  // so no rostered member is missing a costume. The other 157 are Fellow costumes.
- assert.equal(COSTUMES.length, 258);
- assert.equal(COSTUMES.filter(r => r.kind === 'wife').length, 101);
- assert.equal(COSTUMES.filter(r => r.kind === 'hero').length, 157);
+ // 258 (101 wife + 157 hero) until the owner's 2026-09-17 trim removed 173 of them.
+ assert.equal(COSTUMES.length, 85);
+ assert.equal(COSTUMES.filter(r => r.kind === 'wife').length, 42);
+ assert.equal(COSTUMES.filter(r => r.kind === 'hero').length, 43);
  for (const r of COSTUMES) {
   assert.ok(r.ownerId, r.id + ' has no ownerId');
   assert.equal(r.ownerId.startsWith('wife_'), r.kind === 'wife', r.id + ' kind/ownerId disagree');
