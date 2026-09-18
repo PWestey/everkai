@@ -3,7 +3,7 @@ import {execFileSync} from 'node:child_process';
 import {readFileSync,statSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import data from '../lib/everkai-additions-data.json' with {type:'json'};
-import {ADDITION_FELLOWS,additionById,additionClip,crossoverEnabled,sourceId,isAddition} from '../lib/everkai-additions.mjs';
+import {ADDITION_FELLOWS,additionById,additionClip,crossoverEnabled,setCrossoverEnabled,sourceId,isAddition} from '../lib/everkai-additions.mjs';
 import {FELLOWS,ORIGINAL_FELLOWS,fellowById,fellowCatalogue} from '../lib/catalog.mjs';
 import {originalCharacter} from '../lib/original-catalog.mjs';
 import {recruitOffers,recruitPrice,SUMMON_COSTS} from '../lib/summon.mjs';
@@ -282,19 +282,24 @@ test('the whole data file is what scripts/crossover/build-additions.mjs emits, b
  assert.equal(familyRows.some(r=>r.recipients.includes('xover_msf_wolverine')),true,'positive control: he was in them');
 });
 
-// The home-screen app opens without a query string, so the owner could not see the crossover
-// characters from it. The switch is now remembered per device -- and never inside the save.
-test('?crossover=1 is remembered on the device, and ?crossover=0 forgets it',()=>{
+// The owner asked for the crossover characters in his normal game: in the app they are ON by default,
+// remembered per device, and never stored in the save. Node (tests, sims) still defaults OFF.
+test('crossover is on by default in the app, remembered per device, and off in Node unless asked',()=>{
  const mem=new Map(),store={getItem:k=>mem.has(k)?mem.get(k):null,setItem:(k,v)=>mem.set(k,String(v)),removeItem:k=>mem.delete(k)};
- assert.equal(crossoverEnabled('',store),false,'off until asked for');
- assert.equal(crossoverEnabled('?crossover=1',store),true);
- assert.equal(crossoverEnabled('',store),true,'a later launch with no query remembers it');
- assert.equal(crossoverEnabled('?crossover=0',store),false,'an explicit 0 turns it off');
- assert.equal(crossoverEnabled('',store),false,'and that is remembered too');
- // Negative controls: anything but an exact 1 neither turns it on nor stores it.
- for(const junk of ['?crossover=true','?crossover','?spine=1'])assert.equal(crossoverEnabled(junk,store),false,junk);
+ assert.equal(crossoverEnabled('',null,false),false,'Node default: off');
+ assert.equal(crossoverEnabled('',store,true),true,'app default: on');
+ assert.equal(crossoverEnabled('?crossover=0',store,true),false,'an explicit 0 turns it off');
+ assert.equal(crossoverEnabled('',store,true),false,'and a plain launch remembers that');
+ assert.equal(crossoverEnabled('?crossover=1',store,true),true);
+ assert.equal(crossoverEnabled('',store,true),true);
+ assert.ok(setCrossoverEnabled(false,store));assert.equal(crossoverEnabled('',store,true),false,'the Settings toggle writes the same preference');
+ assert.ok(setCrossoverEnabled(true,store));assert.equal(crossoverEnabled('',store,true),true);
+ // Negative controls: junk values neither switch it nor write anything new.
+ mem.clear();
+ for(const junk of ['?crossover=true','?crossover','?spine=1'])assert.equal(crossoverEnabled(junk,store,false),false,junk);
  assert.equal(mem.size,0);
- // A storage that throws (private browsing) falls back to the query string alone.
+ // Storage that throws (private browsing) falls back to the query, then the default.
  const broken={getItem(){throw Error('denied')},setItem(){throw Error('denied')},removeItem(){throw Error('denied')}};
- assert.equal(crossoverEnabled('?crossover=1',broken),true);
- assert.equal(crossoverEnabled('',broken),false);});
+ assert.equal(crossoverEnabled('?crossover=0',broken,true),false);
+ assert.equal(crossoverEnabled('',broken,true),true);
+ assert.equal(setCrossoverEnabled(true,broken),false);});
