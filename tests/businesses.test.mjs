@@ -62,10 +62,17 @@ test('every original business receives total roster contribution regardless of a
 test('a business employs only Fellows of its type; Maren and Adeline work anywhere; old mismatches are released on load',()=>{
  let s=run(funded(fresh(1000)),'openEnterprise',inn).state;
  assert.match(String(run(s,'assignOperator',inn,'hero_15').error),/Only Diligent Fellows can work at Inn/,'Unfettered Kaity at the Diligent Inn');
- for(const [id,type] of [['hero_193','Brave'],['hero_53','Unfettered']]){
+ // hero_193 (Maren) was the other 'works anywhere' Fellow and was deleted on 2026-09-17, so Adeline
+ // is the only one left with the privilege (lib/businesses.mjs).
+ assert.deepEqual([...ANY_BUILDING_FELLOWS],['hero_53']);
+ for(const [id,type] of [['hero_53','Unfettered']]){
   const t=run(s,'recruit',id).state;assert.equal(fellowById(id).type,type);
   const r=run(t,'assignOperator',inn,id);assert.equal(r.error,undefined,`${id} works anywhere`);}
- for(const d of BUSINESSES){const owned=FELLOWS.filter(f=>canOperate(f.id,d)&&!ANY_BUILDING_FELLOWS.has(f.id));assert.ok(owned.every(f=>f.type===d.type),d.id);assert.ok(owned.length>=20,`${d.id} has ${owned.length} eligible Fellows`);}
+ for(const d of BUSINESSES){const owned=FELLOWS.filter(f=>canOperate(f.id,d)&&!ANY_BUILDING_FELLOWS.has(f.id));assert.ok(owned.every(f=>f.type===d.type),d.id);assert.ok(owned.length>=18,`${d.id} has ${owned.length} eligible Fellows`);}
+ // The floor was 20 before the 2026-09-17 roster trim. Informed is now the tightest type at 18 --
+ // still more than the 3 operator slots any business opens with, so no building lost its workforce.
+ const perType={};for(const f of FELLOWS)if(f.type)perType[f.type]=(perType[f.type]||0)+1;
+ assert.deepEqual(perType,{Unfettered:25,Diligent:25,Brave:20,Inspiring:23,Informed:18});
  // A save from before the rule, with Kaity operating the Inn, still loads -- with her released.
  const old=structuredClone(s);old.buildings.fish.fellow=null;old.enterprises[inn].fellows=['hero_15'];
  const loaded=decode(JSON.stringify(old));assert.deepEqual(loaded.enterprises[inn].fellows,[]);assert.ok(valid(loaded));

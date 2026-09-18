@@ -11,7 +11,9 @@ const base=()=>fresh(T);
 test('the counter sells the whole priced roster and never what is already owned',()=>{
  const s=base();
  const offers=recruitOffers(s);
- assert.equal(offers.length,244,'266 shipped, less the 22 rank-up Fellows (which include the owned starter, hero_15); hero_60 is priced');
+ // 244 before the owner's 2026-09-17 roster trim, when 266 shipped. Now 218 ship, less the 9 rank-up
+ // encounters whose Fellow survives (one of which is the owned starter, hero_15).
+ assert.equal(offers.length,209,'218 shipped, less the 9 reachable rank-up Fellows; hero_60 is priced');
  assert.ok(!offers.some(o=>o.id==='hero_15'),'the starter Fellow is already owned');
  assert.ok(!offers.some(o=>RANK_FELLOWS.has(o.id)),'rank-up Fellows arrive through their encounters, never the counter');
  // hero_60 has no rarity in the public roster, so summonCost returned null and NOTHING in the game
@@ -25,7 +27,7 @@ test('each currency buys, and the Fellow arrives exactly as recruit would build 
  assert.deepEqual(s.fellows.hero_60,newFellow(),'identical to a recruited Fellow');
  assert.equal(summonState(s).stoneFragments,10,'hero_60 is a town-event freebie in the original, so nothing is spent');
  assert.equal(r.recruited,'hero_60');
- s=buy(s,'hero_105').state;
+ s=buy(s,'hero_101').state;   // hero_105 was this SSR and went in the 2026-09-17 trim
  assert.equal(summonState(s).stones,3,'an SSR costs two stones');
  s=buy(s,'hero_195').state;
  assert.equal(summonState(s).valiant,2,'a UR costs two Valiant Insignias');
@@ -43,7 +45,7 @@ test('too little of the right currency refuses without spending anything',()=>{
  const s=stocked(base(),{stoneFragments:2,stones:0,valiant:0});
  // wife_2, not hero_1: every N and R FELLOW is free-tier now, so no Fellow can refuse for want of
  // fragments. Family keeps its rarity pricing (15 characters still priced in fragments).
- for(const [id,want] of [['wife_2',/3 Acquaint Stone Fragments/],['hero_105',/2 Acquaint Stones/],['hero_195',/2 Valiant Insignias/]]){
+ for(const [id,want] of [['wife_2',/3 Acquaint Stone Fragments/],['hero_101',/2 Acquaint Stones/],['hero_195',/2 Valiant Insignias/]]){
   const r=act(s,'summonRecruit',s.lastAt,id,{seq:seq(s)});
   assert.match(r.error,want,id);
   assert.deepEqual(r.state,s,'a refusal leaves the save untouched');}});
@@ -55,7 +57,8 @@ test('unknown and already-joined targets are refused; nothing shipped is unprice
  // counter refused him outright. He is free-tier in the original, so he now sells for nothing.
  assert.deepEqual(recruitPrice('hero_60'),{stoneFragments:0});
  assert.equal(act(s,'summonRecruit',s.lastAt,'hero_60',{seq:seq(s)}).error,undefined);
- assert.match(act(s,'summonRecruit',s.lastAt,'hero_2',{seq:seq(s)}).error,/No price/,'a rank-up Fellow (Maxim, rank 3) is not sold');
+ assert.match(act(s,'summonRecruit',s.lastAt,'hero_71',{seq:seq(s)}).error,/No price/,'a rank-up Fellow (Barbara, rank 3 since the 2026-09-17 trim) is not sold');
+ assert.match(act(s,'summonRecruit',s.lastAt,'hero_2',{seq:seq(s)}).error,/Choose someone/,'and a Fellow the trim deleted is not in the catalogue at all');
  s=buy(s,'hero_60').state;
  assert.match(act(s,'summonRecruit',s.lastAt,'hero_60',{seq:seq(s)}).error,/Already joined/);});
 
@@ -66,11 +69,11 @@ test('a stale sequence number is refused, so a repeated tap cannot double charge
 
 test('receipts record what was paid, stay unique and survive a reload',()=>{
  let s=stocked(base(),{stoneFragments:10,stones:4});
- s=buy(s,'hero_60').state;s=buy(s,'hero_105').state;
+ s=buy(s,'hero_60').state;s=buy(s,'hero_101').state;   // hero_105 was this SSR and went in the 2026-09-17 trim
  const receipts=summonState(s).recruited;
  assert.deepEqual(receipts,[
   {id:'hero_60',kind:'fellows',paid:0,currency:'stoneFragments'},
-  {id:'hero_105',kind:'fellows',paid:2,currency:'stones'}]);
+  {id:'hero_101',kind:'fellows',paid:2,currency:'stones'}]);
  assert.deepEqual(decode(JSON.stringify(s)),s);
  assert.ok(RECRUIT_RECEIPTS>=200);
  const forged={...s,summon:{...summonState(s),recruited:[...receipts,receipts[0]]}};

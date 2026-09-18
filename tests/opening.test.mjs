@@ -1,7 +1,7 @@
 import {MAX_FELLOW_XP} from '../lib/limits.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode,totalRate,settle} from '../lib/game.mjs';
-import {OPENING,OPENING_STAGES,openingTask,openingRequirement,openingPower,openingQuote,openingItemCount,openingReward,openingBossReady} from '../lib/opening.mjs';
+import {OPENING,OPENING_STAGES,RANK_ENCOUNTERS,openingTask,openingRequirement,openingPower,openingQuote,openingItemCount,openingReward,openingBossReady} from '../lib/opening.mjs';
 import {recipeKnown} from '../lib/medicine-discovery.mjs';
 import {assignedOperation} from '../lib/operations.mjs';import {BUSINESSES} from '../lib/businesses.mjs';
 import {staffPrice} from '../lib/staffing.mjs';
@@ -30,7 +30,10 @@ export function runOpening(){
    case 'AppointLvupCount':go('openingOperation',h.find(id=>(s.opening.operations[id]||0)<1)||h[0]);break;
    case 'HeroLvupMulti':train(h.find(id=>s.fellows[id].level<r.count));break;
    case 'HeroTotalLv':train(h.sort((a,b)=>s.fellows[a].level-s.fellows[b].level)[0]);break;
-   case 'PlayerLvUpNum':while(s.opening.fame<OPENING.ranks[s.opening.rank-1].expNeed)battle();while(totalRate(s)+100*Object.values(s.opening.stars).reduce((a,b)=>a+b,0)<OPENING.ranks[s.opening.rank-1].prosperityNeed){while(s.gold<staffPrice('Building_101',s.enterprises.Building_101?.employees||0,10))money();go('hireEmployees','Building_101',10);}go('openingPromote');{const e=OPENING.cityEncounters.find(e=>e.condition.type==='PlayerLvUpNum'&&e.condition.count===s.opening.rank);go('openingRecruit',e._id);}break;
+   case 'PlayerLvUpNum':while(s.opening.fame<OPENING.ranks[s.opening.rank-1].expNeed)battle();while(totalRate(s)+100*Object.values(s.opening.stars).reduce((a,b)=>a+b,0)<OPENING.ranks[s.opening.rank-1].prosperityNeed){while(s.gold<staffPrice('Building_101',s.enterprises.Building_101?.employees||0,10))money();go('hireEmployees','Building_101',10);}go('openingPromote');{const e=OPENING.cityEncounters.find(e=>e.condition.type==='PlayerLvUpNum'&&e.condition.count===s.opening.rank);
+    // 14 of the 22 rank encounters lost their Fellow in the 2026-09-17 trim and are no longer offered
+    // (lib/opening.mjs RANK_ENCOUNTERS). The ladder still promotes; the rank simply has nobody waiting.
+    if(RANK_ENCOUNTERS.some(x=>x.id===e._id))go('openingRecruit',e._id);}break;
    case 'StageClear':battle();break;
    case 'SimGame1RecipeUnlockSpecify':go('openingRecipe',r.id);break;
    case 'MedicineUnlock':if(!s.apothecary)go('apothecaryOpen');else {const shelf=s.apothecary.shelves[0];if(shelf.units)go('collect',null,null,400000);if(s.apothecary.deposit)go('potionCollect',null,{seq:s.apothecary.seq});if(!recipeKnown(s,r.id))go('potionStock','1001',{seq:s.apothecary.seq,quantity:20});}break;

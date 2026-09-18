@@ -34,18 +34,21 @@ test('assigning Operations settles earlier income before new bonus applies',()=>
  const s=setup();const next=act(s,'assignOperator',11000,'Building_101','hero_1').state;
  assert.equal(next.pending,s.pending+10*totalRate(s));assert.equal(enterpriseBreakdown(next,'Building_101').bonus,.3);
 });
-test('Reir/Pump exact building and type scopes stack only while assigned; earlier income stays at old rate',()=>{
- let s=setup();for(const id of ['hero_3','hero_5']){s=run(s,'recruit',id);s.fellows[id].level=50;s.fellows[id].breaks=3;}
- s=funded(s);for(const id of ['Building_501','Building_1001','Building_601'])s=run(s,'openEnterprise',id);
+test('Reir/Knivi exact building and type scopes stack only while assigned; earlier income stays at old rate',()=>{
+ // Pump (hero_5) carried the second scope here and was deleted on 2026-09-17. Knivi (hero_4) is the
+ // one surviving Fellow whose lib/operation-data.json row has the IDENTICAL shape -- base type 30, a
+ // building extra of 20 at level 50, a type extra of 30 at level 200 -- so this is the same test.
+ let s=setup();for(const id of ['hero_3','hero_4']){s=run(s,'recruit',id);s.fellows[id].level=50;s.fellows[id].breaks=3;}
+ s=funded(s);for(const id of ['Building_301','Building_801','Building_601'])s=run(s,'openEnterprise',id);
  const definition=id=>BUSINESSES.find(b=>b.id===id);
- for(const [f,named,other,wrong] of [['hero_3','Building_401','Building_601','Building_501'],['hero_5','Building_501','Building_1001','Building_401']]){
+ for(const [f,named,other,wrong] of [['hero_3','Building_401','Building_601','Building_501'],['hero_4','Building_301','Building_801','Building_401']]){
   assert.equal(fellowOperation(s,f,definition(named)).percent,50);assert.equal(fellowOperation(s,f,definition(other)).percent,30);assert.equal(fellowOperation(s,f,definition(wrong)).percent,0);
   s.fellows[f].level=49;assert.equal(fellowOperation(s,f,definition(named)).percent,30);s.fellows[f].level=50;
  }
  s=staffed(s,'Building_401',50);s=run(s,'assignOperator','Building_401','hero_117');const old=totalRate(s),before=s.pending;
  s=act(s,'assignOperator',s.lastAt+10000,'Building_401','hero_3').state;assert.equal(s.pending,before+10*old);assert.equal(enterpriseBreakdown(s,'Building_401').bonus,2);
- s=run(s,'assignOperator','Building_501','hero_5');assert.equal(enterpriseBreakdown(s,'Building_501').bonus,.5);
+ s=run(s,'assignOperator','Building_301','hero_4');assert.equal(enterpriseBreakdown(s,'Building_301').bonus,.5);
  const oldRemove=totalRate(s);const removed=act(s,'removeOperator',s.lastAt+10000,'Building_401','hero_3').state;assert.equal(removed.pending,s.pending+10*oldRemove);s=removed;assert.equal(enterpriseBreakdown(s,'Building_401').bonus,1.5);
- s=run(s,'assignOperator','Building_1001','hero_5');assert.equal(enterpriseBreakdown(s,'Building_501').bonus,0);assert.equal(enterpriseBreakdown(s,'Building_1001').bonus,.3);
+ s=run(s,'assignOperator','Building_801','hero_4');assert.equal(enterpriseBreakdown(s,'Building_301').bonus,0);assert.equal(enterpriseBreakdown(s,'Building_801').bonus,.3);
  assert.equal(enterpriseRate(s),Object.keys(s.enterprises).reduce((sum,id)=>sum+enterpriseBreakdown(s,id).total,0));assert.deepEqual(decode(JSON.stringify(s)),s);
 });

@@ -1,0 +1,76 @@
+{
+ "localPolicy": "crossover-progression-v1",
+ "note": "Derived, not authored. Every magnitude is the measured MINIMUM for its rarity badge across the original Fellows whose own rarity chain STARTS at that badge (lib/original-progression-data.json heroes, lib/operation-data.json), re-derived by scripts/crossover/build-abilities.mjs, which refuses to write unless it reproduces docs/crossover-abilities-plan.md 1.5/1.6. The LOCAL parts are the SELECTION rule (per-badge minimum), the LR row (repeats UR*, because no original starts at LR) and the fixed talent rule.",
+ "tiers": [
+  "N",
+  "N",
+  "R",
+  "R",
+  "SR",
+  "SR",
+  "SSR",
+  "SSR",
+  "SSR+",
+  "SSR+",
+  "UR",
+  "UR",
+  "UR*",
+  "LR"
+ ],
+ "talentRule": "Hero_Talent_Base_3",
+ "talentRuleNote": "FIXED, not per badge. Every tier costs exactly one Skill Pearl per Aptitude point (lib/talents.mjs: 1/1, 2/2, 3/3) and any Fellow can buy Aptitude directly at the same 1:1 rate to the same 1,000 cap (lib/adventure.mjs aptitudeTrainingPlan), so the tier changes clicks and the default-mode tier cap, never the price of a point. It cannot climb with the badge: validTalentLedger re-derives every stored receipt from the CURRENT rule, so a rule that moved would refuse a save that had already trained one, and `fellows` is not quarantinable. This is the tier the two shipped prototypes already carry.",
+ "operationSlotB": 20,
+ "operationSlotC": 30,
+ "operationNote": "Slots B and C are 20 and 30 on all 175 original records without exception, so they are constants here. All three slots are type-targeted: a crossover Fellow never gets the single-building form of slot B, which is the narrower of the two shapes.",
+ "rarities": {
+  "N": {
+   "baseAptitude": 20,
+   "operationSlotA": 30,
+   "originals": 3,
+   "uncensoredOperationRows": 3
+  },
+  "R": {
+   "baseAptitude": 35,
+   "operationSlotA": 50,
+   "originals": 3,
+   "uncensoredOperationRows": 3
+  },
+  "SR": {
+   "baseAptitude": 50,
+   "operationSlotA": 70,
+   "originals": 20,
+   "uncensoredOperationRows": 18
+  },
+  "SSR": {
+   "baseAptitude": 70,
+   "operationSlotA": 100,
+   "originals": 45,
+   "uncensoredOperationRows": 33
+  },
+  "SSR+": {
+   "baseAptitude": 100,
+   "operationSlotA": 100,
+   "originals": 18,
+   "uncensoredOperationRows": 1
+  },
+  "UR": {
+   "baseAptitude": 100,
+   "operationSlotA": 150,
+   "originals": 20,
+   "uncensoredOperationRows": 20
+  },
+  "UR*": {
+   "baseAptitude": 200,
+   "operationSlotA": 200,
+   "originals": 2,
+   "uncensoredOperationRows": 2
+  },
+  "LR": {
+   "baseAptitude": 200,
+   "operationSlotA": 200,
+   "originals": 0,
+   "uncensoredOperationRows": 0,
+   "local": "repeats the UR* row; no original Fellow starts at LR"
+  }
+ }
+}

@@ -13,7 +13,7 @@ export default function RosterLanding({entries,owned,selected,onSelect,family=fa
  const key=rosterOrder(entries,owned,power).map((f:any)=>f.id).join(',');
  const ordered=useMemo(()=>{const byId=new Map(entries.map((f:any)=>[f.id,f]));return key.split(',').map(id=>byId.get(id))},[key,entries]);
  return <section className="roster-landing character-collection" aria-label={kind+' roster'}>
-  <header className="roster-landing-heading"><h2>{kind}</h2><p>{Object.keys(owned).length} of {entries.length} joined</p>{summary}</header>
+  <header className="roster-landing-heading"><h2>{kind}</h2><p>{entries.filter((f:any)=>Object.hasOwn(owned,f.id)).length} of {entries.length} joined</p>{summary}</header>
   <RosterPicker grouped entries={ordered} owned={owned} selected={selected} onSelect={onSelect} family={family} pageSize={9} status={status}/>
   {album&&<OriginalAlbum kind={album} onChoose={onSelect}/>}
  </section>;

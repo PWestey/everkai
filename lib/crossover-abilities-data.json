@@ -1,0 +1,721 @@
+{
+ "localPolicy": "crossover-archetypes-v1",
+ "note": "One archetype word per crossover Fellow, derived from its own `occupation` by the ordered keyword rule in scripts/crossover/build-abilities.mjs. It is used for NAMING ONLY -- the skill-guide flavour names are built from it and nothing numeric reads it. A row may be hand-edited to any of the eight archetypes; --check will then report the difference rather than silently regenerating it.",
+ "archetypes": {
+  "captain": {
+   "words": [
+    "Command",
+    "Fieldcraft"
+   ]
+  },
+  "warden": {
+   "words": [
+    "Vigil",
+    "Watchcraft"
+   ]
+  },
+  "duelist": {
+   "words": [
+    "Stance",
+    "Footwork"
+   ]
+  },
+  "scholar": {
+   "words": [
+    "Study",
+    "Lorecraft"
+   ]
+  },
+  "artisan": {
+   "words": [
+    "Method",
+    "Handcraft"
+   ]
+  },
+  "broker": {
+   "words": [
+    "Ledger",
+    "Tallycraft"
+   ]
+  },
+  "courier": {
+   "words": [
+    "Momentum",
+    "Routecraft"
+   ]
+  },
+  "steward": {
+   "words": [
+    "Accord",
+    "Hearthcraft"
+   ]
+  }
+ },
+ "fellows": [
+  {
+   "id": "xover_msf_spiderman",
+   "archetype": "courier",
+   "occupation": "Web-Slinger"
+  },
+  {
+   "id": "xover_msf_wolverine",
+   "archetype": "artisan",
+   "occupation": "Woodcutter"
+  },
+  {
+   "id": "xover_msf_captainamericaww2",
+   "archetype": "steward",
+   "occupation": "Drill Instructor"
+  },
+  {
+   "id": "xover_msf_ironmaninfinitywar",
+   "archetype": "artisan",
+   "occupation": "Machinist"
+  },
+  {
+   "id": "xover_msf_hulk",
+   "archetype": "artisan",
+   "occupation": "Stonehauler"
+  },
+  {
+   "id": "xover_msf_thorinfinitywar",
+   "archetype": "warden",
+   "occupation": "Weather Warden"
+  },
+  {
+   "id": "xover_msf_doom",
+   "archetype": "scholar",
+   "occupation": "Archivist"
+  },
+  {
+   "id": "xover_msf_magneto",
+   "archetype": "captain",
+   "occupation": "Foundry Master"
+  },
+  {
+   "id": "xover_msf_thanosendgame",
+   "archetype": "warden",
+   "occupation": "Orchard Warden"
+  },
+  {
+   "id": "xover_msf_doctorstrange",
+   "archetype": "courier",
+   "occupation": "Wayfinder"
+  },
+  {
+   "id": "xover_msf_phoenix",
+   "archetype": "artisan",
+   "occupation": "Kiln Keeper"
+  },
+  {
+   "id": "xover_msf_loki",
+   "archetype": "broker",
+   "occupation": "Market Talker"
+  },
+  {
+   "id": "xover_msf_blackpanther",
+   "archetype": "captain",
+   "occupation": "Frontier Warden"
+  },
+  {
+   "id": "xover_msf_deadpool",
+   "archetype": "courier",
+   "occupation": "Odd-Jobber"
+  },
+  {
+   "id": "xover_msf_mrfantasticmcu",
+   "archetype": "artisan",
+   "occupation": "Engineer"
+  },
+  {
+   "id": "xover_msf_xavier",
+   "archetype": "steward",
+   "occupation": "Schoolmaster"
+  },
+  {
+   "id": "xover_msf_silversurfer",
+   "archetype": "courier",
+   "occupation": "Sky Scout"
+  },
+  {
+   "id": "xover_msf_cyclops",
+   "archetype": "captain",
+   "occupation": "Watch Captain"
+  },
+  {
+   "id": "xover_msf_daredevilmodern",
+   "archetype": "warden",
+   "occupation": "Night Warden"
+  },
+  {
+   "id": "xover_msf_thing",
+   "archetype": "artisan",
+   "occupation": "Quarryman"
+  },
+  {
+   "id": "xover_msf_venom",
+   "archetype": "broker",
+   "occupation": "Larder Keeper"
+  },
+  {
+   "id": "xover_msf_captainmarvel",
+   "archetype": "courier",
+   "occupation": "Sky Courier"
+  },
+  {
+   "id": "xover_msf_humantorch",
+   "archetype": "artisan",
+   "occupation": "Forge Stoker"
+  },
+  {
+   "id": "xover_msf_nickfury",
+   "archetype": "scholar",
+   "occupation": "Spymaster"
+  },
+  {
+   "id": "xover_msf_doctoroctopus",
+   "archetype": "artisan",
+   "occupation": "Millwright"
+  },
+  {
+   "id": "xover_msf_ultgreengoblin",
+   "archetype": "artisan",
+   "occupation": "Kite Maker"
+  },
+  {
+   "id": "xover_msf_punisher",
+   "archetype": "warden",
+   "occupation": "Bailiff"
+  },
+  {
+   "id": "xover_msf_blackwidow",
+   "archetype": "steward",
+   "occupation": "Envoy"
+  },
+  {
+   "id": "xover_msf_namor",
+   "archetype": "warden",
+   "occupation": "Waterworks Warden"
+  },
+  {
+   "id": "xover_msf_starlord",
+   "archetype": "courier",
+   "occupation": "Caravan Guide"
+  },
+  {
+   "id": "xover_msf_antman",
+   "archetype": "scholar",
+   "occupation": "Beekeeper"
+  },
+  {
+   "id": "xover_msf_blade",
+   "archetype": "warden",
+   "occupation": "Nightwatch"
+  },
+  {
+   "id": "xover_msf_gamora",
+   "archetype": "scholar",
+   "occupation": "Herbalist"
+  },
+  {
+   "id": "xover_msf_rocketraccoon",
+   "archetype": "artisan",
+   "occupation": "Tinker"
+  },
+  {
+   "id": "xover_msf_rogue",
+   "archetype": "courier",
+   "occupation": "Stable Hand"
+  },
+  {
+   "id": "xover_msf_shangchi",
+   "archetype": "captain",
+   "occupation": "Training Master"
+  },
+  {
+   "id": "xover_msf_groot",
+   "archetype": "scholar",
+   "occupation": "Orchardist"
+  },
+  {
+   "id": "xover_msf_hawkeye",
+   "archetype": "artisan",
+   "occupation": "Fletcher"
+  },
+  {
+   "id": "xover_msf_moonknight",
+   "archetype": "warden",
+   "occupation": "Night Courier"
+  },
+  {
+   "id": "xover_msf_beast",
+   "archetype": "scholar",
+   "occupation": "Librarian"
+  },
+  {
+   "id": "xover_msf_gambit",
+   "archetype": "broker",
+   "occupation": "Market Dealer"
+  },
+  {
+   "id": "xover_msf_ghostrider",
+   "archetype": "broker",
+   "occupation": "Toll Rider"
+  },
+  {
+   "id": "xover_msf_kingpin",
+   "archetype": "broker",
+   "occupation": "Rent Holder"
+  },
+  {
+   "id": "xover_msf_kamalakhan",
+   "archetype": "steward",
+   "occupation": "School Aide"
+  },
+  {
+   "id": "xover_msf_shehulk",
+   "archetype": "warden",
+   "occupation": "Circuit Judge"
+  },
+  {
+   "id": "xover_msf_vision",
+   "archetype": "artisan",
+   "occupation": "Clockkeeper"
+  },
+  {
+   "id": "xover_msf_adamwarlock",
+   "archetype": "steward",
+   "occupation": "Envoy"
+  },
+  {
+   "id": "xover_msf_nightcrawler",
+   "archetype": "courier",
+   "occupation": "Bell Ringer"
+  },
+  {
+   "id": "xover_msf_wintersoldier",
+   "archetype": "artisan",
+   "occupation": "Armourer"
+  },
+  {
+   "id": "xover_msf_cable",
+   "archetype": "courier",
+   "occupation": "Signal Rider"
+  },
+  {
+   "id": "xover_msf_colossus",
+   "archetype": "artisan",
+   "occupation": "Timber Hand"
+  },
+  {
+   "id": "xover_msf_juggernaut",
+   "archetype": "artisan",
+   "occupation": "Haulier"
+  },
+  {
+   "id": "xover_msf_mrsinister",
+   "archetype": "scholar",
+   "occupation": "Physician"
+  },
+  {
+   "id": "xover_msf_quicksilver",
+   "archetype": "courier",
+   "occupation": "Runner"
+  },
+  {
+   "id": "xover_msf_ultspiderman",
+   "archetype": "courier",
+   "occupation": "Rooftop Runner"
+  },
+  {
+   "id": "xover_msf_blackbolt",
+   "archetype": "steward",
+   "occupation": "Village Speaker"
+  },
+  {
+   "id": "xover_msf_hela",
+   "archetype": "steward",
+   "occupation": "Funeral Keeper"
+  },
+  {
+   "id": "xover_msf_lukecage",
+   "archetype": "broker",
+   "occupation": "Innkeeper"
+  },
+  {
+   "id": "xover_msf_nova",
+   "archetype": "warden",
+   "occupation": "Sky Warden"
+  },
+  {
+   "id": "xover_msf_jubilee",
+   "archetype": "courier",
+   "occupation": "Festival Hand"
+  },
+  {
+   "id": "xover_msf_sentry",
+   "archetype": "warden",
+   "occupation": "Sky Guard"
+  },
+  {
+   "id": "xover_msf_kraventhehunter",
+   "archetype": "duelist",
+   "occupation": "Huntsman"
+  },
+  {
+   "id": "xover_msf_bishop",
+   "archetype": "warden",
+   "occupation": "Watch Sergeant"
+  },
+  {
+   "id": "xover_msf_drax",
+   "archetype": "duelist",
+   "occupation": "Butcher"
+  },
+  {
+   "id": "xover_msf_ghostspider",
+   "archetype": "courier",
+   "occupation": "Rooftop Runner"
+  },
+  {
+   "id": "xover_msf_americachavez",
+   "archetype": "courier",
+   "occupation": "Courier"
+  },
+  {
+   "id": "xover_msf_katebishop",
+   "archetype": "captain",
+   "occupation": "Range Marshal"
+  },
+  {
+   "id": "xover_msf_x23",
+   "archetype": "warden",
+   "occupation": "Forest Ranger"
+  },
+  {
+   "id": "xover_msf_coulson",
+   "archetype": "steward",
+   "occupation": "Village Clerk"
+  },
+  {
+   "id": "xover_msf_electro",
+   "archetype": "courier",
+   "occupation": "Lamplighter"
+  },
+  {
+   "id": "xover_msf_magik",
+   "archetype": "warden",
+   "occupation": "Gatekeeper"
+  },
+  {
+   "id": "xover_msf_mantis",
+   "archetype": "scholar",
+   "occupation": "Garden Healer"
+  },
+  {
+   "id": "xover_msf_nebula",
+   "archetype": "broker",
+   "occupation": "Quartermaster"
+  },
+  {
+   "id": "xover_msf_yelena",
+   "archetype": "courier",
+   "occupation": "Scout"
+  },
+  {
+   "id": "xover_msf_nicominoru",
+   "archetype": "scholar",
+   "occupation": "Apprentice Scribe"
+  },
+  {
+   "id": "xover_swgoh_vaderduelsend",
+   "archetype": "duelist",
+   "occupation": "Sith Lord"
+  },
+  {
+   "id": "xover_swgoh_anakinknight",
+   "archetype": "duelist",
+   "occupation": "Duelling Tutor"
+  },
+  {
+   "id": "xover_swgoh_jediknightluke",
+   "archetype": "captain",
+   "occupation": "Watch Captain"
+  },
+  {
+   "id": "xover_swgoh_hansolo",
+   "archetype": "captain",
+   "occupation": "Caravan Master"
+  },
+  {
+   "id": "xover_swgoh_glahsokatano",
+   "archetype": "captain",
+   "occupation": "Training Master"
+  },
+  {
+   "id": "xover_swgoh_darthsidious",
+   "archetype": "steward",
+   "occupation": "Village Advisor"
+  },
+  {
+   "id": "xover_swgoh_sithpalpatine",
+   "archetype": "steward",
+   "occupation": "Village Advisor"
+  },
+  {
+   "id": "xover_swgoh_jedimasterkenobi",
+   "archetype": "steward",
+   "occupation": "Schoolmaster"
+  },
+  {
+   "id": "xover_swgoh_r2d2legendary",
+   "archetype": "artisan",
+   "occupation": "Pump Keeper"
+  },
+  {
+   "id": "xover_swgoh_grandmasteryoda",
+   "archetype": "steward",
+   "occupation": "Schoolmaster"
+  },
+  {
+   "id": "xover_swgoh_chewbaccalegendary",
+   "archetype": "artisan",
+   "occupation": "Carpenter"
+  },
+  {
+   "id": "xover_swgoh_c3polegendary",
+   "archetype": "scholar",
+   "occupation": "Translator"
+  },
+  {
+   "id": "xover_swgoh_supremeleaderkyloren",
+   "archetype": "duelist",
+   "occupation": "Duelling Tutor"
+  },
+  {
+   "id": "xover_swgoh_glrey",
+   "archetype": "artisan",
+   "occupation": "Salvager"
+  },
+  {
+   "id": "xover_swgoh_darthbane",
+   "archetype": "courier",
+   "occupation": "Hermit"
+  },
+  {
+   "id": "xover_swgoh_maul",
+   "archetype": "duelist",
+   "occupation": "Prizefighter"
+  },
+  {
+   "id": "xover_swgoh_grandadmiralthrawn",
+   "archetype": "scholar",
+   "occupation": "Strategist"
+  },
+  {
+   "id": "xover_swgoh_darthrevan",
+   "archetype": "scholar",
+   "occupation": "Wandering Scholar"
+  },
+  {
+   "id": "xover_swgoh_bensolo",
+   "archetype": "warden",
+   "occupation": "Watch Hand"
+  },
+  {
+   "id": "xover_swgoh_bobafettscion",
+   "archetype": "broker",
+   "occupation": "Bounty Broker"
+  },
+  {
+   "id": "xover_swgoh_jabbathehutt",
+   "archetype": "captain",
+   "occupation": "Market Boss"
+  },
+  {
+   "id": "xover_swgoh_jedimastermacewindu",
+   "archetype": "warden",
+   "occupation": "Circuit Judge"
+  },
+  {
+   "id": "xover_swgoh_masterquigon",
+   "archetype": "steward",
+   "occupation": "Schoolmaster"
+  },
+  {
+   "id": "xover_swgoh_themandalorianbeskararmor",
+   "archetype": "duelist",
+   "occupation": "Escort"
+  },
+  {
+   "id": "xover_swgoh_countdooku",
+   "archetype": "duelist",
+   "occupation": "Fencing Master"
+  },
+  {
+   "id": "xover_swgoh_grievous",
+   "archetype": "duelist",
+   "occupation": "Prizefighter"
+  },
+  {
+   "id": "xover_swgoh_administratorlando",
+   "archetype": "broker",
+   "occupation": "Trade Agent"
+  },
+  {
+   "id": "xover_swgoh_darthmalgus",
+   "archetype": "warden",
+   "occupation": "Siege Hand"
+  },
+  {
+   "id": "xover_swgoh_grandmofftarkin",
+   "archetype": "artisan",
+   "occupation": "Works Overseer"
+  },
+  {
+   "id": "xover_swgoh_mandalorbokatan",
+   "archetype": "captain",
+   "occupation": "Watch Marshal"
+  },
+  {
+   "id": "xover_swgoh_darthmalak",
+   "archetype": "warden",
+   "occupation": "Siege Hand"
+  },
+  {
+   "id": "xover_swgoh_darthnihilus",
+   "archetype": "courier",
+   "occupation": "Wanderer"
+  },
+  {
+   "id": "xover_swgoh_cassianundercover",
+   "archetype": "scholar",
+   "occupation": "Informant"
+  },
+  {
+   "id": "xover_swgoh_darthtraya",
+   "archetype": "scholar",
+   "occupation": "Wandering Scholar"
+  },
+  {
+   "id": "xover_swgoh_admiralackbar",
+   "archetype": "captain",
+   "occupation": "Harbour Master"
+  },
+  {
+   "id": "xover_swgoh_jediknightcal",
+   "archetype": "artisan",
+   "occupation": "Ropewright"
+  },
+  {
+   "id": "xover_swgoh_ezraexile",
+   "archetype": "courier",
+   "occupation": "Wanderer"
+  },
+  {
+   "id": "xover_swgoh_epixfinn",
+   "archetype": "steward",
+   "occupation": "Village Aide"
+  },
+  {
+   "id": "xover_swgoh_starkiller",
+   "archetype": "artisan",
+   "occupation": "Quarry Hand"
+  },
+  {
+   "id": "xover_swgoh_asajventress",
+   "archetype": "broker",
+   "occupation": "Bounty Broker"
+  },
+  {
+   "id": "xover_swgoh_generalsyndulla",
+   "archetype": "courier",
+   "occupation": "Airship Pilot"
+  },
+  {
+   "id": "xover_swgoh_sabinewrens3",
+   "archetype": "artisan",
+   "occupation": "Sign Painter"
+  },
+  {
+   "id": "xover_swgoh_jynerso",
+   "archetype": "courier",
+   "occupation": "Scout"
+  },
+  {
+   "id": "xover_swgoh_kananjarruss3",
+   "archetype": "steward",
+   "occupation": "Schoolmaster"
+  },
+  {
+   "id": "xover_swgoh_epixpoe",
+   "archetype": "courier",
+   "occupation": "Airship Pilot"
+  },
+  {
+   "id": "xover_swgoh_sawgerrera",
+   "archetype": "captain",
+   "occupation": "Militia Drillmaster"
+  },
+  {
+   "id": "xover_swgoh_luthenrael",
+   "archetype": "scholar",
+   "occupation": "Antiquarian"
+  },
+  {
+   "id": "xover_swgoh_bb8",
+   "archetype": "courier",
+   "occupation": "Errand Hand"
+  },
+  {
+   "id": "xover_swgoh_grandinquisitor",
+   "archetype": "warden",
+   "occupation": "Bailiff"
+  },
+  {
+   "id": "xover_swgoh_hk47",
+   "archetype": "warden",
+   "occupation": "Gate Guard"
+  },
+  {
+   "id": "xover_swgoh_cadbane",
+   "archetype": "broker",
+   "occupation": "Bounty Broker"
+  },
+  {
+   "id": "xover_swgoh_captainrex",
+   "archetype": "warden",
+   "occupation": "Watch Sergeant"
+  },
+  {
+   "id": "xover_swgoh_darthsion",
+   "archetype": "duelist",
+   "occupation": "Prizefighter"
+  },
+  {
+   "id": "xover_swgoh_kylekatarn",
+   "archetype": "duelist",
+   "occupation": "Escort"
+  },
+  {
+   "id": "xover_swgoh_directorkrennic",
+   "archetype": "artisan",
+   "occupation": "Works Overseer"
+  },
+  {
+   "id": "xover_swgoh_ig12",
+   "archetype": "steward",
+   "occupation": "Nursemaid"
+  },
+  {
+   "id": "xover_swgoh_gopherants",
+   "archetype": "artisan",
+   "occupation": "Repair Crew"
+  },
+  {
+   "id": "xover_swgoh_padawansabine",
+   "archetype": "artisan",
+   "occupation": "Apprentice Painter"
+  }
+ ]
+}

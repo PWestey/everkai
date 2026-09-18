@@ -84,7 +84,7 @@ test('clearing chapter 50 opens chapter 51, and the last stage of chapter 3000 c
  let r=act(s,'openingBattle',0,'50-6-0');assert.equal(r.error,undefined,r.error);s=r.state;
  assert.equal(OPENING_STAGES[s.opening.cleared]._id,'51-1-1');
  // One fully trained Fellow is 301,600,000 Power; four clear chapter 3000's 1,191,000,000 boss.
- s.opening.cleared=62999;s.gold=1e14;for(const id of ['hero_15','hero_1','hero_2','hero_3'])s.fellows[id]={level:750,aptitude:1000,skill:20,breaks:13,gear:null};
+ s.opening.cleared=62999;s.gold=1e14;for(const id of ['hero_15','hero_1','hero_4','hero_3'])s.fellows[id]={level:750,aptitude:1000,skill:20,breaks:13,gear:null};
  assert.ok(valid(s));
  r=act(s,'openingBattle',0,'3000-6-0');assert.equal(r.error,undefined,r.error);s=r.state;
  assert.equal(s.opening.cleared,63000);assert.equal(OPENING_STAGES[s.opening.cleared],undefined);

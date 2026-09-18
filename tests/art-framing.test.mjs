@@ -5,10 +5,28 @@ import bounds from '../lib/art-bounds-data.json' with {type:'json'};
 import clips from '../lib/character-idle-data.json' with {type:'json'};
 import costumes from '../lib/wardrobe-assets.json' with {type:'json'};
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
+import {installedCrossoverAssets,pendingCrossoverRows} from '../scripts/crossover/installed-assets.mjs';
 const frozen=JSON.parse(readFileSync(new URL('./frozen-idle-clips.json',import.meta.url)));
 
 test('every portrait, costume and idle clip the app shows was measured',()=>{
- const paths=new Set([...[...FELLOWS,...FAMILY].flatMap(f=>[f.art,f.portrait]),...costumes.map(c=>c.art),...Object.values(clips).map(c=>c.src)].filter(Boolean));
+ // The crossover renders are added the same way scripts/measure-art-bounds.mjs adds them -- from the
+ // additions data intersected with what is installed -- because FELLOWS/FAMILY are flag-gated and
+ // this test runs without the flag, so they would otherwise be invisible to it (D7).
+ const crossover=installedCrossoverAssets();
+ const paths=new Set([...[...FELLOWS,...FAMILY].flatMap(f=>[f.art,f.portrait]),...costumes.map(c=>c.art),...Object.values(clips).map(c=>c.src),...crossover].filter(Boolean));
+ assert.ok(crossover.length>=10,`only ${crossover.length} crossover assets reached the measurer`);
+ // MEASURED 2026-09-17: every crossover render FILLS its 2:3 frame, so none of them gets a `bounds`
+ // row and null is the correct answer for artBounds() -- `assets without bounds fill their frame`.
+ // What was genuinely missing is the per-clip `motion`, which is how a frozen re-render is caught;
+ // no crossover clip was measured for it at all before (docs/crossover-family-plan.md D7).
+ for(const p of crossover.filter(p=>p.endsWith('.mp4'))){
+  assert.equal(typeof bounds.assets[p]?.motion,'number',p+' has no motion measurement');
+  assert.ok(clipMotion(p)>=.0005,p+' is a frozen clip');
+ }
+ for(const p of crossover.filter(p=>p.endsWith('.webp')))assert.equal(artBounds(p),null,p+' now has a flat surround; re-check its framing');
+ // Rows whose media has not been installed yet are recorded, not forgotten: their art paths are in
+ // the additions data and will be measured by the same code when the files land.
+ assert.ok(pendingCrossoverRows().every(r=>typeof r.art==='string'&&/^[0-9a-f]{64}$/.test(r.artSha256)),'a pending crossover row has no recorded art hash');
  assert.equal(bounds.measured,paths.size,'re-run scripts/measure-art-bounds.mjs after changing character art');
  for(const c of Object.values(clips))assert.equal(typeof bounds.assets[c.src]?.motion,'number',c.src+' has no motion measurement');
  for(const [path,row] of Object.entries(bounds.assets))if(row.bounds){

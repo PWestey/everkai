@@ -825,93 +825,6 @@
   ]
  },
  {
-  "id": "hero_16",
-  "model": "hero_16",
-  "art": "humanized/hero_16.webp",
-  "sourceSha256": "d3fa4b502c225261f58940fa5b2729f29cf30de3d142c8d0e172db6672eb1d5a",
-  "sha256": "91b26e82730bf1cfa382704b23fae27b24677acf69b2abd59e17ffa45c40f749",
-  "bytes": 89066,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_16.webp"
-  ]
- },
- {
-  "id": "hero_19",
-  "model": "hero_19",
-  "art": "humanized/hero_19.webp",
-  "sourceSha256": "92981aa765ab7f9a27075ae6b023f5afe39ab68c0bcb12094fd4a62d006f4319",
-  "sha256": "d22d49656ee3371a2bba455ae4397a7e012567ce510acbf422ac2c1109339336",
-  "bytes": 152418,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "307e538d9fc4073c9a92cbf5feb2de45af65995c4ea8d38bbfab41ef6ee496f2",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-7.jpg",
-    "label": "Village square",
-    "donor": "hero_53c1",
-    "sourceRegion": "bg",
-    "mode": "reused-scene",
-    "aspect": 0.6102941176470589
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-7.jpg"
-  },
-  "aliases": [
-   "roster/hero_19.webp"
-  ]
- },
- {
-  "id": "hero_22",
-  "model": "hero_22",
-  "art": "humanized/hero_22.webp",
-  "sourceSha256": "0e3ffcf4f7c9ae2c6c088b6c6e30f47c5e9b3099095051c055a2738863cc95f9",
-  "sha256": "d3fe8a38b4717827951744e94b9a7ace57491bb6066357636370df29cdd94642",
-  "bytes": 131452,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_22.webp"
-  ]
- },
- {
-  "id": "hero_25",
-  "model": "hero_25",
-  "art": "humanized/hero_25.webp",
-  "sourceSha256": "deb9f34f8683986e5bbcb7b3f8b6539c52713328f55bb6a3c4f9b081f6b241be",
-  "sha256": "6a49bd7c415b808e03dbe037b52b73e03d119103cb28304cc54d8096bf38abd9",
-  "bytes": 78632,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f46697fc00c2cf31976e45b7fe54a1149ea4b67e3d55574c6af98e28b520219e",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_25.webp"
-  ]
- },
- {
   "id": "hero_53",
   "model": "hero_53",
   "art": "humanized/hero_53.webp",
@@ -993,46 +906,6 @@
   ]
  },
  {
-  "id": "hero_66",
-  "model": "hero_66",
-  "art": "humanized/hero_66.webp",
-  "sourceSha256": "d270e6eb21f2a08dedf953fb04066c6550b352c108a39097fff994aa823a15dc",
-  "sha256": "a27b195865a87592a845f3c88d204b07cca9cc7c7b4c509cbfb08e1cc6e8aa13",
-  "bytes": 68684,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_66.webp"
-  ]
- },
- {
-  "id": "hero_69",
-  "model": "hero_69",
-  "art": "humanized/hero_69.webp",
-  "sourceSha256": "0c91bbd58b22a34f103b4b32e9678e92d028fbe311cfc621868882827ae50af1",
-  "sha256": "c685d5e2e5ab8ed7dc72e84ade745f351ade112c6f9f71c881b2ae6ee0aeb547",
-  "bytes": 106028,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_69.webp"
-  ]
- },
- {
   "id": "hero_73",
   "model": "hero_73",
   "art": "humanized/hero_73.webp",
@@ -1057,53 +930,6 @@
   },
   "aliases": [
    "roster/hero_73.webp"
-  ]
- },
- {
-  "id": "hero_76",
-  "model": "hero_76",
-  "art": "humanized/hero_76.webp",
-  "sourceSha256": "109bf6f68719b4d95a6e6357c0b55c0ba8a32d336200286300ecc0c4cdc17a34",
-  "sha256": "6c042cd603569d12d9989154f650fd9158f931d5b2db429073e5abc43f7bcfd9",
-  "bytes": 112832,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_76.webp"
-  ]
- },
- {
-  "id": "hero_79",
-  "model": "hero_79",
-  "art": "humanized/hero_79.webp",
-  "sourceSha256": "8bf643bdee06a841f798fc76efa0017df036f42b75d39af37493805074e4dc50",
-  "sha256": "0e654336e70ec368bb6f56e93d70db0ca37ecaa47902523179aee637c4d09822",
-  "bytes": 141648,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "0dba6746a127861e605c5731af50922e6c46b864bc64027814685f1a4fef8d74",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-1.jpg",
-    "label": "Quiet woodland",
-    "donor": "hero_04c4",
-    "sourceRegion": "bj_31",
-    "mode": "reused-scene",
-    "aspect": 0.6755905511811023
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-1.jpg"
-  },
-  "aliases": [
-   "roster/hero_79.webp"
   ]
  },
  {
@@ -1158,73 +984,6 @@
   },
   "aliases": [
    "roster/hero_106.webp"
-  ]
- },
- {
-  "id": "hero_113",
-  "model": "hero_113",
-  "art": "humanized/hero_113.webp",
-  "sourceSha256": "e1fb6bcc384a72f81d78876474d54ae1380367af6d5324553f094bbe7f915160",
-  "sha256": "d9e924d6cb4d08c45e71e0dab64472324de0b1cbd280130abda97ca7687bc6b8",
-  "bytes": 143112,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_113.webp"
-  ]
- },
- {
-  "id": "hero_116",
-  "model": "hero_116",
-  "art": "humanized/hero_116.webp",
-  "sourceSha256": "c763a675da2347d137a5bdaec393bff02d01431cc7e81b00ae4254fd96d4a009",
-  "sha256": "4cc78c9ca5a0879b476ba1b56064ae43f24d9cc4f837842d5e8c7fb1244c02cd",
-  "bytes": 160564,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "4bbc1c879cf35862d0144c9f59c604e6e207542999bb9152b5b39dcd6e442c1d",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-25.jpg",
-    "label": "Sunny beach",
-    "donor": "hero_112c2",
-    "sourceRegion": "bjing_0",
-    "mode": "reused-scene",
-    "aspect": 0.6086956521739131
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-25.jpg"
-  },
-  "aliases": [
-   "roster/hero_116.webp"
-  ]
- },
- {
-  "id": "hero_119",
-  "model": "hero_119",
-  "art": "humanized/hero_119.webp",
-  "sourceSha256": "a8ab8082ed41bae65c144dd7b71cde1c92932316c24ebe8b63a8e8cbee9e9dbb",
-  "sha256": "6c1208e4fedd45ec52ef0280175ca50d61e51090409601df4be3d335c45907df",
-  "bytes": 120102,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_119.webp"
   ]
  },
  {
@@ -1417,26 +1176,6 @@
   ]
  },
  {
-  "id": "hero_144",
-  "model": "hero_144",
-  "art": "humanized/hero_144.webp",
-  "sourceSha256": "750d9c4d30d13ca602a768e83de313a62673c36d6f6e6d8be9666af435fa067b",
-  "sha256": "5b0369a635fc6f1b46c4882a7a5809f5af8dff8644af771749670da9013e610f",
-  "bytes": 119062,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_144.webp"
-  ]
- },
- {
   "id": "hero_147",
   "model": "hero_147",
   "art": "humanized/hero_147.webp",
@@ -1515,46 +1254,6 @@
   },
   "aliases": [
    "roster/hero_154.webp"
-  ]
- },
- {
-  "id": "hero_157",
-  "model": "hero_157",
-  "art": "humanized/hero_157.webp",
-  "sourceSha256": "bab1ff4858ed1e6ceb3af73e8d868e0d449478cc71cd967c6b97d162506ab6b6",
-  "sha256": "e4e1ac3653aa0b89caadfa9071bc1560e3c4a6a23852ae9c9b07fc01fc5f5d74",
-  "bytes": 160432,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_157.webp"
-  ]
- },
- {
-  "id": "hero_160",
-  "model": "hero_160",
-  "art": "humanized/hero_160.webp",
-  "sourceSha256": "8a7a6cfff314bd58c2c094325252f7a7b85925bff33c2b745de72534cd8221d8",
-  "sha256": "17140f5215fd5f3c99eb63d7158aebd2b1682e578d8944830822223510656154",
-  "bytes": 150282,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_160.webp"
   ]
  },
  {
@@ -1801,26 +1500,6 @@
   ]
  },
  {
-  "id": "hero_193",
-  "model": "hero_193",
-  "art": "humanized/hero_193.webp",
-  "sourceSha256": "88cb38193073b62552a6f84ad73c870a59f67846ab67660919009839865074e4",
-  "sha256": "2b32c12bb953ed7cb672cbdb7f49faf53d707a84212cabe1aa8c0f486f41e853",
-  "bytes": 135320,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_193.webp"
-  ]
- },
- {
   "id": "hero_196",
   "model": "hero_196",
   "art": "humanized/hero_196.webp",
@@ -1872,26 +1551,6 @@
   },
   "aliases": [
    "roster/hero_199.webp"
-  ]
- },
- {
-  "id": "hero_212",
-  "model": "hero_212",
-  "art": "humanized/hero_212.webp",
-  "sourceSha256": "317b231562d74a8074c01f495f6d5c835a4c8df5d2299c1699e6d83e6ccd5709",
-  "sha256": "e3c3e027a9efa77360eed398196d1b7b39a0b7441dd399707d5813c623563a06",
-  "bytes": 208122,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_212.webp"
   ]
  },
  {
@@ -2647,133 +2306,6 @@
   ]
  },
  {
-  "id": "hero_2",
-  "model": "hero_02",
-  "art": "humanized/hero_02.webp",
-  "sourceSha256": "3d3314ef209b56154d95741e55232d83b47be6e0032ed342cc6ce355847c922f",
-  "sha256": "d55654a5abfe321a2006861f7883f134d1f6bea04b521077ef8e1f8dbe30a5f7",
-  "bytes": 64428,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_2.webp"
-  ]
- },
- {
-  "id": "hero_5",
-  "model": "hero_05",
-  "art": "humanized/hero_05.webp",
-  "sourceSha256": "45250635a11373c1a712036674eb722f042f4a11ec5627a577ce98f8b705dcb1",
-  "sha256": "c39fc977fa1419abbbc6e4d1b7a839de8b3a3709ba93bbd90c46288f09cf0e8e",
-  "bytes": 110054,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_5.webp"
-  ]
- },
- {
-  "id": "hero_14",
-  "model": "hero_14",
-  "art": "humanized/hero_14.webp",
-  "sourceSha256": "e8b8e97798078bdeeeb11608b44bc6873e6198d166338da1d0715a08545aabc2",
-  "sha256": "5bf0ea25b8603d5b000c029ff35aba8b2142cbadb6ad253d886893e9b6ce505c",
-  "bytes": 104608,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_14.webp"
-  ]
- },
- {
-  "id": "hero_17",
-  "model": "hero_17",
-  "art": "humanized/hero_17.webp",
-  "sourceSha256": "81210e858be190d354367753c087876a0ff5e9b058a8be6815c9c53c41b0a8e7",
-  "sha256": "6e8f3507492f90571d9a036d933d953d82e0f8047a184d24b2fa70f2f4fabfdd",
-  "bytes": 127712,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "85d2ca42d562a1bf5ef7bb8d61310dac11e4628bf89f032b662aca1e200c7db6",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  },
-  "aliases": [
-   "roster/hero_17.webp"
-  ]
- },
- {
-  "id": "hero_20",
-  "model": "hero_20",
-  "art": "humanized/hero_20.webp",
-  "sourceSha256": "2057cca25ed2061f77bef095b8deefe86cacc1fb3054ecfaf689e8ba5262b72c",
-  "sha256": "23171a6e4b8309490e4c891a81d36274623661efc8e0826375abf6fa4a639727",
-  "bytes": 100564,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_20.webp"
-  ]
- },
- {
-  "id": "hero_23",
-  "model": "hero_23",
-  "art": "humanized/hero_23.webp",
-  "sourceSha256": "1bff6d25e39d9e2c9e05011664d8ead284077e0de4f80b5aa224bf8a9b7f4daa",
-  "sha256": "cb6fc986ee174d2a2c25670b749779e112b3d0d3a8aa0cd01c5f7cd009737234",
-  "bytes": 81352,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_23.webp"
-  ]
- },
- {
   "id": "hero_51",
   "model": "hero_51",
   "art": "humanized/hero_51.webp",
@@ -2801,26 +2333,6 @@
   ]
  },
  {
-  "id": "hero_55",
-  "model": "hero_55",
-  "art": "humanized/hero_55.webp",
-  "sourceSha256": "077cd3807859b78e650694178746b233588bfdfb75af011aabde78fd4f0c8b4f",
-  "sha256": "451749495a3a3bf3e1857d238cead6e887d09b765cb11b668984e6c0b7001f47",
-  "bytes": 92934,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_55.webp"
-  ]
- },
- {
   "id": "hero_59",
   "model": "hero_59",
   "art": "humanized/hero_59.webp",
@@ -2845,53 +2357,6 @@
   },
   "aliases": [
    "roster/hero_59.webp"
-  ]
- },
- {
-  "id": "hero_62",
-  "model": "hero_62",
-  "art": "humanized/hero_62.webp",
-  "sourceSha256": "e92833d50ba237137c7965fc527a72f58ec565762284683ad872e7b773bd82a2",
-  "sha256": "2805703df2df18f4c3860a91559b556a3899a53d975131fc7fe102753d16320d",
-  "bytes": 47478,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_62.webp"
-  ]
- },
- {
-  "id": "hero_67",
-  "model": "hero_67",
-  "art": "humanized/hero_67.webp",
-  "sourceSha256": "a5f90220a23f661b0b59de928704f76787b603b07cfba26113953863888f61d5",
-  "sha256": "9f2d953e41e19cace1eea20d4ec52f083c008e75cf16cdbd4c6a501c4c26277c",
-  "bytes": 190852,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "13a77e5b1162afbf525f9c38d356866334347f3ccbd64c5576e145bb2c2e7bfd",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-11.jpg",
-    "label": "Castle meadow",
-    "donor": "hero_61c2",
-    "sourceRegion": "beijing",
-    "mode": "reused-scene",
-    "aspect": 0.5540691192865106
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-11.jpg"
-  },
-  "aliases": [
-   "roster/hero_67.webp"
   ]
  },
  {
@@ -3111,46 +2576,6 @@
   ]
  },
  {
-  "id": "hero_120",
-  "model": "hero_120",
-  "art": "humanized/hero_120.webp",
-  "sourceSha256": "4919ceb9c2c5d9c261ccd2d28528e726c00d1271b4f4a9ba9c76fbdb4045630a",
-  "sha256": "96fdf4d697a3cd3677d547ed193dc1c910b1fd0f1be227b548bb52e436439825",
-  "bytes": 145370,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_120.webp"
-  ]
- },
- {
-  "id": "hero_123",
-  "model": "hero_123",
-  "art": "humanized/hero_123.webp",
-  "sourceSha256": "7616396a635f72d0f5a87e9783563643220442ae191032760f0f1a79d0431398",
-  "sha256": "34135a50212bd155663fbb9e327d3892611612f1ff53e03c2e40fd030de21c65",
-  "bytes": 131612,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_123.webp"
-  ]
- },
- {
   "id": "hero_126",
   "model": "hero_126",
   "art": "humanized/hero_126.webp",
@@ -3175,26 +2600,6 @@
   },
   "aliases": [
    "roster/hero_126.webp"
-  ]
- },
- {
-  "id": "hero_129",
-  "model": "hero_129",
-  "art": "humanized/hero_129.webp",
-  "sourceSha256": "43a10713c44375ecd67eeb683ec96a11ea644c12b304107a26a699d7af658d13",
-  "sha256": "fd41cdc5cd9dab3224fc9dfd57fd21ef3859389cda97fdd28e3f682de2a4a3c6",
-  "bytes": 91944,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_129.webp"
   ]
  },
  {
@@ -3279,26 +2684,6 @@
   ]
  },
  {
-  "id": "hero_141",
-  "model": "hero_141",
-  "art": "humanized/hero_141.webp",
-  "sourceSha256": "a8efc9f947994c484d0873c2f2eabe8c5743ed47724b639879298a90bc90878e",
-  "sha256": "3b85c54ac00fc67e8eacb228d44db3d20dda02c8cdeaf8928edc7aa6ea1deb79",
-  "bytes": 117178,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_141.webp"
-  ]
- },
- {
   "id": "hero_145",
   "model": "hero_145",
   "art": "humanized/hero_145.webp",
@@ -3323,26 +2708,6 @@
   },
   "aliases": [
    "roster/hero_145.webp"
-  ]
- },
- {
-  "id": "hero_148",
-  "model": "hero_148",
-  "art": "humanized/hero_148.webp",
-  "sourceSha256": "bb39d6ed57491b09bcd6d721bedc34342c43ef7f946988a6e4626814c08afae2",
-  "sha256": "a3d311cb8bcec26c839eb93eee5e6f1b6e950a5a8bf6fb64ccc31b09c8b8e1b1",
-  "bytes": 152782,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_148.webp"
   ]
  },
  {
@@ -3427,26 +2792,6 @@
   ]
  },
  {
-  "id": "hero_161",
-  "model": "hero_161",
-  "art": "humanized/hero_161.webp",
-  "sourceSha256": "8d2b6629084b568d06a4cd435e580a345f6d75ed3808493c788fbcd5e339f477",
-  "sha256": "5b46f0e0291375716b6c5da5af178b7b030cde28a6fdbd9a999b396ad201f30a",
-  "bytes": 101136,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_161.webp"
-  ]
- },
- {
   "id": "hero_164",
   "model": "hero_164",
   "art": "humanized/hero_164.webp",
@@ -3474,46 +2819,6 @@
   ]
  },
  {
-  "id": "hero_167",
-  "model": "hero_167",
-  "art": "humanized/hero_167.webp",
-  "sourceSha256": "ec8d16f3dcf5aaba7038a5577ab6acee7bd789f15a013ca66fecbbd68a02cdcc",
-  "sha256": "5a3e526a0a5b837bf26ee87547a2b6b6312c2cb0f70bb617e72be9f0860d48fa",
-  "bytes": 126206,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_167.webp"
-  ]
- },
- {
-  "id": "hero_170",
-  "model": "hero_170",
-  "art": "humanized/hero_170.webp",
-  "sourceSha256": "01dae3eab89669162d3cf56b2f29a1c391580ecbceaf1ba487486d58acb06b5a",
-  "sha256": "607d47ec38c5d823c0ebfb09a5f90e1b0649119ddd3dc87bb0950be43dcf4b5c",
-  "bytes": 134040,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_170.webp"
-  ]
- },
- {
   "id": "hero_173",
   "model": "hero_173",
   "art": "humanized/hero_173.webp",
@@ -3538,26 +2843,6 @@
   },
   "aliases": [
    "roster/hero_173.webp"
-  ]
- },
- {
-  "id": "hero_176",
-  "model": "hero_176",
-  "art": "humanized/hero_176.webp",
-  "sourceSha256": "25b041c8cddda675dc8871de7f436eb4b714e530bbab20a700836c02ac53cdf2",
-  "sha256": "76263f2905e8b1d79f68f5f6fbce6cc5bc09da27b66fa41958de00a05dc8e612",
-  "bytes": 129662,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_176.webp"
   ]
  },
  {
@@ -4572,26 +3857,6 @@
   ]
  },
  {
-  "id": "hero_11",
-  "model": "hero_11",
-  "art": "humanized/hero_11.webp",
-  "sourceSha256": "226d2a9e29aef1c90dfba1a87782f470ba8926116893640205c04c2b6016380b",
-  "sha256": "7c3a057e29365c003c809b8b3cbe50a2b5b73da0cb0b810ea9eeb089c62c293f",
-  "bytes": 122158,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_11.webp"
-  ]
- },
- {
   "id": "hero_15",
   "model": "hero_15",
   "art": "humanized/hero_15.webp",
@@ -4621,26 +3886,6 @@
   ]
  },
  {
-  "id": "hero_18",
-  "model": "hero_18",
-  "art": "humanized/hero_18.webp",
-  "sourceSha256": "7d297934a9d7db0360146b5b827978d30707fa4cfb02e880f9209f16254eeda1",
-  "sha256": "6a1e39eed9e6d37d825971e5a3bbae11f3b3cd6115228f10a0e6b6eb3a9dfecb",
-  "bytes": 81598,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_18.webp"
-  ]
- },
- {
   "id": "hero_21",
   "model": "hero_21",
   "art": "humanized/hero_21.webp",
@@ -4665,60 +3910,6 @@
   },
   "aliases": [
    "roster/hero_21.webp"
-  ]
- },
- {
-  "id": "hero_24",
-  "model": "hero_24",
-  "art": "humanized/hero_24.webp",
-  "sourceSha256": "bbdd2b88382998c4e73948a5bc825f94acfc26213959c31c73b9cc52288b0214",
-  "sha256": "82415b5460b66854f926fbc12527697806804d4a62412959866baee385746de6",
-  "bytes": 233834,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "49566575295a2216b035aea2992103cf39746ec183251b29e1e560230cdc1fed",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-7.jpg",
-    "label": "Village square",
-    "donor": "hero_53c1",
-    "sourceRegion": "bg",
-    "mode": "reused-scene",
-    "aspect": 0.6102941176470589
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-7.jpg"
-  },
-  "aliases": [
-   "roster/hero_24.webp"
-  ]
- },
- {
-  "id": "hero_52",
-  "model": "hero_52",
-  "art": "humanized/hero_52.webp",
-  "sourceSha256": "f8e9181ebc4c378e30fd96404ef4b0213a5866315b6a1478518c427b36813e5d",
-  "sha256": "3b8d8e8ad89b241f9485f6e3f2aebdb67ecd7a7f4466ad82da2e6b1c5382150e",
-  "bytes": 186656,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "a410c4cbc8ed8d900e87568e5c14f20355b742af4026de9f5f7978b41e2ecd30",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-19.jpg",
-    "label": "Evening workshop",
-    "donor": "hero_104c1",
-    "sourceRegion": "beijing",
-    "mode": "reused-scene",
-    "aspect": 0.5884074941451991
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-19.jpg"
-  },
-  "aliases": [
-   "roster/hero_52.webp"
   ]
  },
  {
@@ -4773,26 +3964,6 @@
   },
   "aliases": [
    "roster/hero_60.webp"
-  ]
- },
- {
-  "id": "hero_65",
-  "model": "hero_65",
-  "art": "humanized/hero_65.webp",
-  "sourceSha256": "29c3c91d4bb020f8126783e91d7371d382f4707526f1248ab8b09b420b453b0b",
-  "sha256": "278547854598b6b172bfe83ce8a38e12923bad57db0a67429ff127818f2c5e7e",
-  "bytes": 89142,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_65.webp"
   ]
  },
  {
@@ -4904,54 +4075,6 @@
   ]
  },
  {
-  "id": "hero_102",
-  "model": "hero_102",
-  "art": "humanized/hero_102.webp",
-  "sourceSha256": "5b1a9dc9a2d9af40234fb141127d63bc22331c2f4d059a64044221b9f1161fdb",
-  "sha256": "85dea022e5b3c454b25d23a297e1d26af86b243a07b8cc1ef6033479ab59c7c2",
-  "bytes": 169608,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "624dfb94538723aff6a9be691e6c3d01e2f32b1863591b496cf1435761ecccca",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  },
-  "aliases": [
-   "roster/hero_102.webp"
-  ]
- },
- {
-  "id": "hero_105",
-  "model": "hero_105",
-  "art": "humanized/hero_105.webp",
-  "sourceSha256": "1ce1e88f913cb777a864f64a1c547cfbc06fdc4d15c1d1915c30c4c4f8dfa878",
-  "sha256": "c84478d71cd730ef3567b3e00b5ae8b13d64c5e1b12dd13c31e4b860cb69d164",
-  "bytes": 148788,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "augustine.webp",
-   "roster/hero_105.webp"
-  ]
- },
- {
   "id": "hero_112",
   "model": "hero_112",
   "art": "humanized/hero_112.webp",
@@ -5057,33 +4180,6 @@
   },
   "aliases": [
    "roster/hero_121.webp"
-  ]
- },
- {
-  "id": "hero_124",
-  "model": "hero_124",
-  "art": "humanized/hero_124.webp",
-  "sourceSha256": "6b12978a6be0109cb1cf2fccb25afea186a3d4cf3ef5781fa874327216de55f5",
-  "sha256": "ac1a66af7d2eff2fbd43e57608348eedc6bae8c14515954b1976fc3e473ed352",
-  "bytes": 195080,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "8daab53812af16964b0bfcb97d786f0211e09252d9f4d44ed6e7bb5567d9b470",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-1.jpg",
-    "label": "Quiet woodland",
-    "donor": "hero_04c4",
-    "sourceRegion": "bj_31",
-    "mode": "reused-scene",
-    "aspect": 0.6755905511811023
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-1.jpg"
-  },
-  "aliases": [
-   "roster/hero_124.webp"
   ]
  },
  {
@@ -5222,33 +4318,6 @@
   ]
  },
  {
-  "id": "hero_142",
-  "model": "hero_142",
-  "art": "humanized/hero_142.webp",
-  "sourceSha256": "61a2c1837b1d5009cd2b7d91b13549a677f83013f6876325d31f93076d425a1c",
-  "sha256": "8a0e654fad284c9aaf9924843903901361293c3c04695819c5013a2b78ef2027",
-  "bytes": 172682,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "2ae442a26480021dc2d4b88b41a5fbbf49d2a28677c13c379558dcf491d33616",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-32.jpg",
-    "label": "Festival market",
-    "donor": "hero_152c2",
-    "sourceRegion": "bj_39",
-    "mode": "reused-scene",
-    "aspect": 0.574726609963548
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-32.jpg"
-  },
-  "aliases": [
-   "roster/hero_142.webp"
-  ]
- },
- {
   "id": "hero_146",
   "model": "hero_146",
   "art": "humanized/hero_146.webp",
@@ -5300,26 +4369,6 @@
   },
   "aliases": [
    "roster/hero_149.webp"
-  ]
- },
- {
-  "id": "hero_153",
-  "model": "hero_153",
-  "art": "humanized/hero_153.webp",
-  "sourceSha256": "540f8aa41bcfce21844474be1c6226b9fb064320cc4ef06f425651bc66e44925",
-  "sha256": "b0724d0efff68cae25c0e1de99e67e12b08129634a16d48c205c80c1ce72222e",
-  "bytes": 128384,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_153.webp"
   ]
  },
  {
@@ -5559,26 +4608,6 @@
   ]
  },
  {
-  "id": "hero_184",
-  "model": "hero_184",
-  "art": "humanized/hero_184.webp",
-  "sourceSha256": "921f58e050d117e37a2290975cf8a5e66732266f45fbd0c76d49ad7b8d5c34d6",
-  "sha256": "ca1d92eb26e84632ed5c66edd1fc8d9c839f4baa78dc98990945057a575c75e3",
-  "bytes": 69834,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_184.webp"
-  ]
- },
- {
   "id": "hero_189",
   "model": "hero_189",
   "art": "humanized/hero_189.webp",
@@ -5606,26 +4635,6 @@
   ]
  },
  {
-  "id": "hero_192",
-  "model": "hero_192",
-  "art": "humanized/hero_192.webp",
-  "sourceSha256": "b386b6d71b010785906bfbf03209573d728939cd346c6eeeaf9c972daa2de44a",
-  "sha256": "4746d7e4e4998d492a9f32f0f9a522ab9c4fa56a64db0f7513a5f3b4adb8764d",
-  "bytes": 135222,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_192.webp"
-  ]
- },
- {
   "id": "hero_195",
   "model": "hero_195",
   "art": "humanized/hero_195.webp",
@@ -5650,26 +4659,6 @@
   },
   "aliases": [
    "roster/hero_195.webp"
-  ]
- },
- {
-  "id": "hero_198",
-  "model": "hero_198",
-  "art": "humanized/hero_198.webp",
-  "sourceSha256": "da89fc5e68dc9b793070181d6a87b902b9677a46218a78ed2187756172568c51",
-  "sha256": "173cb98adb96af929804c38356ffd4335987f2b9c78fe49b987dea8b0b51a86a",
-  "bytes": 113770,
-  "composition": "includes-background",
-  "sourceManifestSha256": "7d07f9e6d1ddbba9c57932aba993c9dd7ef2272ec802324fed1fdd16098d0129",
-  "costumeId": null,
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_198.webp"
   ]
  },
  {
@@ -5868,23 +4857,6 @@
   ]
  },
  {
-  "id": "hero_13",
-  "model": "hero_13",
-  "art": "humanized/hero_13.webp",
-  "sha256": "2a1656caaf4d3f0d403eaae2ad0c22194f94b75c7f8ade85212c9ea7b4bc2cff",
-  "bytes": 92182,
-  "composition": "includes-background",
-  "costumeId": null,
-  "background": {
-   "mode": "viewer-surround",
-   "path": null
-  },
-  "aliases": [
-   "roster/hero_13.webp"
-  ],
-  "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- },
- {
   "id": "hero_54",
   "model": "hero_54",
   "art": "humanized/hero_54.webp",
@@ -5900,12 +4872,7 @@
    "roster/hero_54.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- }
- 
- 
- 
- 
- ,
+ },
  {
   "id": "wife_160",
   "model": "wife_160",
@@ -5939,9 +4906,7 @@
    "roster/wife_161.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- }
- 
- ,
+ },
  {
   "id": "wife_168",
   "model": "wife_168",
@@ -5975,8 +4940,7 @@
    "roster/wife_174.webp"
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
- }
- ,
+ },
  {
   "id": "wife_184",
   "model": "wife_184",
@@ -5994,8 +4958,4 @@
   ],
   "note": "Base Spine render added at 2x. Replaces a 320x480 transparent roster cutout: the character is unchanged, but the render now bakes in the viewer setting, matching the other base compositions."
  }
- 
- 
- 
- 
 ]

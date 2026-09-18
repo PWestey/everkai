@@ -142,9 +142,10 @@ test('the source and data extractors still work (a drifted pattern must fail lou
 // a shape no player can reach, so every price there is paid from a wallet that does not exist.
 // =============================================================================================
 
-test('ECON-28: exactly 50 of the 266 catalogue characters are priced in a currency no wallet holds',()=>{
+test('ECON-28: exactly 46 of the 218 catalogue characters are priced in a currency no wallet holds',()=>{
  const catalogue=[...FELLOWS,...FAMILY];
- assert.equal(catalogue.length,266);
+ assert.equal(catalogue.length,218);   // 266 before the owner's 2026-09-17 roster trim deleted 48 Fellows
+
  const wallet=Object.keys(summonState(startingSave(NOW)));
  const byCurrency={},unpriced=[];
  for(const p of catalogue){
@@ -155,19 +156,23 @@ test('ECON-28: exactly 50 of the 266 catalogue characters are priced in a curren
  // The whole catalogue, counted once. Measured 2026-09-12; re-measured 2026-09-15 after the seven
  // crossover characters were restored (wife_185 is UR, so valiant went 46 -> 47).
  assert.deepEqual(Object.fromEntries(Object.entries(byCurrency).map(([k,v])=>[k,v.length])),
-  {stoneFragments:20,stones:174,valiant:47,archangel:3});
+  {stoneFragments:18,stones:145,valiant:43,archangel:3});   // re-measured after the 2026-09-17 trim
+
  // Was ['hero_60']: no rarity in the public roster meant summonCost returned null, so the counter
  // refused him and nothing else in the game could grant him. He is free-tier in the original, so
  // the free list prices him and the catalogue is now fully priced.
  // The 22 rank-up Fellows are deliberately unpriced: the original never sells them, each arrives
  // through its player-rank encounter (lib/rank-ladder-data.json). They were 22 of the 42 fragment-
  // priced (free-tier) characters, which is why stoneFragments fell from 42 to 20.
- assert.deepEqual(unpriced.sort(),[...RANK_FELLOWS.keys()].sort(),'only the rank-up Fellows are unpriced');
+ // The 22 rank-up ids include 13 whose Fellow the trim deleted, so only the 9 still in the catalogue
+ // can appear here at all.
+ assert.deepEqual(unpriced.sort(),[...RANK_FELLOWS.keys()].filter(id=>catalogue.some(p=>p.id===id)).sort(),'only the rank-up Fellows are unpriced');
  // Was ['insignias'] with 49 characters charged against a key the wallet never held. UR/UR*/set are
  // now priced in valiant/archangel, which the forge produces and validSummon guards.
  const phantom=Object.keys(byCurrency).filter(k=>!wallet.includes(k));
  assert.deepEqual(phantom,[],'no cost may name a currency the wallet cannot hold');
- assert.equal(byCurrency.valiant.length+byCurrency.archangel.length,50);
+ assert.equal(byCurrency.valiant.length+byCurrency.archangel.length,46);   // 50 before the 2026-09-17 trim
+
  // Counting from recruitOffers instead would report 48, because startingSave already owns hero_195
  // (UR). The defect is a property of the price table, not of one save, so it is counted over the
  // catalogue. That off-by-one is stated here so a future reader does not "correct" 49 to 48.
@@ -183,14 +188,14 @@ test('ECON-28: exactly 50 of the 266 catalogue characters are priced in a curren
 
 test('ECON-28: a UR is refused on an empty wallet and genuinely charged on a funded one',()=>{
  const s=startingSave(NOW);
- assert.deepEqual(recruitPrice('hero_113'),{valiant:2});
- assert.equal(recruitRarity('hero_113'),'UR');
- assert.match(recruit(s,'hero_113').error,/Needs 2 Valiant Insignias/,'the check now fails CLOSED');
+ assert.deepEqual(recruitPrice('hero_114'),{valiant:2});
+ assert.equal(recruitRarity('hero_114'),'UR');
+ assert.match(recruit(s,'hero_114').error,/Needs 2 Valiant Insignias/,'the check now fails CLOSED');
  const funded={...s,summon:{...summonState(s),valiant:3}};
- const r=recruit(funded,'hero_113');
+ const r=recruit(funded,'hero_114');
  assert.equal(r.error,undefined,r.error);
  assert.equal(summonState(r.state).valiant,1,'two valiant were actually spent');
- assert.deepEqual(summonState(r.state).recruited,[{id:'hero_113',kind:'fellows',paid:2,currency:'valiant'}]);
+ assert.deepEqual(summonState(r.state).recruited,[{id:'hero_114',kind:'fellows',paid:2,currency:'valiant'}]);
  assert.ok(valid(r.state));assert.deepEqual(decode(JSON.stringify(r.state)),r.state);
 });
 
@@ -205,9 +210,9 @@ test('ECON-28: no successful purchase may leave a NaN balance',()=>{
   +`are priced this way and recruit for free: ${phantom.join(', ')}.`);
  // Stated a second time as a runtime invariant, because a future price table could reintroduce the
  // shape without reintroducing this exact key.
- const after=recruit(s,'hero_113');
+ const after=recruit(s,'hero_114');
  if(!after.error)for(const [k,v] of Object.entries(after.state.summon))
-  assert.ok(!(typeof v==='number'&&Number.isNaN(v)),`recruiting hero_113 wrote NaN into summon.${k}`);
+  assert.ok(!(typeof v==='number'&&Number.isNaN(v)),`recruiting hero_114 wrote NaN into summon.${k}`);
 });
 
 // =============================================================================================
@@ -220,7 +225,7 @@ test('ECON-28: no successful purchase may leave a NaN balance',()=>{
 // Familiar Tower's hourly income supplies (lib/familiar-supplies.mjs).
 // =============================================================================================
 
-/** A village with all 17 businesses open, 200 staff each and the full 154-Fellow roster. Staff is
+/** A village with all 17 businesses open, 200 staff each and the full 111-Fellow roster. Staff is
  *  seeded rather than hired for the reason gear-fixtures.mjs gives: 200 workers at the Clinic cost
  *  336 billion, which would bury what this measures. */
 function village(){
@@ -259,7 +264,7 @@ test('ECON-29 fixed: every level and star is charged from the Cost ladders, and 
 test('ECON-29 fixed: 71 binds on untrained familiars leave village income where it was',()=>{
  let v=village();
  const before=totalRate(v);
- assert.equal(Math.round(before*10)/10,92_072.3,'the un-bound village rate has moved');
+ assert.equal(Math.round(before*10)/10,91_990.7,'the un-bound village rate has moved (92,072.3 before the 2026-09-17 roster trim: a smaller roster fills the same 17 businesses, so only the operator bonuses moved)');
  v=run(v,'adoptFamiliars');
  let bound=0;
  for(const pet of Object.keys(v.familiars)){
@@ -268,12 +273,15 @@ test('ECON-29 fixed: 71 binds on untrained familiars leave village income where 
   if(next!==v){v=next;bound++}
  }
  assert.equal(bound,71);
- assert.equal(Math.round(totalRate(v)*10)/10,92_072.3,'free binds no longer move income (was 1,233,109)');
+ assert.equal(Math.round(totalRate(v)*10)/10,91_990.7,'free binds no longer move income (was 1,233,109); the rate itself moved with the 2026-09-17 roster trim, the DELTA is still zero');
  // Negative control: the same binds on stage-10 familiars restore the old 13.4x, so the probe can see it.
- // 1,233,117 rather than the 1,233,109 measured on 2026-09-12: restoring the crossover Fellows widened
- // the roster the bind ladder draws from. The ratio, which is what this control is for, is unchanged.
+ // 1,233,035 rather than the 1,233,117 of 2026-09-15 (itself up from 1,233,109 on 2026-09-12 when the
+ // crossover Fellows were restored): the 2026-09-17 roster trim narrowed the roster the bind ladder
+ // draws from again. The RATIO, which is what this control is for, is unchanged: 1,233,035 / 91,990.7
+ // is 13.4x, the same multiple as before.
  const trained={...v,familiars:Object.fromEntries(Object.keys(v.familiars).map(id=>[id,{level:450,stars:0}]))};
- assert.equal(Math.round(totalRate(trained)),1_233_117);
+ assert.equal(Math.round(totalRate(trained)),1_233_035);
+ assert.equal(Math.round(totalRate(trained)/totalRate(v)*10)/10,13.4,'the 13.4x the control exists to see');
 });
 
 test('ECON-29 fixed: familiar power must be earned through the shipped Cost tables',()=>{

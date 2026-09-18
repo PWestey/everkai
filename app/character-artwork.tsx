@@ -5,8 +5,10 @@ import FamilyArtStage from './family-art-stage';
 import clips from '@/lib/character-idle-data.json';
 import {spineModel,spinePilotEnabled} from '@/lib/spine-pilot.mjs';
 import {useArtFraming} from './art-framing';
+import {additionClip} from '@/lib/everkai-additions.mjs';
+import {familyById} from '@/lib/catalog.mjs';
 const SpineCharacter=lazy(()=>import('./spine-character'));
-export function characterClip(person:any){const clip=(clips as Record<string,any>)[person.costumeId||person.id];return clip?.owner===person.id&&(clip.costumeId||null)===(person.costumeId||null)?clip:null}
+export function characterClip(person:any){const clip=(clips as Record<string,any>)[person.costumeId||person.id]||additionClip(person);return clip?.owner===person.id&&(clip.costumeId||null)===(person.costumeId||null)?clip:null}
 const reducedMotion=()=>typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 export default function CharacterArtwork({person,large=false,suspended=false}:any){
  const clip=characterClip(person),video=useRef<HTMLVideoElement>(null),still=useRef<HTMLImageElement>(null),resumeAfterCover=useRef(false),[failed,setFailed]=useState(false),[playing,setPlaying]=useState(false);
@@ -36,6 +38,8 @@ export default function CharacterArtwork({person,large=false,suspended=false}:an
   <Suspense fallback={null}><SpineCharacter row={spine} label={person.name+' original Idle animation'} running={spinePlaying&&!suspended} onError={()=>setSpineFailed(true)}/></Suspense>
   <Button className="idle-control" variant="outline" aria-label={spinePlaying?'Pause animation':'Play animation'} onClick={()=>setSpinePlaying(p=>!p)}>{spinePlaying?<Pause aria-hidden="true"/>:<Play aria-hidden="true"/>}<span>{spinePlaying?'Pause':'Play'}</span></Button>
  </div>;
- if(!clip||failed)return person.id.startsWith('wife_')?<FamilyArtStage person={person} large={large}/>:<img ref={still} src={'./assets/'+person.art} alt={person.name+' full character art'}/>;
+ // familyById, not the `wife_` prefix: a crossover Family member whose clip fails to load belongs on
+ // the art stage like every other Family member, not in a bare <img> (D3).
+ if(!clip||failed)return familyById(person.id)?<FamilyArtStage person={person} large={large}/>:<img ref={still} src={'./assets/'+person.art} alt={person.name+' full character art'}/>;
  return <div className="character-idle" data-model={clip.id}><img className="character-art-backdrop" src={'./assets/'+person.art} alt="" aria-hidden="true"/><video ref={video} src={'./assets/'+clip.src} poster={'./assets/'+person.art} muted loop playsInline preload="auto" aria-label={person.name+' rendered Idle animation'} onPlaying={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onError={()=>setFailed(true)}/><Button className="idle-control" variant="outline" aria-label={playing?'Pause animation':'Play animation'} onClick={()=>{const el=video.current;if(!el)return;if(el.paused)el.play().catch(()=>setPlaying(false));else el.pause()}}>{playing?<Pause aria-hidden="true"/>:<Play aria-hidden="true"/>}<span>{playing?'Pause':'Play'}</span></Button></div>;
 }

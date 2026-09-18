@@ -12,8 +12,11 @@ const clips=read('character-idle-data.json'),base=read('humanized-static-data.js
 const asset=path=>readFileSync(new URL('../public/assets/'+path,import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 
-test('the pilot is exactly the six chosen appearances',()=>{
- assert.deepEqual(Object.keys(spinePilotModels).sort(),['H101C1','H111C1','W19C1','hero_111','hero_183','wife_116']);
+test('the pilot is exactly the five chosen appearances still in the game',()=>{
+ // Six until 2026-09-17, when the owner's roster trim removed the W19C1 costume: with no wardrobe row,
+ // no still and no idle clip behind it, a live Spine model for it has nothing to fall back to when the
+ // ?spine=1 flag is off, so it left the pilot and its packaged files were deleted.
+ assert.deepEqual(Object.keys(spinePilotModels).sort(),['H101C1','H111C1','hero_111','hero_183','wife_116']);
 });
 
 test('every pilot file is present with its recorded bytes and sha256, and streams',()=>{
@@ -56,8 +59,10 @@ test('each packaged skeleton parses, has its idle animation, and fits its humani
 test('the humanization Everkai shipped is carried, including both boot fixes',()=>{
  const m=spinePilotModels;
  assert.equal(m.hero_183.humanization.status,'excluded-male-character');assert.deepEqual(m.hero_183.humanization.hideSlots,[]);
- for(const key of ['hero_111','H111C1','H101C1','wife_116','W19C1'])assert.ok(m[key].humanization.hideSlots.length,key+' hides animal anatomy');
- const fixes={wife_116:[{rot:25,dx:40,dy:-40},{dx:40,dy:30,scale:.95}],W19C1:[null,{dx:-40,dy:40}]};
+ for(const key of ['hero_111','H111C1','H101C1','wife_116'])assert.ok(m[key].humanization.hideSlots.length,key+' hides animal anatomy');
+ // W19C1's boot fix went with the model when its costume was removed on 2026-09-17; wife_116's is the
+ // remaining one and still carries both replacements, so the transform is still exercised on real data.
+ const fixes={wife_116:[{rot:25,dx:40,dy:-40},{dx:40,dy:30,scale:.95}]};
  for(const [key,list] of Object.entries(fixes))list.forEach((fix,i)=>{
   const r=m[key].humanization.replacements[i];
   if(!fix){assert.equal(r.fix,undefined);return}

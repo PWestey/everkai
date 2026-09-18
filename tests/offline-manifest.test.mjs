@@ -15,7 +15,7 @@ async function walk(base,path=''){
 
 test('every character idle clip is streamed, never precached',()=>{
  const srcs=Object.values(clips).map(c=>c.src);
- assert.equal(srcs.length,516,'the clip manifest still covers the whole roster');
+ assert.equal(srcs.length,297,'the clip manifest still covers the whole roster (516 before the 2026-09-17 trim)');
  for(const src of srcs)assert.ok(streamed('assets/'+src),src+' would be precached');
 });
 
@@ -40,13 +40,17 @@ test('the precache stays within a size a phone will actually grant',async()=>{
 });
 
 test('the streaming rule is narrow and anchored, so it cannot swallow the app shell',()=>{
- assert.equal(STREAMED.length,2);
+ assert.equal(STREAMED.length,3);
  // The Spine pilot's runtime is a build chunk named after its module (assets/spine-character-<hash>.js):
  // it must stay precached so live playback works offline; only the model directory streams.
  for(const keep of ['index.html','assets/index-abc123.js','assets/kaity-idle.webp','assets/facility-scenes/recruit.webp','assets/wardrobe/x.webp','assets/spine-character-abc123.js','assets/spine.js'])
   assert.equal(streamed(keep),false,keep+' must stay offline-installed');
  assert.equal(streamed('assets/idle/hero_128c1-idle.mp4'),true);
  assert.equal(streamed('assets/spine/hero_111/Hero_111.skel'),true);
+ // Everkai additions (flagged ?crossover=1) stream; a build chunk merely named crossover-* does not.
+ assert.equal(streamed('assets/crossover/xover_msf_spiderman-idle.mp4'),true);
+ assert.equal(streamed('assets/crossover/xover_msf_spiderman.webp'),true);
+ assert.equal(streamed('assets/crossover-abc123.js'),false);
  assert.equal(streamed('assets/village/spine/x.skel'),false);
  // Anchored at the start: a path merely containing the word must not match.
  assert.equal(streamed('assets/village/idle/x.mp4'),false);

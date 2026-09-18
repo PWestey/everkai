@@ -21,27 +21,6 @@
   }
  },
  {
-  "costumeId": "H2C1",
-  "ownerId": "hero_2",
-  "model": "hero_02c1",
-  "art": "wardrobe/H2C1.webp",
-  "sourceSha256": "6689c4774bd5d5ef62a65cdb13c7b1c687fed97432dd130fab7d15cf39ad3160",
-  "sha256": "3fd62b9073a99b07a969da90d22e49f7945acb858ef03baaa2c48e3a06b39b0c",
-  "bytes": 83836,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H56C1",
   "ownerId": "hero_56",
   "model": "hero_56c1",
@@ -91,48 +70,6 @@
   }
  },
  {
-  "costumeId": "H104C1",
-  "ownerId": "hero_104",
-  "model": "hero_104c1",
-  "art": "wardrobe/H104C1.webp",
-  "sourceSha256": "99e8294556b5168a856c9fb9176923c8058b6f90734f723d7f7e93abe67aa7ef",
-  "sha256": "9b390caeff06596c28273e1679e9f2a6a7edf1a08593bfe3cf37096982286f19",
-  "bytes": 122202,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "c75ea0fc00dfe049bf61464c11e4064fd656dd2294981761f88032a6d54a6b6c",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H23C1",
-  "ownerId": "hero_23",
-  "model": "hero_23c1",
-  "art": "wardrobe/H23C1.webp",
-  "sourceSha256": "bd38ee82a9fb45786e0586e9c5a0c3a37a438be25ce3c60fe52a54dd7e5bd4d0",
-  "sha256": "f7454f72a1a571e166b180eede2973f546f991ca7ebd86444da76ffd0ace075a",
-  "bytes": 76084,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H54C1",
   "ownerId": "hero_54",
   "model": "hero_54c1",
@@ -147,27 +84,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "bc217ae05d7351746b6885ca26f3592c48d98d80604b093160ff67a247691030",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H192C1",
-  "ownerId": "hero_192",
-  "model": "hero_192c1",
-  "art": "wardrobe/H192C1.webp",
-  "sourceSha256": "fed09ffc713222abe21aeb5fcba6903464e4877b25ed95b682f4bc93afc9eea5",
-  "sha256": "369937476afefe7aa13591ff6ebb9f2d449d5121b44ec86da50700fffc103a29",
-  "bytes": 118888,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -210,48 +126,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "73e5808e2a8660ea40c61b7b2de8af75ef9540e6cb2c2443bae54beb93568b90",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H18C1",
-  "ownerId": "hero_18",
-  "model": "hero_18c1",
-  "art": "wardrobe/H18C1.webp",
-  "sourceSha256": "5775528bd3870e20e41ef17cee107c4d248cba1ba0b375348853214496b4d00d",
-  "sha256": "385227854d8e415d988b316cd340d42892c85f7440300081f71e24d39d738874",
-  "bytes": 135212,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H193C2",
-  "ownerId": "hero_193",
-  "model": "hero_193c2",
-  "art": "wardrobe/H193C2.webp",
-  "sourceSha256": "3496d6f962e3c988ea125f03ca71e54c2ddccc10eb22c8b4e9e9affaedf85457",
-  "sha256": "dce624924f95e0034b00051189703e398b9cb54b7b385d208c639ba33b2ab58d",
-  "bytes": 98330,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -329,27 +203,6 @@
   }
  },
  {
-  "costumeId": "H157C1",
-  "ownerId": "hero_157",
-  "model": "hero_157c1",
-  "art": "wardrobe/H157C1.webp",
-  "sourceSha256": "6a16a7fc8133d0000773b9f1c11fbd37a3a969afc1139398fcb130957294b200",
-  "sha256": "5649f64a5918bc73c310266242bea7a4f1f7cd4757fe21add3edaa8771d0b031",
-  "bytes": 200848,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H15C1",
   "ownerId": "hero_15",
   "model": "hero_15c1",
@@ -378,90 +231,6 @@
   }
  },
  {
-  "costumeId": "H11C1",
-  "ownerId": "hero_11",
-  "model": "hero_11c1",
-  "art": "wardrobe/H11C1.webp",
-  "sourceSha256": "7bc2daf454a3022e6329dc6eacbd3eb9cf8351c4b6280bfb2b8c72a70da6a141",
-  "sha256": "733b461c18826bbcc9ec56c2ccb641d18b4f8ae70f05944940a127e4bde0890b",
-  "bytes": 95646,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H159C1",
-  "ownerId": "hero_159",
-  "model": "hero_159c1",
-  "art": "wardrobe/H159C1.webp",
-  "sourceSha256": "78a747f1ca90db71cfc6c17006db8c519b07015e34691bdff46b8560f79a3b6f",
-  "sha256": "ab27ebb8d8656f9aea4b41a2a51c4ee4cba709a1863b737412da36ce6260175d",
-  "bytes": 183944,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1f82d780efe9ba283850902d1c99f356c453e96614145bc3f4362542d5713cc6",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H156C1",
-  "ownerId": "hero_156",
-  "model": "hero_156c1",
-  "art": "wardrobe/H156C1.webp",
-  "sourceSha256": "e2f7505675f6ddf0abc8aa520a6a47d1dbaa8c6a3f11591aedfe54d91ddcf110",
-  "sha256": "145685c909dd1021da842b7aaf596fc5222104da79b3ab5f0ae44629dd4f52d7",
-  "bytes": 207306,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "06bda24ea4e13b37c441c2b9ab74b90c4716cc8d59d91330cac86ef0f4a36446",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H22C1",
-  "ownerId": "hero_22",
-  "model": "hero_22c1",
-  "art": "wardrobe/H22C1.webp",
-  "sourceSha256": "f76414bb94a309976ecbfb10ead412d5dc72ee466ca14a508bfacdc8b21e52a1",
-  "sha256": "98a4ce66b6c9931e2162533bccf31e5dbfc8f97866692249e1b7cc786953b484",
-  "bytes": 175812,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H127C1",
   "ownerId": "hero_127",
   "model": "hero_127c1",
@@ -476,258 +245,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "b623f1a4ebb19027e2823b566837adda2b06cf3dcbe4d7945d86a4993840842a",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H5C1",
-  "ownerId": "hero_5",
-  "model": "hero_05c1",
-  "art": "wardrobe/H5C1.webp",
-  "sourceSha256": "c9997414123d3dc35eb73f35d26e28833b3af0448067254ab12217586f2dcb34",
-  "sha256": "ea494a8036a950754327814fdd96d513922f42ee97393158807cb1369c7febbb",
-  "bytes": 112880,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H1C2",
-  "ownerId": "hero_1",
-  "model": "hero_01c2",
-  "art": "wardrobe/H1C2.webp",
-  "sourceSha256": "74d100afe0a6f15b6434f57c17e50a22730966e15205f7775464b4246b73f489",
-  "sha256": "cf3a37041350e047ab99b775a0590ea16361f77b1d201602675529ebfa833d43",
-  "bytes": 127738,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a18b0dcf64b6c14b41e2732b65f2820b42d2c5afac604e4b196d70c02d876d4b",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  }
- },
- {
-  "costumeId": "H20C1",
-  "ownerId": "hero_20",
-  "model": "hero_20c1",
-  "art": "wardrobe/H20C1.webp",
-  "sourceSha256": "c5ca6fdc1db5a7218871c82ae3449ac5f9ebf7ea55bd9c0b70c865b3d5d6dff2",
-  "sha256": "95d6341ba3c28c69f49fcf6c0f54d43a8de485cdacf7584fb7be7256c783007f",
-  "bytes": 129172,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H153C1",
-  "ownerId": "hero_153",
-  "model": "hero_153c1",
-  "art": "wardrobe/H153C1.webp",
-  "sourceSha256": "ac441fd9f7fed94ba0faa6fb822e4cb20a373e38459509e02124fe407112e8f1",
-  "sha256": "43e3ab7098ac0139ff82510c2d3f43930bbd4e2239b621e4017edf87db55c714",
-  "bytes": 126988,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H56C2",
-  "ownerId": "hero_56",
-  "model": "hero_56c2",
-  "art": "wardrobe/H56C2.webp",
-  "sourceSha256": "515b7607773036ee8c1537033406b8d7f4b2a9ea68f041aaef87c58e9dd58f0e",
-  "sha256": "9738abfc4db8a886ed36fa11b2113cffcf5636072a2e7365e5c86c76a902ed4e",
-  "bytes": 211896,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1a470c3a3aa3336ca6f3d3af4d83fe23f70b8a96afa1c8f90607e49151443ae8",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-32.jpg",
-    "label": "Festival market",
-    "donor": "hero_152c2",
-    "sourceRegion": "bj_39",
-    "mode": "reused-scene",
-    "aspect": 0.574726609963548
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-32.jpg"
-  }
- },
- {
-  "costumeId": "H101C2",
-  "ownerId": "hero_101",
-  "model": "hero_101c2",
-  "art": "wardrobe/H101C2.webp",
-  "sourceSha256": "e4b4b774972a5029baafbe4aa94d731f1dae81122acab8abc962f1f62c2cb81c",
-  "sha256": "49c7f659b391adbd86f3e036f12b7095091fcad263f8b5762dbdcbd6a50b8cbb",
-  "bytes": 120080,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "728b944b874f21c330fb16d650d9f83a993ffa304d16a095cb26781389449517",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H24C2",
-  "ownerId": "hero_24",
-  "model": "hero_24c2",
-  "art": "wardrobe/H24C2.webp",
-  "sourceSha256": "ee5fe8ce8db29ce40067af7114b4edeaf6db5006694abdd7f793a6b55509646f",
-  "sha256": "54a6c64377ed939f7bbd87e5e875e5cae71420fd5888adbbcf65b4a1f442b32e",
-  "bytes": 181694,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "70c316e3495b5e715fd4e1ff4a1d469607f4e617859823e62e1b50e51b5a7b0f",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H134C1",
-  "ownerId": "hero_134",
-  "model": "hero_134c1",
-  "art": "wardrobe/H134C1.webp",
-  "sourceSha256": "4826a23eb19c97e17eafd579d016fc6b263689c5f2e3ddeb651983fe9b3ded2b",
-  "sha256": "17b59f3d3e50c3f5539e2b83b14523e149600a0b76ad2443e721d6dbe49bd32f",
-  "bytes": 149104,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d7811645e0700a6793a8edd76965c2f328474849eeace1e8be5e5b51377b17fe",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H61C2",
-  "ownerId": "hero_61",
-  "model": "hero_61c2",
-  "art": "wardrobe/H61C2.webp",
-  "sourceSha256": "48821ae72f4069951a9a1808d1b1a42a206d540e364dcc0d737d0ab9e4c3db44",
-  "sha256": "548335c003d88d6b1e833a8b0aa534d95867deea02ffaa257bc7db191ebe826f",
-  "bytes": 154494,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ce7ebc3bedf5413a7a77a57fb12a8f5c5ea867426a94fcf2f21da9287fd9c3d2",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H1C3",
-  "ownerId": "hero_1",
-  "model": "hero_01c3",
-  "art": "wardrobe/H1C3.webp",
-  "sourceSha256": "910ac1daaa1345c73c7c5ea552dd5699b39f06aa25537fc936ca1deefaf6a4b8",
-  "sha256": "23142ae335abb8e035647d1289b44ad87986f6ebfeb363ecca0eb0cd02777f73",
-  "bytes": 126112,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a57ef3d171fcb9df65591c71609c70c98068a254adce643bca5b456ebfa57044",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-1.jpg",
-    "label": "Quiet woodland",
-    "donor": "hero_04c4",
-    "sourceRegion": "bj_31",
-    "mode": "reused-scene",
-    "aspect": 0.6755905511811023
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-1.jpg"
-  }
- },
- {
-  "costumeId": "H103C2",
-  "ownerId": "hero_103",
-  "model": "hero_103c2",
-  "art": "wardrobe/H103C2.webp",
-  "sourceSha256": "296893d5c714b4a824d62850274ae24eb9a67b0bf4dc231125711ba8a913b871",
-  "sha256": "6a096883c3087b57ef42cee19c1081f8895f7dd189968b2feed4906bed0c8137",
-  "bytes": 184936,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "e634ea8fb7af3893fc67b3a01ae7529a5ec39502b971e1b81d1cf3b123500354",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -753,55 +270,6 @@
    "mode": "viewer-light-surround",
    "metadata": null,
    "path": null
-  }
- },
- {
-  "costumeId": "H53C2",
-  "ownerId": "hero_53",
-  "model": "hero_53c2",
-  "art": "wardrobe/H53C2.webp",
-  "sourceSha256": "08b4d47bdff625308be94a8d20dcc8c7e5879ef75a523fd9e5ba4f2f33ae6906",
-  "sha256": "661ff625811106ed7b151f03a7e064bca191923448a1fffbf0ed644459855afd",
-  "bytes": 158794,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "755f07f37746798cac5102c1dd821c4cbd4ee7de927296faff69cb4e7a81b717",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H1C4",
-  "ownerId": "hero_1",
-  "model": "hero_01c4",
-  "art": "wardrobe/H1C4.webp",
-  "sourceSha256": "32a49d071e34909cc0db8d1af3a0e5b875bc0948c237b8c9a1236ce9418bb568",
-  "sha256": "3a3e8fd458ace9e4fa1259fbc0e6a88bb0755d578530f218ae5125a2f23b7f8b",
-  "bytes": 152456,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "6e8f8433bac933b9e18ea0fb83a6af6dc1158fefc22764a5efcbd7549d7efcf5",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-25.jpg",
-    "label": "Sunny beach",
-    "donor": "hero_112c2",
-    "sourceRegion": "bjing_0",
-    "mode": "reused-scene",
-    "aspect": 0.6086956521739131
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-25.jpg"
   }
  },
  {
@@ -847,27 +315,6 @@
   }
  },
  {
-  "costumeId": "H101C3",
-  "ownerId": "hero_101",
-  "model": "hero_101c3",
-  "art": "wardrobe/H101C3.webp",
-  "sourceSha256": "d58ef1a6584cce15f6496d5331a13efbae53ff888f66f610aa5f100a4d253a59",
-  "sha256": "52889e82bd4786e13e6658a57e9ffe96172de4f5c8d5a4459b8331f4127ffdc8",
-  "bytes": 193022,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f6a939990eac286163789786742300cf026f6b985e7d78fb33f1d63de5b6cd00",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H68C1",
   "ownerId": "hero_68",
   "model": "hero_68c1",
@@ -882,27 +329,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "20298f5e9ac9dc71e31a6fba43656cccfd3ab4e22068aa0d3609f0e831822578",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H24C3",
-  "ownerId": "hero_24",
-  "model": "hero_24c3",
-  "art": "wardrobe/H24C3.webp",
-  "sourceSha256": "e05d46549eeac1042115ebf22e8f29648f703e6b69226d3e25ccb1dd7d1f91fe",
-  "sha256": "e8e12f0095894bb65bed7df9ac9639db2f647c562ef62ebf3673c36917e3c183",
-  "bytes": 174826,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "8ed6c04c4cd77a1138180735a1e94f7845f9c1b826b4e1383629566ae51f0893",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -931,34 +357,6 @@
   }
  },
  {
-  "costumeId": "H124C1",
-  "ownerId": "hero_124",
-  "model": "hero_124c1",
-  "art": "wardrobe/H124C1.webp",
-  "sourceSha256": "6807fa19276c403b8c311b2e242bf0b8b7525e8f75d0fc928d9cf8637f862297",
-  "sha256": "65942fd00069220bb7c7e94b6f460f2af659712adbb20e80d2212772996a6f07",
-  "bytes": 190076,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "4aaf7feaa30b16ab0a1c96fa91b3191d09ef7aa76e830444b99ae77067ce2647",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-18.jpg",
-    "label": "Forest campsite",
-    "donor": "hero_103c2",
-    "sourceRegion": "bj_27",
-    "mode": "reused-scene",
-    "aspect": 0.5528596187175043
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-18.jpg"
-  }
- },
- {
   "costumeId": "H21C2",
   "ownerId": "hero_21",
   "model": "hero_21c2",
@@ -984,34 +382,6 @@
     "aspect": 0.5540691192865106
    },
    "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-11.jpg"
-  }
- },
- {
-  "costumeId": "H111C2",
-  "ownerId": "hero_111",
-  "model": "hero_111c2",
-  "art": "wardrobe/H111C2.webp",
-  "sourceSha256": "bf1974dfcf9a8a30e72ada5fd53e2d4ab384b8ec75741c5ad5a97000adde915c",
-  "sha256": "40278ba862378eb661db056b95f10375435ca47b689b2d55a8734bf9835d3648",
-  "bytes": 147202,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d34f51b1a621ead3d2914ad89720788892133a37935794e4135bb70ae4482508",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-1.jpg",
-    "label": "Quiet woodland",
-    "donor": "hero_04c4",
-    "sourceRegion": "bj_31",
-    "mode": "reused-scene",
-    "aspect": 0.6755905511811023
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-1.jpg"
   }
  },
  {
@@ -1057,48 +427,6 @@
   }
  },
  {
-  "costumeId": "H152C3",
-  "ownerId": "hero_152",
-  "model": "hero_152c3",
-  "art": "wardrobe/H152C3.webp",
-  "sourceSha256": "a72c4fbed626062469936cdbe0b24cb4c05c2f4ff2e93ea10ff0b276ae48321f",
-  "sha256": "4910c739f2a61b292c7e40164345d0ccd5b5cf18fecac789806539385d0472c6",
-  "bytes": 177658,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "7c70205e801eae9a43eef9dd3095190f45606e3bebfaf9c5d820d27ad1aa3b0e",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H23C2",
-  "ownerId": "hero_23",
-  "model": "hero_23c2",
-  "art": "wardrobe/H23C2.webp",
-  "sourceSha256": "9eecde18dfd5107ca75872f6add61cae77a9c89fd77c661a1a61919f4717d77b",
-  "sha256": "e0ae0dcec4e9c7338b6f146e6aa2818812020c5c333160dc6e4f169e3c275819",
-  "bytes": 99174,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H194C1",
   "ownerId": "hero_194",
   "model": "hero_194c1",
@@ -1113,55 +441,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "82e02c3b96665a8ba608c2ee4b617630d5f028f1cc978794fd3ee57e411c1f2d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H72C1",
-  "ownerId": "hero_72",
-  "model": "hero_72c1",
-  "art": "wardrobe/H72C1.webp",
-  "sourceSha256": "6f6bb1324ee67825ca995355f71f48041ddb7ecf0629998b761e02868c6863f4",
-  "sha256": "2abea94cb6a33f7c6726116cd1e07bdbc04e361a14577d58cc6418beea928b59",
-  "bytes": 178206,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a7d9f8458495b75c0030e49bfcfe4ca523710542da0dfb5aaad0d95fac608ff2",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-11.jpg",
-    "label": "Castle meadow",
-    "donor": "hero_61c2",
-    "sourceRegion": "beijing",
-    "mode": "reused-scene",
-    "aspect": 0.5540691192865106
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-11.jpg"
-  }
- },
- {
-  "costumeId": "H308C1",
-  "ownerId": "hero_308",
-  "model": "hero_308c1",
-  "art": "wardrobe/H308C1.webp",
-  "sourceSha256": "73fa610bbeb6ae88f8131d23e1a9c0aa37a327fdeb3a6ce6ae9156e6ecb434ac",
-  "sha256": "d9a28ef02e8aaf690ff76806d61a8e5918429a6db80234cb77681f9153136db3",
-  "bytes": 180898,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "da55a2006a1c1d0576c2b8b69c8758778587292730a7a46b733397be98eca042",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -1209,46 +488,6 @@
   }
  },
  {
-  "costumeId": "W1C1",
-  "ownerId": "wife_1",
-  "model": "wife_01c1",
-  "art": "wardrobe/W1C1.webp",
-  "sourceSha256": "de6889345071a2505cb491c10098c46b6f4267b0ee23d2c1b5f552aa2672784e",
-  "sha256": "ba29c4f941d3eae5c65389a4452eb40e5dc05eb4f40c45bfe669e122210b28ad",
-  "bytes": 154602,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f99d1bf0a487035e4c5197e96572aaf4e8a9bccc13b2b6cf427a59601876d646",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W19C1",
-  "ownerId": "wife_19",
-  "model": "wife_19c1",
-  "art": "wardrobe/W19C1.webp",
-  "sourceSha256": "0d37beed0f6f2e3371111399b8799a2f7669c94d6a24661ad34d400b3a5189c5",
-  "sha256": "dd751a3ece4d09f9d7272e60a9a0eb1be693583ea58dde853895b204c49d6e2d",
-  "bytes": 144846,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ccd7ffcfcd5d2c9547e29d64a4a9703d7518992159841d552c2142c4b303cb34",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
   "costumeId": "W106C1",
   "ownerId": "wife_106",
   "model": "wife_106c1",
@@ -1266,46 +505,6 @@
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
-  }
- },
- {
-  "costumeId": "W105C1",
-  "ownerId": "wife_105",
-  "model": "wife_105c1",
-  "art": "wardrobe/W105C1.webp",
-  "sourceSha256": "72b87a8d31881bfb8d42d45cb110a53552b44f92bdb82ec10e205217b57f8712",
-  "sha256": "5da6942ba63f13a89755e6a5b694e1bed42463b01624ade2eeee1b1be21c3b09",
-  "bytes": 109322,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "9fc9d15cf4fccb2883fef251b291bd2b3df6e6d84f9b0b72c58fdeab762d5e9e",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W3C1",
-  "ownerId": "wife_3",
-  "model": "wife_03c1",
-  "art": "wardrobe/W3C1.webp",
-  "sourceSha256": "69fe5519564332859f80eb3718b414000f43c4f6f6677d9bbb72c3aa07b1da1f",
-  "sha256": "43ce3d6736cebeba1d23ceed53b515befc2110c5eed6d46290475527b7896abf",
-  "bytes": 164048,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "78b84022b1ebd55f44a1a7efea299443dab35f5f873c051b358a8da3860a94f7",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
   }
  },
  {
@@ -1369,26 +568,6 @@
   }
  },
  {
-  "costumeId": "W15C2",
-  "ownerId": "wife_15",
-  "model": "wife_15c2",
-  "art": "wardrobe/W15C2.webp",
-  "sourceSha256": "d8c88668d18c37512e65f6bc50863103ab6ae1ffc3f94bf8e8f286a916f4feed",
-  "sha256": "ad489e08c4a371df2d462dd728e4706a371fc347440dd4136ab4232da2f90a0c",
-  "bytes": 115254,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W105C2",
   "ownerId": "wife_105",
   "model": "wife_105c2",
@@ -1403,26 +582,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "c6c3003b4a2664a1f3635be5fb47816047e617c968b561211a135c5385138e97",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W17C1",
-  "ownerId": "wife_17",
-  "model": "wife_17c1",
-  "art": "wardrobe/W17C1.webp",
-  "sourceSha256": "e9f67770ad74a4149c49031f3117d3a431cc3a7dd5beeb34e622e58622d984c8",
-  "sha256": "f4cc7aaef4cb848af2d5b2fd51442fbe723f2e357ad1b3a43c08e5e8e7e87a08",
-  "bytes": 100660,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "0febec1f27302004fbbd8ace0052b42cc989c2aaf3eecbb0f43296253f0f372e",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -1449,26 +608,6 @@
   }
  },
  {
-  "costumeId": "W106C2",
-  "ownerId": "wife_106",
-  "model": "wife_106c2",
-  "art": "wardrobe/W106C2.webp",
-  "sourceSha256": "a308ca24f46f5ac5f97f684ebbecc0ccafd1c38767e8a1da8387af4a8fcbc4f8",
-  "sha256": "71cf25d145d8db8135bbe28ea4302204d8981808964900a1a56ee99c8c600fd3",
-  "bytes": 131344,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "50b2f29182e9b1ca551e1171cbbca3562766154a9b26fcd22fb5d05382afed11",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W22C1",
   "ownerId": "wife_22",
   "model": "wife_22c1",
@@ -1483,86 +622,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "203d1aa97f3d189b39745397bc80fdbe92e814f52a7fe542915551d9bf4c3d08",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W191C3",
-  "ownerId": "wife_191",
-  "model": "wife_191c3",
-  "art": "wardrobe/W191C3.webp",
-  "sourceSha256": "9b85e31df1249489e14a65394d137ef49c274610a1abb4c540bc9c8f7ffe29e4",
-  "sha256": "84bfbb54a1ea51cc05ac193ab86178052904a23a9723858bd44567fd1c97acc4",
-  "bytes": 180844,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d135d7ca7e3ad4991fd40963371ddbf551af32756281906ea8f288b4978d0c0a",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W103C3",
-  "ownerId": "wife_103",
-  "model": "wife_103c3",
-  "art": "wardrobe/W103C3.webp",
-  "sourceSha256": "9789a90ad6e01f069f559360d11d3a25dc0ca207c225c84bde1d628c5632cc71",
-  "sha256": "747490c979a09a79222437e85e4891239ae4547b71b228157e69dbabe104ba3d",
-  "bytes": 145332,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "41cd70a4007903c6c391ebc64d62f8ddb6cdb3198f4ce3f31c7068ccfb49a9ae",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W55C2",
-  "ownerId": "wife_55",
-  "model": "wife_55c2",
-  "art": "wardrobe/W55C2.webp",
-  "sourceSha256": "6774a2d0ec9fb7f1b98a0e4d033c68cd79d41f87910a5adcab4f0c81e18578af",
-  "sha256": "d09fb82f804bc873baa9ba22d4afee1d4eab5d5798bb373d86be985c29216074",
-  "bytes": 228316,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W11C2",
-  "ownerId": "wife_11",
-  "model": "wife_11c2",
-  "art": "wardrobe/W11C2.webp",
-  "sourceSha256": "2889c1581a776769816d59bc057aa03931f2a249d78753ccdf9c84513545705a",
-  "sha256": "29ab19f845490998a1f1d290469ef690501c6e706d39fdb47a75f2aee5f654ac",
-  "bytes": 142652,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1c6ed78653206b413dcb8f1366018acd9941d9ddbd42231d1ec2b88d9016037d",
   "background": {
    "mode": "selected-game-background",
    "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
@@ -1589,26 +648,6 @@
   }
  },
  {
-  "costumeId": "W106C3",
-  "ownerId": "wife_106",
-  "model": "wife_106c3",
-  "art": "wardrobe/W106C3.webp",
-  "sourceSha256": "7d31f94030d23e2df69c4dbfc60c491885d90642937ad6b2e2fbdfd43b752e8a",
-  "sha256": "ce971effef94cc25cff4c7a96a68abdedce6cf8b1d5b5f5f9c72119e949678d6",
-  "bytes": 154362,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "7cf1b03714d4e09b6d43c2136579904b8a9db2675b3137d25a2dd736bebe9e7a",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W13C1",
   "ownerId": "wife_13",
   "model": "wife_13c1",
@@ -1623,46 +662,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "ae71e13fc042aea3c032395b716941e31c2fdb7f675559ac6553faa1c1117626",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W4C3",
-  "ownerId": "wife_4",
-  "model": "wife_04c3",
-  "art": "wardrobe/W4C3.webp",
-  "sourceSha256": "bca0f7a5a96c7c20875ed1a4fd3a41ad009108c5304983b4c9a5506fff3680db",
-  "sha256": "e22c62180e3d381b3050343e0c488e81cf29cbf701c6c223723e909c4a1ecd67",
-  "bytes": 180666,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "94da692c574d6054015afb39c969f6c5b05fe8edee245d4680177ef1bfb16991",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W104C3",
-  "ownerId": "wife_104",
-  "model": "wife_104c3",
-  "art": "wardrobe/W104C3.webp",
-  "sourceSha256": "c8016a3464d1ccc09543c66b25789ea7048d0c8b58bad97bdbe5bf01986f1763",
-  "sha256": "285c9cbe826cc92e4569bbae644f74317419c34b97f9e64c13fccde5b9a6054e",
-  "bytes": 106900,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ec61c42fe17fe05dc27248ae8f1995533bb31e50c55de06608faddca12a221be",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -1689,26 +688,6 @@
   }
  },
  {
-  "costumeId": "W102C5",
-  "ownerId": "wife_102",
-  "model": "wife_102c5",
-  "art": "wardrobe/W102C5.webp",
-  "sourceSha256": "17bb9d9013dad64be382d2ed3231aacb5b36afb40c5ec119b9940bcc0857764c",
-  "sha256": "cd0fd01897c43fdbdebd1775d0cf8542d8837791b31d2f4b2000878ceb6aedf1",
-  "bytes": 165114,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "fa7df28211cfd9e74f7f52926ad8ad27ba53474a4727b35113538a97b19d8ac2",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W113C2",
   "ownerId": "wife_113",
   "model": "wife_113c2",
@@ -1723,66 +702,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "c7a0683aeff86be1e8c276c36009f5ff6808c7acc9fb9e8ce01ad1fc257e7afd",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W5C2",
-  "ownerId": "wife_5",
-  "model": "wife_05c2",
-  "art": "wardrobe/W5C2.webp",
-  "sourceSha256": "3ee28b3bc755460f2387d567ad602163d93097d83f0d57b4037b17340e7f31cb",
-  "sha256": "83ab01ad3a7ecb19316a5103733d773817c070b8293094edef8fbb9c0d2e2e55",
-  "bytes": 158482,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "4a27f6d56f211e2da5eb330facc2598ab70e44ce034946ad2f6bb6e16ef1320b",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W115C3",
-  "ownerId": "wife_115",
-  "model": "wife_115c3",
-  "art": "wardrobe/W115C3.webp",
-  "sourceSha256": "d69a268330e1e696bb8b65a4d42601df39b5b34671261287fa3785c681311b05",
-  "sha256": "44f3b27fc481acd07b127a2cd9a6f775b5777612093a72ecc9d8347a0f40e10b",
-  "bytes": 174498,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "6270c7be22e079d5afbdb8688a1e025d7bd7256fddae8d270fc5ca340daad712",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W53C3",
-  "ownerId": "wife_53",
-  "model": "wife_53c3",
-  "art": "wardrobe/W53C3.webp",
-  "sourceSha256": "f995dafdb4dd8ec7ca363d616583ee15a79ccad85b578f1d8a2f9a3ed8c66a64",
-  "sha256": "54c13ebe32adc9d72083a98e579cd87e91ed40336f6f08cd1e686550bf8aad6c",
-  "bytes": 308148,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "9f5cc103e490004642d4466a8d6b3e659ea3a145225c61603768c83873b860ed",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -1809,26 +728,6 @@
   }
  },
  {
-  "costumeId": "W155C1",
-  "ownerId": "wife_155",
-  "model": "wife_155c1",
-  "art": "wardrobe/W155C1.webp",
-  "sourceSha256": "a3ee49163f6e9c782290a96b633a4bf93e84de3b13ecc7880f2f81880e1b0ed4",
-  "sha256": "8683022d34101ea8da06764559b60be539c00d2afc6e6b95e0509ad2332cfc7a",
-  "bytes": 208726,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "b79d2619ef45ae5f9bbb6846e95a68d37d09e834f77c8baec8555c89ad273318",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W143C1",
   "ownerId": "wife_143",
   "model": "wife_143c1",
@@ -1845,27 +744,6 @@
   "recipeSha256": "a6898e4dbfc991aadcd6e56dd449560798803da67e2f451c16f72493c23052df",
   "background": {
    "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "H102C1",
-  "ownerId": "hero_102",
-  "model": "hero_102c1",
-  "art": "wardrobe/H102C1.webp",
-  "sourceSha256": "a99b9ae1981cf8d57efae00077ddcc13e564fd8848361d2af05472ac16ee76f3",
-  "sha256": "a3107ea193713fa0b5d41e6b6fbd77220f9fee6a4be05534d686aebe6c97f929",
-  "bytes": 116894,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a74b12167a7787ed98cb38d1c482eda3a972c88f47df217cce2264b0a5cd4305",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
    "path": null
   }
  },
@@ -1898,174 +776,6 @@
   }
  },
  {
-  "costumeId": "H191C1",
-  "ownerId": "hero_191",
-  "model": "hero_191c1",
-  "art": "wardrobe/H191C1.webp",
-  "sourceSha256": "7643d04c9c4323254ad1d2cc7b512128d74afe4a1b7f292a7a65a0a102e3eb86",
-  "sha256": "4409851e9201bc1394f9919f41152d0175c98b0c0ccad2098c063c7b51b9a5a0",
-  "bytes": 211998,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "2fb0cf86e5ed04b01cac8c8b90c0cb9fae1c9e7eaaad3c1c9cae15db1e0f546c",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H52C1",
-  "ownerId": "hero_52",
-  "model": "hero_52c1",
-  "art": "wardrobe/H52C1.webp",
-  "sourceSha256": "c25f09a7c7c13ee4def135891dcddc3e950086c364171454b909abb5ceead054",
-  "sha256": "b3d41602b7814cf28b488a90901dc2f901a8e5d72b283b6d1b5d92f49eb1ebad",
-  "bytes": 95640,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "8a06cac344fac326d846ba7c30b481806054db8ada4193f3e8b1849e1cea23fb",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H118C1",
-  "ownerId": "hero_118",
-  "model": "hero_118c1",
-  "art": "wardrobe/H118C1.webp",
-  "sourceSha256": "25e87902a48d3d7cf6df8db42afc914e3352cc44155b9441c2ac4b886861b4b0",
-  "sha256": "3e30dbc99b987beb42b18570db9b7a03a8dca562ca8c371dd9b53276db41ccba",
-  "bytes": 186824,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "7e2b8f1edaf7a5337684ebf6a9f8ad55cfbf31c4df5967f99b6130f835f3f30d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H53C1",
-  "ownerId": "hero_53",
-  "model": "hero_53c1",
-  "art": "wardrobe/H53C1.webp",
-  "sourceSha256": "8cd958009801e2e712f7629a5263d749a6bb3d9880f78ce885f2cee03fa8fa41",
-  "sha256": "259c1d1b7c0c155b2418b34b0e5e209c139cbac758fe2c7e0cb73d4aaea7b051",
-  "bytes": 152474,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "4839da4528228c52ab0dbc702a8560a8b225a4102129187cc40a13eb4de9e324",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H155C1",
-  "ownerId": "hero_155",
-  "model": "hero_155c1",
-  "art": "wardrobe/H155C1.webp",
-  "sourceSha256": "d45876a8279dec37342cea750f4daf6866f7579b778316c55f9622241ee7741d",
-  "sha256": "ef9d781350c1b6677169d0b45a5278555f2ccb7761ff5d2c99ffcb0c454ce5bc",
-  "bytes": 233346,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "2cdff0a51c071b5cc57f9cc5527323e7b29f9a3563723dcbbc661a208ab2b347",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H13C1",
-  "ownerId": "hero_13",
-  "model": "hero_13c1",
-  "art": "wardrobe/H13C1.webp",
-  "sourceSha256": "fa91ad0994e6ac6d8cc5f9612b0866322267d275a80a822562265e9c343b8e01",
-  "sha256": "35db6e9590265df5ea184f4c2932be4f164f76c192b79704894c60ad5ef00b12",
-  "bytes": 60686,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H105C1",
-  "ownerId": "hero_105",
-  "model": "hero_105c1",
-  "art": "wardrobe/H105C1.webp",
-  "sourceSha256": "8e21915d1fdc67bf3cc53101e2d1b5823c3a5b1ec2ee2f71d9e956fa6692128d",
-  "sha256": "1f211ebf9b0c3e235843c44ef869e4b85907237bb7ea4fac8c834539fd5438cd",
-  "bytes": 204162,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H120C1",
-  "ownerId": "hero_120",
-  "model": "hero_120c1",
-  "art": "wardrobe/H120C1.webp",
-  "sourceSha256": "b5abc673eef44b55b404736b7d0f9c6d4836d70e67f8f941d7d1226e40db84bb",
-  "sha256": "dfabef044a7db0e22d8b27ed07dc46163ec206903b14c0b80c8a35cb371ae095",
-  "bytes": 184642,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H59C1",
   "ownerId": "hero_59",
   "model": "hero_59c1",
@@ -2094,132 +804,6 @@
   }
  },
  {
-  "costumeId": "H102C2",
-  "ownerId": "hero_102",
-  "model": "hero_102c2",
-  "art": "wardrobe/H102C2.webp",
-  "sourceSha256": "d54bc3e102d3318fb1b49fe0165a1e4a4aa6f24fc5958e479cc5454367634f14",
-  "sha256": "e92bc964d0e6abb966e1319833a4ec37ec9dfed1c618f4254464a52636b87137",
-  "bytes": 205656,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1f1d2b5c8621c7af1518ec527d0abe2d66067702e2215c7eec4facd73df04132",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H117C1",
-  "ownerId": "hero_117",
-  "model": "hero_117c1",
-  "art": "wardrobe/H117C1.webp",
-  "sourceSha256": "183bbf0558f81a4812a7e7d15e6e29f9c6e265c3733c3a4f3a0cf35dcc8f162a",
-  "sha256": "9582beb65842879141e2adea3011e639d5c7a7406a3616435f5ef3bc4482833d",
-  "bytes": 215750,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "bc1791de68df742edcbb4651543792000f87ae29c0c00658077720128e264304",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H190C1",
-  "ownerId": "hero_190",
-  "model": "hero_190c1",
-  "art": "wardrobe/H190C1.webp",
-  "sourceSha256": "525b396843fb0e58913ff744b5e04fbce5cbe5a330f077c61c5d1b0a51fe82f1",
-  "sha256": "b1fdd6f91304aa1b39d2f60b8dce0412882a5406e6c32af3d0b2a9f592793484",
-  "bytes": 164678,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a0722ad230ce1e6f689aef69ade1a487b40a7346b80a5a12261c5a9f1243aec9",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H14C1",
-  "ownerId": "hero_14",
-  "model": "hero_14c1",
-  "art": "wardrobe/H14C1.webp",
-  "sourceSha256": "5e624cb3a70f7a0625d07b9bf16b472459b021e9803ffc9445f9b99a89bed6a2",
-  "sha256": "377226a9c0962cf242019fc7591214bb396439d0e5a647d146ccf31bb6ed064b",
-  "bytes": 131464,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H102C4",
-  "ownerId": "hero_102",
-  "model": "hero_102c4",
-  "art": "wardrobe/H102C4.webp",
-  "sourceSha256": "0bb5a08c96763ccaf2102df42d8826161971b507815675b7c1f5a6cc1b2d57fb",
-  "sha256": "6cd6a6ae2f4f5e3ec379c8b4659cadacf19ec5bf520146235cfa724bcc452898",
-  "bytes": 173300,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "3dbe2c9980cb5a7ca40700311f2b6654a8c6d86735012f0dc06e991c1a63d07f",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H65C1",
-  "ownerId": "hero_65",
-  "model": "hero_65c1",
-  "art": "wardrobe/H65C1.webp",
-  "sourceSha256": "58aeb4f744abd13f6f41541c0395d95ecdd39fb4716791ce143a906186ce5765",
-  "sha256": "623b57ca86077fb53d7f153c54268434893e367f6889769d890d02d347723cf1",
-  "bytes": 136118,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H121C1",
   "ownerId": "hero_121",
   "model": "hero_121c1",
@@ -2234,111 +818,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "00704e2c0d50c4582bdb89fa3353420dc65512324de9a24e3b31063e936de261",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H152C1",
-  "ownerId": "hero_152",
-  "model": "hero_152c1",
-  "art": "wardrobe/H152C1.webp",
-  "sourceSha256": "fc24a09577751a430f1069f9254d2d7caff12c88fb5ec2ad986aaf463e8e22d4",
-  "sha256": "ff94ce3388cb6199a43a2947b2a53646e05a3c2782f235762dbc083d2c942fa6",
-  "bytes": 141746,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "7c70205e801eae9a43eef9dd3095190f45606e3bebfaf9c5d820d27ad1aa3b0e",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H52C2",
-  "ownerId": "hero_52",
-  "model": "hero_52c2",
-  "art": "wardrobe/H52C2.webp",
-  "sourceSha256": "1d5fdd6fcb3ac62100f1925bf1a44d99e44203d110a23b227d5a51e38b558910",
-  "sha256": "bc8c8ab8d6030abc542b164a1a285ecd18c923bc7fcc25a92445ef52cddf7a20",
-  "bytes": 131000,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a53351795e0403e2c77edb559b8bf29c68dc57739456440b70d9051f26c12fb3",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H106C2",
-  "ownerId": "hero_106",
-  "model": "hero_106c2",
-  "art": "wardrobe/H106C2.webp",
-  "sourceSha256": "b7ed7db3ff55293abff5a71bc75c92d2e484db417b7e22c7480993ead8fcef3b",
-  "sha256": "08e84199c70e6ceeb505de7d74b02c2fd7a3f3e5a6374e0150f8d3628cb9a8cf",
-  "bytes": 120412,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "616f517418d4a0dd527f32243477f911868ec2a86c4bdab7c23b6f0f54e61321",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H21C1",
-  "ownerId": "hero_21",
-  "model": "hero_21c1",
-  "art": "wardrobe/H21C1.webp",
-  "sourceSha256": "2fefd0e15ce95d97c0a889e87d5731be8e9ac796481695b584882f4c7892a40f",
-  "sha256": "9974382f6c350fc4446416b470572b6b21bc2c0642d4ee7a709002c3efb85320",
-  "bytes": 111732,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d717241705442cf51ac8a116e923c05b8e2c815f86466c50b082433051c44415",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H132C1",
-  "ownerId": "hero_132",
-  "model": "hero_132c1",
-  "art": "wardrobe/H132C1.webp",
-  "sourceSha256": "9485d4e92e774d578e41a0ec052b47cadbd012269b11a28b9c7427fba3815201",
-  "sha256": "a36cb1ce673913f6e15e07251d3a5ed167f99a72cc7af400269539df46e8dd3f",
-  "bytes": 135912,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "8b3da8af5fb4b29f3700646f6217103854567da7cddefe5789e7150244eece15",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -2374,139 +853,6 @@
   }
  },
  {
-  "costumeId": "H3C2",
-  "ownerId": "hero_3",
-  "model": "hero_03c2",
-  "art": "wardrobe/H3C2.webp",
-  "sourceSha256": "17b5542d15c1b0d6efa58ffb0b61e3d06d4674dba2c97ea5f4d33f21cd9d8f74",
-  "sha256": "6ddfa54ac7a141d21e1cd421c36bb7af861a037588623e7a1e635a76d3e0a094",
-  "bytes": 227022,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "91dd8816c11a2db29f8c7b1dc29dd5758c31722b50a7072788f9f170078b492a",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-11.jpg",
-    "label": "Castle meadow",
-    "donor": "hero_61c2",
-    "sourceRegion": "beijing",
-    "mode": "reused-scene",
-    "aspect": 0.5540691192865106
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-11.jpg"
-  }
- },
- {
-  "costumeId": "H2C2",
-  "ownerId": "hero_2",
-  "model": "hero_02c2",
-  "art": "wardrobe/H2C2.webp",
-  "sourceSha256": "7b965517672de218c50edfe07d856a54b36a6834fab85e128f25c37b579c3ab9",
-  "sha256": "ee15191eb679c5c8eb4efaaf2d2a69e9fe1ca4084a586cdc576b0474b5e52b51",
-  "bytes": 73826,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H193C3",
-  "ownerId": "hero_193",
-  "model": "hero_193c3",
-  "art": "wardrobe/H193C3.webp",
-  "sourceSha256": "b80fa37992d7762c4c3bf2c4f060fbef5ca29e10251e15f5c6e4343c1c7eade1",
-  "sha256": "b003ca301ee3bd45c5e7be90283467c8acf4ddf60031fb08593df86b57058926",
-  "bytes": 152960,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H66C1",
-  "ownerId": "hero_66",
-  "model": "hero_66c1",
-  "art": "wardrobe/H66C1.webp",
-  "sourceSha256": "cfb00302a9c2490d954d0ea059ce239f35c3eff2c1385e75e40a6c7e086d8067",
-  "sha256": "929dce6e4b58fe87d07d7c379b48d50b04ffd312d65d80adcc3d4e0f01c76338",
-  "bytes": 112832,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H157C2",
-  "ownerId": "hero_157",
-  "model": "hero_157c2",
-  "art": "wardrobe/H157C2.webp",
-  "sourceSha256": "326c4d74c86b8cbefbbac5c9b61ec7c74c40d72485414f487f36aef5cf4e37aa",
-  "sha256": "6dac5b697cd7377b3ce84f51f7122d035f011995e3966693a81398159aded246",
-  "bytes": 136006,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H13C2",
-  "ownerId": "hero_13",
-  "model": "hero_13c2",
-  "art": "wardrobe/H13C2.webp",
-  "sourceSha256": "2ae170fd92c5639000ad53649f2efab0982342a99e8411ff9ebd90a3fadfe173",
-  "sha256": "425b7a1f2adb97a871950691a641305cdce8a85e26019f349d67fb9ac1a3ea1a",
-  "bytes": 81862,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H137C1",
   "ownerId": "hero_137",
   "model": "hero_137c1",
@@ -2528,76 +874,6 @@
   }
  },
  {
-  "costumeId": "H16C2",
-  "ownerId": "hero_16",
-  "model": "hero_16c2",
-  "art": "wardrobe/H16C2.webp",
-  "sourceSha256": "fb58c33126ea068cad25866aa0335f72b9e646cebb3732d099e5069351c8a168",
-  "sha256": "3c91a17766cdbf93b5c4f2b9ac3a91cb2a9a6ce02b4735f44a48b61c1b5f2bd1",
-  "bytes": 173676,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H191C3",
-  "ownerId": "hero_191",
-  "model": "hero_191c3",
-  "art": "wardrobe/H191C3.webp",
-  "sourceSha256": "a9b014bff4200ba072759662da0073ca550c2c682467cb841e67e42317ac0e06",
-  "sha256": "9df0f0955497af64509c572d0b91ac9b238fa4984684db7f2eb2b45157257133",
-  "bytes": 232232,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a5ad21a7750b816c6e2bdc249869c89bfe63d021041fcaefd88585976191909a",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H3C3",
-  "ownerId": "hero_3",
-  "model": "hero_03c3",
-  "art": "wardrobe/H3C3.webp",
-  "sourceSha256": "4a67331b6b5980621254fb64495b44f971ff904304f2ea707905780ada4f422a",
-  "sha256": "73d368a9e7e486ac0b18a6e51a9b8834a41e0690d5201753c3534401249f607c",
-  "bytes": 169240,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "23b8001e8981c7f4f19fa867de223bb20525c2241e4d8fca3811705f5339b700",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-25.jpg",
-    "label": "Sunny beach",
-    "donor": "hero_112c2",
-    "sourceRegion": "bjing_0",
-    "mode": "reused-scene",
-    "aspect": 0.6086956521739131
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-25.jpg"
-  }
- },
- {
   "costumeId": "H152C2",
   "ownerId": "hero_152",
   "model": "hero_152c2",
@@ -2612,55 +888,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "7c70205e801eae9a43eef9dd3095190f45606e3bebfaf9c5d820d27ad1aa3b0e",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H1C5",
-  "ownerId": "hero_1",
-  "model": "hero_01c5",
-  "art": "wardrobe/H1C5.webp",
-  "sourceSha256": "6c096de066376fe7e0bcb9ca6a8b6957f86c640ae923116cb243ec2e94c90739",
-  "sha256": "c8ac2c747ac4cde10e46a53d19c79c4f27eaee77d12645d37abf5312ea54d1bc",
-  "bytes": 195028,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "4f4ac4d2825999eb0d5e7ddc0f99673c7c7663a3091061bd8373580131e18153",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-30.jpg",
-    "label": "Moonlit flower garden",
-    "donor": "hero_134c1",
-    "sourceRegion": "awn_263",
-    "mode": "reused-scene",
-    "aspect": 0.607940446650124
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-30.jpg"
-  }
- },
- {
-  "costumeId": "H55C1",
-  "ownerId": "hero_55",
-  "model": "hero_55c1",
-  "art": "wardrobe/H55C1.webp",
-  "sourceSha256": "5ad100642a58a83eaf1be22b5c17bf8eae461d76d02e543ff27ce4991e2cd81b",
-  "sha256": "2d439b762e8298aefb80669f0cf02ecc77b87465f2ee6b914fecc869bdd97940",
-  "bytes": 121600,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -2689,174 +916,6 @@
   }
  },
  {
-  "costumeId": "H71C1",
-  "ownerId": "hero_71",
-  "model": "hero_71c1",
-  "art": "wardrobe/H71C1.webp",
-  "sourceSha256": "91fea8d30b0932bfe9ab8ae1ed71a14d209680a939b9bbb1886d44a0dae56a84",
-  "sha256": "ae320d14cc781b00976f86598ce5086c6a09145f304c78bc1d717417b3eddd4a",
-  "bytes": 177638,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "afad6ce51a4f628e6e1079e3e0e9ee3406b5726499676d17ad3d8189d94cc2c6",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-32.jpg",
-    "label": "Festival market",
-    "donor": "hero_152c2",
-    "sourceRegion": "bj_39",
-    "mode": "reused-scene",
-    "aspect": 0.574726609963548
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-32.jpg"
-  }
- },
- {
-  "costumeId": "H17C2",
-  "ownerId": "hero_17",
-  "model": "hero_17c2",
-  "art": "wardrobe/H17C2.webp",
-  "sourceSha256": "369b05bca007e9d82710fa6a52d31296fa2e190cfb51e3525f044614302a5b76",
-  "sha256": "cfe90b2150af9b47ea07646ebc4895d644f8fb79b8904abc131a0eb1fd774310",
-  "bytes": 131188,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "487cb8273afba3df15702089b08f259bbe9ce369c2108215e3e675a6bc61d8df",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  }
- },
- {
-  "costumeId": "H135C1",
-  "ownerId": "hero_135",
-  "model": "hero_135c1",
-  "art": "wardrobe/H135C1.webp",
-  "sourceSha256": "f8066e373ec77edfc6eba1c8734023a1effad1dde8260cbef31276d7e0f4c057",
-  "sha256": "25397f063ac826f8c42cee41be22f9c7185f1da91ce32616eadf80bcd38b48f3",
-  "bytes": 219090,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "3dead6172c5a59dea99978ce5952b92b71dbcfdd77296ff6c3a4ed984057583d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H192C2",
-  "ownerId": "hero_192",
-  "model": "hero_192c2",
-  "art": "wardrobe/H192C2.webp",
-  "sourceSha256": "55af000a2cddd2c26a79856037940119ba6a8a897a45164d52656bb5682563e8",
-  "sha256": "d7f805e9db6719ab811d416e67e1b74a4754d975abf9368039d7d6cdae0dc3b9",
-  "bytes": 158844,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H159C3",
-  "ownerId": "hero_159",
-  "model": "hero_159c3",
-  "art": "wardrobe/H159C3.webp",
-  "sourceSha256": "c46f7892f25ef6832038afe646637ae72d257226f660b28e6b46e6a84e8d7b47",
-  "sha256": "c432689a0c29434329efd171433dd98196a60c97ca8d4ea2c4e9a8cd9b3a4402",
-  "bytes": 208008,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "2c844b60aa05b8374d9d1513859eb99d94999ea4a5de4f48437be7e62d13f07a",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H164C1",
-  "ownerId": "hero_164",
-  "model": "hero_164c1",
-  "art": "wardrobe/H164C1.webp",
-  "sourceSha256": "8bd26b6e285719bd39279fcdd8124ab174f4f71b6e30fe3a10f3c1156fa0c462",
-  "sha256": "e5883340d605ff615562f61eae0f4ecd6f1e058877c50954c3cf77e8e006cdac",
-  "bytes": 131324,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a78038db54f85f07bed42d88dad6ada0185e3758c1289d8b64259088cf4f9f94",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H104C5",
-  "ownerId": "hero_104",
-  "model": "hero_104c5",
-  "art": "wardrobe/H104C5.webp",
-  "sourceSha256": "1d4449836cb8a2f77a410c63f7f38ee45722344d7b9d23c9badc669ecfa45fea",
-  "sha256": "9b18ed08e390d52e0093c080d96a9dcae002ce1ebcd38a40cbabb90dd6b861d5",
-  "bytes": 182006,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "0e746077e8c14f0ea26abf39137416b0477b3a7c8bbbb2c283fe00c1d325c4a5",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-17.jpg",
-    "label": "Lantern-lit festival",
-    "donor": "hero_102c4",
-    "sourceRegion": "bj_22",
-    "mode": "reused-scene",
-    "aspect": 0.6209424083769634
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-17.jpg"
-  }
- },
- {
   "costumeId": "H164C2",
   "ownerId": "hero_164",
   "model": "hero_164c2",
@@ -2878,27 +937,6 @@
   }
  },
  {
-  "costumeId": "H71C2",
-  "ownerId": "hero_71",
-  "model": "hero_71c2",
-  "art": "wardrobe/H71C2.webp",
-  "sourceSha256": "1713bf57cc993f6d19b94762105b68a8d507974f52ca5574ba2198ef7c2bda92",
-  "sha256": "dc129bad76e184603744293e8895b2fe82db1ec4db78fc354472e9e0960da01f",
-  "bytes": 190088,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "05f5a0e5070dee9b49f1dbffd23d456725dde0918c1154463f193bbaaee18a43",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H117C3",
   "ownerId": "hero_117",
   "model": "hero_117c3",
@@ -2913,48 +951,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "bc1791de68df742edcbb4651543792000f87ae29c0c00658077720128e264304",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H120C2",
-  "ownerId": "hero_120",
-  "model": "hero_120c2",
-  "art": "wardrobe/H120C2.webp",
-  "sourceSha256": "bcd0b1bd9e01313a6b5cf0948cdc900177a091feda8935c60c0f48c0426009be",
-  "sha256": "980a23e3fc439d852274a7f38c0bf937604bb0f248d50f713d6be42369a841e1",
-  "bytes": 164958,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H104C6",
-  "ownerId": "hero_104",
-  "model": "hero_104c6",
-  "art": "wardrobe/H104C6.webp",
-  "sourceSha256": "16ed1842cf6e2e9d6ef2c9290c274541a5af82b3559eb460a57fff95bab083c8",
-  "sha256": "c746a2cf4bdb997639f0e7168f8c17cd2b710844ad9160773b8559c05fc2a9b3",
-  "bytes": 171180,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f75c1b28daf0d33d09dba4f8093f16bf12a9020fb8baea5ef7920aab198aaefd",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -3004,46 +1000,6 @@
   }
  },
  {
-  "costumeId": "W191C1",
-  "ownerId": "wife_191",
-  "model": "wife_191c1",
-  "art": "wardrobe/W191C1.webp",
-  "sourceSha256": "9e5af275d0dc4ea925ddb2dab9290d8a272f8f48602afcec457cbaeabef5ecf6",
-  "sha256": "5f2abbd8fbc5c348c22695128f47e2bd297836bebb65df76ef833059ddf598fc",
-  "bytes": 130186,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d135d7ca7e3ad4991fd40963371ddbf551af32756281906ea8f288b4978d0c0a",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W103C1",
-  "ownerId": "wife_103",
-  "model": "wife_103c1",
-  "art": "wardrobe/W103C1.webp",
-  "sourceSha256": "c73cbde769e1d55adaadfc564eface46864047d651218812d8b44580ef07ff4b",
-  "sha256": "dec2b22a9e4cfdc34c007a2a9125497e8645d5ba257d65dd54a7618e2d11b4dd",
-  "bytes": 150948,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "296eb316dc03eb27dfb92af5b5dcb4a90c0b608f97ff4f2307c18ba8c0d22e7e",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W104C1",
   "ownerId": "wife_104",
   "model": "wife_104c1",
@@ -3058,46 +1014,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "2e02fbd92383682d754f5591e85b73691cef37cb6aa3b8b3171994db127b3f72",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W102C1",
-  "ownerId": "wife_102",
-  "model": "wife_102c1",
-  "art": "wardrobe/W102C1.webp",
-  "sourceSha256": "eeadeef230854c2ec772b1282405cca8481c97b49dc9d05937c0aeec160b76fc",
-  "sha256": "7304f7ebf19743059e0372abcb73ea54996132d5191fa931e8505baf857afca7",
-  "bytes": 155150,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "363c6e15cb3669627a6ab3c2854f1e5880ac36a2ce0b51b451a4f5cc9cddfae7",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W1C2",
-  "ownerId": "wife_1",
-  "model": "wife_01c2",
-  "art": "wardrobe/W1C2.webp",
-  "sourceSha256": "cf0968a5deebb2456a45d057a7e7e67e425e785df0ca58954fcbbb22c7c1f2c8",
-  "sha256": "9b5b7a1a7d205896e1ccb67c018c91486987065c60edcc7bb2c7ca6dab94cc31",
-  "bytes": 184484,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1c4b096fb8c9f9e764b7f8efc6ad01b0fae3f02519a9f9da186611df41545379",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -3124,46 +1040,6 @@
   }
  },
  {
-  "costumeId": "W18C1",
-  "ownerId": "wife_18",
-  "model": "wife_18c1",
-  "art": "wardrobe/W18C1.webp",
-  "sourceSha256": "85b79422faa136ae2af6ec2faeb64a2a349aca4b2b1634328b453991070f918e",
-  "sha256": "2fdfc4936f4e64ae5e1f18039b677417719b3e783994f3a4b7441ffc4e4f25e9",
-  "bytes": 132944,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W52C1",
-  "ownerId": "wife_52",
-  "model": "wife_52c1",
-  "art": "wardrobe/W52C1.webp",
-  "sourceSha256": "06383fa217736341a680ffa8bb9ad374f0537d7166e90216b458a7e1b1883484",
-  "sha256": "dcdea57bb263d8647b3af26cad51f6ed9249daa561288536dd25a8100da98ca1",
-  "bytes": 212756,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f242df29c385fbbd2ccbf13b9edaca7f956dec346c8ebed46408bfb6fe1a7ae0",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W53C1",
   "ownerId": "wife_53",
   "model": "wife_53c1",
@@ -3178,26 +1054,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "a9860cc817395b7714f1b877a257d0542d8222816667aeed5fe7eeb7c7d8d9b4",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W112C1",
-  "ownerId": "wife_112",
-  "model": "wife_112c1",
-  "art": "wardrobe/W112C1.webp",
-  "sourceSha256": "57feb01dd68c9a186260cb76e6fe06b79099bf1b3e63704ca5814b1e3a38cba1",
-  "sha256": "34368551d7c877c49ba18db3a6c1c16e95ae98396826daf1ebd9fffeb892e442",
-  "bytes": 243120,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "e5b55ed8c9c99096db17dba0d9faf2fac0d09b1410546e9ec5dd035b05e5c38a",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -3264,26 +1120,6 @@
   }
  },
  {
-  "costumeId": "W102C3",
-  "ownerId": "wife_102",
-  "model": "wife_102c3",
-  "art": "wardrobe/W102C3.webp",
-  "sourceSha256": "58c5eea8642f49b5b622116d57c87b3d0ed77c2fc2e4509a6d3a55cc410b3621",
-  "sha256": "32aec564810f121701919af46ab3ec8ac76da4fcf1852c512bd3572dcee63fb5",
-  "bytes": 123230,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ce50b4dece231fc82a7c840c9f20f0be9ef91a2671a4d68f9aee01477a5273d4",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W4C2",
   "ownerId": "wife_4",
   "model": "wife_04c2",
@@ -3298,106 +1134,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "87be3844a0bb19460bb1e7a10ab69058f4df96b9dad45031af79a7da0ae5f195",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W104C2",
-  "ownerId": "wife_104",
-  "model": "wife_104c2",
-  "art": "wardrobe/W104C2.webp",
-  "sourceSha256": "dd19fb7dac67925369c9a1eef91480f613d5483b10672498e1f5ac525ceb639f",
-  "sha256": "b314e5b39d6b447d3540c9f73b81e409925f515df039f609d302a8a631bf1f5d",
-  "bytes": 185706,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d1a17d6825b66f902c0178b333956cdb33e2fbd818e6526363d7e340cc555125",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W105C3",
-  "ownerId": "wife_105",
-  "model": "wife_105c3",
-  "art": "wardrobe/W105C3.webp",
-  "sourceSha256": "3ada8d46cf1734ee4af80f3e29852ab05e821e25b2c28f670d905fb82f44c8ad",
-  "sha256": "728ba9b00a8a82ae8786dc8ca40521724df2015b496b38d5ec7590cc1b3b2296",
-  "bytes": 192850,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "28a17a344a7e8744890c66ba8ae609d7af0728ee7c75ee4bcc889366270facbb",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W21C1",
-  "ownerId": "wife_21",
-  "model": "wife_21c1",
-  "art": "wardrobe/W21C1.webp",
-  "sourceSha256": "dfd15d202a4b1342d108c066b91e7be335328b62763dc75bef2d3db63c688ecd",
-  "sha256": "2ebaa9986b9b43f1b3a2091c254455cb728be38bf2ff538706f0a0f1cc3bce3a",
-  "bytes": 161672,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W15C3",
-  "ownerId": "wife_15",
-  "model": "wife_15c3",
-  "art": "wardrobe/W15C3.webp",
-  "sourceSha256": "a089821e37673fcf69ce572a6ba1c549e1ee9cee37da09c0fcebac0a834c8336",
-  "sha256": "8266d99b1d7eb5cd6cf76ec624e411d8bab6365b25efb53485b4830de5d482ae",
-  "bytes": 152588,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W54C3",
-  "ownerId": "wife_54",
-  "model": "wife_54c3",
-  "art": "wardrobe/W54C3.webp",
-  "sourceSha256": "04aef243249c71ced2deb90e75009b11c4f98b4479edfd69bf0da901bdcfd059",
-  "sha256": "7421d8bcc694e7c0cb8209eb70cc83559bdb530d55dad4c08bd18ef289488365",
-  "bytes": 155246,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1798c2a8ad2362d0366dc75d7a9f5c88cce0e78e562c90164ab275e3ce6aaffa",
   "background": {
    "mode": "selected-game-background",
    "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
@@ -3424,26 +1160,6 @@
   }
  },
  {
-  "costumeId": "W101C3",
-  "ownerId": "wife_101",
-  "model": "wife_101c3",
-  "art": "wardrobe/W101C3.webp",
-  "sourceSha256": "b059fdd45412a3f046e8db8393accf48b2885627a37123f7b51622cdcce63cd4",
-  "sha256": "cac7fb50c78e28edb50987789eeb4b7e9a5f564a1762337808b3b56b99674d71",
-  "bytes": 199802,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "efd75c1092c31bf47c6ee86eca9263654163672066e5a77baa19d2065cbfee99",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W134C1",
   "ownerId": "wife_134",
   "model": "wife_134c1",
@@ -3458,106 +1174,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "b7f3b9f2de8dd3a900ee112c47708fc7eea0b8ce61633fcb0f76ea3e88ea3eb3",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W53C2",
-  "ownerId": "wife_53",
-  "model": "wife_53c2",
-  "art": "wardrobe/W53C2.webp",
-  "sourceSha256": "c2b68018e0ec83cee87cb0b3d9db07edea3ace54ee9795776f616360c517362b",
-  "sha256": "b75d6157d0b33df484c144fb792c10bb5f1598feeff8b2e7b8583ca86fe65209",
-  "bytes": 175044,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "6a7eca33dc2232fc7bc91d787652a349b8e9570a9c1a2e5b9fa64fbbdf8a44ec",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W105C4",
-  "ownerId": "wife_105",
-  "model": "wife_105c4",
-  "art": "wardrobe/W105C4.webp",
-  "sourceSha256": "fdc843e4abfe0ee2e25888f99a83d05f457418cf664ff10c06b63a50ebcbb3db",
-  "sha256": "f27e041e2db85e91df5f2b3018241611864134729bd2d9f1d01a91b1c93d2442",
-  "bytes": 185444,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "404ebcb02d8c72ae606415186793f61cc00dcbe83eb741ddd6670cb0252793d0",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W18C3",
-  "ownerId": "wife_18",
-  "model": "wife_18c3",
-  "art": "wardrobe/W18C3.webp",
-  "sourceSha256": "96880b021f6bd8d96415405a94e2fc32538004495fa75a938b9acf5a737c83c9",
-  "sha256": "7a1bc3be879ba8453f81245b80ebc090b10eb9d014dae14f72a2ba3cb841e0f3",
-  "bytes": 158944,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W15C4",
-  "ownerId": "wife_15",
-  "model": "wife_15c4",
-  "art": "wardrobe/W15C4.webp",
-  "sourceSha256": "70d83c1c15aac1f3f873d6804c02fb03b5fbbd19fd01bf1a0deeb86bcc60ce02",
-  "sha256": "a427ddd5020b759ef3c8120ccac45c373da80090f95a6f00530491101a4997ac",
-  "bytes": 125260,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W111C3",
-  "ownerId": "wife_111",
-  "model": "wife_111c3",
-  "art": "wardrobe/W111C3.webp",
-  "sourceSha256": "6985c1876122cc8d7b25d5f3bbe7aea2d71d3fc4c62b3ecbee05f3caa2234001",
-  "sha256": "c703111b244ab67b65e8fe4dfdfb5fc44858202a2a683528d03b62776e933e71",
-  "bytes": 293544,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f5fc7fc49d792914954af2de816254f1e5d1eefbfac315eb35903513baf0da55",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -3584,46 +1200,6 @@
   }
  },
  {
-  "costumeId": "W54C4",
-  "ownerId": "wife_54",
-  "model": "wife_54c4",
-  "art": "wardrobe/W54C4.webp",
-  "sourceSha256": "b3309c438024aa9868767999cc62939af71f2ec4f33f8cd939d0a2f906bb7162",
-  "sha256": "067c49f534cecc8b7a8cec6c1203f0fd3e7d724f7207efe943c85aeaaf80636a",
-  "bytes": 188734,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "573403d7efdac0fe2863bfebe07f139261caf09c4c8838835e22fbdb6df9a5ff",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W104C4",
-  "ownerId": "wife_104",
-  "model": "wife_104c4",
-  "art": "wardrobe/W104C4.webp",
-  "sourceSha256": "d63ac431051071e2b3d64af46a7730594e354ad3ebfd145035b2a7e48be3e56f",
-  "sha256": "a8faa7458529c1e5e7dfa13fddf126355d35a488474a0fd3fd64ee0d4d431000",
-  "bytes": 137852,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "46278da7b6f8f9834a80d71dffe1ee17c3aeef5c9ba944859e90deb989459ffb",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W62C1",
   "ownerId": "wife_62",
   "model": "wife_62c1",
@@ -3638,26 +1214,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "3ff03062bff4e08c6d72c6fa65851cc8a00b1d6c7fccdd7d401ce53e145bc9ed",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W52C4",
-  "ownerId": "wife_52",
-  "model": "wife_52c4",
-  "art": "wardrobe/W52C4.webp",
-  "sourceSha256": "f2ab0d2ce176c665ebefbd554166893e0116b389f2ff46f7f6bfc0ce302dd344",
-  "sha256": "b4448a843baa38a3bfb5da6fbcb27b19acc83f83bec4a979be5a748ce2e044dc",
-  "bytes": 156814,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "74d0fd2ec4e868c950167fb55e2f3cf038e49fbee7ab76a88c36602a31d7627c",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -3684,48 +1240,6 @@
   }
  },
  {
-  "costumeId": "H193C1",
-  "ownerId": "hero_193",
-  "model": "hero_193c1",
-  "art": "wardrobe/H193C1.webp",
-  "sourceSha256": "55b33b5fc1e3848b1f0dcd362adde8b27b54ff41244693c3ba41c5c49e4120b2",
-  "sha256": "86b8647f2978d3e46e964f4bd72c9de8e4bf262b16ed8e524f6f7de0a3ecff50",
-  "bytes": 106464,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H119C1",
-  "ownerId": "hero_119",
-  "model": "hero_119c1",
-  "art": "wardrobe/H119C1.webp",
-  "sourceSha256": "2b201c2f3d07befe9f442b84b4bf7cdba946d3c13c783f3780fbf69f85fdca04",
-  "sha256": "a015cc68ae64a330487fd4b46e242d94ca2a818accc4587456a03baa461912a1",
-  "bytes": 127512,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H106C1",
   "ownerId": "hero_106",
   "model": "hero_106c1",
@@ -3740,223 +1254,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "821b9363733f14455e87690d3aa86913db23d1002e9b5e2cee59d485cda420de",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H3C1",
-  "ownerId": "hero_3",
-  "model": "hero_03c1",
-  "art": "wardrobe/H3C1.webp",
-  "sourceSha256": "2bcd9bb57a5eaf562cf701b6b47b007dc33292a2b64ba7481ab44b2140859d39",
-  "sha256": "b95c37053308d4ef17428ae49cdc1b7079e19d7d4b4694b5bf2f6d6724f3a24e",
-  "bytes": 169516,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "3e20aef2b41c4949183e3dc8767fba133586d8209c746b2bd639a75c8ab9f861",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-0.jpg",
-    "label": "Sunlit woodland stream",
-    "donor": "hero_03c4",
-    "sourceRegion": "bjing_0",
-    "mode": "reused-scene",
-    "aspect": 0.5544554455445545
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-0.jpg"
-  }
- },
- {
-  "costumeId": "H103C1",
-  "ownerId": "hero_103",
-  "model": "hero_103c1",
-  "art": "wardrobe/H103C1.webp",
-  "sourceSha256": "0c07966be0f81ebfb48b37b5c6f344deeb055e36b29cd4f369c6c2a660125dda",
-  "sha256": "f3def5f7d908b0e0ad310064e2321a38fc5a2e045a84cf5102ac426cde0f9563",
-  "bytes": 165290,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a969eebb7db654f70f909eba60c8ff9f0151a6d193ec38c625bc899820426cb8",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H61C1",
-  "ownerId": "hero_61",
-  "model": "hero_61c1",
-  "art": "wardrobe/H61C1.webp",
-  "sourceSha256": "ee176ca9fb53e7588f7f9f6b794063ae2ce7b33ae92c3044d6a5a46f8e747f3b",
-  "sha256": "a028fe7be4740801a49b8862af3cfe5370ef9df2ad21ebbec4fa7b3527bd581f",
-  "bytes": 126664,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "e178f2b334deecd0cb285730805960a70b6ce94b44cfa631d1790989ed32c716",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  }
- },
- {
-  "costumeId": "H19C1",
-  "ownerId": "hero_19",
-  "model": "hero_19c1",
-  "art": "wardrobe/H19C1.webp",
-  "sourceSha256": "f400f3a2f87bfa2a9341c7ccc0a47fce6783e2ad3d4382003196149d99730048",
-  "sha256": "7e2602e147094ac62df70300ef9bba50ce69f5dda2df4242b33f1b78b6746998",
-  "bytes": 79156,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "4774f9dd495b60da0f4ee335534fd8e2da93c06c3f0abde03f82d0d66df358f0",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H62C1",
-  "ownerId": "hero_62",
-  "model": "hero_62c1",
-  "art": "wardrobe/H62C1.webp",
-  "sourceSha256": "758e2d52ee0f7fe1949529fe08cd42df519b99818777443440e3b15d5b010e69",
-  "sha256": "ee926a26a297138498748d3450a3309ad73630c264eef3cc18461bab9d39790c",
-  "bytes": 65426,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H24C1",
-  "ownerId": "hero_24",
-  "model": "hero_24c1",
-  "art": "wardrobe/H24C1.webp",
-  "sourceSha256": "eafe053311de07e16f16ad8c9d0ac9101233c683cc83e1b265735c4aaa9ca21b",
-  "sha256": "e20fa374754350e2345fed90bef950580c49791fb245a97ffa4d2b70d3d9b03e",
-  "bytes": 184740,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ccb7e59a65f39ccb38c6c8c7703d0ce764ffbc78b353e7eb593c4b5593fa961e",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-7.jpg",
-    "label": "Village square",
-    "donor": "hero_53c1",
-    "sourceRegion": "bg",
-    "mode": "reused-scene",
-    "aspect": 0.6102941176470589
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-7.jpg"
-  }
- },
- {
-  "costumeId": "H112C1",
-  "ownerId": "hero_112",
-  "model": "hero_112c1",
-  "art": "wardrobe/H112C1.webp",
-  "sourceSha256": "b2e4844f9fa6f85341405e1c946154274653b9e3caa28d85a08d90753fc7305c",
-  "sha256": "ae20aa83424a90acd7b890bc8ba063eac175e75f3e1f0935f25e63a16cc5da6e",
-  "bytes": 134054,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a402ecb9ee6f07f33c37cb74d21cbfda4ea268c23365c7190ee6e155ca4b815b",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H12C1",
-  "ownerId": "hero_12",
-  "model": "hero_12c1",
-  "art": "wardrobe/H12C1.webp",
-  "sourceSha256": "d766aa59953c7647217d2b3a592dd242ba6085444c03411f19ad27f6d3968ffc",
-  "sha256": "e74f4fed46097203240c2f9e2104da5b21008fb65342bab9970e1e2103923a09",
-  "bytes": 117894,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "3cef004b06a659b644e9dc3c2fc8d05d68dacfc3d75c9de7bb8fbc22453dcd21",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  }
- },
- {
-  "costumeId": "H104C2",
-  "ownerId": "hero_104",
-  "model": "hero_104c2",
-  "art": "wardrobe/H104C2.webp",
-  "sourceSha256": "5e7f9942e65ced1d2f4018809d68bcbc73f46a70bf266ed04248c8f0ee0a4841",
-  "sha256": "db690a4babdd9e4d1d432ae925e49b2c7fe9a59a223cc5bede1522db0a1375bf",
-  "bytes": 130258,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "c5fc579a6885230d444308d6cf23fb415e549b96a843b3cb87cdacd935e104af",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -3985,69 +1282,6 @@
   }
  },
  {
-  "costumeId": "H116C1",
-  "ownerId": "hero_116",
-  "model": "hero_116c1",
-  "art": "wardrobe/H116C1.webp",
-  "sourceSha256": "2111ab7580e1d93bab439c622a9aae13af09677782bfb32412f081bde5dac5e2",
-  "sha256": "6c119de5d3217162e6e8ed5814031ea51e57c8def07924461dbf91e9b9492d10",
-  "bytes": 96202,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "c2763faeea29d8455582e996216d6313af99b6acf68081f84c55bcf7915f632d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H102C3",
-  "ownerId": "hero_102",
-  "model": "hero_102c3",
-  "art": "wardrobe/H102C3.webp",
-  "sourceSha256": "77bef197eb371c63f09b8f033c3fba29ab8a5ea3fe67e09812e5f4b0ec744247",
-  "sha256": "ea8ea061a9c552fc96f9dc862146b5b697800299bbdc6827434aa89d315467e5",
-  "bytes": 151880,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "148770f2449d3123b7f42bb2029fefaf45fc13b898929097a9b8d144165bed83",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H104C3",
-  "ownerId": "hero_104",
-  "model": "hero_104c3",
-  "art": "wardrobe/H104C3.webp",
-  "sourceSha256": "7988f743f0bea8262d7416eaef65983d91f06cad7ae589a459779277264a7316",
-  "sha256": "48153827f62cd7d2894c188ab7a32133473ef1fc655cf169092e249373126041",
-  "bytes": 102600,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "0e746077e8c14f0ea26abf39137416b0477b3a7c8bbbb2c283fe00c1d325c4a5",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H158C1",
   "ownerId": "hero_158",
   "model": "hero_158c1",
@@ -4062,69 +1296,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "225e0c2209f51a803374916e43dff4f8e938d642553358b6bc3a2a73a8579639",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H17C1",
-  "ownerId": "hero_17",
-  "model": "hero_17c1",
-  "art": "wardrobe/H17C1.webp",
-  "sourceSha256": "96921baa154b3eea1ffc899a4cd1b2f9aa13ac94867057b121f0c9b5f30094b7",
-  "sha256": "10b0518bd3d599558eceab17c6f0610b7662cee5b0994b0e5e237d4b21ad5956",
-  "bytes": 152650,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "48cc42318bf5525a593978af13fb5271ebf2c23db77e0c588cd1b47f10be7c60",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H16C1",
-  "ownerId": "hero_16",
-  "model": "hero_16c1",
-  "art": "wardrobe/H16C1.webp",
-  "sourceSha256": "e4b53073571424738f7f5c4f12a0bc0f06b073a47c968aecbd52f83d9f52ac22",
-  "sha256": "bb69e3e6b38b065d135deca1865193fd5576b36550ba951ab5aee08e965b7b7d",
-  "bytes": 111686,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H25C1",
-  "ownerId": "hero_25",
-  "model": "hero_25c1",
-  "art": "wardrobe/H25C1.webp",
-  "sourceSha256": "e4ec31d48aec7f36b0dff646d33b8faa64dee25fcea4cdf634511538cd6c808d",
-  "sha256": "d9ec4c089da84b69faf19beacc8cff0c2014aa5eedc8f05125709744df8e5e55",
-  "bytes": 92730,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f46697fc00c2cf31976e45b7fe54a1149ea4b67e3d55574c6af98e28b520219e",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -4174,48 +1345,6 @@
   }
  },
  {
-  "costumeId": "H160C1",
-  "ownerId": "hero_160",
-  "model": "hero_160c1",
-  "art": "wardrobe/H160C1.webp",
-  "sourceSha256": "013fa016bc4d6fa15f2791f62d81b9b23ae640ec3ab2d148c9276866dc3d2665",
-  "sha256": "e412edba2e025d9811e3df62413a85309333be035b817c5b66b6fa0bac69436f",
-  "bytes": 174178,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H128C1",
-  "ownerId": "hero_128",
-  "model": "hero_128c1",
-  "art": "wardrobe/H128C1.webp",
-  "sourceSha256": "a7cb2f0170125ceb73e4e0843416aed167db4d3c1734373dcaeda348daa079b8",
-  "sha256": "c298e2cbce4a411aeb839db3dc89608ebc5c73c70329074640c1f3809639a436",
-  "bytes": 140138,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a3cbfb4fb36fb1185ad5b414fdf677cd46add8a6c6772548d7898028b0579d27",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H151C1",
   "ownerId": "hero_151",
   "model": "hero_151c1",
@@ -4230,174 +1359,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "5d69e099f3e23ed25cbf4af5317095359cfbf002445d03c016220641170d5906",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H158C2",
-  "ownerId": "hero_158",
-  "model": "hero_158c2",
-  "art": "wardrobe/H158C2.webp",
-  "sourceSha256": "13fa15a47174601ea345421d8cda76a69420586cc73f21aeff30bfe0f17a0104",
-  "sha256": "e591e2ab38c6348263f80932c7ced0899dacf99da9e3db3d5f4f11f5338dc8ec",
-  "bytes": 157482,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "97a5e8d6341d5e0ddc0f990e53df1980139417fdd938f0fe8a4b84123d13d55c",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H4C2",
-  "ownerId": "hero_4",
-  "model": "hero_04c2",
-  "art": "wardrobe/H4C2.webp",
-  "sourceSha256": "6c852fe75840893b0df0ab13d6eca95c2d737e586d99134ff93246d9e1408c79",
-  "sha256": "6ba6903f4ea77514c698d3b9abf36c80439d9202b172b54ae73d034469d5320d",
-  "bytes": 155202,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "9b1cfb729b65838d7169b3a1b593c10b98ac3d7fe4d0430dcb9128caced36379",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H130C1",
-  "ownerId": "hero_130",
-  "model": "hero_130c1",
-  "art": "wardrobe/H130C1.webp",
-  "sourceSha256": "b458d937c6842ff9919a8d8a3adb27caaab87d0c00996ff7b12f1b45df0409d5",
-  "sha256": "766b838c48721d0757f087b0a08633f6973e75a557f3ecaa23fdd9602b8dd048",
-  "bytes": 167160,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "92337080bcd473f5569dbbbe10896f386fd30fa8b6a34f8a193f68b3fff77730",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H4C3",
-  "ownerId": "hero_4",
-  "model": "hero_04c3",
-  "art": "wardrobe/H4C3.webp",
-  "sourceSha256": "8235e1ef5749f13bb585c55cd6bd80abd994957d4a64f9847708c72918ab1265",
-  "sha256": "48daedf3181196e2cd469a009b4a61bedd8114a11110d6583650a0bf1f7fedb3",
-  "bytes": 147404,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d52d067ff79d616cad7466bb3ce7f0bb346940bbef5b44eeaa2fb3ded09c8915",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H155C2",
-  "ownerId": "hero_155",
-  "model": "hero_155c2",
-  "art": "wardrobe/H155C2.webp",
-  "sourceSha256": "0233ae83166b37db503c40dcf7bda24069737a67b2e9e0b6f26ba9f8f195f490",
-  "sha256": "1a1612ff1ff5a9c01f66af33c034a6976fb462a08ff2b8f30aedfe72c5c57d82",
-  "bytes": 170024,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ab9de79f4c2d20ba6e3e55e1516e190f5a731d37d45e10b3d4e69cf0737606f5",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H119C2",
-  "ownerId": "hero_119",
-  "model": "hero_119c2",
-  "art": "wardrobe/H119C2.webp",
-  "sourceSha256": "0593d29e855e26281174e675c8912ba6dfac3d77f4df6f936ba0e5b823f47538",
-  "sha256": "c6399debb207f67ccd55bb580d79f7849710346cb6b4699af955f0b6d6ac4e5f",
-  "bytes": 135266,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "7a9a439d56a25433f36c06ef58d21618ea548085dc85730ff7432c314e190aec",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H148C1",
-  "ownerId": "hero_148",
-  "model": "hero_148c1",
-  "art": "wardrobe/H148C1.webp",
-  "sourceSha256": "cf752d82fc27f9b86d96d21d2a014889c88011895006ea5f4f2fa5746a6efe1b",
-  "sha256": "d48cec5e2cd580f3d40267f4de89d6e3951da80b3a4f32f91a4974740211e446",
-  "bytes": 173792,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H25C2",
-  "ownerId": "hero_25",
-  "model": "hero_25c2",
-  "art": "wardrobe/H25C2.webp",
-  "sourceSha256": "ff562f39cad50867d5ec8399efc380c875aa17f85e5a5ce2a07b6978882803a5",
-  "sha256": "ba89f21e937871ca5e24d189f05d0baf7ba3e055bb0e55b79aac0c5edf965dbe",
-  "bytes": 93760,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f46697fc00c2cf31976e45b7fe54a1149ea4b67e3d55574c6af98e28b520219e",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -4426,139 +1387,6 @@
   }
  },
  {
-  "costumeId": "H19C2",
-  "ownerId": "hero_19",
-  "model": "hero_19c2",
-  "art": "wardrobe/H19C2.webp",
-  "sourceSha256": "568e0fe99d56626ef7bfc8dccd0651feb6e64bc47456d898186ea6a3e0716496",
-  "sha256": "48a3674a2e4f5f34e0c86d60723fa37b3343ab2872856f014fb944d3e0180884",
-  "bytes": 218460,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "2fb0e076e396c6327c09394ef85699c4d432bc38119f03cc8866a23dbcf34424",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-25.jpg",
-    "label": "Sunny beach",
-    "donor": "hero_112c2",
-    "sourceRegion": "bjing_0",
-    "mode": "reused-scene",
-    "aspect": 0.6086956521739131
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-25.jpg"
-  }
- },
- {
-  "costumeId": "H191C4",
-  "ownerId": "hero_191",
-  "model": "hero_191c4",
-  "art": "wardrobe/H191C4.webp",
-  "sourceSha256": "8f9609e24a93499c525efbe2301bca93fc24532269d64c53deee2bbd4a5a6982",
-  "sha256": "481c29462975fecf0c4f8f5354738a8030f53d931dab4e6ae1485366bdf78b23",
-  "bytes": 234348,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "a6b06178509be64456c0551614c70635552fb7fc0281ab421aafe6c4de2e5e2d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H151C2",
-  "ownerId": "hero_151",
-  "model": "hero_151c2",
-  "art": "wardrobe/H151C2.webp",
-  "sourceSha256": "d6c7afe9510d588202644b384747a5cb1e257f038e384c382267558b4e8f1b99",
-  "sha256": "7963f3770515659453c1ce7874ba2fa3f3242128829aec944501f743212ae72e",
-  "bytes": 196904,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "5d69e099f3e23ed25cbf4af5317095359cfbf002445d03c016220641170d5906",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H117C2",
-  "ownerId": "hero_117",
-  "model": "hero_117c2",
-  "art": "wardrobe/H117C2.webp",
-  "sourceSha256": "22b9bfbbb8c6dec478e2d40402356e719cf1f526d71e944971c1a9030fd13786",
-  "sha256": "200f844e581969d1f9834b8303f0db0e78771ebd81d38546d3a7d2150bdfed70",
-  "bytes": 233248,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "bc1791de68df742edcbb4651543792000f87ae29c0c00658077720128e264304",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H160C2",
-  "ownerId": "hero_160",
-  "model": "hero_160c2",
-  "art": "wardrobe/H160C2.webp",
-  "sourceSha256": "7e1f630d2c0812bdd6a93335084c80b8984635863899858086ae9ea98e108846",
-  "sha256": "f76ad954628b861532c7c257787da0349a0463e67b03639eb03beadcb9872af5",
-  "bytes": 143732,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H215C1",
-  "ownerId": "hero_215",
-  "model": "hero_215c1",
-  "art": "wardrobe/H215C1.webp",
-  "sourceSha256": "362e10806b535b4c0338ea127f01d552a3a8f56eca84169b9d8bcf93b1938ab5",
-  "sha256": "08eb4b9dcbacfc168c948dad1cd8f677dfe106b23a6700aff2a023fed2e6f168",
-  "bytes": 197150,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "30b4d4852d48a8209733cc6df54b089d30506362ebf4806dd35de24b09e79a46",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H103C3",
   "ownerId": "hero_103",
   "model": "hero_103c3",
@@ -4573,97 +1401,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "b880a6aa5bbdab6fff9da00e8576baf6e2d2edbbd213497f6d396f2b00d92ec1",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H52C3",
-  "ownerId": "hero_52",
-  "model": "hero_52c3",
-  "art": "wardrobe/H52C3.webp",
-  "sourceSha256": "a2ec36e0ca531645c060dade5c9f38a5aff23cbc762f6f699fae77bcc64eacc5",
-  "sha256": "3a86555894ea3fcff250daa45fd10e5b1cd4e80574a6c543e004b64a86141607",
-  "bytes": 150014,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "b74fc45db3c6509db243ce51eb8a39af119bbc80f579986a7517c9cff45aff89",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H102C5",
-  "ownerId": "hero_102",
-  "model": "hero_102c5",
-  "art": "wardrobe/H102C5.webp",
-  "sourceSha256": "480223d360554a1ac9d23cc429926f511e02759d435f62e9bb612215432d4f6b",
-  "sha256": "3f8a413df636fd088b364b738083bc3109d85fcb62ca7e21fb413183fc61001c",
-  "bytes": 169116,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "c0d99e9513a288a7c3d315fde5ecb921da52ab5c9be929a0c4c91e3e757c3b10",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-14.jpg",
-    "label": "Warm inn hallway",
-    "donor": "hero_101c4",
-    "sourceRegion": "bjing_01",
-    "mode": "reused-scene",
-    "aspect": 0.5529265255292652
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-14.jpg"
-  }
- },
- {
-  "costumeId": "H3C4",
-  "ownerId": "hero_3",
-  "model": "hero_03c4",
-  "art": "wardrobe/H3C4.webp",
-  "sourceSha256": "5b2a7a04ca2304bee04e4c8188dee6ca258e09381763998ba43b3c281ac8761b",
-  "sha256": "13d16f74417b685b764dba574803a77a6865a94c54b04129e3a247fea065520b",
-  "bytes": 190294,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "95540b473a448812de20a3ada57741a25b1f98c2406402176451660a57f50f5d",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H161C1",
-  "ownerId": "hero_161",
-  "model": "hero_161c1",
-  "art": "wardrobe/H161C1.webp",
-  "sourceSha256": "2870963c4f23a7e559230af6ac5fb8dc1e531ee9cfc13a24069c96fc3f96bb32",
-  "sha256": "f5c4d2c26b4e213d623cda21a7774ea4e528bf9be0dfcd4c884dfc6676e4281b",
-  "bytes": 196182,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f48caa59609011abe0c0f5e0cb1588207ca7b6caa0ab48547aa41605c2bdc72d",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -4734,55 +1471,6 @@
   }
  },
  {
-  "costumeId": "H19C3",
-  "ownerId": "hero_19",
-  "model": "hero_19c3",
-  "art": "wardrobe/H19C3.webp",
-  "sourceSha256": "7e70804c488f74a6bd8c87f6df7e7a07e31e1c668c1b818a841634355c1746a4",
-  "sha256": "22b2efd194f44731ff5cdebd19bda38092ecb6b72962cdecfcbffa3aafcc8a2c",
-  "bytes": 126860,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f6efe03e4914cf8014c7c76dd4681ab71c712602f54e38a0c97054877ce74db1",
-  "background": {
-   "mode": "selected-scenery",
-   "metadata": {
-    "image": "backgrounds/scene-10.jpg",
-    "label": "Sunny inn dining room",
-    "donor": "hero_56c1",
-    "sourceRegion": "bijing",
-    "mode": "reused-scene",
-    "aspect": 0.5538116591928252
-   },
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/isekai-fellows-humanization/outputs/fellows-humanization/backgrounds/scene-10.jpg"
-  }
- },
- {
-  "costumeId": "H101C4",
-  "ownerId": "hero_101",
-  "model": "hero_101c4",
-  "art": "wardrobe/H101C4.webp",
-  "sourceSha256": "53ba7bc933802f2d33b42a33361d707d89b36033ce651378687ad4b7871c08cc",
-  "sha256": "d35c8b198ad9146bf5cd883d83db6db49ccb7ca6827ec28f652296406c21c3a1",
-  "bytes": 127150,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "ad6f55806fbd9676a5f00249385b9c1589b430a4f30ba5a7e1829345327de85a",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
   "costumeId": "H308C2",
   "ownerId": "hero_308",
   "model": "hero_308c2",
@@ -4797,27 +1485,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "da55a2006a1c1d0576c2b8b69c8758778587292730a7a46b733397be98eca042",
-  "background": {
-   "mode": "viewer-light-surround",
-   "metadata": null,
-   "path": null
-  }
- },
- {
-  "costumeId": "H4C4",
-  "ownerId": "hero_4",
-  "model": "hero_04c4",
-  "art": "wardrobe/H4C4.webp",
-  "sourceSha256": "fcbd1457475635f89b4bcde934278f4fbb933f675d05135e123aa09efae835ce",
-  "sha256": "77fc74dc4655d688b6b60c1f3ea6c1b3e872725d2feae6508c341bb2c080bcfa",
-  "bytes": 162224,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "c2d650217414f28c71bd939db6f9178bd49486ba7c19987e6d94974a5d7276e2",
   "background": {
    "mode": "viewer-light-surround",
    "metadata": null,
@@ -4845,26 +1512,6 @@
   }
  },
  {
-  "costumeId": "W59C1",
-  "ownerId": "wife_59",
-  "model": "wife_59c1",
-  "art": "wardrobe/W59C1.webp",
-  "sourceSha256": "98bfa48539800fc7554fb5b764aee210ba18b0fb06529bf6f2e953982a8ca546",
-  "sha256": "8e486d5e1188c16a0fc2057d8facb5edba77609a04f73120a8830e93ed5aac9d",
-  "bytes": 148938,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "741a1660672d731c3703463602e7556bf45533064c2b198d392cfa47e296d86f",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
   "costumeId": "W111C1",
   "ownerId": "wife_111",
   "model": "wife_111c1",
@@ -4882,46 +1529,6 @@
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
-  }
- },
- {
-  "costumeId": "W63C1",
-  "ownerId": "wife_63",
-  "model": "wife_63c1",
-  "art": "wardrobe/W63C1.webp",
-  "sourceSha256": "5608a8713828b30ba207bb5576b77361d10c9f58f0df505f38cc023679b20308",
-  "sha256": "294a6c7703e5cadf7a666b18b9a7b1f5310d843b840cea6babf053f42083c96f",
-  "bytes": 89666,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "5f2a8209a18faae4590bb1ab5f40a5142b9c18570cc9f0f5fd6ae6ee066e309a",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W5C1",
-  "ownerId": "wife_5",
-  "model": "wife_05c1",
-  "art": "wardrobe/W5C1.webp",
-  "sourceSha256": "3f12253bfb1deb609c036db81485b9d734ce016c6162bf2a91571104d3d5ee4d",
-  "sha256": "a06144a672b96d24799fb7dbbfdffe13c04b74367e529322e313d778c009fb82",
-  "bytes": 139400,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "e2ee8abe77cca360f620d1f2579e5e990348178fc9256148410ff6670cfa03af",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
   }
  },
  {
@@ -4985,26 +1592,6 @@
   }
  },
  {
-  "costumeId": "W54C2",
-  "ownerId": "wife_54",
-  "model": "wife_54c2",
-  "art": "wardrobe/W54C2.webp",
-  "sourceSha256": "2518c23d55af6c0e278d90ea7aa448ca4cce8b0e185684240d97c41ba350d7fd",
-  "sha256": "33a090ea200eca7ede0178cd463db19ef9b59dc35d7897d70bbd4859db599640",
-  "bytes": 112078,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "f86635f771dd92bb907352affe6aa04413ef27d3a559c80edeca24bdd07042a7",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W20C1",
   "ownerId": "wife_20",
   "model": "wife_20c1",
@@ -5039,26 +1626,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "d135d7ca7e3ad4991fd40963371ddbf551af32756281906ea8f288b4978d0c0a",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W4C1",
-  "ownerId": "wife_4",
-  "model": "wife_04c1",
-  "art": "wardrobe/W4C1.webp",
-  "sourceSha256": "d4ea7cfed4bd392945883926305d5187424c8ac539716150f8d7089eb636d7df",
-  "sha256": "fb7825827018418f4e0dc0839c6a248b1503a1605a892d207fd95b127a7df69e",
-  "bytes": 106612,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "821573162f806f11e59ebbb6f76ef346376b88737278d3579ae64b2e65a46b0e",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -5105,166 +1672,6 @@
   }
  },
  {
-  "costumeId": "W101C2",
-  "ownerId": "wife_101",
-  "model": "wife_101c2",
-  "art": "wardrobe/W101C2.webp",
-  "sourceSha256": "33f7cc72fca135fe2ec1d03ed3db541f22bcd26b846205f9cbcedb5ff9c0cb26",
-  "sha256": "37c2ff7f289d9c480849f092930d607adef25402ce24fb4e1eb5c5b322cb23e7",
-  "bytes": 237718,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "55a2c05c2399c14b950278aba27168dd6a7298d7eebd5cd6cc7c147ac6b15363",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W64C2",
-  "ownerId": "wife_64",
-  "model": "wife_64c2",
-  "art": "wardrobe/W64C2.webp",
-  "sourceSha256": "b124875bf30c0c6af3ffa835bfca187ce562d544aae1a3dc1b77081dfac23ef5",
-  "sha256": "62c31c09df86af47a1ee52cb4b50a622f73d29fd73cb100c741cf62fc2722d38",
-  "bytes": 190062,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "23b339e9f0754958a97a83b5fa1089d3fa4383dd54b7f9f5375ad0f71957f67c",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W102C4",
-  "ownerId": "wife_102",
-  "model": "wife_102c4",
-  "art": "wardrobe/W102C4.webp",
-  "sourceSha256": "bb4ae61203c65b80da8086ccbbd21caebb2020bb896365243ec259bf1b4bc19d",
-  "sha256": "da9ea547bbe970c0f63e34843fdfa6976a00d51aca71e8fdd4e7ee79ba81c795",
-  "bytes": 197668,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "10b55b0d80383804dbc5b108a92a1327d4925bfc232cff291151bab49b13058e",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W112C2",
-  "ownerId": "wife_112",
-  "model": "wife_112c2",
-  "art": "wardrobe/W112C2.webp",
-  "sourceSha256": "4e578fb0e73e7b10047233385ca020966dc6a109d6ad3972c91c79eac524fc3f",
-  "sha256": "f139321ae76a028200cb8b98317cf3585de35ae5613b89cba029d57c83638122",
-  "bytes": 168780,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "15b203382f45112f0fbb3d3e13bd86c720844fbb3c7510e72bd66829fda5227e",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W111C2",
-  "ownerId": "wife_111",
-  "model": "wife_111c2",
-  "art": "wardrobe/W111C2.webp",
-  "sourceSha256": "2d3ca493db3da220db447fe1ea121b513bb84427beb4eade2fcf15fb2e0cff51",
-  "sha256": "1724a983d29e61b1ecc09518aad3c962cbfac58ffb65bee8cd7236aeb9570c71",
-  "bytes": 187310,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "c6701bbc5b0d7db1ef3fea3de574eafab8ae8567fe6cc870492a258efa1be95f",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W14C2",
-  "ownerId": "wife_14",
-  "model": "wife_14c2",
-  "art": "wardrobe/W14C2.webp",
-  "sourceSha256": "547af3ac71d8834cad7c765a55a80335f085b5a5c687415c7e7c099f3b1fae82",
-  "sha256": "1f48311cbf3c7765320f8effdff7737b89b4bf10001031bc550cd26f9c2f18c2",
-  "bytes": 187070,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "000d27860607f67dc46ee547ebbeffeb5219dc02c1c4d042474ad98de02249be",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W113C1",
-  "ownerId": "wife_113",
-  "model": "wife_113c1",
-  "art": "wardrobe/W113C1.webp",
-  "sourceSha256": "33f44bb01de7213940149a001d6cf0cbcb05a9feb1e67a5d3790eaf84bad1f59",
-  "sha256": "9d539a71748e3d04bdbf6ce5add393ccf626a4cd386f51291881b73cd5a0478f",
-  "bytes": 204488,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "17caa98416843df50d7d843be9b6ac0981e6f8e5d04e4f5db2d3782c2161fae5",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W115C2",
-  "ownerId": "wife_115",
-  "model": "wife_115c2",
-  "art": "wardrobe/W115C2.webp",
-  "sourceSha256": "5460fd056cd06d5184e7dbc1e1bc0b3e3d8fe241810d171222be3ce7a34b39a4",
-  "sha256": "d60da2a63f91de0c68b94afb533387c616d6f8ed76ad0d4014118d871a33ea1b",
-  "bytes": 220448,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "507cd5f3ba71f9d3f45f468e9c42b264a023383ece8ddd0ced869405d513f321",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W136C1",
   "ownerId": "wife_136",
   "model": "wife_136c1",
@@ -5279,26 +1686,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "495f8658bd9f07482ea63db034eef420e06625406cb5753a0c4a00d70933acab",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W52C3",
-  "ownerId": "wife_52",
-  "model": "wife_52c3",
-  "art": "wardrobe/W52C3.webp",
-  "sourceSha256": "83f5ac4ef995679be6edba925e0f3346f2ef5d3629b7420fcf7c3a145625c845",
-  "sha256": "4334b4bb801edb8f715b2f6a832661d69b46fa872b51805bce565be9d1366fd1",
-  "bytes": 157278,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "1e05b953d3216551ba7ca9f1999d38dcc9381bcb7783d8b52f64739cd662bc2c",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null
@@ -5345,26 +1732,6 @@
   }
  },
  {
-  "costumeId": "W112C3",
-  "ownerId": "wife_112",
-  "model": "wife_112c3",
-  "art": "wardrobe/W112C3.webp",
-  "sourceSha256": "7a068dee5f4d8b6895aa09a0de8f9d7aa54ad7a2a94e52b24999bf75dcc752b8",
-  "sha256": "026e295097a457d8150b5a65608fa81d04094a7ea43b199ede92a50cfa59f426",
-  "bytes": 160668,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "997ffc474b4dbe3b09331cba61b9ff8fe4112a8050dae04c16cb99dd4d95738c",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
   "costumeId": "W59C2",
   "ownerId": "wife_59",
   "model": "wife_59c2",
@@ -5405,46 +1772,6 @@
   }
  },
  {
-  "costumeId": "W191C4",
-  "ownerId": "wife_191",
-  "model": "wife_191c4",
-  "art": "wardrobe/W191C4.webp",
-  "sourceSha256": "b82ee0d82aeeda6ad0a973f764e702de9a11ef6f3709783774086e99e66893e6",
-  "sha256": "9d7cc2ea7acbf01fd829b779dfb2c6f8fd211f63622797866b5bc3e7514dd0b2",
-  "bytes": 153720,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "d135d7ca7e3ad4991fd40963371ddbf551af32756281906ea8f288b4978d0c0a",
-  "background": {
-   "mode": "selected-game-background",
-   "path": "/Users/westmanfamily/Documents/Codex/2026-09-07/files-pasted-by-the-user-paste/outputs/outfit-roster/backgrounds/Bg_Wife.png"
-  }
- },
- {
-  "costumeId": "W103C4",
-  "ownerId": "wife_103",
-  "model": "wife_103c4",
-  "art": "wardrobe/W103C4.webp",
-  "sourceSha256": "070f33ff4efc319826289fd1fc4e1d3bd692c5bbbfe979c153e0785df7d56f36",
-  "sha256": "b57a9b5edad86486e4a93603d1ad0373a4b5a1fb272b3c0976961749c293439c",
-  "bytes": 171514,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "bd853fec6f1e20d3be51992847939eca783b466e575fbdc28ffc1b2ed73c77c0",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
   "costumeId": "W112C4",
   "ownerId": "wife_112",
   "model": "wife_112c4",
@@ -5459,26 +1786,6 @@
   "composition": "includes-background",
   "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
   "recipeSha256": "57e60589713c97e4075993997c1bcf9c1c5f8902f55f1a1bcc91787dd5c2c46a",
-  "background": {
-   "mode": "viewer-dark-surround",
-   "path": null
-  }
- },
- {
-  "costumeId": "W11C3",
-  "ownerId": "wife_11",
-  "model": "wife_11c3",
-  "art": "wardrobe/W11C3.webp",
-  "sourceSha256": "bb680fe9b60b89ff5988e40dfc48b9309a6e57a7a244c5726befd20f11199006",
-  "sha256": "e54c49e2dbf7b8f75b8fb3a4b6e21b166f07c7699a0ccac09f658145ddef0572",
-  "bytes": 131870,
-  "dimensions": [
-   1280,
-   1920
-  ],
-  "composition": "includes-background",
-  "sourceManifestSha256": "ed751892a93b0585138ccb07f2c21c3ad9a56e4bdb3bd6ed5e01ffe3da89f0b2",
-  "recipeSha256": "eaa69afd1366ade99c361b84628c777a077f9ab9c1baa73221db554d584fc5b3",
   "background": {
    "mode": "viewer-dark-surround",
    "path": null

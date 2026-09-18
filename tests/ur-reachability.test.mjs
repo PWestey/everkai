@@ -27,8 +27,8 @@ const perfectDays=(n)=>{
 };
 
 test('a UR is reachable from habits alone, through every link of the chain',()=>{
- const cost=recruitPrice('hero_113');
- assert.equal(recruitRarity('hero_113'),'UR');
+ const cost=recruitPrice('hero_114');
+ assert.equal(recruitRarity('hero_114'),'UR');
  assert.deepEqual(cost,{valiant:2},'a UR is priced in valiant');
 
  // Enough perfect days to forge the two insignias a UR costs.
@@ -43,9 +43,9 @@ test('a UR is reachable from habits alone, through every link of the chain',()=>
  assert.equal(summonState(s).valiant,cost.valiant);
  assert.equal(summonState(s).insigniaFragments,0,'the fragments were spent, not duplicated');
 
- const joined=act(s,'summonRecruit',s.lastAt,'hero_113',{seq:summonState(s).seq});
+ const joined=act(s,'summonRecruit',s.lastAt,'hero_114',{seq:summonState(s).seq});
  assert.equal(joined.error,undefined,joined.error);
- assert.ok(joined.state.fellows.hero_113,'the UR joined');
+ assert.ok(joined.state.fellows.hero_114,'the UR joined');
  assert.equal(summonState(joined.state).valiant,0,'and was charged for');
  assert.ok(valid(joined.state));
  assert.deepEqual(decode(JSON.stringify(joined.state)),joined.state);});
@@ -54,9 +54,9 @@ test('a UR is still refused when the chain has not been walked',()=>{
  // Negative control for the test above: without the habits, the same call fails. If this ever passes,
  // ECON-28 is back.
  const s=fresh(T);
- const r=act(s,'summonRecruit',s.lastAt,'hero_113',{seq:summonState(s).seq});
+ const r=act(s,'summonRecruit',s.lastAt,'hero_114',{seq:summonState(s).seq});
  assert.match(r.error,/Needs 2 Valiant Insignias/);
- assert.equal(s.fellows.hero_113,undefined);
+ assert.equal(s.fellows.hero_114,undefined);
  // And the wallet is untouched -- no NaN, which is the shape the original defect wrote.
  for(const [k,v] of Object.entries(summonState(s)))
   if(typeof v==='number')assert.ok(Number.isFinite(v),`${k} is ${v}`);});
