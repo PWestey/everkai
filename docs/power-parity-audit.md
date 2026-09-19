@@ -863,6 +863,7 @@ saves) all still pass. No `SAVE_VERSION` bump: nothing required was added; the o
    each capped. *Recommendation: route pearl training through talent levels (the original's rule), i.e.
    retire direct `aptitude` training or cap it at the old 1,000, and keep the measured 31,122 as the bound
    for everything else. Not done here: it is a faucet decision, and the pacing pins will show it move.*
+   **Decided 2026-09-18 (balancing delegated by the owner): capped at the old 1,000. See 9.10.**
 
 ### 9.9 Negative controls
 
@@ -874,3 +875,63 @@ to 1,000; the validator's cap bound removed; the ledger bound left at 1,000; a Ã
 stored-value bounds test); a new contributor slipping into `powerParts` (the extractor); the mine and
 trading-post validators bounding stored Power below what the old build wrote (the rule-12 decode); a
 Ã—10 Power runaway and a halved `rosterOperation` divisor (the pacing pins). 16/16 fired.
+
+### 9.10 Decided 2026-09-18: direct Skill Pearl training stops at the old 1,000
+
+The owner delegated balancing; decision 9.8.6 was taken on its recommendation. `PEARL_APTITUDE_CAP` (=
+`LEGACY_APTITUDE_CAP`, 1,000) in `lib/aptitude-cap.mjs`: `aptitudeTrainingPlan` fills a Fellow only while it is
+below 1,000 -- the rule `main` ships. Every source the original has (talent levels, artifacts, Family, museum,
+fishing, Artifact Echo, insight, essences, opening items; Stella talent when imported) keeps the 31,122 bound.
+The Fellow panel and the refusal say pearls stop at 1,000 and name where more Aptitude comes from.
+
+**Saves.** A planner limit, not a validator: `validAdventure` and the aptitude ledger still bound at 31,122, so
+no stored value is checked against 1,000 and nothing can be refused by it. Measured: a 30-day save from the
+live build (`main`@45828d3, now `tests/live-save-45828d3-day30.json.gz`) holds at most 990 pearl Aptitude
+(main's cap was 1,000 for every source) and decodes byte-identically, valid, nothing quarantined -- also on the
+lazy browser-boot path (9.11); so does a 30-day save from `crossover`@3854d3a. The uncapped build's own saves,
+whose pearl ledger holds 31,112 on one Fellow, still decode byte-identically and validate (tested
+synthetically in `tests/power-composition.test.mjs`).
+
+**Pacing** (`tests/power-pacing.test.mjs`, re-pinned; scratchpad `sim/sim-pins-pearl.mjs` = sim-pins-cap with
+pearls reading the build's `PEARL_APTITUDE_CAP`; APK growth, `earned`):
+
+| day | gold/s: 3d47df4 / uncapped 3854d3a / **now** | top Fellow: 3d47df4 / uncapped / **now** | bottom: 3d47df4 / uncapped / **now** | Fellows |
+|---|---|---|---|---|
+| 30 | 3,965,436,060 / 4,923,957,499 / **2,311,764,907** | 364,195,900 / 2,146,877,316 / **230,796,106** | 9,519,535 / 16,210,487 / **9,050,034** | 28 / 16 / **25** |
+| 90 | 6,913,806,855 / 6,637,997,008 / **5,404,947,644** | 443,154,590 / 3,701,223,720 / **257,649,411** | 20,058,869 / 17,275,670 / **26,800,807** | 31 / 17 / **30** |
+| 180 | 8,248,950,146 / 9,285,714,088 / **6,186,448,810** | 460,219,606 / 3,909,900,285 / **260,261,323** | 20,331,834 / 17,618,893 / **27,183,227** | 31 / 17 / **30** |
+
+Every figure equals, to the unit, 9.6's "composition only" run (the sim's Aptitude policy held at 1,000): the
+cap does that and nothing else. Against the uncapped build the top Fellow is 0.07-0.11x and gold/s 0.47-0.81x;
+against the pre-rebuild build the top is 0.57-0.63x (the additive composition) and gold/s 0.58-0.78x.
+
+**Stage ladder under this Power (with the 6,000-chapter merge).** Opening-journey position, roster Power and
+the first boss that Power cannot beat (boss rule: Power > atk), from the same saves under this build:
+
+| day | roster Power | cleared (chapter) | Power wall | chapter 3,000 costs | chapter 4,322 costs | chapter 6,000 costs |
+|---|---|---|---|---|---|---|
+| 30 | 1,232,035,652 | 14,376 (685) | chapter 3,061 (1,233,000,000) | 9.41e13 gold = 11.3 h of income | 2.98e14 = 35.8 h | 1.24e15 = 149 h |
+| 90 | 2,614,510,130 | 41,633 (1,983) | chapter 4,202 (2,619,000,000) | 7.80e13 = 4.0 h | 2.47e14 = 12.7 h | 1.02e15 = 52.7 h |
+| 180 | 2,646,564,781 | 61,611 (2,934) | chapter 4,207 (2,650,000,000) | 7.78e13 = 3.5 h | 2.46e14 = 11.0 h | 1.02e15 = 45.9 h |
+
+**Where the sim stalls.** It does not hit a Power wall: roster Power plateaus at ~2.6e9 from day ~75 (every
+Fellow at its level cap, Aptitude 1,000), which clears bosses to chapter 4,206. Gold paces it: 480 battles a
+day early, ~150 a day by day 180, reaching chapter 2,934 -- it never enters chapters 3,001+ inside 180 days
+(the uncapped build reached the old end, 63,000, by day ~160). Walking on to the Power wall at 4,207 costs
+2.7e7 seconds of income (~317 days) at day-180 income. Chapter 6,000's boss (5.262e10) is ~20x the plateau.
+Pricing formula unchanged (`floor((atk/Power)^0.25 x 10000)` per battle, from `SceneLevelNormalBattle.lua`).
+
+### 9.11 Stage chapters 3,001-6,000 load lazily (iPhone memory)
+
+Measured on the built client in headless Chrome over CDP with iPhone emulation (390x844 @3x, mobile, touch,
+iOS Safari UA), JS heap after two forced GCs, 3 runs each: 3,000 chapters bundled 38.9 MB (fresh) / 44.0 MB
+(90-day save); 6,000 bundled 70.1 / 74.7 MB (peak before GC 133 / ~165 MB). The 6,000 extension raised every
+player's boot heap by ~31 MB (+80%), and no save today is past chapter 3,000. So `lib/campaign-chapters-late-
+data.json` (3,001-6,000) is a separate chunk, fetched when a save comes within 100 chapters of 3,000 and
+streamed, never precached; the engine stays synchronous (validators bound by `STAGE_COUNT` / `OPENING_COUNT`
+from a small index; `STAGES` / `OPENING_STAGES` / `CAMPAIGN` grow in place; an unloaded next stage says "still
+loading"). After: 38.9 MB fresh, 44.2 MB with the 90-day save, 72.1 MB once the late chapters are installed.
+Main chunk 8,382,274 -> 6,337,076 bytes; precache 82.73 MiB, zero crossover assets. By 9.10's pacing a sim
+player first fetches the chunk around day 175. Offline caveat: a player who crosses chapter 2,900 while
+offline sees "Loading chapter ..." until one connection (the worker does not runtime-cache streamed files).
+

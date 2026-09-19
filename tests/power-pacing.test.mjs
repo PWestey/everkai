@@ -50,25 +50,31 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
 });
 
 // ---------------------------------------------------------------------------------------------------
-// PACING PINS -- the owner's call: keep the appointment-yield column faithful and guard with pacing, not a
-// cap. Each fixture is 30 / 90 / 180 simulated days of normal habit play (scratchpad sim/sim-pins-cap.mjs:
-// APK growth, `earned` policy -- only costed, gated or time-recovering actions -- spending Stella shards and
-// training Aptitude up to the build's own cap), written by THIS build. `before` is the same policy run
-// on the previous build (3d47df4), where the cap was 1,000. Every number is exact, so any move is loud;
-// the ratio bands underneath say which moves count as a runaway rather than a re-baseline.
+// PACING PINS. Each fixture is 30 / 90 / 180 simulated days of normal habit play (scratchpad
+// sim/sim-pins-pearl.mjs: APK growth, `earned` policy -- only costed, gated or time-recovering actions --
+// spending Stella shards, training Aptitude with pearls up to the build's PEARL_APTITUDE_CAP and every
+// other source up to APTITUDE_CAP), written by THIS build. Every number is exact, so any move is loud.
+// Two references sit beside each pin, both the same policy:
+//   uncapped -- 3854d3a, the Power rebuild with direct pearl training allowed to 31,122;
+//   before   -- 3d47df4, the build before the Power rebuild (Aptitude cap 1,000 everywhere).
 //
-// What the pins say, read plainly: village gold/s stays within 0.96x-1.24x of the old build at every
-// checkpoint. The strongest Fellow is 5.9x-8.5x the old one, because the Aptitude cap is now the original's
-// 31,122 and direct Skill Pearl training reaches it by day 30 -- that is the lever to watch (owner decision
-// 6 in docs/power-parity-audit.md 9.8). The weakest Fellow stays within 0.86x-1.70x. The roster is SMALLER (16-17
-// Fellows against 28-31): the gold went into pearls instead of recruits.
+// What the pins say, read plainly (owner-delegated balancing, 2026-09-18, docs/power-parity-audit.md 9.10):
+// capping direct Skill Pearl training at the old 1,000 takes the strongest Fellow from 2.1-3.9 billion
+// (uncapped) back to 231-260 million, 0.57-0.63x the pre-rebuild build's (the additive composition is
+// lower) and 0.07-0.11x the uncapped one's. Village gold/s is 0.58-0.78x the pre-rebuild build's and
+// 0.47-0.81x the uncapped one's: the gold that bought pearls to 31,122 now buys recruits (25-30 Fellows
+// against 16-17 uncapped). The day-30/90/180 figures equal, to the unit, the "composition only" run in
+// 9.6, which held the sim's Aptitude policy at 1,000 -- the cap does exactly that and nothing else.
 // ---------------------------------------------------------------------------------------------------
 const PINS=[
- {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
+  uncapped:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
   before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
- {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
+  uncapped:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
   before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
- {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
+  uncapped:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
   before:{goldPerSecond:8248950146,top:460219606,bottom:20331834,fellows:31}},
 ];
 for(const p of PINS)test(`pacing, day ${p.day}: gold/s ${p.now.goldPerSecond.toLocaleString('en-US')}, top ${p.now.top.toLocaleString('en-US')}, bottom ${p.now.bottom.toLocaleString('en-US')}`,()=>{
@@ -77,11 +83,14 @@ for(const p of PINS)test(`pacing, day ${p.day}: gold/s ${p.now.goldPerSecond.toL
  assert.ok(valid(s),refusedBy(s));
  const all=powers(s);
  const now={goldPerSecond:Math.round(effectiveRate(s,s.lastAt)),top:Math.max(...all),bottom:Math.min(...all),fellows:all.length};
- // A runaway is anything outside these bands against the previous build's own run. They are wide on
+ // A runaway is anything outside these bands against the pre-rebuild build's (3d47df4) own run. They are wide on
  // purpose: a re-balance may move a pin, but a factor of 3 on income or 20 on the top Fellow is a defect.
  const r=k=>now[k]/p.before[k];
- assert.ok(r('goldPerSecond')>0.5&&r('goldPerSecond')<2,`day ${p.day}: gold/s is ${r('goldPerSecond').toFixed(2)}x the previous build`);
- assert.ok(r('top')<20,`day ${p.day}: the top Fellow is ${r('top').toFixed(1)}x the previous build`);
- assert.ok(r('bottom')>0.25&&r('bottom')<4,`day ${p.day}: the bottom Fellow is ${r('bottom').toFixed(2)}x the previous build`);
+ assert.ok(r('goldPerSecond')>0.5&&r('goldPerSecond')<2,`day ${p.day}: gold/s is ${r('goldPerSecond').toFixed(2)}x 3d47df4`);
+ assert.ok(r('top')<20,`day ${p.day}: the top Fellow is ${r('top').toFixed(1)}x 3d47df4`);
+ assert.ok(r('bottom')>0.25&&r('bottom')<4,`day ${p.day}: the bottom Fellow is ${r('bottom').toFixed(2)}x 3d47df4`);
+ // The pearl cap's guard at RE-PIN time: fixtures are written by the sim, so a regenerated fixture whose top
+ // Fellow is back near the uncapped figure means direct pearl training passed 1,000 again.
+ assert.ok(now.top<p.uncapped.top/4,`day ${p.day}: the top Fellow is ${(now.top/p.uncapped.top).toFixed(2)}x the uncapped build -- is direct pearl training past 1,000 again?`);
  assert.deepEqual(now,p.now);
 });
