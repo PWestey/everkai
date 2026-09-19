@@ -25,3 +25,22 @@ test('Family sort by Blessing Power; ties keep catalogue order; arrows wrap thro
  assert.equal(rosterStep(order,order.at(-1).id,1),FAMILY[1].id,'next from the end wraps to the strongest');
  assert.equal(rosterStep(order,FAMILY[1].id,1),FAMILY[0].id);
 });
+
+// The owner reported the roster "doesn't organize by power": it did, but tiles showed only the level, so a
+// strong low-level Fellow above a weak high-level one looked unsorted. The roster now shows the number it
+// sorts by and offers a sort menu; these pin every mode.
+import {rosterSort,rarityRank} from '../lib/roster-filter.mjs';
+test('the roster sort menu orders joined characters by the chosen key, then the rest',()=>{
+ const E=[{id:'a',name:'Zed',rarity:'SR'},{id:'b',name:'Amy',rarity:'SSR -> UR'},{id:'c',name:'Moe',rarity:'N'},{id:'d',name:'Kit',rarity:'UR'}];
+ const owned={a:{level:300},b:{level:10},c:{level:600}};
+ const power={a:50,b:900,c:20};
+ const ids=m=>rosterSort(E,owned,m,{power:id=>power[id]}).map(f=>f.id);
+ assert.deepEqual(ids('power'),['b','a','c','d'],'Power: strongest first, even when the level says otherwise');
+ assert.deepEqual(ids('level'),['c','a','b','d'],'Level: highest first');
+ assert.deepEqual(ids('rarity'),['b','a','c','d'],'Rarity reads the head of a chain: SSR > SR > N');
+ assert.deepEqual(ids('name'),['b','c','a','d'],'Name: alphabetical');
+ // Not-joined always trail in catalogue order, whatever the mode.
+ for(const m of ['power','level','rarity','name'])assert.equal(ids(m).at(-1),'d',m);
+ // Negative controls: the modes really differ on this fixture, and an unknown rarity sorts last.
+ assert.notDeepEqual(ids('power'),ids('level'));
+ assert.equal(rarityRank('???'),-1);assert.ok(rarityRank('LR')>rarityRank('UR'));});
