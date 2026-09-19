@@ -642,3 +642,70 @@ Neptune (hero_195, L500, ADH 7,590). Cimitir (hero_61, L150, ADH 1,374).
    front of you.*
 7. **Star economy.** *Recommendation: keep Everkai's 7 stars and star-shard prices (refunds depend on
    them), and pay HeroStar's values with ★7 clamped to ★6 and the level gates applied at read time.*
+
+---
+
+## 8. Implementation log (what actually landed, measured after each step)
+
+Owner answers received 2026-09-18 (they close §7 questions 1-3):
+
+1. **Star halos: percent only — owner-confirmed, not inferred.** On his real phone account, levelling one
+   Fellow's stars never raised the whole roster by anything like 50-90%. The ~9,000 bp `finalpercent`
+   rows stay out. Any star term that broadcasts to other Fellows is measured for its roster-wide size
+   before it ships (step 4 reports it).
+2. **Skill Pearls were scarce; Power grew mostly without pearl-bought Aptitude.** So the pearl faucet was
+   measured and tightened (below), and success is judged by how much of the climb comes from the
+   percent and flat sources.
+3. **The pacing target is his retail PHONE account: after a few weeks the top Fellow is ~300M and nobody
+   is under ~5M.** The emulator panels (2,665,123,377 / 456,778,931) stay the ground truth for the formula
+   and the bucket mapping only.
+
+Method for the owner panels, every step: `scratchpad/psrc/climb-achieved.mjs` starts from the S0 bucket
+sums of §5 (it reproduces 649,089,376 and 260,690,340 to the unit) and adds what the IMPLEMENTED `lib/`
+derives for the owner's own investment (his skill levels from `live-player.json`, Rarity Advance 200,
+Pledge 60, intimacy 10, Stella rank 20, 3★), fed through `composePower`.
+
+### Step 1 — Skill Aptitude (lib/talent-skills.mjs, lib/hero-advance.mjs)
+
+What landed:
+- Every talent skill a Fellow owns in the original is trainable: Hero.json's extras, each Rarity Advance
+  stage's set and type-1 upgrade skills, the Stella-unlocked skills, `Hero_Talent_StarSkill_1..6`, the
+  pledge skills; plus the intimacy skill (level = the bond level with the family member
+  `HeroIntimacyDegree` names) and the Stella `self|talent` and `bond:<n>|talent` halos per rank. An
+  unlocked skill starts at level 1 free, as in the original. Cap 300 + the Stella talent limit.
+  Pearl skills cost 1 pearl per Aptitude (the two exceptions, 251/260 `extra7_4`, are 3 for 4); Country
+  skills cost 100 Insight books per Aptitude from the Fellow type's Insight balance.
+- **Rarity Advance** (HeroMagicLevel, 25 shipped heroes, talentBonus to 1,000/1,200, stages switch the
+  initial talent — Shinobu 100 → 240) and **Pledge** (HeroPledge, gated by `pledgeUpgradeOpen`), both
+  paid from the shared Stella shard pool at 10 a level (the spec's §4.6 recommendation). Rarity Advance
+  moved into step 1 from step 4 because the stage decides which talent skills exist.
+- APTITUDE_CAP 31,122 → **107,198** (widening). The Skill Pearl → Aptitude shortcut still stops at 1,000.
+- Deviation: the pledge skill's OWN talent (`Hero264Pledge`, condition `pledge`) is not paid — its target
+  is the pledged partner (the §5 "pledge transfer" residual), not the Fellow.
+
+**Pearl faucet (owner answer 2).** A census of every config table that pays `Item_Talent_Hero_1` finds no
+permanent source at all: only event rank and battle-pass rewards, VIP, gift codes and event minigames.
+The owner's paid-inclusive few-weeks account holds ~10,860. Everkai's day-30 sim bought **24,634** from the
+gold shop (99.5% of its pearls). The shop's price now doubles every **1,000** pearls bought instead of
+2,500; the sim buys to roughly the same marginal price either way, so day 30 should land near the owner's
+own figure (measured below).
+
+Owner panels after step 1 (Everkai-derived talent: Shinobu skills 4,753 + intimacy 200 + Stella 2,050 +
+Rarity Advance 1,000 + stage 140; Orivita skills 19 + Stella bond 340):
+
+| | Shinobu | of 2,665,123,377 | Orivita | of 456,778,931 |
+|---|---|---|---|---|
+| S0 | 649,089,376 | 24.4% | 260,690,340 | 57.1% |
+| after step 1 | **1,736,049,588** | **65.1%** | **287,025,269** | **62.8%** |
+
+The same numbers the spec predicted for S1 plus the Rarity Advance and stage talent it had filed under S4;
+Shinobu's +6,006 skill/Stella talent reproduces the owner's "Skill 6,155" to the unit (tests/talent-skills.test.mjs).
+
+Pacing pins, the c5b4477 fixtures re-read by this build (derived Power only — no Fellow in them had bought a
+talent-skill level, so this is the FREE part: level-1 skills, star skills, Stella halos):
+
+| day | gold/s c5b4477 → step 1 | top c5b4477 → step 1 | bottom c5b4477 → step 1 |
+|---|---|---|---|
+| 30 | 2,311,764,907 → 2,389,304,771 | 230,796,106 → 250,711,886 | 9,050,034 → 9,053,181 |
+| 90 | 5,404,947,644 → 6,046,504,600 | 257,649,411 → 375,290,895 | 26,800,807 → 26,810,389 |
+| 180 | 6,186,448,810 → 6,913,417,941 | 260,261,323 → 377,781,758 | 27,183,227 → 27,192,859 |

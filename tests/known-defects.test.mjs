@@ -264,7 +264,7 @@ test('ECON-29 fixed: every level and star is charged from the Cost ladders, and 
 test('ECON-29 fixed: 71 binds on untrained familiars leave village income where it was',()=>{
  let v=village();
  const before=totalRate(v);
- assert.equal(Math.round(before*10)/10,91_990.7,'the un-bound village rate has moved (92,072.3 before the 2026-09-17 roster trim: a smaller roster fills the same 17 businesses, so only the operator bonuses moved)');
+ assert.equal(Math.round(before*10)/10,92_038.6,'the un-bound village rate has moved (91,990.7 before the 2026-09-18 talent skills -- every Fellow owns its level-1 skills; 92,072.3 before the 2026-09-17 roster trim: a smaller roster fills the same 17 businesses, so only the operator bonuses moved)');
  v=run(v,'adoptFamiliars');
  let bound=0;
  for(const pet of Object.keys(v.familiars)){
@@ -273,7 +273,7 @@ test('ECON-29 fixed: 71 binds on untrained familiars leave village income where 
   if(next!==v){v=next;bound++}
  }
  assert.equal(bound,71);
- assert.equal(Math.round(totalRate(v)*10)/10,91_990.7,'free binds no longer move income (was 1,233,109); the rate itself moved with the 2026-09-17 roster trim, the DELTA is still zero');
+ assert.equal(Math.round(totalRate(v)*10)/10,92_038.6,'free binds no longer move income (was 1,233,109); the rate itself moved with the 2026-09-17 roster trim, the DELTA is still zero');
  // Negative control: the same binds on stage-10 familiars restore the old 13.4x, so the probe can see it.
  // 1,233,035 rather than the 1,233,117 of 2026-09-15 (itself up from 1,233,109 on 2026-09-12 when the
  // crossover Fellows were restored): the 2026-09-17 roster trim narrowed the roster the bind ladder
@@ -282,7 +282,8 @@ test('ECON-29 fixed: 71 binds on untrained familiars leave village income where 
  // 1,233,036 since 2026-09-18: Power's final multiplier is now exact integer basis points
  // (lib/adventure.mjs powerParts), which moves one Fellow's floor by a unit. The ratio is unchanged.
  const trained={...v,familiars:Object.fromEntries(Object.keys(v.familiars).map(id=>[id,{level:450,stars:0}]))};
- assert.equal(Math.round(totalRate(trained)),1_233_036);
+ // 1,233,084 since the 2026-09-18 talent skills (level-1 skills on every Fellow); the ratio is unchanged.
+ assert.equal(Math.round(totalRate(trained)),1_233_084);
  assert.equal(Math.round(totalRate(trained)/totalRate(v)*10)/10,13.4,'the 13.4x the control exists to see');
 });
 

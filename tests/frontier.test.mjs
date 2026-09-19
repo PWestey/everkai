@@ -25,6 +25,9 @@ test('final reward overflow and failed storage admission retain wave without gra
 test('fresh player reaches all chapters through ordinary income, stages, supplies, training and patrols',()=>{
  let s=fresh(1000);assert.ok(act(s,'startFrontier',1000,1).error);s=run(s,'collect',null,null,s.lastAt+28800000);
  for(const f of FELLOWS.filter(f=>f.id!=='hero_15').slice(0,2)){s=run(s,'recruit',f.id);s=run(s,'party',f.id);}
+ // Two more hours of income first: Skill Pearls double in price every 1,000 bought since 2026-09-18 (2,500
+ // before), so 270 of them cost ~59,800 gold instead of ~56,000 and eight hours no longer quite covers them.
+ s=run(s,'collect',null,null,s.lastAt+7200000);
  const ids=[...s.adventure.party];for(const id of ids)for(let i=0;i<90;i++){s=run(s,'buySupply','Item_Talent_Hero_1');s=run(s,'aptitude',id);}
  // On the original's ladder a stage is a gold SINK -- it charges its own table price and pays back
  // Fellow EXP, never gold -- so the walk has to fund itself from village income between stages. That

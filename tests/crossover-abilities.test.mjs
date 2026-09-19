@@ -189,10 +189,13 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
  assert.deepEqual(rows,[
   [1,'N','fresh',6000,6000,6000,1],
   [1,'N','mid',296000,296000,296000,1],
-  [1,'N','ceiling',5375683,5375683,5375683,1],   // 5,222,550 before the 2026-09-18 additive composition
-  [14,'LR','fresh',79500,79500,79500,1],
-  [14,'LR','mid',1899530,1899530,1899530,1],
-  [14,'LR','ceiling',99003150,99003150,99003150,1], // 95,108,000 before it
+  // Originals now also own their talent SKILLS (lib/talent-skills.mjs, 2026-09-18): every unlocked skill
+  // starts at level 1, free, and stars unlock the star skills. A crossover has no HeroN row, so none, and
+  // the rows that were exactly equal now sit just below the weakest original -- the rule this test holds.
+  [1,'N','ceiling',5375683,5421332,5421332,0.992],   // 5,222,550 before the 2026-09-18 additive composition
+  [14,'LR','fresh',79500,83700,83700,0.95],
+  [14,'LR','mid',1899530,1946598,1946598,0.976],
+  [14,'LR','ceiling',99003150,100278025,100278025,0.987], // 95,108,000 before it
  ]);
  // Equality at both ends is the intended answer, not a coincidence: rarity N has exactly one value
  // across all five originals (20), and UR* has exactly one across its two (200), so "the measured
@@ -206,8 +209,9 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
  assert.ok(mine<best,`SSR ceiling: ${mine} is not below the strongest SSR original ${best}`);
  // 30,481,500 / 30,901,500 (0.986) before the 2026-09-18 additive Power composition; the ratio barely
  // moves because both sides take the same stars/skill re-bucketing and differ only in the hero row.
- assert.deepEqual([mine,best],[31497637,31991137]);
- assert.equal(+(mine/best).toFixed(3),0.985,'at the widest badge a crossover is 98.5% of the strongest');
+ // 31,991,137 (0.985) before the originals' free level-1 talent skills (2026-09-18).
+ assert.deepEqual([mine,best],[31497637,32311912]);
+ assert.equal(+(mine/best).toFixed(3),0.975,'at the widest badge a crossover is 97.5% of the strongest');
 });
 
 test('earnings: the appoint total equals the weakest original of the same badge, never more',()=>{

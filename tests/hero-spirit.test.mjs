@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,refusedBy,decode,settle} from '../lib/game.mjs';
-import {newFellow,bondedPower} from '../lib/adventure.mjs';
+import {newFellow,bondedPower,powerParts} from '../lib/adventure.mjs';
 import {STELLA_PROFILES,ALL_STELLA_PROFILES,STELLA_IDLE_PER_DAY,stellaRule,stellaState,stellaEntry,
  stellaBonus,stellaActivation,stellaPlan,settleStella,spiritShard,SPIRIT_SHARD_ITEM} from '../lib/stella.mjs';
 import {SPIRIT_PROFILES,SPIRIT_SHARD_OWNERS,SPIRIT_SHARD_SINK,SPIRIT_UNMODELLED,SPIRIT_COUNTRY_TYPE,
@@ -374,7 +374,10 @@ test('the own-Power percent reaches its owner and nobody else, in the SAME bucke
  assert.equal(b.percent,1472,'SUMMED into one factor, as PropManager Formula_ADD does -- not nested');
  assert.notEqual(b.percent,1350*1.22+0,'and specifically not the nested reading');
  // The composition, end to end: percent multiplies the base, then the flat is added AFTER it.
- assert.equal(bondedPower(s,'hero_194'),Math.floor(base*(1+1472/100))+b.flat);
+ // Since 2026-09-18 the climb also unlocks talent (Stella-unlocked skills, the self/bond talent halo), so the
+ // base is re-read at the climbed Aptitude: ADH x Aptitude with no percent, exactly what `base` was before.
+ const pp=powerParts(s,'hero_194'),base2=Math.floor(pp.adh*pp.aptitude);assert.ok(base2>=base);
+ assert.equal(bondedPower(s,'hero_194'),Math.floor(base2*(1+1472/100))+b.flat);
  // SCOPE. hero_21 is Inspiring too and has climbed nothing: she takes the type-wide 122 and none of
  // hero_194's 1350. This is the difference between `country` and `self`, and it is the whole risk.
  assert.deepEqual([stellaBonus(s,'hero_21').typedPercent,stellaBonus(s,'hero_21').selfPercent],[122,0]);

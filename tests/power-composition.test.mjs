@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {talentSkillParts} from '../lib/talent-skills.mjs';import assert from 'node:assert/strict';
 import {startingSave,act,valid,refusedBy} from '../lib/game.mjs';
 import {bondedPower,powerParts,composePower,levelADH,defaultADH,EVERKAI_ONLY_PARTS,STAR_POWER_BP,SKILL_POWER_BP,ladderPower,validAdventure} from '../lib/adventure.mjs';
 import {sourceCoefficient,sourceAptitudeBonus} from '../lib/original-progression.mjs';
@@ -60,7 +60,9 @@ test('NEGATIVE CONTROL: the shapes the old spine used do not reproduce the panel
 // ---------------------------------------------------------------------------------------------------
 test('every source sits in the original’s bucket, and the bucket set is exactly this',()=>{
  const p=powerParts(startingSave(NOW),'hero_1');
- assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record'].sort());
+ // + the Skill Aptitude parts (2026-09-18, lib/talent-skills.mjs): talent skills, intimacy, Stella self/bond talent,
+ // Rarity Advance's talentBonus and its stage's initial talent -- all the original's `talent` bucket.
+ assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage'].sort());
  assert.deepEqual(Object.keys(p.coefpercent),[],'no Everkai source is a talent percent (the original’s pet type 4 / aura have no Everkai analogue)');
  assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella'].sort());
  assert.deepEqual(Object.keys(p.flat).sort(),['elixir','familiar','family','fishing','stella'].sort());
@@ -72,11 +74,12 @@ test('stars and skill are PERCENT parts now, not Aptitude multipliers',()=>{
  const s=withFellow(startingSave(NOW),'hero_1',{stars:7,skill:20,aptitude:1000});
  const p=powerParts(s,'hero_1');
  assert.equal(p.talent.record,1000,'stars no longer touch Aptitude');
- assert.equal(p.aptitude,1000);
+ // Seven stars also unlock Hero_Talent_StarSkill_1..6 at level 1 since 2026-09-18: +21 talent, in `skills`.
+ assert.equal(p.talent.skills,21);assert.equal(p.aptitude,1021);
  assert.deepEqual([p.percent.stars,p.percent.skill],[7*STAR_POWER_BP,20*SKILL_POWER_BP]);
  assert.deepEqual([STAR_POWER_BP,SKILL_POWER_BP],[500,500],'Everkai’s own +5% magnitudes, unchanged');
  // x(1 + 0.35 + 1.00), the additive bucket -- the old spine was x1.35 x x2.00.
- assert.equal(bondedPower(s,'hero_1'),Math.floor(defaultADH(1)*1000*23500/10000));
+ assert.equal(bondedPower(s,'hero_1'),Math.floor(defaultADH(1)*1021*23500/10000));
 });
 
 test('Stella is counted ONCE: its percent is one part of the bucket and its flat is one flat part',()=>{
@@ -94,7 +97,10 @@ test('Stella is counted ONCE: its percent is one part of the bucket and its flat
  assert.equal(p.flat.stella,b.flat);
  // Nowhere else: every other part is zero on a Fellow with nothing but a Stella track.
  for(const bucket of ['talent','percent','flat','final'])for(const [k,v] of Object.entries(p[bucket]))
-  if(!(bucket==='talent'&&k==='record')&&k!=='stella')assert.equal(v,0,`${bucket}.${k} carries ${v} on a Stella-only Fellow`);
+  if(!(bucket==='talent'&&['record','skills','stellaTalent','stellaBond'].includes(k))&&k!=='stella')assert.equal(v,0,`${bucket}.${k} carries ${v} on a Stella-only Fellow`);
+ // Talent skills are the one exception, and a named one: the Fellow's level-1 skills and the ones its Stella ranks
+ // UNLOCK (lib/talent-skills.mjs). They are talent, never a second percent or flat.
+ assert.equal(p.talent.skills,talentSkillParts(s,id).skills);
  // And the percent reaches the ADH x Aptitude term only, never its own flat.
  assert.equal(p.power,Math.floor(p.adh*p.aptitude*(10000+p.percent.stella)/10000)+b.flat);
  assert.equal(bondedPower(s,id),p.power,'and bondedPower adds nothing on top -- no second Stella factor anywhere');
@@ -130,14 +136,16 @@ test('ONE composition in both modes; only the level column and the hero row diff
 // ---------------------------------------------------------------------------------------------------
 // THE APTITUDE CAP -- the original's measured ceiling, not a chosen number.
 // ---------------------------------------------------------------------------------------------------
-test('the Aptitude cap is the original’s own measured ceiling, 31,122, and only widens',()=>{
- assert.equal(APTITUDE_CAP,31122);
- assert.equal(APTITUDE_CAP,APTITUDE_CAP_SOURCE.cap);
+test('the Aptitude cap is the original’s own measured ceiling, 107,198, and only widens',()=>{
+ // 31,122 until 2026-09-18: that bounded Hero.json's talent skills only. The all-sources ceiling
+ // (scripts/import-talent-skills.py: every skill a hero can ever own, at its full level raise) is 107,198.
+ assert.equal(APTITUDE_CAP,107198);assert.equal(APTITUDE_CAP_SOURCE.cap,31122);
+ assert.ok(APTITUDE_CAP>=APTITUDE_CAP_SOURCE.cap,'the new cap only widens the old one');
  const [base,per,raise,cap]=APTITUDE_CAP_SOURCE.heroes[APTITUDE_CAP_SOURCE.capHero];
  assert.deepEqual([base,per,raise,cap],[5400,18,1429,31122],'5,400 at level 300 plus 18 a level x 1,429 raised levels');
  // Positive control: the hero that sets it SHIPS, so the cap is reachable by a real Everkai Fellow.
  const shipped=Math.max(...ORIGINAL_FELLOWS.map(f=>APTITUDE_CAP_SOURCE.heroes[f.id]?.[3]??0));
- assert.equal(shipped,APTITUDE_CAP,'the maximum over the 111 shipped originals is the same number');
+ assert.equal(shipped,APTITUDE_CAP_SOURCE.cap,'the maximum over the 111 shipped originals is the same number');
  assert.ok(APTITUDE_CAP>=LEGACY_APTITUDE_CAP,'never below a value a real save holds');
 });
 
@@ -211,7 +219,8 @@ test('the worst reachable Power stays inside every stored-value bound that holds
   // lib/adventure.mjs lastBattle.power (1e18), the ladder Power.
   assert.ok(m.ladder<1e18,`${mode}: ladder Power ${m.ladder} would break lastBattle`);
  }
- // The margins, pinned: ~100x under the Expo bound for one Fellow, ~2,000x under 1e15 for a roster.
- assert.deepEqual(measured,{default:{fellow:1166117215,roster:56556832299,ladder:5655683229900},
-  apk:{fellow:10060013132,roster:480946676241,ladder:480946676241}});
+ // The margins, pinned: ~30x under the Expo bound for one Fellow, ~620x under 1e15 for a roster (~100x and
+ // ~2,000x before 2026-09-18, when the cap was 31,122 rather than 107,198 and talent skills did not exist).
+ assert.deepEqual(measured,{default:{fellow:3402303856,roster:166640887263,ladder:16664088726300},
+  apk:{fellow:33044690146,roster:1612475828631,ladder:1612475828631}});
 });

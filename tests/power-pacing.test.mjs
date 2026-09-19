@@ -36,9 +36,10 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
  const s=JSON.parse(load('power-save-3d47df4-day30.json.gz'));
  // The Power the previous build measured, against what this build derives for the same Fellow today.
  const r=s.mineClearance.history.at(-1);
- assert.deepEqual([r.owner,r.power,bondedPower(s,r.owner)],['hero_195',350926067,234476657]);
+ // 234,476,657 before the 2026-09-18 talent skills (level-1 skills + star skills + Stella talent halo).
+ assert.deepEqual([r.owner,r.power,bondedPower(s,r.owner)],['hero_195',350926067,255301823]);
  const t=s.tradingPost.history.at(-1).team[0];
- assert.deepEqual([t.id,t.power,bondedPower(s,t.id)],['hero_122',74575030,57557802]);
+ assert.deepEqual([t.id,t.power,bondedPower(s,t.id)],['hero_122',74575030,57587893]);
  assert.equal(validMine(s),true);assert.equal(validTradingPost(s),true);
  // NEGATIVE CONTROL: the validators still bite. A receipt whose `after` overshoots its own stored power,
  // and a duel whose `won` contradicts its own stored power, are refused.
@@ -66,14 +67,23 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
 // against 16-17 uncapped). The day-30/90/180 figures equal, to the unit, the "composition only" run in
 // 9.6, which held the sim's Aptitude policy at 1,000 -- the cap does exactly that and nothing else.
 // ---------------------------------------------------------------------------------------------------
+// POWER SOURCES (docs/power-sources-import-spec.md), step by step. The three fixtures below are still the saves
+// c5b4477's sim wrote; `now` is what THIS build derives from them (Power is derived, so it moves with every
+// source even on an unchanged save), and `c5b4477` is what that build derived from the same bytes -- the
+// before of the power-sources work. The saves are re-simulated with this build's sources once they all land.
+//   step 1, Skill Aptitude: every original's level-1 talent skills, star skills, Stella-unlocked skills and
+//   the Stella self/bond talent halos. No saved Fellow had bought a talent-skill level, so this is the FREE part.
 const PINS=[
- {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2389304771,top:250711886,bottom:9053181,fellows:25},
+  c5b4477:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
   uncapped:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
   before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
- {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:6046504600,top:375290895,bottom:26810389,fellows:30},
+  c5b4477:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
   uncapped:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
   before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
- {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:6913417941,top:377781758,bottom:27192859,fellows:30},
+  c5b4477:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
   uncapped:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
   before:{goldPerSecond:8248950146,top:460219606,bottom:20331834,fellows:31}},
 ];
