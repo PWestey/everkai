@@ -5,6 +5,7 @@ import {stellaRule,stellaState,validStella,SPIRIT_SHARD_ITEM} from '../lib/stell
 import {TALENT_SKILLS,STAR_TALENT_SKILLS,SKILL_PEARL,heroTalentSkills,talentSkillParts,talentSkillCap,talentSkillPlan,talentSkillLevel,validTalentSkills} from '../lib/talent-skills.mjs';
 import {magicRule,pledgeRule,magicBonus,heroAdvanceSpend,validHeroAdvance} from '../lib/hero-advance.mjs';
 import {APTITUDE_CAP,LEGACY_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';
+import {familyLimitBound} from '../lib/family-stella.mjs';
 import {insightRule} from '../lib/insight.mjs';
 import {refundPlan} from '../lib/fellow-reset.mjs';
 import {ORIGINAL_FELLOWS} from '../lib/catalog.mjs';
@@ -107,7 +108,11 @@ test('validTalentSkills refuses what no level could be (negative controls)',()=>
  const s=set(owner('hero_264'),'hero_264',{talentSkills:{Hero264_Talent_Bonus1:400}});assert.equal(validTalentSkills(s),true);
  assert.equal(validTalentSkills(set(s,'hero_264',{talentSkills:{Hero_Talent_Base_3:5}})),false,'Base_N belongs to lib/talents.mjs');
  assert.equal(validTalentSkills(set(s,'hero_264',{talentSkills:{Hero264_Talent_Bonus1:1}})),false,'level 1 is free and never stored');
- assert.equal(validTalentSkills(set(s,'hero_264',{talentSkills:{Hero264_Talent_Bonus1:401}})),false,'above 300 + the largest limit');
+ // The bound is 300 + the largest Stella limit (100) + the largest Family Stella limit any member blessing her
+ // can give (300 for Shinobu, lib/family-stella.mjs familyLimitBound): 700.
+ assert.equal(familyLimitBound('hero_264'),300);
+ assert.equal(validTalentSkills(set(s,'hero_264',{talentSkills:{Hero264_Talent_Bonus1:700}})),true);
+ assert.equal(validTalentSkills(set(s,'hero_264',{talentSkills:{Hero264_Talent_Bonus1:701}})),false,'above 300 + the largest limit');
  assert.equal(validTalentSkills(set(s,'hero_264',{talentSkills:{Hero114_Talent_Bonus1:2}})),false,'another hero’s skill');
 });
 

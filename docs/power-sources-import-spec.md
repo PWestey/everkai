@@ -754,3 +754,37 @@ reproduce the tables to the unit: 481,000 / 800 / 25 and 1,731,000 / 800 / 86 (t
 
 Pacing fixtures re-read (derived only): day 30 bottom 9,053,181 → **9,426,818**, top 250,711,886 →
 252,405,961; day 90 26,810,389 → 27,181,682; day 180 27,192,859 → 27,342,290.
+
+### Step 3 — Family Stella and artifact quenching (lib/family-stella*.mjs, lib/quench.mjs)
+
+What landed:
+- **Family Stella** (`scripts/import-family-stella.py` → `lib/family-stella-data.json`: WifeSpirit, 89
+  members, 21/41 ranks): each rank's cumulative NewHalo_2 talent, NewHalo_3 atk percent and NewHalo_4
+  talent-level-cap raise reach the Fellows that member blesses. Paid from the shared Stella shard pool at the
+  original's own count per rank (§7 question 4's recommendation); the spend is derived from stored ranks and
+  `validStella` subtracts it. NewHalo_4 widens both the Base_N talent cap and every talent skill's cap.
+- **Stella-unlocked blessing pairs** as a SEPARATE derived set (§3.4 / §7 question 5): the 58 WifeBless rows
+  with `heroSpiriteUnlock` open once the Fellow's own Stella reaches the level, and pay the member's current
+  ladder value less whatever `blessingPower` already pays that pair. `source.recipients` is untouched and the
+  recipients-equality guard still holds (tested with a real APK blessing record).
+- **Quenching, deterministic** (docs/artifact-quenching.md recommendation 3): a slot steps up the
+  EquipmentQuenching ladder; reaching row r costs the gold of the expected Normal rolls to a country-matched
+  rise ≥ r (ceil(5/P)), each at its own EquipmentQuenchingConsume price: 500 for 83 gold, 1,500 for 6.74e9,
+  1,600 for 1.46e12; 1,700 would cost 2.3e19 > MAX_GOLD, so the gold track tops out at **1,600 a slot**
+  (16,000 bp on a ten-slot artifact vs the owner's 17,000/18,000). Refund keeps it (gold is never refunded).
+- **Not paid, stated**: WifeSpirit NewHalo_1 (`city | yield percent`, business income — its per-rank size is
+  in the data file; importing it would compound village income), AddValue intimacy/charm and AddCustomBless
+  (24 ids no table resolves). The High quench track (one stone a roll): Everkai's only stone faucet is three
+  Journey rewards.
+
+Owner panels after step 3 (Shinobu: member 185 rank 13 + 105 rank 4 = 365 talent / 15,500 bp, her quench
+slots capped at 1,600 = 15,800 bp; Orivita: 115 r13 + 112 r10 + 101 r10 = 142 / 7,400, the wife-115 pair at his
+ladder levels = 2,525,000 / 6,800 bp, quench 15,800):
+
+| | Shinobu | of target | Orivita | of target |
+|---|---|---|---|---|
+| after step 2 | 1,737,398,360 | 65.2% | 290,725,159 | 63.6% |
+| after step 3 | **2,166,517,284** | **81.3%** | **356,881,655** | **78.1%** |
+
+Pacing fixtures re-read: no Fellow in them holds Family Stella or quench; only the unlocked pairs move them
+(day-30 top 252,405,961 → 252,408,561).

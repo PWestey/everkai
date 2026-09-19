@@ -128,7 +128,7 @@ test('the powerParts extractor still works (guards this whole file against a sil
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('powerParts reads exactly these fourteen contributors, and no others',()=>{
+test('powerParts reads exactly these seventeen contributors, and no others',()=>{
  // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
  // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
  // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
@@ -149,6 +149,9 @@ test('powerParts reads exactly these fourteen contributors, and no others',()=>{
   'specialAptitude',      // talent  -- family special blessing
   'stellaBonus',          // flat + percent -- the panel's extradd and the hidden percent/underlingskillpower
   'talentSkillParts',     // talent  -- every talent skill, intimacy, Stella self/bond talent, Rarity Advance (2026-09-18)
+  'familyStellaParts',    // talent + percent -- Family Stella (WifeSpirit), 2026-09-18
+  'familyPairBlessing',   // flat + percent -- the Stella-unlocked blessing pairs, a separate set (spec 3.4)
+  'quenchPercent',        // percent -- deterministic artifact quenching
  ].sort());
 });
 

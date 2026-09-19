@@ -37,8 +37,9 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
  // The Power the previous build measured, against what this build derives for the same Fellow today.
  const r=s.mineClearance.history.at(-1);
  // 234,476,657 before the 2026-09-18 talent skills (level-1 skills + star skills + Stella talent halo);
- // 255,301,823 before the account floor (fish at their original scope, relic flats).
- assert.deepEqual([r.owner,r.power,bondedPower(s,r.owner)],['hero_195',350926067,257056838]);
+ // 255,301,823 before the account floor (fish at their original scope, relic flats); 257,056,838 before the
+ // Stella-unlocked blessing pairs.
+ assert.deepEqual([r.owner,r.power,bondedPower(s,r.owner)],['hero_195',350926067,257057838]);
  const t=s.tradingPost.history.at(-1).team[0];
  assert.deepEqual([t.id,t.power,bondedPower(s,t.id)],['hero_122',74575030,57744962]);
  assert.equal(validMine(s),true);assert.equal(validTradingPost(s),true);
@@ -76,16 +77,18 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
 //   the Stella self/bond talent halos. No saved Fellow had bought a talent-skill level, so this is the FREE part.
 //   step 2, account floor: fish skills read at their original scope (+ Gold Crown at level 1 for Gold-band
 //   catches), relic flats, scoped relic talent. Day 30 bottom 9,053,181 -> 9,426,818.
+//   step 3, Family Stella + quenching: nobody in these saves holds either, so only the Stella-unlocked
+//   blessing pairs move them (day 30 top 252,405,961 -> 252,408,561).
 const PINS=[
- {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2409261077,top:252405961,bottom:9426818,fellows:25},
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2409265817,top:252408561,bottom:9426818,fellows:25},
   c5b4477:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
   uncapped:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
   before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
- {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:6073654503,top:378011467,bottom:27181682,fellows:30},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:6073904802,top:378011467,bottom:27181682,fellows:30},
   c5b4477:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
   uncapped:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
   before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
- {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:6894464494,top:378650501,bottom:27342290,fellows:30},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:6896786705,top:378650501,bottom:27342290,fellows:30},
   c5b4477:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
   uncapped:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
   before:{goldPerSecond:8248950146,top:460219606,bottom:20331834,fellows:31}},

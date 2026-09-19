@@ -62,10 +62,11 @@ test('every source sits in the original’s bucket, and the bucket set is exactl
  const p=powerParts(startingSave(NOW),'hero_1');
  // + the Skill Aptitude parts (2026-09-18, lib/talent-skills.mjs): talent skills, intimacy, Stella self/bond talent,
  // Rarity Advance's talentBonus and its stage's initial talent -- all the original's `talent` bucket.
- assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage'].sort());
+ assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella'].sort());
  assert.deepEqual(Object.keys(p.coefpercent),[],'no Everkai source is a talent percent (the original’s pet type 4 / aura have no Everkai analogue)');
- assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella'].sort());
- assert.deepEqual(Object.keys(p.flat).sort(),['elixir','familiar','family','fishing','stella','museum'].sort(),'museum: the relic flat, 2026-09-18');
+ // + Family Stella, the Stella-unlocked pairs and quenching (2026-09-18, spec 3): all the original's `percent`.
+ assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella','familyStella','familyPair','quench'].sort());
+ assert.deepEqual(Object.keys(p.flat).sort(),['elixir','familiar','family','fishing','stella','museum','familyPair'].sort(),'museum: the relic flat; familyPair: the Stella-unlocked pairs (2026-09-18)');
  assert.deepEqual(Object.keys(p.final).sort(),['familiar','museum'].sort());
  assert.deepEqual(EVERKAI_ONLY_PARTS,['familiar']);
 });
