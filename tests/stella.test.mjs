@@ -1,3 +1,4 @@
+import {powerParts} from '../lib/adventure.mjs';
 import test from 'node:test';import {withItems,grantFragments} from './progression-helpers.mjs';import assert from 'node:assert/strict';import {fresh,act,valid,decode,settle,totalRate} from '../lib/game.mjs';import {newFellow,bondedPower} from '../lib/adventure.mjs';import {STELLA_PROFILES,stellaState,stellaEntry,stellaPlan,stellaBonus,STELLA_IDLE_PER_DAY} from '../lib/stella.mjs';import {createPersistence} from '../lib/persistence.mjs';import {BUSINESSES} from '../lib/businesses.mjs';import {FELLOWS} from '../lib/catalog.mjs';import SOURCE from '../lib/stella-data.json' with {type:'json'};
 const result=(s,a,id='hero_54',count=1)=>act(s,a,s.lastAt,id,{seq:stellaState(s).seq,count}),go=(s,a,id='hero_54',count=1)=>{const r=result(s,a,id,count);assert.equal(r.error,undefined);assert.ok(valid(r.state),a);return r.state;};
 // hero_52 (Angie) and hero_102 (Jewlry) were both deleted in the owner's 2026-09-17 roster trim, so a
@@ -59,7 +60,10 @@ test('all 111 owned Fellows receive each latest typed contribution exactly once'
  // after the typed multiplier, not inside it (lib/stella.mjs applyStella, PropManager.lua:116). Only
  // the three LEGACY owners are climbed here, so every other Fellow's own flat is still zero and the
  // assertion is exactly the typed-contribution one it has always been.
- for(const f of FELLOWS){const owner=OWNABLE.find(p=>p.id===f.id),typed=OWNABLE.filter(p=>p.type===f.type),flat=owner?2500000:0,percent=typed.length*17;assert.equal(bondedPower(s,f.id),Math.floor(bondedPower(base,f.id)*(1+percent/100))+flat,f.id);}
+ // Since step 4 every owned hero's star halos add a percent to BOTH states, so the typed percent is checked the
+ // additive way -- one more part of the same bucket -- rather than as a factor on the base's Power.
+ const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
+ for(const f of FELLOWS){const owner=OWNABLE.find(p=>p.id===f.id),typed=OWNABLE.filter(p=>p.type===f.type),flat=owner?2500000:0,percent=typed.length*17,pb=powerParts(base,f.id);assert.equal(bondedPower(s,f.id),Math.floor(pb.adh*pb.aptitude*(10000+sum(pb.percent)+percent*100)/10000)+sum(pb.flat)+flat,f.id);}
 });
 test('Elise has separate zero activation, 1500 paid total, cap20 and mixed historical owners',()=>{
  let s=setup();s=go(s,'stellaActivate','hero_54');delete s.stella.history[0].activationPolicy;s.stella.history[0].percent=3;const legacy=structuredClone(s.stella.history);

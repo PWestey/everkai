@@ -788,3 +788,58 @@ ladder levels = 2,525,000 / 6,800 bp, quench 15,800):
 
 Pacing fixtures re-read: no Fellow in them holds Family Stella or quench; only the unlocked pairs move them
 (day-30 top 252,405,961 → 252,408,561).
+
+**Step 2 pacing, measured by the sim** at 60079d7, day 30: gold/s 4,180,424,370, **top 717,254,458**
+(hero_195), **bottom 6,251,001** (hero_68), 35 Fellows, **10,800 pearls** (the 360/day limit held exactly).
+The top Fellow decomposes as ADH 8,627 × Aptitude 7,373 (5,202 of it pearl-trained talent skills) ×
+(1 + 785%) + 154M flat, and the 785% is Stella 537% + **fishing 129%** + Everkai-only skill 100% + bonds 14%.
+The fishing figure was the defect: 12,900 bp against the owner's 1,250-3,250, because pooled research
+points let the sim pour every duplicate into the few percent fish. The owner's save keeps `normalExp` on each
+fish record (his F1101 at level 7 is exactly its own 9 catches), so FishExp is PER SPECIES; fixed in step 4's
+commit (below).
+
+### Step 4 — stars, star halos, Origin Boost (lib/hero-stars.mjs)
+
+What landed:
+- **HeroStar at read time** (`scripts/import-hero-stars.py` → `lib/hero-star-data.json`): Everkai keeps its 7
+  stars and STAR_COSTS (refunds depend on them, §7 question 7); a star pays HeroStar's row — star 7 clamps to
+  6 — as percent AND flat (★3: +3,000 bp, +1,500,000), and **only once the Fellow's level reaches the
+  original's gate** (300 / 300 / 400 / 550 / 700 / 750). A gated star is stored and legal, just inactive.
+  Star skills unlock on the counted star too.
+- **Star halos**: every owned hero broadcasts its `heroStarHaloSkill` rows at the halo level its own counted
+  star gives (level 1 at no stars, 7 at six), scoped country / Hero.json rarity / HeroBond group / all /
+  self; Rarity Advance stages add or swap halos. Shipped: `atk percent`, `talent`, `talentpercent`.
+  **Held out, owner-confirmed: the 211 `atk finalpercent` rows.** A crossover Fellow receives only the `all`
+  rows (a typed broadcast onto additions is the type lever the crossover slice removed; tested).
+- **Roster-wide size of the broadcast (the owner's follow-up):** on the day-30 pacing save (25 Fellows) the
+  halos a Fellow receives run 0-6,800 bp, mean 672 bp; raising any ONE hero from 0 to 6 stars lifts another
+  Fellow's Power by at most **0.77%** (hero_195's halos), 0.06% on average. On the fully maxed 111-Fellow
+  roster at seven stars each, a Fellow receives +4,500 bp (Kaity: country 5 + all + rarity). No tens-of-percent
+  roster jump from one Fellow's stars.
+- **Origin Boost** (HeroLRSpSkill, 251/260/263/264): +5 talent a level, +2,000 bp at 50 and 100, +250
+  talentpercent every 50 from 150; 10 shared Stella shards a level (same local rule as Rarity Advance; the
+  original's hero-own item has no Everkai faucet). Shinobu at 244 reproduces 1,220 / 4,000 / 500 exactly.
+- Rarity Advance itself landed in step 1 (its stage decides the talent-skill set).
+- **Correction folded in (measured by the step-2 sim): fish levels past 3 need the species' own FishExp** —
+  its own researched duplicates, 1 each, on top of the pooled points. Old saves (levels ≤ 3) are unaffected.
+- Not shipped, stated: `talentLvLimit` halos (7), city/appointment/education/date/tower halos (business or
+  other systems), the `atk finalpercent` rows.
+
+Owner panels after step 4 (his stars 3 on both, HeroStar ★3 in place of Everkai's old 1,500 bp; the halos his
+58 Everkai-shipped heroes broadcast with the other 56 at no stars — a floor on his aura; Shinobu's Origin 244):
+
+| | Shinobu | of 2,665,123,377 | Orivita | of 456,778,931 |
+|---|---|---|---|---|
+| S0 (Everkai before) | 649,089,376 | 24.4% | 260,690,340 | 57.1% |
+| step 1 Skill Aptitude | 1,736,049,588 | 65.1% | 287,025,269 | 62.8% |
+| step 2 floor | 1,737,398,360 | 65.2% | 290,725,159 | 63.6% |
+| step 3 Family Stella + quench | 2,166,517,284 | 81.3% | 356,881,655 | 78.1% |
+| **step 4 stars + halos + Origin** | **2,759,798,500** | **103.6%** | **363,160,718** | **79.5%** |
+| what-if: without Everkai-only skill%/bonds (§7 q6, not shipped) | 2,618,202,500 | 98.2% | 341,920,436 | 74.9% |
+
+Shinobu now reaches her panel (103.6%, 98.2% without Everkai's own skill percent). Orivita stays at ~80%: her
+remaining gap is the §5 residual (familiar, `bond:5` talent, advance-road growth) and the aura the owner's
+other heroes' stars would give her, which this floor counts at no stars.
+
+Pacing fixtures re-read by step 4: day 30 top 252,408,561 → 263,817,560, bottom 9,426,818 → 9,410,416 (one
+Fellow's star is now below its level gate).

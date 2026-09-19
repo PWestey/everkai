@@ -372,8 +372,11 @@ test('RULE 12: a previous-build save whose mine receipt was dug at the OLD typed
  // (lib/adventure.mjs powerParts): its 7 stars (+35%) and skill 20 (+100%) now ADD in one percent bucket
  // -- 1 + 0.35 + 1.00 = x2.35 -- where they used to multiply, x1.35 x x2 = x2.70. A second derived move
  // on the same stored receipt, which is exactly why this test decodes the save rather than trusting it.
- assert.equal(bondedPower(s,id),3543800);
- assert.equal(+(receipt.power/bondedPower(s,id)).toFixed(2),3.26,'the type sum AND the additive stars/skill');
+ // A THIRD derived move, step 4 (2026-09-18): its seven stars now pay HeroStar's six at its level (+6,000 bp and
+ // +7,500,000 flat) and the roster's `all` star halos reach it -- 3,543,800 before. The receipt, 11,563,344,
+ // is still checked as stored, which is the whole point; the Fellow simply stands near it again.
+ assert.equal(bondedPower(s,id),11511280);
+ assert.equal(+(receipt.power/bondedPower(s,id)).toFixed(2),1,'3.26 before step 4');
  // ...and the save still loads, with nothing quarantined. It is no longer a BYTE-IDENTICAL round trip,
  // and that is the 2026-09-17 roster trim rather than anything to do with Stella or the mine: this
  // fixture owns nearly the whole original roster, so 48 of its Fellows are now released on load and

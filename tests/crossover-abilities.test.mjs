@@ -192,10 +192,13 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
   // Originals now also own their talent SKILLS (lib/talent-skills.mjs, 2026-09-18): every unlocked skill
   // starts at level 1, free, and stars unlock the star skills. A crossover has no HeroN row, so none, and
   // the rows that were exactly equal now sit just below the weakest original -- the rule this test holds.
-  [1,'N','ceiling',5375683,5421332,5421332,0.992],   // 5,222,550 before the 2026-09-18 additive composition
-  [14,'LR','fresh',79500,83700,83700,0.95],
-  [14,'LR','mid',1899530,1946598,1946598,0.976],
-  [14,'LR','ceiling',99003150,100278025,100278025,0.987], // 95,108,000 before it
+  // STEP 4 (2026-09-18): stars pay HeroStar's rows only past their level gates (the N ceiling sits below level
+  // 300, so its seven stars pay nothing and the two sides meet again), and the roster's star halos reach an
+  // original by country, rarity and bond but an addition only through `all` -- so at LR the originals spread.
+  [1,'N','ceiling',4575050,4575050,4575050,1],   // 5,222,550 before the additive composition; 5,375,683 / 5,421,332 before step 4
+  [14,'LR','fresh',79500,94581,98766,0.841],
+  [14,'LR','mid',1899530,2199655,2296985,0.864],
+  [14,'LR','ceiling',117035400,139354935,147889235,0.84], // 95,108,000 before it; 99,003,150 / 100,278,025 before step 4
  ]);
  // Equality at both ends is the intended answer, not a coincidence: rarity N has exactly one value
  // across all five originals (20), and UR* has exactly one across its two (200), so "the measured
@@ -210,8 +213,8 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
  // 30,481,500 / 30,901,500 (0.986) before the 2026-09-18 additive Power composition; the ratio barely
  // moves because both sides take the same stars/skill re-bucketing and differ only in the hero row.
  // 31,991,137 (0.985) before the originals' free level-1 talent skills (2026-09-18).
- assert.deepEqual([mine,best],[31497637,32311912]);
- assert.equal(+(mine/best).toFixed(3),0.975,'at the widest badge a crossover is 97.5% of the strongest');
+ assert.deepEqual([mine,best],[32327475,37508175]);
+ assert.equal(+(mine/best).toFixed(3),0.862,'at the widest badge a crossover is 97.5% of the strongest');
 });
 
 test('earnings: the appoint total equals the weakest original of the same badge, never more',()=>{

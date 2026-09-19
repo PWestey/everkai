@@ -40,7 +40,11 @@ test('a star raises both Power and village earnings, not just one of them',()=>{
  const power=bondedPower(s,'hero_15'),gold=totalRate(s),fish=buildingRate(s,'fish');
  assert.ok(gold>0&&fish>0&&power>0,'hero_15 works the fish building on a fresh save');
  s=buy(s,'hero_15');
- assert.ok(bondedPower(s,'hero_15')>power,'Power rose');
+ // Since step 4 (2026-09-18) a star pays HeroStar's row only once the Fellow reaches the original's level gate
+ // (300 for the first star): at level 1 it is stored, legal and inactive for Power -- earnings still rise.
+ assert.equal(bondedPower(s,'hero_15'),power,'Power waits for the level gate');
+ const at300=f=>({...s,fellows:{...s.fellows,hero_15:{...s.fellows.hero_15,level:300,...f}}});
+ assert.ok(bondedPower(at300({}),'hero_15')>bondedPower(at300({stars:0}),'hero_15'),'Power rose once the gate is met');
  assert.ok(buildingRate(s,'fish')>fish,'gold per second rose');
  assert.ok(totalRate(s)>gold,'village earnings rose');
  const f=s.fellows.hero_15;

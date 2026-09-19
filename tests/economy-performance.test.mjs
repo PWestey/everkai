@@ -3,6 +3,7 @@ import {fresh,totalRate,settle,valid,buildingRate} from '../lib/game.mjs';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 import {newFellow,fellowPower} from '../lib/adventure.mjs';
 import {talentSkillAptitude} from '../lib/talent-skills.mjs';
+import {starHaloParts} from '../lib/hero-stars.mjs';
 import {BUSINESSES,enterpriseRate} from '../lib/businesses.mjs';
 import {affinityIds,referenceFor} from '../lib/public-reference.mjs';
 import {BLESSINGS} from '../lib/blessings.mjs';
@@ -16,7 +17,10 @@ function oldPower(s,id){let flat=0,percent=0;
  const bond=1+Object.entries(s.bonds).filter(([family,b])=>(b.original?oldAffinity(family):b.fellow?[b.fellow]:[]).filter(f=>Object.hasOwn(s.fellows,f)).includes(id)).reduce((n,[,b])=>n+b.level*.02,0);
  // Talent skills (2026-09-18) are Aptitude the record does not hold: level-1 skills and the intimacy skill,
  // whose degree is the same family bond level summed above.
- return Math.floor(fellowPower({...s.fellows[id],aptitude:s.fellows[id].aptitude+talentSkillAptitude(s,id)})*(bond+percent)+flat);
+ // And since step 4 every owned hero's star halos broadcast at level 1 (lib/hero-stars.mjs): talent, a talent
+ // percent on the Aptitude, and a Power percent in the same bucket as the blessing percent.
+ const halo=starHaloParts(s,id),apt=Math.floor((s.fellows[id].aptitude+talentSkillAptitude(s,id)+halo.talent)*(10000+halo.coef)/10000);
+ return Math.floor(fellowPower({...s.fellows[id],aptitude:apt})*(bond+percent+halo.percent/10000)+flat);
 }
 const oldOperation=s=>Object.keys(s.fellows).reduce((n,id)=>n+oldPower(s,id)/1000,0);
 test('full-roster optimized income equals prior arithmetic exactly',()=>{

@@ -490,7 +490,7 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
  // at level 1 (stage 0 moves by that, +11,918) and every Stella rank pays its self/bond talent halo -- the
  // bond column reaches every member of a HeroBond group from every owner, which is most of stage 1's move.
  // It was [1,317,357, 14,143,031, 14,461,838, 14,537,869].
- assert.deepEqual([c.stage0,c.stage1,c.stage2,c.stage3],[1329275,17778070,18407258,18499003],
+ assert.deepEqual([c.stage0,c.stage1,c.stage2,c.stage3],[2844776,20082540,20713775,20816140],
   'if this drifts, nothing measured on top of it means anything');
  assert.equal(c.notes.stellaTracks,111,'every shipped original Fellow maxed a ladder of its own');
  // Stage 4 -- the shared crossover shard track -- is still a no-op with no crossover Fellow in the
@@ -500,7 +500,7 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
  assert.deepEqual(c.notes,{stellaTracks:111,originalFamily:107,funded:107,trained:200,echoes:27});
  assert.equal(c.notes.shardTracksMaxed,undefined,'and the CROSSOVER track must not even record a note');
  assert.ok(c.valid,c.refusedBy);
- assert.equal(c.ceiling,18499003,'26,956,296, then 14,537,869, before the 2026-09-18 talent skills');
+ assert.equal(c.ceiling,20816140,'26,956,296, then 14,537,869, before the 2026-09-18 talent skills');
 
  // *** THE TWO PINS, RE-ANCHORED 2026-09-18. Read the comments on both constants before using either.
  //
@@ -509,7 +509,7 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
  // taken for a single hero's power and it is a ROSTER TOTAL of 3.497 billion. It is kept because a
  // maxed village against a real account is a useful, dated, stable comparison -- not because 7.7x is
  // an overshoot of anything.
- assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE_PACING).toFixed(3),5.29,'4.157 before the 2026-09-18 talent skills');
+ assert.equal(+(c.ceiling/ORIGINAL_LIVE_SAVE_PACING).toFixed(3),5.952,'4.157 before the 2026-09-18 talent skills');
  // 7.708 before the 2026-09-18 additive composition;
  // 1.331 before the 2026-09-18 Stella tracks; 4.473 after them; 1.992 before the roster trim.
 
@@ -519,25 +519,25 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
  // system for the 126 heroes of 181 that have it, so it is a FLOOR on the original's ceiling and 1.945
  // is an UPPER bound on the overshoot.
  assert.equal(ORIGINAL_SPIRIT_TABLE_MAX,13861950);
- assert.equal(+(c.ceiling/ORIGINAL_SPIRIT_TABLE_MAX).toFixed(3),1.335,'1.945 before the 2026-09-18 additive composition, 1.049 before its talent skills');
+ assert.equal(+(c.ceiling/ORIGINAL_SPIRIT_TABLE_MAX).toFixed(3),1.502,'1.945 before the 2026-09-18 additive composition, 1.049 before its talent skills');
  // PIN 2, per FELLOW -- the number the owner actually reported, and what the audit recommends as the
  // replacement target. His best original hero after a few weeks was ~300,000,000 and 70-90% of it was
  // one term: that hero's Spirit `extradd`, whose table maximum is 223,500,000.
  assert.equal(ORIGINAL_BEST_SPIRIT_FLAT,223500000);
- assert.equal(c.fellow.top,366605416,'623,250,916 before the 2026-09-18 additive composition, 285,273,823 before its talent skills');
- assert.equal(+(c.fellow.top/ORIGINAL_OWNER_BEST_HERO).toFixed(3),1.222,
+ assert.equal(c.fellow.top,401355307,'623,250,916 before the 2026-09-18 additive composition, 285,273,823 before its talent skills');
+ assert.equal(+(c.fellow.top/ORIGINAL_OWNER_BEST_HERO).toFixed(3),1.338,
   'a fully maxed Everkai Fellow against the owner’s remembered best original hero');
- assert.equal(c.fellow.weakest,26377014,'and the floor, which is the other number he reported (>5M); 28,900,470, then 26,274,696, before 2026-09-18');
+ assert.equal(c.fellow.weakest,36505458,'and the floor, which is the other number he reported (>5M); 28,900,470, then 26,274,696, before 2026-09-18');
 
  // *** THE COMPOUND, which neither pin above shows. `ceiling` is rosterOperation -- one factor of
  // village income. The imported appointment column lifts the OTHER factor, and the two multiply.
  assert.equal(c.village.appointBp,2321200,'+232.12x on the appointment strand, summed over every owner');
  assert.equal(c.village.bonusMax,932,'the biggest business multiplier reached: x933.5, from x5.0');
- assert.equal(c.village.goldPerSecond,93574280309,'136,303,836,126 before the 2026-09-18 additive composition, 73,561,078,749 before its talent skills');
+ assert.equal(c.village.goldPerSecond,105281363751,'136,303,836,126 before the 2026-09-18 additive composition, 73,561,078,749 before its talent skills');
  assert.ok(c.village.valid,c.village.refusedBy);
  // Stated as a ratio so it cannot be read off the rosterOperation move alone: 604,518,962 gold/s before
  // this slice, 136,303,836,126 after. rosterOperation moved x1.72; village income moved x225.
- assert.equal(Math.round(c.village.goldPerSecond/604518962),155,'225 before the 2026-09-18 additive composition, 122 before its talent skills');
+ assert.equal(Math.round(c.village.goldPerSecond/604518962),174,'225 before the 2026-09-18 additive composition, 122 before its talent skills');
 });
 
 // *** THE MEASURED FLAG-ON CEILING, RE-MEASURED 2026-09-17 AFTER THE STELLA TYPE FIX AND THE SHARD
@@ -591,7 +591,7 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
 // crossover half is untouched -- all 163 still ship, their rarity ladder re-measured to the same
 // numbers (scripts/crossover/build-abilities.mjs) -- so the ratio RISES as a pure arithmetic effect
 // of a smaller original roster, not because anything about a crossover Fellow changed.
-test('flag ON: the ceiling is 24,835,166 -- and rosterOperation is only HALF of what moved',()=>{
+test('flag ON: the ceiling is 28,362,563 -- and rosterOperation is only HALF of what moved',()=>{
  const {ceiling}=flagOn();
  // REBASELINED 2026-09-18 TWICE: 11,696,717 before the Stella tracks, 22,684,041 after them, and
  // 33,997,375 once the three deferred columns were imported. The move is the same one as the flag-off
@@ -603,31 +603,31 @@ test('flag ON: the ceiling is 24,835,166 -- and rosterOperation is only HALF of 
  // second pin against the original's own table maximum, which is `vsTableMax`.
  // REBASELINED 2026-09-18 (Power on the original's composition): 33,997,375 / 9.7211 / 2.453 before.
  // 20,874,032 / 5.9687 / 1.506 before the 2026-09-18 talent skills (the originals' half moved; see above).
- assert.equal(ceiling.ceiling,24835166);
- assert.equal(ceiling.ratio,7.1013,'PACING against one real save -- not a parity budget');
- assert.equal(ceiling.vsTableMax,1.792,'against the original own Spirit table at its top (a FLOOR on its ceiling)');
+ assert.equal(ceiling.ceiling,28362563);
+ assert.equal(ceiling.ratio,8.1099,'PACING against one real save -- not a parity budget');
+ assert.equal(ceiling.vsTableMax,2.046,'against the original own Spirit table at its top (a FLOOR on its ceiling)');
  assert.equal(ceiling.original,3497276,'the same denominator the flag-off control uses');
  assert.equal(ceiling.tableMax,13861950,'and the same table maximum');
  // *** AND THE COMPOUND, which the ceiling number cannot show. The imported appointment column lifts
  // the OTHER factor of village income, so the two multiply: rosterOperation moved x1.50 flag-on while
  // gold/s moved from 876,304,628 to 171,878,129,494, i.e. x196.
  assert.equal(ceiling.village.appointBp,2321200);
- assert.equal(ceiling.village.goldPerSecond,125587059652,'171,878,129,494, then 105,573,858,091, before 2026-09-18');
- assert.equal(Math.round(ceiling.village.goldPerSecond/876304628),143,'x196, then x120, before 2026-09-18');
- assert.equal(ceiling.fellow.top,366605416,'one maxed Fellow, against the owner’s remembered 300,000,000');
- assert.equal(ceiling.stage3,20140266,'the roster before the crossover shard track (29,302,475, then 16,179,132, before 2026-09-18)');
+ assert.equal(ceiling.village.goldPerSecond,143408852632,'171,878,129,494, then 105,573,858,091, before 2026-09-18');
+ assert.equal(Math.round(ceiling.village.goldPerSecond/876304628),164,'x196, then x120, before 2026-09-18');
+ assert.equal(ceiling.fellow.top,401355307,'one maxed Fellow, against the owner’s remembered 300,000,000');
+ assert.equal(ceiling.stage3,23667663,'the roster before the crossover shard track (29,302,475, then 16,179,132, before 2026-09-18)');
  assert.equal(ceiling.ceiling-ceiling.stage3,4694900,'the crossover track is still worth exactly 133 x 35,300');
  assert.equal(ceiling.notes.shardTracksMaxed,133,'every crossover Fellow reached level 40');
  assert.equal(ceiling.notes.stellaTracks,111,'and every original Fellow maxed an imported ladder');
- assert.equal(ceiling.crossoverWorth,6336163,'what the 133 are worth, for pricing any further percent (7,041,079 before 2026-09-18)');
- assert.equal(ceiling.fellowsOnly.ceiling,24653538,'the 133 crossover Fellows without the 30 Family (33,460,058 before 2026-09-18)');
+ assert.equal(ceiling.crossoverWorth,7546423,'what the 133 are worth, for pricing any further percent (7,041,079 before 2026-09-18)');
+ assert.equal(ceiling.fellowsOnly.ceiling,28180935,'the 133 crossover Fellows without the 30 Family (33,460,058 before 2026-09-18)');
  assert.equal(ceiling.familyBlessingWorth,181628,'what the 30 crossover Family are worth');
  assert.equal(ceiling.ceiling-ceiling.fellowsOnly.ceiling,ceiling.familyBlessingWorth,'and it is a subtraction, not a quote');
- assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[2788909,19237705,20048521],'[3,425,348, 21,406,207, 28,224,127], then [2,776,992, 15,602,666, 16,103,101], before 2026-09-18');
+ assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[5514671,22752435,23565298],'[3,425,348, 21,406,207, 28,224,127], then [2,776,992, 15,602,666, 16,103,101], before 2026-09-18');
  // UNMOVED by either the roster trim or the Stella tracks, and worth saying so: the crossover shard
  // track is still worth exactly 133 x 35,300. The 133 crossover Fellows were worth 7,041,079 between them
  // until the 2026-09-18 additive composition, which re-buckets their stars and skill too: 6,336,163.
- assert.equal(ceiling.crossoverWorth,6336163);assert.equal(ceiling.ceiling-ceiling.stage3,4694900);
+ assert.equal(ceiling.crossoverWorth,7546423);assert.equal(ceiling.ceiling-ceiling.stage3,4694900);
  // The two states differ in the crossover FAMILY and nothing else, or the difference above is not the
  // Family side's worth (CLAUDE.md rule 1).
  assert.deepEqual([ceiling.stage0,ceiling.stage1],[ceiling.fellowsOnly.stage0,ceiling.fellowsOnly.stage1],
@@ -667,7 +667,7 @@ test('flag ON: a crossover Fellow’s TYPE is no longer a power term -- 2.84x be
  // Informed:42121478, Inspiring:53885134}, i.e. Inspiring/Brave = 2.84.
  // 54,273,639 for every type before the 2026-09-18 additive composition; still one number for all five.
  assert.deepEqual(ceiling.maxedPowerByType,
-  {Unfettered:48090981,Brave:48090981,Diligent:48090981,Informed:48090981,Inspiring:48090981});
+  {Unfettered:57190682,Brave:57190682,Diligent:57190682,Informed:57190682,Inspiring:57190682}); // 48,090,981 before step 4
  assert.equal(+(ceiling.maxedPowerByType.Inspiring/ceiling.maxedPowerByType.Brave).toFixed(2),1.00,
   'on identical records every type must now max at the same Power');
  assert.equal(new Set(Object.values(ceiling.maxedPowerByType)).size,1,'one number, not five');
@@ -675,7 +675,7 @@ test('flag ON: a crossover Fellow’s TYPE is no longer a power term -- 2.84x be
 
 // THE POINT OF THE WHOLE SLICE, in one ratio: is a maxed crossover Fellow an EQUIVALENT of a maxed
 // original, or better than one? Both halves are bondedPower over the same finished flag-on state.
-test('flag ON: a maxed crossover Fellow is 0.619x a maxed original of the roster’s middle type',()=>{
+test('flag ON: a maxed crossover Fellow is 0.577x a maxed original of the roster’s middle type',()=>{
  const {ceiling}=flagOn();
  const x=ceiling.maxedCrossover,o=ceiling.maxedOriginal;
  // *** THIS RATIO MOVED HARD AGAINST THE CROSSOVER SIDE ON 2026-09-18, TWICE, AND IT IS A REPORTED
@@ -695,20 +695,21 @@ test('flag ON: a maxed crossover Fellow is 0.619x a maxed original of the roster
  // x {50,691,526 / 52,482,583 / 54,273,639}; o {28,900,470 / 79,011,933 / 243,014,105 / 334,019,980 /
  // 623,250,916}; by type {Unfettered 140,743,311, Diligent 183,967,906, Brave 266,820,285, Inspiring
  // 308,923,735, Informed 306,767,929}; ratios 0.295 / 0.223 / 0.087.
- assert.deepEqual(x,{min:46880124,median:47485552,max:48090981},'the 133, sorted');
+ // Step 4 (2026-09-18): +HeroStar six-star flat and the `all` star halos (typed halos never reach an addition).
+ assert.deepEqual(x,{min:55979826,median:56585254,max:57190682},'the 133, sorted');
  // Talent skills (2026-09-18) moved only the ORIGINAL half again: {26,274,696 / 55,719,599 / 121,462,295 /
  // 188,387,728 / 285,273,823}, by type {72,775,528 / 77,404,989 / 143,530,357 / 150,444,043 / 185,817,075}.
- assert.deepEqual(o,{min:26377014,q25:55919221,median:121768935,q75:303955622,max:366605416},'the 111, sorted');
+ assert.deepEqual(o,{min:36505458,q25:68385912,median:135096948,q75:337005581,max:401355307},'the 111, sorted (step 4: HeroStar rows and every halo scope)');
  // The originals' own power spread is 10.9x wide, entirely because of which ladder each character has
  // in the original's own table -- so "a maxed original" is not one number and the comparison has to say
  // WHICH one. Three of them, measured:
- assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),0.619,'vs the middle type');
- assert.equal(+(x.max/o.median).toFixed(3),0.395,'vs the median original of any type');
- assert.equal(+(x.max/o.max).toFixed(3),0.131,'vs the strongest original there is');
+ assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),0.577,'vs the middle type');
+ assert.equal(+(x.max/o.median).toFixed(3),0.423,'vs the median original of any type');
+ assert.equal(+(x.max/o.max).toFixed(3),0.142,'vs the strongest original there is');
  // Informed no longer sits on the un-Stella'd baseline: hero_74 inherited hero_52's ladder, so an
  // Informed original maxes beside a Diligent one again instead of beside Unfettered and Brave.
  assert.deepEqual(ceiling.maxedOriginalByType,
-  {Unfettered:73009021,Diligent:77657586,Brave:143837410,Inspiring:150809948,Informed:198558794});
+  {Unfettered:83799636,Diligent:99087566,Brave:154860786,Inspiring:162515420,Informed:220198748});
  assert.ok(x.max<o.max,'no crossover Fellow may pass the strongest original');
  assert.ok(x.max/ceiling.maxedOriginalByType.Inspiring<1,'nor an Inspiring original');
 });

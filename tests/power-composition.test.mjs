@@ -62,25 +62,29 @@ test('every source sits in the original’s bucket, and the bucket set is exactl
  const p=powerParts(startingSave(NOW),'hero_1');
  // + the Skill Aptitude parts (2026-09-18, lib/talent-skills.mjs): talent skills, intimacy, Stella self/bond talent,
  // Rarity Advance's talentBonus and its stage's initial talent -- all the original's `talent` bucket.
- assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella'].sort());
- assert.deepEqual(Object.keys(p.coefpercent),[],'no Everkai source is a talent percent (the original’s pet type 4 / aura have no Everkai analogue)');
+ assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella','starHalo','origin'].sort());
+ assert.deepEqual(Object.keys(p.coefpercent).sort(),['origin','starHalo'],'talent percent: the star halos’ talentpercent rows and Origin Boost (step 4)');
  // + Family Stella, the Stella-unlocked pairs and quenching (2026-09-18, spec 3): all the original's `percent`.
- assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella','familyStella','familyPair','quench'].sort());
- assert.deepEqual(Object.keys(p.flat).sort(),['elixir','familiar','family','fishing','stella','museum','familyPair'].sort(),'museum: the relic flat; familyPair: the Stella-unlocked pairs (2026-09-18)');
+ assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella','familyStella','familyPair','quench','starHalo','origin'].sort());
+ assert.deepEqual(Object.keys(p.flat).sort(),['elixir','familiar','family','fishing','stella','museum','familyPair','stars'].sort(),'museum: the relic flat; familyPair: the Stella-unlocked pairs; stars: HeroStar extraAtk (2026-09-18)');
  assert.deepEqual(Object.keys(p.final).sort(),['familiar','museum'].sort());
  assert.deepEqual(EVERKAI_ONLY_PARTS,['familiar']);
 });
 
 test('stars and skill are PERCENT parts now, not Aptitude multipliers',()=>{
- const s=withFellow(startingSave(NOW),'hero_1',{stars:7,skill:20,aptitude:1000});
+ // STEP 4 (2026-09-18): a star pays HeroStar's own row (lib/hero-stars.mjs), not Everkai's +5% each, and only
+ // once the Fellow's level reaches its gate. At level 1 the seven stars pay nothing and unlock no star skill.
+ const low=powerParts(withFellow(startingSave(NOW),'hero_1',{stars:7,skill:20,aptitude:1000}),'hero_1');
+ assert.deepEqual([low.percent.stars,low.flat.stars,low.talent.skills],[0,0,0]);
+ const s=withFellow(startingSave(NOW),'hero_1',{stars:7,skill:20,aptitude:1000,level:750,breaks:13});
  const p=powerParts(s,'hero_1');
  assert.equal(p.talent.record,1000,'stars no longer touch Aptitude');
- // Seven stars also unlock Hero_Talent_StarSkill_1..6 at level 1 since 2026-09-18: +21 talent, in `skills`.
+ // The seven count as the original's six: +6,000 bp and +7,500,000 flat, and StarSkill_1..6 (+21 talent).
  assert.equal(p.talent.skills,21);assert.equal(p.aptitude,1021);
- assert.deepEqual([p.percent.stars,p.percent.skill],[7*STAR_POWER_BP,20*SKILL_POWER_BP]);
- assert.deepEqual([STAR_POWER_BP,SKILL_POWER_BP],[500,500],'Everkai’s own +5% magnitudes, unchanged');
- // x(1 + 0.35 + 1.00), the additive bucket -- the old spine was x1.35 x x2.00.
- assert.equal(bondedPower(s,'hero_1'),Math.floor(defaultADH(1)*1021*23500/10000));
+ assert.deepEqual([p.percent.stars,p.flat.stars,p.percent.skill],[6000,7500000,20*SKILL_POWER_BP]);
+ assert.equal(SKILL_POWER_BP,500,'Everkai’s own +5% skill magnitude, unchanged');
+ // x(1 + 0.60 + 1.00), the additive bucket, then the star flat outside it.
+ assert.equal(bondedPower(s,'hero_1'),Math.floor(defaultADH(750)*1021*26000/10000)+7500000);
 });
 
 test('Stella is counted ONCE: its percent is one part of the bucket and its flat is one flat part',()=>{
@@ -222,6 +226,7 @@ test('the worst reachable Power stays inside every stored-value bound that holds
  }
  // The margins, pinned: ~30x under the Expo bound for one Fellow, ~620x under 1e15 for a roster (~100x and
  // ~2,000x before 2026-09-18, when the cap was 31,122 rather than 107,198 and talent skills did not exist).
- assert.deepEqual(measured,{default:{fellow:3402303856,roster:166640887263,ladder:16664088726300},
-  apk:{fellow:33044690146,roster:1612475828631,ladder:1612475828631}});
+ // Step 4 (HeroStar flats and star halos): {3,402,303,856 / 166,640,887,263} and {33,044,690,146 / 1,612,475,828,631} before.
+ assert.deepEqual(measured,{default:{fellow:3596507753,roster:196409182424,ladder:19640918242400},
+  apk:{fellow:34971344501,roster:1910926007703,ladder:1910926007703}});
 });

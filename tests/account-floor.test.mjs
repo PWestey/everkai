@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,refusedBy,decode} from '../lib/game.mjs';
 import {newFellow,powerParts} from '../lib/adventure.mjs';
-import {FISH,fishSkill,fishLevelCost,fishSkillSpent,fishingBonuses,validFishing,FISH_SKILL_MAX} from '../lib/fishing.mjs';
+import {FISH,fishSkill,fishLevelCost,fishSkillSpent,fishExpSpent,fishExp,fishingBonuses,validFishing,FISH_SKILL_MAX} from '../lib/fishing.mjs';
 import {relicBonus,RESTORATION_MAX,TREASURE_RELICS} from '../lib/treasure.mjs';
 import {heroScope,reaches} from '../lib/hero-scope.mjs';
 import DATA from '../lib/fish-skill-data.json' with {type:'json'};
@@ -18,8 +18,10 @@ function tank(levels,gold=[],spare=0){
  const add=(fish,dup,band)=>{const r=species.get(fish);n++;const c={id:`catch:${n}`,fish,name:r.name,effect:{...r.effect,rarities:[...r.effect.rarities]},ground:'All grounds',caughtAt:T,policyVersion:band?4:2,duplicate:dup};
   if(band){const lb=r.lengthBands?.[band-1]||[0,0];Object.assign(c,{band,length:lb[0]});}catches.push(c);return c;};
  for(const id of Object.keys(levels))add(id,false,gold.includes(id)?4:0);
- const spent=Object.entries(levels).reduce((t,[id,l])=>t+fishSkillSpent(id,l),0);
- const researched=[];for(let i=0;i<spent+spare;i++)researched.push(add(Object.keys(levels)[0],true,0).id);
+ // Each species' own FishExp past level 3 comes from ITS duplicates; the rest of the pooled points from the first.
+ const spent=Object.entries(levels).reduce((t,[id,l])=>t+fishSkillSpent(id,l),0),researched=[];
+ for(const [id,l] of Object.entries(levels))for(let i=0;i<fishExpSpent(id,l);i++)researched.push(add(id,true,0).id);
+ while(researched.length<spent+spare)researched.push(add(Object.keys(levels)[0],true,0).id);
  return {bait:20,catches,displayed:Object.keys(levels),researched,skills:{...levels},points:spare};
 }
 const village=(fellows,fishing)=>{const s=fresh(T);return {...s,fishing,fellows:{...s.fellows,...Object.fromEntries(fellows.map(id=>[id,newFellow()]))}}};
@@ -76,7 +78,15 @@ test('levels past 3 are bought on the FishExp ladder; levels 2-3 keep their pric
  assert.equal(validFishing({...s,fishing:{...s.fishing,skills:{F1101:FISH_SKILL_MAX+1}}}),false);
  // A level-3 tank written with the old rule is still exactly legal.
  assert.equal(validFishing(village(['hero_115'],tank({F1101:3}))),true);
+ // FishExp is per species (the owner's save keeps normalExp on each fish): past level 3 a species levels only on
+ // its OWN researched duplicates. F1101 at 7 has used 1+2+2+2 = 7 of them.
+ assert.equal(fishExpSpent('F1101',7),7);assert.ok(fishExp(s.fishing,'F1101')>=7);
+ // NEGATIVE CONTROL: the same levels paid from ANOTHER species' duplicates are refused.
+ const pooled=village(['hero_115'],tank({F1102:1,F1101:3},[],7));
+ assert.equal(validFishing({...pooled,fishing:{...pooled.fishing,skills:{...pooled.fishing.skills,F1101:7},points:pooled.fishing.points-7}}),false,'pooled points cannot buy another species past 3');
  // Upgrading past 3 through the action spends the ladder's price.
+ const v0=village(['hero_115'],tank({F1102:1,F1101:3},[],5));assert.ok(valid(v0),refusedBy(v0));
+ assert.match(act(v0,'upgradeFish',v0.lastAt,'F1101').error||'',/own FishExp/,'spare points of the wrong species do not count');
  const v=village(['hero_115'],tank({F1101:3},[],5));assert.ok(valid(v),refusedBy(v));
  const r=act(v,'upgradeFish',v.lastAt,'F1101');assert.ok(!r.error,r.error);
  assert.deepEqual([r.state.fishing.skills.F1101,r.state.fishing.points],[4,4]);
