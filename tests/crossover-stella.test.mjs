@@ -5,7 +5,7 @@ import {fresh,act,valid,refusedBy,decode,settle,QUARANTINABLE,lastQuarantine} fr
 import {newFellow,bondedPower} from '../lib/adventure.mjs';
 import {STELLA_PROFILES,ALL_STELLA_PROFILES,STELLA_HISTORY_MAX,STELLA_IDLE_PER_DAY,CROSSOVER_STELLA,crossoverStella,
  stellaRule,stellaState,stellaEntry,stellaPlan,stellaBonus,stellaActivation,settleStella,spiritShard,SPIRIT_SHARD_ITEM} from '../lib/stella.mjs';
-import {CROSSOVER_SHARD_ITEM,ownsCrossoverStella} from '../lib/crossover-stella.mjs';
+import {CROSSOVER_SHARD_ITEM,ownsCrossoverStella,CROSSOVER_FLAT_SCALE,CROSSOVER_STELLA_V1_LEVELS} from '../lib/crossover-stella.mjs';
 import stellaSource from '../lib/stella-data.json' with {type:'json'};
 import {FELLOWS} from '../lib/catalog.mjs';
 import {ADDITION_FELLOWS,ADDITION_FAMILY} from '../lib/everkai-additions.mjs';
@@ -42,17 +42,20 @@ const climb=(state,id)=>{let s=grantFragments(state,id,5);
 // The curve. Not authored -- read out of the shipped table at load, so it cannot drift from it.
 // ---------------------------------------------------------------------------------------------
 
-test('the crossover ladder IS Angie’s shipped cost and flat columns, with percent zeroed',()=>{
+test('the crossover ladder is Angie’s shipped cost column and her flat column x CROSSOVER_FLAT_SCALE, with percent zeroed',()=>{
  assert.equal(CROSSOVER_STELLA.levels.length,40);
  assert.deepEqual(CROSSOVER_STELLA.levels.map(r=>r.cost),ANGIE.levels.map(r=>r.cost));
- assert.deepEqual(CROSSOVER_STELLA.levels.map(r=>r.flat),ANGIE.levels.map(r=>r.flat));
+ // Crossover parity (2026-09-19, tests/crossover-family.test.mjs): the flat is hers x12, the cost is hers.
+ assert.equal(CROSSOVER_FLAT_SCALE,12);
+ assert.deepEqual(CROSSOVER_STELLA.levels.map(r=>r.flat),ANGIE.levels.map(r=>r.flat*12));
+ assert.deepEqual(CROSSOVER_STELLA_V1_LEVELS.map(r=>r.flat),ANGIE.levels.map(r=>r.flat),'the live build’s rows, still accepted');
  assert.deepEqual(CROSSOVER_STELLA.levels.map(r=>r.level),ANGIE.levels.map(r=>r.level));
  assert.deepEqual([...new Set(CROSSOVER_STELLA.levels.map(r=>r.percent))],[0],'every row is percent 0');
  // POSITIVE CONTROL for that comparison: Angie's own column is NOT all-zero, so the assertion above
  // is testing something. Her ladder ends at +122%, which is the number this track deliberately drops.
  assert.deepEqual([ANGIE.levels[0].percent,ANGIE.levels.at(-1).percent],[5,122]);
  assert.equal(CROSSOVER_STELLA.levels.reduce((n,r)=>n+r.cost,0),4500,'the same 4,500 sink Angie has');
- assert.equal(CROSSOVER_STELLA.levels.at(-1).flat,35300000,'and the same own-Power ceiling');
+ assert.equal(CROSSOVER_STELLA.levels.at(-1).flat,423600000,'twelve times her own-Power ceiling of 35,300,000');
  assert.equal(CROSSOVER_STELLA.itemId,CROSSOVER_SHARD_ITEM);
  assert.equal(CROSSOVER_STELLA.type,null,'no type, so it can never join an original type’s percent sum');
  // WHAT THIS TRACK TEMPLATES OFF DID NOT MOVE, although everything around it did. On 2026-09-18
@@ -256,9 +259,9 @@ test('the shard ladder pays its own flat, and the flat is added after every mult
  const base=bondedPower(s,XOVER);
  s=climb(s,XOVER);
  const e=stellaEntry(s,XOVER);
- assert.deepEqual([e.level,e.flat,e.percent],[40,35300000,0]);
- assert.equal(stellaBonus(s,XOVER).flat,35300000);
- assert.equal(bondedPower(s,XOVER),base+35300000,'own flat, then a x1 percent: exactly additive');
+ assert.deepEqual([e.level,e.flat,e.percent],[40,423600000,0]);
+ assert.equal(stellaBonus(s,XOVER).flat,423600000);
+ assert.equal(bondedPower(s,XOVER),base+423600000,'own flat, then a x1 percent: exactly additive');
  assert.ok(valid(s),refusedBy(s));
 });
 
@@ -395,4 +398,32 @@ test('RULE 12: a previous-build save whose mine receipt was dug at the OLD typed
   kills:receipt.kills}]}};
  assert.equal(valid(bad),false);
  assert.equal(refusedBy(bad),'validMine');
+});
+
+// ---------------------------------------------------------------------------------------------
+// RULE 12 for the 2026-09-19 re-scale. main@45828d3 -- the LIVE build -- shows the crossover characters by
+// default, so a live village can hold receipts of this track at Angie's UNSCALED flat, and validStella
+// reprices it (every row must match its ladder). The fixture was written by 45828d3's own lib with the flag
+// on (scratchpad xpar/gen-shard-save.mjs): Spider-Man at the top of the ladder, Vader part-way at level 5.
+// ---------------------------------------------------------------------------------------------
+test('RULE 12: a live-build save holding UNSCALED crossover shard receipts loads, and gets the scaled Power',()=>{
+ const raw=readFileSync(new URL('./crossover-shard-save-45828d3.json',import.meta.url),'utf8');
+ const s=JSON.parse(raw);
+ const rows=s.stella.history.filter(r=>crossoverStella(r.owner)&&r.level>0);
+ // Positive control: the fixture really holds the old receipts this test is about.
+ assert.equal(rows.length,45);
+ assert.deepEqual(rows.filter(r=>r.level===40).map(r=>[r.owner,r.flat]),[['xover_msf_spiderman',35300000]]);
+ assert.deepEqual(rows.filter(r=>r.owner==='xover_swgoh_vaderduelsend').at(-1).flat,2500000);
+ const back=decode(raw);
+ assert.equal(JSON.stringify(back),raw,'byte-identical round trip');
+ assert.deepEqual(lastQuarantine,[],'nothing quarantined');
+ assert.ok(valid(back),refusedBy(back));
+ // Power reads the CURRENT ladder by the level bought: the receipt stays a receipt.
+ assert.equal(stellaBonus(back,'xover_msf_spiderman').flat,423600000);
+ assert.equal(stellaBonus(back,'xover_swgoh_vaderduelsend').flat,30000000);
+ assert.deepEqual(['xover_msf_spiderman','xover_swgoh_vaderduelsend'].map(id=>bondedPower(back,id)),[423600100,30000100]);
+ // NEGATIVE CONTROL: a row priced at NEITHER ladder is still refused -- the legacy allowance is exact values only.
+ const h=back.stella.history,i=h.findIndex(r=>r.owner==='xover_msf_spiderman'&&r.level===40);
+ const bad={...back,stella:{...back.stella,history:h.map((r,k)=>k===i?{...r,flat:r.flat+1}:r)}};
+ assert.equal(valid(bad),false);assert.equal(refusedBy(bad),'validStella');
 });

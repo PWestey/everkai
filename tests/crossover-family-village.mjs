@@ -179,5 +179,42 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
   pairings:FAMILY.filter(f=>f.addition).reduce((n,f)=>n+blessingRecipients(c.state,f.id).length,0),
   familyLadderMax:Math.max(...FAMILY.filter(f=>f.addition).map(f=>Math.max(c.state.family[f.id].flatBlessing||0,0))),
  };
+ // ---- FULLY MAXED (added 2026-09-19 for crossover parity). The ceiling above maxes the RECORDS; an original
+ // Fellow has six more sinks since 2026-09-18 that a crossover Fellow has no row for -- talent skills, Rarity
+ // Advance, Pledge, Origin Boost and Family Stella -- plus quenching, which both have. "A maxed original" means
+ // every one of them at its top, so they are all bought here, on the same finished state, through act(). The
+ // wallets are topped up legally (shards through the grant ledger validStella reconciles; Skill Pearls and
+ // Insight are plain balances) and valid() is reported on the result, so this is a reachable state.
+ {
+  const {heroTalentSkills,SKILL_PEARL,TALENT_SKILLS}=await import('../lib/talent-skills.mjs');
+  const {FAMILY_STELLA}=await import('../lib/family-stella.mjs');
+  const {SPIRIT_SHARD_ITEM}=await import('../lib/hero-spirit.mjs');
+  const {stellaState}=await import('../lib/stella.mjs');
+  const {rosterOperation}=await import('../lib/businesses.mjs');
+  const insight=[...new Set(Object.values(TALENT_SKILLS).map(r=>r.c).filter(x=>/^Item_Hero_Talent_Country_\d$/.test(x)))];
+  let m=c.state;const counts={familyStella:0,advance:0,skills:0,quench:0};
+  const top=()=>{const st=stellaState(m),held=st.stock[SPIRIT_SHARD_ITEM]||0;let stella=st;
+   if(held<5e5){const seq=st.seq+1;stella={...st,seq,stock:{...st.stock,[SPIRIT_SHARD_ITEM]:1e6},grants:[...st.grants,{id:seq,itemId:SPIRIT_SHARD_ITEM,count:1e6-held,at:m.lastAt}]};}
+   m={...m,gold:1e15,inventory:{...m.inventory,[SKILL_PEARL]:1e6},stella,insight:{...(m.insight||{balances:{},levels:{}}),balances:Object.fromEntries(insight.map(x=>[x,1e9]))}};};
+  const go=(k,a,t,v)=>{top();const r=act(m,a,m.lastAt,t,v);if(r.error)return false;m=r.state;counts[k]++;return true};
+  for(const w of Object.keys(m.family))if(FAMILY_STELLA[w]){go('familyStella','familyStellaActivate',w);for(let i=0;i<50&&go('familyStella','familyStellaUpgrade',w,'max');i++);}
+  const ids=Object.keys(m.fellows);
+  for(const id of ids)for(const a of ['rarityAdvance','pledgeAdvance','originBoost'])for(let i=0;i<20&&go('advance',a,id,'max');i++);
+  // Two passes: a Rarity Advance stage unlocks skills, and a Family Stella rank raises every skill's cap.
+  for(let pass=0;pass<2;pass++)for(const id of ids)for(const k of heroTalentSkills(id))go('skills','trainTalentSkill',id,{skill:k.skill,amount:'max'});
+  for(const id of ids)for(let i=0;i<20&&go('quench','quenchArtifact',id,'max');i++);
+  const q=(a,f)=>a[Math.floor((a.length-1)*f)];
+  const pow=list=>list.map(id=>bondedPowerAt(m,id)).sort((a,b)=>a-b);
+  const px=pow(ids.filter(id=>id.startsWith('xover_'))),po=pow(ids.filter(id=>!id.startsWith('xover_')));
+  const byType={};for(const f of FELLOW_CATALOGUE.filter(f=>!f.addition&&m.fellows[f.id]))(byType[f.type]??=[]).push(bondedPowerAt(m,f.id));
+  const xByType={};for(const f of FELLOW_CATALOGUE.filter(f=>f.addition))xByType[f.type]??=bondedPowerAt(m,f.id);
+  out.fullyMaxed={valid:valid(m),refusedBy:refusedBy(m),counts,
+   ceiling:Math.round(rosterOperation(m)),
+   crossover:{min:px[0],median:q(px,.5),max:px.at(-1)},
+   original:{min:po[0],q25:q(po,.25),median:q(po,.5),q75:q(po,.75),max:po.at(-1)},
+   originalByType:Object.fromEntries(Object.entries(byType).map(([k,v])=>[k,q(v.sort((a,b)=>a-b),.5)])),
+   crossoverByType:xByType,
+   crossoverWorth:Math.round(ids.filter(id=>id.startsWith('xover_')).reduce((n,id)=>n+bondedPowerAt(m,id)/1000,0))};
+ }
 }
 console.log(JSON.stringify(out));
