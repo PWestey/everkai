@@ -985,3 +985,25 @@ test('a helper run names everyone who joined, and nobody who was already here',(
  if(!off.error){const q=act(off.state,'helperRun',s.lastAt);if(!q.error){
   const j=Object.keys(q.state.fellows).filter(id=>!s.fellows[id]);
   assert.equal(q.arrivals.length,j.length+Object.keys(q.state.family).filter(id=>!s.family[id]).length);}}});
+
+// The owner found an untouched level-1 Elise at 25M and a level-1 Spider-Man at 5.4M while his level-319 UR
+// sat at 2.4M (2026-09-19): the Stella chore spent the one shared shard pool in fixed list order, and a Stella
+// rank's flat is added after every multiplier, so it lands in full on a level-1 Fellow. The chore now spends
+// on the highest-level Fellows first, so shards follow the player's own investment.
+test('the Stella chore spends the shared pool on the highest-level Fellows first',()=>{
+ let s=armed();
+ const [low,high]=['hero_1','hero_101'];
+ s={...s,fellows:{...s.fellows,[low]:{level:1,aptitude:10,skill:0,breaks:0,gear:null},[high]:{level:90,aptitude:10,skill:0,breaks:0,gear:null}}};
+ // A small stock, enough for the early ranks of ONE ladder, so the order decides who gets it.
+ // Idle-paid shards: the ledger `validStella` reconciles the stock against.
+ s={...s,stella:{policyVersion:1,seq:0,stock:{Item_Owner_VillageShard:60},idle:{Item_Owner_VillageShard:60},since:s.lastAt,grants:[],history:[]}};
+ assert.ok(valid(s));
+ const {state}=choreRun('stella',s);
+ const lvl=id=>state.stella.history.filter(h=>h.owner===id&&h.level>0).length;
+ assert.ok(lvl(high)>0,'the level-90 Fellow got ranks');
+ assert.equal(lvl(low),0,'the level-1 Fellow got none while a higher-level Fellow could still spend');
+ // Negative control: with the levels swapped, the other one is served first -- the order is the levels.
+ const swapped={...s,fellows:{...s.fellows,[low]:s.fellows[high],[high]:s.fellows[low]}};
+ const r=choreRun('stella',swapped).state;
+ assert.ok(r.stella.history.some(h=>h.owner===low&&h.level>0));
+ assert.ok(!r.stella.history.some(h=>h.owner===high&&h.level>0));});
