@@ -1,6 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';
 import {decode,valid,refusedBy,lastQuarantine,effectiveRate} from '../lib/game.mjs';
+// The fixtures were written on the owner's Mac (America/Phoenix), and gold/s at `lastAt` reads the habit
+// multiplier for that local day, so the same save earns differently in another timezone. CI runs in UTC and
+// failed the day-30 pin on gold/s alone (2,106,998,965 vs 2,809,331,953) while Power matched to the unit.
+// Pin the zone the fixtures were written in; Node re-reads TZ on change, and every Date here runs in a test.
+process.env.TZ='America/Phoenix';
 import {bondedPower,PEARL_DAILY_LIMIT} from '../lib/adventure.mjs';
 import {PEARL_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';
 import {validMine} from '../lib/mine-clearance.mjs';

@@ -2,6 +2,9 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {execFileSync} from 'node:child_process';
 import {decode,valid,refusedBy,lastQuarantine} from '../lib/game.mjs';
 import {PEARL_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';
+// These fixtures were written on the owner's Mac (America/Phoenix) and some checks read "today" in local
+// time (the shop's pearl day); CI runs in UTC. Pin the zone they were written in.
+process.env.TZ='America/Phoenix';
 
 // CLAUDE.md RULE 12, against the build players actually run. `main`@45828d3 is the pushed, live build:
 // its sim (scratchpad sim/sim-v2.mjs 30 apk earned) wrote this save -- 30 days of APK-growth habit play,
