@@ -133,7 +133,9 @@ test('Angie’s Informed ladder went to hero_74, unchanged, and the filter chain
  const angie=stellaRule('hero_52');
  assert.deepEqual(lucoa.levels.map(r=>[r.level,r.cost,r.flat,r.percent]),
   angie.levels.map(r=>[r.level,r.cost,r.flat,r.percent]));
- assert.notEqual(lucoa.itemId,angie.itemId,'but it does not spend Angie’s fragments');
+ // It does not spend Angie's retired private fragments: it has no `ownItemId` at all, only the pool.
+ assert.equal(angie.ownItemId,'Item_Owner_HeroPiece_52');
+ assert.equal(lucoa.ownItemId,undefined,'but it does not spend Angie’s fragments');
  // The filter chain, re-derived here so it fails if the roster changes under it rather than being a
  // claim in a comment: Informed, shipped, not a starter, SR like all four authored owners, and no
  // Spirit track of her own to overwrite.
@@ -162,11 +164,17 @@ test('Elise’s activation is +2%, the original’s own rank-0 value, and old ro
 // THE FAUCET. One pool, whatever the roster does.
 // ---------------------------------------------------------------------------------------------
 
-test('108 ladders share one shard item, and the mint pays that pool once a day, not once per owner',()=>{
- assert.equal(SPIRIT_SHARD_OWNERS.length,108,'111 shipped Fellows less the three with a private item');
- assert.equal(new Set(SPIRIT_PROFILES.map(p=>p.itemId)).size,5,'the shared shard plus four private fragments');
+// CHANGED 2026-09-19: all 111 now. The three reachable shipped ladders (hero_54, hero_56, hero_190) used to keep
+// a private item minted at the full daily rate for them alone -- the owner's untouched level-1 Elise reached 25M
+// on hers. They spend the pool now and keep the old item only as `ownItemId`, which nothing mints.
+test('111 ladders share one shard item, and the mint pays that pool once a day, not once per owner',()=>{
+ assert.equal(SPIRIT_SHARD_OWNERS.length,111,'every shipped Fellow, the three formerly private ones included');
+ assert.equal(new Set(SPIRIT_PROFILES.map(p=>p.itemId)).size,1,'one spend item for every original ladder');
+ assert.deepEqual(SPIRIT_PROFILES.filter(p=>p.ownItemId).map(p=>[p.id,p.ownItemId]).sort(),
+  [['hero_190','Item_Owner_HeroPiece_190'],['hero_52','Item_Owner_HeroPiece_52'],['hero_54','Item_Owner_HeroPiece_54'],['hero_56','Item_Owner_HeroPiece_56']],
+  'the four shipped ladders remember their old item, and only they do');
  for(const id of SHIPPED_SPIRIT.filter(id=>id!=='hero_52'))
-  assert.equal(spiritShard(id),false,`${id} must keep its own fragment item; real saves hold stock in it`);
+  assert.equal(spiritShard(id),true,`${id} spends the pool now`);
  // One owner and 108 owners mint the same number of shards. NEGATIVE CONTROL for the dedupe added to
  // settleStella: without it this is 108x.
  const one=settleStella(own(),T,T+DAY);
@@ -175,17 +183,20 @@ test('108 ladders share one shard item, and the mint pays that pool once a day, 
  assert.ok(one.stella.stock[SPIRIT_SHARD_ITEM]>0,'positive control: the mint is running at all');
  const mult=one.stella.stock[SPIRIT_SHARD_ITEM]/STELLA_IDLE_PER_DAY;
  assert.ok(mult>=1&&mult<=2,`habit multiplier out of range: ${mult}`);
- // And a private fragment still accrues separately, at the same per-item rate.
- const both=settleStella(own('hero_54'),T,T+DAY);
- assert.equal(both.stella.stock.Item_Owner_HeroPiece_54,both.stella.stock[SPIRIT_SHARD_ITEM]);
+ // And a formerly private owner mints NOTHING of her own any more, and adds nothing to the pool: owning
+ // hero_54, hero_56 and hero_190 pays exactly what owning none of them pays.
+ const three=settleStella(own('hero_54','hero_56','hero_190'),T,T+DAY);
+ for(const n of [54,56,190])assert.equal(three.stella.stock['Item_Owner_HeroPiece_'+n],undefined,`hero_${n} minted a private fragment`);
+ assert.equal(three.stella.stock[SPIRIT_SHARD_ITEM],one.stella.stock[SPIRIT_SHARD_ITEM]);
 });
 
-test('pacing, both halves from the shipped tables: 722 days of kept habits for the whole roster',()=>{
+test('pacing, both halves from the shipped tables: 732 days of kept habits for the whole roster',()=>{
  // Sink: the imported cost columns. Mint: STELLA_IDLE_PER_DAY x the habit multiplier 1.0-2.0. Nothing
  // here is a rate someone picked (CLAUDE.md rule 1 -- both halves come from the same place).
- assert.equal(SPIRIT_SHARD_SINK,721867);
- assert.equal(Math.round(SPIRIT_SHARD_SINK/(STELLA_IDLE_PER_DAY*2)),722,'all 108 at the top multiplier');
- assert.equal(Math.round(SPIRIT_SHARD_SINK/STELLA_IDLE_PER_DAY),1444,'and with no habits at all');
+ // 721,867 over 108 ladders until 2026-09-19; the three formerly private ladders add 4,500 + 4,500 + 1,500.
+ assert.equal(SPIRIT_SHARD_SINK,721867+10500);
+ assert.equal(Math.round(SPIRIT_SHARD_SINK/(STELLA_IDLE_PER_DAY*2)),732,'all 111 at the top multiplier');
+ assert.equal(Math.round(SPIRIT_SHARD_SINK/STELLA_IDLE_PER_DAY),1465,'and with no habits at all');
  // The per-item stock cap is 1e6 and the whole sink is under it, so no bound moves for the stock.
  assert.ok(SPIRIT_SHARD_SINK<1e6);
  // The cheapest and dearest single ladders, so "everyone has a track" is not read as "everyone is equal".

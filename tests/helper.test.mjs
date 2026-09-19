@@ -823,7 +823,9 @@ test('the Stella chore activates and upgrades with idle fragments, and idle frag
  let s=run(armed(),'recruit','hero_54');
  assert.equal(s.stella,undefined,'positive control: this village never touched Stella');
  s=act(s,'collect',s.lastAt+3*86400000).state;
- assert.ok((s.stella?.stock?.Item_Owner_HeroPiece_54||0)>0,'three idle days paid fragments with no prior subtree');
+ // Since 2026-09-19 hero_54's ladder spends the village pool; her private fragment is never minted.
+ assert.ok((s.stella?.stock?.Item_Owner_VillageShard||0)>0,'three idle days paid shards with no prior subtree');
+ assert.equal(s.stella.stock.Item_Owner_HeroPiece_54,undefined,'and not one private fragment');
  const {state,ok}=choreRun('stella',s);
  assert.deepEqual([...new Set(ok)].sort(),['stellaActivate','stellaUpgrade'],'the chore fires nothing but Stella actions');
  assert.ok(ok.includes('stellaActivate')&&ok.includes('stellaUpgrade'));
@@ -836,8 +838,8 @@ test('the Stella chore activates and upgrades with idle fragments, and idle frag
  // Frequent settling is not a way to lose fragments: 60 one-minute taps pay what one hour pays.
  let often=run(armed(),'recruit','hero_54');const hour=act(often,'collect',often.lastAt+3600000).state;
  for(let i=1;i<=60;i++)often=act(often,'collect',often.lastAt+60000).state;
- assert.equal(often.stella.stock.Item_Owner_HeroPiece_54,hour.stella.stock.Item_Owner_HeroPiece_54,'60 small settles == 1 large one');
- assert.ok(hour.stella.stock.Item_Owner_HeroPiece_54>0);});
+ assert.equal(often.stella.stock.Item_Owner_VillageShard,hour.stella.stock.Item_Owner_VillageShard,'60 small settles == 1 large one');
+ assert.ok(hour.stella.stock.Item_Owner_VillageShard>0);});
 
 test('the familiar chores climb only floors they win, then dispatch the strongest five',()=>{
  let s=run(armed(),'adoptFamiliars');

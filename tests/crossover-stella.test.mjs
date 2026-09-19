@@ -84,7 +84,9 @@ test('the track reaches every crossover FELLOW and nothing else -- not Family, n
  assert.equal(ADDITION_FAMILY.length,30);
  assert.equal(crossoverStella('xover_msf_nobody'),false,'resolution comes from the data, not the prefix');
  // And the originals keep exactly the profiles they had -- Angie's row still resolves for old receipts.
- assert.equal(stellaRule('hero_52')?.itemId,'Item_Owner_HeroPiece_52');
+ // Since 2026-09-19 its SPEND item is the village pool; the private fragment survives as `ownItemId`.
+ assert.equal(stellaRule('hero_52')?.ownItemId,'Item_Owner_HeroPiece_52');
+ assert.equal(stellaRule('hero_52')?.itemId,SPIRIT_SHARD_ITEM);
  // hero_1 used to resolve to NOTHING. Since 2026-09-18 every original Fellow has a track of their own,
  // spending a SHARED shard that is not the crossover one -- so neither pool can ever be spent on the
  // other's ladders. That partition is the thing this test exists to hold.
@@ -117,9 +119,11 @@ test('the faucet does not grow with the roster: 1 crossover Fellow and 133 mint 
  const mult=one.stella.stock[CROSSOVER_SHARD_ITEM]/STELLA_IDLE_PER_DAY;
  assert.ok(mult>=1&&mult<=2,`habit multiplier out of range: ${mult}`);
  // POSITIVE CONTROL that the mint is running at all, and that one pool is not four: a village owning
- // Angie AND a crossover Fellow accrues into two separate items at the same per-item rate.
+ // Angie AND a crossover Fellow accrues into two separate POOLS at the same per-item rate -- and, since
+ // 2026-09-19, never into Angie's retired private fragment.
  const both=settleStella(own('hero_52',XOVER),T,T+DAY);
- assert.equal(both.stella.stock['Item_Owner_HeroPiece_52'],both.stella.stock[CROSSOVER_SHARD_ITEM]);
+ assert.equal(both.stella.stock[SPIRIT_SHARD_ITEM],both.stella.stock[CROSSOVER_SHARD_ITEM]);
+ assert.equal(both.stella.stock['Item_Owner_HeroPiece_52'],undefined,'no private mint');
  // A village with no crossover Fellow writes NO CROSSOVER shards. It used to write no subtree at all;
  // since 2026-09-18 every village owns a village-track Fellow, so it writes the village pool and only
  // that -- which is the guard that keeps a flag-off save from carrying a crossover ledger it never

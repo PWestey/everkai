@@ -3,7 +3,9 @@ import {fresh,act,settle,valid,decode} from '../lib/game.mjs';
 import {stellaState,STELLA_IDLE_PER_DAY,STELLA_PROFILES,settleStella,SPIRIT_SHARD_ITEM} from '../lib/stella.mjs';
 import {starterHabits,habitEarnings} from '../lib/habits.mjs';
 const T=new Date('2026-09-16T09:00:00').getTime(),DAY=86400000;
-const ITEM='Item_Owner_HeroPiece_54';
+// hero_54's ladder spends the village pool since 2026-09-19; her old private fragment is never minted again,
+// but a save may still hold it. ITEM is what the mint pays; PRIVATE is what it must never pay.
+const ITEM=SPIRIT_SHARD_ITEM,PRIVATE='Item_Owner_HeroPiece_54';
 const owner=()=>{const f=fresh(T);return {...f,habits:starterHabits(T),fellows:{...f.fellows,hero_54:{level:1,aptitude:10,skill:0,breaks:0,gear:null}},stella:{policyVersion:1,seq:0,stock:{},grants:[],history:[]}}};
 const held=s=>stellaState(s).stock[ITEM]||0;
 
@@ -49,15 +51,16 @@ test('fragments accrue only for a Stella profile the player owns',()=>{
  // village shards now. The claim being protected is per PROFILE, so it is asserted per profile: not
  // one fragment of a private ladder the village does not own.
  const stranded=stellaState(settle(stranger,T+30*DAY)).stock;
- assert.equal(stranded[ITEM],undefined,'30 idle days pay an unowned profile nothing');
+ assert.equal(stranded[PRIVATE],undefined,'30 idle days pay an unowned profile nothing');
  // NARROWED 2026-09-18. This used to assert the whole stock stayed EMPTY, which stopped being true when
  // every original Fellow got an imported Stella ladder: a fresh village owns hero_15, so it mints the
  // shared shard those ladders spend. The claim being protected is per PROFILE, so it is asserted per
  // profile: not one fragment of a PRIVATE ladder whose owner the village does not have.
  for(const p of STELLA_PROFILES.filter(p=>p.itemId!==SPIRIT_SHARD_ITEM))
   assert.equal(stranded[p.itemId],undefined,`${p.id} paid a village that cannot spend it`);
- // Positive control: the same 30 days DO pay once the Fellow is owned.
- assert.ok(held(settle(owner(),T+30*DAY))>0);
+ // CHANGED 2026-09-19: owning the Fellow no longer mints her private fragment either. Nothing does.
+ assert.equal(stellaState(settle(owner(),T+30*DAY)).stock[PRIVATE],undefined,'no private mint, even for her owner');
+ for(const p of STELLA_PROFILES)assert.equal(p.itemId,SPIRIT_SHARD_ITEM,`${p.id} must spend the pool`);
  // ...and the shared pool, the one thing a fresh village CAN spend, really did accrue -- otherwise the
  // assertions above would pass on a mint that had simply stopped running.
  assert.ok(stranded[SPIRIT_SHARD_ITEM]>0,'the shared pool is what a starter Fellow\u2019s ladder spends');
@@ -82,11 +85,12 @@ test('the free supply button is gone, and old saves that used it still load',()=
  const s=owner();
  assert.throws(()=>act(s,'stellaSupply',s.lastAt,'hero_54',{seq:0}),/Unknown action/,'the button is retired');
  // A save written while the button existed carries `grants` and no `idle`; it must still reconcile.
- const legacy={...s,stella:{policyVersion:1,seq:1,stock:{[ITEM]:1000},grants:[{id:1,itemId:ITEM,count:1000,at:T}],history:[]}};
+ const legacy={...s,stella:{policyVersion:1,seq:1,stock:{[PRIVATE]:1000},grants:[{id:1,itemId:PRIVATE,count:1000,at:T}],history:[]}};
  assert.ok(valid(legacy),'the old grant ledger is still accepted');
  assert.deepEqual(decode(JSON.stringify(legacy)),legacy);
  const grown=settle(legacy,T+DAY);
- assert.equal(held(grown),1000+STELLA_IDLE_PER_DAY,'and idle drops accrue on top of what was banked');
+ assert.equal(stellaState(grown).stock[PRIVATE],1000,'what was banked in the private item is kept, and does not grow');
+ assert.equal(held(grown),STELLA_IDLE_PER_DAY,'idle drops go to the pool');
  assert.ok(valid(grown));});
 
 test('a full ladder is reachable in a stated number of idle days, not an invented one',()=>{
