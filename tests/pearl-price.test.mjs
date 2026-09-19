@@ -32,3 +32,17 @@ test('a purse short of the next rung buys only what it can afford',()=>{
  // Negative control: other supplies keep their flat price and ignore the counter.
  const scroll=supplyPurchasePlan({...fresh(T),gold:3000,shopPearls:1e6},'local_skill_scroll',5);
  assert.deepEqual(scroll,{count:5,cost:1500,currency:'gold'});});
+
+test('the shop sells at most 360 Skill Pearls a day, and the count resets with the day',()=>{
+ let s={...fresh(T),gold:1e15};
+ for(let i=0;i<14;i++)s=run(s,'buySupply',PEARL_ID,25);
+ assert.equal(s.shopPearls,350);assert.deepEqual(s.shopPearlDay.bought,350);
+ assert.equal(supplyPurchasePlan(s,PEARL_ID,25).count,10,'only ten more today');
+ s=run(s,'buySupply',PEARL_ID,25);assert.equal(s.shopPearls,360);
+ const r=act(s,'buySupply',s.lastAt,PEARL_ID,1);assert.match(r.error||'',/360 Skill Pearls a day/);
+ // Tomorrow the allowance is back; the lifetime counter (the price) keeps climbing.
+ const tomorrow={...s,lastAt:s.lastAt+86400000};assert.equal(supplyPurchasePlan(tomorrow,PEARL_ID,25).count,25);
+ assert.deepEqual(decode(JSON.stringify(s)),s);
+ // NEGATIVE CONTROL: a malformed day record is not a save.
+ assert.equal(valid({...s,shopPearlDay:{day:'x',bought:-1}}),false);
+});

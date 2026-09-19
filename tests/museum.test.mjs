@@ -12,7 +12,7 @@ test('existing saves have no Museum effects until keepsakes are accepted',()=>{
  assert.equal(bondedPower(s,'hero_15'),before);
  assert.deepEqual(s.fellows,old.fellows);assert.deepEqual(s.inventory,old.inventory);
  assert.ok(run(s,'claimMuseum').error,'a complete collection has nothing to give');assert.ok(run(s,'claimKeepsake','Collection_28').error);
- s=run(s,'acceptMuseum').state;s=run(s,'displayMuseum').state;assert.deepEqual(museumBonus(s),{aptitude:4,basicPowerPercent:60,powerPercent:0});
+ s=run(s,'acceptMuseum').state;s=run(s,'displayMuseum').state;assert.deepEqual(museumBonus(s),{aptitude:4,basicPowerPercent:60,powerPercent:0,flat:0});
  assert.deepEqual(decode(JSON.stringify(s)),s);assert.ok(valid(s));
  s=run(s,'storeMuseum').state;assert.ok(bondedPower(s,'hero_15')>before);
  assert.equal(totalRate(s),totalRate(old));

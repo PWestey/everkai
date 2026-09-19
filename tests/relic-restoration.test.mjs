@@ -6,23 +6,25 @@ import test from 'node:test';import assert from 'node:assert/strict';import {fre
 // talent 8 + 1 a level -- so a displayed unrestored 2403 is worth +8 Aptitude and a fully restored one
 // +28. 1101 (Anomalocaris Fossil) is yield/percent on city, which Everkai has no channel for, so it is
 // recorded in lib/treasure-data.json with an effectNote and pays nothing rather than being approximated.
-const base=(id='2403')=>{let s=fresh(1000);s=act(s,'treasureStart',1000,'Relic001',0).state;s.treasure.trip=null;s.treasure.relics={[id]:{materials:210,donated:true,displayed:true}};return s};
+// Enough of the relic's own material to restore it all the way (210 when the cap was 20; 7,140 for 119).
+const MAT=RESTORATION_MAX*(RESTORATION_MAX+1)/2;
+const base=(id='2403')=>{let s=fresh(1000);s=act(s,'treasureStart',1000,'Relic001',0).state;s.treasure.trip=null;s.treasure.relics={[id]:{materials:MAT,donated:true,displayed:true}};return s};
 const run=(s,id='2403')=>{const r=act(s,'treasureRestore',s.lastAt,id,s.treasure.seq);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
 
 test('restoration raises the relic\'s own exhibit effect and mints no gold',()=>{
  let s=base();const rate=totalRate(s);
  assert.equal(treasureIncome(s),0);
- assert.deepEqual(relicBonus(s),{aptitude:8,basicPowerPercent:0,powerPercent:0},'a displayed exhibit is level 1 and already pays skillProp_Initial');
+ assert.deepEqual(relicBonus(s),{aptitude:8,basicPowerPercent:0,powerPercent:0,flat:0},'a displayed exhibit is level 1 and already pays skillProp_Initial');
  assert.equal(museumBonus(s).aptitude,8,'Treasure Hunt relics are Hall 5/6 exhibits of the same museum');
  for(let n=1;n<=RESTORATION_MAX;n++){
   s=run(s);
-  assert.equal(s.treasure.relics['2403'].materials,210-n*(n+1)/2);
+  assert.equal(s.treasure.relics['2403'].materials,MAT-n*(n+1)/2);
   assert.equal(restorationLevel(s.treasure.relics['2403']),n);
   assert.deepEqual(s.treasure.relics['2403'].restorations.at(-1),{policyVersion:2,materials:n},'new receipts carry no gold');
   assert.equal(relicBonus(s).aptitude,8+n);
   assert.equal(totalRate(s),rate,'restoration is not an income faucet');
  }
- assert.equal(relicEffect('2403',s.treasure.relics['2403']).amount,28);
+ assert.equal(relicEffect('2403',s.treasure.relics['2403']).amount,127,'8 + 119 restorations (28 when the cap was 20)');
  assert.ok(act(s,'treasureRestore',s.lastAt,'2403',s.treasure.seq).error);
  // Storing the exhibit pauses the bonus: Rule SimGame5_11 pays "once on display".
  s=act(s,'treasureDisplay',s.lastAt,'2403',s.treasure.seq).state;
@@ -37,7 +39,7 @@ test('a relic whose original prop has no Everkai channel restores but pays nothi
  assert.equal(relicEffect('1101',s.treasure.relics['1101']),null);
  s=run(s,'1101');
  assert.equal(restorationLevel(s.treasure.relics['1101']),1);
- assert.deepEqual(relicBonus(s),{aptitude:0,basicPowerPercent:0,powerPercent:0});
+ assert.deepEqual(relicBonus(s),{aptitude:0,basicPowerPercent:0,powerPercent:0,flat:0});
  assert.equal(totalRate(s),rate);
  assert.equal(treasureIncome(s),0);
 });
@@ -89,10 +91,10 @@ test('failed save retains duplicate budget and old effect until a successful ret
  p.load(1000);full=true;
  assert.throws(()=>p.commit(run(p.current)));
  assert.equal(relicBonus(p.current).aptitude,8);
- assert.equal(p.current.treasure.relics['2403'].materials,210);
+ assert.equal(p.current.treasure.relics['2403'].materials,MAT);
  full=false;p.load(1000);p.commit(run(p.current));
  assert.equal(relicBonus(decode(raw)).aptitude,9);
- assert.equal(decode(raw).treasure.relics['2403'].materials,209);
+ assert.equal(decode(raw).treasure.relics['2403'].materials,MAT-1);
 });
 
 // -------------------------------------------------------------------------------------------------
@@ -101,7 +103,7 @@ test('failed save retains duplicate budget and old effect until a successful ret
 // -------------------------------------------------------------------------------------------------
 test('every relic records its original exhibit effect, modelled or explicitly not',()=>{
  assert.equal(TREASURE_RELICS.length,45);
- let modelled=0,unmodelled=0,parts=0;
+ let modelled=0,unmodelled=0,parts=0,flats=0;
  for(const r of TREASURE_RELICS){
   if(r.partOf){
    parts++;
@@ -119,6 +121,9 @@ test('every relic records its original exhibit effect, modelled or explicitly no
    modelled++;
    assert.equal(src.prop,'talent');assert.equal(src.propType,null);
    assert.deepEqual(r.effect,{stat:'aptitude',initial:src.initial,perLevel:src.perLevel});
+  }else if(src.target==='hero'&&src.prop==='atk'&&src.propType==='extradd'){
+   // Paid since 2026-09-18 as a scoped Power flat (lib/treasure.mjs relicEffects).
+   flats++;assert.match(r.effectNote||'',/^Modelled 2026-09-18/,`${r.id} pays its flat and must say so`);
   }else{
    unmodelled++;
    assert.match(r.effectNote||'',/^Recovered but not modelled: /,`${r.id} pays nothing and does not say why`);
@@ -127,9 +132,10 @@ test('every relic records its original exhibit effect, modelled or explicitly no
  }
  assert.equal(parts,9,'six Ladon pieces and three Mural pieces');
  assert.equal(modelled,8);
- assert.equal(unmodelled,28);
+ assert.equal(flats,19,'the flat attack rows, scoped');assert.equal(unmodelled,9);
  // The ceiling this slice adds: eight talent exhibits, displayed and fully restored.
  const ceiling=TREASURE_RELICS.filter(r=>r.effect).reduce((n,r)=>n+r.effect.initial+RESTORATION_MAX*r.effect.perLevel,0);
- assert.equal(ceiling,313,'8 + 20 x 1 six times, 45 + 20 x 3, and 20 + 20 x 1');
+ // RESTORATION_MAX 20 -> 119 on 2026-09-18 (Exhibit.levelUpMaxLevel 120): 313 before.
+ assert.equal(ceiling,1303,'8 + 119 x 1 six times, 45 + 119 x 3, and 20 + 119 x 1');
  assert.equal(TREASURE_RELICS.filter(r=>r.effect).reduce((n,r)=>n+r.effect.initial,0),113,'display alone, before any restoration');
 });

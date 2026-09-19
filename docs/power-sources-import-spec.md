@@ -709,3 +709,48 @@ talent-skill level, so this is the FREE part: level-1 skills, star skills, Stell
 | 30 | 2,311,764,907 → 2,389,304,771 | 230,796,106 → 250,711,886 | 9,050,034 → 9,053,181 |
 | 90 | 5,404,947,644 → 6,046,504,600 | 257,649,411 → 375,290,895 | 26,800,807 → 26,810,389 |
 | 180 | 6,186,448,810 → 6,913,417,941 | 260,261,323 → 377,781,758 | 27,183,227 → 27,192,859 |
+
+**Step 1 pacing, measured by the sim** (`scratchpad/sim/sim-pins-src.mjs`: the pins policy plus talent
+skills, Rarity Advance and Pledge, feature-detected so it runs any build) at d8a7c7c, day 30: gold/s
+3,440,491,910, top 613,934,015 (hero_195), bottom 4,206,118 (hero_305, a late SR recruit), 25 Fellows,
+**32,695 pearls bought** and 8,974 talent-skill levels trained. The 1,000-pearl doubling did NOT bound
+pearls: with talent skills to absorb them the sim bought MORE than the 24,634 it bought at 2,500 with
+nowhere past Aptitude 1,000 to put them, because income compounds and the sim buys to a price measured in
+minutes of income whatever the ladder. Corrected in step 2 (a daily limit). The top Fellow at 614M is 2x the
+owner's retail "~300M after a few weeks"; that was on unbounded pearls.
+
+### Step 2 — the account-wide flat floor (lib/fishing.mjs, lib/treasure.mjs, lib/hero-scope.mjs)
+
+What landed:
+- **Fish skills read the original's own skill at power time** (`scripts/import-fish-skills.py` →
+  `lib/fish-skill-data.json`: Fish.json `skillA`/`skillB` → SkillBase, 13 SkillUpgrade ladders): stat,
+  value at the stored level, and scope — `country` OR Hero.json numeric `rare` OR `all`
+  (`lib/hero-scope.mjs`). The stored catch `effect` stays a receipt. The old wiki-derived {type, rarities}
+  scoping never matched a rarity-scoped fish (33 of 86) to a Fellow with a compound rarity label.
+- **Levels past 3** on the species' FishExp ladder, paid in research points (the FishExp analogue: the
+  owner's F1101 at level 7 matches its 9 catches exactly at 1 FishExp a catch). Levels 2-3 keep n(n−1), so
+  `validFishing`'s derived points identity is unchanged for every existing save. Bound 10,000.
+- **Gold Crown**: a displayed species whose own catch landed in the Gold band pays its `skillB` at level 1
+  (derived from stored catches; Kohaku's claim path unchanged).
+- **Relics**: the 19 `atk/extradd` exhibit rows now pay their flat, and every hero row (talent too) is
+  scoped by its own targetCondition; restorations to Exhibit.levelUpMaxLevel 120 (RESTORATION_MAX 20 → 119,
+  a widening). A country-1 UR Fellow: 1,220,000 at level 1, 9,966,500 at level 120.
+- **Deferred, stated**: `Museum_Collection_0` (10,000) and Hall3 `Exhibit_1..5` (19,600 → 200,000): Everkai
+  ships neither exhibit and has no unlock for them; together at most 210,000 flat.
+- **Pearl faucet corrected**: the shop sells at most **360 Skill Pearls a day** (the owner's paid-inclusive
+  ~10,860 over 30 days, an upper bound; the original has no pearl shop at all).
+
+Owner panels after step 2 (his 51 normal fish levels and his 27 Gold Crown species at Everkai's level 1,
+replacing S0's day-30-sim fishing; his exhibits are none of Everkai's relics):
+
+| | Shinobu | of target | Orivita | of target |
+|---|---|---|---|---|
+| after step 1 | 1,736,049,588 | 65.1% | 287,025,269 | 62.8% |
+| after step 2 | **1,737,398,360** | **65.2%** | **290,725,159** | **63.6%** |
+
+Fishing on the owner: Shinobu 719,000 flat / 1,100 bp / 25 talent, Orivita 1,969,000 / 2,100 / 101 (the
+spec's 1,031,000 / 2,251,000 are at his Gold Crown LEVELS, which Everkai does not level). Normal skills alone
+reproduce the tables to the unit: 481,000 / 800 / 25 and 1,731,000 / 800 / 86 (tests/account-floor.test.mjs).
+
+Pacing fixtures re-read (derived only): day 30 bottom 9,053,181 → **9,426,818**, top 250,711,886 →
+252,405,961; day 90 26,810,389 → 27,181,682; day 180 27,192,859 → 27,342,290.

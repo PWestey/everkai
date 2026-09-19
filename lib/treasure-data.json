@@ -1437,7 +1437,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2402",
@@ -1456,7 +1456,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2403",
@@ -1606,7 +1606,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2407",
@@ -1672,7 +1672,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "1302",
@@ -1692,7 +1692,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "1303",
@@ -1712,7 +1712,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2301",
@@ -1732,7 +1732,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2302",
@@ -1752,7 +1752,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2303",
@@ -1772,7 +1772,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2304",
@@ -1792,7 +1792,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2305",
@@ -1812,7 +1812,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2306",
@@ -1831,7 +1831,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "1201",
@@ -1851,7 +1851,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "1202",
@@ -1871,7 +1871,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "1203",
@@ -1891,7 +1891,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2201",
@@ -1911,7 +1911,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2202",
@@ -1931,7 +1931,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2203",
@@ -1951,7 +1951,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "2204",
@@ -1971,7 +1971,7 @@
     },
     "maxExhibitLevel": 120
    },
-   "effectNote": "Recovered but not modelled: flat attack (extradd); Everkai has no flat-power bucket on museumBonus -- routing it needs lib/adventure.mjs bondedPower"
+   "effectNote": "Modelled 2026-09-18 by lib/treasure.mjs relicEffects: flat attack (extradd) into the Power flat bucket, scoped by this row's own targetCondition (docs/power-sources-import-spec.md 2)."
   },
   {
    "id": "1101",

@@ -11,7 +11,7 @@ import {FAMILIARS} from '../lib/familiars.mjs';
 import * as SUMMON from '../lib/summon.mjs';
 import * as RAPHAEL from '../lib/raphael.mjs';
 import * as FARM_TRADE from '../lib/farm-trade.mjs';
-import test from 'node:test';import assert from 'node:assert/strict';
+import test from 'node:test';import {FISH_SKILL_MAX,fishSkillSpent} from '../lib/fishing.mjs';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
 import {INN_GUESTS} from '../lib/inn-guests.mjs';
@@ -350,9 +350,10 @@ test('the duplicates chore spends duplicates on their own items, and never gold 
  assert.ok(f.researched.length>before.researched,`no duplicate catch was researched (${before.researched})`);
  assert.ok(seen.includes('researchFish')&&seen.includes('treasureRestore'),'both duplicate sinks were dispatched');
  assert.ok(f.skills[caught]>before.skill,`the displayed fish gained no skill level (${before.skill})`);
- assert.equal(f.skills[caught],3,'and with points to spare it went to fishing.mjs`s level-3 cap');
+ // No level-3 cap since 2026-09-18 (the FishExp ladder); with points to spare it climbs past it.
+ assert.ok(f.skills[caught]>3,'and with points to spare it climbed past the old level-3 cap');
  assert.ok(seen.includes('upgradeFish'),'the Research Point sink ran');
- assert.ok(Object.values(f.skills).every(l=>l<=3),'no skill was pushed past the cap');
+ assert.ok(Object.values(f.skills).every(l=>l<=FISH_SKILL_MAX),'no skill was pushed past the cap (FISH_SKILL_MAX since 2026-09-18; 3 before)');
  assert.ok(Object.values(result.state.treasure.relics).filter(r=>r.restorations?.length).length>before.restored,
   'at least one relic was restored with its own materials');
  // THE LINE: item-specific duplicates and minigame coins are fine; gold and crystals are not.
@@ -362,8 +363,9 @@ test('the duplicates chore spends duplicates on their own items, and never gold 
  assert.ok(result.state.crystals>=before.crystals,`crystals fell ${before.crystals} -> ${result.state.crystals}`);
  assert.ok(valid(result.state));
  assert.deepEqual(decode(JSON.stringify(result.state)),result.state);
- // Research Points are conserved exactly: each research pays 1, each upgrade costs 2*level.
- const spent=Object.entries(f.skills).reduce((n,[,l])=>n+l*(l-1),0);
+ // Research Points are conserved exactly: each research pays 1; levels 2-3 cost 2*level and levels 4+ the
+ // species' own FishExp ladder (fishSkillSpent, since 2026-09-18).
+ const spent=Object.entries(f.skills).reduce((n,[id,l])=>n+fishSkillSpent(id,l),0);
  assert.equal(f.points,f.researched.length-spent,'the points ledger fishing.mjs validates still balances');
  // Negative control: with the chore off, nothing is spent.
  const off=helperAction({...s,helper:{tasks:{duplicates:0},ranAt:0}},'helperRun',s.lastAt,null,null,act);
