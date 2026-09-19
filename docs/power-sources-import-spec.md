@@ -843,3 +843,52 @@ other heroes' stars would give her, which this floor counts at no stars.
 
 Pacing fixtures re-read by step 4: day 30 top 252,408,561 → 263,817,560, bottom 9,426,818 → 9,410,416 (one
 Fellow's star is now below its level gate).
+
+### Pacing, re-simulated per step (the owner's range: after a few weeks, top ~300M, nobody under ~5M)
+
+`scratchpad/sim/sim-pins-src.mjs` (the pins policy + every new sink, feature-detected), 180 days, APK growth,
+`earned`, one run per step commit. The fixtures in `tests/power-pacing-day{30,90,180}.json.gz` are now the step-4
+run. "Stage by Power" is the furthest stage whose boss gate the roster's summed Power clears; the sim's own
+campaign policy stops battling at stage 30, so it is a Power measure, not a progress one.
+
+| build | day | gold/s | top Fellow | bottom Fellow | Fellows | pearls bought | stage by Power |
+|---|---|---|---|---|---|---|---|
+| c5b4477 (before) | 30 | 2,311,764,907 | 230,796,106 | 9,050,034 | 25 | 24,634 | 18,365 |
+| step 1 d8a7c7c | 30 | 3,440,491,910 | 613,934,015 | 4,206,118 | 25 | 32,695 | 23,207 |
+| step 2 60079d7 | 30 | 4,180,424,370 | 717,254,458 | 6,251,001 | 35 | 10,800 | 22,931 |
+| step 3 ef759c2 | 30 | 4,213,411,122 | 721,085,736 | 2,903,559 | 35 | 10,800 | 23,033 |
+| **step 4 8b900cc** | 21 | 1,524,654,562 | 629,048,072 | 3,615,311 | 26 | 7,560 | 17,063 |
+| **step 4 8b900cc** | **30** | **2,996,414,185** | **701,609,884** | **3,725,113** | 34 | 10,800 | 20,765 |
+| c5b4477 (before) | 90 | 5,404,947,644 | 257,649,411 | 26,800,807 | 30 | 29,531 | 25,211 |
+| step 1 | 90 | 11,118,689,028 | 1,047,643,885 | 16,163,671 | 30 | — | 26,501 |
+| step 2 | 90 | 10,534,856,837 | 1,534,610,452 | 11,592,991 | 43 | — | 27,659 |
+| step 3 | 90 | 10,956,421,593 | 1,572,019,307 | 6,658,146 | 43 | — | 27,821 |
+| **step 4** | **90** | **8,025,807,147** | **1,349,526,440** | **5,622,934** | 47 | 32,204 | 26,537 |
+| c5b4477 (before) | 180 | 6,186,448,810 | 260,261,323 | 27,183,227 | 30 | 29,531 | 25,241 |
+| step 1 | 180 | 14,704,662,190 | 1,058,086,090 | 16,327,691 | 30 | — | 26,969 |
+| step 2 | 180 | 27,646,101,390 | 1,549,840,229 | 16,867,386 | 43 | — | 28,133 |
+| step 3 | 180 | 21,194,698,178 | 1,630,817,687 | 16,805,571 | 43 | — | 28,241 |
+| **step 4** | **180** | **16,110,018,248** | **1,428,901,977** | **10,737,995** | 47 | 34,951 | 26,915 |
+
+Against the owner's retail range, plainly: **the top Fellow now overshoots** — 629M at day 21 and 702M at day
+30 against ~300M (2.1-2.3x). **The bottom Fellow undershoots** — 3.6-3.7M at days 21-30 against "nobody under
+5M"; the bottom is always the newest recruit (level 100, no Stella), and the roster is larger (34 vs 25 at day
+30) because pearls now cost a daily limit instead of gold. From day 90 the bottom is above 5M. The heroes are
+no longer too weak; at the top they are too strong for the pacing target.
+
+Where the top Fellow's Power comes from at day 30 (hero_195, 701,609,884): ADH 8,627 × Aptitude 6,986 × (1 +
+812%) + 152M flat. Aptitude: 5,202 is pearl-trained talent skills (the sim concentrates ~half of its 10,800
+pearls on one Fellow). Percent: Stella 537%, the Everkai-only Fellow skill 100%, star halos 93%, quench 32%,
+fishing 24%, bonds 16%, stars 10%. Flat: Stella 149M. Without the talent skills it would be ~290M; without the
+Everkai-only skill percent, ~640M.
+
+Recommendations (rule 9 — proceeding on these unless the owner objects), and the one question worth his time:
+1. **Pearls are the top-end lever.** 360 a day is the owner's paid-inclusive account rate, an upper bound.
+   Recommendation: keep 360 until he answers — *"As a free player, how many Skill Pearls did a normal day
+   bring: tens or hundreds?"* — then set the limit to it (a single constant, no save impact). At ~150/day
+   (4,500 by day 30, about 2,200 of them on the top Fellow) the decomposition above puts the day-30 top near
+   460M; reaching ~300M would also need the Everkai-only skill percent reconsidered.
+2. **The Everkai-only Fellow skill (+5%/level, +100% at 20) and bonds (§7 question 6)**: still Everkai's own; the
+   original's panel shows "Skill +0%". Recommendation unchanged: decide with this table in front of him.
+3. **The floor**: late recruits start at level 100 with nothing; the retail floor of ~5M likely reflects
+   starting Stella/levels on recruitment. Not changed here.

@@ -33,3 +33,22 @@ test('RULE 12: the same save on a browser boot, before the late chapters load',(
   {cwd:new URL('..',import.meta.url),env:{...process.env,EVERKAI_LAZY_CHAPTERS:'1'},encoding:'utf8'});
  assert.deepEqual(JSON.parse(out.trim().split('\n').at(-1)),{lazy:true,identical:true,valid:true,quarantined:[]});
 });
+
+// And the crossover build this power-sources work started from (crossover@c5b4477): the same sim, the same
+// 30 days, written by that build. Talent skills, Rarity Advance, Pledge, Origin, Family Stella, quenching,
+// the fish ladder and the daily pearl limit all add OPTIONAL state and DERIVED Power; none of them may make
+// a save that build wrote fail to load or change a byte of it.
+test('RULE 12: a 30-day save from crossover@c5b4477 decodes byte-identically and loads',()=>{
+ const raw=gunzipSync(readFileSync(new URL('./live-save-c5b4477-day30.json.gz',import.meta.url))).toString('utf8');
+ const s=JSON.parse(raw);
+ // Positive controls: Stella spent from the shared pool, fish levelled, pearls bought -- every identity the new
+ // subtrees touch (validStella's stock, validFishing's points, the pearl counter).
+ assert.ok(s.stella.history.length>0&&s.stella.stock.Item_Owner_VillageShard>0,'Stella activated, shared shards held (the stock identity the new spends subtract from)');
+ assert.ok(Object.values(s.fishing.skills).some(n=>n===3),'fish at the old level-3 cap (the points identity the ladder extends)');
+ assert.ok(s.shopPearls>0,'shop pearls bought');
+ assert.equal(s.heroAdvance,undefined);assert.equal(s.familyStella,undefined);assert.equal(s.shopPearlDay,undefined);
+ const back=decode(raw);
+ assert.equal(JSON.stringify(back),raw,'byte-identical round trip');
+ assert.deepEqual(lastQuarantine,[],'nothing quarantined');
+ assert.ok(valid(back),refusedBy(back));
+});

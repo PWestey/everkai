@@ -1,7 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';
 import {decode,valid,refusedBy,lastQuarantine,effectiveRate} from '../lib/game.mjs';
-import {bondedPower} from '../lib/adventure.mjs';
+import {bondedPower,PEARL_DAILY_LIMIT} from '../lib/adventure.mjs';
+import {PEARL_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';
 import {validMine} from '../lib/mine-clearance.mjs';
 import {validTradingPost} from '../lib/trading-post.mjs';
 
@@ -69,28 +70,24 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
 // against 16-17 uncapped). The day-30/90/180 figures equal, to the unit, the "composition only" run in
 // 9.6, which held the sim's Aptitude policy at 1,000 -- the cap does exactly that and nothing else.
 // ---------------------------------------------------------------------------------------------------
-// POWER SOURCES (docs/power-sources-import-spec.md), step by step. The three fixtures below are still the saves
-// c5b4477's sim wrote; `now` is what THIS build derives from them (Power is derived, so it moves with every
-// source even on an unchanged save), and `c5b4477` is what that build derived from the same bytes -- the
-// before of the power-sources work. The saves are re-simulated with this build's sources once they all land.
-//   step 1, Skill Aptitude: every original's level-1 talent skills, star skills, Stella-unlocked skills and
-//   the Stella self/bond talent halos. No saved Fellow had bought a talent-skill level, so this is the FREE part.
-//   step 2, account floor: fish skills read at their original scope (+ Gold Crown at level 1 for Gold-band
-//   catches), relic flats, scoped relic talent. Day 30 bottom 9,053,181 -> 9,426,818.
-//   step 3, Family Stella + quenching: nobody in these saves holds either, so only the Stella-unlocked
-//   blessing pairs move them (day 30 top 252,405,961 -> 252,408,561).
-//   step 4, stars: HeroStar rows at the level gate (+ flat), every owned hero's star halos (finalpercent held
-//   out), Origin Boost. Day 30 top 252,408,561 -> 263,817,560; bottom 9,426,818 -> 9,410,416 (a gated star).
+// POWER SOURCES (docs/power-sources-import-spec.md 8). RE-SIMULATED 2026-09-18 with every source landed: the three
+// fixtures are now the saves 8b900cc's sim wrote (scratchpad sim/sim-pins-src.mjs = the pins policy above plus
+// talent skills, Rarity Advance / Pledge / Origin, Family Stella, quenching, fish past level 3 and relics to 120,
+// all feature-detected), and `c5b4477` is what the previous pins measured -- the before of this work.
+// Read plainly: top 231M -> 702M at day 30 (the owner's retail memory is ~300M after a few weeks), bottom
+// 9.05M -> 3.73M (a late recruit at level 100 -- more Fellows, 34 vs 25, because pearls now cost a daily limit
+// instead of gold), village gold/s 2.31B -> 3.00B. The day-30 sims per step: step 1 614M / 4.21M, step 2 717M /
+// 6.25M, step 3 721M / 2.90M, step 4 702M / 3.73M.
 const PINS=[
- {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2455836034,top:263817560,bottom:9410416,fellows:25},
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2996414185,top:701609884,bottom:3725113,fellows:34},
   c5b4477:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
   uncapped:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
   before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
- {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:6217654821,top:387059900,bottom:27965286,fellows:30},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:8025807147,top:1349526440,bottom:5622934,fellows:47},
   c5b4477:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
   uncapped:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
   before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
- {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:7059740101,top:387701590,bottom:28126567,fellows:30},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:16110018248,top:1428901977,bottom:10737995,fellows:47},
   c5b4477:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
   uncapped:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
   before:{goldPerSecond:8248950146,top:460219606,bottom:20331834,fellows:31}},
@@ -107,8 +104,12 @@ for(const p of PINS)test(`pacing, day ${p.day}: gold/s ${p.now.goldPerSecond.toL
  assert.ok(r('goldPerSecond')>0.5&&r('goldPerSecond')<2,`day ${p.day}: gold/s is ${r('goldPerSecond').toFixed(2)}x 3d47df4`);
  assert.ok(r('top')<20,`day ${p.day}: the top Fellow is ${r('top').toFixed(1)}x 3d47df4`);
  assert.ok(r('bottom')>0.25&&r('bottom')<4,`day ${p.day}: the bottom Fellow is ${r('bottom').toFixed(2)}x 3d47df4`);
- // The pearl cap's guard at RE-PIN time: fixtures are written by the sim, so a regenerated fixture whose top
- // Fellow is back near the uncapped figure means direct pearl training passed 1,000 again.
- assert.ok(now.top<p.uncapped.top/4,`day ${p.day}: the top Fellow is ${(now.top/p.uncapped.top).toFixed(2)}x the uncapped build -- is direct pearl training past 1,000 again?`);
+ // The pearl guards at RE-PIN time, checked on the save itself. (Until the power sources landed this compared
+ // the top Fellow with the uncapped build's -- a proxy that talent skills legitimately outgrow, 702M vs 2.1B/4.)
+ // Direct pearl training never takes a Fellow past PEARL_APTITUDE_CAP, and the shop never sold more than its
+ // daily limit (lib/adventure.mjs PEARL_DAILY_LIMIT) over the fixture's days.
+ const direct=Math.max(...Object.values(s.fellows).map(f=>f.aptitudeLedger?.entries?.['item:Item_Talent_Hero_1']?.gain||0));
+ assert.ok(direct<=PEARL_APTITUDE_CAP-10,`day ${p.day}: a Fellow gained ${direct} Aptitude from direct pearls -- is direct pearl training past 1,000 again?`);
+ assert.ok(s.shopPearls<=PEARL_DAILY_LIMIT*(p.day+1),`day ${p.day}: ${s.shopPearls} shop pearls is past ${PEARL_DAILY_LIMIT} a day`);
  assert.deepEqual(now,p.now);
 });
