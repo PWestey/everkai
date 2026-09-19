@@ -59,3 +59,11 @@ test('the streaming rule is narrow and anchored, so it cannot swallow the app sh
  // Anchored at the start: a path merely containing the word must not match.
  assert.equal(streamed('assets/village/idle/x.mp4'),false);
 });
+
+test('every KEPT file is also STREAMED, and the rule is as narrow as the streaming one',async()=>{
+ const {KEPT,kept}=await import('../scripts/offline-manifest.mjs');
+ assert.equal(KEPT.length,1);
+ for(const p of ['assets/campaign-chapters-late-data-CmHZxQT-.js'])assert.ok(kept(p)&&streamed(p),p);
+ for(const p of ['assets/idle/hero_128c1-idle.mp4','assets/campaign-chapters-data-abc.js','assets/x/campaign-chapters-late-data-abc.js','assets/campaign-chapters-late-data-abc.js.map'])
+  assert.equal(kept(p),false,p+' must not be kept');
+});

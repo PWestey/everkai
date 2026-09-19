@@ -29,6 +29,15 @@ export const STREAMED=[/^assets\/idle\//,/^assets\/spine\//,/^assets\/crossover\
 /** True when a built file is fetched on demand rather than precached. */
 export const streamed=path=>STREAMED.some(pattern=>pattern.test(path));
 
+// STREAMED BUT KEPT. The late stage chapters are streamed (above) so they never enter the install, but a
+// player who crosses chapter ~2,900 while online and then plays offline needs them again: the worker used
+// to fall through to the network every time, so the game showed "Loading chapter..." offline. A file listed
+// here is cached by the worker the FIRST time it is fetched (in its own cache, never the install manifest, so
+// the precache budget cannot grow with it) and served from that cache afterwards; a new build's worker drops
+// a kept file the new build no longer names. Every KEPT pattern must also be STREAMED (tested).
+export const KEPT=[/^assets\/campaign-chapters-late-data-[A-Za-z0-9_-]+\.js$/];
+export const kept=path=>KEPT.some(pattern=>pattern.test(path));
+
 /** A precache this size is expected to fit a phone. Guards against another half-gigabyte landing
  *  in the manifest unnoticed; tests/offline-manifest.test.mjs enforces it. */
 export const PRECACHE_BUDGET_BYTES=120*1024*1024;

@@ -71,3 +71,36 @@ test('a transient download failure is retried instead of abandoning the install'
  const h=updateHarness({files:{a:'A',b:'B'},failOnce:new Set(['b'])});
  await h.install();assert.deepEqual([...h.requests].sort(),['a','b','b']);assert.equal(await h.text('isekai-village-files','b'),'B');
 });
+
+// STREAMED BUT KEPT (scripts/offline-manifest.mjs KEPT). The late stage chapters are streamed, so they never enter
+// the install; before this, the worker fell through to the network on every request, so a player past chapter
+// ~2,900 who went offline saw "Loading chapter..." forever. Now the first online fetch is kept.
+function keptHarness({keep,files,seed={}}){
+ const events={},stores=new Map();let online=true;const requests=[];
+ for(const [key,entries] of Object.entries(seed))stores.set(key,new Map(Object.entries(entries).map(([k,v])=>[SCOPE+k,new Response(v)])));
+ const caches={open:async key=>{if(!stores.has(key))stores.set(key,new Map());const m=stores.get(key);return {put:async(k,v)=>m.set(typeof k==='string'?k:k.url,v),match:async k=>{const v=m.get(typeof k==='string'?k:k.url);return v?.clone?v.clone():v},delete:async k=>m.delete(typeof k==='string'?k:k.url),keys:async()=>[...m.keys()].map(url=>({url}))}},has:async k=>stores.has(k),keys:async()=>[...stores.keys()],delete:async k=>stores.delete(k)};
+ const self={OFFLINE_VERSION:'k',OFFLINE_FILES:Object.keys(files),OFFLINE_KEEP:keep,registration:{scope:SCOPE},location:{origin:'https://village.example'},clients:{claim:async()=>{}},skipWaiting:async()=>{},addEventListener:(k,v)=>events[k]=v};
+ vm.runInNewContext(mediaSource,{self,Response,Headers});
+ vm.runInNewContext(source,{self,caches,URL,Request,Response,Headers,crypto,setTimeout,importScripts:()=>{},fetch:async r=>{const u=r.url||r;requests.push(u.slice(SCOPE.length));if(!online)throw Error('Offline');return new Response('chunk:'+u.slice(SCOPE.length))}});
+ const fire=async(type,extra={})=>{let result;events[type]({...extra,waitUntil:p=>result=p,respondWith:p=>result=p});return await result};
+ const get=path=>fire('fetch',{request:{url:SCOPE+path,method:'GET',headers:new Headers(),mode:'no-cors'}});
+ return {fire,get,stores,requests,setOffline:()=>{online=false}};
+}
+test('a streamed-but-kept chunk is fetched once online, then served offline; it never joins the install',async()=>{
+ const late='assets/campaign-chapters-late-data-AbC123.js';
+ const h=keptHarness({keep:[late],files:{'index.html':'<html>','assets/game.js':'js'}});
+ await h.fire('install');await h.fire('activate');
+ assert.ok(!h.requests.includes(late),'install never downloads it: the precache budget does not grow');
+ assert.equal(await (await h.get(late)).text(),'chunk:'+late,'first fetch goes to the network');
+ h.setOffline();
+ assert.equal(await (await h.get(late)).text(),'chunk:'+late,'and offline it is served from the kept cache');
+ // NEGATIVE CONTROL: a streamed file that is NOT kept (an idle clip) still just fails offline.
+ await assert.rejects(h.get('assets/idle/x.mp4'),/Offline/);
+});
+test('a new build drops the previous build’s kept chunk and keeps its own',async()=>{
+ const old='assets/campaign-chapters-late-data-OLD.js',now='assets/campaign-chapters-late-data-NEW.js';
+ const h=keptHarness({keep:[now],files:{'index.html':'<html>'},seed:{'isekai-village-kept':{[old]:'old',[now]:'new'}}});
+ await h.fire('install');await h.fire('activate');
+ const kept=[...h.stores.get('isekai-village-kept').keys()];
+ assert.deepEqual(kept,[SCOPE+now],'the stale chunk is pruned, the current one survives activation');
+});
