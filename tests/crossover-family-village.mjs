@@ -204,6 +204,16 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
   for(let pass=0;pass<2;pass++)for(const id of ids)for(const k of heroTalentSkills(id))go('skills','trainTalentSkill',id,{skill:k.skill,amount:'max'});
   for(const id of ids)for(let i=0;i<20&&go('quench','quenchArtifact',id,'max');i++);
   const q=(a,f)=>a[Math.floor((a.length-1)*f)];
+  // The same finished state measured in APK growth (the parity mode), because the crossover lever has to hold
+  // in both: a flat does not grow with the level column and the originals' lead does. Power is a pure function
+  // of state, so this overlays the quality tier a level-750 Fellow needs (14) on every Fellow and reads Power --
+  // a MEASUREMENT of the derived value, not a legal save (it has no breakthrough receipts); `m` itself is.
+  const apkOf=st=>({...st,originalProgression:{policyVersion:1,claims:0,quality:Object.fromEntries(Object.keys(st.fellows).map(id=>[id,14])),stock:{},receipts:[]}});
+  const measure=(st,ids)=>{const pw=list=>list.map(id=>bondedPowerAt(st,id)).sort((a,b)=>a-b);
+   const px=pw(ids.filter(id=>id.startsWith('xover_'))),po=pw(ids.filter(id=>!id.startsWith('xover_')));
+   const byType={};for(const f of FELLOW_CATALOGUE.filter(f=>!f.addition&&st.fellows[f.id]))(byType[f.type]??=[]).push(bondedPowerAt(st,f.id));
+   return {crossover:{min:px[0],median:q(px,.5),max:px.at(-1)},original:{min:po[0],median:q(po,.5),max:po.at(-1)},
+    originalByType:Object.fromEntries(Object.entries(byType).map(([k,v])=>[k,q(v.sort((a,b)=>a-b),.5)]))};};
   const pow=list=>list.map(id=>bondedPowerAt(m,id)).sort((a,b)=>a-b);
   const px=pow(ids.filter(id=>id.startsWith('xover_'))),po=pow(ids.filter(id=>!id.startsWith('xover_')));
   const byType={};for(const f of FELLOW_CATALOGUE.filter(f=>!f.addition&&m.fellows[f.id]))(byType[f.type]??=[]).push(bondedPowerAt(m,f.id));
@@ -214,7 +224,8 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
    original:{min:po[0],q25:q(po,.25),median:q(po,.5),q75:q(po,.75),max:po.at(-1)},
    originalByType:Object.fromEntries(Object.entries(byType).map(([k,v])=>[k,q(v.sort((a,b)=>a-b),.5)])),
    crossoverByType:xByType,
-   crossoverWorth:Math.round(ids.filter(id=>id.startsWith('xover_')).reduce((n,id)=>n+bondedPowerAt(m,id)/1000,0))};
+   crossoverWorth:Math.round(ids.filter(id=>id.startsWith('xover_')).reduce((n,id)=>n+bondedPowerAt(m,id)/1000,0)),
+   apk:measure(apkOf(m),ids)};
  }
 }
 console.log(JSON.stringify(out));

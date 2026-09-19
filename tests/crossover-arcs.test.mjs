@@ -340,7 +340,8 @@ test('what the type moves are worth, measured through enterpriseBreakdown',()=>{
   *  CROSSOVER_RARITY_TIERS[q-1]. Quality is set directly: this pins the ARITHMETIC of a climbed
   *  Fellow's slot, and the climb itself is driven through act() in tests/crossover-rarity.test.mjs. */
  const slotValue=(type,q,want)=>{
-  const who=roster.characters.find(c=>c.type===type&&c.kind==='fellows');
+  // Not one of the four UR starters (2026-09-19): this pins the N-to-LR climb every other crossover makes.
+  const who=roster.characters.find(c=>c.type===type&&c.kind==='fellows'&&!['xover_msf_ironmaninfinitywar','xover_msf_spiderman','xover_swgoh_themandalorianbeskararmor','xover_swgoh_jedimasterkenobi'].includes(c.id));
   const b=best(type);let base={...fresh(T),fellows:{...fresh(T).fellows,[who.id]:newFellow(200)}};
   if(q>1)base={...base,originalProgression:{policyVersion:1,claims:0,quality:{[who.id]:q},stock:{},receipts:[]},
    trainingCosts:{policyVersion:2,baselineLevels:{},receipts:[]}};

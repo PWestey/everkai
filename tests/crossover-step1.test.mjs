@@ -24,6 +24,9 @@ import talentSource from '../lib/default-talent-source.json' with {type:'json'};
 // hazards. This process has no ?crossover=1, so everything here also proves the flag-off behaviour.
 const T=new Date('2026-09-16T09:00:00').getTime();
 const SPIDER='xover_msf_spiderman',VADER='xover_swgoh_vaderduelsend';
+// Spider-Man is one of the four UR starters since 2026-09-19, so the rarity-N ladder is exercised on Wolverine --
+// the same type (Unfettered), the same building, no starter badge.
+const WOLVERINE='xover_msf_wolverine';
 const definition=id=>BUSINESSES.find(b=>b.id===id);
 const own=(s,id,level=1)=>({...s,fellows:{...s.fellows,[id]:newFellow(level)}});
 
@@ -44,7 +47,7 @@ test('a crossover Fellow operates at its OWN rarity ladder, and no original row 
  // +20 at Lv.50, +30 at Lv.200 -- every column the measured MINIMUM for rarity N, so this is exact
  // parity with the five original N Fellows rather than a nerf (tests/crossover-abilities.test.mjs
  // proves the non-dominance for all eight badges).
- for(const [id,building] of [[SPIDER,resort],[VADER,archery]]){
+ for(const [id,building] of [[WOLVERINE,resort],[VADER,archery]]){
   for(const [level,want] of [[1,30],[49,30],[50,50],[199,50],[200,80],[300,80]]){
    const s=own(fresh(T),id,level);
    const got=fellowOperation(s,id,building);
@@ -53,13 +56,17 @@ test('a crossover Fellow operates at its OWN rarity ladder, and no original row 
    assert.ok(got.percent>0,`${id} earns something at level ${level}`);
   }
  }
+ const w=own(fresh(T),WOLVERINE,200);
+ assert.equal(fellowOperation(w,WOLVERINE,resort).percent,80,'the rarity-N total, all three slots');
+ assert.equal(fellowOperation(w,WOLVERINE,archery).percent,0,'and nothing to another type');
+ assert.deepEqual(fellowOperation(own(fresh(T),WOLVERINE,1),WOLVERINE,resort).next.map(e=>e.minLevel),[50,200]);
+ // The UR starter, same type and building: slot A is the UR rung's 150 from level 1 (the weakest UR original's).
+ for(const [level,want] of [[1,150],[50,170],[200,200]])
+  assert.equal(fellowOperation(own(fresh(T),SPIDER,level),SPIDER,resort).percent,want,`UR starter Spider-Man at level ${level}`);
  const s=own(fresh(T),SPIDER,200);
- assert.equal(fellowOperation(s,SPIDER,resort).percent,80,'the rarity-N total, all three slots');
- assert.equal(fellowOperation(s,SPIDER,archery).percent,0,'and nothing to another type');
- assert.deepEqual(fellowOperation(own(fresh(T),SPIDER,1),SPIDER,resort).next.map(e=>e.minLevel),[50,200]);
  // `template` is no longer read by ANY progression path -- it survives as the art lineage it always
  // documented. NEGATIVE CONTROL for that claim: the template's own percent is 150 and the Fellow's is
- // 80 at the same level, so a re-introduced sourceId() here would disagree.
+ // 200 (the UR starter's rung) at the same level, so a re-introduced sourceId() here would disagree.
  assert.equal(sourceId(SPIDER),'hero_103');
  assert.equal(fellowOperation(own(s,'hero_103',200),'hero_103',resort).percent,150);
 
@@ -100,8 +107,10 @@ test('a crossover Fellow assigned to a business actually raises that business bo
  assert.equal(canOperate(SPIDER,definition('Building_501')),true,'an Unfettered addition may work there');
  assert.equal(canOperate(SPIDER,definition('Building_801')),false,'and only there');
  const resort=definition('Building_501');
- const s={...own(fresh(T),SPIDER,200),enterprises:{Building_501:{employees:5000,fellows:[SPIDER]}}};
+ const s={...own(fresh(T),WOLVERINE,200),enterprises:{Building_501:{employees:5000,fellows:[WOLVERINE]}}};
  assert.equal(assignedOperation(s,resort),0.8,'+80% -- the rarity-N ladder -- reaches assignedOperation');
+ const ur={...own(fresh(T),SPIDER,200),enterprises:{Building_501:{employees:5000,fellows:[SPIDER]}}};
+ assert.equal(assignedOperation(ur,resort),2,'+200% -- the UR starter’s rung -- reaches it too');
  assert.equal(enterpriseBreakdown(s,'Building_501').bonus>0,true);
  const empty={...s,enterprises:{Building_501:{employees:5000,fellows:[]}}};
  assert.ok(enterpriseBreakdown(s,'Building_501').total>enterpriseBreakdown(empty,'Building_501').total,

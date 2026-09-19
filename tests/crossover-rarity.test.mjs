@@ -94,7 +94,8 @@ test('displayRarity climbs with the STORED quality tier and with nothing else',(
  // Unowned, and in a village that never enabled original growth: the bare N it ships with.
  const fresh=startingSave(T);
  assert.equal(displayRarity(fresh,VADER),'N');
- assert.equal(displayRarity(fresh,SPIDEY),'N');
+ // Spider-Man is one of the four UR starters (owner request, 2026-09-19): never shown below UR.
+ assert.equal(displayRarity(fresh,SPIDEY),'UR');
  assert.equal(displayRarity(undefined,VADER),'N','and with no state at all');
  // NEGATIVE CONTROL: the same quality tier on an ORIGINAL Fellow must not move its rarity, or this is
  // a function of the tier rather than of being a crossover character.
@@ -103,6 +104,26 @@ test('displayRarity climbs with the STORED quality tier and with nothing else',(
  assert.equal(displayRarity(original,'hero_15'),fellowById('hero_15').rarity);
  assert.equal(rarityClimbs('hero_15'),false);
  assert.equal(rarityClimbs(VADER),true);
+});
+
+// THE FOUR UR STARTERS. A floor on the badge, not a stored rarity and not a quality tier: the stored rarity stays
+// the bare "N" (so the eight ["N"]-gated fishing effects stay), the tier still climbs from 1 with its own level
+// caps, and the badge reads max(UR, climbed) -- so UR, UR, ... then UR* at tier 13 and LR at 14.
+test('the four UR starters wear UR from the moment they join, in both modes, and still climb to LR',async()=>{
+ const {CROSSOVER_STARTERS}=await import('../lib/crossover-abilities.mjs');
+ const four=['xover_msf_ironmaninfinitywar','xover_msf_spiderman','xover_swgoh_jedimasterkenobi','xover_swgoh_themandalorianbeskararmor'];
+ assert.deepEqual(Object.keys(CROSSOVER_STARTERS).sort(),four);
+ const fresh=startingSave(T);
+ for(const id of four){
+  assert.equal(fellowById(id).rarity,'N','the STORED catalogue rarity is still the bare N');
+  assert.equal(displayRarity(fresh,id),'UR','default mode, not yet joined');
+  assert.deepEqual(CROSSOVER_RARITY_TIERS.map((_,q)=>displayRarity(at(id,q+1),id)),
+   ['UR','UR','UR','UR','UR','UR','UR','UR','UR','UR','UR','UR','UR*','LR'],`${id} across the climb`);
+  assert.equal(sourceCap(at(id,1),id),qualityRule(1).cap,'the tier, and so the level cap, still starts at 1');
+ }
+ // Everyone else still starts at N.
+ assert.equal(ADDITION_FELLOWS.filter(f=>displayRarity(fresh,f.id)==='UR').length,4);
+ assert.equal(ADDITION_FELLOWS.filter(f=>displayRarity(fresh,f.id)==='N').length,129);
 });
 
 test('every original character keeps its own rarity, and crossover Family keep theirs',()=>{

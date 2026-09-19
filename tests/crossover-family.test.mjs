@@ -591,7 +591,7 @@ test('the ceiling fixture reproduces tests/fellow-power.test.mjs exactly -- the 
 // crossover half is untouched -- all 163 still ship, their rarity ladder re-measured to the same
 // numbers (scripts/crossover/build-abilities.mjs) -- so the ratio RISES as a pure arithmetic effect
 // of a smaller original roster, not because anything about a crossover Fellow changed.
-test('flag ON: the ceiling is 80,006,463 -- and rosterOperation is only HALF of what moved',()=>{
+test('flag ON: the ceiling is 80,007,548 -- and rosterOperation is only HALF of what moved',()=>{
  const {ceiling}=flagOn();
  // REBASELINED 2026-09-18 TWICE: 11,696,717 before the Stella tracks, 22,684,041 after them, and
  // 33,997,375 once the three deferred columns were imported. The move is the same one as the flag-off
@@ -603,10 +603,11 @@ test('flag ON: the ceiling is 80,006,463 -- and rosterOperation is only HALF of 
  // second pin against the original's own table maximum, which is `vsTableMax`.
  // REBASELINED 2026-09-18 (Power on the original's composition): 33,997,375 / 9.7211 / 2.453 before.
  // 20,874,032 / 5.9687 / 1.506 before the 2026-09-18 talent skills (the originals' half moved; see above).
- // REBASELINED 2026-09-19 (crossover parity: the shared shard track's flat x12, lib/crossover-stella.mjs): 28,362,563 /
+ // REBASELINED 2026-09-19 (crossover parity: the shared shard track's flat x3 and own percent x70 of Angie's columns,
+ // lib/crossover-stella.mjs): 28,362,563 /
  // 8.1099 / 2.046 before. Only the crossover half moved -- stage3 below, the roster before that track, is unchanged.
- assert.equal(ceiling.ceiling,80006463);
- assert.equal(ceiling.ratio,22.8768,'PACING against one real save -- not a parity budget');
+ assert.equal(ceiling.ceiling,80007548);
+ assert.equal(ceiling.ratio,22.8771,'PACING against one real save -- not a parity budget');
  assert.equal(ceiling.vsTableMax,5.772,'against the original own Spirit table at its top (a FLOOR on its ceiling)');
  assert.equal(ceiling.original,3497276,'the same denominator the flag-off control uses');
  assert.equal(ceiling.tableMax,13861950,'and the same table maximum');
@@ -614,24 +615,24 @@ test('flag ON: the ceiling is 80,006,463 -- and rosterOperation is only HALF of 
  // the OTHER factor of village income, so the two multiply: rosterOperation moved x1.50 flag-on while
  // gold/s moved from 876,304,628 to 171,878,129,494, i.e. x196.
  assert.equal(ceiling.village.appointBp,2321200);
- assert.equal(ceiling.village.goldPerSecond,404334079841,'143,408,852,632 before the 2026-09-19 crossover re-scale; 171,878,129,494, then 105,573,858,091, before 2026-09-18');
+ assert.equal(ceiling.village.goldPerSecond,404339559322,'143,408,852,632 before the 2026-09-19 crossover re-scale; 171,878,129,494, then 105,573,858,091, before 2026-09-18');
  assert.equal(Math.round(ceiling.village.goldPerSecond/876304628),461,'x164 before 2026-09-19; x196, then x120, before 2026-09-18');
- // The top Fellow of THIS state is now a crossover one (445,490,682; 401,355,307, an original, before): the originals
+ // The top Fellow of THIS state is now a crossover one (445,498,837; 401,355,307, an original, before): the originals
  // here have maxed their records but not their 2026-09-18 sinks, which the `fullyMaxed` state below adds.
- assert.equal(ceiling.fellow.top,445490682,'one maxed Fellow, against the owner’s remembered 300,000,000');
+ assert.equal(ceiling.fellow.top,445498837,'one maxed Fellow, against the owner’s remembered 300,000,000');
  assert.equal(ceiling.stage3,23667663,'the roster before the crossover shard track (29,302,475, then 16,179,132, before 2026-09-18)');
- assert.equal(ceiling.ceiling-ceiling.stage3,56338800,'the crossover track is worth exactly 133 x 423,600 (133 x 35,300 = 4,694,900 before the x12)');
+ assert.equal(ceiling.ceiling-ceiling.stage3,56339885,'what the crossover track is worth now (133 x 35,300 = 4,694,900 before 2026-09-19, when it was a flat alone)');
  assert.equal(ceiling.notes.shardTracksMaxed,133,'every crossover Fellow reached level 40');
  assert.equal(ceiling.notes.stellaTracks,111,'and every original Fellow maxed an imported ladder');
- assert.equal(ceiling.crossoverWorth,59190323,'what the 133 are worth (7,546,423 before the 2026-09-19 x12; 7,041,079 before 2026-09-18)');
- assert.equal(ceiling.fellowsOnly.ceiling,79824835,'the 133 crossover Fellows without the 30 Family (28,180,935 before 2026-09-19)');
+ assert.equal(ceiling.crossoverWorth,59191408,'what the 133 are worth (7,546,423 before the 2026-09-19 re-scale; 7,041,079 before 2026-09-18)');
+ assert.equal(ceiling.fellowsOnly.ceiling,79825920,'the 133 crossover Fellows without the 30 Family (28,180,935 before 2026-09-19)');
  assert.equal(ceiling.familyBlessingWorth,181628,'what the 30 crossover Family are worth');
  assert.equal(ceiling.ceiling-ceiling.fellowsOnly.ceiling,ceiling.familyBlessingWorth,'and it is a subtraction, not a quote');
  assert.deepEqual([ceiling.stage0,ceiling.stage1,ceiling.stage2],[5514671,22752435,23565298],'[3,425,348, 21,406,207, 28,224,127], then [2,776,992, 15,602,666, 16,103,101], before 2026-09-18');
  // UNMOVED by either the roster trim or the Stella tracks, and worth saying so: the crossover shard
  // track is still worth exactly 133 x 35,300. The 133 crossover Fellows were worth 7,041,079 between them
  // until the 2026-09-18 additive composition, which re-buckets their stars and skill too: 6,336,163.
- assert.equal(ceiling.crossoverWorth,59190323);assert.equal(ceiling.ceiling-ceiling.stage3,133*423600);
+ assert.equal(ceiling.crossoverWorth,59191408);assert.equal(ceiling.ceiling-ceiling.stage3,56339885);
  // The two states differ in the crossover FAMILY and nothing else, or the difference above is not the
  // Family side's worth (CLAUDE.md rule 1).
  assert.deepEqual([ceiling.stage0,ceiling.stage1],[ceiling.fellowsOnly.stage0,ceiling.fellowsOnly.stage1],
@@ -665,13 +666,15 @@ test('flag ON: the ceiling is 80,006,463 -- and rosterOperation is only HALF of 
 // and it must not be able to come back quietly.
 test('flag ON: a crossover Fellow’s TYPE is no longer a power term -- 2.84x became 1.00x',()=>{
  const {ceiling}=flagOn();
- // Every type now sums to zero typed percent, because an addition reads its own row only.
- assert.deepEqual(ceiling.stellaPercentByType,{Unfettered:0,Brave:0,Diligent:0,Informed:0,Inspiring:0});
+ // An addition reads its OWN row only. Until 2026-09-19 that row's percent was 0; the parity lever gives it +8,540%
+ // at level 40 (lib/crossover-stella.mjs), and it is still the SAME number for every type -- the property this
+ // test protects -- because the one shared ladder has no type and no typed sum includes it.
+ assert.deepEqual(ceiling.stellaPercentByType,{Unfettered:8540,Brave:8540,Diligent:8540,Informed:8540,Inspiring:8540});
  // MEASURED BEFORE THE FIX: {Unfettered:18973639, Brave:18973639, Diligent:42121478,
  // Informed:42121478, Inspiring:53885134}, i.e. Inspiring/Brave = 2.84.
  // 54,273,639 for every type before the 2026-09-18 additive composition; still one number for all five.
  assert.deepEqual(ceiling.maxedPowerByType,
-  {Unfettered:445490682,Brave:445490682,Diligent:445490682,Informed:445490682,Inspiring:445490682}); // 57,190,682 before the 2026-09-19 x12; 48,090,981 before step 4
+  {Unfettered:445498837,Brave:445498837,Diligent:445498837,Informed:445498837,Inspiring:445498837}); // 57,190,682 before the 2026-09-19 re-scale; 48,090,981 before step 4
  assert.equal(+(ceiling.maxedPowerByType.Inspiring/ceiling.maxedPowerByType.Brave).toFixed(2),1.00,
   'on identical records every type must now max at the same Power');
  assert.equal(new Set(Object.values(ceiling.maxedPowerByType)).size,1,'one number, not five');
@@ -686,12 +689,12 @@ test('flag ON: a crossover Fellow’s TYPE is no longer a power term -- 2.84x be
 // sources -- every move on the ORIGINAL side. But those were measured on the ceiling state above, which maxes
 // the RECORDS and not the six sinks an original gained on 2026-09-18 (talent skills, Rarity Advance, Pledge,
 // Origin, Family Stella, quench). `fullyMaxed` buys every one of them. MEASURED THERE, BEFORE THE FIX: a maxed
-// crossover 67,942,164 against a maxed Diligent original's 462,211,046 = 0.147x (0.143x the median original,
-// 0.015x the strongest). The crossover cannot reach any of those sinks -- no talent-skill row, no Rarity
-// Advance, no Family Stella, no Stella percent of its own -- so the ONE crossover-only track, the shared shard
-// ladder, carries the difference: Angie's flat column x12 (lib/crossover-stella.mjs CROSSOVER_FLAT_SCALE), her
-// cost column unchanged, so it is earned from the same pool at the same 4,500 shards per Fellow.
-test('flag ON, fully maxed: a maxed crossover Fellow is 0.987x a maxed original of the middle type',()=>{
+// crossover 67,942,164 against a maxed Diligent original's 462,211,046 = 0.147x in default growth, and 0.18x
+// or less in APK growth. The crossover cannot reach any of those sinks, so the ONE crossover-only track carries
+// the difference: Angie's flat column x3 and her percent column x70, own Fellow only (lib/crossover-stella.mjs).
+// A flat alone was tried first (x12): 0.987x default but 0.179x APK -- the originals' lead multiplies the level
+// column and a flat does not. Her COST column is unchanged: the same pool, the same 4,500 shards per Fellow.
+test('flag ON, fully maxed: a maxed crossover Fellow is ~1.0x a maxed original of the middle type, in both growth modes',()=>{
  const {fullyMaxed:m}=flagOn();
  assert.ok(m.valid,m.refusedBy);
  // Positive control: the sinks really were bought, or "fully maxed" is the records-only state again.
@@ -699,23 +702,30 @@ test('flag ON, fully maxed: a maxed crossover Fellow is 0.987x a maxed original 
  // AND NO TYPE LEVER: one number for all five crossover types in this state too.
  assert.equal(new Set(Object.values(m.crossoverByType)).size,1,'one number, not five');
  assert.deepEqual(Object.keys(m.crossoverByType).sort(),['Brave','Diligent','Informed','Inspiring','Unfettered']);
- // Equivalent, not dominant: inside 5% of the middle type, below the two stronger types and the strongest original.
- assert.ok(Math.abs(m.crossover.max/m.originalByType.Diligent-1)<0.05,'a maxed crossover must stand level with the middle type');
- assert.ok(m.crossover.max<m.originalByType.Brave&&m.crossover.max<m.originalByType.Informed,'and below the two stronger types');
- assert.ok(m.crossover.max<m.original.max,'no crossover Fellow may pass the strongest original');
- assert.deepEqual(m.crossover,{min:455031308,median:455636736,max:456242164},'the 133 (66,731,308 / 67,336,736 / 67,942,164 before the x12)');
- assert.deepEqual(m.original,{min:113388150,q25:237131054,median:475295010,q75:1545935567,max:4454896209},'the 111, untouched by the x12');
+ // Equivalent, not dominant, in BOTH modes: inside 5% of the middle type, below the two stronger types and the
+ // strongest original.
+ for(const [mode,r] of [['default',m],['APK',m.apk]]){
+  assert.ok(Math.abs(r.crossover.max/r.originalByType.Diligent-1)<0.05,`${mode}: a maxed crossover must stand level with the middle type`);
+  assert.ok(r.crossover.max<r.originalByType.Brave&&r.crossover.max<r.originalByType.Informed,`${mode}: and below the two stronger types`);
+  assert.ok(r.crossover.max<r.original.max,`${mode}: no crossover Fellow may pass the strongest original`);
+  const mid=Object.values(r.originalByType).sort((a,b)=>a-b)[2];
+  assert.equal(mid,r.originalByType.Diligent,`${mode}: Diligent is the middle of the five type medians`);
+ }
+ assert.deepEqual(m.crossover,{min:455039462,median:455644890,max:456250319},'the 133 (66,731,308 / 67,336,736 / 67,942,164 before 2026-09-19)');
+ assert.deepEqual(m.original,{min:113388150,q25:237131054,median:475295010,q75:1545935567,max:4454896209},'the 111, untouched');
  assert.deepEqual(m.originalByType,{Unfettered:323169140,Diligent:462211046,Brave:540528507,Inspiring:437939947,Informed:939480407});
- // Fully maxed, the by-type medians order Unfettered < Inspiring < DILIGENT < Brave < Informed: Diligent is
- // now the middle type by value as well as by name.
- const mid=Object.values(m.originalByType).sort((a,b)=>a-b)[2];
- assert.equal(mid,m.originalByType.Diligent,'Diligent is the middle of the five type medians');
- assert.equal(+(m.crossover.max/m.originalByType.Diligent).toFixed(3),0.987,'vs the middle type (0.147 before)');
+ assert.equal(+(m.crossover.max/m.originalByType.Diligent).toFixed(3),0.987,'default growth vs the middle type (0.147 before)');
  assert.equal(+(m.crossover.max/m.original.median).toFixed(3),0.96,'vs the median original of any type (0.143 before)');
  assert.equal(+(m.crossover.max/m.original.max).toFixed(3),0.102,'vs the strongest original there is (0.015 before)');
- // The fully-maxed flag-on ceiling, pinned beside the records-only one above (80,006,463).
- assert.equal(m.ceiling,172967353,'rosterOperation, every Fellow and every sink maxed');
- assert.equal(m.crossoverWorth,60620270,'of which the 133 crossover Fellows');
+ // APK growth, the parity mode (0.179 under the flat-only x12 that was tried first).
+ assert.deepEqual(m.apk.crossover,{min:3986270890,median:3991492810,max:3996714730});
+ assert.deepEqual(m.apk.originalByType,{Unfettered:2840544490,Diligent:3976182402,Brave:4725287747,Inspiring:3813449616,Informed:8202484721});
+ assert.equal(+(m.apk.crossover.max/m.apk.originalByType.Diligent).toFixed(3),1.005,'APK growth vs the middle type');
+ assert.equal(+(m.apk.crossover.max/m.apk.original.median).toFixed(3),0.975);
+ assert.equal(+(m.apk.crossover.max/m.apk.original.max).toFixed(3),0.091);
+ // The fully-maxed flag-on ceiling, pinned beside the records-only one above (80,007,548).
+ assert.equal(m.ceiling,172968437,'rosterOperation, every Fellow and every sink maxed');
+ assert.equal(m.crossoverWorth,60621355,'of which the 133 crossover Fellows');
 });
 
 // The records-only state, still pinned so a move on either side is loud. Here the ORIGINALS have not bought
@@ -724,12 +734,12 @@ test('flag ON, fully maxed: a maxed crossover Fellow is 0.987x a maxed original 
 test('flag ON, records only: the same comparison before the 2026-09-18 sinks are bought',()=>{
  const {ceiling}=flagOn();
  const x=ceiling.maxedCrossover,o=ceiling.maxedOriginal;
- assert.deepEqual(x,{min:444279826,median:444885254,max:445490682},'the 133, sorted (55,979,826 / 56,585,254 / 57,190,682 before the x12)');
+ assert.deepEqual(x,{min:444287980,median:444893408,max:445498837},'the 133, sorted (55,979,826 / 56,585,254 / 57,190,682 before 2026-09-19)');
  assert.deepEqual(o,{min:36505458,q25:68385912,median:135096948,q75:337005581,max:401355307},'the 111, sorted (step 4: HeroStar rows and every halo scope)');
  assert.deepEqual(ceiling.maxedOriginalByType,
   {Unfettered:83799636,Diligent:99087566,Brave:154860786,Inspiring:162515420,Informed:220198748});
- assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),4.496,'0.577 before the x12');
- assert.equal(+(x.max/o.max).toFixed(3),1.11,'0.142 before the x12');
+ assert.equal(+(x.max/ceiling.maxedOriginalByType.Diligent).toFixed(3),4.496,'0.577 before 2026-09-19');
+ assert.equal(+(x.max/o.max).toFixed(3),1.11,'0.142 before 2026-09-19');
 });
 
 // ---------------------------------------------------------------------------------------------

@@ -10,6 +10,10 @@ import {ADDITION_FELLOWS,additionById,sourceId} from '../lib/everkai-additions.m
 import {CROSSOVER_LADDER,CROSSOVER_TIERS,CROSSOVER_TALENT_RULE,CROSSOVER_ARCHETYPES,CROSSOVER_SLOT_B,CROSSOVER_SLOT_C,
         crossoverBadge,crossoverLadder,crossoverBaseAptitude,crossoverInsightRule,crossoverOperationRow,
         crossoverArchetype,crossoverFlavour,hasCrossoverAbilities} from '../lib/crossover-abilities.mjs';
+import {CROSSOVER_STARTERS,crossoverStartQuality,crossoverBadgeQuality} from '../lib/crossover-abilities.mjs';
+// The generic crossover sample: the first addition that is NOT one of the four UR starters (Spider-Man is
+// ADDITION_FELLOWS[0] and a starter since 2026-09-19; Wolverine, next, is the same type, Unfettered).
+const PLAIN=ADDITION_FELLOWS.find(f=>!CROSSOVER_STARTERS[f.id]);
 import {CROSSOVER_RARITY_TIERS} from '../lib/crossover-rarity.mjs';
 import {talentRule,talentCap,crossoverTalentRule,validTalents} from '../lib/talents.mjs';
 import {insightRule} from '../lib/insight.mjs';
@@ -168,7 +172,7 @@ test('the two flavour names per character are short, original, and collide with 
 // ---------------------------------------------------------------------------------------------
 
 test('no crossover Fellow exceeds ANY original of the same badge, at three investment levels',()=>{
- const XOVER=ADDITION_FELLOWS[0].id;
+ const XOVER=PLAIN.id;
  const rows=[];
  for(let q=1;q<=14;q++){
   const badge=crossoverBadge(q);
@@ -217,8 +221,29 @@ test('no crossover Fellow exceeds ANY original of the same badge, at three inves
  assert.equal(+(mine/best).toFixed(3),0.862,'at the widest badge a crossover is 97.5% of the strongest');
 });
 
+// THE FOUR UR STARTERS (owner request, 2026-09-19) are held to the same rule at the badge they WEAR: from quality 1
+// they read the UR rung, so they are compared with the UR originals until they climb past tier 12.
+test('the four UR starters: at every tier, never above the weakest original of the badge they wear',()=>{
+ const rows=[];
+ for(const id of Object.keys(CROSSOVER_STARTERS)){
+  assert.equal(crossoverStartQuality(id),11,`${id} starts on the first UR tier`);
+  for(const q of [1,6,11,12,13,14]){
+   const badge=crossoverBadge(crossoverBadgeQuality(id,q));
+   const peers=originalsAt(badge==='LR'?'UR*':badge).filter(f=>progression.heroes[f.id]);
+   for(const [stage,record] of Object.entries(RECORDS(q))){
+    const mine=bondedPower(at(id,q,record),id),weakest=Math.min(...peers.map(f=>bondedPower(at(f.id,q,record),f.id)));
+    assert.ok(mine<=weakest,`${id} q${q} ${badge} ${stage}: ${mine} > weakest original ${weakest}`);
+    if(id==='xover_msf_spiderman'&&q===1)rows.push([badge,stage,mine,weakest]);
+   }
+  }
+ }
+ // Spider-Man freshly joined, beside the weakest UR original at the same records.
+ // [badge, stage, Spider-Man, weakest UR original]. As an N he was 6,000 / 296,000 / 4,575,050 on these records.
+ assert.deepEqual(rows,[['UR','fresh',30000,33063],['UR','mid',370000,387769],['UR','ceiling',4723050,4807040]]);
+});
+
 test('earnings: the appoint total equals the weakest original of the same badge, never more',()=>{
- const XOVER=ADDITION_FELLOWS[0].id,type=additionById(XOVER).type;
+ const XOVER=PLAIN.id,type=additionById(XOVER).type;
  const home=BUSINESSES.find(b=>b.type===type);
  const raw=(row,business,level)=>row.effects
   .filter(e=>(!e.type||e.type===business.type)&&(!e.building||e.building===business.id)&&level>=e.minLevel)
@@ -267,7 +292,7 @@ test('the talent tier is fixed, and fixing it costs nothing because a point cost
  // ...and the tier cap is not a ceiling either: Aptitude is sold directly at the same 1:1 rate to the
  // same 1,000 -- direct pearl training stops at PEARL_APTITUDE_CAP even though APTITUDE_CAP is the original's
  // measured 31,122 since 2026-09-18 -- so what the tier changes is clicks.
- const XOVER=ADDITION_FELLOWS[0].id;
+ const XOVER=PLAIN.id;
  const s={...at(XOVER,1,{level:1}),inventory:{...fresh(T).inventory,Item_Talent_Hero_1:APTITUDE_CAP+1000}};
  assert.equal(PEARL_APTITUDE_CAP,1000);
  assert.deepEqual([aptitudeTrainingPlan(s,XOVER,'max').count,aptitudeTrainingPlan(s,XOVER,'max').cost],[990,990]);
@@ -306,14 +331,18 @@ test('every one of the 133 resolves every table, and APK growth activates with t
   assert.ok(characterSkills(f.id),`${f.id} guide`);
   assert.equal(fellowOperation(s,f.id,BUSINESSES.find(b=>b.type===f.type)).known,true,`${f.id} operation`);
   assert.ok(hasHeroRow(s,f.id),`${f.id} growth row`);
-  assert.equal(crossoverBaseAptitude(f.id,1),20);
+  // The four UR starters (2026-09-19) read the UR rung until they climb past it; everyone else starts on N.
+  assert.equal(crossoverBaseAptitude(f.id,1),CROSSOVER_STARTERS[f.id]?100:20,f.id);
   assert.equal(crossoverBaseAptitude(f.id,14),200);
  }
+ assert.deepEqual(ADDITION_FELLOWS.filter(f=>crossoverBaseAptitude(f.id,1)!==20).map(f=>f.id).sort(),
+  ['xover_msf_ironmaninfinitywar','xover_msf_spiderman','xover_swgoh_jedimasterkenobi','xover_swgoh_themandalorianbeskararmor'],
+  'exactly the four starters the owner named, and nobody else');
  // The precondition the placeholder used to satisfy through a template row.
  const on=act(s,'activateOriginalProgression',s.lastAt);
  assert.equal(on.error,undefined,on.error);
  assert.ok(valid(on.state),refusedBy(on.state));
- assert.equal(heroRow(on.state,ADDITION_FELLOWS[0].id),20,'and every one of them starts on the N rung');
+ assert.equal(heroRow(on.state,PLAIN.id),20,'and every one of them starts on the N rung');
  // NEGATIVE CONTROL: an id that is neither an original nor an addition still resolves nothing, so the
  // "every one resolves" claim above is about the data and not about the functions always saying yes.
  assert.equal(hasCrossoverAbilities('xover_msf_nobody'),false);
@@ -399,7 +428,11 @@ test('RULE 12: a previous-build save that trained a prototype decodes with the d
  assert.equal(s.originalProgression.quality[id],2);
  assert.equal(s.fellows[id].originalTalent.receipts.length,1);
  assert.equal(progression.heroes[sourceId(id)],70,'the template row the previous build read');
- assert.equal(heroRow(s,id),20,'and the N rung it reads now -- the derived value DID move');
+ // The fixture's crossover Fellow is Spider-Man, one of the four UR starters since 2026-09-19: at stored quality 2
+ // (an N badge for anyone else) he now reads the UR rung. The row moved twice (70 template -> 20 N -> 100 UR), and
+ // it is derived, so the save still loads untouched: nothing refunded, nothing lost (rule 12).
+ assert.equal(id,'xover_msf_spiderman');
+ assert.equal(heroRow(s,id),100,'and the UR rung it reads now -- the derived value DID move (20, the N rung, before)');
  // The talent CAP is what a lowered tier would have broken, and it did not move: the crossover rule is
  // fixed at the tier its lineage carried, so 299 is still legal.
  assert.equal(talentCap(s,id),299);
