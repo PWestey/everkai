@@ -78,16 +78,32 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
 // 9.05M -> 3.73M (a late recruit at level 100 -- more Fellows, 34 vs 25, because pearls now cost a daily limit
 // instead of gold), village gold/s 2.31B -> 3.00B. The day-30 sims per step: step 1 614M / 4.21M, step 2 717M /
 // 6.25M, step 3 721M / 2.90M, step 4 702M / 3.73M.
+// PEARLS 360 -> 150 A DAY (2026-09-19, owner answer: "as a free player, a normal day brought about 150 Skill Pearls").
+// Re-simulated, same sim and policy (scratchpad sim/sim-pins-150.mjs = sim-pins-src.mjs with its missing debug import
+// made optional), 180 days APK `earned`, on this build's lib with PEARL_DAILY_LIMIT 150; `p360` is what the pins held
+// before -- the same sim on 4de2a38's lib, whose day-21/30 saves this run's 360 control reproduced to the unit.
+// Read plainly against the owner's retail range (a few weeks: top ~300M, nobody under ~5M):
+//   top    day 21 406M (629M at 360), day 30 555M (702M): still 1.4-1.8x the ~300M. What remains above it is
+//          ADH x Aptitude x (1 + 776%) -- the pearl-trained talent skills (3,548 Aptitude at day 30) and Stella 525%
+//          -- plus Stella's 149M flat; without the talent skills the day-30 top would be ~287M.
+//   bottom day 21 3.4M, day 30 4.0M (3.7M): still under 5M, and it is always the NEWEST recruit (level 100, no
+//          Stella, hero_308 / hero_172); 3 of 29-36 Fellows are under 5M until day ~40; from day 90 none is.
+//   by day 90 the limit no longer matters at the top: every talent skill the top Fellow has is at its cap (5,202
+//          Aptitude, the same as the 360 run's day 30), so top 1.355B vs 1.350B.
+//   gold/s is 0.94x / 0.92x / 1.12x of the 360 run: pearls cost gold, fewer pearls buy more recruits (36-49 vs 34-47).
 const PINS=[
- {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2996414185,top:701609884,bottom:3725113,fellows:34},
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2809331953,top:554906376,bottom:3978890,fellows:36},
+  p360:{goldPerSecond:2996414185,top:701609884,bottom:3725113,fellows:34},
   c5b4477:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
   uncapped:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
   before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
- {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:8025807147,top:1349526440,bottom:5622934,fellows:47},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:7406128086,top:1355454810,bottom:6290250,fellows:49},
+  p360:{goldPerSecond:8025807147,top:1349526440,bottom:5622934,fellows:47},
   c5b4477:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
   uncapped:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
   before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
- {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:16110018248,top:1428901977,bottom:10737995,fellows:47},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:18043557731,top:1361587265,bottom:11474001,fellows:49},
+  p360:{goldPerSecond:16110018248,top:1428901977,bottom:10737995,fellows:47},
   c5b4477:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
   uncapped:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},
   before:{goldPerSecond:8248950146,top:460219606,bottom:20331834,fellows:31}},
@@ -101,7 +117,10 @@ for(const p of PINS)test(`pacing, day ${p.day}: gold/s ${p.now.goldPerSecond.toL
  // A runaway is anything outside these bands against the pre-rebuild build's (3d47df4) own run. They are wide on
  // purpose: a re-balance may move a pin, but a factor of 3 on income or 20 on the top Fellow is a defect.
  const r=k=>now[k]/p.before[k];
- assert.ok(r('goldPerSecond')>0.5&&r('goldPerSecond')<2,`day ${p.day}: gold/s is ${r('goldPerSecond').toFixed(2)}x 3d47df4`);
+ // WIDENED 2026-09-19 from 2x to 2.5x, measured: day-180 gold/s is 2.19x 3d47df4 at 150 pearls a day (1.95x at 360).
+ // The gold the shop no longer takes buys recruits and buildings; the pre-rebuild build had no talent skills, no
+ // Family Stella and no quench to spend on, so its income is no longer a like-for-like floor at day 180.
+ assert.ok(r('goldPerSecond')>0.5&&r('goldPerSecond')<2.5,`day ${p.day}: gold/s is ${r('goldPerSecond').toFixed(2)}x 3d47df4`);
  assert.ok(r('top')<20,`day ${p.day}: the top Fellow is ${r('top').toFixed(1)}x 3d47df4`);
  assert.ok(r('bottom')>0.25&&r('bottom')<4,`day ${p.day}: the bottom Fellow is ${r('bottom').toFixed(2)}x 3d47df4`);
  // The pearl guards at RE-PIN time, checked on the save itself. (Until the power sources landed this compared

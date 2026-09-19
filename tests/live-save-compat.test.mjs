@@ -52,3 +52,23 @@ test('RULE 12: a 30-day save from crossover@c5b4477 decodes byte-identically and
  assert.deepEqual(lastQuarantine,[],'nothing quarantined');
  assert.ok(valid(back),refusedBy(back));
 });
+
+// And the build right before the 2026-09-19 pearl limit and crossover re-scale (crossover@4de2a38): the pacing
+// sim (scratchpad sim/sim-pins-src.mjs, 30 apk earned) on 4de2a38's own lib. Its last day bought the old limit,
+// 360 pearls, which is MORE than today's 150 -- the shape that would break if the limit were ever validated.
+test('RULE 12: a 30-day save from crossover@4de2a38 (360 pearls bought on its last day) decodes byte-identically and loads',async()=>{
+ const {PEARL_DAILY_LIMIT,supplyPurchasePlan,pearlsToday,PEARL_ID}=await import('../lib/adventure.mjs');
+ const raw=gunzipSync(readFileSync(new URL('./live-save-4de2a38-day30.json.gz',import.meta.url))).toString('utf8');
+ const s=JSON.parse(raw);
+ // Positive controls: the old day's purchases are past the new limit, and the new sinks are in use.
+ assert.deepEqual(s.shopPearlDay,{day:'2026-10-30',bought:360});
+ assert.ok(s.shopPearlDay.bought>PEARL_DAILY_LIMIT,'the stored day is past today’s limit');
+ assert.equal(s.shopPearls,10800,'360 a day for 30 days');
+ assert.ok(Object.values(s.fellows).some(f=>f.talentSkills),'talent skills trained');
+ const back=decode(raw);
+ assert.equal(JSON.stringify(back),raw,'byte-identical round trip');
+ assert.deepEqual(lastQuarantine,[],'nothing quarantined');
+ assert.ok(valid(back),refusedBy(back));
+ assert.equal(pearlsToday(back),360);
+ assert.equal(supplyPurchasePlan({...back,gold:1e15},PEARL_ID,1).count,0,'no room left today, nothing refused');
+});

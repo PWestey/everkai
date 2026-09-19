@@ -892,3 +892,42 @@ Recommendations (rule 9 — proceeding on these unless the owner objects), and t
    original's panel shows "Skill +0%". Recommendation unchanged: decide with this table in front of him.
 3. **The floor**: late recruits start at level 100 with nothing; the retail floor of ~5M likely reflects
    starting Stella/levels on recruitment. Not changed here.
+
+## 9. 2026-09-19: Skill Pearls 150 a day, crossover parity, four UR starters
+
+**Pearls.** Owner answer (rule 11): as a free player a normal day brought about 150 Skill Pearls. `PEARL_DAILY_LIMIT`
+360 -> 150 (lib/adventure.mjs; save-neutral -- `shopPearlDay` is bounded by 1e6, not the limit; a 4de2a38 save that
+bought 360 on its last day is pinned in tests/live-save-compat.test.mjs). Re-simulated with `scratchpad/sim/sim-pins-150.mjs`
+(sim-pins-src with its missing debug import made optional), 180 days, APK, `earned`:
+
+| day | gold/s 360 -> **150** | top Fellow 360 -> **150** | bottom Fellow 360 -> **150** | Fellows | pearls bought |
+|---|---|---|---|---|---|
+| 21 | 1,524,654,562 -> **1,356,706,585** | 629,048,072 -> **405,803,963** | 3,615,311 -> **3,428,231** | 26 -> 29 | 7,560 -> 3,150 |
+| 30 | 2,996,414,185 -> **2,809,331,953** | 701,609,884 -> **554,906,376** | 3,725,113 -> **3,978,890** | 34 -> 36 | 10,800 -> 4,500 |
+| 90 | 8,025,807,147 -> **7,406,128,086** | 1,349,526,440 -> **1,355,454,810** | 5,622,934 -> **6,290,250** | 47 -> 49 | -> 13,500 |
+| 180 | 16,110,018,248 -> **18,043,557,731** | 1,428,901,977 -> **1,361,587,265** | 10,737,995 -> **11,474,001** | 47 -> 49 | -> 27,000 |
+
+Against the retail range (few weeks: top ~300M, nobody under ~5M): the top is 406M at day 21 and 555M at day 30 --
+1.4-1.8x, down from 2.1-2.3x. The day-30 top (hero_195) is ADH 8,627 x Aptitude 5,332 (3,548 of it pearl-trained talent
+skills) x (1 + 776%: Stella 525, Everkai-only skill 100, halos 87, fishing 24) + 152M flat; without the talent skills
+~287M. By day 90 the limit stops mattering at the top: the Fellow's talent skills are at their caps either way. The
+bottom is 3.4-4.0M at days 21-30, and it is always the newest recruit at level 100 with no Stella (3 of 29-36 Fellows
+under 5M until day ~40; none from day 90). The remaining top-end levers are the Everkai-only Fellow skill percent (+100%,
+section 7 question 6) and Stella's flat. The day-180 gold/s is 2.19x the pre-rebuild build's, so that pacing band was
+widened from 2x to 2.5x (fewer pearls, more gold for recruits).
+
+**Crossover parity** (owner decision). Measured on a new fully-maxed flag-on state (tests/crossover-family-village.mjs
+`fullyMaxed`: every Fellow's talent skills, Rarity Advance, Pledge, Origin, Family Stella and quench bought through
+act()), both modes. Before: a maxed crossover 0.147x a maxed Diligent original in default growth, <=0.18x in APK growth
+(the pinned 0.577x compared records-only states that never bought those sinks). After -- the shared crossover shard
+track pays Angie's flat x3 and her percent x70 as the crossover's OWN percent (cost column unchanged, 4,500 shards per
+Fellow): 0.987x default, 1.005x APK; Diligent is the middle type by value in both; one number for all five crossover
+types. Flag-on ceilings: records-only 80,007,548 (was 28,362,563), fully maxed 172,968,437. The live build writes
+receipts of this track, so validStella also accepts the unscaled rows and Power reads the ladder by level
+(tests/crossover-shard-save-45828d3.json).
+
+**UR starters** (owner request): Iron Man (Infinity War), Spider-Man, The Mandalorian (Beskar) and Obi-Wan Kenobi read
+the rarity ladder at max(UR, climbed tier) -- base Aptitude 100, appoint slot A +150%, badge UR -- with the stored rarity
+still "N" and the quality tier still starting at 1. They still join through their arcs: Spider-Man XoverMsf01 stage 1
+(10 completions), Iron Man XoverMsf01 stage 4 (40), Obi-Wan XoverSwgoh02 stage 4 (40), Mandalorian XoverSwgoh06 stage
+1 (20, a tier-2 arc). Arcs are not ordered, so each is reachable from day one given the completions.
