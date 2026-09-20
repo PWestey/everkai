@@ -1139,3 +1139,35 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .event-cards progress::-moz-progress-bar{background:#7a8b4f;border-radius:999px}
 .event-met{font-weight:600}
 .event-unmet{opacity:.55}
+
+/* TODAY (QOL-02). The daily list, sized for a 390px phone: the count and the helper button are the
+   whole screen above the fold, the rows below it are one tap-sized line each. */
+.today-panel{display:grid;gap:12px;padding:14px}
+.today-count{display:grid;gap:6px;padding:12px 14px;background:#fff8e9;border:1px solid #caba96;border-radius:16px}
+.today-count strong{font:700 1.35rem Georgia,serif;color:#203a30}
+.today-count small{font-size:13px;color:#67715e}
+.today-bar{height:8px;border-radius:99px;background:#e0d5b7;overflow:hidden}
+.today-bar i{display:block;height:100%;background:#1c6650;border-radius:99px;transition:width .25s ease-out}
+.today-filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.today-filters button{font-size:14px;white-space:normal}
+.today-filters button[aria-pressed=true]{background:#e3d6af;border-color:#b9a16c}
+.today-group h3{font:700 1.05rem Georgia,serif;color:#234b3e;margin-top:4px}
+.today-group>.small-note{margin:0 0 6px}
+.today-group ul{display:grid;gap:6px}
+.today-group li{display:flex;gap:10px;align-items:flex-start;min-height:44px;padding:9px 11px;background:#fff8e9;border:1px solid #d9cba6;border-left-width:4px;border-radius:12px}
+.today-group li>div{display:grid;gap:1px;min-width:0}
+.today-group li strong{font-size:15px;line-height:1.3}
+.today-mark{flex:none;width:20px;text-align:center;font-size:15px;line-height:22px;font-weight:700}
+.today-state{font-size:13px;color:#53654f;line-height:1.35}
+.today-group li small{font-size:12px;color:#7b7560;line-height:1.35}
+.today-todo{border-left-color:#c18b21}
+.today-todo .today-mark{color:#a3741b}
+.today-done{border-left-color:#8ba07f;opacity:.82}
+.today-done .today-mark{color:#4d7a55}
+.today-helper{border-left-color:#1c6650;background:#f1f6ec}
+.today-helper .today-mark{color:#1c6650}
+.today-helper .today-state{color:#1c6650;font-weight:650}
+.today-locked{border-left-color:#c4bca6;opacity:.7}
+.today-locked .today-mark{color:#8d876f}
+.today-link{text-decoration:underline;text-underline-offset:3px;color:#1c6650;font-weight:650}
+.village-today span{font-weight:700}
