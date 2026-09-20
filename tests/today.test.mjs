@@ -336,7 +336,7 @@ test('every chore a row names is a real helper task, and the unmapped chores are
  // whenever one exists rather than resetting with the day. A new chore lands here and must be argued.
  const mapped=new Set(Object.keys(CHORE_ROWS));
  assert.deepEqual(HELPER_TASKS.map(t=>t.id).filter(id=>!mapped.has(id)).sort(),
-  ['campaign','campaignBattles','duplicates','freeRecruits','journeyAuto','keepsakes','stella'].sort());
+  ['campaign','campaignBattles','duplicates','freeRecruits','journeyAuto','keepsakes'].sort());
 });
 
 test('the list stores nothing: reading it cannot change the save',()=>{

@@ -1,34 +1,42 @@
 import {Button} from '@/components/ui/button';
 import {Switch} from '@/components/ui/switch';
-import {HELPER_GROUPS,HELPER_TASKS,helperState,helperBlocked,helperEnabled} from '@/lib/helper.mjs';
+import {HELPER_GROUPS,HELPER_TASKS,helperState,helperBlocked,helperEnabled,helperNote,helperFocusList} from '@/lib/helper.mjs';
+import {fellowById} from '@/lib/catalog.mjs';
 import {todaySummary} from '@/lib/today.mjs';
 // The Little Helper (QOL-01). The original shows a menu of individually switchable chores; this is
 // the same shape, minus the purchase screen -- a finished daily habit is what sends the helper out.
 // The list is long (every repeatable loop in the game), so it is folded into groups that fit a phone.
 export default function HelperPanel({game,action,locked,onNavigate}:any){
- const state=helperState(game),blocked=helperBlocked(game),on=HELPER_TASKS.filter(t=>helperEnabled(game,t.id)).length;
+ const state=helperState(game),blocked=helperBlocked(game),on=HELPER_TASKS.filter((t:any)=>helperEnabled(game,t.id)).length;
  // The same arithmetic the Today list heads with, from the same function, so the two panels cannot
  // disagree about how much of the day is left.
  const today=todaySummary(game);
  const ran=state.ranAt?new Date(state.ranAt).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):null;
  // "Switch all on" means every FREE chore. A chore that spends gold is only ever switched on by name.
  const free=HELPER_TASKS.filter((t:any)=>!t.defaultOff);
+ // WHERE THE SHARDS WENT. The Stella chore spends one shared pool across the whole roster, so the
+ // run record names who actually got the ranks (lib/helper.mjs runStella). Shown here and in Today.
+ const stella=helperNote(game,'stella'),focus=helperFocusList(game);
  return <section>
   <p>{on} of {HELPER_TASKS.length} chores switched on{ran?` · last sent out at ${ran}`:''}</p>
+  {stella&&<p className="small-note item-status">Stella: {stella}</p>}
+  <p className="small-note">{focus.length
+   ?`Stella focus: ${focus.map((id:string)=>fellowById(id)?.name||id).join(' → ')}. The helper fills these ladders first, in that order.`
+   :'No Stella focus picks. Open a Fellow’s Stella page to send the helper’s shards there first; otherwise it follows your own order and finishes one ladder before starting the next.'}</p>
   <p className="small-note">Today’s list: {today.done} of {today.total} done{today.byHelper?`, ${today.byHelper} of them by him`:''}.{' '}
    <button type="button" className="today-link" onClick={()=>onNavigate?.('today')}>Open Today</button></p>
   <div className="business-actions">
    <Button disabled={locked||!!blocked||!on} onClick={()=>action('helperRun')}>Send the helper out</Button>
-   <Button variant="outline" disabled={locked} onClick={()=>free.forEach(t=>action('helperToggle',t.id,true))}>Switch all free chores on</Button>
+   <Button variant="outline" disabled={locked} onClick={()=>free.forEach((t:any)=>action('helperToggle',t.id,true))}>Switch all free chores on</Button>
   </div>
   {blocked&&<p role="status">{blocked}</p>}
   {HELPER_GROUPS.map(g=>{
-   const tasks=HELPER_TASKS.filter((t:any)=>t.group===g.id),count=tasks.filter(t=>helperEnabled(game,t.id)).length;
+   const tasks=HELPER_TASKS.filter((t:any)=>t.group===g.id),count=tasks.filter((t:any)=>helperEnabled(game,t.id)).length;
    return <details key={g.id} className="helper-group" open={g.id!=='spending'&&tasks.length<=4}>
     <summary><span>{g.label}</span><small>{count} of {tasks.length} on</small></summary>
     {g.id==='spending'&&<p className="small-note">These spend your gold. They stay off until you switch one on.</p>}
     <ul className="helper-tasks">
-     {tasks.map(t=>{const enabled=helperEnabled(game,t.id);return <li key={t.id}>
+     {tasks.map((t:any)=>{const enabled=helperEnabled(game,t.id);return <li key={t.id}>
       <span>{t.label}</span>
       <Switch checked={enabled} disabled={locked} aria-label={t.label} onCheckedChange={(v:boolean)=>action('helperToggle',t.id,v)}/>
      </li>})}

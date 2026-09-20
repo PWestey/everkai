@@ -1,6 +1,7 @@
 import {Button} from '@/components/ui/button';
 import {stellaRule,stellaState,stellaEntry,stellaPlan,stellaAction,stellaActivation,STELLA_IDLE_PER_DAY,SPIRIT_SHARD_ITEM} from '@/lib/stella.mjs';
 import {bondedPower} from '@/lib/adventure.mjs';
+import {helperFocusList,helperNote,stellaOrder} from '@/lib/helper.mjs';
 import {PowerSource} from './power-details';
 /** Which effects THIS ladder carries, read off the ladder's own top row rather than off its owner. The
  *  panel has to read sensibly for five shapes now -- flat only; flat + typed percent; flat + own
@@ -40,9 +41,21 @@ export default function StellaTraining({id,game,action,locked}:any){
  if(k.typed)offers.push(`${p.type} Power +${top.percent}%`);
  if(k.appoint)offers.push(`appointment yield +${top.appointYieldBp/100}%`);
  if(k.talent)offers.push(`talent cap +${top.talentLimit}`);
+ // THE FOCUS PICK (lib/helper.mjs helperFocus). The Little Helper spends one shared pool across the
+ // whole roster, so "who gets the next shards" is the only real choice this panel has; it belongs
+ // here, next to the ladder it decides. `place` is this Fellow's position in the helper's own queue,
+ // so the control says what it will actually do rather than only that a flag is set.
+ const focus=helperFocusList(game),spot=focus.indexOf(id)+1;
+ const queue=stellaOrder(game),place=queue.indexOf(id)+1,report=helperNote(game,'stella');
  return <section className="school-card"><h3>{p.name} · Stella {e?e.level:'inactive'}</h3>
   <p>{(t.stock[p.itemId]||0).toLocaleString()} {currency}{own?` + ${own.toLocaleString()} own old fragments`:''} · {earned.join(' · ')}</p>
   <PowerSource game={game} id={id}/>
+  <div className="training-option"><div><strong>Little Helper focus {spot?`· pick ${spot} of ${focus.length}`:''}</strong>
+   <p>{spot?`The helper feeds this ladder before any Fellow you have not picked${focus.length>1?`, after your ${spot===1?'':`first ${spot-1} pick${spot===2?'':'s'}`}`:''}.`
+    :'Pick this Fellow and the helper spends shards here first. Picks are served in the order you make them.'}</p>
+   <p className="small-note">{place?`Next run the helper reaches this ladder ${place===1?'first':`at position ${place} of ${queue.length}`}.`:''} It finishes one ladder before starting the next — a finished ladder is worth more than several half ones. With no picks it follows your own order: your rank order for Marvel and Star Wars Fellows, highest level first for the village roster.</p>
+   {report?<p className="small-note item-status">Helper today · Stella: {report}</p>:null}</div>
+   <Button variant={spot?'default':'outline'} disabled={locked} onClick={()=>action('helperFocus',id)}>{spot?'Remove focus':'Focus the helper here'}</Button></div>
   {own?<div className="business-actions"><Button variant="outline" disabled={locked||(t.stock[p.itemId]||0)>=1e6} onClick={()=>action('stellaConvert',ownItem,{seq:t.seq})}>Convert {own.toLocaleString()} own fragments → village shards (1:1, one way)</Button></div>:null}
   <p>{p.levels.length} upgrade levels · {sink.toLocaleString()} {currency} for the whole ladder · at the top: {offers.join(' · ')}</p>
   {!e?<><Button disabled={locked} onClick={()=>run('stellaActivate')}>Activate private Stella · Free</Button>
