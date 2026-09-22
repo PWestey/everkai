@@ -11,8 +11,8 @@
 //
 // Imported by tests/crossover-family.test.mjs (no flag) and tests/crossover-family-village.mjs
 // (?crossover=1, in its own process because the catalogue reads the flag once at import).
-import {withItems,grantFragments,allKeepsakes,stockConsumable} from './progression-helpers.mjs';
-import {startingSave,act,valid,refusedBy} from '../lib/game.mjs';
+import {legacyStart,withItems,grantFragments,allKeepsakes,stockConsumable} from './progression-helpers.mjs';
+import {act,valid,refusedBy} from '../lib/game.mjs';
 import {rosterOperation} from '../lib/businesses.mjs';
 import {GEAR,STAR_CAP,CONSUMABLES,newFellow,bondedPower} from '../lib/adventure.mjs';
 import {ARTIFACT_CAP} from '../lib/artifacts.mjs';
@@ -34,7 +34,7 @@ const FRESH_FAMILY={intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}
  *  contribution. */
 export function buildCeiling({crossover=false,family=true}={}){
  const notes={};
- let s=maybe(startingSave(NOW),'recruitAll');
+ let s=maybe(legacyStart(NOW),'recruitAll');
  if(crossover){
   // The crossover FELLOWS this build ships. They are the only recipients a crossover Family member
   // blesses, and blessingPower is summed per Fellow IN THE ROSTER -- so without them in s.fellows the

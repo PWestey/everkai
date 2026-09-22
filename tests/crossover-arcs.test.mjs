@@ -1,8 +1,9 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {legacyStart} from './progression-helpers.mjs';
 import {execFileSync} from 'node:child_process';
 import {existsSync,readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {fresh,act,valid,decode,refusedBy,lastQuarantine,startingSave} from '../lib/game.mjs';
+import {fresh,act,valid,decode,refusedBy,lastQuarantine} from '../lib/game.mjs';
 import {starterHabits} from '../lib/habits.mjs';
 import {EVENTS,ISEKAI_EVENTS,CROSSOVER_EVENTS,COMPLETIONS_PER_STAGE,costPerStage,stageKind,stagePerson,
         validEvents,eventById,visibleEvents,unlockEvent,completionsEarned} from '../lib/events.mjs';
@@ -429,7 +430,7 @@ test('with no flag the panel lists only the eight Isekai arcs and a crossover ar
  // Positive control: an Isekai arc IS claimable in this same process, so the refusal is about the flag.
  assert.equal(act(s,'eventClaim',s.lastAt,'DemonSlayer').error,undefined);
  // And nothing crossover is at the counter.
- assert.deepEqual(recruitOffers(startingSave(0)).filter(o=>isAddition(o.id)),[]);
+ assert.deepEqual(recruitOffers(legacyStart(0)).filter(o=>isAddition(o.id)),[]);
  for(const f of ADDITION_FELLOWS){
   assert.equal(recruitPrice(f.id),null,f.id);
   assert.ok(unlockEvent(f.id),`${f.id} has no arc to point the counter at`);

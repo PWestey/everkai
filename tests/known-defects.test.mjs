@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {legacyStart} from './progression-helpers.mjs';
 import {readFileSync,readdirSync} from 'node:fs';
-import {fresh,startingSave,act,valid,decode,totalRate} from '../lib/game.mjs';
+import {fresh,act,valid,decode,totalRate} from '../lib/game.mjs';
 import {BUSINESSES,sourceEmployeeYield,employeeCohorts,rosterOperation} from '../lib/businesses.mjs';
 import {staffingRule,staffingStatus} from '../lib/staffing.mjs';
 import {RANK_FELLOWS,summonState,recruitPrice,recruitRarity,SUMMON_COSTS} from '../lib/summon.mjs';
@@ -119,7 +120,7 @@ test('the source and data extractors still work (a drifted pattern must fail lou
  // are read for must still hold, or the free-recruit assertions below would be measuring nothing.
  assert.ok(Object.keys(SUMMON_COSTS).length>=8,'SUMMON_COSTS has lost rarities');
  for(const cost of Object.values(SUMMON_COSTS))assert.equal(Object.keys(cost).length,1,'a price names more than one currency; the single-entry read below is wrong');
- assert.ok(Object.hasOwn(summonState(startingSave(NOW)),'stoneFragments'),'the summon wallet no longer holds stoneFragments');
+ assert.ok(Object.hasOwn(summonState(legacyStart(NOW)),'stoneFragments'),'the summon wallet no longer holds stoneFragments');
 });
 
 // =============================================================================================
@@ -146,7 +147,7 @@ test('ECON-28: exactly 46 of the 218 catalogue characters are priced in a curren
  const catalogue=[...FELLOWS,...FAMILY];
  assert.equal(catalogue.length,218);   // 266 before the owner's 2026-09-17 roster trim deleted 48 Fellows
 
- const wallet=Object.keys(summonState(startingSave(NOW)));
+ const wallet=Object.keys(summonState(legacyStart(NOW)));
  const byCurrency={},unpriced=[];
  for(const p of catalogue){
   const cost=recruitPrice(p.id);
@@ -187,7 +188,7 @@ test('ECON-28: exactly 46 of the 218 catalogue characters are priced in a curren
 // defect is fixed rather than rebaselined; the invariant that replaces them is the ex-todo below.
 
 test('ECON-28: a UR is refused on an empty wallet and genuinely charged on a funded one',()=>{
- const s=startingSave(NOW);
+ const s=legacyStart(NOW);
  assert.deepEqual(recruitPrice('hero_114'),{valiant:2});
  assert.equal(recruitRarity('hero_114'),'UR');
  assert.match(recruit(s,'hero_114').error,/Needs 2 Valiant Insignias/,'the check now fails CLOSED');
@@ -202,7 +203,7 @@ test('ECON-28: a UR is refused on an empty wallet and genuinely charged on a fun
 test('ECON-28: no successful purchase may leave a NaN balance',()=>{
  // Two invariants, either of which would have stopped this. Both pass since UR/UR*/set were
  // repriced onto valiant/archangel -- currencies the wallet holds and validSummon guards.
- const s=startingSave(NOW),wallet=Object.keys(summonState(s));
+ const s=legacyStart(NOW),wallet=Object.keys(summonState(s));
  const phantom=[...new Set(Object.values(SUMMON_COSTS).map(c=>Object.keys(c)[0]))].filter(k=>!wallet.includes(k));
  assert.deepEqual(phantom,[],
   `SUMMON_COSTS charges these currencies, but summonState holds no such key, so \`r[currency]\` is `
@@ -229,7 +230,7 @@ test('ECON-28: no successful purchase may leave a NaN balance',()=>{
  *  seeded rather than hired for the reason gear-fixtures.mjs gives: 200 workers at the Clinic cost
  *  336 billion, which would bury what this measures. */
 function village(){
- let s=funded(maybe(startingSave(NOW),'recruitAll'));
+ let s=funded(maybe(legacyStart(NOW),'recruitAll'));
  for(const d of BUSINESSES)s=run(s,'openEnterprise',d.id);
  for(const d of BUSINESSES)s=staffed(s,d.id,200);
  return s;
@@ -237,7 +238,7 @@ function village(){
 const purse=x=>JSON.stringify({gold:x.gold,crystals:x.crystals,fellowXP:x.fellowXP,familiarSupplies:x.familiarSupplies??null});
 
 test('ECON-29 fixed: binding an untrained familiar adds nothing; stage 10 pays the full 1,040,104',()=>{
- let s=run(startingSave(NOW),'adoptFamiliars');
+ let s=run(legacyStart(NOW),'adoptFamiliars');
  assert.deepEqual(inherentFamiliarBonus('Pet_1191'),{flat:1000000,finalPercent:4});
  const bound=run(s,'bindFamiliar','Pet_1191','hero_1');
  assert.equal(bondedPower(bound,'hero_1'),100,'a level-1 bond is worth nothing');
@@ -249,7 +250,7 @@ test('ECON-29 fixed: binding an untrained familiar adds nothing; stage 10 pays t
 });
 
 test('ECON-29 fixed: every level and star is charged from the Cost ladders, and nothing else pays for them',()=>{
- let s=run(startingSave(NOW),'adoptFamiliars');
+ let s=run(legacyStart(NOW),'adoptFamiliars');
  assert.match(act(s,'trainFamiliar',s.lastAt,'Pet_1191',1).error,/Needs 10 level-up items/,'no items, no training');
  assert.match(act(s,'starFamiliar',s.lastAt,'Pet_1191').error,/class-up items/);
  assert.deepEqual(costReaders(),['familiar-supplies.mjs'],'the Cost columns are read by the supply module');
@@ -288,7 +289,7 @@ test('ECON-29 fixed: 71 binds on untrained familiars leave village income where 
 });
 
 test('ECON-29 fixed: familiar power must be earned through the shipped Cost tables',()=>{
- let s=run(startingSave(NOW),'adoptFamiliars');
+ let s=run(legacyStart(NOW),'adoptFamiliars');
  s=run(s,'bindFamiliar','Pet_1191','hero_1');
  const before=bondedPower(s,'hero_1'),spendable=purse(s);
  s={...s,familiarSupplies:{levelUp:1e6,classUp:1e6,since:null}};const stocked=purse(s);

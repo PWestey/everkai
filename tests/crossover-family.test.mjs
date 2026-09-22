@@ -1,4 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {legacyStart} from './progression-helpers.mjs';
 import {execFileSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
@@ -8,7 +9,7 @@ import {FAMILY,ORIGINAL_FAMILY,familyById,familyCatalogue,fellowById,FELLOWS} fr
 import {familyRecipients,familyRecipientMap,RECIPIENTS_PER_FAMILY} from '../lib/crossover-recipients.mjs';
 import {affinityIds} from '../lib/public-reference.mjs';
 import {originalCharacter,originalProfile} from '../lib/original-catalog.mjs';
-import {decode,startingSave,valid,refusedBy,act,fresh,lastQuarantine} from '../lib/game.mjs';
+import {decode,valid,refusedBy,act,fresh,lastQuarantine} from '../lib/game.mjs';
 import {blessingRecipients,blessingPower,blessingPlan,blessingRecipientId,BLESSINGS} from '../lib/blessings.mjs';
 import {fathomBonus,fathomsApply,openSlots} from '../lib/fathoms.mjs';
 import {characterSkills} from '../lib/character-skills.mjs';
@@ -38,7 +39,7 @@ const flagOn=(()=>{let v;return ()=>v??=JSON.parse(execFileSync(process.execPath
 // ---------------------------------------------------------------------------------------------
 
 test('a save that welcomed a crossover Family member loads with the flag OFF, id resolution and all',()=>{
- const s=startingSave(0);
+ const s=legacyStart(0);
  const owned={...s,family:{...s.family,[ONE]:{intimacy:12,blessingPower:34,points:56,skill:2,relationship:3}}};
  assert.ok(!FAMILY.some(f=>f.id===ONE),'she is deliberately NOT listed with the flag off');
  assert.ok(familyById(ONE),'but she still resolves: owned, unlisted');
@@ -50,7 +51,7 @@ test('a save that welcomed a crossover Family member loads with the flag OFF, id
 });
 
 test('NEGATIVE CONTROL: an unknown xover family id is still refused, and family is never quarantined',()=>{
- const s=startingSave(0);
+ const s=legacyStart(0);
  const bad={...s,family:{...s.family,xover_msf_nobody:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}};
  assert.equal(valid(bad),false,'resolution comes from the DATA, not the xover_ prefix');
  assert.equal(refusedBy(bad),'validV4');
@@ -262,7 +263,7 @@ test('recipient lists are re-derived from the rank rule, not trusted, and live o
 });
 
 test('a crossover Family member is capped at the shipped 36/24 ladder and blesses only her own list',()=>{
- const s=startingSave(0);
+ const s=legacyStart(0);
  // wife_191 is funded too: she is the positive control for the same action in the same mode.
  const owned={...s,family:{...s.family,wife_191:{...s.family.wife_191,points:1e9},[ONE]:{intimacy:0,blessingPower:10,points:1e9,skill:0,relationship:1}}};
  assert.deepEqual(blessingRecipients(owned,ONE),additionRecipients(ONE),'her own authored list, in default mode');
@@ -293,7 +294,7 @@ test('a crossover Family member is capped at the shipped 36/24 ladder and blesse
 });
 
 test('NEGATIVE CONTROL: the blessing guards each refuse what they are there to refuse',()=>{
- const s=startingSave(0);
+ const s=legacyStart(0);
  const base={...s,family:{...s.family,[ONE]:{intimacy:0,blessingPower:10,points:1e9,skill:0,flatBlessing:36,advancedBlessing:24,relationship:1}}};
  assert.ok(valid(base));
  // 1. Past the classic ladder, with no APK record to authorise it.
@@ -326,7 +327,7 @@ test('NEGATIVE CONTROL: the blessing guards each refuse what they are there to r
 // ---------------------------------------------------------------------------------------------
 
 test('reconcileRecipients keeps a crossover recipient and still re-pins genuinely removed content',()=>{
- const s=startingSave(0);
+ const s=legacyStart(0);
  const apkBase=apkMode(s);
  const record=extra=>({policyVersion:1,level:0,value:0,legacyRecipients:[],receipts:[{from:0,to:1,cost:100}],...extra});
  const pinned=[...blessingSource.recipients.wife_191];
@@ -391,7 +392,7 @@ test('the blessing recipient rule accepts crossover FELLOWS and nothing else new
 });
 
 test('flag OFF: Fathoms are closed to a crossover member and she cannot store a tier',()=>{
- const s=startingSave(0);
+ const s=legacyStart(0);
  const owned={...s,family:{...s.family,[ONE]:{intimacy:1e6,blessingPower:10,points:0,skill:0,relationship:1}},
   habits:{...s.habits,totals:Object.fromEntries(Object.keys(s.habits.totals||{}).map(k=>[k,{...s.habits.totals[k],actions:1000}]))}};
  assert.equal(fathomsApply(ONE),false);

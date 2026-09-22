@@ -1,4 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {legacyStart} from './progression-helpers.mjs';
 import {readFileSync} from 'node:fs';
 import data from '../lib/everkai-additions-data.json' with {type:'json'};
 import {CROSSOVER_RARITY_TIERS,CROSSOVER_RARITY_TOP,crossoverRarity,displayRarity,withDisplayRarity,displayRoster,rarityClimbs} from '../lib/crossover-rarity.mjs';
@@ -10,7 +11,7 @@ import {crossoverLadder} from '../lib/crossover-abilities.mjs';
 import {recruitRarity,recruitOffers} from '../lib/summon.mjs';
 import {fishingBonuses} from '../lib/fishing.mjs';
 import {bondedPower,newFellow} from '../lib/adventure.mjs';
-import {decode,startingSave,act,valid,refusedBy,SAVE_VERSION} from '../lib/game.mjs';
+import {decode,act,valid,refusedBy,SAVE_VERSION} from '../lib/game.mjs';
 import {searchCharacters} from '../lib/original-catalog.mjs';
 import {ALL_STORY_SCENES} from '../lib/storybook.mjs';
 import progression from '../lib/original-progression-data.json' with {type:'json'};
@@ -21,14 +22,14 @@ const VADER='xover_swgoh_vaderduelsend',SPIDEY='xover_msf_spiderman';
 /** A village where `id` sits at quality `q` and its cap. bondedPower and displayRarity are pure
  *  functions of state, so this is ARITHMETIC, not a claim that the state is reachable -- the reachable
  *  path is driven through act() in the last test of this file, with valid() asserted. */
-const at=(id,q)=>{const base=startingSave(T);return {...base,
+const at=(id,q)=>{const base=legacyStart(T);return {...base,
  fellows:{...base.fellows,[id]:{...newFellow(qualityRule(q).cap),aptitude:10}},
  trainingCosts:{policyVersion:2,baselineLevels:{...Object.fromEntries(Object.entries(base.fellows).map(([k,f])=>[k,f.level])),[id]:qualityRule(q).cap},receipts:[]},
  originalProgression:{policyVersion:1,claims:0,quality:{[id]:q},stock:Object.fromEntries(Object.keys(SOURCE_MATERIALS).map(m=>[m,0])),receipts:[]}}};
 /** The REACHABLE climb: own the Fellow, enable original growth, then train to each cap and spend one
  *  quality step, all through act(). Returns the state, which valid() accepts at every rung. */
 function climbThrough(id,to){
- const base=startingSave(T);
+ const base=legacyStart(T);
  let s={...base,fellows:{...base.fellows,[id]:newFellow()}};
  const step=(action,target,value)=>{const r=act(s,action,s.lastAt,target,value);assert.equal(r.error,undefined,`${action} ${target}: ${r.error}`);s=r.state};
  step('activateOriginalProgression');
@@ -92,7 +93,7 @@ test('displayRarity climbs with the STORED quality tier and with nothing else',(
   assert.equal(sourceCap(s,VADER),qualityRule(q+1).cap);
  }
  // Unowned, and in a village that never enabled original growth: the bare N it ships with.
- const fresh=startingSave(T);
+ const fresh=legacyStart(T);
  assert.equal(displayRarity(fresh,VADER),'N');
  // Spider-Man is one of the four UR starters (owner request, 2026-09-19): never shown below UR.
  assert.equal(displayRarity(fresh,SPIDEY),'UR');
@@ -113,7 +114,7 @@ test('the four UR starters wear UR from the moment they join, in both modes, and
  const {CROSSOVER_STARTERS}=await import('../lib/crossover-abilities.mjs');
  const four=['xover_msf_ironmaninfinitywar','xover_msf_spiderman','xover_swgoh_jedimasterkenobi','xover_swgoh_themandalorianbeskararmor'];
  assert.deepEqual(Object.keys(CROSSOVER_STARTERS).sort(),four);
- const fresh=startingSave(T);
+ const fresh=legacyStart(T);
  for(const id of four){
   assert.equal(fellowById(id).rarity,'N','the STORED catalogue rarity is still the bare N');
   assert.equal(displayRarity(fresh,id),'UR','default mode, not yet joined');
@@ -127,7 +128,7 @@ test('the four UR starters wear UR from the moment they join, in both modes, and
 });
 
 test('every original character keeps its own rarity, and crossover Family keep theirs',()=>{
- const s=startingSave(T);
+ const s=legacyStart(T);
  for(const c of [...ORIGINAL_FELLOWS,...ORIGINAL_FAMILY])assert.equal(displayRarity(s,c.id),c.rarity,c.id);
  // Including the 32 chained ones, which must come back as the chain and not as a ladder token.
  const chained=[...ORIGINAL_FELLOWS,...ORIGINAL_FAMILY].filter(c=>String(c.rarity).includes('->'));
@@ -231,7 +232,7 @@ test('what one full climb shows and costs, measured end to end',()=>{
 });
 
 test('the climb is reachable: quality 1 -> 2 through act(), and the badge follows',()=>{
- const base=startingSave(T);
+ const base=legacyStart(T);
  let s={...base,fellows:{...base.fellows,[VADER]:newFellow(100)}};
  const on=act(s,'activateOriginalProgression',s.lastAt);
  assert.equal(on.error,undefined,on.error);
@@ -253,7 +254,7 @@ test('the climb is reachable: quality 1 -> 2 through act(), and the badge follow
 });
 
 test('withDisplayRarity keeps identity when nothing moved, and the roster helper with it',()=>{
- const fresh=startingSave(T);
+ const fresh=legacyStart(T);
  const vader=fellowById(VADER);
  assert.equal(withDisplayRarity(fresh,vader),vader,'quality 1 is already N, so the row is untouched');
  assert.equal(displayRoster(fresh,FELLOWS),FELLOWS,'and the catalogue array is handed straight through');
@@ -282,7 +283,7 @@ test('the three surfaces that can show a crossover rarity are the three that wer
  assert.ok(ALL_STORY_SCENES.length>50,`positive control: ${ALL_STORY_SCENES.length} scenes exist`);
  // The Recruit counter shows a rarity for everyone it lists; it lists no addition, which is the other
  // half of why the panel shows the climbed badge only for one already joined.
- assert.deepEqual(recruitOffers(startingSave(T)).filter(o=>o.id.startsWith('xover_')),[]);
+ assert.deepEqual(recruitOffers(legacyStart(T)).filter(o=>o.id.startsWith('xover_')),[]);
  assert.equal(FELLOWS.length,111,'flag off, as Node always is');
  assert.equal(FAMILY.length,107);
  assert.equal(data.fellows.length,133);

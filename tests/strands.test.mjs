@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {legacyStart} from './progression-helpers.mjs';
 import {readdirSync,readFileSync} from 'node:fs';
-import {startingSave,act,valid,totalRate} from '../lib/game.mjs';
+import {act,valid,totalRate} from '../lib/game.mjs';
 import {enterpriseBreakdown,enterpriseRate,businessBonus,BUSINESSES} from '../lib/businesses.mjs';
 import {blessingCost} from '../lib/progression.mjs';
 import {ACTIONS_PER_SLOT} from '../lib/fathoms.mjs';
@@ -38,7 +39,7 @@ const INN=BUSINESSES.find(b=>b.id==='Building_101'); // Diligent, 50 gold, the c
 /** An open, staffed Inn on a fresh save. Staff is seeded, not hired: the real curve charges 1.8e13
  *  for 5,000 Inn workers and is UNSAFE past ~4,600, which would bury what these probes measure. */
 function inn(){
- let s=funded(startingSave(NOW),costOf('Building_101'));
+ let s=funded(legacyStart(NOW),costOf('Building_101'));
  s=run(s,'openEnterprise','Building_101');
  return staffed(s,'Building_101',200);
 }

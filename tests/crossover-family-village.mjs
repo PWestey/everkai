@@ -7,7 +7,8 @@
 // It also measures the flag-on earnings ceiling and the Fathom exclusion.
 globalThis.location={search:'?crossover=1'};
 const T=new Date('2026-09-16T09:00:00').getTime();
-const {fresh,startingSave,act,valid,refusedBy,decode}=await import('../lib/game.mjs');
+const {fresh,act,valid,refusedBy,decode}=await import('../lib/game.mjs');
+const {legacyStart}=await import('./progression-helpers.mjs');
 const {starterHabits}=await import('../lib/habits.mjs');
 const {EVENTS,CROSSOVER_EVENTS,costPerStage,completionsEarned,stagePerson}=await import('../lib/events.mjs');
 const {FAMILY,ORIGINAL_FAMILY,familyById,familyCatalogue,FELLOWS:FELLOW_CATALOGUE}=await import('../lib/catalog.mjs');
@@ -119,7 +120,7 @@ out.apkOnAdditionRefused=(()=>{const bad={...s,family:{...s.family,[ID]:{...s.fa
  const all=Object.fromEntries(familyCatalogue(true).map(f=>[f.id,{intimacy:1e6,blessingPower:10,points:0,skill:20,relationship:1}]));
  const tiers=Object.fromEntries(Object.keys(all).map(id=>[id,Object.fromEntries(FATHOM_SLOTS.map(x=>[x.slot,MAX_TIER]))]));
  const totals=Object.fromEntries(HABIT_DOMAINS.map(k=>[k,{actions:1000,completions:0,gold:0}]));
- const minted={...startingSave(T),family:all,habits:{...starterHabits(T),totals},fathoms:{policyVersion:1,day:'',used:0,tiers}};
+ const minted={...legacyStart(T),family:all,habits:{...starterHabits(T),totals},fathoms:{policyVersion:1,day:'',used:0,tiers}};
  out.fathom={members:Object.keys(all).length,
   diligent:fathomBonus(minted,'Diligent'),
   familyBonus:familyBonus(minted),

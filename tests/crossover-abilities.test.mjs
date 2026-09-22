@@ -1,8 +1,9 @@
 import test from 'node:test';import {APTITUDE_CAP,PEARL_APTITUDE_CAP} from '../lib/aptitude-cap.mjs';import assert from 'node:assert/strict';
+import {legacyStart} from './progression-helpers.mjs';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-import {fresh,startingSave,act,valid,refusedBy,decode,SAVE_VERSION} from '../lib/game.mjs';
+import {fresh,act,valid,refusedBy,decode,SAVE_VERSION} from '../lib/game.mjs';
 import {newFellow,bondedPower,GEAR,STAR_CAP} from '../lib/adventure.mjs';
 import {ARTIFACT_CAP} from '../lib/artifacts.mjs';
 import {ORIGINAL_FELLOWS,fellowById} from '../lib/catalog.mjs';
@@ -321,7 +322,7 @@ test('the talent tier is fixed, and fixing it costs nothing because a point cost
 // ---------------------------------------------------------------------------------------------
 
 test('every one of the 133 resolves every table, and APK growth activates with the whole roster',()=>{
- const base=startingSave(T);
+ const base=legacyStart(T);
  let s={...base,fellows:{...base.fellows,...Object.fromEntries(ADDITION_FELLOWS.map(f=>[f.id,newFellow(1)]))}};
  assert.ok(valid(s),refusedBy(s));
  for(const f of ADDITION_FELLOWS){

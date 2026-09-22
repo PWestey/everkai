@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
-import {newFellow,bondedPower,skillCost} from '../lib/adventure.mjs';
+import {newFellow,bondedPower,skillCost,fellowCap} from '../lib/adventure.mjs';
 import {summonState} from '../lib/summon.mjs';
 import {insightRule} from '../lib/insight.mjs';
 import {MAX_FELLOW_XP} from '../lib/limits.mjs';
@@ -185,4 +185,42 @@ test('negative control: a tampered Aptitude ledger is refused',()=>{
   l=>{l.entries={}},
  ];
  for(const change of tamper){const bad=structuredClone(s);change(bad.fellows[ID].aptitudeLedger);assert.equal(valid(bad),false,String(change));assert.throws(()=>decode(JSON.stringify(bad)));}
+});
+
+// -------------------------------------------------------------------------------------------------
+// LIMIT TOKENS AFTER A SWITCH TO APK GROWTH (2026-09-22). The cap in APK growth now also reads `breaks`
+// (lib/original-progression.mjs sourceTier), so the old `originalProgression(s)||` short-circuit in
+// refundPlan would have handed back every limit token while the Fellow kept the cap those tokens bought.
+// Refund's promise is the opposite: it never returns anything that is still doing work. APK growth sells
+// no limit breaks of its own, so the only way to hold them there is to have bought them on the classic
+// curve and then switched -- which is exactly the save this guards.
+// -------------------------------------------------------------------------------------------------
+test('after a switch to APK growth, limit tokens come back only while the kept level still fits without them',()=>{
+ let s=stocked('receipts');
+ s=run(s,'train','max');
+ assert.equal(s.fellows[ID].level,100,'positive control: no breaks caps at 100');
+ s=run(s,'limitBreak');s=run(s,'train','max');
+ assert.equal(s.fellows[ID].level,150,'positive control: one break is tier 2, cap 150');
+ s=run(s,'limitBreak');s=run(s,'train','max');
+ assert.equal(s.fellows[ID].level,200,'positive control: two breaks is tier 3, cap 200');
+ s=run(s,'activateOriginalProgression',null,null);
+ assert.equal(fellowCap(s.fellows[ID],s,ID),200,'the switch carried the cap those two tokens bought');
+ const tokens=s.inventory.local_limit_token;
+ // Levels have receipts, so Refund takes the level back to its baseline -- and then both breaks are idle.
+ const all=refundPlan(s,ID);
+ assert.equal(all.error,undefined,all.error);
+ assert.equal(all.state.fellows[ID].level,1);
+ assert.equal(all.state.fellows[ID].breaks,0);
+ assert.equal(all.state.inventory.local_limit_token,tokens+REFUND_COSTS.breaks(0)+REFUND_COSTS.breaks(1));
+ assert.ok(valid(all.state));
+ // The same Fellow with its levels NOT priced by a receipt: the level stays, so the breaks holding its cap
+ // must stay too, and no token may be minted. Without the fix both tokens came back here.
+ const noReceipts={...s,trainingCosts:{...s.trainingCosts,baselineLevels:{...s.trainingCosts.baselineLevels,[ID]:200},receipts:s.trainingCosts.receipts.filter(r=>r.id!==ID)}};
+ assert.ok(valid(noReceipts),'positive control: a save whose levels predate its receipts is legal');
+ const kept=refundPlan(noReceipts,ID);
+ // Nothing at all comes back, and that is the point: the level stays, so the two breaks holding its cap
+ // stay with it and no token is minted. Without the fix this returned both tokens and kept the cap.
+ assert.equal(kept.error,'Nothing on this Fellow can be refunded.');
+ assert.equal(kept.state,undefined,'a refusal leaves no state to commit');
+ assert.ok(kept.kept.includes('limit breaks the kept level needs'),kept.kept.join('; '));
 });

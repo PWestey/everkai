@@ -1,5 +1,5 @@
 import test from 'node:test';import {talentSkillParts} from '../lib/talent-skills.mjs';import assert from 'node:assert/strict';
-import {startingSave,act,valid,refusedBy} from '../lib/game.mjs';
+import {act,valid,refusedBy} from '../lib/game.mjs';
 import {bondedPower,powerParts,composePower,levelADH,defaultADH,EVERKAI_ONLY_PARTS,STAR_POWER_BP,SKILL_POWER_BP,ladderPower,validAdventure} from '../lib/adventure.mjs';
 import {sourceCoefficient,sourceAptitudeBonus} from '../lib/original-progression.mjs';
 import {stellaBonus,stellaState,STELLA_PROFILES} from '../lib/stella.mjs';
@@ -9,7 +9,7 @@ import {talentTrainingPlan,talentRule} from '../lib/talents.mjs';
 import {readFileSync as readSrc,readdirSync} from 'node:fs';
 import {validAptitudeLedger} from '../lib/aptitude-ledger.mjs';
 import {ORIGINAL_FELLOWS} from '../lib/catalog.mjs';
-import {withItems,grantFragments} from './progression-helpers.mjs';
+import {legacyStart,withItems,grantFragments} from './progression-helpers.mjs';
 import {buildCeiling} from './crossover-ceiling-fixture.mjs';
 
 // Fellow Power on the original's own composition (lib/adventure.mjs powerParts, 2026-09-18). The bucket
@@ -59,7 +59,7 @@ test('NEGATIVE CONTROL: the shapes the old spine used do not reproduce the panel
 // THE BUCKET TABLE, as code. Every Everkai source in the bucket the original uses for the same system.
 // ---------------------------------------------------------------------------------------------------
 test('every source sits in the original’s bucket, and the bucket set is exactly this',()=>{
- const p=powerParts(startingSave(NOW),'hero_1');
+ const p=powerParts(legacyStart(NOW),'hero_1');
  // + the Skill Aptitude parts (2026-09-18, lib/talent-skills.mjs): talent skills, intimacy, Stella self/bond talent,
  // Rarity Advance's talentBonus and its stage's initial talent -- all the original's `talent` bucket.
  assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella','starHalo','origin'].sort());
@@ -74,9 +74,9 @@ test('every source sits in the original’s bucket, and the bucket set is exactl
 test('stars and skill are PERCENT parts now, not Aptitude multipliers',()=>{
  // STEP 4 (2026-09-18): a star pays HeroStar's own row (lib/hero-stars.mjs), not Everkai's +5% each, and only
  // once the Fellow's level reaches its gate. At level 1 the seven stars pay nothing and unlock no star skill.
- const low=powerParts(withFellow(startingSave(NOW),'hero_1',{stars:7,skill:20,aptitude:1000}),'hero_1');
+ const low=powerParts(withFellow(legacyStart(NOW),'hero_1',{stars:7,skill:20,aptitude:1000}),'hero_1');
  assert.deepEqual([low.percent.stars,low.flat.stars,low.talent.skills],[0,0,0]);
- const s=withFellow(startingSave(NOW),'hero_1',{stars:7,skill:20,aptitude:1000,level:750,breaks:13});
+ const s=withFellow(legacyStart(NOW),'hero_1',{stars:7,skill:20,aptitude:1000,level:750,breaks:13});
  const p=powerParts(s,'hero_1');
  assert.equal(p.talent.record,1000,'stars no longer touch Aptitude');
  // The seven count as the original's six: +6,000 bp and +7,500,000 flat, and StarSkill_1..6 (+21 talent).
@@ -89,7 +89,7 @@ test('stars and skill are PERCENT parts now, not Aptitude multipliers',()=>{
 
 test('Stella is counted ONCE: its percent is one part of the bucket and its flat is one flat part',()=>{
  const id='hero_194';// the largest own-Power percent any shipped track carries: +1,350% at rank 40
- let s=maybe(startingSave(NOW),'recruit',id);
+ let s=maybe(legacyStart(NOW),'recruit',id);
  if(!s.fellows[id])s={...s,fellows:{...s.fellows,[id]:{level:1,aptitude:10,skill:0,breaks:0,gear:null}}};
  s=maybe(s,'stellaActivate',id,{seq:stellaState(s).seq});
  const profile=STELLA_PROFILES.find(p=>p.id===id);
@@ -112,7 +112,7 @@ test('Stella is counted ONCE: its percent is one part of the bucket and its flat
 });
 
 test('the familiar node grid is Everkai-only, and it moves only the parts named for it',()=>{
- let s=withItems(maybe(startingSave(NOW),'adoptFamiliars'));
+ let s=withItems(maybe(legacyStart(NOW),'adoptFamiliars'));
  const pet=Object.keys(s.familiars)[0];
  s=maybe(s,'trainFamiliar',pet,10);
  const before=powerParts(s,'hero_1');
@@ -124,7 +124,7 @@ test('the familiar node grid is Everkai-only, and it moves only the parts named 
 });
 
 test('ONE composition in both modes; only the level column and the hero row differ',()=>{
- let s=startingSave(NOW);
+ let s=legacyStart(NOW);
  const d=powerParts(s,'hero_1');
  assert.deepEqual([d.adh,d.talent.hero,d.power],[defaultADH(1),0,100],'a fresh default Fellow is still exactly 100');
  assert.equal(defaultADH(750),1508,'(80 + 20 x 750) / 10, the old fellowFactor scale folded into the column');
@@ -132,7 +132,7 @@ test('ONE composition in both modes; only the level column and the hero row diff
  const a=powerParts(s,'hero_1');
  assert.deepEqual([a.adh,a.talent.hero],[sourceCoefficient(1),sourceAptitudeBonus(s,'hero_1')]);
  assert.equal(levelADH(s,750),15500,'HeroLevel.coefficientADH at 750');
- for(const [mode,st] of [['default',startingSave(NOW)],['apk',s]]){
+ for(const [mode,st] of [['default',legacyStart(NOW)],['apk',s]]){
   const t=withFellow(st,'hero_1',{level:90,aptitude:400,skill:6,stars:2});
   assert.equal(bondedPower(t,'hero_1'),composePower(sums(powerParts(t,'hero_1'))).power,`${mode}: bondedPower IS the composition`);
  }
@@ -155,7 +155,7 @@ test('the Aptitude cap is the original’s own measured ceiling, 107,198, and on
 });
 
 test('validAdventure accepts the cap and refuses one past it; a legacy 1,000 still loads',()=>{
- const s=startingSave(NOW);
+ const s=legacyStart(NOW);
  for(const apt of [LEGACY_APTITUDE_CAP,APTITUDE_CAP])assert.equal(validAdventure(withFellow(s,'hero_1',{aptitude:apt})),true,`${apt}`);
  // NEGATIVE CONTROL: one past the cap is still refused, so widening did not remove the bound.
  assert.equal(validAdventure(withFellow(s,'hero_1',{aptitude:APTITUDE_CAP+1})),false);
@@ -170,7 +170,7 @@ test('direct Skill Pearl training stops at the old 1,000; every original source 
  // Owner-delegated balancing decision (power-parity-audit 9.8.6 / 9.10): the pearl -> Aptitude trade is
  // Everkai-only, and uncapped it bought one Fellow to 31,122 by simulated day 30.
  assert.equal(PEARL_APTITUDE_CAP,1000);assert.equal(PEARL_APTITUDE_CAP,LEGACY_APTITUDE_CAP);
- const s0=startingSave(NOW);
+ const s0=legacyStart(NOW);
  const s={...withFellow(s0,'hero_1',{aptitude:990}),inventory:{...s0.inventory,Item_Talent_Hero_1:50000}};
  assert.deepEqual(aptitudeTrainingPlan(s,'hero_1','max'),{count:10,cost:10,aptitude:1000},'pearls fill to 1,000 and no further');
  const r=act(s,'aptitude',s.lastAt,'hero_1','max');assert.ok(!r.error,r.error);assert.equal(r.state.fellows.hero_1.aptitude,1000);

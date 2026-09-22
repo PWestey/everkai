@@ -1,7 +1,7 @@
 import {powerParts} from '../lib/adventure.mjs';
-import test from 'node:test';import {withItems,grantFragments,allKeepsakes,stockConsumable} from './progression-helpers.mjs';import assert from 'node:assert/strict';
+import test from 'node:test';import {legacyStart,withItems,grantFragments,allKeepsakes,stockConsumable} from './progression-helpers.mjs';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {startingSave,act,valid} from '../lib/game.mjs';
+import {act,valid} from '../lib/game.mjs';
 import {rosterOperation} from '../lib/businesses.mjs';
 import {bondedPower,fellowCap,fellowFactor,fellowPower,starredAptitude,GEAR,STAR_CAP,STAR_APTITUDE_PERCENT,CONSUMABLES} from '../lib/adventure.mjs';
 import {STELLA_PROFILES,stellaState,stellaActivation,stellaEntry} from '../lib/stella.mjs';
@@ -80,7 +80,7 @@ const BEST=GEAR.slice().sort((a,b)=>b.aptitude-a.aptitude)[0];   // Dragon Tamer
  *  save shape; the ceiling fixtures below care that the state moved, not that every grant succeeded. */
 const maybe=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);return r.error?s:r.state};
 /** A fresh save with the whole roster recruited and nothing else touched. */
-const roster=()=>maybe(startingSave(NOW),'recruitAll');
+const roster=()=>maybe(legacyStart(NOW),'recruitAll');
 /** Overwrite one Fellow's record on a save. */
 const withFellow=(s,props,id=ID)=>({...s,fellows:{...s.fellows,[id]:{...s.fellows[id],...props}}});
 /** Every Fellow record pushed to the highest values `valid()` accepts in default mode. Level tracks
@@ -184,7 +184,7 @@ test('APK growth replaces that ladder with the original quality table: 14 steps,
 // ---------------------------------------------------------------------------------------------
 
 test('a fresh Fellow is worth exactly 100 Power, and fellowFactor is a true no-op at zero stars',()=>{
- const s=startingSave(NOW),f=s.fellows[ID];
+ const s=legacyStart(NOW),f=s.fellows[ID];
  assert.deepEqual(f,{level:1,aptitude:10,skill:0,breaks:0,gear:null});
  assert.equal(fellowFactor(f),1);              // aptitude 10 / 10, no stars, no skill, no gear
  assert.equal(fellowPower(f),100);             // (80 + 20*1) * 1
@@ -193,7 +193,7 @@ test('a fresh Fellow is worth exactly 100 Power, and fellowFactor is a true no-o
 });
 
 test('every growth track on the record moves Power, and aptitude dominates all of them',()=>{
- const s=startingSave(NOW);
+ const s=legacyStart(NOW);
  const at=props=>bondedPower(withFellow(s,props),ID);
  assert.equal(at({level:60,breaks:4}),1280);   // 60 levels: x12.8
  assert.equal(at({aptitude:1000}),10000);      // aptitude 10 -> 1000: x100, the single biggest lever
@@ -216,7 +216,7 @@ test('every growth track on the record moves Power, and aptitude dominates all o
 });
 
 test('museum is the one external contributor reachable with no other system built',()=>{
- let s=startingSave(NOW);
+ let s=legacyStart(NOW);
  assert.equal(bondedPower(s,ID),100);
  s=maybe(allKeepsakes(s),'acceptMuseum');
  // REBASELINED 2026-09-15 (E4-02/E4-03). Everkai ships 32 Hall1 keepsakes; 26 of them were inert and

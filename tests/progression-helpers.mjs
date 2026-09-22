@@ -1,4 +1,12 @@
 import {stellaRule,stellaState} from '../lib/stella.mjs';
+import {startingSave} from '../lib/game.mjs';
+/** A new village on the CLASSIC (default) growth curve -- exactly what startingSave() returned before
+ *  2026-09-22, when new villages started being born on the original's HeroLevel column instead
+ *  (lib/game.mjs startingSave). The classic curve is still live for every save already playing on it,
+ *  and it is still the thing `activateOriginalProgression` switches away from, so the measurements and
+ *  the activation tests that are ABOUT it build from here. Their pinned numbers are unchanged by the
+ *  new-village default; a test that wants the new default just calls startingSave(). */
+export const legacyStart=(now=Date.now())=>{const {originalProgression:_op,trainingCosts:_tc,...rest}=startingSave(now);return rest};
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 // Familiar training and Stella fragments are now earned (Familiar Tower income; one daily-habit grant).
 // Tests about what training or fragments DO, rather than how they are earned, stock the save directly

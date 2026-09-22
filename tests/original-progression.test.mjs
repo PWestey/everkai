@@ -1,10 +1,54 @@
-import test from 'node:test';import {stockOriginal} from './progression-helpers.mjs';import assert from 'node:assert/strict';import {fresh,act,valid,decode,totalRate} from '../lib/game.mjs';import {FELLOWS} from '../lib/catalog.mjs';import {bondedPower,fellowCap} from '../lib/adventure.mjs';import {sourceQuality,sourceAptitudeBonus,qualityRule} from '../lib/original-progression.mjs';import {createPersistence} from '../lib/persistence.mjs';
+import test from 'node:test';import {stockOriginal,legacyStart} from './progression-helpers.mjs';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {fresh,startingSave,act,valid,refusedBy,decode,totalRate} from '../lib/game.mjs';import {FELLOWS} from '../lib/catalog.mjs';import {bondedPower,fellowCap,powerParts,xpCost,defaultADH} from '../lib/adventure.mjs';import {sourceQuality,sourceAptitudeBonus,qualityRule,originalProgression,heroRow,sourceCoefficient} from '../lib/original-progression.mjs';import {createPersistence} from '../lib/persistence.mjs';
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);assert.ok(valid(r.state),a);return r.state};
-test('all159 original identities preserve positive legacy Power and earned levels/aptitude/tokens on activation',()=>{
+test('all159 original identities preserve positive legacy Power, earned levels/aptitude/tokens AND the level cap on activation',()=>{
  for(const id of FELLOWS.map(f=>f.id))for(const level of [1,20,60])for(const aptitude of [10,1000]){
-  let s=fresh(1000);s=run(s,'recruit',id==='hero_15'?'hero_1':id);s.fellows[id]={...s.fellows[id],level,aptitude,breaks:4,skill:20};const power=bondedPower(s,id),before=structuredClone(s),next=run(s,'activateOriginalProgression');
-  assert.ok(bondedPower(next,id)>=power,id);assert.deepEqual(next.fellows,before.fellows);assert.deepEqual(next.inventory,before.inventory);assert.equal(next.fellowXP,before.fellowXP);assert.deepEqual(next.adventure,before.adventure);assert.equal(fellowCap(next.fellows[id],next,id),100);
+  let s=fresh(1000);s=run(s,'recruit',id==='hero_15'?'hero_1':id);s.fellows[id]={...s.fellows[id],level,aptitude,breaks:4,skill:20};const power=bondedPower(s,id),cap=fellowCap(s.fellows[id],s,id),before=structuredClone(s),next=run(s,'activateOriginalProgression');
+  assert.ok(bondedPower(next,id)>=power,id);assert.deepEqual(next.fellows,before.fellows);assert.deepEqual(next.inventory,before.inventory);assert.equal(next.fellowXP,before.fellowXP);assert.deepEqual(next.adventure,before.adventure);
+  // THE CAP IS CARRIED, not reset to quality 1's 100. Four local limit breaks are tier 5 in BOTH modes.
+  assert.equal(cap,300);assert.equal(fellowCap(next.fellows[id],next,id),cap,id);
+  // ...and the Aptitude the crystal ladder pays is NOT handed over with it: sourceAptitudeBonus reads the
+  // EARNED quality (1), so the bonus is the hero row alone and no quality talent comes free.
+  assert.equal(sourceAptitudeBonus(next,id),heroRow(next,id)-10,id);assert.equal(sourceQuality(next,id),1);
  }
+});
+// -------------------------------------------------------------------------------------------------
+// THE REGRESSION THIS CARRY EXISTS FOR (2026-09-22). Before it, activation read the EARNED quality alone,
+// so every Fellow dropped to tier 1 / level limit 100 and `validOriginalProgression` refused any save with
+// a Fellow above it -- act() returned NO error and handed back a village decode() then threw on. Measured
+// on the real default-mode fixture below: 112 Fellows, one at level 750 with 13 breaks, ladder Power
+// 9,744,993,900. The owner's own save has a Fellow at 450, so "Use APK growth" was one press from losing it.
+// -------------------------------------------------------------------------------------------------
+test('a default-mode save with Fellows past level 100 survives activation: valid, decodable, same level caps',()=>{
+ const raw=readFileSync(new URL('./crossover-stella-save-31c3b32-mine.json',import.meta.url),'utf8');
+ const s=decode(raw);
+ // Positive control (CLAUDE.md rule 2): the fixture really carries what this test protects.
+ assert.equal(originalProgression(s),false,'the fixture is on the classic curve');
+ const deep=Object.entries(s.fellows).filter(([,f])=>f.level>100);
+ assert.ok(deep.length>=1,`positive control: ${deep.length} Fellows past level 100`);
+ assert.equal(Math.max(...Object.values(s.fellows).map(f=>f.breaks||0)),13,'positive control: a fully limit-broken Fellow');
+ const caps=Object.fromEntries(Object.entries(s.fellows).map(([id,f])=>[id,fellowCap(f,s,id)]));
+ const r=act(s,'activateOriginalProgression',s.lastAt);
+ assert.ok(!r.error,r.error);
+ assert.ok(valid(r.state),refusedBy(r.state));
+ assert.deepEqual(decode(JSON.stringify(r.state)).fellows,r.state.fellows,'the switched save decodes');
+ assert.deepEqual(Object.fromEntries(Object.entries(r.state.fellows).map(([id,f])=>[id,fellowCap(f,r.state,id)])),caps,'every level cap carried');
+ assert.deepEqual(r.state.fellows,s.fellows,'no Fellow record moved');
+ // NEGATIVE CONTROL: the cap guard still bites. One level past the carried cap and the save is refused.
+ const over=Object.keys(r.state.fellows).find(id=>r.state.fellows[id].level===caps[id]&&caps[id]<750)||Object.keys(r.state.fellows)[0];
+ const bad={...r.state,fellows:{...r.state.fellows,[over]:{...r.state.fellows[over],level:caps[over]+1}}};
+ assert.equal(valid(bad),false,'a level past the carried cap is still refused');
+ assert.throws(()=>decode(JSON.stringify(bad)));
+});
+test('a new village is born on the original’s level curve, at the original’s EXP prices',()=>{
+ const s=startingSave(1767225600000);
+ assert.equal(originalProgression(s),true,'startingSave now switches APK growth on');
+ assert.ok(valid(s),refusedBy(s));
+ const raw=JSON.stringify(s);assert.equal(JSON.stringify(decode(raw)),raw,'a brand-new save round-trips byte-identically');
+ // The level column is the original's, and the EXP price is the one BOTH modes already billed.
+ assert.equal(powerParts(s,'hero_1').adh,sourceCoefficient(1));
+ assert.equal(xpCost(1,s),xpCost(1,legacyStart(1767225600000)),'switching the curve did not move the price of a level');
+ // NEGATIVE CONTROL: the classic baseline really is the other curve, so this test can tell them apart.
+ assert.equal(powerParts(legacyStart(1767225600000),'hero_1').adh,defaultADH(1));
 });
 test('all13 source quality transitions conserve9materials, cap750 and final totalTalent65; no local token consumption',()=>{
  let s=stockOriginal(run(fresh(1000),'activateOriginalProgression'));const token=s.inventory.local_limit_token;
