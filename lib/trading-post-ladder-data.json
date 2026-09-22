@@ -1,0 +1,1522 @@
+{
+ "policyVersion": 1,
+ "source": "apk-audit/configs/config/logic: CommercialWarCourage.json, CommercialWarTax.json, CommercialWarMatch.json, System.json, Item.json",
+ "client": "private-server/readable/CommercialWarManager.lua:53-69 (tax rate and capacity), :301-312 (Motivate percent), :362-376 (Motivate cost), :529-566 (accumulation cap)",
+ "sha256": {
+  "CommercialWarCourage": "f80428e40f35a3496cbad6fb4353835cc6596dfe85da0afe071aa8ac602ea85f",
+  "CommercialWarTax": "74cc9000f1a3523a7a4a47b63d4248a0be08e97d5e051937e5258c4b2a3b459f",
+  "CommercialWarMatch": "566e77bb21b87b0857506b671658fcd11c8675bdcdda8e7f49c095bdd3694da1"
+ },
+ "boundary": "Original values only. courage[]: powerBp is the CUMULATIVE team-ATK bonus in basis points at that level (200 per level); goldPerProsperity is the cumulative consumeBase.count, and the original charges floor(goldPerProsperity * prosperity) gold. tax[]: cost is Goodwill Vouchers to leave that level, taxBuff is basis points of prosperity produced per SECOND, taxTimeLimit is the store capacity in seconds of production. constants come from System.json verbatim. Nothing here is scaled, rounded or renamed; every local choice lives in lib/trading-post.mjs.",
+ "goldItem": "3",
+ "voucherItem": "Item_LvUp_ClanWar_1",
+ "fishArtifactTaxSkill": "FishArtifact_4501",
+ "constants": {
+  "CommercialWarTaxOutputInterval": 10,
+  "CommercialWarInspireItNum": 20,
+  "CommercialWarInspireItAtkPercent": 200,
+  "CommercialWarHeroNumberMax": 6,
+  "CommercialWarTaxLevelUpLimit": 60,
+  "CommercialWarTaxMax": 2592000
+ },
+ "courage": [
+  {
+   "level": 1,
+   "powerBp": 200,
+   "stepGoldPerProsperity": 4,
+   "goldPerProsperity": 4.0
+  },
+  {
+   "level": 2,
+   "powerBp": 400,
+   "stepGoldPerProsperity": 6.668,
+   "goldPerProsperity": 10.668
+  },
+  {
+   "level": 3,
+   "powerBp": 600,
+   "stepGoldPerProsperity": 9.336,
+   "goldPerProsperity": 20.004
+  },
+  {
+   "level": 4,
+   "powerBp": 800,
+   "stepGoldPerProsperity": 12.004,
+   "goldPerProsperity": 32.008
+  },
+  {
+   "level": 5,
+   "powerBp": 1000,
+   "stepGoldPerProsperity": 14.672,
+   "goldPerProsperity": 46.68
+  },
+  {
+   "level": 6,
+   "powerBp": 1200,
+   "stepGoldPerProsperity": 17.34,
+   "goldPerProsperity": 64.02
+  },
+  {
+   "level": 7,
+   "powerBp": 1400,
+   "stepGoldPerProsperity": 20.008,
+   "goldPerProsperity": 84.028
+  },
+  {
+   "level": 8,
+   "powerBp": 1600,
+   "stepGoldPerProsperity": 22.676,
+   "goldPerProsperity": 106.704
+  },
+  {
+   "level": 9,
+   "powerBp": 1800,
+   "stepGoldPerProsperity": 25.344,
+   "goldPerProsperity": 132.048
+  },
+  {
+   "level": 10,
+   "powerBp": 2000,
+   "stepGoldPerProsperity": 28.012,
+   "goldPerProsperity": 160.06
+  },
+  {
+   "level": 11,
+   "powerBp": 2200,
+   "stepGoldPerProsperity": 30.68,
+   "goldPerProsperity": 190.74
+  },
+  {
+   "level": 12,
+   "powerBp": 2400,
+   "stepGoldPerProsperity": 33.348,
+   "goldPerProsperity": 224.088
+  },
+  {
+   "level": 13,
+   "powerBp": 2600,
+   "stepGoldPerProsperity": 36.016,
+   "goldPerProsperity": 260.104
+  },
+  {
+   "level": 14,
+   "powerBp": 2800,
+   "stepGoldPerProsperity": 38.684,
+   "goldPerProsperity": 298.788
+  },
+  {
+   "level": 15,
+   "powerBp": 3000,
+   "stepGoldPerProsperity": 41.352,
+   "goldPerProsperity": 340.14
+  },
+  {
+   "level": 16,
+   "powerBp": 3200,
+   "stepGoldPerProsperity": 44.02,
+   "goldPerProsperity": 384.16
+  },
+  {
+   "level": 17,
+   "powerBp": 3400,
+   "stepGoldPerProsperity": 46.688,
+   "goldPerProsperity": 430.848
+  },
+  {
+   "level": 18,
+   "powerBp": 3600,
+   "stepGoldPerProsperity": 49.356,
+   "goldPerProsperity": 480.204
+  },
+  {
+   "level": 19,
+   "powerBp": 3800,
+   "stepGoldPerProsperity": 52.024,
+   "goldPerProsperity": 532.228
+  },
+  {
+   "level": 20,
+   "powerBp": 4000,
+   "stepGoldPerProsperity": 54.692,
+   "goldPerProsperity": 586.92
+  }
+ ],
+ "tax": [
+  {
+   "level": 1,
+   "cost": 5,
+   "taxBuff": 2000,
+   "taxTimeLimit": 1200
+  },
+  {
+   "level": 2,
+   "cost": 12,
+   "taxBuff": 2400,
+   "taxTimeLimit": 2400
+  },
+  {
+   "level": 3,
+   "cost": 20,
+   "taxBuff": 2800,
+   "taxTimeLimit": 3600
+  },
+  {
+   "level": 4,
+   "cost": 27,
+   "taxBuff": 3200,
+   "taxTimeLimit": 4800
+  },
+  {
+   "level": 5,
+   "cost": 35,
+   "taxBuff": 3600,
+   "taxTimeLimit": 6000
+  },
+  {
+   "level": 6,
+   "cost": 42,
+   "taxBuff": 4000,
+   "taxTimeLimit": 7200
+  },
+  {
+   "level": 7,
+   "cost": 50,
+   "taxBuff": 4400,
+   "taxTimeLimit": 8400
+  },
+  {
+   "level": 8,
+   "cost": 57,
+   "taxBuff": 4800,
+   "taxTimeLimit": 9600
+  },
+  {
+   "level": 9,
+   "cost": 65,
+   "taxBuff": 5200,
+   "taxTimeLimit": 10800
+  },
+  {
+   "level": 10,
+   "cost": 73,
+   "taxBuff": 5600,
+   "taxTimeLimit": 12000
+  },
+  {
+   "level": 11,
+   "cost": 81,
+   "taxBuff": 6000,
+   "taxTimeLimit": 13200
+  },
+  {
+   "level": 12,
+   "cost": 89,
+   "taxBuff": 6400,
+   "taxTimeLimit": 14400
+  },
+  {
+   "level": 13,
+   "cost": 97,
+   "taxBuff": 6800,
+   "taxTimeLimit": 15600
+  },
+  {
+   "level": 14,
+   "cost": 105,
+   "taxBuff": 7200,
+   "taxTimeLimit": 16800
+  },
+  {
+   "level": 15,
+   "cost": 114,
+   "taxBuff": 7600,
+   "taxTimeLimit": 18000
+  },
+  {
+   "level": 16,
+   "cost": 122,
+   "taxBuff": 8000,
+   "taxTimeLimit": 19200
+  },
+  {
+   "level": 17,
+   "cost": 131,
+   "taxBuff": 8400,
+   "taxTimeLimit": 20400
+  },
+  {
+   "level": 18,
+   "cost": 140,
+   "taxBuff": 8800,
+   "taxTimeLimit": 21600
+  },
+  {
+   "level": 19,
+   "cost": 149,
+   "taxBuff": 9200,
+   "taxTimeLimit": 22800
+  },
+  {
+   "level": 20,
+   "cost": 159,
+   "taxBuff": 9600,
+   "taxTimeLimit": 24000
+  },
+  {
+   "level": 21,
+   "cost": 168,
+   "taxBuff": 10000,
+   "taxTimeLimit": 25200
+  },
+  {
+   "level": 22,
+   "cost": 178,
+   "taxBuff": 10400,
+   "taxTimeLimit": 26400
+  },
+  {
+   "level": 23,
+   "cost": 189,
+   "taxBuff": 10600,
+   "taxTimeLimit": 27600
+  },
+  {
+   "level": 24,
+   "cost": 199,
+   "taxBuff": 10800,
+   "taxTimeLimit": 28800
+  },
+  {
+   "level": 25,
+   "cost": 210,
+   "taxBuff": 11000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 26,
+   "cost": 222,
+   "taxBuff": 11200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 27,
+   "cost": 234,
+   "taxBuff": 11400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 28,
+   "cost": 246,
+   "taxBuff": 11600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 29,
+   "cost": 259,
+   "taxBuff": 11800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 30,
+   "cost": 273,
+   "taxBuff": 12000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 31,
+   "cost": 288,
+   "taxBuff": 12200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 32,
+   "cost": 303,
+   "taxBuff": 12400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 33,
+   "cost": 319,
+   "taxBuff": 12600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 34,
+   "cost": 337,
+   "taxBuff": 12800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 35,
+   "cost": 355,
+   "taxBuff": 13000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 36,
+   "cost": 375,
+   "taxBuff": 13200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 37,
+   "cost": 396,
+   "taxBuff": 13400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 38,
+   "cost": 419,
+   "taxBuff": 13600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 39,
+   "cost": 443,
+   "taxBuff": 13800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 40,
+   "cost": 470,
+   "taxBuff": 14000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 41,
+   "cost": 498,
+   "taxBuff": 14200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 42,
+   "cost": 529,
+   "taxBuff": 14400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 43,
+   "cost": 562,
+   "taxBuff": 14600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 44,
+   "cost": 599,
+   "taxBuff": 14800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 45,
+   "cost": 638,
+   "taxBuff": 15000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 46,
+   "cost": 681,
+   "taxBuff": 15200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 47,
+   "cost": 728,
+   "taxBuff": 15400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 48,
+   "cost": 780,
+   "taxBuff": 15600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 49,
+   "cost": 836,
+   "taxBuff": 15800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 50,
+   "cost": 898,
+   "taxBuff": 16000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 51,
+   "cost": 966,
+   "taxBuff": 16200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 52,
+   "cost": 1041,
+   "taxBuff": 16400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 53,
+   "cost": 1123,
+   "taxBuff": 16600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 54,
+   "cost": 1213,
+   "taxBuff": 16800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 55,
+   "cost": 1313,
+   "taxBuff": 17000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 56,
+   "cost": 1422,
+   "taxBuff": 17200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 57,
+   "cost": 1543,
+   "taxBuff": 17400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 58,
+   "cost": 1677,
+   "taxBuff": 17600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 59,
+   "cost": 1824,
+   "taxBuff": 17800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 60,
+   "cost": 1987,
+   "taxBuff": 18000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 61,
+   "cost": 2167,
+   "taxBuff": 18200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 62,
+   "cost": 2366,
+   "taxBuff": 18400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 63,
+   "cost": 2586,
+   "taxBuff": 18600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 64,
+   "cost": 2829,
+   "taxBuff": 18800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 65,
+   "cost": 3099,
+   "taxBuff": 19000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 66,
+   "cost": 3397,
+   "taxBuff": 19200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 67,
+   "cost": 3728,
+   "taxBuff": 19400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 68,
+   "cost": 4094,
+   "taxBuff": 19600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 69,
+   "cost": 4499,
+   "taxBuff": 19800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 70,
+   "cost": 4949,
+   "taxBuff": 20000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 71,
+   "cost": 5447,
+   "taxBuff": 20200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 72,
+   "cost": 5999,
+   "taxBuff": 20400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 73,
+   "cost": 6611,
+   "taxBuff": 20600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 74,
+   "cost": 7289,
+   "taxBuff": 20800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 75,
+   "cost": 8042,
+   "taxBuff": 21000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 76,
+   "cost": 8876,
+   "taxBuff": 21200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 77,
+   "cost": 9802,
+   "taxBuff": 21400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 78,
+   "cost": 10828,
+   "taxBuff": 21600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 79,
+   "cost": 11967,
+   "taxBuff": 21800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 80,
+   "cost": 13230,
+   "taxBuff": 22000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 81,
+   "cost": 14631,
+   "taxBuff": 22200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 82,
+   "cost": 16186,
+   "taxBuff": 22400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 83,
+   "cost": 17911,
+   "taxBuff": 22600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 84,
+   "cost": 19825,
+   "taxBuff": 22800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 85,
+   "cost": 21948,
+   "taxBuff": 23000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 86,
+   "cost": 24305,
+   "taxBuff": 23200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 87,
+   "cost": 26920,
+   "taxBuff": 23400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 88,
+   "cost": 29821,
+   "taxBuff": 23600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 89,
+   "cost": 33041,
+   "taxBuff": 23800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 90,
+   "cost": 36615,
+   "taxBuff": 24000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 91,
+   "cost": 40581,
+   "taxBuff": 24200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 92,
+   "cost": 44983,
+   "taxBuff": 24400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 93,
+   "cost": 49867,
+   "taxBuff": 24600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 94,
+   "cost": 55289,
+   "taxBuff": 24800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 95,
+   "cost": 61306,
+   "taxBuff": 25000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 96,
+   "cost": 67984,
+   "taxBuff": 25200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 97,
+   "cost": 75396,
+   "taxBuff": 25400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 98,
+   "cost": 83622,
+   "taxBuff": 25600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 99,
+   "cost": 92753,
+   "taxBuff": 25800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 100,
+   "cost": 102887,
+   "taxBuff": 26000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 101,
+   "cost": 115000,
+   "taxBuff": 26200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 102,
+   "cost": 130000,
+   "taxBuff": 26400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 103,
+   "cost": 145000,
+   "taxBuff": 26600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 104,
+   "cost": 160000,
+   "taxBuff": 26800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 105,
+   "cost": 175000,
+   "taxBuff": 27000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 106,
+   "cost": 190000,
+   "taxBuff": 27200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 107,
+   "cost": 205000,
+   "taxBuff": 27400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 108,
+   "cost": 220000,
+   "taxBuff": 27600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 109,
+   "cost": 235000,
+   "taxBuff": 27800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 110,
+   "cost": 250000,
+   "taxBuff": 28000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 111,
+   "cost": 265000,
+   "taxBuff": 28200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 112,
+   "cost": 280000,
+   "taxBuff": 28400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 113,
+   "cost": 295000,
+   "taxBuff": 28600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 114,
+   "cost": 310000,
+   "taxBuff": 28800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 115,
+   "cost": 325000,
+   "taxBuff": 29000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 116,
+   "cost": 340000,
+   "taxBuff": 29200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 117,
+   "cost": 355000,
+   "taxBuff": 29400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 118,
+   "cost": 370000,
+   "taxBuff": 29600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 119,
+   "cost": 385000,
+   "taxBuff": 29800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 120,
+   "cost": 400000,
+   "taxBuff": 30000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 121,
+   "cost": 420000,
+   "taxBuff": 30200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 122,
+   "cost": 440000,
+   "taxBuff": 30400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 123,
+   "cost": 460000,
+   "taxBuff": 30600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 124,
+   "cost": 480000,
+   "taxBuff": 30800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 125,
+   "cost": 500000,
+   "taxBuff": 31000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 126,
+   "cost": 520000,
+   "taxBuff": 31200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 127,
+   "cost": 540000,
+   "taxBuff": 31400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 128,
+   "cost": 560000,
+   "taxBuff": 31600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 129,
+   "cost": 580000,
+   "taxBuff": 31800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 130,
+   "cost": 600000,
+   "taxBuff": 32000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 131,
+   "cost": 620000,
+   "taxBuff": 32200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 132,
+   "cost": 640000,
+   "taxBuff": 32400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 133,
+   "cost": 660000,
+   "taxBuff": 32600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 134,
+   "cost": 680000,
+   "taxBuff": 32800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 135,
+   "cost": 700000,
+   "taxBuff": 33000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 136,
+   "cost": 720000,
+   "taxBuff": 33200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 137,
+   "cost": 740000,
+   "taxBuff": 33400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 138,
+   "cost": 760000,
+   "taxBuff": 33600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 139,
+   "cost": 780000,
+   "taxBuff": 33800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 140,
+   "cost": 800000,
+   "taxBuff": 34000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 141,
+   "cost": 830000,
+   "taxBuff": 34200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 142,
+   "cost": 860000,
+   "taxBuff": 34400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 143,
+   "cost": 890000,
+   "taxBuff": 34600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 144,
+   "cost": 920000,
+   "taxBuff": 34800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 145,
+   "cost": 950000,
+   "taxBuff": 35000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 146,
+   "cost": 980000,
+   "taxBuff": 35200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 147,
+   "cost": 1010000,
+   "taxBuff": 35400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 148,
+   "cost": 1040000,
+   "taxBuff": 35600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 149,
+   "cost": 1070000,
+   "taxBuff": 35800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 150,
+   "cost": 1100000,
+   "taxBuff": 36000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 151,
+   "cost": 1130000,
+   "taxBuff": 36200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 152,
+   "cost": 1160000,
+   "taxBuff": 36400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 153,
+   "cost": 1190000,
+   "taxBuff": 36600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 154,
+   "cost": 1220000,
+   "taxBuff": 36800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 155,
+   "cost": 1250000,
+   "taxBuff": 37000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 156,
+   "cost": 1280000,
+   "taxBuff": 37200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 157,
+   "cost": 1310000,
+   "taxBuff": 37400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 158,
+   "cost": 1340000,
+   "taxBuff": 37600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 159,
+   "cost": 1370000,
+   "taxBuff": 37800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 160,
+   "cost": 1400000,
+   "taxBuff": 38000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 161,
+   "cost": 1440000,
+   "taxBuff": 38200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 162,
+   "cost": 1480000,
+   "taxBuff": 38400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 163,
+   "cost": 1520000,
+   "taxBuff": 38600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 164,
+   "cost": 1560000,
+   "taxBuff": 38800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 165,
+   "cost": 1600000,
+   "taxBuff": 39000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 166,
+   "cost": 1640000,
+   "taxBuff": 39200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 167,
+   "cost": 1680000,
+   "taxBuff": 39400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 168,
+   "cost": 1720000,
+   "taxBuff": 39600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 169,
+   "cost": 1760000,
+   "taxBuff": 39800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 170,
+   "cost": 1800000,
+   "taxBuff": 40000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 171,
+   "cost": 1840000,
+   "taxBuff": 40200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 172,
+   "cost": 1880000,
+   "taxBuff": 40400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 173,
+   "cost": 1920000,
+   "taxBuff": 40600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 174,
+   "cost": 1960000,
+   "taxBuff": 40800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 175,
+   "cost": 2000000,
+   "taxBuff": 41000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 176,
+   "cost": 2040000,
+   "taxBuff": 41200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 177,
+   "cost": 2080000,
+   "taxBuff": 41400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 178,
+   "cost": 2120000,
+   "taxBuff": 41600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 179,
+   "cost": 2160000,
+   "taxBuff": 41800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 180,
+   "cost": 2200000,
+   "taxBuff": 42000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 181,
+   "cost": 2250000,
+   "taxBuff": 42200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 182,
+   "cost": 2300000,
+   "taxBuff": 42400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 183,
+   "cost": 2350000,
+   "taxBuff": 42600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 184,
+   "cost": 2400000,
+   "taxBuff": 42800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 185,
+   "cost": 2450000,
+   "taxBuff": 43000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 186,
+   "cost": 2500000,
+   "taxBuff": 43200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 187,
+   "cost": 2550000,
+   "taxBuff": 43400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 188,
+   "cost": 2600000,
+   "taxBuff": 43600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 189,
+   "cost": 2650000,
+   "taxBuff": 43800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 190,
+   "cost": 2700000,
+   "taxBuff": 44000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 191,
+   "cost": 2750000,
+   "taxBuff": 44200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 192,
+   "cost": 2800000,
+   "taxBuff": 44400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 193,
+   "cost": 2850000,
+   "taxBuff": 44600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 194,
+   "cost": 2900000,
+   "taxBuff": 44800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 195,
+   "cost": 2950000,
+   "taxBuff": 45000,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 196,
+   "cost": 3000000,
+   "taxBuff": 45200,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 197,
+   "cost": 3050000,
+   "taxBuff": 45400,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 198,
+   "cost": 3100000,
+   "taxBuff": 45600,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 199,
+   "cost": 3150000,
+   "taxBuff": 45800,
+   "taxTimeLimit": 30000
+  },
+  {
+   "level": 200,
+   "cost": 3200000,
+   "taxBuff": 46000,
+   "taxTimeLimit": 30000
+  }
+ ],
+ "match": [
+  {
+   "level": 1,
+   "up": 1,
+   "down": 2,
+   "weight": 100
+  },
+  {
+   "level": 2,
+   "up": 3,
+   "down": 5,
+   "weight": 90
+  },
+  {
+   "level": 3,
+   "up": 6,
+   "down": 10,
+   "weight": 81
+  },
+  {
+   "level": 4,
+   "up": 11,
+   "down": 20,
+   "weight": 73
+  },
+  {
+   "level": 5,
+   "up": 21,
+   "down": 30,
+   "weight": 66
+  },
+  {
+   "level": 6,
+   "up": 31,
+   "down": 50,
+   "weight": 59
+  },
+  {
+   "level": 7,
+   "up": 51,
+   "down": 80,
+   "weight": 53
+  },
+  {
+   "level": 8,
+   "up": 81,
+   "down": 100,
+   "weight": 48
+  },
+  {
+   "level": 9,
+   "up": 101,
+   "down": 150,
+   "weight": 43
+  },
+  {
+   "level": 10,
+   "up": 151,
+   "down": 200,
+   "weight": 39
+  },
+  {
+   "level": 11,
+   "up": 201,
+   "down": 250,
+   "weight": 35
+  },
+  {
+   "level": 12,
+   "up": 251,
+   "down": 300,
+   "weight": 32
+  },
+  {
+   "level": 13,
+   "up": 301,
+   "down": 400,
+   "weight": 29
+  },
+  {
+   "level": 14,
+   "up": 401,
+   "down": 500,
+   "weight": 26
+  },
+  {
+   "level": 15,
+   "up": 501,
+   "down": 600,
+   "weight": 23
+  },
+  {
+   "level": 16,
+   "up": 601,
+   "down": 700,
+   "weight": 21
+  },
+  {
+   "level": 17,
+   "up": 701,
+   "down": 800,
+   "weight": 19
+  },
+  {
+   "level": 18,
+   "up": 801,
+   "down": 1000,
+   "weight": 17
+  },
+  {
+   "level": 19,
+   "up": 1001,
+   "down": 1500,
+   "weight": 15
+  },
+  {
+   "level": 20,
+   "up": 1501,
+   "down": 2000,
+   "weight": 14
+  },
+  {
+   "level": 21,
+   "up": 2001,
+   "down": 3000,
+   "weight": 13
+  },
+  {
+   "level": 22,
+   "up": 3001,
+   "down": 4000,
+   "weight": 12
+  },
+  {
+   "level": 23,
+   "up": 4001,
+   "down": 5000,
+   "weight": 11
+  },
+  {
+   "level": 24,
+   "up": 5001,
+   "down": 6000,
+   "weight": 10
+  },
+  {
+   "level": 25,
+   "up": 6001,
+   "down": 7000,
+   "weight": 9
+  },
+  {
+   "level": 26,
+   "up": 7001,
+   "down": 8000,
+   "weight": 8
+  },
+  {
+   "level": 27,
+   "up": 8001,
+   "down": 9000,
+   "weight": 11
+  },
+  {
+   "level": 28,
+   "up": 9001,
+   "down": 10000,
+   "weight": 15
+  },
+  {
+   "level": 29,
+   "up": 10001,
+   "down": 1000000,
+   "weight": 100
+  }
+ ]
+}
