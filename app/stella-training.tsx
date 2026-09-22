@@ -3,6 +3,7 @@ import {stellaRule,stellaState,stellaEntry,stellaPlan,stellaAction,stellaActivat
 import {bondedPower} from '@/lib/adventure.mjs';
 import {helperFocusList,helperNote,stellaOrder} from '@/lib/helper.mjs';
 import {PowerSource} from './power-details';
+import StellaAttributes from './stella-attributes';
 /** Which effects THIS ladder carries, read off the ladder's own top row rather than off its owner. The
  *  panel has to read sensibly for five shapes now -- flat only; flat + typed percent; flat + own
  *  percent; flat + own percent + appointment yield + talent cap; and the shared crossover pool -- and
@@ -50,6 +51,7 @@ export default function StellaTraining({id,game,action,locked}:any){
  return <section className="school-card"><h3>{p.name} · Stella {e?e.level:'inactive'}</h3>
   <p>{(t.stock[p.itemId]||0).toLocaleString()} {currency}{own?` + ${own.toLocaleString()} own old fragments`:''} · {earned.join(' · ')}</p>
   <PowerSource game={game} id={id}/>
+  <StellaAttributes game={game} id={id}/>
   <div className="training-option"><div><strong>Little Helper focus {spot?`· pick ${spot} of ${focus.length}`:''}</strong>
    <p>{spot?`The helper feeds this ladder before any Fellow you have not picked${focus.length>1?`, after your ${spot===1?'':`first ${spot-1} pick${spot===2?'':'s'}`}`:''}.`
     :'Pick this Fellow and the helper spends shards here first. Picks are served in the order you make them.'}</p>
