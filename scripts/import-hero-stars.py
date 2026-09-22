@@ -60,13 +60,33 @@ def value(b, lvl):
 
 
 # ---- HeroStar ----
+# THE ROSTER GATE (added 2026-09-22, docs/character-systems-gap.md 2.1 gap 3). `needHeroStarCount` is
+# the original's real brake on stars 4-6 and Everkai had no equivalent at all: to reach star k+1 the
+# ACCOUNT must already hold `count` Fellows at `star` or above. It is what makes Awaken a roster goal
+# rather than a per-Fellow one. Only rows 3, 4 and 5 carry it -- 15 x *3, 20 x *4, 25 x *5.
+#
+# `consume` is imported for the panel to SHOW, never to charge: Everkai prices stars in star shards
+# from perfect habit days (lib/adventure.mjs STAR_COSTS), and lib/fellow-reset.mjs refunds from that
+# same column, so re-pricing would change refunds of stars already bought. The original's currency is
+# Item_Exchange_Hero_Universal ("Acquaint Stone"), whose Item:source names the Guild Shop -- a
+# multiplayer faucet with no single-player counterpart. Recorded, not charged; the panel says so.
 stars = []
 for r in sorted(T['HeroStar'], key=lambda r: number(r['_id'])):
+    gate = r.get('needHeroStarCount') or {}
+    spend = r.get('consume') or []
+    assert all(c['id'] == 'Item_Exchange_Hero_Universal' for c in spend), spend
     stars.append({'percent': number(r['riseADH']), 'flat': number(r['extraAtk']), 'halo': number(r['starHaloSkillLevel']),
-                  'next': number(r.get('needHeroLevel'))})
-# Rule 4, one real row (spec 4.1): star 3 = +3,000 bp, +1,500,000 flat; reaching star 4 needs level 550.
-assert stars[3] == {'percent': 3000, 'flat': 1500000, 'halo': 4, 'next': 550}, stars[3]
+                  'next': number(r.get('needHeroLevel')),
+                  'roster': [number(gate['star']), number(gate['count'])] if gate else None,
+                  'stones': sum(number(c['count']) for c in spend) or None})
+# Rule 4, one real row (spec 4.1): star 3 = +3,000 bp, +1,500,000 flat; reaching star 4 needs level
+# 550, fifteen *3 Fellows on the account and 15 Acquaint Stones.
+assert stars[3] == {'percent': 3000, 'flat': 1500000, 'halo': 4, 'next': 550,
+                    'roster': [3, 15], 'stones': 15}, stars[3]
 assert [s['halo'] for s in stars] == [1, 2, 3, 4, 5, 6, 7]
+assert [s['roster'] for s in stars] == [None, None, None, [3, 15], [4, 20], [5, 25], None]
+assert [s['stones'] for s in stars] == [3, 5, 10, 15, 30, 50, None]
+assert sum(s['stones'] for s in stars if s['stones']) == 113   # one Fellow 0 -> *6 in the original
 
 ship = json.loads(subprocess.check_output(['node', '-e', "import('./lib/catalog.mjs').then(C=>console.log(JSON.stringify([...C.ORIGINAL_FELLOWS.map(f=>f.id),...C.REMOVED])))"], cwd=ROOT))
 ship = {h.split('_', 1)[1] for h in ship if h.startswith('hero_')}
@@ -148,8 +168,11 @@ out = {
     'policyVersion': 1,
     'source': 'apk-audit/configs/config/logic: ' + ' + '.join(t + '.json' for t in TABLES),
     'sha256': {n: hashlib.sha256((L / f'{n}.json').read_bytes()).hexdigest() for n in TABLES},
-    'boundary': ('Original values only. stars[k]: the stats at star k, the halo level at star k, and the Fellow '
-                 'level needed to reach star k+1. skills[id]: a shipped star halo, `values` at halo levels 1..7. '
+    'boundary': ('Original values only. stars[k]: the stats at star k, the halo level at star k, the Fellow '
+                 'level needed to reach star k+1, the ACCOUNT-WIDE [star, count] roster gate on reaching it '
+                 '(needHeroStarCount, rows 3-5 only), and the Acquaint Stones the original charges for it -- '
+                 'recorded for the panel to show, never charged, because Everkai prices stars in star shards '
+                 'and lib/fellow-reset.mjs refunds from that column. skills[id]: a shipped star halo, `values` at halo levels 1..7. '
                  'heroes[id].halos: the hero\'s own; changes [magicLevel, from|null, to]: a Rarity Advance stage '
                  'adds or swaps one. origin[id]: Origin Boost per level. held: counted, deliberately not shipped.'),
     'held': {k: len(v) for k, v in sorted(held.items())},

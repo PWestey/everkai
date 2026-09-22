@@ -13,8 +13,15 @@ const go=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,
 const roster=(fellows)=>{const s=fresh(T);return {...s,fellows:{...s.fellows,...Object.fromEntries(Object.entries(fellows).map(([id,p])=>[id,{...newFellow(1),...p}]))}}};
 
 test('HeroStar: the original’s own rows, star 7 clamps to 6, and the level gates are honoured at read time',()=>{
- assert.deepEqual(HERO_STARS[3],{percent:3000,flat:1500000,halo:4,next:550});
+ assert.deepEqual(HERO_STARS[3],{percent:3000,flat:1500000,halo:4,next:550,roster:[3,15],stones:15});
  assert.deepEqual(HERO_STARS.map(r=>r.next),[300,300,400,550,700,750,null]);
+ // THE ROSTER PREREQUISITE and the original's own price, imported 2026-09-22. `roster` is
+ // needHeroStarCount -- the account must hold 15/20/25 Fellows at 3/4/5 stars to reach 4/5/6 -- and
+ // `stones` is what the original charges in Acquaint Stones, recorded for the panel and never
+ // charged (Everkai keeps its own star shards so lib/fellow-reset.mjs's refunds stay honest).
+ assert.deepEqual(HERO_STARS.map(r=>r.roster),[null,null,null,[3,15],[4,20],[5,25],null]);
+ assert.deepEqual(HERO_STARS.map(r=>r.stones),[3,5,10,15,30,50,null]);
+ assert.equal(HERO_STARS.reduce((n,r)=>n+(r.stones||0),0),113,'one Fellow 0 -> 6 stars in the original');
  assert.deepEqual(starParts({stars:3,level:600}),{percent:3000,flat:1500000});
  assert.equal(effectiveStar({stars:7,level:750}),6,'Everkai sells 7; the original has 6');
  // Cimitir's case (spec 4.4): one star at level 150 pays nothing until level 300.
