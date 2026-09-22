@@ -5,6 +5,7 @@ import {act,valid,totalRate} from '../lib/game.mjs';
 import {enterpriseBreakdown,enterpriseRate,businessBonus,BUSINESSES} from '../lib/businesses.mjs';
 import {blessingCost} from '../lib/progression.mjs';
 import {ACTIONS_PER_SLOT} from '../lib/fathoms.mjs';
+import {latencyBonus} from '../lib/latency.mjs';
 import {staffed,funded,costOf} from './gear-fixtures.mjs';
 
 // Every strand the game DECLARES as a village-earnings bonus must actually reach a business.
@@ -74,6 +75,19 @@ const STRANDS=[
    const id=Object.keys(s.family)[0];
    s={...s,habits:{...s.habits,totals},family:{...s.family,[id]:{...s.family[id],intimacy:5000}}};
    return run(s,'fathomAdvance',id,1);}},  // slot 1 is Diligent, like the Inn
+
+ {id:'latency',key:'latency',declaredIn:'app/latency-panel.tsx "to every building\u2019s earnings"',
+  probe(){ // Latency needs an Intimacy-gated cap AND a successful Stimulate; the roll is seeded, so
+   // this loop is deterministic -- at an empty bar the original's own chance is 80%.
+   let s=inn();
+   const id=Object.keys(s.family)[0];
+   const totals=Object.fromEntries(Object.entries(s.habits.totals).map(([k,v])=>[k,{...v,actions:0}]));
+   totals.health={...totals.health,actions:2000};
+   s={...s,habits:{...s.habits,totals},family:{...s.family,[id]:{...s.family[id],intimacy:50000}}};
+   s=run(s,'latencyLevel',id);
+   for(let i=0;i<20&&!latencyBonus(s);i++)s=run(s,'latencyStimulate',id,1);
+   assert.ok(latencyBonus(s)>0,'fixture never landed a Stimulate');
+   return s;}},
 
  {id:'farm',key:'farm',declaredIn:'app/farm-panel.tsx "+X% village earnings from every building"',
   probe(){let s=run(inn(),'openFarm');

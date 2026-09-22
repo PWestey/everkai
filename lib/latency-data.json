@@ -1,0 +1,304 @@
+{
+ "policyVersion": 1,
+ "source": "apk-audit/configs/config/logic: WifePotentialLevelUnlock.json + WifePotentialWeight.json + System.json",
+ "sha256": {
+  "WifePotentialLevelUnlock": "16113ca1c8a07b0a0539538461966b6029108184cd4134231b0a511131fb9ccb",
+  "WifePotentialWeight": "6a04ff339d9834bd3af87af61fa502111b27b52193909f20e1fe04edfdcaa518",
+  "System": "d8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312"
+ },
+ "boundary": "Original values only. levels[k] is the state AT level k plus what it takes to reach level k+1, the same shape HeroStar uses: `cap` is the Latency cap at level k in hundredths of a percent (0..80,000 = 0%..+800%, a flat 2,000 a level), `intimacy` is what the NEXT level needs and `stones` what it costs. The first step is free; level 40 is the top and carries neither. weights[]: the Stimulate roll keyed by how full the bar is, in ten-thousandths of the cap -- `success` out of 10,000, then `results` [gain in hundredths of a percent, weight out of 10,000]. `stimulate` is System.WifePotentialHighConsume, `tenX` is System.WifePotential_10X_Condition. NOTHING here is a rate, a cap or a brake this project invented; the Luck Stone FAUCET is local and lives in lib/latency.mjs.",
+ "unmodelled": {
+  "outputRiseFixed": 400,
+  "why": "Constant on all 41 rows, which is CLAUDE.md rule 6's own definition of a column that is not what its name suggests. No client consumer survives in the readable set and the candidate readings (a guaranteed floor, a consolation gain on failure, a fixed part of the cap) cannot be told apart from the table. Recorded so the gap stays costed; nothing reads it. One emulator session with the bar visible would settle it."
+ },
+ "stimulate": {
+  "item": "Item_Quenching_Wife_1",
+  "count": 5,
+  "tenX": 20
+ },
+ "levels": [
+  {
+   "intimacy": 2000,
+   "cap": 0,
+   "stones": 0
+  },
+  {
+   "intimacy": 2500,
+   "cap": 2000,
+   "stones": 1
+  },
+  {
+   "intimacy": 3000,
+   "cap": 4000,
+   "stones": 1
+  },
+  {
+   "intimacy": 3500,
+   "cap": 6000,
+   "stones": 1
+  },
+  {
+   "intimacy": 4000,
+   "cap": 8000,
+   "stones": 1
+  },
+  {
+   "intimacy": 4500,
+   "cap": 10000,
+   "stones": 1
+  },
+  {
+   "intimacy": 5000,
+   "cap": 12000,
+   "stones": 1
+  },
+  {
+   "intimacy": 5500,
+   "cap": 14000,
+   "stones": 1
+  },
+  {
+   "intimacy": 6000,
+   "cap": 16000,
+   "stones": 1
+  },
+  {
+   "intimacy": 6500,
+   "cap": 18000,
+   "stones": 1
+  },
+  {
+   "intimacy": 7000,
+   "cap": 20000,
+   "stones": 1
+  },
+  {
+   "intimacy": 7500,
+   "cap": 22000,
+   "stones": 1
+  },
+  {
+   "intimacy": 8000,
+   "cap": 24000,
+   "stones": 1
+  },
+  {
+   "intimacy": 8500,
+   "cap": 26000,
+   "stones": 1
+  },
+  {
+   "intimacy": 9000,
+   "cap": 28000,
+   "stones": 1
+  },
+  {
+   "intimacy": 9500,
+   "cap": 30000,
+   "stones": 1
+  },
+  {
+   "intimacy": 10000,
+   "cap": 32000,
+   "stones": 1
+  },
+  {
+   "intimacy": 11000,
+   "cap": 34000,
+   "stones": 1
+  },
+  {
+   "intimacy": 12000,
+   "cap": 36000,
+   "stones": 1
+  },
+  {
+   "intimacy": 13000,
+   "cap": 38000,
+   "stones": 1
+  },
+  {
+   "intimacy": 14000,
+   "cap": 40000,
+   "stones": 1
+  },
+  {
+   "intimacy": 15000,
+   "cap": 42000,
+   "stones": 1
+  },
+  {
+   "intimacy": 16000,
+   "cap": 44000,
+   "stones": 1
+  },
+  {
+   "intimacy": 17000,
+   "cap": 46000,
+   "stones": 1
+  },
+  {
+   "intimacy": 18000,
+   "cap": 48000,
+   "stones": 1
+  },
+  {
+   "intimacy": 20000,
+   "cap": 50000,
+   "stones": 1
+  },
+  {
+   "intimacy": 22000,
+   "cap": 52000,
+   "stones": 1
+  },
+  {
+   "intimacy": 24000,
+   "cap": 54000,
+   "stones": 1
+  },
+  {
+   "intimacy": 26000,
+   "cap": 56000,
+   "stones": 1
+  },
+  {
+   "intimacy": 28000,
+   "cap": 58000,
+   "stones": 1
+  },
+  {
+   "intimacy": 30000,
+   "cap": 60000,
+   "stones": 1
+  },
+  {
+   "intimacy": 32000,
+   "cap": 62000,
+   "stones": 1
+  },
+  {
+   "intimacy": 34000,
+   "cap": 64000,
+   "stones": 1
+  },
+  {
+   "intimacy": 36000,
+   "cap": 66000,
+   "stones": 1
+  },
+  {
+   "intimacy": 38000,
+   "cap": 68000,
+   "stones": 1
+  },
+  {
+   "intimacy": 40000,
+   "cap": 70000,
+   "stones": 1
+  },
+  {
+   "intimacy": 42000,
+   "cap": 72000,
+   "stones": 1
+  },
+  {
+   "intimacy": 44000,
+   "cap": 74000,
+   "stones": 1
+  },
+  {
+   "intimacy": 47000,
+   "cap": 76000,
+   "stones": 1
+  },
+  {
+   "intimacy": 50000,
+   "cap": 78000,
+   "stones": 1
+  },
+  {
+   "intimacy": null,
+   "cap": 80000,
+   "stones": null
+  }
+ ],
+ "weights": [
+  {
+   "min": 0,
+   "max": 2500,
+   "success": 8000,
+   "results": [
+    [
+     100,
+     7000
+    ],
+    [
+     200,
+     2000
+    ],
+    [
+     400,
+     1000
+    ]
+   ]
+  },
+  {
+   "min": 2501,
+   "max": 5000,
+   "success": 5000,
+   "results": [
+    [
+     100,
+     7000
+    ],
+    [
+     200,
+     2000
+    ],
+    [
+     400,
+     1000
+    ]
+   ]
+  },
+  {
+   "min": 5001,
+   "max": 7500,
+   "success": 2500,
+   "results": [
+    [
+     100,
+     7000
+    ],
+    [
+     200,
+     2000
+    ],
+    [
+     400,
+     1000
+    ]
+   ]
+  },
+  {
+   "min": 7501,
+   "max": 10000,
+   "success": 1000,
+   "results": [
+    [
+     100,
+     7000
+    ],
+    [
+     200,
+     2000
+    ],
+    [
+     400,
+     1000
+    ]
+   ]
+  }
+ ]
+}
