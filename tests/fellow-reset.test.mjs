@@ -224,3 +224,81 @@ test('after a switch to APK growth, limit tokens come back only while the kept l
  assert.equal(kept.state,undefined,'a refusal leaves no state to commit');
  assert.ok(kept.kept.includes('limit breaks the kept level needs'),kept.kept.join('; '));
 });
+
+// -------------------------------------------------------------------------------------------------
+// LIMIT BREAKS AND THE BREAK-GRANTED TIER (2026-09-22). Since `sourceQuality` floors at `localTier`, a
+// limit break is doing three jobs at once in APK growth: it holds the cap, it pays the tier's Aptitude,
+// and it is what makes a crystal receipt that STARTS above the chain legal. Refund all's promise -- never
+// hand back anything still doing work, and hand back everything else EXACTLY -- has to survive all three.
+// Both halves of every comparison below come from refundWallet() on the same village (CLAUDE.md rule 1).
+// -------------------------------------------------------------------------------------------------
+/** A Fellow with real limit breaks, switched into APK growth, at the cap those breaks hold. */
+function brokenInApk(breaks=4){
+ let s=fresh(T);s.fellows[ID]=newFellow();
+ s={...s,fellowXP:1e12,inventory:{...s.inventory,local_limit_token:1000}};
+ for(let b=0;b<breaks;b++){s=run(s,'train','max');s=run(s,'limitBreak');}
+ s=run(s,'train','max');
+ s=run(s,'activateOriginalProgression');
+ return stockOriginal(s,60);
+}
+test('a crystal tier bought past the limit breaks refunds exactly, and the tokens holding it stay spent',()=>{
+ const s=brokenInApk(4);
+ assert.equal(s.fellows[ID].level,300);assert.equal(s.fellows[ID].breaks,4);
+ assert.equal(fellowCap(s.fellows[ID],s,ID),300,'positive control: four breaks hold tier 5');
+ const before=refundWallet(s);
+ // One real breakthrough: tier 5 -> 6. Its receipt STARTS at 5, above the paid chain's 1.
+ const next=run(s,'originalQuality');
+ assert.equal(next.originalProgression.receipts[0].from,5,'positive control: the receipt skips the granted tiers');
+ assert.equal(fellowCap(next.fellows[ID],next,ID),350);
+ const plan=refundPlan(next,ID);
+ assert.equal(plan.error,undefined,plan.error);
+ assert.ok(valid(plan.state),'the refund leaves a valid village');
+ // EXACT: every pool is back where it started. The limit tokens were never in play, so they must not move.
+ assert.deepEqual(refundWallet(plan.state),before);
+ assert.equal(plan.state.fellows[ID].breaks,4,'the breaks the kept level 300 needs are not returned');
+ assert.deepEqual(plan.state.originalProgression.receipts,[]);
+ assert.deepEqual(plan.state.originalProgression.quality,{});
+ assert.deepEqual(decode(JSON.stringify(plan.state)),plan.state);
+});
+test('Refund all leaves a VALID village at every break count, and never returns a token the level needs',()=>{
+ // THE TRAP THIS SWEEPS FOR. refundPlan gives back levels, then breakthroughs, then limit tokens. With the
+ // cap now reading `breaks` as well, each step changes what the NEXT step is allowed to return: a token
+ // handed back while the kept level still needs its tier leaves a state `valid()` refuses, and
+ // fellowResetAction then refuses the WHOLE refund -- the player gets nothing back at all. Reading the cap
+ // against the pre-refund save instead of the in-progress one did exactly that.
+ for(const breaks of [1,2,4,7,10]){
+  let s=brokenInApk(breaks);
+  const cap=fellowCap(s.fellows[ID],s,ID);
+  assert.equal(s.fellows[ID].level,cap,`positive control: ${breaks} breaks put him at his cap`);
+  // The wallet is measured AFTER every pool is stocked, so the round trip has nothing else moving in it.
+  const before=refundWallet(s);
+  s=run(s,'originalQuality');
+  assert.ok(fellowCap(s.fellows[ID],s,ID)>cap,`breaks ${breaks}: a real breakthrough past the breaks`);
+  s=run(s,'train','max');
+  assert.ok(s.fellows[ID].level>cap,`breaks ${breaks}: and he climbed into it`);
+  const plan=refundPlan(s,ID);
+  assert.equal(plan.error,undefined,`breaks ${breaks}: ${plan.error}`);
+  assert.ok(valid(plan.state),`breaks ${breaks}: the refund leaves a valid village`);
+  assert.ok(plan.state.fellows[ID].level<=fellowCap(plan.state.fellows[ID],plan.state,ID),`breaks ${breaks}: level within the kept cap`);
+  assert.equal(plan.state.fellows[ID].breaks,breaks,`breaks ${breaks}: the tokens the kept level needs stay spent`);
+  assert.deepEqual(refundWallet(plan.state),before,`breaks ${breaks}: every pool is exactly back`);
+  assert.deepEqual(decode(JSON.stringify(plan.state)),plan.state,`breaks ${breaks}: and it reloads untouched`);
+ }
+ // 13 breaks is the top of the ladder: tier 14, level 750, nothing above it to buy and nothing to give
+ // back -- so Refund all says so rather than returning 91 limit tokens the level 750 still needs.
+ const top=brokenInApk(13);
+ assert.equal(fellowCap(top.fellows[ID],top,ID),750);
+ assert.equal(refundPlan(top,ID).error,'Nothing on this Fellow can be refunded.');
+ assert.ok(act(top,'originalQuality',top.lastAt,ID).error,'and there is no tier left to sell him');
+});
+test('Auto-optimize then Refund all round-trips a limit-broken Fellow in APK growth to the exact wallet',()=>{
+ const s=brokenInApk(4);
+ const before=refundWallet(s),power=bondedPower(s,ID);
+ const opt=run(s,'optimizeFellow');
+ assert.ok(bondedPower(opt,ID)>power,'positive control: Auto-optimize actually spent something');
+ assert.ok(valid(opt));
+ const plan=refundPlan(opt,ID);
+ assert.equal(plan.error,undefined,plan.error);
+ assert.ok(valid(plan.state),'and the round trip is still a valid village');
+ assert.deepEqual(refundWallet(plan.state),before,'every pool is back where it started');
+});
