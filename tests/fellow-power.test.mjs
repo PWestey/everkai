@@ -507,7 +507,14 @@ test('all 494 imported appoint effects are reachable: the level-200 tier unlocks
  assert.equal(fellowCap({breaks:2}),200);
  assert.equal(effects.filter(e=>e.minLevel<=fellowCap({breaks:2})).length,494);
  assert.equal(effects.filter(e=>e.minLevel>fellowCap({breaks:13})).length,0);
- // And skill-level growth is not modelled at all: percent is pinned at skillProp_Initial/100, so
- // the original's +500 per level (SkillBase.json, 44 of 76 appoint rows, maxUpgradeLevel 300) is absent.
- assert.match(operations.limits,/Skill levels above 1 are not modelled/);
+ // SKILL-LEVEL GROWTH IS NOW MODELLED (2026-09-22, catalogue row C2). This assertion used to read
+ // `assert.match(operations.limits,/Skill levels above 1 are not modelled/)` -- it documented the
+ // absence of the `(level-1) * skillProp_Level` half of the original's own formula. The 144 level-1
+ // effects above are exactly the 144 that grow: every Country `Base` row, +5 points a level to
+ // maxUpgradeLevel 300. The 350 `Extra` rows at gates 50 and 200 are fixed in the original too.
+ assert.doesNotMatch(operations.limits,/Skill levels above 1 are not modelled/);
+ assert.equal(effects.filter(e=>e.perLevel).length,144);
+ assert.ok(effects.filter(e=>e.minLevel===1).every(e=>e.perLevel===5&&e.max===300));
+ assert.ok(effects.filter(e=>e.minLevel>1).every(e=>e.perLevel===undefined));
+ assert.equal(operations.skill.total,25589);   // Study Notes for one Fellow, 1 -> 300
 });

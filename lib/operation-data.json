@@ -10,9 +10,14 @@
       "file": "SkillBase.json",
       "sha256": "a04ba18bdf0c18d12f1ab2f2e1c6cbfad6afeb9a19c4e6b99296e979a0a5ad75",
       "field": "skillProp.id == 'appoint'"
+    },
+    {
+      "file": "SkillLevel.json",
+      "sha256": "b21ab20ab8b938827a95f29e87827445c006ce996aaa17c2e140bc3b0b21ccea",
+      "field": "skillType == 'Hero_Appoint_Base_1'"
     }
   ],
-  "limits": "Rarity-gated appoint skills are excluded and flagged per record, because an Everkai effect has a level gate only. Skill levels above 1 are not modelled, so skillProp_Level growth is not applied. Characters listed in content-overrides.removed are omitted.",
+  "limits": "Rarity-gated appoint skills are excluded and flagged per record, because an Everkai effect has a level gate only. Characters listed in content-overrides.removed are omitted.",
   "records": [
     {
       "fellow": "hero_1",
@@ -21,7 +26,9 @@
           "minLevel": 1,
           "percent": 30,
           "skillId": "Hero_Appoint_Country2Base_1",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -44,7 +51,9 @@
           "minLevel": 1,
           "percent": 30,
           "skillId": "Hero_Appoint_Country4Base_1",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -67,7 +76,9 @@
           "minLevel": 1,
           "percent": 30,
           "skillId": "Hero_Appoint_Country1Base_1",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -90,7 +101,9 @@
           "minLevel": 1,
           "percent": 30,
           "skillId": "Hero_Appoint_Country3Base_1",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -113,7 +126,9 @@
           "minLevel": 1,
           "percent": 30,
           "skillId": "Hero_Appoint_Country5Base_1",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -136,7 +151,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country3Base_2",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -159,7 +176,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country2Base_2",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -182,7 +201,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country4Base_2",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -205,7 +226,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country1Base_2",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -228,7 +251,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country5Base_2",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -251,7 +276,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country2Base_2",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -274,7 +301,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country1Base_2",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -297,7 +326,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country4Base_2",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -320,7 +351,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country5Base_2",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -343,7 +376,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country3Base_2",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -366,7 +401,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country1Base_2",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -389,7 +426,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country3Base_2",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -412,7 +451,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country4Base_2",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -435,7 +476,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country2Base_2",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -458,7 +501,9 @@
           "minLevel": 1,
           "percent": 50,
           "skillId": "Hero_Appoint_Country5Base_2",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -481,7 +526,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country3Base_3",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -504,7 +551,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -526,7 +575,9 @@
         {
           "minLevel": 1,
           "percent": 70,
-          "skillId": "Hero_Appoint_Country6Base_3"
+          "skillId": "Hero_Appoint_Country6Base_3",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -547,7 +598,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country1Base_3",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -570,7 +623,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country5Base_3",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -593,7 +648,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country2Base_3",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -616,7 +673,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country3Base_3",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -639,7 +698,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country2Base_3",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -662,7 +723,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country2Base_3",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -685,7 +748,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country5Base_3",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -708,7 +773,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -731,7 +798,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country1Base_3",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -754,7 +823,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -777,7 +848,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country1Base_3",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -800,7 +873,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country3Base_3",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -823,7 +898,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country5Base_3",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -846,7 +923,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country2Base_3",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -869,7 +948,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country1Base_3",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -892,7 +973,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -915,7 +998,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -938,7 +1023,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country2Base_3",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -961,7 +1048,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country3Base_3",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -984,7 +1073,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1007,7 +1098,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country5Base_3",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1030,7 +1123,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country3Base_3",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1053,7 +1148,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country5Base_3",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1076,7 +1173,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country1Base_3",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1099,7 +1198,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country3Base_3",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1122,7 +1223,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1145,7 +1248,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1168,7 +1273,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1191,7 +1298,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1214,7 +1323,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1237,7 +1348,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1260,7 +1373,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1283,7 +1398,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1306,7 +1423,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1329,7 +1448,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country3Base_5",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1352,7 +1473,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country5Base_5",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1375,7 +1498,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country1Base_5",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1398,7 +1523,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country4Base_5",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1421,7 +1548,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country1Base_5",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1444,7 +1573,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country2Base_5",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1467,7 +1598,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1490,7 +1623,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1531,7 +1666,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1554,7 +1691,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1577,7 +1716,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1600,7 +1741,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1623,7 +1766,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1646,7 +1791,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1669,7 +1816,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country5Base_5",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1692,7 +1841,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1715,7 +1866,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1756,7 +1909,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country2Base_5",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1779,7 +1934,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1802,7 +1959,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country3Base_5",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1825,7 +1984,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country4Base_5",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1848,7 +2009,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1871,7 +2034,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country1Base_5",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1894,7 +2059,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1917,7 +2084,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country2Base_5",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1940,7 +2109,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -1963,7 +2134,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2004,7 +2177,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2027,7 +2202,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2050,7 +2227,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country3Base_5",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2073,7 +2252,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2096,7 +2277,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2119,7 +2302,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country2Base_5",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2142,7 +2327,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2165,7 +2352,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country5Base_5",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2188,7 +2377,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2211,7 +2402,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2234,7 +2427,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2257,7 +2452,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2280,7 +2477,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2303,7 +2502,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2326,7 +2527,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2349,7 +2552,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2372,7 +2577,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2395,7 +2602,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2418,7 +2627,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2441,7 +2652,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country1Base_5",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2464,7 +2677,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2505,7 +2720,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2546,7 +2763,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2569,7 +2788,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country4Base_5",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2592,7 +2813,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country3Base_5",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2615,7 +2838,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2674,7 +2899,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2697,7 +2924,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2756,7 +2985,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2779,7 +3010,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2820,7 +3053,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2843,7 +3078,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2884,7 +3121,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2907,7 +3146,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2930,7 +3171,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2953,7 +3196,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country4Base_3",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2976,7 +3221,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -2999,7 +3246,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3040,7 +3289,9 @@
           "minLevel": 1,
           "percent": 70,
           "skillId": "Hero_Appoint_Country1Base_3",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3098,7 +3349,9 @@
         {
           "minLevel": 1,
           "percent": 100,
-          "skillId": "Hero_Appoint_Country6Base_4"
+          "skillId": "Hero_Appoint_Country6Base_4",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3137,7 +3390,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country4Base_5",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3160,7 +3415,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country1Base_5",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3254,7 +3511,9 @@
         {
           "minLevel": 1,
           "percent": 150,
-          "skillId": "Hero_Appoint_Country6Base_5"
+          "skillId": "Hero_Appoint_Country6Base_5",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3275,7 +3534,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country1Base_5",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3298,7 +3559,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country4Base_5",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3321,7 +3584,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country3Base_5",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3344,7 +3609,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country2Base_5",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3367,7 +3634,9 @@
           "minLevel": 1,
           "percent": 150,
           "skillId": "Hero_Appoint_Country5Base_5",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3408,7 +3677,9 @@
           "minLevel": 1,
           "percent": 200,
           "skillId": "Hero_Appoint_Country3Base_6",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3431,7 +3702,9 @@
           "minLevel": 1,
           "percent": 200,
           "skillId": "Hero_Appoint_Country4Base_6",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3652,7 +3925,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3675,7 +3950,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3698,7 +3975,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3721,7 +4000,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3744,7 +4025,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3767,7 +4050,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country1Base_4",
-          "type": "Inspiring"
+          "type": "Inspiring",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3790,7 +4075,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country4Base_4",
-          "type": "Informed"
+          "type": "Informed",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3813,7 +4100,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country3Base_4",
-          "type": "Brave"
+          "type": "Brave",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3836,7 +4125,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country2Base_4",
-          "type": "Diligent"
+          "type": "Diligent",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3859,7 +4150,9 @@
           "minLevel": 1,
           "percent": 100,
           "skillId": "Hero_Appoint_Country5Base_4",
-          "type": "Unfettered"
+          "type": "Unfettered",
+          "perLevel": 5,
+          "max": 300
         },
         {
           "minLevel": 50,
@@ -3875,5 +4168,314 @@
         }
       ]
     }
+  ],
+  "levelling": "The Study Notes ladder is SkillLevel[Hero_Appoint_Base_1]: entry i is the cost to reach level i+2 (entry 0 buys level 2), 25,589 in total, and the original charges nothing at the cap. `perLevel`/`max` sit on the effects the original grows (skillProp_Level 500 over maxUpgradeLevel 300); the fixed Extra rows carry neither and are unchanged. The level is ONE PER FELLOW, shared across its levelable appoint skills, because MainCityManager:CalBuildingHeroAdd reads a single Hero_Appoint_Base_1 skill level off the assigned hero. The SHOP that sells Study Notes is not in the config dump, so the FAUCET rate is local and declared in lib/operations.mjs.",
+  "skill": {
+    "shared": "Hero_Appoint_Base_1",
+    "cap": 300,
+    "perLevel": 5,
+    "item": "Item_HeroManagerment_Building",
+    "total": 25589
+  },
+  "ladder": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    7,
+    8,
+    8,
+    8,
+    9,
+    9,
+    9,
+    10,
+    10,
+    10,
+    11,
+    11,
+    11,
+    12,
+    12,
+    12,
+    13,
+    13,
+    13,
+    14,
+    14,
+    15,
+    15,
+    16,
+    16,
+    17,
+    17,
+    18,
+    18,
+    19,
+    19,
+    20,
+    20,
+    21,
+    21,
+    22,
+    22,
+    23,
+    23,
+    24,
+    24,
+    25,
+    25,
+    25,
+    26,
+    26,
+    26,
+    27,
+    27,
+    27,
+    28,
+    28,
+    28,
+    29,
+    29,
+    29,
+    30,
+    30,
+    30,
+    31,
+    31,
+    31,
+    32,
+    32,
+    32,
+    33,
+    33,
+    34,
+    34,
+    35,
+    35,
+    36,
+    36,
+    37,
+    37,
+    38,
+    38,
+    39,
+    39,
+    40,
+    40,
+    41,
+    41,
+    42,
+    42,
+    43,
+    43,
+    44,
+    44,
+    45,
+    45,
+    46,
+    46,
+    46,
+    47,
+    47,
+    47,
+    48,
+    48,
+    48,
+    49,
+    49,
+    49,
+    50,
+    50,
+    50,
+    51,
+    51,
+    51,
+    52,
+    52,
+    52,
+    53,
+    53,
+    53,
+    54,
+    54,
+    55,
+    55,
+    56,
+    56,
+    57,
+    57,
+    58,
+    58,
+    59,
+    59,
+    60,
+    60,
+    61,
+    61,
+    62,
+    62,
+    63,
+    63,
+    64,
+    64,
+    65,
+    65,
+    65,
+    66,
+    66,
+    66,
+    67,
+    67,
+    67,
+    68,
+    68,
+    68,
+    69,
+    69,
+    69,
+    70,
+    70,
+    70,
+    71,
+    71,
+    71,
+    72,
+    72,
+    73,
+    73,
+    73,
+    74,
+    74,
+    75,
+    75,
+    76,
+    76,
+    77,
+    77,
+    78,
+    78,
+    79,
+    79,
+    80,
+    80,
+    81,
+    81,
+    82,
+    82,
+    83,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    102,
+    104,
+    106,
+    108,
+    110,
+    112,
+    114,
+    116,
+    118,
+    120,
+    122,
+    124,
+    126,
+    128,
+    130,
+    132,
+    134,
+    136,
+    138,
+    140,
+    142,
+    144,
+    146,
+    148,
+    150,
+    152,
+    154,
+    156,
+    158,
+    160,
+    162,
+    164,
+    166,
+    168,
+    170,
+    172,
+    174,
+    176,
+    178,
+    180,
+    182,
+    184,
+    186,
+    188,
+    190,
+    192,
+    194,
+    196,
+    198,
+    200,
+    202,
+    204,
+    206,
+    208,
+    210,
+    212,
+    214,
+    216,
+    218,
+    220,
+    222,
+    224,
+    226,
+    228,
+    230,
+    232,
+    234,
+    236,
+    238,
+    240,
+    242,
+    244,
+    246,
+    248,
+    250,
+    252,
+    254,
+    256,
+    258,
+    260,
+    262,
+    264,
+    266,
+    268,
+    270
   ]
 }
