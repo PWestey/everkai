@@ -1834,3 +1834,19 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .family-stella .stella-head{flex-wrap:nowrap}
 .family-stella .stella-head>strong{flex:1;min-width:0;font-size:14px}
 .attributes-open{flex:none;min-width:64px}
+
+/* ===== PREVIEW (not yet joined) — docs/family-screen-specs/13-locked-member.md =====
+   The art goes greyscale. That single filter does the work of six "welcome this family member
+   to..." sentences, and the dock is absent rather than full of empty states. */
+.character-preview .character-screen-art{filter:grayscale(1) brightness(.92)}
+.character-preview .character-screen-controls{pointer-events:auto}
+/* The starting values are the only numbers a preview can honestly show, so they take the centre
+   rather than the bottom-left corner they occupy on a joined member. */
+.preview-stats{display:flex;justify-content:center;gap:26px}
+.preview-medallion{display:grid;justify-items:center;gap:0}
+.preview-medallion>img{width:34px;height:34px;object-fit:contain;border-radius:50%;background:#e9d3a733;padding:3px}
+.preview-medallion>strong{font:700 18px Georgia,serif;color:#ffd37a}
+.preview-medallion>span{font:700 11px Georgia,serif;color:#f4d18b}
+.preview-body{padding:10px 12px;background:#ece2ccf5;border:4px double #a68a65;border-radius:3px;max-height:44dvh;overflow:auto;overscroll-behavior:contain;color:#4b3525}
+.blessed-preview{display:grid;gap:6px}
+.source-line{margin:0;font:700 15px Georgia,serif;color:#8a5a20;text-align:center}

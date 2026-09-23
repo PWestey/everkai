@@ -14,7 +14,7 @@ import CharacterScene from './character-scene';
 import ConsumableShelf from './consumable-shelf';
 import FamilyTraining from './family-training';
 import {FamilyStatBlock,FamilyInfo,FamilyRail} from './family-shell';
-import PanelPages from './panel-pages';
+import FamilyPreview,{PreviewStats,PreviewRail} from './family-preview';
 import {Button} from '@/components/ui/button';
 import {FAMILY} from '@/lib/catalog.mjs';
 import {energyCap,ENERGY_RECOVERY_MS} from '@/lib/progression.mjs';
@@ -59,23 +59,27 @@ export default function FamilyPanel({game,action,selected,onSelect,locked,onRead
   summary={<><span>{Object.values(game.family).reduce((n:number,f:any)=>n+f.intimacy,0).toLocaleString()} total Intimacy</span><DateFooter game={game} action={action} locked={locked}/></>}
   onSelect={(id:string)=>{onSelect(id);setBrowse(false)}}/>;
  const order=rosterOrder(FAMILY,game.family,(id:string)=>game.family[id].blessingPower);
+ // A member who has not joined gets the original's `Preview`: one screen, no dock, greyscale art
+ // (spec 13). Everkai used to render the same eleven pages with six "welcome this member to..."
+ // empty states between them.
+ if(!member)return <CharacterScreen person={person} heading="Preview" preview
+  onPrevious={()=>onSelect(rosterStep(order,person.id,-1))} onNext={()=>onSelect(rosterStep(order,person.id,1))}
+  statBlock={<PreviewStats person={person}/>} rail={<PreviewRail person={person}/>}
+  collection={<Button className="collection-open" variant="outline" onClick={()=>setBrowse(true)}>&lsaquo; Family roster</Button>}>
+  <FamilyPreview game={game} person={person}/>
+ </CharacterScreen>;
  return <CharacterScreen person={person} heading="Family Training"
   onPrevious={()=>onSelect(rosterStep(order,person.id,-1))} onNext={()=>onSelect(rosterStep(order,person.id,1))}
-  statBlock={member?<FamilyStatBlock game={game} id={person.id}/>:undefined}
+  statBlock={<FamilyStatBlock game={game} id={person.id}/>}
   infoOnly info={<FamilyInfo person={person}><CharacterSkillGuide key={person.id+'-skill-guide'} id={person.id} game={game} action={action} locked={locked}/></FamilyInfo>}
-  rail={member?<FamilyRail interact={section==='Interact'}>{{
+  rail={<FamilyRail interact={section==='Interact'}>{{
    Story:<><CharacterScene key={person.id+'-encounter'} id={person.id} locked={locked} onRead={onReadStory}/>
     <p className="small-note">Fishing combination bonus: +{fishingDateBonus(game)}% Blessing Points on a date.</p></>,
    Travel:<FamilyTripPanel game={game} person={person} action={action} locked={locked}/>,
    Gift:<><GiftPanel game={game} person={person} action={action} locked={locked}/><ConsumableShelf game={game} action={action} locked={locked} familyId={person.id}/></>,
    Gallery:<FamilyGalleryPanel key={person.id} game={game} person={person} action={action} locked={locked}/>,
-   Wardrobe:<WardrobePanel key={person.id} game={game} person={person} action={action} locked={locked}/>}}</FamilyRail>:undefined}
+   Wardrobe:<WardrobePanel key={person.id} game={game} person={person} action={action} locked={locked}/>}}</FamilyRail>}
   collection={<Button className="collection-open" variant="outline" onClick={()=>setBrowse(true)}>&lsaquo; Family roster</Button>}>
-  {member
-   ?<FamilyTraining game={game} person={person} action={action} locked={locked} section={section} onSection={setSection}/>
-   :<PanelPages key={person.id} popup personName={person.name} variant="shallow" labels={['Welcome']}>
-     <><p>{person.description}</p><CharacterScene key={person.id} id={person.id} locked={locked} onRead={onReadStory}/>
-      <p className="next-goal">Invite {person.name} at the Recruit counter in Drakenberg.</p></>
-    </PanelPages>}
+  <FamilyTraining game={game} person={person} action={action} locked={locked} section={section} onSection={setSection}/>
  </CharacterScreen>;
 }

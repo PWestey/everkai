@@ -45,10 +45,12 @@ function powerGift(game:any,familyId:string,fellowId:string){
  try{return bondedPower(game,fellowId)-bondedPower(without,fellowId)}catch{return null}
 }
 
-function BlessedFellow({game,familyId,fellowId}:any){
+/** `showGift` is false on the not-yet-joined Preview (spec 13): the portraits are the whole point
+ *  there -- which Fellows she WILL bless -- and nothing is trained yet, so there is no badge. */
+export function BlessedFellow({game,familyId,fellowId,showGift=true}:any){
  const p=fellowById(fellowId);
  const owned=!!game.fellows?.[fellowId];
- const gift=owned?powerGift(game,familyId,fellowId):null;
+ const gift=owned&&showGift&&game.family?.[familyId]?powerGift(game,familyId,fellowId):null;
  const art=p?.portrait||p?.art;
  return <div className={'blessed-fellow'+(owned?'':' blessed-absent')}>
   <span className="blessed-ring" style={cardStyle(p?.rarity) as any}>
