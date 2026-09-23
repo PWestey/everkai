@@ -1,5 +1,5 @@
 import {useLayoutEffect,type RefObject} from 'react';
-import {artBounds,artTransform} from '@/lib/art-framing.mjs';
+import {artBounds,artTransform,PLATE_TARGET_HEIGHT} from '@/lib/art-framing.mjs';
 
 const fraction=(token:string|undefined,fallback:number)=>{
  if(!token)return fallback;if(token.endsWith('%'))return parseFloat(token)/100;
@@ -19,10 +19,13 @@ export function useArtFraming(ref:RefObject<HTMLImageElement|HTMLVideoElement|nu
   if(!el||!measured)return;
   const parent=el.parentElement,apply=()=>{
    const style=getComputedStyle(el),[px,py]=style.objectPosition.split(/\s+/);
-   const transform=artTransform(measured.bounds,{width:el.clientWidth,height:el.clientHeight},style.objectFit==='cover'?'cover':'contain',[fraction(px,.5),fraction(py,.5)],fill);
+   // A plate render is zoomed TOWARDS a well-framed figure height, not until its figure fills the box:
+   // filling would crop the painted scene on every character to fix the two dozen standing too far away.
+   const transform=artTransform(measured.bounds,{width:el.clientWidth,height:el.clientHeight},style.objectFit==='cover'?'cover':'contain',[fraction(px,.5),fraction(py,.5)],fill,measured.plate?PLATE_TARGET_HEIGHT:0);
    el.style.transformOrigin='0 0';el.style.transform=transform||'';
   };
-  el.style.backgroundColor=measured.surround;if(parent)parent.style.backgroundColor=measured.surround;
+  // Only a surround render has a colour to paint behind it; a plate render brings its own scene.
+  if(measured.surround){el.style.backgroundColor=measured.surround;if(parent)parent.style.backgroundColor=measured.surround}
   apply();
   const observer=new ResizeObserver(apply);observer.observe(el);
   return ()=>{observer.disconnect();el.style.transform='';el.style.transformOrigin='';el.style.backgroundColor='';if(parent)parent.style.backgroundColor=''};

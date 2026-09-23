@@ -17,20 +17,52 @@ test('every portrait, costume and idle clip the app shows was measured',()=>{
  assert.ok(crossover.length>=10,`only ${crossover.length} crossover assets reached the measurer`);
  // MEASURED 2026-09-17: every crossover render FILLS its 2:3 frame, so none of them gets a `bounds`
  // row and null is the correct answer for artBounds() -- `assets without bounds fill their frame`.
+ // That is NO LONGER TRUE, and the assertion that said so is gone (2026-09-23): these renders never
+ // filled their frames, they were never measurable. Every one is a figure standing in a painted scene
+ // with no flat surround and no alpha, which the Swift measurer cannot separate, so it reported
+ // nothing and both consumers in lib/art-framing.mjs fell back to a fixed placement -- 365 of 381
+ // roster tiles cropping identically whatever the character did inside its frame.
+ // scripts/measure-art-plate-bounds.py measures them against the plate they stand on; 285 of the 381
+ // now carry a box, and the 96 that do not are REPORTED by that script rather than guessed at.
  // What was genuinely missing is the per-clip `motion`, which is how a frozen re-render is caught;
  // no crossover clip was measured for it at all before (docs/crossover-family-plan.md D7).
  for(const p of crossover.filter(p=>p.endsWith('.mp4'))){
   assert.equal(typeof bounds.assets[p]?.motion,'number',p+' has no motion measurement');
-  assert.ok(clipMotion(p)>=.0005,p+' is a frozen clip');
+  // THRESHOLD 0.0005 -> 0.0002, with the control that justifies it. `motion` counts pixels whose value
+  // spans more than 40 levels across 24 frames at 160x240, so a dark, slow idle measures very little --
+  // and the 2x supersampled re-render of 2026-09-23 smoothed away what little Darth Bane had, taking
+  // him from passing to 0.0003. He is NOT frozen: at full resolution 24% of his pixels change between
+  // frames 0 and 12, with a peak difference of 146 levels. NEGATIVE CONTROL, measured rather than
+  // assumed: a clip encoded from 24 IDENTICAL frames measures exactly 0.0000 through this same
+  // measurer, so the metric does separate frozen from moving, and this guard's job is that separation
+  // and not a minimum liveliness. Next lowest real clip: Mon Mothma 0.0018.
+  assert.ok(clipMotion(p)>=.0002,p+' is a frozen clip');
  }
- for(const p of crossover.filter(p=>p.endsWith('.webp')))assert.equal(artBounds(p),null,p+' now has a flat surround; re-check its framing');
+ // The inverse of what this line used to assert, and for the reason above: a crossover render now
+ // carries a measured box wherever its figure separates from its plate. Positive control on the two
+ // characters checked by eye on 2026-09-23 -- their boxes must be real and must sit INSIDE the frame,
+ // which is what distinguishes a measurement from the whole-frame answer a failed separation gives.
+ const framed=crossover.filter(p=>p.endsWith('.webp')&&artBounds(p));
+ assert.ok(framed.length>=120,`only ${framed.length} crossover renders carry a measured box`);
+ for(const p of ['crossover/xover_swgoh_jedimasterkenobi.webp','crossover/xover_swgoh_mandalorbokatan.webp']){
+  const b=artBounds(p);assert.ok(b,p+' lost its box');
+  const [x0,y0,x1,y1]=b.bounds;
+  assert.ok(x0>.1&&x1<.95&&y0>.05&&y1<.95,`${p} box ${JSON.stringify(b.bounds)} is not inside its frame`);
+  assert.ok(y1-y0>.6&&y1-y0<.9,`${p} figure height ${(y1-y0).toFixed(3)} is outside the well-framed range`);
+  assert.equal(typeof b.plate,'string',p+' does not record which plate it was measured against');
+ }
  // Rows whose media has not been installed yet are recorded, not forgotten: their art paths are in
  // the additions data and will be measured by the same code when the files land.
  assert.ok(pendingCrossoverRows().every(r=>typeof r.art==='string'&&/^[0-9a-f]{64}$/.test(r.artSha256)),'a pending crossover row has no recorded art hash');
  assert.equal(bounds.measured,paths.size,'re-run scripts/measure-art-bounds.mjs after changing character art');
  for(const c of Object.values(clips))assert.equal(typeof bounds.assets[c.src]?.motion,'number',c.src+' has no motion measurement');
  for(const [path,row] of Object.entries(bounds.assets))if(row.bounds){
-  const [x0,y0,x1,y1]=row.bounds;assert.ok(0<=x0&&x0<x1&&x1<=1&&0<=y0&&y0<y1&&y1<=1,path);assert.match(row.surround,/^#[0-9a-f]{6}$/,path);
+  const [x0,y0,x1,y1]=row.bounds;assert.ok(0<=x0&&x0<x1&&x1<=1&&0<=y0&&y0<y1&&y1<=1,path);
+  // A box came from a flat surround (which carries the colour to paint behind it) or from the plate
+  // the figure stands on (which carries the plate's name). One or the other, never neither: a box
+  // with no provenance is a box nobody can re-derive.
+  if(row.surround)assert.match(row.surround,/^#[0-9a-f]{6}$/,path);
+  else assert.equal(typeof row.plate,'string',path+' has bounds but names neither a surround nor a plate');
  }
  // Positive control: a costume known to draw its art small inside a flat surround is measured as one.
  const small=artBounds('wardrobe/H111C1.webp');assert.ok(small&&small.bounds[2]-small.bounds[0]<.7,'H111C1 art is narrow inside its surround');
