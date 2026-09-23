@@ -1294,7 +1294,8 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* Convention 2 and 6: one green button, the cost inside it under the verb; gold is the tier action. */
 .primary-action{display:flex!important;flex-direction:column;gap:1px;align-items:center;justify-content:center;width:clamp(138px,40vw,200px);min-height:50px!important;height:auto;padding:5px 10px!important;border:2px solid #9fd0a0!important;border-radius:7px!important;background:linear-gradient(#5f9a62,#3c6b44)!important;color:#fff6e0!important;box-shadow:0 3px 0 #2a4a30,0 5px 12px #1c110877}
 .primary-action>b{font:700 clamp(15px,4vw,18px)/1.1 Georgia,serif}
-.primary-action>small{display:flex;align-items:center;gap:4px;font:700 12px/1 Georgia,serif;color:#e6f3de}
+.primary-action>small{display:flex;align-items:center;gap:5px;font:700 12px/1 Georgia,serif;color:#e6f3de}
+.primary-action .have-cost{white-space:nowrap}
 .primary-action>small>i{font-style:normal}
 .primary-action>small>i.short{color:#ff8e7d}
 .primary-action>small>i.enough{color:#c8eab4}
@@ -1355,3 +1356,53 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* Two columns at every width, as the capture has them: the labels are short and the register is
    the point. Only the type shrinks on a phone. */
 @media(max-width:430px){.source-grid{gap:2px 8px}.source-row{font-size:11.5px}.aggregate-band{font-size:15px}}
+
+/* ---------------------------------------------------------------------------------------------
+   THE APTITUDE SECTION (docs/fellow-screen-specs/06-aptitude.md). Folder tabs riding the panel's
+   top edge, a scrolling medallion strip with the selected one ringed and carrying a caret, the
+   two-line detail block, and the milestone/segmented-bar/pill triple the original uses for every
+   long ladder with milestone payouts.
+   --------------------------------------------------------------------------------------------- */
+.aptitude-panel{display:grid;gap:0;font-family:Georgia,serif;color:#4b3525}
+.folder-tabs{display:flex;gap:4px;margin:-14px -14px 0;padding:0 10px}
+.folder-tabs>button{padding:7px 14px;min-height:40px;border:1px solid #b79a66;border-top:0;border-radius:0 0 8px 8px;background:#d9c69c;color:#6b5132;font:700 14px Georgia,serif}
+.folder-tabs>button[aria-pressed=true]{background:#f3e7cb;color:#3f2c1a;box-shadow:inset 0 -3px 0 #c39a4e}
+/* The strip and the detail are visibly joined: the chosen medallion carries a caret pointing down. */
+.medallion-strip{display:flex;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:4px 2px 12px}
+.medallion-strip::-webkit-scrollbar{display:none}
+.medallion{position:relative;flex:0 0 66px;height:66px;min-height:66px;border-radius:50%;border:3px solid #b08d4f;display:grid;place-items:center;gap:0;color:#fff4dc;font-family:Georgia,serif;text-shadow:0 1px 2px #2a1a0a}
+.medallion>span{font:700 15px/1 Georgia,serif}
+.medallion>b{font:700 11px/1 Georgia,serif;opacity:.9}
+.medallion[aria-selected=true]{border-color:#f2cd7c;box-shadow:0 0 0 3px #a3792c}
+.medallion[aria-selected=true]::after{content:'';position:absolute;left:50%;bottom:-11px;translate:-50% 0;border:6px solid transparent;border-top-color:#f2cd7c}
+.medallion.medallion-locked{filter:grayscale(.7);opacity:.75}
+.medallion.tier-blue{background:linear-gradient(#4f86b5,#28527a)}
+.medallion.tier-green{background:linear-gradient(#5d9b62,#33693c)}
+.medallion.tier-purple{background:linear-gradient(#8a6bb0,#563d7c)}
+.medallion.tier-orange{background:linear-gradient(#d09846,#9a6520)}
+.medallion.tier-red{background:linear-gradient(#bf6a5c,#8a3b2f)}
+.ladder-detail{padding:8px 10px;background:#f3e7cbcc;border:1px solid #c3a870;border-radius:5px}
+.ladder-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:0}
+.ladder-title>strong{font:700 16px Georgia,serif;color:#5b4128}
+.ladder-title>em{font-style:normal;font-weight:700;color:#2f7a45}
+.tag-pill{margin-left:auto;padding:2px 9px;border:1px solid #b79a66;border-radius:11px;background:#e4d3ab;font:700 11px Georgia,serif;color:#6b5132}
+.ladder-effect{margin:5px 0 0;font:700 14px Georgia,serif;color:#a2761f}
+.ladder-effect>i{font-style:normal;color:#2f7a45}
+.ladder-gate{font-style:normal;color:#9a4a3c}
+.improve-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px}
+.improve-cost{display:grid;font:700 12px Georgia,serif;color:#6b5132}
+.improve-cost>b{font-size:15px;color:#3c2d1c}
+.ladder-extras{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+/* The milestone track: medallions over a segmented bar with the level pills beneath, scrolling
+   sideways as one unit so a reward always sits over the segment it ends. */
+.milestone-track{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding-bottom:8px}
+.milestone-track::-webkit-scrollbar{display:none}
+.milestone-row,.milestone-bar,.milestone-pills{display:flex;gap:6px;min-width:max-content}
+.milestone{flex:0 0 74px;display:grid;justify-items:center;gap:1px;padding:6px 3px;border:2px solid #9d907a;border-radius:6px;background:linear-gradient(#cdc7b8,#a39c8c);color:#4a4134;font:700 11px Georgia,serif;text-align:center}
+.milestone.earned{border-color:#d8ab54;background:linear-gradient(#f4dda4,#d2a952);color:#4b3210}
+.milestone>b{font-size:13px}
+.milestone-bar{margin:5px 0 4px}
+.milestone-bar>i{flex:0 0 74px;height:12px;border:1px solid #9a8151;border-radius:6px;background:#3a2a19;overflow:hidden}
+.milestone-bar>i>u{display:block;height:100%;text-decoration:none;background:linear-gradient(#ffe6a4,#d5a53c)}
+.milestone-pills>span{flex:0 0 74px;text-align:center;padding:2px 0;border:1px solid #a98f5d;border-radius:10px;background:#6b5132;color:#f0dcb0;font:700 11px Georgia,serif}
+.milestone-pills>span.reached{background:linear-gradient(#f0cd85,#c79a41);color:#3d2a10}

@@ -32,7 +32,7 @@ export function PrimaryAction({verb,tier,disabled,onClick,currency,have,cost,chi
  return <Button className={'primary-action'+(tier?' primary-tier':'')} disabled={disabled} onClick={onClick}>
   <b>{verb}</b>
   {have!==undefined&&cost!==undefined
-   ?<small>{currency?<span>{currency}</span>:null}<i className={short?'short':'enough'}>{abbrev(have)}</i>/{abbrev(cost)}</small>
+   ?<small>{currency?<span>{currency}</span>:null}<span className="have-cost"><i className={short?'short':'enough'}>{abbrev(have)}</i>/{abbrev(cost)}</span></small>
    :children?<small>{children}</small>:null}
  </Button>;
 }
