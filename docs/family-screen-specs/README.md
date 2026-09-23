@@ -321,5 +321,5 @@ Extras as flat unlocks at Fellow level 50 and 200.
 6. **01 (roster) + 12 (Family List, Skill Bonus).** Cheap, high visibility, and `Skill Bonus`
    is a read-only view over `fathomBonus()` that Everkai can build today.
 7. **08, 09, 11 (Interact rail, Auto Date, Gallery).** Presentation over shipped systems.
-8. **10 (Study Tour).** The one genuinely missing system. Gate on an owner decision — it is a
+8. **10 (Study Tour).** The one genuinely missing system. Gate on an owner decision — it is a — **DROPPED by the owner 2026-09-23; do not build**
    second idle-collection loop and `WifeTravel.json` is only 20 rows.

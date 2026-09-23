@@ -1,5 +1,12 @@
 # 10 · Study Tour
 
+> **OWNER RULING, 2026-09-23: DROPPED — do not build.** Asked whether Study Tour was worth
+> a new save subtree, a new currency and at least three numbers absent from the recovered
+> data, the owner answered "Study tour can be left out". This spec stays as the record of
+> what the screen is, so the decision is revisitable, but nothing should implement it
+> without a fresh instruction. (CLAUDE.md rule 7: fixed, deferred with a reason, or dropped
+> — this is dropped.)
+
 > **Source caveat.** Captured from a replacement server's reimplementation. Screens, flows,
 > controls, wording and layout are good evidence. Numbers, costs, drop rates and schedules
 > are **not** — take those from `.../apk-audit/configs/config/logic` and
