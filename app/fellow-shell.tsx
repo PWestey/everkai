@@ -8,7 +8,11 @@ import PowerDetails from './power-details';
 import TrainingRules from './training-rules';
 import FellowReset from './fellow-reset';
 import {fellowById} from '@/lib/catalog.mjs';
-import {cardStyle} from '@/lib/ui-sprites.mjs';
+import {cardStyle,petCardIcon} from '@/lib/ui-sprites.mjs';
+import {FAMILIARS,familiarById} from '@/lib/familiars.mjs';
+import {GEAR} from '@/lib/adventure.mjs';
+import {gearLevel} from '@/lib/artifacts.mjs';
+import itemArt from '@/lib/item-art.mjs';
 /** THE CULTIVATE SHELL'S PERSISTENT FURNITURE, built to docs/fellow-screen-specs/02-cultivate-shell.md
  *  and 03-upgrade.md.
  *
@@ -110,18 +114,79 @@ export function FellowUpgrade({game,id,action,locked}:any){
  </div>;
 }
 
-/** The right rail's lower group. The original keeps equipment OFF the section dock: a feather-glyph
- *  Blessing button, then two 76px tiles for the familiar and the artifact, each showing the equipped
- *  thing's art and level (spec 02, "Right rail, lower group"). Everkai's Equipment and Wardrobe pages
- *  move here, which is what takes the dock from eight entries to the original's five. Form Switch --
- *  the original's costume screen -- is the left rail's fourth pill, and Wardrobe is Everkai's version
- *  of it, so it keeps the same one-tap reach. */
+/** THE RIGHT RAIL'S LOWER GROUP, built to docs/fellow-screen-specs/10-familiar-artifact.md.
+ *
+ *  The original keeps equipment OFF the section dock: two 76px square tiles stacked on the rail,
+ *  the familiar above the artifact, each showing the equipped thing's art with its level on a strip
+ *  across the tile's foot. An EMPTY tile is a large plus on a brown ground with a small red dot
+ *  badge -- the badge meaning "you own something that could go here". No caption, and nowhere does
+ *  the word "none" appear (convention 9: empty slots are drawn, not described).
+ *
+ *  That is difference E1: Everkai reached equipment through a pager page, so a Fellow's equipment
+ *  was never part of their portrait. Now it always is, and the tile is the affordance.
+ *
+ *  Form Switch keeps the third slot, because Everkai's Wardrobe is its version of the original's
+ *  left-rail Form Switch and it earned a one-tap reach in the same pass. */
+function Tile({label,art,level,badge,onClick}:{label:string,art?:string|null,level?:number|null,badge?:boolean,onClick:()=>void}){
+ return <Button variant="outline" className={'rail-tile'+(art?'':' rail-empty')} onClick={onClick} aria-label={label}>
+  {art?<img src={art} alt=""/>:<span className="rail-plus" aria-hidden="true">+</span>}
+  {art&&level!=null?<u>Lv.{level}</u>:null}
+  {!art&&badge?<em className="rail-dot" aria-hidden="true"/>:null}
+  <span className="sr-only">{label}</span>
+ </Button>;
+}
+
+/** Spec 10's `Select Familiar`: the bound familiar on its own raised band with an ORANGE `Unbind`,
+ *  a rule, then the candidates as art cards. Each candidate carries the CURRENT HOLDER'S PORTRAIT
+ *  over its art (E3) -- that overlay is how you see, without leaving the screen, that taking this
+ *  familiar costs another Fellow theirs -- and its verb is `Equip` when it is free and `Swap` when
+ *  it is not (E4). Same colour, different word: the word carries the consequence.
+ *
+ *  NOT PORTED: `Free Attempts: N`. The spec flags it as a per-item counter out of the original's
+ *  monetised loop, no such counter is in Everkai's imported tables, and inventing one would be this
+ *  project's own mechanic. */
+function SelectFamiliar({game,id,action,locked}:any){
+ const bonds:Record<string,string>=game.familiarBonds||{},owned=game.familiars||{};
+ const boundId=bonds[id]||null,bound=boundId?familiarById(boundId):null;
+ const holderOf=(pet:string)=>Object.keys(bonds).find(f=>bonds[f]===pet&&f!==id)||null;
+ const list=FAMILIARS.filter((p:any)=>Object.hasOwn(owned,p.id)&&p.id!==boundId);
+ const art=(p:any)=>petCardIcon(p.rarity)||'';
+ return <div className="familiar-select">
+  {bound&&<><div className="familiar-row familiar-bound">
+   <span className="familiar-art" style={cardStyle(bound.rarity) as any}><img src={art(bound)} alt=""/></span>
+   <div><strong>lv.{owned[boundId!]?.level??1} {bound.name}</strong><p>{bound.rarity} &middot; {bound.type}</p></div>
+   <Button className="primary-action primary-tier" disabled={locked} onClick={()=>action('unbindFamiliar',boundId)}><b>Unbind</b></Button>
+  </div><hr className="source-rule"/></>}
+  {list.map((p:any)=>{const holder=holderOf(p.id),who=holder?fellowById(holder):null;
+   return <div className="familiar-row" key={p.id}>
+    <span className="familiar-art" style={cardStyle(p.rarity) as any}><img src={art(p)} alt=""/>
+     <b className="familiar-stars">{p.classMax}&#9733;</b>
+     {who&&(who.portrait||who.art)?<img className="familiar-holder" src={'./assets/'+(who.portrait||who.art)} alt={who.name}/>:null}</span>
+    <div><strong>lv.{owned[p.id]?.level??1} {p.name}</strong><p>{p.rarity} &middot; {p.type}</p></div>
+    <Button className="primary-action" disabled={locked} onClick={()=>action('bindFamiliar',p.id,id)}><b>{holder?'Swap':'Equip'}</b></Button>
+   </div>})}
+  {!bound&&!list.length&&<p className="familiar-empty">No companion has been contracted yet.</p>}
+ </div>;
+}
+
 export function FellowRail({game,person,action,locked,children}:any){
- const [open,setOpen]=useState<null|'gear'|'wardrobe'>(null);
+ const [open,setOpen]=useState<null|'pet'|'gear'|'wardrobe'>(null);
  const f=game.fellows[person.id];if(!f)return null;
+ const owned=game.familiars||{},bonds:Record<string,string>=game.familiarBonds||{};
+ const petId=bonds[person.id]||null,pet=petId?familiarById(petId):null;
+ const petArt=pet?petCardIcon(pet.rarity):null;
+ const gear=f.gear?GEAR.find((g:any)=>g.id===f.gear):null;
+ const gearArt=gear?((itemArt as Record<string,string>)[gear.id]||'./assets/menu/relics.png'):null;
  return <>
-  <Button variant="outline" className="rail-tile" onClick={()=>setOpen('gear')} aria-label="Artifact and equipment"><span className="rail-glyph">◈</span><span>Artifact</span></Button>
-  <Button variant="outline" className="rail-tile" onClick={()=>setOpen('wardrobe')} aria-label="Form switch and wardrobe"><span className="rail-glyph">❖</span><span>Form</span></Button>
+  <Tile label="Familiar" art={petArt} level={petId?owned[petId]?.level??1:null}
+   badge={Object.keys(owned).length>0} onClick={()=>setOpen('pet')}/>
+  <Tile label="Artifact" art={gearArt} level={gear?gearLevel(f):null}
+   badge={GEAR.some((g:any)=>game.inventory[g.id]>0)} onClick={()=>setOpen('gear')}/>
+  <Tile label="Form Switch" art="./assets/menu/relics.png" level={null} onClick={()=>setOpen('wardrobe')}/>
+  <Dialog open={open==='pet'} onOpenChange={o=>setOpen(o?'pet':null)}><DialogContent className="character-sheet panel-centered">
+   <DialogTitle>Select Familiar</DialogTitle><DialogDescription className="sr-only">Bind a companion to this Fellow.</DialogDescription>
+   <div className="character-sheet-body"><SelectFamiliar game={game} id={person.id} action={action} locked={locked}/></div>
+  </DialogContent></Dialog>
   <Dialog open={open==='gear'} onOpenChange={o=>setOpen(o?'gear':null)}><DialogContent className="character-sheet panel-centered">
    <DialogTitle>Artifact</DialogTitle><DialogDescription className="sr-only">Equip and upgrade this Fellow&rsquo;s artifact.</DialogDescription>
    <div className="character-sheet-body">{children?.gear}</div>
