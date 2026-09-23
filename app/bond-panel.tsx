@@ -1,22 +1,44 @@
 import {Button} from '@/components/ui/button';
 import {NativeSelect,NativeSelectOption} from '@/components/ui/native-select';
+import {PrimaryAction} from './original-controls';
 import {FELLOWS} from '@/lib/catalog.mjs';
 import {originalProfile} from '@/lib/original-catalog.mjs';
 import {affinityIds} from '@/lib/public-reference.mjs';
-import {bondCost,bondFactor,bondFor,supportedIds} from '@/lib/bonds.mjs';
+import {bondCost,bondFor,supportedIds} from '@/lib/bonds.mjs';
+/** FELLOW PAIRING. This used to be the `Bonds` page, which collided with the original's own `Bonds`
+ *  -- the relationship rung (docs/family-screen-specs/04-bonds.md). The rung took that dock position
+ *  and this moved onto `Blessing`, because the pairing is WHO a blessing reaches and the portraits
+ *  above it are the picture of that.
+ *
+ *  Which is also why most of this file's prose is gone. Spec 04's deletion list retires
+ *  `This family member supports their original Fellows together...`, `{n} recruited Fellows receive
+ *  this bond...`, `Total bond bonus: +18%...` and the 54-word wiki-snapshot rules-note: the
+ *  portrait row and its `POW +n` badges say all four things as pictures. What is left is the one
+ *  thing that is a CONTROL rather than a sentence -- choosing the pairing, and strengthening it. */
 export default function BondPanel({game,id,action,locked}:any){
- const family=game.family[id],bond=bondFor(game,id),pairs=affinityIds(id),supported=supportedIds(game,id);
- return <article className="family-detail"><h2>Fellow bonds</h2>
- <p>{bond.original?'This family member supports their original Fellows together.':'Your own pairing · choose one Fellow to support.'} Dates supply Blessing Points for training.</p>
- {family?<>
- {pairs.length>0&&<div className="blessing-row"><h3>Paired Fellows</h3><p>{pairs.map((f:string)=>`${originalProfile(f).name}${game.fellows[f]?'':FELLOWS.some(p=>p.id===f)?' (not recruited)':' (album only)'}`).join(' · ')}</p>{!bond.original&&<Button variant="outline" disabled={locked} onClick={()=>action('bondAffinity',id)}>Use original pairings · keep level</Button>}</div>}
- {!pairs.length&&<p>No original pairing for this character yet.</p>}
- {!bond.original&&<><label htmlFor="bond-fellow">Fellow</label><NativeSelect id="bond-fellow" value={bond.fellow||''} disabled={locked} onChange={e=>action('bondAssign',id,e.target.value||null)}><NativeSelectOption value="">No Fellow selected</NativeSelectOption>{FELLOWS.filter(f=>game.fellows[f.id]).map(f=><NativeSelectOption key={f.id} value={f.id}>{f.name}</NativeSelectOption>)}</NativeSelect></>}
- <div className="family-stats"><div><span>Bond level</span><strong>{bond.level}/10</strong></div><div><span>Bonus per Fellow</span><strong>+{bond.level*2}%</strong></div><div><span>Blessing Points</span><strong>{family.points}</strong></div></div>
- <p>{supported.length} recruited {supported.length===1?'Fellow receives':'Fellows receive'} this bond. Bonuses from other family members stack.</p>
- {!bond.original&&bond.fellow&&<p>Total bond bonus: +{Math.round((bondFactor(game,bond.fellow)-1)*100)}% Power and business earnings.</p>}
- <Button disabled={locked||!supported.length||bond.level>=10||family.points<bondCost(bond.level)} onClick={()=>action('bondTrain',id)}>{bond.level>=10?'Bond fully trained':`Strengthen · ${bondCost(bond.level)} points`}</Button>
- {bond.original&&<Button variant="outline" disabled={locked} onClick={()=>action('bondAssign',id,null)}>Choose your own pairing instead</Button>}
- </>:<p>Welcome this family member to create a bond.</p>}
- <details className="rules-note"><summary>About these rules</summary><p>Pairings come from The Ascended community wiki snapshot of September 7, 2026, which may include newer content than our APK. Training costs, the level cap and +2% per level remain local sandbox balance. Existing custom bonds are preserved until you switch them. Changing modes keeps the trained level.</p></details></article>
+ const family=game.family?.[id];
+ if(!family)return null;
+ const bond=bondFor(game,id),pairs=affinityIds(id),supported=supportedIds(game,id);
+ const maxed=bond.level>=10;
+ return <div className="bless-row bond-pairing">
+  <div className="bless-head"><strong>Pairing <em>Lv. {bond.level}/10</em></strong></div>
+  {pairs.length>0
+   ?<p className="bless-effect">{pairs.map((f:string)=>originalProfile(f).name).join(' · ')}</p>
+   :<p className="bless-effect">Choose one Fellow to support.</p>}
+  {!bond.original&&<NativeSelect aria-label="Paired Fellow" value={bond.fellow||''} disabled={locked}
+   onChange={(e:any)=>action('bondAssign',id,e.target.value||null)}>
+   <NativeSelectOption value="">No Fellow selected</NativeSelectOption>
+   {FELLOWS.filter((f:any)=>game.fellows[f.id]).map((f:any)=><NativeSelectOption key={f.id} value={f.id}>{f.name}</NativeSelectOption>)}
+  </NativeSelect>}
+  <div className="bless-action">
+   {maxed
+    ?<span className="inert-pill">Max</span>
+    :<PrimaryAction verb="Strengthen" disabled={locked||!supported.length||family.points<bondCost(bond.level)}
+      currency="Points" have={family.points} cost={bondCost(bond.level)} onClick={()=>action('bondTrain',id)}/>}
+   {/* The same two switches Everkai already had: back to the documented pairing, or to your own. */}
+   {pairs.length>0&&<Button variant="outline" className="pairing-switch" disabled={locked}
+    onClick={()=>bond.original?action('bondAssign',id,null):action('bondAffinity',id)}>
+    {bond.original?'Choose your own':'Use original'}</Button>}
+  </div>
+ </div>;
 }

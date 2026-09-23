@@ -1782,3 +1782,34 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* The orange dot is the affordance: every gate met (spec 04). */
 .gate-improve.gate-ready{position:relative}
 .gate-improve.gate-ready::after{content:'';position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:#e8732f;box-shadow:0 0 0 2px #ffe6b8}
+
+/* ===== BLESSING ("Fixed Blessed Fellow") — docs/family-screen-specs/07-blessing.md =====
+   The portrait row is the masthead, not a footnote: it is the only picture in the UI of what three
+   of the five Family sections are paying into. `Blesses Rissette, Orivita` becomes two faces with
+   what each one actually got printed underneath. */
+.blessing-panel{display:grid;gap:8px;min-height:0}
+.blessed-row{display:flex;justify-content:flex-start;gap:10px;padding:2px 0;overflow-x:auto;scrollbar-width:none}
+.blessed-row::-webkit-scrollbar{display:none}
+.blessed-row>*{flex:none}
+.blessed-fellow{display:grid;justify-items:center;gap:2px;width:76px}
+.blessed-ring{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;overflow:hidden;border:3px solid #d8b473;background:var(--card-bg,#b98d55);box-shadow:0 0 9px #ffcf6355}
+.blessed-ring>img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.blessed-ring>i{font-style:normal;font-size:22px;color:#f0ddb8}
+.blessed-name{font:700 9px Georgia,serif;color:#5b4128;max-width:76px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pow-badge{max-width:76px;padding:0 4px;border-radius:9px;background:#2f4a33;color:#8ee89b;font:700 8px Georgia,serif;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* An unrecruited Fellow is a desaturated portrait and nothing else. */
+.blessed-absent .blessed-ring{filter:saturate(.12) brightness(.85)}
+.blessed-empty .blessed-ring{background:#b6a888;border-style:dashed}
+/* One upgrade row: name and its OWN selector on the header line, effect, next-level, one button. */
+.bless-row{display:grid;gap:4px;padding:8px 9px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.bless-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.bless-head>strong{font:700 14px Georgia,serif;color:#8a5a20}
+.bless-head em{font-style:normal;color:#5b4128;font-size:12px}
+.bless-effect{margin:0;font:700 12px Georgia,serif;color:#6d573c}
+.bless-next{margin:0;font:700 12px Georgia,serif;color:#2f8c46}
+.bless-action{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.bless-action .primary-action{width:auto;min-width:118px}
+.bless-action .pairing-switch{min-width:118px;font-size:12px}
+.bless-row .qty-picker{flex:none}
+.bless-row .qty-picker button{font-size:10px;padding:0 5px;min-width:0}
+.bond-pairing select{width:100%}

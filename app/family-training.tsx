@@ -136,12 +136,14 @@ function BondsSection({game,id,action,locked}:any){
  *  because the pairing is who a blessing reaches (spec 04's resolution of the label collision). */
 function BlessingSection({game,id,action,locked}:any){
  const f=game.family?.[id];
+ // `Fixed Blessed Fellow` is the masthead, so Everkai's own Family-skill card sits BELOW the two
+ // blessing rows rather than above the portraits (spec 07: the portrait row leads this panel).
  return <div className="blessing-section">
+  <BlessingPanel game={game} id={id} action={action} locked={locked}/>
   {f&&<div className="effect-card"><span>Family skill</span><b>Lv. {f.skill}</b>
    <small>+{f.skill}% village earnings at the starter buildings &middot; {Math.round(familyBonus(game)*100)}% from the whole family</small>
    <Button className="primary-action" disabled={locked||f.skill>=20||f.points<blessingCost(f)} onClick={()=>action('bless',id)}>
     <b>{f.skill>=20?'Fully upgraded':'Improve'}</b>{f.skill>=20?null:<small><span className="have-cost"><i className={f.points<blessingCost(f)?'short':'enough'}>{f.points.toLocaleString('en-US')}</i>/{blessingCost(f).toLocaleString('en-US')}</span></small>}</Button></div>}
-  <BlessingPanel game={game} id={id} action={action} locked={locked}/>
   <BondPanel game={game} id={id} action={action} locked={locked}/>
  </div>;
 }
