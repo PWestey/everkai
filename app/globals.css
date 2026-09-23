@@ -1480,3 +1480,81 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-sheet-body .info-dot{background-color:#43301fd9!important;color:#ffe2a4}
 .character-sheet-body .aptitude-header .info-dot{background-color:#6a4c2f!important;color:#ffe9c4}
 .character-sheet-body .tag-pill{background-color:#e4d3ab}
+
+/* ---------------------------------------------------------------------------------------------
+   AWAKEN (docs/fellow-screen-specs/05-awaken.md). The one FULL panel in the Fellow surface: its
+   top edge sits at y~210 of the capture's 1280, leaving a strip of art above it.
+   --------------------------------------------------------------------------------------------- */
+.character-sheet.panel-full{height:calc(100dvh - var(--character-dock-h) - 8px);max-height:min(84dvh,1060px)}
+.awaken-panel{display:grid;gap:8px;font-family:Georgia,serif;color:#4b3525}
+/* The banner IS the progress indicator: flat brown at 0 stars, violet once any star is earned. */
+.star-banner{display:flex;justify-content:center;gap:7px;padding:9px 0;clip-path:polygon(6% 0,94% 0,100% 50%,94% 100%,6% 100%,0 50%);background:linear-gradient(#6b5132,#4a3722);border-block:2px solid #c5a362}
+.star-banner.star-lit{background:linear-gradient(#6f5a9e,#3d3070)}
+.star-banner>b{font-size:23px;line-height:1;color:#3a2e1c;text-shadow:0 1px 1px #17100722}
+.star-banner>b.lit{color:#ffd05e;text-shadow:0 1px 3px #6a4a10}
+.awaken-summary{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 12px;margin:0;justify-content:center;font:700 13px Georgia,serif;color:#6d573c}
+.awaken-summary .glyph{color:#a2761f}
+.awaken-summary>b{color:#2f7a45;font-size:15px}
+.awaken-stored{margin:0;font-size:12px;color:#7a6242}
+/* A talent row: square art tile, `Lv.N Name` in gold, the effect with its next tier in green
+   parentheses in the same flow, and the tier-ladder `(i)` at the right edge. */
+.awaken-talent{display:flex;align-items:center;gap:9px;padding:7px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.awaken-talent>div{flex:1;min-width:0}
+.awaken-art{flex:none;width:58px;height:58px;display:grid;place-items:center;border:2px solid #b08d4f;border-radius:4px;color:#fff4dc;font:700 21px Georgia,serif;text-shadow:0 1px 2px #2a1a0a}
+.awaken-art.tier-blue{background:linear-gradient(#4f86b5,#28527a)}
+.awaken-art.tier-green{background:linear-gradient(#5d9b62,#33693c)}
+.awaken-art.tier-purple{background:linear-gradient(#8a6bb0,#563d7c)}
+.awaken-art.tier-orange{background:linear-gradient(#d09846,#9a6520)}
+.awaken-art.tier-red{background:linear-gradient(#bf6a5c,#8a3b2f)}
+.awaken-talent-name{margin:0;font:700 15px Georgia,serif;color:#a2761f}
+.awaken-talent-effect{margin:2px 0 0;font-size:13px;line-height:1.35;color:#6d573c}
+.awaken-talent-effect>i{font-style:normal;color:#2f7a45}
+/* The tier tooltip is a DARK translucent overlay, not a cream dialog. */
+.tier-overlay{width:calc(100% - 40px);max-width:430px;padding:16px;gap:2px!important;border:2px solid #b79a66;border-radius:8px;background:#16100acc;backdrop-filter:blur(3px);color:#e6d6b2;font-family:Georgia,serif}
+.tier-overlay [data-slot=dialog-title]{font:700 18px Georgia,serif;color:#ffd894;text-align:center;margin-bottom:6px}
+.tier-overlay p{margin:0;padding:3px 0;font-size:13px;border-bottom:1px solid #ffffff1a}
+.tier-overlay p.tier-current{color:#7fe0a0;font-weight:700}
+/* Medals: circular, scrolling sideways, silver and padlocked until earned. */
+.medal-row{display:flex;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:2px}
+.medal-row::-webkit-scrollbar{display:none}
+.medal{position:relative;flex:0 0 62px;height:62px;border-radius:50%;border:3px solid #b08d4f;display:grid;place-items:center;color:#fff4dc;font-family:Georgia,serif}
+.medal>i{font-style:normal;font-size:21px;line-height:1}
+.medal>u{position:absolute;bottom:2px;text-decoration:none;font:700 10px Georgia,serif}
+.medal.tier-blue{background:linear-gradient(#4f86b5,#28527a)}
+.medal.tier-green{background:linear-gradient(#5d9b62,#33693c)}
+.medal.tier-purple{background:linear-gradient(#8a6bb0,#563d7c)}
+.medal.tier-orange{background:linear-gradient(#d09846,#9a6520)}
+.medal.tier-red{background:linear-gradient(#bf6a5c,#8a3b2f)}
+.medal.medal-locked{background:linear-gradient(#cdc7b8,#8e8778);border-color:#9d907a;color:#4a4134}
+/* The screen's one sentence, generated from the requirement, numerals in red. */
+.gate-line{margin:0;text-align:center;font:700 13px/1.4 Georgia,serif;color:#6b5132}
+.gate-line>b{color:#b0392a}
+.awaken-foot{display:flex;align-items:center;justify-content:center;gap:10px;padding-top:2px}
+.awaken-foot .primary-action>b{display:flex;align-items:center;gap:5px}
+.fragment-glyph{color:#ffe6a6}
+.awaken-foot .primary-action i{font-style:normal}
+.awaken-foot .primary-action i.short{color:#ff8e7d}
+.awaken-foot .primary-action i.enough{color:#c8eab4}
+
+/* ---------------------------------------------------------------------------------------------
+   OPERATION (docs/fellow-screen-specs/07-operation.md). A short half panel that does not scroll,
+   with the class name coloured green inside the templated sentence -- the original's way of
+   marking the parameter, which turns a sentence into a readable formula.
+   --------------------------------------------------------------------------------------------- */
+.operation-panel{display:grid;gap:8px;font-family:Georgia,serif;color:#4b3525}
+.operation-card{display:flex;align-items:flex-start;gap:9px;padding:8px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.operation-card>div{flex:1;min-width:0}
+.operation-art{flex:none;width:58px;height:58px;display:grid;place-items:center;border:2px solid #b08d4f;border-radius:4px;color:#fff4dc;font:700 25px Georgia,serif;text-shadow:0 1px 2px #2a1a0a}
+.operation-art.tier-orange{background:linear-gradient(#d09846,#9a6520)}
+.operation-title{margin:0;font:700 15px Georgia,serif;color:#5b4128}
+.operation-title>em{font-style:normal;color:#2f7a45}
+.operation-effect{margin:3px 0 0;font-size:13px;line-height:1.4;color:#6d573c}
+.operation-effect>b{color:#2f7a45}
+.operation-effect>i{font-style:normal;color:#2f7a45}
+.operation-gate{margin:3px 0 0;font-size:12px;color:#8a6a3f}
+.operation-foot{display:flex;justify-content:flex-end}
+.operation-passive{display:flex;gap:7px;margin:0;padding:7px 9px;border:1px solid #c3a870;border-radius:5px;background:#efe2c4aa;font-size:13px;line-height:1.4;color:#6d573c}
+.operation-passive>span:first-child{color:#c89a37}
+.operation-passive b{color:#2f7a45}
+.operation-passive i{font-style:normal;color:#2f7a45}
+.operation-info{display:flex;justify-content:flex-end}

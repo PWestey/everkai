@@ -35,7 +35,7 @@ export default function FellowTraining({game,id,action,locked}:any){
  // Upgrade is last and carries no page: its child is never rendered, the dock just closes the sheet.
  sections.push(['Upgrade',<section key="u"/>]);
  return <div className="training-panel"><PanelPages key={id} popup personName={fellowById(id).name} bare={['Upgrade']} initialPage={sections.length-1}
-  variants={{Stella:'tall',Awaken:'tall',Aptitude:'tall',Operation:'standard'}} labels={sections.map(([label])=>label)}>
+  variants={{Stella:'tall',Awaken:'full',Aptitude:'tall',Operation:'tall'}} labels={sections.map(([label])=>label)}>
   {sections.map(([,node])=>node)}
  </PanelPages></div>;
 }

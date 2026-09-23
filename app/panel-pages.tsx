@@ -11,9 +11,10 @@ export function SystemMenus({name,children,resources=null,autoOpen=true}:{name:s
  *  standard — the default sheet for a page with a few cards (~46dvh).
  *  tall     — a whole system with its own map or list (Stella: 670px of 1280, 52%).
  *  centered — a focused overlay with its own hero art, dimmed over the screen (Artifact).
+ *  full     — the one panel that leaves only a strip of art above it (Awaken: top edge y~210 of 1280).
  *  All four leave the icon dock visible and usable: it is how you move between pages now that the
  *  generic Previous/Next footer is gone. */
-export const PANEL_VARIANTS=['shallow','standard','tall','centered'] as const;
+export const PANEL_VARIANTS=['shallow','standard','tall','full','centered'] as const;
 export type PanelVariant=typeof PANEL_VARIANTS[number];
 const icons:Record<string,string>={Profile:'overview',Overview:'overview',Level:'level',Dates:'bonds',Gifts:'gifts','More gifts':'gifts',Bonds:'bonds',Blessings:'rank',Pictures:'overview',Wardrobe:'relics',Skills:'mastery',Equipment:'relics',Stella:'rank',Welcome:'bonds','Original businesses':'building','Inn service':'building',Workshop:'building','Magic Farm':'building','Starter businesses':'building',Pupils:'bonds',Graduate:'rank',Opening:'overview',Classic:'gifts',Milestones:'rank',Familiars:'bonds',Tower:'rank',Exploring:'mastery',Dispatch:'building',Museum:'relics',Keepsakes:'relics',Materials:'relics',Supplies:'gifts',Counter:'building',Roam:'building',Encounters:'bonds','Open counter':'building','Camp & exchange':'mastery','Brew & stock':'gifts','Recipe visitors':'bonds',Negotiate:'mastery',Exchange:'gifts',Records:'overview',Wish:'rank',Rewards:'gifts',Recruit:'bonds',Host:'building',Expedition:'building',Appraisal:'mastery','Relic collection':'relics'};
 /** `bare` names dock entries that have NO panel. docs/fellow-screen-specs/03-upgrade.md's key finding:
