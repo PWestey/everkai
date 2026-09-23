@@ -94,7 +94,26 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .north-exploring .north-caption{grid-area:caption;font-size:11px;line-height:14px;margin:0}.north-exploring .north-finish{grid-area:finish;min-height:44px;white-space:normal;font-size:12px;padding:4px}
 }
 
-.family-picture-viewer>img{display:block;max-width:100%;width:auto;max-height:58dvh;object-fit:contain;margin:8px auto}.picture-card{border:1px solid #aa9565;border-radius:12px;padding:12px;margin:8px 0}.family-picture-gallery>h2,.family-picture-viewer>h2{font-size:1.15rem;margin:8px 0}
+.family-picture-viewer>img{display:block;max-width:100%;width:auto;max-height:58dvh;object-fit:contain;margin:8px auto}.family-picture-gallery>h2,.family-picture-viewer>h2{font-size:1.15rem;margin:8px 0}
+/* DATE RECORD (spec 11) -- a wall of polaroids rather than a paginated list of described cards. The
+   frame is square and the caption sits under it on the white border, which is what makes a polaroid
+   read as one; a locked entry keeps the frame and shows a padlock, so the wall's shape tells you how
+   much is left to find without a sentence saying so. */
+.date-record-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 10px}
+.date-record-head>h2{font-size:1.15rem;margin:0}
+.collected-pill{padding:2px 12px;border:1px solid #a98f5d;border-radius:11px;background:#6b5132;color:#f0dcb0;font:700 12px Georgia,serif;white-space:nowrap}
+.polaroid-wall{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0;padding:0;list-style:none}
+.polaroid{position:relative;display:block;width:100%;padding:6px 6px 8px;border:1px solid #c9b489;border-radius:3px;background:linear-gradient(#fffdf6,#f2ead6);box-shadow:0 2px 5px rgba(60,40,15,.28);cursor:pointer}
+.polaroid[disabled]{cursor:default}
+.polaroid-frame{display:grid;place-items:center;aspect-ratio:1;overflow:hidden;background:#2f2418;border:1px solid #8d7448}
+.polaroid-frame>img{width:100%;height:100%;object-fit:cover}
+.polaroid-frame>i{font-size:22px;font-style:normal;opacity:.65}
+.polaroid.locked .polaroid-frame{background:repeating-linear-gradient(45deg,#3a2e20,#3a2e20 6px,#332a1d 6px,#332a1d 12px)}
+.polaroid-caption{display:block;margin-top:5px;text-align:center;line-height:1.25;overflow:hidden}
+.polaroid-caption>strong{display:block;color:#4b3720;font:700 11px Georgia,serif;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.polaroid-caption>em{display:block;color:#7b6647;font:400 10px Georgia,serif;font-style:normal;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.new-ribbon{position:absolute;top:2px;left:2px;z-index:1;padding:1px 7px;border-radius:2px;background:linear-gradient(#e06a2b,#b4431a);color:#fff6e6;font:700 9px Georgia,serif;letter-spacing:.5px}
+.date-record-date{margin-top:12px}
 .family-picture-viewer[data-slot="dialog-content"]{height:calc(100dvh - 32px);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;gap:8px;padding:16px;overflow:hidden}.family-picture-viewer>img{flex:1;min-height:0;max-height:none;width:100%;margin:0;object-fit:contain}.family-picture-viewer>button,.family-picture-viewer>h2,.family-picture-viewer>p{flex-shrink:0}.family-picture-viewer>.small-note{font-size:12px;margin:0}
 
 .village-next-step{flex:none;display:flex;align-items:center;gap:10px;padding:8px 12px;background:#fff2cc;border-bottom:1px solid #b99a59}.village-next-step>div{min-width:0;flex:1}.village-next-step small{font-size:10px;letter-spacing:.06em}.village-next-step p{font-size:12px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.village-next-step>button{flex-shrink:0;font-size:12px;padding:8px;white-space:normal;max-width:130px;min-height:44px}.return-objective{flex-shrink:0;margin:4px 12px;min-height:30px}
@@ -1873,3 +1892,21 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .list-tile{display:grid;justify-items:center;gap:2px;padding:0;border:0;background:transparent;cursor:pointer}
 .list-tile>b{font:700 10px Georgia,serif;color:#5b4128;max-width:74px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .list-tile>u{padding:0 5px;border-radius:8px;background:#5a2f43;color:#ffc9dd;font:700 9px Georgia,serif;text-decoration:none}
+
+/* INTERACT rail surfaces (spec 08). Travel is two illustrated banners -- the art IS the card -- with the
+   cost inside the button and the allowance behind an (i). Story groups its rows under hatched ribbons. */
+.journey-card{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;min-height:118px;margin:10px 0;padding:10px;border:1px solid #c9a15d;border-radius:8px;background-size:cover;background-position:center;overflow:hidden}
+.journey-card::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,14,6,.82),rgba(20,14,6,.45) 62%,rgba(20,14,6,.2))}
+.journey-text{position:relative;max-width:62%}
+.journey-text>h3{margin:0 0 3px;color:#8fe4ff;font:700 15px Georgia,serif;text-shadow:0 1px 3px #000}
+.journey-text>p{margin:0;color:#f3e6cc;font:400 12px Georgia,serif;line-height:1.3;text-shadow:0 1px 3px #000}
+.journey-go{position:relative;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:116px;padding:6px 10px;line-height:1.15}
+.journey-go>small{font:700 11px Georgia,serif;opacity:.92}
+.instruction-link{display:inline-block;margin:0 0 2px;padding:0;border:0;background:none;color:#6d5330;font:700 12px Georgia,serif;text-decoration:underline;cursor:pointer}
+.instruction-popover{margin:4px 0 8px;padding:8px 10px;border:1px solid #b99a63;border-radius:6px;background:#f6ecd5}
+.instruction-popover>p{margin:2px 0;color:#4b3720;font:400 12px Georgia,serif}
+.story-ribbon{margin:12px auto 6px;padding:3px 22px;width:fit-content;border-radius:3px;background:repeating-linear-gradient(45deg,#4b3220,#4b3220 5px,#422b1b 5px,#422b1b 10px);border:1px solid #c99a4e;color:#ffe7b5;font:700 13px Georgia,serif;text-align:center}
+.story-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 0;padding:8px 10px;border:1px solid #c0a778;border-radius:6px;background:#f7efdb}
+.story-row>span{color:#4b3720;font:700 13px Georgia,serif}
+.story-replay{min-width:56px;padding:4px 0;font-size:16px;line-height:1}
+.story-found{margin:4px 0;padding-left:18px;color:#6d573c;font:400 12px Georgia,serif}

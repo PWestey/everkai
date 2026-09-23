@@ -7,10 +7,9 @@ import {wardrobeAppearance} from '@/lib/wardrobe.mjs';
 import {rosterOrder,rosterStep} from '@/lib/roster-filter.mjs';
 import FamilyGalleryPanel from './family-gallery-panel';
 import {availableDateEnergy,tonicReserve} from '@/lib/tonics.mjs';
-import {fishingDateBonus} from '@/lib/fishing.mjs';
 import CharacterSkillGuide from './character-skill-guide';
 import FamilyTripPanel from './family-trip-panel';
-import CharacterScene from './character-scene';
+import FamilyStoryPanel from './family-story-panel';
 import ConsumableShelf from './consumable-shelf';
 import FamilyTraining from './family-training';
 import {FamilyStatBlock,FamilyInfo,FamilyRail} from './family-shell';
@@ -75,8 +74,7 @@ export default function FamilyPanel({game,action,selected,onSelect,locked,onRead
   statBlock={<FamilyStatBlock game={game} id={person.id}/>}
   infoOnly info={<FamilyInfo person={person}><CharacterSkillGuide key={person.id+'-skill-guide'} id={person.id} game={game} action={action} locked={locked}/></FamilyInfo>}
   rail={<FamilyRail interact={section==='Interact'}>{{
-   Story:<><CharacterScene key={person.id+'-encounter'} id={person.id} locked={locked} onRead={onReadStory}/>
-    <p className="small-note">Fishing combination bonus: +{fishingDateBonus(game)}% Blessing Points on a date.</p></>,
+   Story:<FamilyStoryPanel key={person.id+'-story'} game={game} person={person} onRead={onReadStory} locked={locked}/>,
    Travel:<FamilyTripPanel game={game} person={person} action={action} locked={locked}/>,
    Gift:<><GiftPanel game={game} person={person} action={action} locked={locked}/><ConsumableShelf game={game} action={action} locked={locked} familyId={person.id}/></>,
    Gallery:<FamilyGalleryPanel key={person.id} game={game} person={person} action={action} locked={locked}/>,
