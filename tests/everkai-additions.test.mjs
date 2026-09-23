@@ -146,7 +146,10 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
  // 15.11x its bind area to 2.24x), and re-composited by scripts/crossover/village-compose.py. Both of
  // his files got SMALLER at the same settings -- still 231,500 -> 149,422 at WebP q85, clip 3,029,042
  // -> 2,661,643 at 12 fps -- which is what a re-render that removes torn geometry does to an encoder.
- assert.equal(bytes,187494626,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
+ // MOVED AGAIN 2026-09-23, DOWN by a further 12,652,960, when the remaining 22 affected Fellows were
+ // re-rendered in the same pass (31 crossover rows sit in the 31 SWGOH bundles that mis-decode; 8 of
+ // them are Family and move the pin in tests/crossover-family.test.mjs instead).
+ assert.equal(bytes,174841666,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
  assert.ok(bytes<256*1024*1024,'and the on-demand total stays inside a quarter gigabyte');
 });
 

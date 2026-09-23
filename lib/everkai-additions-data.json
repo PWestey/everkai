@@ -2634,16 +2634,16 @@
    "art": "crossover/xover_swgoh_jediknightluke.webp",
    "clip": {
     "src": "crossover/xover_swgoh_jediknightluke-idle.mp4",
-    "bytes": 874637,
-    "sha256": "786c0fcce0f29c7347eccad9825f8e95e4c8b9b44dd642e5f4f387b13bfb5d7f",
+    "bytes": 661672,
+    "sha256": "ba01b6a30f14908422f68acc764b756a40550f561801b467b2e156d2adfa6633",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 40,
-    "encodedDuration": 3.333333
+    "encodedDuration": 3.3333
    },
-   "artSha256": "5faccd58f12e3c1d0bbd9b68b1ed814788766b2dfb9313c00beee68cee0a102b",
-   "artBytes": 251558,
+   "artSha256": "42000e145ccd0cd6a33ce49abaf392115dbd7140c62ee9527eeb5f85836030db",
+   "artBytes": 158714,
    "source": {
     "game": "SWGOH",
     "assetId": "JEDIKNIGHTLUKE",
@@ -2736,16 +2736,16 @@
    "art": "crossover/xover_swgoh_darthsidious.webp",
    "clip": {
     "src": "crossover/xover_swgoh_darthsidious-idle.mp4",
-    "bytes": 486666,
-    "sha256": "3818357c5a02c732c09d080c2172d3933ae7636437158ee249fa0b46c7882bad",
+    "bytes": 450823,
+    "sha256": "649158d36d670808e6adcab894c2e2703551bb28c611b7eee8decec28650a082",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 14,
-    "encodedDuration": 1.166667
+    "encodedDuration": 1.1667
    },
-   "artSha256": "4b3e5279843c58750556f939f088f6d4be197c0c5dd2cc1cac93462edbd61ad8",
-   "artBytes": 434568,
+   "artSha256": "21b4a28281293791dbe9a190ae634bd21b49786049d7d7ce505bc07912339cc9",
+   "artBytes": 298176,
    "source": {
     "game": "SWGOH",
     "assetId": "DARTHSIDIOUS",
@@ -2770,16 +2770,16 @@
    "art": "crossover/xover_swgoh_sithpalpatine.webp",
    "clip": {
     "src": "crossover/xover_swgoh_sithpalpatine-idle.mp4",
-    "bytes": 3438866,
-    "sha256": "c1632c55b5b8d8dc3df2e42d7bd7dd9bd6a5c63793e36c293262d68b59be9083",
+    "bytes": 2312599,
+    "sha256": "4ddedf2fb6108c3ff7ad95901392f0d26c6167d1f8d9b2af5034d796bcc407a5",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 136,
-    "encodedDuration": 11.333333
+    "encodedDuration": 11.3333
    },
-   "artSha256": "40b12fb51cd672f60c11c1c353c12c484349edb96656770c3b0a9eb7fb254217",
-   "artBytes": 212530,
+   "artSha256": "52f46705fef86d8bd827d2be07c70cb20c233d7d0b9529a5d37afd15f833feea",
+   "artBytes": 126654,
    "source": {
     "game": "SWGOH",
     "assetId": "SITHPALPATINE",
@@ -2804,16 +2804,16 @@
    "art": "crossover/xover_swgoh_jedimasterkenobi.webp",
    "clip": {
     "src": "crossover/xover_swgoh_jedimasterkenobi-idle.mp4",
-    "bytes": 1495950,
-    "sha256": "b6ed7d7d28d056ca51b27d72a621eb309a529112e1e08b504164baf1610bf694",
+    "bytes": 1111946,
+    "sha256": "74dfbe5751b499eab71df86b197c4a22ce35c413e6aad9375d3ff19e10702639",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 60,
     "encodedDuration": 5
    },
-   "artSha256": "b997394cb73bddfd3261c8b8796678d904109823823cb9d3674d916a8d0c416b",
-   "artBytes": 262722,
+   "artSha256": "1f780366b9fba03d97e139542d284bb3c9969f4d5cdab003088e9c85dfdc48ae",
+   "artBytes": 164938,
    "source": {
     "game": "SWGOH",
     "assetId": "JEDIMASTERKENOBI",
@@ -2974,16 +2974,16 @@
    "art": "crossover/xover_swgoh_supremeleaderkyloren.webp",
    "clip": {
     "src": "crossover/xover_swgoh_supremeleaderkyloren-idle.mp4",
-    "bytes": 1943796,
-    "sha256": "1b844f6cce06e14ea0fd50081cbea35afc9299ca859461d6cc3a02ffeba07629",
+    "bytes": 1370021,
+    "sha256": "184f5fa8e10091b9978688c69bf01a6c28c241278cbf406dbd46c087863d1e89",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 80,
-    "encodedDuration": 6.666667
+    "encodedDuration": 6.6667
    },
-   "artSha256": "6c149822f94bef06011ad95362ab5a671ec1fd76ebc0ec8f9154abafd3584ee5",
-   "artBytes": 173214,
+   "artSha256": "f3681db9def2e529d895b45ed505a1459116479ea1ec2f87f7ba82f43be87a07",
+   "artBytes": 104874,
    "source": {
     "game": "SWGOH",
     "assetId": "SUPREMELEADERKYLOREN",
@@ -3076,16 +3076,16 @@
    "art": "crossover/xover_swgoh_maul.webp",
    "clip": {
     "src": "crossover/xover_swgoh_maul-idle.mp4",
-    "bytes": 1187837,
-    "sha256": "f64ed4f1cc36591d4784b829ceeb9e20947452725000c531ca65b3e8e098f514",
+    "bytes": 761722,
+    "sha256": "2f04dd84ea7f52dfa6d0da3ac05a571b97b3c47df068cfc96253a76bedb59f9b",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 55,
-    "encodedDuration": 4.583333
+    "encodedDuration": 4.5833
    },
-   "artSha256": "10021f65c1892657cdeddc462b4cf476999c9dcdb308be128dbd21bd52092d2f",
-   "artBytes": 194946,
+   "artSha256": "2018eaf678d053eb4fb6b2d9b18a7ba510c39856051748a616b34bb567695697",
+   "artBytes": 121244,
    "source": {
     "game": "SWGOH",
     "assetId": "MAUL",
@@ -3212,16 +3212,16 @@
    "art": "crossover/xover_swgoh_bobafettscion.webp",
    "clip": {
     "src": "crossover/xover_swgoh_bobafettscion-idle.mp4",
-    "bytes": 3081409,
-    "sha256": "e5b45d51b2242887fa994fea2ae2db0f5f7f52e32340506dd299d973f0c5f5a0",
+    "bytes": 2140882,
+    "sha256": "9d0d2446966d076851a409c685d48fb2f6e6ef980b1c8e84be83a51dbaf4f62a",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 108,
     "encodedDuration": 9
    },
-   "artSha256": "b90fb10b1b8733eb00fba0f728fc2ad3e922654a6b357a800c5a3763a3ad2aaa",
-   "artBytes": 155314,
+   "artSha256": "4bf62d17c778ef71eb7d1d11a30cccf09baf0fa493ed94d43de0e85320b2f79e",
+   "artBytes": 100998,
    "source": {
     "game": "SWGOH",
     "assetId": "BOBAFETTSCION",
@@ -3348,16 +3348,16 @@
    "art": "crossover/xover_swgoh_themandalorianbeskararmor.webp",
    "clip": {
     "src": "crossover/xover_swgoh_themandalorianbeskararmor-idle.mp4",
-    "bytes": 2661643,
-    "sha256": "d69c00dce961d7f493b08fa05e232b6b233666699fc3707c5a446f67c98c0fb5",
+    "bytes": 2193897,
+    "sha256": "8cf4fcdb8bd084660e2e7ee84cbfef87127a5cde826b4086e3f9dda8acfba9d6",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 102,
     "encodedDuration": 8.5
    },
-   "artSha256": "3ba59fa12ac454ee5a25f9b44956bac388f73cf53bb042d0eeb4c0cdf5c5697f",
-   "artBytes": 149422,
+   "artSha256": "f42e94d644f6cb58df479292f99f62baf384d823e8b1484fd1290be4bf7f3adb",
+   "artBytes": 152450,
    "source": {
     "game": "SWGOH",
     "assetId": "THEMANDALORIANBESKARARMOR",
@@ -3382,16 +3382,16 @@
    "art": "crossover/xover_swgoh_countdooku.webp",
    "clip": {
     "src": "crossover/xover_swgoh_countdooku-idle.mp4",
-    "bytes": 1057355,
-    "sha256": "ad6e272014c92bbcb11f90f8ab003adaec76c8a8e4e624b2ee896381047fcca5",
+    "bytes": 898228,
+    "sha256": "ac8c9fab8fd6ca41b9f185e446ebb6f5e938e0c667d09f0c83a29b3b00fc7c6a",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 36,
     "encodedDuration": 3
    },
-   "artSha256": "20268ba23640bd0d07ee6afbc40d1ae9b36cd80cf51996fb0513e7e6065ff46e",
-   "artBytes": 426682,
+   "artSha256": "b81d913b8029a1234c7a88aad6f32c3c913d50832c93fa185645e67324e507bd",
+   "artBytes": 290614,
    "source": {
     "game": "SWGOH",
     "assetId": "COUNTDOOKU",
@@ -3416,16 +3416,16 @@
    "art": "crossover/xover_swgoh_grievous.webp",
    "clip": {
     "src": "crossover/xover_swgoh_grievous-idle.mp4",
-    "bytes": 1038300,
-    "sha256": "1e29a42ccdd46a975add4ee7ba9ccd75ff4a4901059842698d17ee502caf7e27",
+    "bytes": 744908,
+    "sha256": "f0d2b05ed92634a1244463cd4ffcabb18e92e94df6a2364aaaac6996ae16de80",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 41,
-    "encodedDuration": 3.416667
+    "encodedDuration": 3.4167
    },
-   "artSha256": "0bdadf4296f32d576887a9708f02412fb5d5095a1fbe4855a687faba097a3ffd",
-   "artBytes": 203800,
+   "artSha256": "493721c6585d9d4eb935ac528dacb25ce2d30df7f178bdf7dbabf1fb20c612b9",
+   "artBytes": 131718,
    "source": {
     "game": "SWGOH",
     "assetId": "GRIEVOUS",
@@ -3450,16 +3450,16 @@
    "art": "crossover/xover_swgoh_administratorlando.webp",
    "clip": {
     "src": "crossover/xover_swgoh_administratorlando-idle.mp4",
-    "bytes": 2285353,
-    "sha256": "e3c70b2185d67cdbd3b37da4be9a4d09113abb4ac2338593e64f3be94203c28c",
+    "bytes": 1538171,
+    "sha256": "01648d12c1c155f25eac6781f2382e0c92e7b2527610bfbfaf0abf653743ae4b",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 94,
-    "encodedDuration": 7.833333
+    "encodedDuration": 7.8333
    },
-   "artSha256": "69633192d4f7e7fb571a648ca06f6a0ee522656157619006f82c5d783bd8e63c",
-   "artBytes": 238328,
+   "artSha256": "74b0d99c23893bff30d8285935d8faafd94b4ffc235f024f9cb93830f136bf6d",
+   "artBytes": 158060,
    "source": {
     "game": "SWGOH",
     "assetId": "ADMINISTRATORLANDO",
@@ -3518,16 +3518,16 @@
    "art": "crossover/xover_swgoh_grandmofftarkin.webp",
    "clip": {
     "src": "crossover/xover_swgoh_grandmofftarkin-idle.mp4",
-    "bytes": 1524923,
-    "sha256": "ae7e8a95ca9fadaa58c83057e6cfbcdfa8c220ce91ec4754ab801792572a7dba",
+    "bytes": 945892,
+    "sha256": "32deacd79230675bc7b52e4efb94e9137d3b4a500d1a0cb6e797195aa65a4edd",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 72,
     "encodedDuration": 6
    },
-   "artSha256": "1c1eea67a200110e831de2f1e828b98ca977aa6bd7433c1824877ff43e694a35",
-   "artBytes": 184330,
+   "artSha256": "bf843b5144f7d061d00c6dd8542bb1d2b660fe9983bdad517b8d160764fa5246",
+   "artBytes": 104360,
    "source": {
     "game": "SWGOH",
     "assetId": "GRANDMOFFTARKIN",
@@ -3586,16 +3586,16 @@
    "art": "crossover/xover_swgoh_darthmalak.webp",
    "clip": {
     "src": "crossover/xover_swgoh_darthmalak-idle.mp4",
-    "bytes": 964248,
-    "sha256": "b0447a65613f28510804a2f61c8ab167ee4d1d1e26917341e671bca52186347d",
+    "bytes": 874333,
+    "sha256": "a72e89fe62074b5fb1115dbb815d8b3005a428e1cdc222e5ea1dccd36f20053c",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 32,
-    "encodedDuration": 2.666667
+    "encodedDuration": 2.6667
    },
-   "artSha256": "ba7f1f203daf38a4fb4537993df84b1328e2a43813fe68a45c0fe407423d5254",
-   "artBytes": 394012,
+   "artSha256": "07a611b55ca6281dd5f3a1c0f1c5cf5b5a04a6d2198d72ad11b87387fc6747e2",
+   "artBytes": 267056,
    "source": {
     "game": "SWGOH",
     "assetId": "DARTHMALAK",
@@ -3688,16 +3688,16 @@
    "art": "crossover/xover_swgoh_darthtraya.webp",
    "clip": {
     "src": "crossover/xover_swgoh_darthtraya-idle.mp4",
-    "bytes": 1549995,
-    "sha256": "2153dd232ed5b2cff3eb489ce16232c6be9cf8097ed20753fad9b498011aaeb8",
+    "bytes": 1036069,
+    "sha256": "c89dbe9de9a11ffb16dff448b93a5ec9c474099267328fde0d0c1999248d307e",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 61,
-    "encodedDuration": 5.083333
+    "encodedDuration": 5.0833
    },
-   "artSha256": "c9502f65f5635d97c6246b383384532518ad95deee02777d20ee9cd0c6a9a451",
-   "artBytes": 201418,
+   "artSha256": "2856c067bb5bd7cc4a10e8fe894baa2fbcb9a254109a9a434f230ca799672e68",
+   "artBytes": 132744,
    "source": {
     "game": "SWGOH",
     "assetId": "DARTHTRAYA",
@@ -3790,16 +3790,16 @@
    "art": "crossover/xover_swgoh_ezraexile.webp",
    "clip": {
     "src": "crossover/xover_swgoh_ezraexile-idle.mp4",
-    "bytes": 929509,
-    "sha256": "0e1d6043dc160c737e0981add9a474fffe7476f883b98fbbc69d636fc77e31c0",
+    "bytes": 707691,
+    "sha256": "d4e69174a6ba302381aaee4efa213731d06f1b2296da1ae3de6138fe05c28ef1",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 36,
     "encodedDuration": 3
    },
-   "artSha256": "2453f43390b7eab12a62933bef20b38140bbb1a8d4cd45c80af612a53553b71e",
-   "artBytes": 274264,
+   "artSha256": "5372812a659919cdd141b68448d1c3dbbefe669e265abecddf55c62c467a0b09",
+   "artBytes": 183284,
    "source": {
     "game": "SWGOH",
     "assetId": "EZRAEXILE",
@@ -3824,16 +3824,16 @@
    "art": "crossover/xover_swgoh_epixfinn.webp",
    "clip": {
     "src": "crossover/xover_swgoh_epixfinn-idle.mp4",
-    "bytes": 1881551,
-    "sha256": "6c1b7a047872040db662493672fbd0f4786b2861d6827fe494dc55c780512ddf",
+    "bytes": 1438015,
+    "sha256": "f8c56f8d5918e065db5c78b4c5bd2fa0a269b0b0a6a2a555e81fd520937f3947",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 70,
-    "encodedDuration": 5.833333
+    "encodedDuration": 5.8333
    },
-   "artSha256": "70ecc1f683c23863eaba88d7dcb71c931ca14206ba2cf6b6e7c3d7ff05161301",
-   "artBytes": 302032,
+   "artSha256": "c8e8b6c7576681ad9117f552fa2630d2c1b7e7ba2df385171da26c9be38d7646",
+   "artBytes": 214586,
    "source": {
     "game": "SWGOH",
     "assetId": "EPIXFINN",
@@ -3858,16 +3858,16 @@
    "art": "crossover/xover_swgoh_starkiller.webp",
    "clip": {
     "src": "crossover/xover_swgoh_starkiller-idle.mp4",
-    "bytes": 1297872,
-    "sha256": "7925fd72fac4d521ef14944253da894c9efec27324bc1642ff48a3a28c355bcb",
+    "bytes": 867814,
+    "sha256": "b091f7fbcdeb348fe3056a0056c2f76351009b84787e12fcba65ecc6bb144601",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 64,
-    "encodedDuration": 5.333333
+    "encodedDuration": 5.3333
    },
-   "artSha256": "9ba07647b4e9bb09382b914091c1346cf729af410c66247eb4c1e4d04039696a",
-   "artBytes": 137974,
+   "artSha256": "c9f9dcf23244b9828cb76aee330005e853ba473bcc14a50e3830fdef67a388d1",
+   "artBytes": 88718,
    "source": {
     "game": "SWGOH",
     "assetId": "STARKILLER",
@@ -3994,16 +3994,16 @@
    "art": "crossover/xover_swgoh_jynerso.webp",
    "clip": {
     "src": "crossover/xover_swgoh_jynerso-idle.mp4",
-    "bytes": 560121,
-    "sha256": "5939e16002d4dd4b4d0dda7d441e78f4d4350e10d0334c54f0cae98474b051dd",
+    "bytes": 417027,
+    "sha256": "ed3e4431812b6d851075eaef2912ebd78c18c11f9ecf6d0019f15759692be425",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 25,
-    "encodedDuration": 2.083333
+    "encodedDuration": 2.0833
    },
-   "artSha256": "05e41cea18e1b94a436c5f43b975dfcc0474faa96d2cb16eae11ec63355c2b7c",
-   "artBytes": 183024,
+   "artSha256": "f8a5f03d13a81deac2b9472c57c83fb3e4440c5ddfc5c89097512b72d2895610",
+   "artBytes": 121428,
    "source": {
     "game": "SWGOH",
     "assetId": "JYNERSO",
@@ -4062,16 +4062,16 @@
    "art": "crossover/xover_swgoh_epixpoe.webp",
    "clip": {
     "src": "crossover/xover_swgoh_epixpoe-idle.mp4",
-    "bytes": 1719203,
-    "sha256": "dd005f9653af38faae8d41bee48794a4447710c4521866330d0fe6bc41777bf4",
+    "bytes": 1240567,
+    "sha256": "6e100b4cd7eac23b63554e96902d2de27b47a1f466f476bcb09f5a588b43387c",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 71,
-    "encodedDuration": 5.916667
+    "encodedDuration": 5.9167
    },
-   "artSha256": "179ff527b251def39aa48590cac429ed145644e7eb6376149d60f2101f7c64df",
-   "artBytes": 276930,
+   "artSha256": "83ae3f941813e209dcad13b4eb238adec4a7a8a04349289fdeed3e39ab0edb41",
+   "artBytes": 184758,
    "source": {
     "game": "SWGOH",
     "assetId": "EPIXPOE",
@@ -4232,16 +4232,16 @@
    "art": "crossover/xover_swgoh_hk47.webp",
    "clip": {
     "src": "crossover/xover_swgoh_hk47-idle.mp4",
-    "bytes": 3062267,
-    "sha256": "c00e73e74a7981f101ebebd1d61a27ca996ed4bcc4467b68cf457eb46e11c5f6",
+    "bytes": 2271822,
+    "sha256": "a981e8218c75b51d693f8c23bc11108d0166923c6a25c83409f2914371655fcc",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 107,
-    "encodedDuration": 8.916667
+    "encodedDuration": 8.9167
    },
-   "artSha256": "f6a2605047621e0e575b563d53098ba733a6169427be67804c932ede5d2b06ee",
-   "artBytes": 145254,
+   "artSha256": "b85887e965fd202168ce8af66d5cf016502fb1aa0e7caeb31e4d86544d1d7363",
+   "artBytes": 90106,
    "source": {
     "game": "SWGOH",
     "assetId": "HK47",
@@ -4266,16 +4266,16 @@
    "art": "crossover/xover_swgoh_cadbane.webp",
    "clip": {
     "src": "crossover/xover_swgoh_cadbane-idle.mp4",
-    "bytes": 2608718,
-    "sha256": "ce57537773cd4b40e4e251aabea08595edac693a50cdc1a667cefe903f74766b",
+    "bytes": 1446473,
+    "sha256": "5c58132a2eff2b71638f610bc6397651ccbb321448217bc6856ce95c510d0e4b",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 108,
     "encodedDuration": 9
    },
-   "artSha256": "1b6e49ccb79c50651c7538015e64d2c188057e5f83b9c73ee8871ef956e546cb",
-   "artBytes": 140886,
+   "artSha256": "24f2d15b6225465dbe82c666f520c0fb65c3e1beb597df1c58d84dd498388043",
+   "artBytes": 82668,
    "source": {
     "game": "SWGOH",
     "assetId": "CADBANE",
@@ -4334,16 +4334,16 @@
    "art": "crossover/xover_swgoh_darthsion.webp",
    "clip": {
     "src": "crossover/xover_swgoh_darthsion-idle.mp4",
-    "bytes": 486417,
-    "sha256": "1ba7cdf0f633c4f55d1666a04ad8f8001b0e5248805a3569b7cf127ab0a2b9f5",
+    "bytes": 266112,
+    "sha256": "764754a456b2d8246ede9d29520a61b0c5862c5600ec1018ed047e28bcace241",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 24,
     "encodedDuration": 2
    },
-   "artSha256": "47026786ceeae1a50b213c9d372eae1d596f49ff37f5f2283f954696f79bca75",
-   "artBytes": 206940,
+   "artSha256": "d963ae81f9879e0a99bda30acb3ba6437f4a786646258cb5b59d0a3168f28afe",
+   "artBytes": 127548,
    "source": {
     "game": "SWGOH",
     "assetId": "DARTHSION",
@@ -4368,16 +4368,16 @@
    "art": "crossover/xover_swgoh_kylekatarn.webp",
    "clip": {
     "src": "crossover/xover_swgoh_kylekatarn-idle.mp4",
-    "bytes": 1523559,
-    "sha256": "629cf4f980ed70ce899321151b50aca4f97c1bbafd9abf0f5941d9f21a8a4fde",
+    "bytes": 1144149,
+    "sha256": "2bc59e707cbecbba67464b106d741185ea7dd4f11706dfb4568330d01f2f0f25",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 60,
     "encodedDuration": 5
    },
-   "artSha256": "3b4173f7cd84c6a06369cb396d1fc66374d50842639ffe36f6984255e8b4c61a",
-   "artBytes": 275316,
+   "artSha256": "968eb75ec54e9a0193b3693bfb5df9448e82f1441def4b99446d356d265fb347",
+   "artBytes": 186170,
    "source": {
     "game": "SWGOH",
     "assetId": "KYLEKATARN",
@@ -5460,16 +5460,16 @@
    "art": "crossover/xover_swgoh_padmeamidala.webp",
    "clip": {
     "src": "crossover/xover_swgoh_padmeamidala-idle.mp4",
-    "bytes": 2547472,
-    "sha256": "826f98b780fb2401d1baff56dd46e8e269164dd562e3b7e69dcb50c48aabece1",
+    "bytes": 2006765,
+    "sha256": "7ffb84464d5c6746f0420db6ef0e5d4d89363141f795afa76ad1ad49f8e9d7bb",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 87,
     "encodedDuration": 7.25
    },
-   "artSha256": "e21c4c7b2798bc8396fc21a599c3097f809ae66f17c3b06f7e47152a9430d488",
-   "artBytes": 442072,
+   "artSha256": "0f38f15615502c1543f506520ba66760e3ed1e87fe7cf894f89ae2a428fb3246",
+   "artBytes": 303462,
    "recipients": [
     "xover_swgoh_chewbaccalegendary",
     "xover_swgoh_c3polegendary",
@@ -5552,16 +5552,16 @@
    "art": "crossover/xover_swgoh_monmothma.webp",
    "clip": {
     "src": "crossover/xover_swgoh_monmothma-idle.mp4",
-    "bytes": 1776266,
-    "sha256": "40e22b466f9f1b3ddefc7ca8048f1dbbdb6a28c25707061d41f507a5bc71d6ea",
+    "bytes": 1256687,
+    "sha256": "685a5d622409390ca444aa396134c2f690a7c4f2db816fe04e39fba010d3b06a",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 73,
-    "encodedDuration": 6.083333
+    "encodedDuration": 6.0833
    },
-   "artSha256": "5bf765bd0bf7b235d5f15b7e96c99f8c18780fd795a02f00dad7b159c6a4db65",
-   "artBytes": 215018,
+   "artSha256": "1bd6c460262aa7bcdd95073af7339b44b33c63d1137f99a41a8d6af6f2c5dd4f",
+   "artBytes": 142282,
    "recipients": [
     "xover_swgoh_jabbathehutt",
     "xover_swgoh_jedimastermacewindu",
@@ -5598,16 +5598,16 @@
    "art": "crossover/xover_swgoh_luminaraunduli.webp",
    "clip": {
     "src": "crossover/xover_swgoh_luminaraunduli-idle.mp4",
-    "bytes": 705294,
-    "sha256": "2a73ebcd8404caea7f0e4be647b669133b7ed864cde3db6b90b997d470c7d3cb",
+    "bytes": 547032,
+    "sha256": "905c3e8fdf9088dbe2bd545be572bc92396695c63a23e182a51d1f274e1bea8f",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 25,
-    "encodedDuration": 2.083333
+    "encodedDuration": 2.0833
    },
-   "artSha256": "7717fe20e60232c72235cc5e13054eb2489862cb44e44ec1388d8d148e40ced4",
-   "artBytes": 252566,
+   "artSha256": "8a05f79705842ee73bd775411d487a3123fde69c86eb03660cf88ecdab8c2eb8",
+   "artBytes": 164010,
    "recipients": [
     "xover_swgoh_cassianundercover",
     "xover_swgoh_darthtraya",
@@ -5690,16 +5690,16 @@
    "art": "crossover/xover_swgoh_bastilashan.webp",
    "clip": {
     "src": "crossover/xover_swgoh_bastilashan-idle.mp4",
-    "bytes": 2364549,
-    "sha256": "89a329156c389ce5df4a7dfd8043863b5bb9611e607ada642f297b2adb0f45fe",
+    "bytes": 1919425,
+    "sha256": "32d8aabc5054dc6c6791819196f914b88ebba0d9b8c7152c40c463f24b9af485",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 76,
-    "encodedDuration": 6.333333
+    "encodedDuration": 6.3333
    },
-   "artSha256": "958653cb7a97228b63a31b73fd340333696c62becbec0970fe0152f470418db2",
-   "artBytes": 358360,
+   "artSha256": "dc62f525ef2ab9adfbf281de00a9c2594ee9c617b89a1bbc965b1b772dadb283",
+   "artBytes": 237496,
    "recipients": [
     "xover_swgoh_generalsyndulla",
     "xover_swgoh_sabinewrens3",
@@ -5782,16 +5782,16 @@
    "art": "crossover/xover_swgoh_marajade.webp",
    "clip": {
     "src": "crossover/xover_swgoh_marajade-idle.mp4",
-    "bytes": 948705,
-    "sha256": "6c978f350a699b3f8d197fed23963ad9dbb03277d542fbc761ca804a8510d744",
+    "bytes": 686826,
+    "sha256": "e357e621dc1908b1b82095f7086fa5c87b7508e9885bb27459568be8b2216f2e",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 46,
-    "encodedDuration": 3.833333
+    "encodedDuration": 3.8333
    },
-   "artSha256": "6dc44f147c8f7926e55ddcdcf10832cdaac9484a5247a6bd986d4a587e34b1ae",
-   "artBytes": 204258,
+   "artSha256": "43fa336c5bc61339c56c89861f2f5be3eec20969757c48801b462fe995af3eef",
+   "artBytes": 133836,
    "recipients": [
     "xover_swgoh_cadbane",
     "xover_swgoh_captainrex",
@@ -5828,16 +5828,16 @@
    "art": "crossover/xover_swgoh_aaylasecura.webp",
    "clip": {
     "src": "crossover/xover_swgoh_aaylasecura-idle.mp4",
-    "bytes": 567271,
-    "sha256": "65692852559782f14f4d768f3a4849719f6c1bc87c7a89327659bf42742c32c3",
+    "bytes": 429865,
+    "sha256": "4b9ea20f015dd28eed2d4152a1cc99b941888d6d3a6a229e9537f1142e00772b",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 25,
-    "encodedDuration": 2.083333
+    "encodedDuration": 2.0833
    },
-   "artSha256": "8163d2c2530e750df7ebadbc4418d44906dfd1ff7feace4e1cfb39bdacdefc65",
-   "artBytes": 177356,
+   "artSha256": "1a933bc50c037edff8c92f2cfac404c18795f909f012ec633e51705f038cf82a",
+   "artBytes": 117706,
    "recipients": [
     "xover_swgoh_jediknightluke",
     "xover_swgoh_hansolo",
@@ -5874,16 +5874,16 @@
    "art": "crossover/xover_swgoh_caradune.webp",
    "clip": {
     "src": "crossover/xover_swgoh_caradune-idle.mp4",
-    "bytes": 2089504,
-    "sha256": "97b67b266b05086947e32d59fec7eb3bae173b8412bee984a20e4f760324ce00",
+    "bytes": 1598722,
+    "sha256": "48ebdf982f1ca58a1b40c57adf652e8a4f3badd181682893eb55c8ed1cd67c86",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 82,
-    "encodedDuration": 6.833333
+    "encodedDuration": 6.8333
    },
-   "artSha256": "b24c306089d9b4b480a33bdc8daa55ebd0bc111c3121e2f8967cc71f26fc685e",
-   "artBytes": 306050,
+   "artSha256": "936d4e181e75511f089957e827cc425cc920083845c0accf616afa0c0c41813a",
+   "artBytes": 213564,
    "recipients": [
     "xover_swgoh_supremeleaderkyloren",
     "xover_swgoh_glrey",
