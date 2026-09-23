@@ -1850,3 +1850,26 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .preview-body{padding:10px 12px;background:#ece2ccf5;border:4px double #a68a65;border-radius:3px;max-height:44dvh;overflow:auto;overscroll-behavior:contain;color:#4b3525}
 .blessed-preview{display:grid;gap:6px}
 .source-line{margin:0;font:700 15px Georgia,serif;color:#8a5a20;text-align:center}
+
+/* ===== FAMILY BONUSES / FAMILY LIST — docs/family-screen-specs/12-family-list.md =====
+   Account totals live on an account-level surface. Everkai used to print them as sentences inside
+   per-member panels, where they described a number that was not that member's. */
+.roster-tools{display:flex;gap:5px;align-items:center}
+.roster-tool{min-height:34px!important;height:auto;padding:4px 9px!important;margin:0;font:700 11px Georgia,serif;border:2px solid #b89a66;border-radius:5px;background:#e3d2ad;color:#5b4128;white-space:nowrap}
+.bonus-overview{display:grid;gap:5px}
+.bonus-total{margin:0 0 3px;font:700 14px Georgia,serif;color:#4b3525}
+.bonus-row{display:flex;align-items:center;gap:7px;margin:0;font:700 12px Georgia,serif;color:#4b3525}
+.bonus-row>img{width:19px;height:19px;object-fit:contain;flex:none}
+.bonus-row>i{font-style:normal;width:19px;text-align:center;flex:none}
+.bonus-row>span{flex:1;min-width:0}
+.bonus-row>b{white-space:nowrap}
+/* The rung-grouped list. Banner colour tracks the rung, as on the art ribbon and the Bonds panel. */
+.family-list{display:grid;gap:12px}
+.family-list section{display:grid;gap:6px}
+.family-list .rung-banner{justify-content:center;position:relative;padding-right:40px}
+.family-list .rung-banner .info-dot{position:absolute;right:6px;top:50%;translate:0 -50%}
+.rung-banner.rung-green{background:linear-gradient(#3d7a4e,#2f5c3c);border-color:#7fc08d;color:#d8f5d0}
+.list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
+.list-tile{display:grid;justify-items:center;gap:2px;padding:0;border:0;background:transparent;cursor:pointer}
+.list-tile>b{font:700 10px Georgia,serif;color:#5b4128;max-width:74px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list-tile>u{padding:0 5px;border-radius:8px;background:#5a2f43;color:#ffc9dd;font:700 9px Georgia,serif;text-decoration:none}

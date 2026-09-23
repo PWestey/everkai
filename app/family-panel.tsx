@@ -15,6 +15,7 @@ import ConsumableShelf from './consumable-shelf';
 import FamilyTraining from './family-training';
 import {FamilyStatBlock,FamilyInfo,FamilyRail} from './family-shell';
 import FamilyPreview,{PreviewStats,PreviewRail} from './family-preview';
+import FamilyRosterTools from './family-overview';
 import {Button} from '@/components/ui/button';
 import {FAMILY} from '@/lib/catalog.mjs';
 import {energyCap,ENERGY_RECOVERY_MS} from '@/lib/progression.mjs';
@@ -55,6 +56,7 @@ export default function FamilyPanel({game,action,selected,onSelect,locked,onRead
  const [shown,setShown]=useState(person.id);
  if(shown!==person.id){setShown(person.id);setSection('Interact')}
  if(browse)return <RosterLanding kind="Family" album="Wife" family entries={FAMILY} owned={game.family} power={(id:string)=>game.family[id].blessingPower} selected={selected}
+  info={<FamilyRosterTools game={game} onSelect={(id:string)=>{onSelect(id);setBrowse(false)}}/>}
   status={(id:string)=>game.family[id]?`Intimacy ${game.family[id].intimacy}`:'Not joined'}
   summary={<><span>{Object.values(game.family).reduce((n:number,f:any)=>n+f.intimacy,0).toLocaleString()} total Intimacy</span><DateFooter game={game} action={action} locked={locked}/></>}
   onSelect={(id:string)=>{onSelect(id);setBrowse(false)}}/>;
