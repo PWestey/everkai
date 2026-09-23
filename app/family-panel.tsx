@@ -7,35 +7,81 @@ import {wardrobeAppearance} from '@/lib/wardrobe.mjs';
 import {rosterOrder,rosterStep} from '@/lib/roster-filter.mjs';
 import FamilyGalleryPanel from './family-gallery-panel';
 import {availableDateEnergy,tonicReserve} from '@/lib/tonics.mjs';
-import FamilyArtStage from './family-art-stage';
-import {dateReward} from '@/lib/dating.mjs';
 import {fishingDateBonus} from '@/lib/fishing.mjs';
 import CharacterSkillGuide from './character-skill-guide';
-import CharacterShowcase from './character-showcase';
-import BlessingPanel from './blessing-panel';
-import FathomPanel from './fathom-panel';
-import LatencyPanel from './latency-panel';
-import FamilyStellaPanel from './family-stella-panel';
 import FamilyTripPanel from './family-trip-panel';
 import CharacterScene from './character-scene';
 import ConsumableShelf from './consumable-shelf';
-import BondPanel from './bond-panel';
-import PanelPages from './panel-pages';
+import FamilyTraining from './family-training';
+import {FamilyStatBlock,FamilyInfo,FamilyRail} from './family-shell';
+import FamilyPreview,{PreviewStats,PreviewRail} from './family-preview';
+import FamilyRosterTools from './family-overview';
 import {Button} from '@/components/ui/button';
 import {FAMILY} from '@/lib/catalog.mjs';
-import {energyCap,blessingCost,familyBonus,ENERGY_RECOVERY_MS} from '@/lib/progression.mjs';
-import {relationRequired} from '@/lib/school.mjs';
-export default function FamilyPanel({game,action,selected,onSelect,locked,onReadStory}:any){const person=wardrobeAppearance(game,FAMILY.find(f=>f.id===selected)||FAMILY[0]),member=game.family[person.id];
+import {energyCap,ENERGY_RECOVERY_MS} from '@/lib/progression.mjs';
+/** THE FAMILY SURFACE, rebuilt to docs/family-screen-specs/02-member-shell.md.
+ *
+ *  Was: a `RosterLanding`, then a `CharacterScreen`, then an eleven-page `PanelPages` pager with text
+ *  labels and a `Previous . 6 / 11 . Next` footer, whose first page repeated the member's name, title,
+ *  bio, three stat tiles, a skill guide, a 78-word rules disclosure, a management hint and the
+ *  relationship control. Now: the same roster and the same shell, with the original's FIVE icon tabs
+ *  (`app/family-training.tsx`) and its ribbon, medallions and rail (`app/family-shell.tsx`).
+ *
+ *  The dates block moves to the roster footer, which is where the original keeps Auto Date (specs 01
+ *  and 09) and which is also the only honest home for `Across the whole family` numbers -- a per-member
+ *  panel is the wrong place to print an account total (spec 06's deletion list). */
+
+/** The roster footer's Energy strip. Everkai's own faucet, in the original's footer position. */
+function DateFooter({game,action,locked}:any){
+ const joined=Object.keys(game.family).length,energy=availableDateEnergy(game);
+ return <div className="roster-date-footer">
+  <div className="date-energy"><strong>{Math.floor(game.energy)} / {energyCap(game)}</strong>
+   <small>Natural Energy &middot; {tonicReserve(game)} in reserve, spent first</small>
+   <small>{game.energy>=energyCap(game)?'Fully recovered':`Next in ${Math.ceil((1-game.energy%1)*ENERGY_RECOVERY_MS/1000)}s`}</small></div>
+  <div className="date-actions">
+   <Button disabled={locked||energy<1||!joined} onClick={()=>action('date',null,Math.random())}>Date &middot; 1</Button>
+   <Button variant="outline" disabled={locked||energy<1||!joined} onClick={()=>action('autoDate')}>Auto Date &middot; {energy}</Button></div>
+ </div>;
+}
+
+export default function FamilyPanel({game,action,selected,onSelect,locked,onReadStory}:any){
+ const person=wardrobeAppearance(game,FAMILY.find(f=>f.id===selected)||FAMILY[0]),member=game.family[person.id];
  // Family lands on its roster too, matching Fellows and the original. The flag is local because this
  // panel already receives selected/onSelect, so page.tsx needs no new state.
  const [browse,setBrowse]=useState(true);
+ // `Interact` is the original's default selection and the state with no panel open. The selection is
+ // held here, not inside PanelPages, because the RAIL depends on it: Story / Travel / Gift are the
+ // Interact tab's three surfaces and the original shows them only while Interact is chosen.
+ const [section,setSection]=useState('Interact');
+ const [shown,setShown]=useState(person.id);
+ if(shown!==person.id){setShown(person.id);setSection('Interact')}
  if(browse)return <RosterLanding kind="Family" album="Wife" family entries={FAMILY} owned={game.family} power={(id:string)=>game.family[id].blessingPower} selected={selected}
+  info={<FamilyRosterTools game={game} onSelect={(id:string)=>{onSelect(id);setBrowse(false)}}/>}
   status={(id:string)=>game.family[id]?`Intimacy ${game.family[id].intimacy}`:'Not joined'}
-  summary={<span>{Object.values(game.family).reduce((n:number,f:any)=>n+f.intimacy,0).toLocaleString()} total Intimacy</span>}
+  summary={<><span>{Object.values(game.family).reduce((n:number,f:any)=>n+f.intimacy,0).toLocaleString()} total Intimacy</span><DateFooter game={game} action={action} locked={locked}/></>}
   onSelect={(id:string)=>{onSelect(id);setBrowse(false)}}/>;
- return <CharacterScreen person={person} onPrevious={()=>onSelect(rosterStep(rosterOrder(FAMILY,game.family,(id:string)=>game.family[id].blessingPower),person.id,-1))} onNext={()=>onSelect(rosterStep(rosterOrder(FAMILY,game.family,(id:string)=>game.family[id].blessingPower),person.id,1))} stats={member?[{label:'Intimacy',value:member.intimacy},{label:'Blessing Power',value:member.blessingPower}]:[]} subtitle={member?person.occupation||person.title:'A new companion'} collection={<Button className="collection-open" variant="outline" onClick={()=>setBrowse(true)}>‹ Family roster</Button>}>
- <PanelPages key={person.id} popup personName={person.name} variants={{Profile:'tall',Dates:'tall',Gifts:'shallow','More gifts':'shallow',Bonds:'standard',Stella:'standard',Blessings:'standard',Fathoms:'tall',Latency:'tall',Pictures:'tall',Wardrobe:'standard'}} labels={['Profile','Dates','Gifts','More gifts','Bonds','Stella','Blessings','Fathoms','Latency','Pictures','Wardrobe']}><article className="family-detail"><small>YOUR FAMILY</small><h2>{person.name}</h2><CharacterSkillGuide key={person.id+'-skill-guide'} id={person.id} game={game} action={action} locked={locked}/> <details className="rules-note"><summary>About these rules</summary><p className="balance-note">Gift effects and the separate family stats follow the readable game data. Auto-date uses available whole Energy and preserves the fractional remainder; its original rank/VIP unlock is waived. Starting stats, welcome method, date rewards, one-minute Energy recovery, shop prices and the +1% skill are local balance. Pupil formulas and relationship thresholds are local balance; Documented family–Fellow pairings are available under Bonds; their bonus strength remains local balance.</p></details><CharacterScene key={person.id+'-encounter'} id={person.id} locked={locked} onRead={onReadStory}/><p>{person.title} · {person.description||'No biography was recovered for this character.'}</p>{member?<><div className="family-stats"><div><span>Intimacy</span><strong>{member.intimacy}</strong></div><div><span>Blessing Power</span><strong>{member.blessingPower}</strong></div><div><span>Blessing Points</span><strong>{member.points}</strong></div></div><p className="management-hint">Blessing Power increases points earned on dates. Intimacy increases pupil graduation earnings. Improve relationships to raise the Intellect of future pupils.</p><div className="blessing-row"><h3>Relationship · Tier {member.relationship}</h3><p>Future pupil Intellect: {member.relationship*10}. Intimacy is not consumed.</p><Button disabled={locked||member.relationship>=5||member.intimacy<relationRequired(member.relationship)} onClick={()=>action('relationship',person.id)}>{member.relationship>=5?'Current tier cap reached':`Improve relationship · requires ${relationRequired(member.relationship)} Intimacy`}</Button></div><div className="blessing-row"><h3>Family skill · Lv. {member.skill}</h3><p>+{member.skill}% village earnings at the starter buildings · {Math.round(familyBonus(game)*100)}% from all family skills. Family Fathoms are what raise the businesses.</p><Button disabled={locked||member.skill>=20||member.points<blessingCost(member)} onClick={()=>action('bless',person.id)}>{member.skill>=20?'Fully upgraded':`Improve skill · ${blessingCost(member)} points`}</Button></div></>:<p>Welcome family members to begin gifts and dates.</p>}{!member&&<p className="next-goal">Invite {person.name} at the Recruit counter in Drakenberg.</p>}</article>
- <section><h2>Family dates</h2><div className="family-date-layout"><div className="family-date-setting"><FamilyArtStage key={person.id+'-date'} person={person} context="date"/><p>{person.name}</p></div><div className="family-date-actions"><strong>Natural Energy {Math.floor(game.energy)} / {energyCap(game)}</strong><small>Tonic reserve: {tonicReserve(game)} · spent first</small><small>{game.energy>=energyCap(game)?'Fully recovered':`Next Energy in ${Math.ceil((1-game.energy%1)*ENERGY_RECOVERY_MS/1000)}s`}</small><Button disabled={locked||availableDateEnergy(game)<1||!Object.keys(game.family).length} onClick={()=>action('date',null,Math.random())}>Random date · 1 Energy</Button><Button variant="outline" disabled={locked||availableDateEnergy(game)<1||!Object.keys(game.family).length} onClick={()=>action('autoDate')}>Auto-date · Use {availableDateEnergy(game)} Energy</Button></div></div><p className="small-note">Selected portrait: {person.name}. Random dates can choose any joined Family member.</p>{member&&<p>If dated, {person.name} gains {dateReward(game,person.id).credited.toLocaleString()} points ({member.blessingPower.toLocaleString()} base{dateReward(game,person.id).credited<dateReward(game,person.id).total?' · storage capped':''}).</p>}<details className="rules-note"><summary>Date bonuses and Energy</summary><p>Fishing combination bonus: +{fishingDateBonus(game)}% Blessing Points. Each date uses 1 Energy, even at the point storage cap. Spend points on blessings to make room.</p></details>
-<FamilyTripPanel game={game} person={person} action={action} locked={locked}/>
-</section><GiftPanel game={game} person={person} action={action} locked={locked}/><ConsumableShelf game={game} action={action} locked={locked} familyId={person.id}/><BondPanel game={game} id={person.id} action={action} locked={locked}/><FamilyStellaPanel game={game} id={person.id} action={action} locked={locked}/><BlessingPanel game={game} id={person.id} action={action} locked={locked}/><FathomPanel game={game} id={person.id} action={action} locked={locked}/><LatencyPanel game={game} id={person.id} action={action} locked={locked}/><FamilyGalleryPanel key={person.id} game={game} person={person} action={action} locked={locked}/><WardrobePanel key={person.id} game={game} person={person} action={action} locked={locked}/></PanelPages>
- </CharacterScreen>}
+ const order=rosterOrder(FAMILY,game.family,(id:string)=>game.family[id].blessingPower);
+ // A member who has not joined gets the original's `Preview`: one screen, no dock, greyscale art
+ // (spec 13). Everkai used to render the same eleven pages with six "welcome this member to..."
+ // empty states between them.
+ if(!member)return <CharacterScreen person={person} heading="Preview" preview
+  onPrevious={()=>onSelect(rosterStep(order,person.id,-1))} onNext={()=>onSelect(rosterStep(order,person.id,1))}
+  statBlock={<PreviewStats person={person}/>} rail={<PreviewRail person={person}/>}
+  collection={<Button className="collection-open" variant="outline" onClick={()=>setBrowse(true)}>&lsaquo; Family roster</Button>}>
+  <FamilyPreview game={game} person={person}/>
+ </CharacterScreen>;
+ return <CharacterScreen person={person} heading="Family Training"
+  onPrevious={()=>onSelect(rosterStep(order,person.id,-1))} onNext={()=>onSelect(rosterStep(order,person.id,1))}
+  statBlock={<FamilyStatBlock game={game} id={person.id}/>}
+  infoOnly info={<FamilyInfo person={person}><CharacterSkillGuide key={person.id+'-skill-guide'} id={person.id} game={game} action={action} locked={locked}/></FamilyInfo>}
+  rail={<FamilyRail interact={section==='Interact'}>{{
+   Story:<><CharacterScene key={person.id+'-encounter'} id={person.id} locked={locked} onRead={onReadStory}/>
+    <p className="small-note">Fishing combination bonus: +{fishingDateBonus(game)}% Blessing Points on a date.</p></>,
+   Travel:<FamilyTripPanel game={game} person={person} action={action} locked={locked}/>,
+   Gift:<><GiftPanel game={game} person={person} action={action} locked={locked}/><ConsumableShelf game={game} action={action} locked={locked} familyId={person.id}/></>,
+   Gallery:<FamilyGalleryPanel key={person.id} game={game} person={person} action={action} locked={locked}/>,
+   Wardrobe:<WardrobePanel key={person.id} game={game} person={person} action={action} locked={locked}/>}}</FamilyRail>}
+  collection={<Button className="collection-open" variant="outline" onClick={()=>setBrowse(true)}>&lsaquo; Family roster</Button>}>
+  <FamilyTraining game={game} person={person} action={action} locked={locked} section={section} onSection={setSection}/>
+ </CharacterScreen>;
+}

@@ -1,56 +1,134 @@
 import {useState} from 'react';
 import {Lock} from 'lucide-react';
-import {countryIcon} from '@/lib/ui-sprites.mjs';
-const TYPES=['Inspiring','Diligent','Brave','Informed','Unfettered'];
 import {Button} from '@/components/ui/button';
-import {FATHOM_SLOTS,FATHOM_STEPS,MAX_TIER,FATHOM_DAILY_MAX,ACTIONS_PER_SLOT,openSlots,slotTier,fathomBonus,habitActions,fathomState,fathomsApply,fathomRollQuote,slotRolls} from '@/lib/fathoms.mjs';
+import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
+import {InfoDot} from './fellow-shell';
+import {PrimaryAction,abbrev} from './original-controls';
+import {countryIcon} from '@/lib/ui-sprites.mjs';
+import {FATHOM_SLOTS,FATHOM_STEPS,MAX_TIER,FATHOM_DAILY_MAX,ACTIONS_PER_SLOT,openSlots,slotTier,
+        memberFathomBonus,habitActions,fathomState,fathomsApply,fathomRollQuote} from '@/lib/fathoms.mjs';
 import {luckStones} from '@/lib/luck-stones.mjs';
 import {habitEarnings,habitDay} from '@/lib/habits.mjs';
-// The ladder had no screen: fathomAdvance was dispatched in game.mjs and covered by tests, but no
-// app path reached it, so the strand worth 30.4% of the original's building multiplier was
-// unreachable in play. This panel is the missing door, not new rules -- every gate and number shown
-// here is read back from lib/fathoms.mjs so the two cannot drift.
+/** FAMILY FATHOMS, rebuilt to docs/family-screen-specs/05-skills-fathoms.md.
+ *
+ *  Everkai drew a 6x6 GRID of tiles with an `Open 12/36` progress meter beside it. The original
+ *  draws a HORIZONTAL RAIL anchored on the member's Intimacy medallion, with the slots hanging off
+ *  it alternately above and below, and THE RAIL'S OWN FILL IS THE PROGRESS BAR -- pink up to the
+ *  last unlocked slot, grey beyond it. That is not decoration: the rail is what makes Intimacy
+ *  legible as the thing that opens slots, which a grid plus a separate meter never showed.
+ *
+ *  Convention 15 throughout: a locked slot is the SAME medallion with a padlock corner badge and a
+ *  `(heart) 150` pill where the `+N%` pill was. Nothing disappears, nothing is explained. A low-tier
+ *  slot is the same medallion desaturated, so the art carries the tier as well as the pill does.
+ *
+ *  THE TOTALS STRIP IS THIS MEMBER'S, not the family's. Everkai printed the account-wide
+ *  `fathomBonus()` on every member's panel; the original prints the five class totals for the member
+ *  you are looking at and keeps the account-wide version on a roster overlay (spec 12). That is what
+ *  `memberFathomBonus` is for, and `fathomBonus` is now its sum, so they cannot drift.
+ *
+ *  Nothing here changes what a roll costs, what it draws, or what it keeps. */
+
+const TYPES=['Inspiring','Diligent','Brave','Informed','Unfettered'];
+const pct=(n:number)=>Math.round(n*100).toLocaleString('en-US');
+
+/** The `(i)`, quoted verbatim from the original, plus one line for the action Everkai added. */
+function RulesDialog({open,onOpenChange}:any){
+ return <Dialog open={open} onOpenChange={onOpenChange}><DialogContent className="breakdown-dialog">
+  <DialogTitle>Fathom</DialogTitle>
+  <DialogDescription className="sr-only">How the two Fathom routes differ.</DialogDescription>
+  <p>When using Gold to Fathom skills, the higher the bonus is, the lower the success rate will be.
+   The cost of Gold will increase when fathoming the same skill multiple times.</p>
+  <p>When using Luck Stone to Fathom skills, you can get at least a +20% bonus and above. The cost of
+   Luck Stones remains the same every time.</p>
+  {/* Measured 2026-09-23 against the imported table, because that second sentence is a claim about
+      the DISTRIBUTION and not just the odds: WeightHigh is exactly 0 for tiers 1-19 and non-zero
+      only from tier 20, so an advanced draw can never land below +20%. lib/fathoms.mjs already
+      honours it -- 20,000 draws from a fresh slot never drew below tier 20, while the gold column
+      drew tier 1 on the same seeds. The floor is real and it is paid. */}
+  {/* The one claim this screen has to keep making: a Fathom adds its tier as a percentage to
+      MATCHING village earnings, and that is the `family` strand in businessBonus. It lives behind
+      the `(i)` because that is the only place the original allows prose -- but it must live
+      somewhere, and tests/strands.test.mjs scans for exactly this sentence so a screen cannot
+      quietly stop promising what the multiplier is still paying. */}
+  <p className="small-note">Each Fathom adds its tier as a percentage to matching village earnings.
+   Practise is Everkai&rsquo;s own third route: free, certain, one tier, and paced by your daily
+   habits rather than by gold or stones.</p>
+ </DialogContent></Dialog>;
+}
+
 export default function FathomPanel({game,id,action,locked}:any){
- const [pick,setPick]=useState<number|null>(null);
+ const [pick,setPick]=useState<number|null>(null),[info,setInfo]=useState(false);
  const member=game.family?.[id];
- if(!member)return <p>Welcome this family member to practise Fathoms.</p>;
- // Said plainly rather than shown as 0/36 open and a row of +0% type bonuses, which reads as a bug.
- if(!fathomsApply(id))return <article className="family-detail fathom-panel"><h2>Family Fathoms</h2>
-  <p className="management-hint">Fathoms are the village’s own quenching tradition, and its {FATHOM_SLOTS.length} slots are recorded for the original cast only — this companion has no record in them, so she has no Fathoms to practise and adds nothing to the business bonuses.</p>
-  <p>She supports the village through blessings, bonds, dates, trips and the school instead.</p></article>;
+ if(!member||!fathomsApply(id))return null;
  const open=openSlots(game,id),actions=habitActions(game);
  const f=fathomState(game),today=habitDay(game.lastAt),{dailies}=habitEarnings(game.habits,game.lastAt);
  const allowance=Math.min(FATHOM_DAILY_MAX,dailies),used=f.day===today?f.used:0,left=Math.max(0,allowance-used);
- const firstOpen=FATHOM_SLOTS.find((s:any)=>s.slot<=open&&slotTier(game,id,s.slot)<MAX_TIER)?.slot??1,chosen:any=FATHOM_SLOTS.find((s:any)=>s.slot===pick)||FATHOM_SLOTS.find((s:any)=>s.slot===firstOpen)||FATHOM_SLOTS[0];
- const cTier=slotTier(game,id,chosen.slot),cOpen=chosen.slot<=open,cNeed=chosen.slot*ACTIONS_PER_SLOT-actions;
- // THE PAID ROLLS (2026-09-22). The original's own mechanic -- draw the weight column, keep only if
- // strictly better -- offered beside the free practice, never instead of it. Every number here is
- // read back from lib/fathoms.mjs so the panel and the rules cannot drift apart.
- const quote=fathomRollQuote(game,id,chosen.slot),tries=slotRolls(game,id,chosen.slot);
- const stones=luckStones(game);
+ const firstOpen=FATHOM_SLOTS.find((s:any)=>s.slot<=open&&slotTier(game,id,s.slot)<MAX_TIER)?.slot??1;
+ const chosen:any=FATHOM_SLOTS.find((s:any)=>s.slot===pick)||FATHOM_SLOTS.find((s:any)=>s.slot===firstOpen)||FATHOM_SLOTS[0];
+ const cTier=slotTier(game,id,chosen.slot),cOpen=chosen.slot<=open;
+ const quote=fathomRollQuote(game,id,chosen.slot),stones=luckStones(game);
  const chance=(key:'rateNormal'|'rateHigh')=>cTier>=MAX_TIER?0:(FATHOM_STEPS[cTier-1] as any)[key]/100;
- // One grid of 36 slot tiles and one detail bar, instead of 36 stacked rows (crawl 2026-09-15: 494 words,
- // 12 screens of scroll). Every number is still read from lib/fathoms.mjs.
- return <article className="family-detail fathom-panel"><h2>Family Fathoms</h2>
-  <div className="fathom-head"><div className="habit-meter"><span>Open</span><progress value={open} max={FATHOM_SLOTS.length} aria-label="Fathoms open"/><b>{open}/{FATHOM_SLOTS.length}</b></div>
-   <p className="fathom-practice" aria-label={`${left} practice left today`}>{Array.from({length:FATHOM_DAILY_MAX},(_,i)=><i key={i} data-on={i<left}/>)}<span>{left?`${left} practice left today`:allowance?'Practice used today':'Finish a daily habit to practise'}</span></p></div>
-  <div className="fathom-types">{TYPES.map(type=><div key={type}>{countryIcon(type)&&<img src={countryIcon(type)!} alt=""/>}<span>{type}</span><strong>+{(fathomBonus(game,type)*100).toFixed(0)}%</strong></div>)}</div>
-  <div className="fathom-grid" role="radiogroup" aria-label="Fathom slots">{FATHOM_SLOTS.map((slot:any)=>{const unlocked=slot.slot<=open,tier=slotTier(game,id,slot.slot),on=slot.slot===chosen.slot;return <button type="button" key={slot.slot} role="radio" aria-checked={on} className={'fathom-tile'+(unlocked?'':' locked')+(tier>=MAX_TIER?' maxed':'')} style={{'--fill':unlocked?tier/MAX_TIER:0} as any} aria-label={`Fathom ${slot.slot} · ${slot.type||'Every business'}${unlocked?` · tier ${tier} of ${MAX_TIER}`:' · locked'}`} onClick={()=>setPick(slot.slot)}>
-   {slot.type&&countryIcon(slot.type)?<img src={countryIcon(slot.type)!} alt=""/>:<span className="fathom-all">All</span>}
-   {unlocked?<b>{tier}</b>:<Lock aria-hidden="true"/>}
-  </button>})}</div>
-  <div className="fathom-detail"><div><strong>Fathom {chosen.slot} · {chosen.type||'Every business'}</strong>
-   <small>{cOpen?`Tier ${cTier}/${MAX_TIER} · +${FATHOM_STEPS[cTier-1].percent}% earnings${cTier<MAX_TIER?` → +${FATHOM_STEPS[cTier].percent}%`:''}`:member.intimacy<chosen.intimacy?`Opens at Intimacy ${chosen.intimacy.toLocaleString()}`:`Opens after ${cNeed.toLocaleString()} more habit actions`}</small></div>
-   {cOpen&&<Button disabled={locked||cTier>=MAX_TIER||!left} onClick={()=>action('fathomAdvance',id,chosen.slot)}>{cTier>=MAX_TIER?'Maxed':'Practise'}</Button>}</div>
-  {cOpen&&<div className="training-option"><div>
-   <strong>Fathom this slot · the original’s roll</strong>
-   <p>Draw the tier table and keep the result only if it beats the +{FATHOM_STEPS[cTier-1].percent}% held. Rolled {tries.gold+tries.advanced} times{tries.advanced?` (${tries.advanced} advanced)`:''}.</p>
-   <p>Gold · {chance('rateNormal')}% chance of something better · {Number.isFinite(quote.gold)?`${quote.gold.toLocaleString()} gold`:'past what the gold ledger can price'}{quote.premium?' (×3, all-buildings slot)':''}</p>
-   <p>Advanced · {chance('rateHigh')}% chance of something better · {quote.stones} Luck Stone{quote.stones===1?'':'s'} · {stones.toLocaleString()} held</p>
-  </div><div className="business-actions">
-   <Button variant="outline" disabled={locked||cTier>=MAX_TIER||!quote.goldAffordable} onClick={()=>action('fathomRollGold',id,chosen.slot)}>Gold Fathom · {Number.isFinite(quote.gold)?quote.gold.toLocaleString():'—'}</Button>
-   <Button variant="outline" disabled={locked||cTier>=MAX_TIER||!quote.stoneAffordable} onClick={()=>action('fathomRollAdvanced',id,chosen.slot)}>Advanced Fathom · {quote.stones} stone{quote.stones===1?'':'s'}</Button>
-  </div></div>}
-  <details className="rules-note"><summary>About Fathoms</summary><p>Kept from the original: the 36 slots, their fixed country cycle, the intimacy gates and the +1% to +25% tier range. A slot also needs cumulative habit actions, which cannot be bought — intimacy alone is purchasable and would open the whole ladder at once. Bonuses shown here are this whole family’s contribution, not this member’s alone, and each Fathom adds its tier as a percentage to matching village earnings.</p><p>There are now two ways to raise a slot, and Fathoms never go down under either. <b>Practise</b> is Everkai’s own: free, certain, one tier, three a day against your dailies. <b>Fathom</b> is the original’s: draw the tier table and keep the draw only if it beats what you hold. The chances shown are the original’s own stored numbers — at +21%, 0.32% on gold and 35% on advanced — and they are not stored as probabilities anywhere; they fall out of the weight columns only under keep-if-better, which is how the mechanic was recovered.</p><p>The gold price is the original’s 1,180-row ladder, indexed by how many times that slot has been rolled: 10 gold at the first and past this village’s gold limit by the 828th, so the gold route stalls near the top exactly as the original intends. Advanced Fathoms cost Luck Stones, the same stones Family Latency spends — in the original those two systems compete for one currency, and here they still do.</p></details>
+ const typeName=chosen.type?chosen.type+' Type':'All Buildings';
+ return <article className="fathom-panel">
+  <h3 className="sheet-title">Building Earnings<br/>Bonus</h3>
+  {/* This member's five class totals, in the original's fixed order. */}
+  <div className="fathom-totals"><span className="totals-house" aria-hidden="true">&#8962;</span>
+   {TYPES.map(type=><span key={type} className="totals-chip">{countryIcon(type)&&<img src={countryIcon(type)!} alt={type}/>}
+    <b>+{pct(memberFathomBonus(game,id,type))}%</b></span>)}</div>
+  {/* The rail. Its fill IS the progress bar, so there is no `Open n/36` meter. */}
+  <div className="fathom-rail-wrap">
+   <div className="rail-origin"><img src="./assets/ui-original/Icons--Icon_Intimacy_1.png" alt=""/>
+    <b>{Math.round(member.intimacy).toLocaleString('en-US')}</b></div>
+   <div className="fathom-rail" role="radiogroup" aria-label="Fathom slots"
+    style={{'--n':FATHOM_SLOTS.length,'--openn':open} as any}>
+    {FATHOM_SLOTS.map((slot:any)=>{
+     const unlocked=slot.slot<=open,tier=slotTier(game,id,slot.slot),on=slot.slot===chosen.slot;
+     const need=Math.max(0,slot.slot*ACTIONS_PER_SLOT-actions);
+     return <button type="button" key={slot.slot} role="radio" aria-checked={on}
+      className={'rail-slot'+(slot.slot%2?' slot-above':' slot-below')+(unlocked?'':' slot-locked')+(on?' slot-on':'')}
+      style={{'--sat':unlocked?Math.max(.18,tier/MAX_TIER):.1} as any}
+      aria-label={`Fathom ${slot.slot} · ${slot.type||'Every business'}${unlocked?` · +${FATHOM_STEPS[tier-1].percent}%`:` · locked, Intimacy ${slot.intimacy}`}`}
+      onClick={()=>setPick(slot.slot)}>
+      <span className="slot-art">{slot.type&&countryIcon(slot.type)
+       ?<img src={countryIcon(slot.type)!} alt=""/>
+       :<i className="slot-all" aria-hidden="true">&#11042;</i>}
+       {unlocked?null:<Lock className="slot-lock" aria-hidden="true"/>}</span>
+      {/* Convention 8: the gate is printed ON the tile. The original's pill is the Intimacy gate;
+          Everkai's slots have a second, unpurchasable one (cumulative habit actions), so the pill
+          shows whichever of the two is actually binding rather than a gate already cleared. */}
+      <u className={unlocked?'slot-pill':'slot-pill slot-gate'}
+       title={unlocked?undefined:member.intimacy<slot.intimacy?`Intimacy ${slot.intimacy.toLocaleString('en-US')}`:`${need.toLocaleString('en-US')} more habit actions`}>
+       {unlocked?`+${FATHOM_STEPS[tier-1].percent}%`
+        :member.intimacy<slot.intimacy?`♥${slot.intimacy.toLocaleString('en-US')}`:`✦${need.toLocaleString('en-US')}`}</u>
+     </button>;})}
+   </div>
+  </div>
+  {/* The detail card: type name, the effect in green, and the `(i)`. */}
+  <div className="fathom-detail">
+   <span className="slot-art detail-art">{chosen.type&&countryIcon(chosen.type)
+    ?<img src={countryIcon(chosen.type)!} alt=""/>:<i className="slot-all" aria-hidden="true">&#11042;</i>}</span>
+   <div><strong>{typeName}</strong>
+    {cOpen
+     ?<b className="gain">{chosen.type?chosen.type+' ':''}Building Earnings Bonus+{FATHOM_STEPS[cTier-1].percent}%</b>
+     :member.intimacy<chosen.intimacy
+      ?<b className="need">&#9829; {chosen.intimacy.toLocaleString('en-US')}</b>
+      /* Everkai's own second gate, and the only place it needs saying: Intimacy is purchasable and
+         would otherwise open the whole ladder at once, so a slot also wants habit actions. */
+      :<b className="need">{Math.max(0,chosen.slot*ACTIONS_PER_SLOT-actions).toLocaleString('en-US')} more habit actions</b>}</div>
+   <InfoDot label="How the two Fathom routes differ" onClick={()=>setInfo(true)}/>
+  </div>
+  {cOpen&&<div className="fathom-actions">
+   <div className="rate-stack"><small className="gain">Success Rate: {chance('rateHigh')}%</small>
+    <PrimaryAction verb="Advanced" disabled={locked||cTier>=MAX_TIER||!quote.stoneAffordable}
+     currency="Stones" have={stones} cost={quote.stones} onClick={()=>action('fathomRollAdvanced',id,chosen.slot)}/></div>
+   <div className="rate-stack"><small className="gain">Success Rate: {chance('rateNormal')}%</small>
+    <PrimaryAction verb="Fathom" disabled={locked||cTier>=MAX_TIER||!quote.goldAffordable}
+     currency="Gold" have={game.gold} cost={Number.isFinite(quote.gold)?quote.gold:Infinity}
+     onClick={()=>action('fathomRollGold',id,chosen.slot)}/></div>
+   <div className="rate-stack"><small>{left?`${left} left today`:'None today'}</small>
+    <Button className="primary-action practise-action" disabled={locked||cTier>=MAX_TIER||!left}
+     onClick={()=>action('fathomAdvance',id,chosen.slot)}><b>Practise</b></Button></div>
+  </div>}
+  <RulesDialog open={info} onOpenChange={setInfo}/>
  </article>;
 }

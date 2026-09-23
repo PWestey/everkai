@@ -1618,3 +1618,258 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .familiar-stars{position:absolute;left:2px;bottom:2px;padding:0 4px;border-radius:7px;background:#2f2013cc;color:#ffd05e;font:700 10px Georgia,serif}
 .familiar-holder{position:absolute!important;top:-2px;right:-2px;width:26px!important;height:26px!important;border-radius:50%;border:2px solid #ffd7a1;object-fit:cover;object-position:center top;background:#3a2c1c}
 .familiar-empty{margin:0;padding:10px;text-align:center;font:700 14px Georgia,serif;color:#6d573c}
+
+/* ===== FAMILY TRAINING SHELL — docs/family-screen-specs/02-member-shell.md =====
+   The header names the SURFACE (`Family Training`), not the member: the member is already named on
+   the banner below it. The dock is ONE row of five (or four, when the member has no Stella ladder)
+   rather than the 4-column grid the eleven-page pager needed. */
+.character-screen-title{position:relative;z-index:2;padding:4px 12px;background:linear-gradient(#2e2418e8,#2e241800);font:700 13px Georgia,serif;color:#ffe3ae;text-shadow:0 1px 3px #221708;pointer-events:none}
+.character-hidden .character-screen-title{visibility:hidden}
+/* The header strip is its own band, so the rarity badge and the back chevron start below it rather
+   than under it (the original puts the strip at y=44 and the badge at y=168 of 1280). */
+.character-titled .character-rarity{top:32px}
+.character-titled .character-collection-control{top:114px}
+.family-dock{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+.family-dock>button{font-size:11px;padding:2px 1px}
+@media(max-width:400px){.family-dock>button{font-size:10px}.family-dock>button>img{width:24px;height:24px}}
+
+/* The relationship ribbon runs off the left screen edge and its colour IS the rung (convention: one
+   vocabulary in three places — ribbon, Bonds banner, Family List group header). */
+.family-stat-block{display:grid;gap:4px;pointer-events:auto}
+.rung-ribbon{justify-self:start;display:flex;align-items:center;gap:6px;margin-left:-14px;padding:3px 14px 3px 16px;border-block:2px solid #c9a75f;clip-path:polygon(0 0,100% 0,94% 50%,100% 100%,0 100%);font:700 13px Georgia,serif;text-shadow:0 1px 2px #2b160a}
+.rung-ribbon.rung-gold{background:#6a4a2ce0;color:#ffd98a}
+.rung-ribbon.rung-green{background:#2f5c3ce0;color:#c8f0c0}
+.rung-ribbon>i{font-style:normal;opacity:.75}
+
+/* Convention 10: the explanation lives ON the number. Each medallion is a 44px-plus tap target that
+   opens the original's own sentence for that stat. */
+.family-medallions{display:flex;gap:14px;flex-wrap:wrap}
+.family-medallion{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:7px;align-items:center;min-height:44px;padding:2px 6px 2px 2px;border:0;border-radius:24px;background:#3a2a1a5c;color:inherit;text-align:left;font:inherit;cursor:pointer}
+.family-medallion:hover{background:#5c412897}
+.family-medallion>img{grid-row:1/3;width:34px;height:34px;object-fit:contain;border-radius:50%;background:#e9d3a733;padding:3px;filter:drop-shadow(0 1px 2px #1f1206)}
+.family-medallion>span{font:700 11px Georgia,serif;color:#f4d18b;letter-spacing:0}
+.family-medallion>strong{font:700 16px Georgia,serif;color:#ffd37a;line-height:1.05}
+@media(max-width:400px){.family-medallions{gap:8px}.family-medallion>strong{font-size:14px}.family-medallion>span{font-size:10px}}
+
+/* The Info sheet is a bordered table with no Occupation row, and `CV:` sits outside it. */
+.member-info{display:grid;gap:8px}
+.member-info-table{width:100%;border-collapse:collapse;font-size:13px;color:#4b3525}
+.member-info-table th,.member-info-table td{border:1px solid #bda57e;padding:5px 7px;text-align:left;vertical-align:top}
+.member-info-table th{width:62px;background:#ddc79d;font:700 12px Georgia,serif;white-space:nowrap}
+.member-cv{margin:0;text-align:right;font:italic 700 12px Georgia,serif;color:#6d573c}
+
+/* The rail's lower group. Same treatment as Hide / Info above it (spec 02). */
+.character-side-actions>button.rail-icon{display:flex;flex-direction:column;gap:1px;font-size:10px;line-height:1.05}
+.character-side-actions>button.rail-icon>img{width:24px;height:24px;object-fit:contain}
+
+/* Skills holds two sub-tabs where Everkai had two top-level pages. */
+.sub-tab-panel{display:grid;gap:8px;min-height:0}
+.sub-tabs{display:flex;gap:4px}
+/* Folder tabs, not primaries: the sheet's generic green-button rule is more specific than a plain
+   `.sub-tabs>button`, so these match its shape to win the cascade rather than reach for !important. */
+.character-sheet-body .sub-tabs>button:not([data-variant=outline]):not([data-variant=ghost]),.sub-tabs>button{flex:1;min-height:38px;padding:6px 10px;border:2px solid #b89a66;border-bottom:0;border-radius:5px 5px 0 0;background-color:#dcc9a3;color:#5e4429;font:700 13px Georgia,serif;cursor:pointer}
+.character-sheet-body .sub-tabs>button[aria-pressed=true]:not([data-variant=outline]),.sub-tabs>button[aria-pressed=true]{background-color:#f6ecd5;color:#3f2d1c;box-shadow:inset 0 2px 0 #ffd98a}
+
+/* The rung banner and the one-word primary, replacing `Relationship · Tier 3` and a sentence-long
+   button label (spec 04's shape; its three gate bars land with that section). */
+.rung-banner{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 12px;border:2px solid #c9a75f;border-radius:4px;background:linear-gradient(#7a562f,#5d3f23);color:#ffd98a;font:700 16px Georgia,serif;text-shadow:0 1px 2px #2b160a}
+.rung-banner>i{font-style:normal;opacity:.7;font-size:12px}
+.bonds-section,.blessing-section{display:grid;gap:10px;min-height:0}
+.effect-card{display:grid;gap:3px;padding:8px 10px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.effect-card>span{font:700 13px Georgia,serif;color:#6d573c}
+.effect-card>b{font:700 17px Georgia,serif;color:#8a5a20}
+.effect-card>small{font-size:12px;color:#6d573c}
+
+/* ===== LATENCY — docs/family-screen-specs/06-latency.md =====
+   Convention 14: the medallion's colour IS the number. The drop is drawn in the success-rate
+   quartile's colour and the rate text matches it, so the four-sentence explanation of how the rate
+   is read off the fill becomes one tinted shape plus the `(i)`'s four-line key. */
+.latency-panel{display:grid;justify-items:center;gap:5px;text-align:center;min-height:0}
+.character-sheet-body:has(>.latency-panel){padding-block:6px}
+.sheet-title{margin:0;font:700 19px/1.1 Georgia,serif;color:#5b4128;letter-spacing:.5px}
+.one-line{margin:0;max-width:34ch;font-size:12px;line-height:1.3;color:#6d573c}
+.cap-plaque{display:flex;align-items:center;gap:8px;width:100%;padding:5px 5px 5px 12px;border:2px solid #b08d4f;border-radius:5px;background:linear-gradient(#cdb188,#e2cba2);box-shadow:inset 0 2px 6px #6a4f2b55}
+.cap-plaque>i{font-style:normal;color:#8a6a34}
+.cap-plaque>span{flex:1;font:700 15px Georgia,serif;color:#4b3525}
+.cap-raise{position:relative;min-width:44px;min-height:44px;border:2px solid #e2c078;border-radius:4px;background:linear-gradient(#d8a63f,#a9762a);color:#fff6dd;font:700 20px/1 Georgia,serif;cursor:pointer}
+.cap-raise.cap-ready::after{content:'';position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:#e8732f;box-shadow:0 0 0 2px #ffe6b8}
+/* One shape, five states. The locked drop is the same drop, desaturated (convention 15). */
+.latency-drop{width:clamp(66px,11vh,84px);aspect-ratio:8/9;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;clip-path:polygon(50% 0,88% 38%,100% 68%,84% 94%,50% 100%,16% 94%,0 68%,12% 38%);box-shadow:inset 0 -10px 22px #00000038,inset 0 8px 16px #ffffff50;border:0}
+.drop-green{background:radial-gradient(circle at 42% 32%,#a8e6a0,#2f8c46 72%,#1d5c2e)}
+.drop-blue{background:radial-gradient(circle at 42% 32%,#a9dcf5,#2f76c0 72%,#1c4a80)}
+.drop-purple{background:radial-gradient(circle at 42% 32%,#d9b6f0,#7a3fb0 72%,#4c2470)}
+.drop-multi{background:conic-gradient(from 210deg,#e8732f,#d8a63f,#5fae5a,#3f86c8,#9b58c0,#e8732f)}
+.drop-locked{background:radial-gradient(circle at 42% 32%,#cfc8b8,#8d8577 72%,#615a4d);filter:saturate(.15)}
+.all-building{margin:0;font:700 14px Georgia,serif;color:#6d573c}
+.rate-line{display:flex;align-items:center;gap:7px;margin:0;font:700 15px Georgia,serif}
+.rate-green{color:#2f8c46}.rate-blue{color:#2f76c0}.rate-purple{color:#7a3fb0}.rate-multi{color:#c0641f}
+.gain{color:#2f8c46}
+.need{color:#b23b2a}
+.gate-line{margin:0;font:700 13px Georgia,serif;color:#6d573c}
+.inert-pill{display:grid;place-items:center;min-height:48px;padding:8px 26px;border:2px dashed #b3a480;border-radius:20px;background:#e0d5bb;color:#7d6a4c;font:700 15px Georgia,serif}
+.latency-panel .spend-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;width:100%}
+.latency-panel .spend-controls>.qty-picker{order:2}
+.latency-panel .spend-controls>.primary-action{order:1;width:auto;min-width:140px}
+/* The `(i)` popovers: the outcome list and the old-vs-new pair table. */
+.result-list{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.result-list li{display:flex;justify-content:space-between;gap:12px;font:700 13px Georgia,serif}
+.pair-table{width:100%;border-collapse:collapse;font-size:13px}
+.pair-table th,.pair-table td{border:1px solid #bda57e;padding:6px 8px;text-align:left}
+.pair-table th{width:40%;background:#ddc79d;font:700 12px Georgia,serif;color:#4b3525}
+
+/* ===== FATHOM RAIL — docs/family-screen-specs/05-skills-fathoms.md =====
+   A horizontal rail anchored on the Intimacy medallion, slots hanging off it alternately above and
+   below. THE RAIL'S OWN FILL IS THE PROGRESS BAR: pink to the last unlocked slot, grey beyond. That
+   one detail replaces Everkai's `Open 12/36` meter, and it is what makes Intimacy legible as the
+   gate rather than a number in a sentence. */
+.fathom-panel{display:grid;gap:7px;min-height:0}
+.fathom-totals{display:flex;align-items:center;gap:4px;padding:4px 7px;border:1px solid #c3a870;border-radius:16px;background:#f3e7cbcc;overflow-x:auto;scrollbar-width:none}
+.fathom-totals::-webkit-scrollbar{display:none}
+.totals-house{flex:none;font-size:15px;color:#8a6a34}
+.totals-chip{flex:none;display:flex;align-items:center;gap:2px;font:700 11px Georgia,serif;color:#5b4128}
+.totals-chip>img{width:17px;height:17px;object-fit:contain}
+.fathom-rail-wrap{display:flex;align-items:stretch;min-width:0}
+.rail-origin{flex:none;display:grid;justify-items:center;align-content:center;gap:1px;width:54px;padding:4px 2px;border:2px solid #b08d4f;border-radius:5px 0 0 5px;background:#4b3525}
+.rail-origin>img{width:22px;height:22px;object-fit:contain}
+.rail-origin>b{font:700 10px Georgia,serif;color:#ffe3ae;overflow-wrap:anywhere;text-align:center;line-height:1.05}
+/* Three rows: above / the bar / below. The bar is one pseudo-element spanning every column. */
+/* The track and the fill must span the SCROLL width, not the visible width: the rail scrolls, and a
+   percentage here would measure the viewport and leave the far slots sitting on nothing. Both are
+   sized in columns instead, from --n (total slots) and --openn (slots open). */
+.fathom-rail{--col:46px;position:relative;flex:1;min-width:0;display:grid;grid-auto-flow:column;grid-auto-columns:var(--col);grid-template-rows:auto 12px auto;align-items:center;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:2px 0}
+.fathom-rail::before{content:'';position:absolute;left:0;top:50%;translate:0 -50%;width:calc(var(--col) * var(--n,36));height:9px;border-block:1px solid #8d7a5a;background:#6f6349;z-index:0}
+.fathom-rail::after{content:'';position:absolute;left:0;top:50%;translate:0 -50%;width:calc(var(--col) * var(--openn,0));height:9px;background:linear-gradient(#f07fb4,#c8447f);box-shadow:0 0 6px #e0629a88;z-index:0}
+.rail-slot{position:relative;z-index:1;grid-row:1;display:grid;justify-items:center;gap:1px;padding:0;border:0;background:transparent;cursor:pointer;min-height:44px}
+.rail-slot.slot-below{grid-row:3}
+.slot-art{position:relative;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e9d9b6;border:2px solid #b08d4f;filter:saturate(var(--sat,1))}
+.rail-slot.slot-on .slot-art{border-color:#ffcf63;box-shadow:0 0 0 2px #ffcf6388}
+.slot-art>img{width:24px;height:24px;object-fit:contain}
+.slot-all{font-style:normal;font-size:17px;color:#8a5ab0}
+.slot-lock{position:absolute;right:-5px;bottom:-4px;width:14px!important;height:14px!important;color:#7a5a20;background:#ffdf9e;border-radius:50%;padding:1px}
+.slot-pill{display:block;padding:0 4px;border-radius:7px;background:#3a2a1ad9;color:#ffe3ae;font:700 9px Georgia,serif;text-decoration:none;white-space:nowrap}
+.slot-pill.slot-gate{background:#5a2f2fd9;color:#ffc9b8}
+/* The detail card and the action row: two rates over two primaries, plus Everkai's own Practise. */
+.fathom-detail{display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.fathom-detail>div{flex:1;min-width:0;display:grid;gap:1px}
+.fathom-detail strong{font:700 13px Georgia,serif;color:#5b4128}
+.fathom-detail b{font:700 12px Georgia,serif}
+.detail-art{flex:none;filter:none}
+.fathom-actions{display:flex;gap:7px;align-items:end;justify-content:center;flex-wrap:wrap}
+.rate-stack{display:grid;justify-items:center;gap:2px;flex:1 1 96px}
+.rate-stack>small{font:700 10px Georgia,serif;color:#6d573c}
+.rate-stack .primary-action{width:100%;min-width:0;padding:6px 8px!important}
+.character-sheet-body .practise-action:not([data-variant=outline]){background-color:#7d6a4c}
+.rate-stack .primary-action small{display:flex;flex-wrap:wrap;justify-content:center;gap:0 3px;max-width:100%;font-size:9px;line-height:1.15}
+.rate-stack .primary-action b{font-size:13px}
+
+/* ===== BONDS (the relationship rung) — docs/family-screen-specs/04-bonds.md =====
+   Convention 12: a gate is a BAR WITH THE NUMBER INSIDE THE FILL, and the primary is one word
+   vertically centred beside it. Nothing says which gate is short — the short bar is short. This
+   replaces `Improve relationship · requires 2,000 Intimacy`, where the cost lived in the label. */
+.bond-effect{display:flex;align-items:center;gap:8px}
+.bond-effect>span{flex:1;font:700 13px Georgia,serif;color:#5b4128}
+.bond-effect>.grade{font:700 20px Georgia,serif;color:#8a5a20;letter-spacing:.5px}
+.gate-block{display:flex;align-items:center;gap:10px}
+.gate-rows{flex:1;min-width:0;display:grid;gap:6px}
+.gate-row{display:flex;align-items:center;gap:7px}
+.gate-row>span{flex:none;width:74px;font:700 11px Georgia,serif;color:#6d573c}
+.gate-bar{position:relative;flex:1;min-width:0;height:21px;border:1px solid #8d7a5a;border-radius:11px;background:#5b5140;overflow:hidden}
+.gate-bar>i{position:absolute;inset:0 auto 0 0;width:var(--fill,0%);border-radius:11px 0 0 11px}
+.gate-pink>i{background:linear-gradient(#f07fb4,#c8447f)}
+.gate-bar.gate-met>i{border-radius:11px}
+.gate-bar>u{position:relative;display:grid;place-items:center;height:100%;font:700 10px Georgia,serif;color:#fff2d8;text-decoration:none;text-shadow:0 1px 2px #2b160a}
+.gate-improve{flex:none;width:auto;min-width:96px;align-self:center}
+/* The orange dot is the affordance: every gate met (spec 04). */
+.gate-improve.gate-ready{position:relative}
+.gate-improve.gate-ready::after{content:'';position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:#e8732f;box-shadow:0 0 0 2px #ffe6b8}
+
+/* ===== BLESSING ("Fixed Blessed Fellow") — docs/family-screen-specs/07-blessing.md =====
+   The portrait row is the masthead, not a footnote: it is the only picture in the UI of what three
+   of the five Family sections are paying into. `Blesses Rissette, Orivita` becomes two faces with
+   what each one actually got printed underneath. */
+.blessing-panel{display:grid;gap:8px;min-height:0}
+.blessed-row{display:flex;justify-content:flex-start;gap:10px;padding:2px 0;overflow-x:auto;scrollbar-width:none}
+.blessed-row::-webkit-scrollbar{display:none}
+.blessed-row>*{flex:none}
+.blessed-fellow{display:grid;justify-items:center;gap:2px;width:76px}
+.blessed-ring{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;overflow:hidden;border:3px solid #d8b473;background:var(--card-bg,#b98d55);box-shadow:0 0 9px #ffcf6355}
+.blessed-ring>img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.blessed-ring>i{font-style:normal;font-size:22px;color:#f0ddb8}
+.blessed-name{font:700 9px Georgia,serif;color:#5b4128;max-width:76px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pow-badge{max-width:76px;padding:0 4px;border-radius:9px;background:#2f4a33;color:#8ee89b;font:700 8px Georgia,serif;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* An unrecruited Fellow is a desaturated portrait and nothing else. */
+.blessed-absent .blessed-ring{filter:saturate(.12) brightness(.85)}
+.blessed-empty .blessed-ring{background:#b6a888;border-style:dashed}
+/* One upgrade row: name and its OWN selector on the header line, effect, next-level, one button. */
+.bless-row{display:grid;gap:4px;padding:8px 9px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.bless-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.bless-head>strong{font:700 14px Georgia,serif;color:#8a5a20}
+.bless-head em{font-style:normal;color:#5b4128;font-size:12px}
+.bless-effect{margin:0;font:700 12px Georgia,serif;color:#6d573c}
+.bless-next{margin:0;font:700 12px Georgia,serif;color:#2f8c46}
+.bless-action{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.bless-action .primary-action{width:auto;min-width:118px}
+.bless-action .pairing-switch{min-width:118px;font-size:12px}
+.bless-row .qty-picker{flex:none}
+.bless-row .qty-picker button{font-size:10px;padding:0 5px;min-width:0}
+.bond-pairing select{width:100%}
+
+/* ===== FAMILY STELLA — docs/family-screen-specs/03-stella.md =====
+   Reuses the Fellow track's furniture, with one deliberate difference: the Family nodes are INERT.
+   The original's track is a gauge, not a picker, and the card always reads current -> current+1. */
+.family-stella .stella-node{cursor:default;pointer-events:none}
+.family-stella .stella-node.node-next{outline:2px dotted #ffcf63;outline-offset:2px;border-radius:5px}
+.attributes-open{display:grid;justify-items:center;gap:0;min-height:44px;padding:2px 8px;border:2px solid #b89a66;border-radius:5px;background:#dcc9a3;color:#5e4429;font:700 10px Georgia,serif;cursor:pointer}
+.attributes-open>i{font-style:normal;font-size:15px}
+.halo-row{display:grid;gap:2px;padding:6px 0;border-bottom:1px solid #c7b07f55}
+.halo-row:last-child{border-bottom:0}
+.halo-row>strong{font:700 13px Georgia,serif;color:#5b4128}
+.halo-row>strong>em{font-style:normal;font-size:11px;color:#8a6a34}
+.halo-row>p{margin:0;font-size:12px;color:#6d573c}
+.halo-row .step-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.bullet-list{margin:0;padding-left:18px;display:grid;gap:6px;font-size:13px;line-height:1.35;color:#4b3525}
+/* The Family sheet is shorter than the Fellow one, so the track and card scroll inside it and the
+   Upgrade button stays in view rather than being pushed under the dock. */
+.family-stella .stella-track,.family-stella .stella-detail{max-height:min(32dvh,250px)}
+.family-stella .stella-head{flex-wrap:nowrap}
+.family-stella .stella-head>strong{flex:1;min-width:0;font-size:14px}
+.attributes-open{flex:none;min-width:64px}
+
+/* ===== PREVIEW (not yet joined) — docs/family-screen-specs/13-locked-member.md =====
+   The art goes greyscale. That single filter does the work of six "welcome this family member
+   to..." sentences, and the dock is absent rather than full of empty states. */
+.character-preview .character-screen-art{filter:grayscale(1) brightness(.92)}
+.character-preview .character-screen-controls{pointer-events:auto}
+/* The starting values are the only numbers a preview can honestly show, so they take the centre
+   rather than the bottom-left corner they occupy on a joined member. */
+.preview-stats{display:flex;justify-content:center;gap:26px}
+.preview-medallion{display:grid;justify-items:center;gap:0}
+.preview-medallion>img{width:34px;height:34px;object-fit:contain;border-radius:50%;background:#e9d3a733;padding:3px}
+.preview-medallion>strong{font:700 18px Georgia,serif;color:#ffd37a}
+.preview-medallion>span{font:700 11px Georgia,serif;color:#f4d18b}
+.preview-body{padding:10px 12px;background:#ece2ccf5;border:4px double #a68a65;border-radius:3px;max-height:44dvh;overflow:auto;overscroll-behavior:contain;color:#4b3525}
+.blessed-preview{display:grid;gap:6px}
+.source-line{margin:0;font:700 15px Georgia,serif;color:#8a5a20;text-align:center}
+
+/* ===== FAMILY BONUSES / FAMILY LIST — docs/family-screen-specs/12-family-list.md =====
+   Account totals live on an account-level surface. Everkai used to print them as sentences inside
+   per-member panels, where they described a number that was not that member's. */
+.roster-tools{display:flex;gap:5px;align-items:center}
+.roster-tool{min-height:34px!important;height:auto;padding:4px 9px!important;margin:0;font:700 11px Georgia,serif;border:2px solid #b89a66;border-radius:5px;background:#e3d2ad;color:#5b4128;white-space:nowrap}
+.bonus-overview{display:grid;gap:5px}
+.bonus-total{margin:0 0 3px;font:700 14px Georgia,serif;color:#4b3525}
+.bonus-row{display:flex;align-items:center;gap:7px;margin:0;font:700 12px Georgia,serif;color:#4b3525}
+.bonus-row>img{width:19px;height:19px;object-fit:contain;flex:none}
+.bonus-row>i{font-style:normal;width:19px;text-align:center;flex:none}
+.bonus-row>span{flex:1;min-width:0}
+.bonus-row>b{white-space:nowrap}
+/* The rung-grouped list. Banner colour tracks the rung, as on the art ribbon and the Bonds panel. */
+.family-list{display:grid;gap:12px}
+.family-list section{display:grid;gap:6px}
+.family-list .rung-banner{justify-content:center;position:relative;padding-right:40px}
+.family-list .rung-banner .info-dot{position:absolute;right:6px;top:50%;translate:0 -50%}
+.rung-banner.rung-green{background:linear-gradient(#3d7a4e,#2f5c3c);border-color:#7fc08d;color:#d8f5d0}
+.list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
+.list-tile{display:grid;justify-items:center;gap:2px;padding:0;border:0;background:transparent;cursor:pointer}
+.list-tile>b{font:700 10px Georgia,serif;color:#5b4128;max-width:74px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list-tile>u{padding:0 5px;border-radius:8px;background:#5a2f43;color:#ffc9dd;font:700 9px Georgia,serif;text-decoration:none}

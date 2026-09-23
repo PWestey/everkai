@@ -1,46 +1,120 @@
+import {useState} from 'react';
 import {Button} from '@/components/ui/button';
+import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
+import {InfoDot} from './fellow-shell';
+import {QuantityPicker,PrimaryAction,Step,type Quantity} from './original-controls';
 import {latencyLevel,latencyCap,latencyCount,latencyFill,latencyWeightRow,latencyNextLevel,
-        latencyBonus,latencyTotalAlternate,latencyApply,luckStones,luckStonesEarned,
-        LATENCY_CAP_LEVEL,STIMULATE_COST,STIMULATE_TEN_X,STONES_PER_ACTION,
-        LATENCY_UNMODELLED} from '@/lib/latency.mjs';
-/** FAMILY LATENCY -- the original's WifePotential, which Everkai did not have at all. A cap raised by
- *  Intimacy and a fill raised by a paid roll; the fill, summed over the whole family, is added to
- *  every building's earnings. Plain by design; the visual pass is a separate batch. */
+        latencyApply,luckStones,STIMULATE_COST,STIMULATE_TEN_X} from '@/lib/latency.mjs';
+/** FAMILY LATENCY, rebuilt to docs/family-screen-specs/06-latency.md.
+ *
+ *  This was the wordiest screen in Everkai's Family surface: ~410 words -- a stones line, two
+ *  `training-option` blocks with seven <p> between them, two account-total paragraphs and a
+ *  three-paragraph `rules-note`. The original's carries NINETEEN on the panel and forty-one behind
+ *  one `(i)`. Every rule it dropped is still true; it is drawn instead of written:
+ *
+ *  CONVENTION 14 -- THE MEDALLION'S COLOUR IS THE NUMBER. The success rate is a function of how full
+ *  the bar is (`WifePotentialWeight`'s fillRatio columns, which is why the original says "when the
+ *  current bonus is approaching the cap" rather than naming a level). The drop is drawn in the
+ *  quartile's colour and the rate text matches it, so four sentences of "80% below a quarter full,
+ *  50% below half..." become one tinted shape plus a four-line colour key in the `(i)`.
+ *
+ *  CONVENTION 15 -- A LOCKED THING KEEPS ITS SHAPE. The locked state is the SAME drop, greyed, with
+ *  one gate line under it. Not a paragraph explaining what Latency would be.
+ *
+ *  MOVED OUT, not deleted: the `Across the whole family: +N%` total and the `if the original had
+ *  shown one shared bar` counterfactual. The first belongs on a roster-level overview (spec 12) --
+ *  a per-member panel is the wrong place to print an account total. The second is a research note
+ *  and already lives in docs/character-systems-gap.md.
+ *
+ *  Nothing here changes what Stimulate costs, what it rolls, or what a cap raise requires. */
+
+const pct=(raw:number)=>(raw/100).toLocaleString('en-US',{maximumFractionDigits:2})+'%';
+/** The original's own key, from the `(i)`: Green 80% / Blue 50% / Purple 25% / Multicolor 10%. */
+const TONES:[number,string,string][]=[[8000,'green','Green'],[5000,'blue','Blue'],[2500,'purple','Purple'],[1000,'multi','Multicolor']];
+const toneOf=(success:number)=>TONES.find(([at])=>success>=at)?.[1]||'multi';
+
+/** The `(i)`: two blocks, the outcomes and the rate key, each rate line in its own colour. Both are
+ *  read back from `LATENCY_WEIGHTS` so the popover and the roll cannot drift. */
+function ResultsDialog({open,onOpenChange,row}:any){
+ return <Dialog open={open} onOpenChange={onOpenChange}><DialogContent className="breakdown-dialog">
+  <DialogTitle>Possible Results</DialogTitle>
+  <DialogDescription className="sr-only">What a Stimulate can roll, and how the success rate is read.</DialogDescription>
+  <ul className="result-list">
+   <li><span>Fail:</span><b>No Changes</b></li>
+   {row.results.map(([gain]:[number,number],i:number)=>
+    <li key={gain}><span>{['Success:','Great Success:','Super Success:'][i]||'Success:'}</span><b className="gain">+{gain/100} %</b></li>)}
+  </ul>
+  <p className="band-rule">&#9671; Success Rate &#9671;</p>
+  <p>Success rate will change when the current bonus is approaching the cap.</p>
+  <ul className="result-list">{TONES.map(([at,tone,name])=>
+   <li key={tone}><b className={'rate-'+tone}>{name}: {at/100}%</b></li>)}</ul>
+ </DialogContent></Dialog>;
+}
+
+/** The `^` opens this: a two-column old-vs-new table, then the requirement as an INCREMENT, then one
+ *  green button. The original states `Increase (heart)290 to obtain develop chances` rather than
+ *  `needs Intimacy 14,000 (she has 13,710)`, and the increment is the better reading of the same two
+ *  numbers Everkai already holds.
+ *
+ *  NOT PORTED: `Current Develop Chances: N`. That is a stored per-member counter in the original and
+ *  Everkai has none -- it gates a cap raise directly on Intimacy plus one Luck Stone. Inventing a
+ *  counter would be a mechanic, so the real gates are shown in its place. */
+function CapDialog({open,onOpenChange,game,id,cap,next,action,locked}:any){
+ const stones=luckStones(game),short=next?Math.max(0,next.intimacy-next.have):0;
+ return <Dialog open={open} onOpenChange={onOpenChange}><DialogContent className="breakdown-dialog">
+  <DialogTitle>Increase Latency Cap</DialogTitle>
+  <DialogDescription className="sr-only">Raise how far this member&rsquo;s Latency can be stimulated.</DialogDescription>
+  <table className="pair-table"><tbody>
+   <tr><th scope="row">Latency Cap</th><td>{next?<Step from={pct(cap)} to={pct(next.cap)} arrow="&raquo;"/>:pct(cap)}</td></tr>
+   <tr><th scope="row">Latency Bonus</th><td>{next?<b className="gain">Village Earnings+{pct(next.cap-cap)}</b>:'At the top'}</td></tr>
+  </tbody></table>
+  {next
+   ?<><p className="gate-line">{short?<>Increase <b className="need">&#9829;{short.toLocaleString('en-US')}</b> to raise the cap</>:<>Ready to raise</>}</p>
+     {next.stones?<p className="gate-line">Luck Stones: <b className={stones<next.stones?'need':'gain'}>{stones.toLocaleString('en-US')}</b>/{next.stones}</p>:null}
+     <Button className="primary-action" disabled={locked||!next.met||stones<next.stones} onClick={()=>{action('latencyLevel',id);onOpenChange(false)}}><b>Improve</b></Button></>
+   :<p className="gate-line">This Latency is as wide as the original allows.</p>}
+ </DialogContent></Dialog>;
+}
+
 export default function LatencyPanel({id,game,action,locked}:any){
+ const [quantity,setQuantity]=useState<Quantity>(1),[info,setInfo]=useState(false),[capOpen,setCap]=useState(false);
  const member=game.family?.[id];
- if(!member)return <p className="small-note item-status">Welcome this family member to open her Latency.</p>;
- if(!latencyApply(id))return <p className="small-note item-status">Latency is the village’s own tradition — the original’s Family table has no record for this companion, so there is nothing to port. Fathoms work the same way.</p>;
+ // A member with no WifePotential record keeps no sub-tab at all (app/family-training.tsx drops it,
+ // as the original drops the Stella tab), so the 44-word "there is nothing to port" paragraph goes.
+ if(!member||!latencyApply(id))return null;
  const level=latencyLevel(game,id),cap=latencyCap(game,id),count=latencyCount(game,id);
- const fill=latencyFill(game,id),row=latencyWeightRow(fill),next=latencyNextLevel(game,id);
- const stones=luckStones(game),account=latencyBonus(game),alternate=latencyTotalAlternate(game);
- const tenX=level>=STIMULATE_TEN_X;
- const full=cap>0&&count>=cap;
- return <section className="school-card"><h3>Latency · +{(count/100).toLocaleString()}% of +{(cap/100).toLocaleString()}%</h3>
-  <p>Luck Stones: {stones.toLocaleString()} · earned {luckStonesEarned(game).toLocaleString()} from habit actions at {STONES_PER_ACTION} each</p>
-  <div className="training-option"><div>
-   <strong>Cap · level {level}/{LATENCY_CAP_LEVEL}</strong>
-   {next
-    ?<p>Next: +{(next.cap/100).toLocaleString()}% · needs Intimacy {next.intimacy.toLocaleString()} (she has {next.have.toLocaleString()}){next.stones?` and ${next.stones} Luck Stone${next.stones===1?'':'s'}`:' · free'}</p>
-    :<p>This Latency is as wide as the original allows.</p>}
-  </div>
-  <Button disabled={locked||!next||!next.met||stones<(next?.stones??0)} onClick={()=>action('latencyLevel',id)}>
-   {next?`Widen to +${(next.cap/100).toLocaleString()}%`:'At the top'}</Button></div>
-  <div className="training-option"><div>
-   <strong>Stimulate · {(row?.success??0)/100}% success</strong>
-   <p>The bar is {(fill/100).toFixed(1)}% full, and the original reads the chance off exactly that: 80% below a quarter full, 50% below half, 25% below three quarters, 10% above</p>
-   <p>A success adds +1%, +2% or +4% at weights 7000 / 2000 / 1000 — a mean of +1.5 points a success. {STIMULATE_COST} Luck Stones a try.</p>
-   {full&&<p>This Latency is full. Widen the cap to keep stimulating.</p>}
-   {!tenX&&<p className="small-note">The original opens ×10 Stimulate at cap level {STIMULATE_TEN_X}.</p>}
-  </div>
-  <div className="business-actions">
-   <Button disabled={locked||full||!cap||stones<STIMULATE_COST} onClick={()=>action('latencyStimulate',id,1)}>Stimulate · {STIMULATE_COST} stones</Button>
-   <Button disabled={locked||full||!cap||!tenX||stones<STIMULATE_COST*10} onClick={()=>action('latencyStimulate',id,10)}>Stimulate ×10 · {STIMULATE_COST*10} stones</Button>
-  </div></div>
-  <p><strong>Across the whole family: +{(account*100).toLocaleString(undefined,{maximumFractionDigits:2})}% village earnings, at every business.</strong> The original sums this over every member, so each one you raise raises all seventeen businesses again.</p>
-  <p className="small-note">If the original had instead shown one shared bar rather than a per-member sum, the same save would be worth +{(alternate*100).toLocaleString(undefined,{maximumFractionDigits:2})}% — its largest single member. Everkai pays the sum, which is what the client’s own GetAllWifeBuildingPotential computes.</p>
-  <details className="rules-note"><summary>About these rules</summary>
-   <p>Every number here is the original’s: 41 cap steps of +2% each from 0% to +800%, gated on Intimacy from 2,000 to 50,000 and costing one Luck Stone a step; success chances of 80% / 50% / 25% / 10% read off how full the bar already is; gains of +1% / +2% / +4% at weights 7000 / 2000 / 1000; and {STIMULATE_COST} Luck Stones a Stimulate. The roll is seeded and its result is saved, so reloading cannot re-roll it.</p>
-   <p>Luck Stones are this project’s only invented number here. The original buys them in the Drakenberg Challenge shop, and that shop’s stock is not in the recovered data, so they come from habit actions instead — the same counter that opens Fathom slots, at {STONES_PER_ACTION} stones an action.</p>
-   <p>One column of the original’s table is deliberately not modelled: <code>outputRiseFixed</code> is {LATENCY_UNMODELLED.outputRiseFixed} on all 41 rows. A column that never changes is evidence it is not what its name suggests, and nothing readable says what it does, so it is recorded rather than guessed at.</p>
-  </details></section>;
+ // latencyWeightRow always lands on a band (its own `|| .at(-1)` fallback), but the table is loaded
+ // from JSON so its type admits undefined; the quartile is resolved once, here, and never re-derived.
+ const row:any=latencyWeightRow(latencyFill(game,id)),next=latencyNextLevel(game,id);
+ const success:number=row?.success??0,stones=luckStones(game),tone=toneOf(success);
+ // The unlock gate is the CURRENT level's row, which latencyNextLevel already resolved -- LATENCY_LEVELS[1]
+ // is the gate for the SECOND step, and reading it here showed 2,500 where the original shows 2,000.
+ const gate:number=next?.intimacy??0;
+ const unlocked=cap>0,full=unlocked&&count>=cap,tenX=level>=STIMULATE_TEN_X;
+ const step=quantity===10?10:1,price=STIMULATE_COST*step;
+ return <section className="latency-panel">
+  <h3 className="sheet-title">Increase<br/>Latency</h3>
+  {unlocked&&<div className="cap-plaque"><i aria-hidden="true">&#9671;</i><span>Latency Cap: {pct(cap)}</span>
+   <button type="button" className={'cap-raise'+(next&&next.met&&stones>=next.stones?' cap-ready':'')} aria-label="Increase Latency Cap" onClick={()=>setCap(true)}>&#8593;</button></div>}
+  <p className="one-line">Stimulate to increase village earnings. Increase the Latency cap to get extra bonuses.</p>
+  <div className={'latency-drop drop-'+(unlocked?tone:'locked')} role="img"
+   aria-label={unlocked?`Success rate ${success/100}%`:'Latency locked'}/>
+  {unlocked?<>
+   <p className="all-building">All Building Earnings: <b className="gain">+{pct(count)}</b></p>
+   <p className="rate-line"><InfoDot label="Possible results and the success-rate key" onClick={()=>setInfo(true)}/>
+    <span className={'rate-'+tone}>Success Rate: {success/100}%</span></p>
+   <div className="spend-controls">
+    <QuantityPicker value={quantity} onChange={setQuantity} allow={tenX?[1,10]:[1]} label="Stimulate quantity"/>
+    {full
+     ? <span className="inert-pill">Full</span>
+     : <PrimaryAction verb={step>1?`Stimulate x${step}`:'Stimulate'} disabled={locked||stones<price}
+        currency="Luck Stones" have={stones} cost={price} onClick={()=>action('latencyStimulate',id,step)}/>}
+   </div>
+  </>:<>
+   <p className="gate-line"><b className="need">&#9829; Intimacy reaches {gate.toLocaleString("en-US")}</b> to unlock</p>
+   <Button className="primary-action" disabled={locked||!next?.met} onClick={()=>setCap(true)}><b>Improve</b></Button>
+  </>}
+  {row&&<ResultsDialog open={info} onOpenChange={setInfo} row={row}/>}
+  <CapDialog open={capOpen} onOpenChange={setCap} game={game} id={id} cap={cap} next={next} action={action} locked={locked}/>
+ </section>;
 }
