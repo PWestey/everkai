@@ -1171,3 +1171,87 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .today-locked .today-mark{color:#8d876f}
 .today-link{text-decoration:underline;text-underline-offset:3px;color:#1c6650;font-weight:650}
 .village-today span{font-weight:700}
+
+/* =============================================================================================
+   CHARACTER SCREEN AUDIT (2026-09-19), BATCH 1: shared character foundation + mobile canvas.
+   Two P0 rows from the Screen Audit sheet, both measured against the original at 720x1280.
+
+   1. "Mobile canvas / density". The shell was capped at 560px and the modal inside it at 552px,
+      so at the audit's own 720x1280 the game sat in the middle of ~80px of dark green on each
+      side -- the "dark side gutters" the audit measured -- while the original fills all 720.
+      The 700px breakpoint made it worse: it turned the shell into an inset rounded card exactly
+      at the width being audited. The canvas is now 720px and the desktop card starts at 760px,
+      so nothing about the >=760px layout changes and nothing about 390px changes either.
+   2. "Shared panel system". The sheet was one fixed height (58dvh) for every page, it covered
+      the icon dock completely, and the only way between pages was a generic
+      "Previous / 1 of 6 / Next" footer. The original sizes each panel to its own content
+      (Gifts 445px of 1280 = 35%, Stella 670px = 52%, Artifact a centered overlay), keeps the
+      dock on screen, and has no paging footer at all -- the dock IS the navigation.
+      So: four variants, a dock that stays visible AND tappable while a sheet is open, and no
+      footer on character sheets. System (facility) sheets keep theirs: they have no dock of
+      their own behind them, so the footer is still their only in-sheet navigation.
+   Keeping the dock tappable is why the character sheet is now a non-modal dialog with a
+   transparent, pointer-transparent backdrop. It closes with its own x or Escape rather than an
+   outside tap, which is also what the original does.
+   ============================================================================================= */
+:root{--game-canvas:720px;--character-dock-h:calc(66px + max(4px,env(safe-area-inset-bottom)))}
+.game{max-width:var(--game-canvas)}
+@media(min-width:700px) and (max-width:759.98px){.game{margin:0 auto;border-radius:0;border:0;min-height:100svh}.world{height:51svh;min-height:370px;max-height:560px}}
+.game-modal{max-width:var(--game-canvas)!important}
+.character-modal{width:100%!important;max-width:var(--game-canvas)!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important;border:0!important;padding-top:env(safe-area-inset-top)!important}
+
+/* The dock is the navigation now, so its targets grew: 72x60 cells with 34px icons (was 62x53
+   with 28px), against the original's roughly 90x72. They grow past 72 when there is room, and stay
+   at 72 when there is not -- Family's nine entries still fit 720px (46 back + 9*72 + gaps = 710),
+   and at 390px the strip scrolls sideways as it always has.
+   --character-dock-h is what the sheet stops above, and it is the sum of these numbers:
+   3 top padding + 60 button + bottom padding + 3 border. */
+.character-screen .character-action-dock>button{flex:1 0 72px;height:60px;min-height:60px!important;font-size:13px;padding:3px 2px;gap:1px}
+.character-screen .character-action-dock>button>img{width:34px;height:34px}
+.character-screen .character-action-dock>button[aria-pressed=true]{background:#8a663dc4;color:#fff6e2;box-shadow:inset 0 -3px 0 #f0c978}
+.character-screen .character-back .collection-open{min-height:60px!important}
+
+/* The panel variants. Each leaves the dock visible; none of them clips, because every one caps a
+   height rather than fixing it, and .character-sheet-body scrolls inside whatever it gets. */
+.character-sheet:not(.system-sheet){bottom:calc(var(--character-dock-h) + 4px);width:100%;max-width:var(--game-canvas)!important;max-height:calc(100dvh - var(--character-dock-h) - 8px);border-radius:10px 10px 0 0}
+.character-sheet.panel-shallow{height:auto;max-height:min(42dvh,450px)}
+.character-sheet.panel-standard{height:min(48dvh,530px)}
+.character-sheet.panel-tall{height:min(62dvh,730px)}
+/* Centered: a focused overlay with its own dim. The dim is a 100vmax box-shadow rather than the
+   backdrop, because the backdrop has to stay transparent to taps for the dock underneath. */
+.character-sheet.panel-centered{top:50%!important;bottom:auto;left:50%!important;transform:translate(-50%,-50%)!important;height:auto;width:calc(100% - 26px);max-width:min(620px,calc(var(--game-canvas) - 26px))!important;max-height:min(78dvh,880px);border-radius:14px;box-shadow:0 0 0 100vmax #00000057,0 14px 60px #1c110877}
+.character-sheet-backdrop{background:transparent!important;backdrop-filter:none!important;pointer-events:none!important}
+
+/* Density inside the sheet: the audit's "detail text is very small" row. 14px -> 16px body,
+   44px -> 48px tap targets, 23px -> 26px panel title. */
+.character-sheet-heading{padding:10px 14px}
+.character-sheet-heading [data-slot=dialog-title]{font-size:26px}
+.character-sheet-heading [data-slot=dialog-description]{font-size:13px}
+.character-sheet-close{min-width:48px;min-height:48px;font-size:30px}
+.character-sheet-body{padding:14px 14px 18px;font-size:16px}
+.character-sheet-body p{font-size:15px;line-height:1.5}
+.character-sheet-body h2{font-size:25px}
+.character-sheet-body h3{font-size:17px}
+.character-sheet-body button{min-height:48px;font-size:15px}
+.character-sheet-body .small-note,.character-sheet-body .balance-note,.character-sheet-body .rules-note{font-size:14px}
+
+/* Same density pass on the stat band over the art, in the orientation the phone is actually held. */
+@media (min-height:481px),(max-width:519px){
+ .character-screen .character-lower-stats{padding:12px 14px 10px}
+ .character-screen .character-lower-stats .character-stat-row{gap:8px 20px}
+ .character-screen .character-stat img{width:28px;height:28px}
+ .character-screen .character-stat span{font-size:14px}
+ .character-screen .character-stat strong{font-size:19px}
+ .character-screen .character-tag{font-size:13px;padding:3px 24px 3px 9px}
+}
+
+/* Landscape keeps its right-hand rail, so the sheet is not bottom-anchored there and must not
+   inherit the bottom-anchored widths or the variant heights. */
+@media(max-height:480px) and (min-width:520px){
+ .character-sheet:not(.system-sheet){bottom:6px;width:60%;max-width:60%!important;max-height:calc(100dvh - 12px);border-radius:8px}
+ .character-sheet.panel-shallow,.character-sheet.panel-standard,.character-sheet.panel-tall{height:calc(100dvh - 12px)}
+ .character-sheet.panel-centered{width:72%;max-width:72%!important;height:auto;max-height:calc(100dvh - 12px)}
+ .character-screen .character-action-dock>button{flex:0 0 62px;height:49px;min-height:49px!important;font-size:11px}
+ .character-screen .character-action-dock>button>img{width:24px;height:24px}
+ .character-screen .character-back .collection-open{min-height:44px!important}
+}
