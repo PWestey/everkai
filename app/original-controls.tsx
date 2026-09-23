@@ -19,10 +19,16 @@ export type Quantity=1|10|100|'max';
  *  detail dialogs use `toLocaleString()` instead, which is the same number in the audit register. */
 export const abbrev=(n:number)=>new Intl.NumberFormat('en-US',{notation:'compact',maximumSignificantDigits:4}).format(Math.floor(Number(n)||0));
 
-/** The 4-segment selector. Right-aligned, sits directly above the button it governs. */
-export function QuantityPicker({value,onChange,label='Quantity'}:{value:Quantity,onChange:(q:Quantity)=>void,label?:string}){
+/** The 4-segment selector. Right-aligned, sits directly above the button it governs.
+ *
+ *  `allow` keeps all four segments drawn but disables the ones a screen cannot offer. Latency is the
+ *  case it exists for: the original gives that screen a lone `x10` checkbox instead of the selector,
+ *  and the Family specs' README rules that the checkbox is the original being inconsistent -- use the
+ *  selector everywhere and grey the segments whose prices the original never quotes, rather than
+ *  inventing them. */
+export function QuantityPicker({value,onChange,label='Quantity',allow}:{value:Quantity,onChange:(q:Quantity)=>void,label?:string,allow?:Quantity[]}){
  return <div className="qty-picker" role="group" aria-label={label}>{QUANTITIES.map(([text,q])=>
-  <button key={text} type="button" aria-pressed={value===q} onClick={()=>onChange(q)}>{text}</button>)}</div>;
+  <button key={text} type="button" disabled={allow?!allow.includes(q):false} aria-pressed={value===q} onClick={()=>onChange(q)}>{text}</button>)}</div>;
 }
 
 /** The one primary action. `note`/`have`/`cost` render the `have/cost` line inside the button. */

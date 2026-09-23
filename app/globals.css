@@ -1665,8 +1665,10 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* Skills holds two sub-tabs where Everkai had two top-level pages. */
 .sub-tab-panel{display:grid;gap:8px;min-height:0}
 .sub-tabs{display:flex;gap:4px}
-.sub-tabs>button{flex:1;min-height:38px;padding:6px 10px;border:2px solid #b89a66;border-bottom:0;border-radius:5px 5px 0 0;background:#dcc9a3;color:#5e4429;font:700 13px Georgia,serif;cursor:pointer}
-.sub-tabs>button[aria-pressed=true]{background:#f6ecd5;color:#3f2d1c;box-shadow:inset 0 2px 0 #ffd98a}
+/* Folder tabs, not primaries: the sheet's generic green-button rule is more specific than a plain
+   `.sub-tabs>button`, so these match its shape to win the cascade rather than reach for !important. */
+.character-sheet-body .sub-tabs>button:not([data-variant=outline]):not([data-variant=ghost]),.sub-tabs>button{flex:1;min-height:38px;padding:6px 10px;border:2px solid #b89a66;border-bottom:0;border-radius:5px 5px 0 0;background-color:#dcc9a3;color:#5e4429;font:700 13px Georgia,serif;cursor:pointer}
+.character-sheet-body .sub-tabs>button[aria-pressed=true]:not([data-variant=outline]),.sub-tabs>button[aria-pressed=true]{background-color:#f6ecd5;color:#3f2d1c;box-shadow:inset 0 2px 0 #ffd98a}
 
 /* The rung banner and the one-word primary, replacing `Relationship · Tier 3` and a sentence-long
    button label (spec 04's shape; its three gate bars land with that section). */
@@ -1677,3 +1679,40 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .effect-card>span{font:700 13px Georgia,serif;color:#6d573c}
 .effect-card>b{font:700 17px Georgia,serif;color:#8a5a20}
 .effect-card>small{font-size:12px;color:#6d573c}
+
+/* ===== LATENCY — docs/family-screen-specs/06-latency.md =====
+   Convention 14: the medallion's colour IS the number. The drop is drawn in the success-rate
+   quartile's colour and the rate text matches it, so the four-sentence explanation of how the rate
+   is read off the fill becomes one tinted shape plus the `(i)`'s four-line key. */
+.latency-panel{display:grid;justify-items:center;gap:5px;text-align:center;min-height:0}
+.character-sheet-body:has(>.latency-panel){padding-block:6px}
+.sheet-title{margin:0;font:700 19px/1.1 Georgia,serif;color:#5b4128;letter-spacing:.5px}
+.one-line{margin:0;max-width:34ch;font-size:12px;line-height:1.3;color:#6d573c}
+.cap-plaque{display:flex;align-items:center;gap:8px;width:100%;padding:5px 5px 5px 12px;border:2px solid #b08d4f;border-radius:5px;background:linear-gradient(#cdb188,#e2cba2);box-shadow:inset 0 2px 6px #6a4f2b55}
+.cap-plaque>i{font-style:normal;color:#8a6a34}
+.cap-plaque>span{flex:1;font:700 15px Georgia,serif;color:#4b3525}
+.cap-raise{position:relative;min-width:44px;min-height:44px;border:2px solid #e2c078;border-radius:4px;background:linear-gradient(#d8a63f,#a9762a);color:#fff6dd;font:700 20px/1 Georgia,serif;cursor:pointer}
+.cap-raise.cap-ready::after{content:'';position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:#e8732f;box-shadow:0 0 0 2px #ffe6b8}
+/* One shape, five states. The locked drop is the same drop, desaturated (convention 15). */
+.latency-drop{width:clamp(66px,11vh,84px);aspect-ratio:8/9;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;clip-path:polygon(50% 0,88% 38%,100% 68%,84% 94%,50% 100%,16% 94%,0 68%,12% 38%);box-shadow:inset 0 -10px 22px #00000038,inset 0 8px 16px #ffffff50;border:0}
+.drop-green{background:radial-gradient(circle at 42% 32%,#a8e6a0,#2f8c46 72%,#1d5c2e)}
+.drop-blue{background:radial-gradient(circle at 42% 32%,#a9dcf5,#2f76c0 72%,#1c4a80)}
+.drop-purple{background:radial-gradient(circle at 42% 32%,#d9b6f0,#7a3fb0 72%,#4c2470)}
+.drop-multi{background:conic-gradient(from 210deg,#e8732f,#d8a63f,#5fae5a,#3f86c8,#9b58c0,#e8732f)}
+.drop-locked{background:radial-gradient(circle at 42% 32%,#cfc8b8,#8d8577 72%,#615a4d);filter:saturate(.15)}
+.all-building{margin:0;font:700 14px Georgia,serif;color:#6d573c}
+.rate-line{display:flex;align-items:center;gap:7px;margin:0;font:700 15px Georgia,serif}
+.rate-green{color:#2f8c46}.rate-blue{color:#2f76c0}.rate-purple{color:#7a3fb0}.rate-multi{color:#c0641f}
+.gain{color:#2f8c46}
+.need{color:#b23b2a}
+.gate-line{margin:0;font:700 13px Georgia,serif;color:#6d573c}
+.inert-pill{display:grid;place-items:center;min-height:48px;padding:8px 26px;border:2px dashed #b3a480;border-radius:20px;background:#e0d5bb;color:#7d6a4c;font:700 15px Georgia,serif}
+.latency-panel .spend-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;width:100%}
+.latency-panel .spend-controls>.qty-picker{order:2}
+.latency-panel .spend-controls>.primary-action{order:1;width:auto;min-width:140px}
+/* The `(i)` popovers: the outcome list and the old-vs-new pair table. */
+.result-list{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.result-list li{display:flex;justify-content:space-between;gap:12px;font:700 13px Georgia,serif}
+.pair-table{width:100%;border-collapse:collapse;font-size:13px}
+.pair-table th,.pair-table td{border:1px solid #bda57e;padding:6px 8px;text-align:left}
+.pair-table th{width:40%;background:#ddc79d;font:700 12px Georgia,serif;color:#4b3525}
