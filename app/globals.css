@@ -1761,3 +1761,24 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-sheet-body .practise-action:not([data-variant=outline]){background-color:#7d6a4c}
 .rate-stack .primary-action small{display:flex;flex-wrap:wrap;justify-content:center;gap:0 3px;max-width:100%;font-size:9px;line-height:1.15}
 .rate-stack .primary-action b{font-size:13px}
+
+/* ===== BONDS (the relationship rung) — docs/family-screen-specs/04-bonds.md =====
+   Convention 12: a gate is a BAR WITH THE NUMBER INSIDE THE FILL, and the primary is one word
+   vertically centred beside it. Nothing says which gate is short — the short bar is short. This
+   replaces `Improve relationship · requires 2,000 Intimacy`, where the cost lived in the label. */
+.bond-effect{display:flex;align-items:center;gap:8px}
+.bond-effect>span{flex:1;font:700 13px Georgia,serif;color:#5b4128}
+.bond-effect>.grade{font:700 20px Georgia,serif;color:#8a5a20;letter-spacing:.5px}
+.gate-block{display:flex;align-items:center;gap:10px}
+.gate-rows{flex:1;min-width:0;display:grid;gap:6px}
+.gate-row{display:flex;align-items:center;gap:7px}
+.gate-row>span{flex:none;width:74px;font:700 11px Georgia,serif;color:#6d573c}
+.gate-bar{position:relative;flex:1;min-width:0;height:21px;border:1px solid #8d7a5a;border-radius:11px;background:#5b5140;overflow:hidden}
+.gate-bar>i{position:absolute;inset:0 auto 0 0;width:var(--fill,0%);border-radius:11px 0 0 11px}
+.gate-pink>i{background:linear-gradient(#f07fb4,#c8447f)}
+.gate-bar.gate-met>i{border-radius:11px}
+.gate-bar>u{position:relative;display:grid;place-items:center;height:100%;font:700 10px Georgia,serif;color:#fff2d8;text-decoration:none;text-shadow:0 1px 2px #2b160a}
+.gate-improve{flex:none;width:auto;min-width:96px;align-self:center}
+/* The orange dot is the affordance: every gate met (spec 04). */
+.gate-improve.gate-ready{position:relative}
+.gate-improve.gate-ready::after{content:'';position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:#e8732f;box-shadow:0 0 0 2px #ffe6b8}

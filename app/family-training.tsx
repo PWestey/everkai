@@ -1,5 +1,8 @@
 import {useState} from 'react';
 import {Button} from '@/components/ui/button';
+import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
+import {InfoDot} from './fellow-shell';
+import {Step} from './original-controls';
 import PanelPages from './panel-pages';
 import BondPanel from './bond-panel';
 import BlessingPanel from './blessing-panel';
@@ -59,27 +62,78 @@ function SkillsSection({game,id,action,locked}:any){
  </div>;
 }
 
-/** Dock position 2. The original's `Bonds` is the RELATIONSHIP RUNG; Everkai's `Bonds` page was Fellow
- *  pairing and its rung control sat on `Profile`. The rung takes the tab, which is the original's own
- *  arrangement; the pairing UI keeps a home underneath it until spec 07 moves it onto `Blessing`,
- *  where the blessed-Fellow portraits belong. Same actions, same costs -- `relationship` and
- *  `bondTrain` are the two Everkai already dispatched. */
+/** THE LABEL COLLISION, RESOLVED THE ORIGINAL'S WAY (docs/family-screen-specs/04-bonds.md).
+ *
+ *  The original's `Bonds` is the RELATIONSHIP RUNG -- Acquainted ... Forever -- and nothing else.
+ *  Everkai's `Bonds` page was FELLOW PAIRING, an entirely different system, and its rung control sat
+ *  on `Profile`. So the two swapped: the rung takes dock position 2, which is where the original
+ *  puts it, and the pairing UI moves to `Blessing`, which is the tab that already spends the same
+ *  Blessing Points and where spec 07 puts the blessed Fellows' portraits. No action changed name,
+ *  cost or effect -- `relationship` and `bondTrain` are the two Everkai already dispatched.
+ *
+ *  The pupil grade is a LETTER, as the original grades it, over the integer Everkai already stores.
+ *  Three of the five letters are the captures' own: `D` at the bottom rung (img/bonds-lowest-rung),
+ *  `A+` at Loving** (img/bonds) and `S-` as the step above it (img/bonds-intellect-preview). `C` and
+ *  `B` fill the two gaps between them. Nothing numeric changed: pupil Intellect is still
+ *  relationship x 10 and pupilReward still reads it.
+ *
+ *  NOT BUILT, because Everkai's data does not have it and rule 1 forbids borrowing the other half:
+ *  the original gates a rung on THREE bars -- Intimacy, Blessing Power and Total Family -- and shows
+ *  the rung's own granted skill (`Lv.4:Family Blessing`). `WifeIntimacyDegree.json` is not imported
+ *  (lib/talent-skill-data.json records a sha for HeroIntimacyDegree only, which is the Fellow
+ *  table), so the Blessing Power and Total Family thresholds and the per-rung skill simply are not
+ *  in this build. Drawing three bars when only one is a real gate would invent two costs. The one
+ *  real gate is drawn in the original's bar-with-the-number-inside language; the other two are an
+ *  owner/import question. */
+const GRADES=['D','C','B','A+','S-'];
+const grade=(tier:number)=>GRADES[Math.max(0,Math.min(GRADES.length-1,(tier|0)-1))];
+
+function IntellectPreview({tier}:{tier:number}){
+ const next=Math.min(GRADES.length,tier+1),last=tier>=GRADES.length;
+ return <table className="pair-table"><tbody>
+  <tr><th scope="row">Pupil Intellect</th><td>{last?grade(tier):<Step from={grade(tier)} to={grade(next)} arrow="&raquo;"/>}</td></tr>
+  <tr><th scope="row">Intellect value</th><td>{last?tier*10:<Step from={tier*10} to={next*10} arrow="&raquo;"/>}</td></tr>
+  {/* pupilReward scales on intellect/10, which IS the rung number, so a step is a clean multiplier. */}
+  <tr><th scope="row">Graduation Reward</th><td>{last?`×${tier}.0`:<Step from={`×${tier}.0`} to={`×${next}.0`} arrow="&raquo;"/>}</td></tr>
+ </tbody></table>;
+}
+
 function BondsSection({game,id,action,locked}:any){
+ const [info,setInfo]=useState(false);
  const f=game.family?.[id];
- if(!f)return <BondPanel game={game} id={id} action={action} locked={locked}/>;
- const need=relationRequired(f.relationship),capped=f.relationship>=5;
+ if(!f)return null;
+ const tier=f.relationship,capped=tier>=GRADES.length,need=relationRequired(tier);
+ const have=Math.round(f.intimacy),met=have>=need;
  return <div className="bonds-section">
-  <div className="rung-banner"><i aria-hidden="true">&#9671;</i><b>{rungName(f.relationship)}</b><i aria-hidden="true">&#9671;</i></div>
-  <div className="effect-card"><span>Adopted Children Intellect</span><b>{f.relationship*10}</b></div>
-  <Button className="primary-action" disabled={locked||capped||f.intimacy<need} onClick={()=>action('relationship',id)}>
-   <b>{capped?'Highest rung':'Improve'}</b>{capped?null:<small><span className="have-cost"><i className={f.intimacy<need?'short':'enough'}>{Math.round(f.intimacy).toLocaleString('en-US')}</i>/{need.toLocaleString('en-US')}</span></small>}</Button>
-  <BondPanel game={game} id={id} action={action} locked={locked}/>
+  <div className="rung-banner"><i aria-hidden="true">&#9671;</i><b>{rungName(tier)}</b><i aria-hidden="true">&#9671;</i></div>
+  <div className="effect-card bond-effect"><span>Adopted Children Intellect</span>
+   <b className="grade">{grade(tier)}</b>
+   <InfoDot label="What the next rung is worth" onClick={()=>setInfo(true)}/></div>
+  {/* Convention 12: a gate is a bar with the number INSIDE the fill. No sentence says which one is
+      short -- the short bar is short. This replaces `Improve relationship - requires 2,000 Intimacy`. */}
+  <div className="gate-block">
+   <div className="gate-rows">
+    <div className="gate-row"><span>Intimacy:</span>
+     <div className={'gate-bar gate-pink'+(met?' gate-met':'')} style={{'--fill':Math.min(100,need?have/need*100:100)+'%'} as any}>
+      <i/><u>{have.toLocaleString('en-US')}/{need.toLocaleString('en-US')}</u></div></div>
+   </div>
+   {/* The badge is the affordance, not a disabled button (spec 04). It is still disabled when the
+       gate is unmet, because Everkai's engine would refuse the press anyway. */}
+   <Button className={'primary-action gate-improve'+(met&&!capped?' gate-ready':'')} disabled={locked||capped||!met}
+    onClick={()=>action('relationship',id)}><b>{capped?'Highest':'Improve'}</b></Button>
+  </div>
+  <Dialog open={info} onOpenChange={setInfo}><DialogContent className="breakdown-dialog">
+   <DialogTitle>Adopted Children Intellect</DialogTitle>
+   <DialogDescription className="sr-only">What raising this rung is worth.</DialogDescription>
+   <IntellectPreview tier={tier}/>
+  </DialogContent></Dialog>
  </div>;
 }
 
 /** Dock position 4. Everkai's `Family skill` block spends the same Blessing Points as the Fellow
  *  blessings beside it, so it lands on the tab where that currency is spent rather than on a Profile
- *  page that no longer exists. */
+ *  page that no longer exists -- and so does the FELLOW PAIRING UI that used to be called `Bonds`,
+ *  because the pairing is who a blessing reaches (spec 04's resolution of the label collision). */
 function BlessingSection({game,id,action,locked}:any){
  const f=game.family?.[id];
  return <div className="blessing-section">
@@ -88,6 +142,7 @@ function BlessingSection({game,id,action,locked}:any){
    <Button className="primary-action" disabled={locked||f.skill>=20||f.points<blessingCost(f)} onClick={()=>action('bless',id)}>
     <b>{f.skill>=20?'Fully upgraded':'Improve'}</b>{f.skill>=20?null:<small><span className="have-cost"><i className={f.points<blessingCost(f)?'short':'enough'}>{f.points.toLocaleString('en-US')}</i>/{blessingCost(f).toLocaleString('en-US')}</span></small>}</Button></div>}
   <BlessingPanel game={game} id={id} action={action} locked={locked}/>
+  <BondPanel game={game} id={id} action={action} locked={locked}/>
  </div>;
 }
 
