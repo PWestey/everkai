@@ -132,3 +132,21 @@ export function FellowRail({game,person,action,locked,children}:any){
   </DialogContent></Dialog>
  </>;
 }
+
+/** Spec 06's shared header for both Aptitude tabs, and spec 11's second entry point into the
+ *  breakdown: `Total Aptitude N (i)`, centred, the number green. It replaces Everkai's
+ *  `Talent skills - +N Aptitude (skills 3 - intimacy 0 - Stella 0 - Rarity Advance 0)` -- a 4-source
+ *  breakdown crammed into a parenthesis where the original names every source it has. */
+export function AptitudeHeader({game,id}:any){
+ const [open,setOpen]=useState(false);
+ if(!game.fellows[id])return null;
+ return <div className="aptitude-header">
+  <span className="glyph">✦</span><span>Total Aptitude</span><b>{powerParts(game,id).aptitude.toLocaleString('en-US')}</b>
+  <InfoDot label="Where this Fellow's Aptitude comes from" onClick={()=>setOpen(true)}/>
+  <Dialog open={open} onOpenChange={setOpen}><DialogContent className="breakdown-dialog">
+   <DialogTitle>Detail</DialogTitle>
+   <DialogDescription className="sr-only">Every source of this Fellow&rsquo;s Aptitude and Power.</DialogDescription>
+   <PowerDetails game={game} id={id}/>
+  </DialogContent></Dialog>
+ </div>;
+}

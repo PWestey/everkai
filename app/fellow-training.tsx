@@ -8,6 +8,7 @@ import TalentSkillTraining from './talent-skill-training';
 import CharacterSkillGuide from './character-skill-guide';
 import {talentRule,talentLevel,talentTrainingPlan,talentCap} from '@/lib/talents.mjs';
 import PanelPages from './panel-pages';
+import {AptitudeHeader} from './fellow-shell';
 import {Button} from '@/components/ui/button';
 import {aptitudeTrainingPlan,skillCost} from '@/lib/adventure.mjs';
 import {stellaRule} from '@/lib/stella.mjs';
@@ -39,6 +40,7 @@ export default function FellowTraining({game,id,action,locked}:any){
  if(stellaRule(id))sections.push(['Stella',<StellaTraining key="s" id={id} game={game} action={action} locked={locked}/>]);
  sections.push(['Awaken',<AwakenPanel key="a" id={id} game={game} action={action} locked={locked}/>]);
  sections.push(['Aptitude',<section key="t">
+  <AptitudeHeader game={game} id={id}/>
   <InsightTraining id={id} game={game} action={action} locked={locked}/>
   <TalentSkillTraining id={id} game={game} action={action} locked={locked}/>
   <CharacterSkillGuide key={id} id={id} game={game} action={action} locked={locked}/>

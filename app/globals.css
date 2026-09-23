@@ -1327,3 +1327,31 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .breakdown-dialog{font-family:Georgia,serif}
 .limit-break-art{width:132px;height:186px;position:relative;display:grid;place-items:center;overflow:hidden;border-radius:6px}
 .limit-break-art>img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* ---------------------------------------------------------------------------------------------
+   THE BREAKDOWN DIALOG (docs/fellow-screen-specs/11-number-transparency.md). Two columns, label
+   immediately followed by +value with no space and no colon, banded section headers naming each
+   multiplication stage, the aggregate's own value green in its band, and a hairline rule between
+   the flat and percent halves of Aptitude. Zeros render: the list is a catalogue of what could
+   contribute, which is how a player learns the game's shape.
+   --------------------------------------------------------------------------------------------- */
+.breakdown-dialog{width:calc(100% - 24px);max-width:520px;max-height:min(84dvh,900px);overflow:auto;overscroll-behavior:contain;padding:14px;gap:0!important;background:#ece2ccf5;border:4px double #a68a65;border-radius:8px;color:#4b3525;font-family:Georgia,serif}
+.breakdown-dialog [data-slot=dialog-title]{font:700 22px Georgia,serif;text-align:center;margin-bottom:6px}
+.breakdown-blurb{font-size:13px;line-height:1.4;color:#6d573c;margin:0 0 10px}
+.aggregate-band{display:flex;align-items:baseline;justify-content:center;gap:8px;margin:12px 0 6px;padding:5px 10px;font:700 17px Georgia,serif;color:#5b4128;background:linear-gradient(#e8d6ad,#d8c397);border:1px solid #b79a66;border-radius:4px}
+.aggregate-band>b{color:#2f7a45;font-size:19px}
+.breakdown-note{margin:0 0 8px;font:700 13px Georgia,serif;color:#2f7a45;text-align:center}
+.source-band{margin:10px 0 5px;padding:3px 9px;font:700 13px Georgia,serif;color:#6b5132;background:#e2d2ae;border-left:4px solid #b28d4e;border-radius:2px}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+.source-row{display:flex;align-items:baseline;justify-content:space-between;gap:4px;min-width:0;font:700 13px Georgia,serif;border-bottom:1px dotted #c8b58c;padding:2px 0}
+.source-row>i{font-style:normal;color:#6d573c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.source-row>b{color:#3c2d1c;flex:none}
+.source-rule{border:0;border-top:1px solid #b79a66;margin:9px 0}
+/* Spec 06's shared header for both Aptitude tabs, and the second way into this dialog. */
+.aptitude-header{display:flex;align-items:center;justify-content:center;gap:7px;padding:4px 0 8px;font:700 15px Georgia,serif;color:#5b4128}
+.aptitude-header .glyph{color:#c08a2a;font-size:17px}
+.aptitude-header>b{font-size:19px;color:#2f7a45}
+.aptitude-header .info-dot{border-color:#a9854a;background:#6a4c2f;color:#ffe9c4}
+/* Two columns at every width, as the capture has them: the labels are short and the register is
+   the point. Only the type shrinks on a phone. */
+@media(max-width:430px){.source-grid{gap:2px 8px}.source-row{font-size:11.5px}.aggregate-band{font-size:15px}}
