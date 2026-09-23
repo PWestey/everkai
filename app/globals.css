@@ -1206,7 +1206,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
    and at 390px the strip scrolls sideways as it always has.
    --character-dock-h is what the sheet stops above, and it is the sum of these numbers:
    3 top padding + 60 button + bottom padding + 3 border. */
-.character-screen .character-action-dock>button{flex:1 0 72px;height:60px;min-height:60px!important;font-size:13px;padding:3px 2px;gap:1px}
+.character-screen .character-action-dock>button{flex:1 0 auto;min-width:62px;max-width:104px;height:60px;min-height:60px!important;font-size:13px;padding:3px 2px;gap:1px}
 .character-screen .character-action-dock>button>img{width:34px;height:34px}
 .character-screen .character-action-dock>button[aria-pressed=true]{background:#8a663dc4;color:#fff6e2;box-shadow:inset 0 -3px 0 #f0c978}
 .character-screen .character-back .collection-open{min-height:60px!important}
@@ -1255,3 +1255,75 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
  .character-screen .character-action-dock>button>img{width:24px;height:24px}
  .character-screen .character-back .collection-open{min-height:44px!important}
 }
+
+/* ---------------------------------------------------------------------------------------------
+   THE CULTIVATE SHELL, rebuilt to docs/fellow-screen-specs/02-cultivate-shell.md and 03-upgrade.md.
+   Proportions are the capture's own 720x1280 numbers scaled to the canvas width: the stat block
+   occupies the band from y~985 to y~1140 (12% of the screen) at the LEFT, the single primary action
+   sits at its RIGHT, and the dock stays below both. Nothing is boxed: every piece floats on the art.
+   --------------------------------------------------------------------------------------------- */
+.character-lower-stats>.character-lower-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%;max-width:none}
+.character-primary{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:auto}
+
+/* The stat block: four rows, glyph then label then value, no panel behind them. Three number
+   registers (convention 5) -- Power in full digits, Aptitude plain, Earnings abbreviated. */
+.fellow-stats{display:grid;gap:3px;flex:1 1 auto;min-width:0;pointer-events:auto}
+.fellow-stat{display:flex;align-items:center;gap:5px;min-width:0;white-space:nowrap;font:700 clamp(11px,3vw,13px) Georgia,serif;color:#f3e3bd}
+.fellow-stat>img{width:clamp(20px,5.4vw,26px);height:clamp(20px,5.4vw,26px);object-fit:contain;flex:none}
+.fellow-stat .glyph{font-size:16px;color:#ffd77f}
+.fellow-stat>strong{font:700 clamp(14px,3.8vw,17px) Georgia,serif;color:#ffd37a}
+.fellow-power>strong{font:700 clamp(17px,4.6vw,23px) Georgia,serif;color:#ffb347;text-shadow:0 2px 3px #2a1405}
+/* The level bar is the whole point of this row: blue and partial below the cap, gold and full at it,
+   which is how a player sees at a glance whether this Fellow can still be trained (difference U2). */
+.level-bar{position:relative;flex:1 1 60px;min-width:54px;max-width:160px;height:14px;border:1px solid #c7a263;border-radius:7px;background:#2d1d11cc;overflow:hidden}
+.level-bar>i{display:block;height:100%;background:linear-gradient(#7fc4ef,#2f79b5)}
+.level-bar.level-full>i{background:linear-gradient(#ffe9a6,#d9a33c)}
+.awaken-stars{position:absolute;inset:0 3px 0 auto;display:flex;align-items:center;gap:0;font-size:10px;line-height:1;color:#6b5940}
+.awaken-stars>b{color:#5d4d38;text-shadow:0 1px 1px #1d1208}
+.awaken-stars>b.lit{color:#ffd05e}
+/* Convention 10: prose lives behind this glyph and nowhere else. */
+.info-dot{flex:none;width:22px;height:22px!important;min-height:22px!important;padding:0;border-radius:50%;border:2px solid #e3bd72;background:#43301fd9;color:#ffe2a4;font:700 13px/1 Georgia,serif;display:grid;place-items:center}
+.info-dot:hover{background:#6a4c2f}
+
+/* Convention 4: a 4-segment selector, right-aligned, directly above the button, same total width. */
+.spend-controls{display:grid;gap:8px;justify-items:end}
+.qty-picker{display:flex;gap:0;width:clamp(138px,40vw,200px);border:2px solid #ad8b4f;border-radius:5px;overflow:hidden;background:#553a22}
+.qty-picker>button{min-width:0;flex:1 1 auto;padding-inline:9px;min-height:34px;padding:4px 6px;border:0;border-right:1px solid #8b6c3d;background:#6b4a2c;color:#ffe9bd;font:700 13px Georgia,serif}
+.qty-picker>button:last-child{border-right:0}
+.qty-picker>button[aria-pressed=true]{background:linear-gradient(#f3cd7e,#cf9f3f);color:#37230f}
+/* Convention 2 and 6: one green button, the cost inside it under the verb; gold is the tier action. */
+.primary-action{display:flex!important;flex-direction:column;gap:1px;align-items:center;justify-content:center;width:clamp(138px,40vw,200px);min-height:50px!important;height:auto;padding:5px 10px!important;border:2px solid #9fd0a0!important;border-radius:7px!important;background:linear-gradient(#5f9a62,#3c6b44)!important;color:#fff6e0!important;box-shadow:0 3px 0 #2a4a30,0 5px 12px #1c110877}
+.primary-action>b{font:700 clamp(15px,4vw,18px)/1.1 Georgia,serif}
+.primary-action>small{display:flex;align-items:center;gap:4px;font:700 12px/1 Georgia,serif;color:#e6f3de}
+.primary-action>small>i{font-style:normal}
+.primary-action>small>i.short{color:#ff8e7d}
+.primary-action>small>i.enough{color:#c8eab4}
+.primary-action.primary-tier{border-color:#f0d190!important;background:linear-gradient(#e7b75a,#b9812c)!important;box-shadow:0 3px 0 #7d5418,0 5px 12px #1c110877}
+.primary-action[disabled]{background:linear-gradient(#8a8375,#635d51)!important;border-color:#a89f8d!important;box-shadow:none;opacity:.85}
+
+/* Convention 1, everywhere a value moves: `old -> new`, the new value green. */
+.step-value>em{font-style:normal;color:#8d7247;padding:0 3px}
+.step-value>b{color:#2f7a45}
+
+/* Spec 03's Limit Break dialog. The item tile's red ground IS the insufficiency message -- there is
+   no "you need more" sentence anywhere in the original, and the button deliberately stays green. */
+.limit-break-dialog{display:grid;gap:10px;justify-items:center;text-align:center;background:#ece2ccf5;border:4px double #a68a65;color:#4b3525;font-family:Georgia,serif}
+.limit-break-dialog [data-slot=dialog-title]{font:700 24px Georgia,serif}
+.outcome-pill{margin:0;padding:7px 18px;border:2px solid #c3a56d;border-radius:20px;background:#f7efda;font:700 15px Georgia,serif}
+.outcome-pill>em{font-style:normal;color:#9a7c4c;padding:0 6px}
+.outcome-pill>b{color:#2f7a45}
+.band-rule{width:100%;text-align:center;font:700 14px Georgia,serif;color:#6b5132;border-block:1px solid #c0a674;padding:4px 0;margin:2px 0}
+.item-tiles{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.item-tile{width:96px;min-height:76px;display:grid;align-content:center;gap:4px;padding:6px;border:2px solid #c9ab6e;border-radius:5px;background:#e3d3ae;font:700 12px Georgia,serif}
+.item-tile>b{font-size:14px;color:#2f7a45}
+.item-tile.item-short{background:#c9756a;border-color:#e0b06a;color:#fff1de}
+.item-tile.item-short>b{color:#fff0d2}
+.limit-break-dialog .primary-action{width:220px}
+
+/* The right rail's lower group: equipment and Form Switch, off the section dock. */
+.character-side-actions>.rail-tile{display:grid;gap:1px;place-items:center}
+.rail-glyph{font-size:19px;line-height:1;color:#ffd98f}
+
+.breakdown-dialog{font-family:Georgia,serif}
+.limit-break-art{width:132px;height:186px;position:relative;display:grid;place-items:center;overflow:hidden;border-radius:6px}
+.limit-break-art>img{width:100%;height:100%;object-fit:cover;object-position:center top}
