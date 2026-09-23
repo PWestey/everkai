@@ -1716,3 +1716,48 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .pair-table{width:100%;border-collapse:collapse;font-size:13px}
 .pair-table th,.pair-table td{border:1px solid #bda57e;padding:6px 8px;text-align:left}
 .pair-table th{width:40%;background:#ddc79d;font:700 12px Georgia,serif;color:#4b3525}
+
+/* ===== FATHOM RAIL — docs/family-screen-specs/05-skills-fathoms.md =====
+   A horizontal rail anchored on the Intimacy medallion, slots hanging off it alternately above and
+   below. THE RAIL'S OWN FILL IS THE PROGRESS BAR: pink to the last unlocked slot, grey beyond. That
+   one detail replaces Everkai's `Open 12/36` meter, and it is what makes Intimacy legible as the
+   gate rather than a number in a sentence. */
+.fathom-panel{display:grid;gap:7px;min-height:0}
+.fathom-totals{display:flex;align-items:center;gap:4px;padding:4px 7px;border:1px solid #c3a870;border-radius:16px;background:#f3e7cbcc;overflow-x:auto;scrollbar-width:none}
+.fathom-totals::-webkit-scrollbar{display:none}
+.totals-house{flex:none;font-size:15px;color:#8a6a34}
+.totals-chip{flex:none;display:flex;align-items:center;gap:2px;font:700 11px Georgia,serif;color:#5b4128}
+.totals-chip>img{width:17px;height:17px;object-fit:contain}
+.fathom-rail-wrap{display:flex;align-items:stretch;min-width:0}
+.rail-origin{flex:none;display:grid;justify-items:center;align-content:center;gap:1px;width:54px;padding:4px 2px;border:2px solid #b08d4f;border-radius:5px 0 0 5px;background:#4b3525}
+.rail-origin>img{width:22px;height:22px;object-fit:contain}
+.rail-origin>b{font:700 10px Georgia,serif;color:#ffe3ae;overflow-wrap:anywhere;text-align:center;line-height:1.05}
+/* Three rows: above / the bar / below. The bar is one pseudo-element spanning every column. */
+/* The track and the fill must span the SCROLL width, not the visible width: the rail scrolls, and a
+   percentage here would measure the viewport and leave the far slots sitting on nothing. Both are
+   sized in columns instead, from --n (total slots) and --openn (slots open). */
+.fathom-rail{--col:46px;position:relative;flex:1;min-width:0;display:grid;grid-auto-flow:column;grid-auto-columns:var(--col);grid-template-rows:auto 12px auto;align-items:center;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:2px 0}
+.fathom-rail::before{content:'';position:absolute;left:0;top:50%;translate:0 -50%;width:calc(var(--col) * var(--n,36));height:9px;border-block:1px solid #8d7a5a;background:#6f6349;z-index:0}
+.fathom-rail::after{content:'';position:absolute;left:0;top:50%;translate:0 -50%;width:calc(var(--col) * var(--openn,0));height:9px;background:linear-gradient(#f07fb4,#c8447f);box-shadow:0 0 6px #e0629a88;z-index:0}
+.rail-slot{position:relative;z-index:1;grid-row:1;display:grid;justify-items:center;gap:1px;padding:0;border:0;background:transparent;cursor:pointer;min-height:44px}
+.rail-slot.slot-below{grid-row:3}
+.slot-art{position:relative;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e9d9b6;border:2px solid #b08d4f;filter:saturate(var(--sat,1))}
+.rail-slot.slot-on .slot-art{border-color:#ffcf63;box-shadow:0 0 0 2px #ffcf6388}
+.slot-art>img{width:24px;height:24px;object-fit:contain}
+.slot-all{font-style:normal;font-size:17px;color:#8a5ab0}
+.slot-lock{position:absolute;right:-5px;bottom:-4px;width:14px!important;height:14px!important;color:#7a5a20;background:#ffdf9e;border-radius:50%;padding:1px}
+.slot-pill{display:block;padding:0 4px;border-radius:7px;background:#3a2a1ad9;color:#ffe3ae;font:700 9px Georgia,serif;text-decoration:none;white-space:nowrap}
+.slot-pill.slot-gate{background:#5a2f2fd9;color:#ffc9b8}
+/* The detail card and the action row: two rates over two primaries, plus Everkai's own Practise. */
+.fathom-detail{display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid #c3a870;border-radius:5px;background:#f3e7cbcc}
+.fathom-detail>div{flex:1;min-width:0;display:grid;gap:1px}
+.fathom-detail strong{font:700 13px Georgia,serif;color:#5b4128}
+.fathom-detail b{font:700 12px Georgia,serif}
+.detail-art{flex:none;filter:none}
+.fathom-actions{display:flex;gap:7px;align-items:end;justify-content:center;flex-wrap:wrap}
+.rate-stack{display:grid;justify-items:center;gap:2px;flex:1 1 96px}
+.rate-stack>small{font:700 10px Georgia,serif;color:#6d573c}
+.rate-stack .primary-action{width:100%;min-width:0;padding:6px 8px!important}
+.character-sheet-body .practise-action:not([data-variant=outline]){background-color:#7d6a4c}
+.rate-stack .primary-action small{display:flex;flex-wrap:wrap;justify-content:center;gap:0 3px;max-width:100%;font-size:9px;line-height:1.15}
+.rate-stack .primary-action b{font-size:13px}
