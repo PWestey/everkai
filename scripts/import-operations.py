@@ -151,6 +151,23 @@ assert sum(ladder[100:123])==1094,sum(ladder[100:123])  # screenshot 07: "Upgrad
 LEVEL_COLUMNS={sid:(row['skillProp_Level']//100,row['maxUpgradeLevel'])
                for sid,row in SKILLS.items()
                if sid.startswith('Hero_Appoint_') and row.get('skillProp_Level')}
+
+# THE SKILL'S OWN NAME AND TIER (2026-09-22), for docs/fellow-screen-specs/07-operation.md. The
+# original's panel titles the row `Operation Faculty V: Lv. 101/300` -- the roman numeral is part of
+# the skill's NAME, and the arabic level follows a colon. Both come from the original rather than
+# from a template of ours: the name is `SkillBase:name:<id>` in en/translate.json, and `stars` on the
+# SkillBase row is the tier the numeral spells. The translate file lives in the 1,499-table config
+# set rather than the mirrored subset, so it is read from there and hashed separately.
+LOGIC=Path('/Users/westmanfamily/Documents/Codex/2026-09-07/your/work/apk-audit/configs/config/logic')
+TRANSLATE_SHA='9e3a48f47f1a48a7ba2d20f4e3f5a4e0'   # replaced below by the real digest
+_traw=(LOGIC/'en/translate.json').read_bytes()
+TRANSLATE_SHA=hashlib.sha256(_traw).hexdigest()
+EN={r['id']:r['en'] for r in json.loads(_traw)['translate']}
+SKILL_NAMES={sid:EN.get(f'SkillBase:name:{sid}') or EN.get(f'Skill:name:{sid}')
+             for sid in SKILLS if sid.startswith('Hero_Appoint_')}
+assert SKILL_NAMES.get('Hero_Appoint_Country5Base_5')=='Operation Faculty V',SKILL_NAMES.get('Hero_Appoint_Country5Base_5')
+SKILL_TIERS={sid:row.get('stars') for sid,row in SKILLS.items() if sid.startswith('Hero_Appoint_')}
+assert SKILL_TIERS.get('Hero_Appoint_Country5Base_5')==5
 LADDER_NOTE=('The Study Notes ladder is SkillLevel[Hero_Appoint_Base_1]: entry i is the cost to reach '
              'level i+2 (entry 0 buys level 2), 25,589 in total, and the original charges nothing at '
              'the cap. `perLevel`/`max` sit on the effects the original grows (skillProp_Level 500 '
@@ -166,18 +183,26 @@ if '--patch' in sys.argv:
  touched=0
  for record in shipped['records']:
   for effect in record['effects']:
-   columns=LEVEL_COLUMNS.get(effect.get('skillId'))
+   sid=effect.get('skillId')
+   name=SKILL_NAMES.get(sid)
+   if name:effect['name']=name
+   if SKILL_TIERS.get(sid):effect['tier']=SKILL_TIERS[sid]
+   columns=LEVEL_COLUMNS.get(sid)
    if not columns:continue
    effect['perLevel'],effect['max']=columns;touched+=1
- shipped['sources']=[s for s in shipped['sources'] if s['file']!='SkillLevel.json']+[
-  {'file':'SkillLevel.json','sha256':LEVEL_SHA,'field':f"skillType == '{BASE_SKILL}'"}]
+ keep={'SkillLevel.json','en/translate.json'}
+ shipped['sources']=[s for s in shipped['sources'] if s['file'] not in keep]+[
+  {'file':'SkillLevel.json','sha256':LEVEL_SHA,'field':f"skillType == '{BASE_SKILL}'"},
+  {'file':'en/translate.json','sha256':TRANSLATE_SHA,'field':'SkillBase:name:Hero_Appoint_*'}]
  shipped['limits']=shipped['limits'].replace(
   'Skill levels above 1 are not modelled, so skillProp_Level growth is not applied. ','')
  shipped['levelling']=LADDER_NOTE
  shipped['skill']={'shared':BASE_SKILL,'cap':CAP,'perLevel':PER_LEVEL,'item':NOTE_ITEM,'total':sum(ladder)}
  shipped['ladder']=ladder
  target.write_text(json.dumps(shipped,indent=2,ensure_ascii=False)+'\n')
- print(f'patched {touched} effects across {len(shipped["records"])} records with perLevel/max; '
+ named=sum(1 for r in shipped['records'] for e in r['effects'] if e.get('name'))
+ print(f'patched {touched} effects across {len(shipped["records"])} records with perLevel/max, '
+       f'{named} with the original\'s own name and tier; '
        f'ladder {len(ladder)} steps, {sum(ladder)} Study Notes 1->{CAP}')
  raise SystemExit(0)
 
@@ -191,7 +216,8 @@ out={'provenance':('Imported from the original Hero.operationSkill and SkillBase
                    "original's conditionType 'all' and apply everywhere."),
      'sources':[{'file':'Hero.json','sha256':HERO_SHA,'field':'operationSkill'},
                 {'file':'SkillBase.json','sha256':SKILL_SHA,'field':"skillProp.id == 'appoint'"},
-                {'file':'SkillLevel.json','sha256':LEVEL_SHA,'field':f"skillType == '{BASE_SKILL}'"}],
+                {'file':'SkillLevel.json','sha256':LEVEL_SHA,'field':f"skillType == '{BASE_SKILL}'"},
+  {'file':'en/translate.json','sha256':TRANSLATE_SHA,'field':'SkillBase:name:Hero_Appoint_*'}],
      'limits':('Rarity-gated appoint skills are excluded and flagged per record, because an Everkai '
                'effect has a level gate only. Characters listed in content-overrides.removed '
                'are omitted. `perLevel`/`max` are present only on the rows the original grows '

@@ -24,6 +24,16 @@ from pathlib import Path
 
 L = Path('/Users/westmanfamily/Documents/Codex/2026-09-07/your/work/apk-audit/configs/config/logic')
 ROOT = Path(__file__).resolve().parent.parent
+# The halo skills' own display names, for docs/fellow-screen-specs/05-awaken.md's talent rows
+# (`Lv.4 Support Power`). Wording is exactly what the spec says captures ARE good evidence for, and
+# taking it from the original's own translate file means the panel invents no names of its own.
+_traw = (L / 'en/translate.json').read_bytes()
+TRANSLATE_SHA = hashlib.sha256(_traw).hexdigest()
+EN = {r['id']: r['en'] for r in json.loads(_traw)['translate']}
+# The seven named tiers the original's own talent tooltip lists, in order. `starHaloSkillLevel`
+# 1..7 and these names are the same value in two registers -- the spec's own words.
+STAR_TIER_NAMES = ['Novice', 'Proficient', 'Virtuoso', 'Outstanding', 'Perfect', 'Divine', 'Ascendent']
+
 names = os.listdir(L)
 control = {p: sum(1 for n in names if n.startswith(p)) for p in ('Wife', 'City', 'SimGame3')}
 assert control == {'Wife': 33, 'City': 15, 'SimGame3': 21}, control  # rule 2
@@ -109,8 +119,12 @@ def halo(sid):
         return None
     assert kind in ('country', 'rare', 'bond', 'all', 'self'), (sid, kind)
     top = number(b['maxUpgradeLevel'])
-    return {'prop': {'atk': 'percent', 'talent': 'talent', 'talentpercent': 'coef'}[p['id']], 'scope': [kind, str(tc['id']) if 'id' in tc else None],
-            'values': [value(b, min(l, top)) for l in range(1, 8)]}
+    row = {'prop': {'atk': 'percent', 'talent': 'talent', 'talentpercent': 'coef'}[p['id']], 'scope': [kind, str(tc['id']) if 'id' in tc else None],
+           'values': [value(b, min(l, top)) for l in range(1, 8)]}
+    name = EN.get(f'SkillBase:name:{sid}') or EN.get(f'Skill:name:{sid}')
+    if name:
+        row['name'] = name
+    return row
 
 
 magic = defaultdict(list)
@@ -176,6 +190,8 @@ out = {
                  'heroes[id].halos: the hero\'s own; changes [magicLevel, from|null, to]: a Rarity Advance stage '
                  'adds or swaps one. origin[id]: Origin Boost per level. held: counted, deliberately not shipped.'),
     'held': {k: len(v) for k, v in sorted(held.items())},
+    'tierNames': STAR_TIER_NAMES,
+    'translateSha256': TRANSLATE_SHA,
     'stars': stars,
     'skills': dict(sorted(skills.items())),
     'heroes': heroes,
