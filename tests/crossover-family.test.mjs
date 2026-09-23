@@ -158,7 +158,8 @@ test('the installed media matches its recorded bytes and hashes, and streams rat
  // correct bone weights and re-composited by scripts/crossover/village-build.py onto the same painted
  // plate at the same framing. Torn geometry is what an encoder spends bits on, so removing it makes
  // both files smaller at unchanged settings -- the same direction the Fellow total moved.
- assert.equal(bytes,38313170,`the 30 Family add ${bytes} bytes`);
+ // MOVED AGAIN 2026-09-23 by the saber pass, DOWN 210,774: six of these 30 carry a saber emitter.
+ assert.equal(bytes,38102396,`the 30 Family add ${bytes} bytes`);
  // Every row records both hashes, so what is on disk can always be checked against what was measured.
  for(const r of ADDITION_FAMILY_ROWS)assert.ok(/^[0-9a-f]{64}$/.test(r.artSha256)&&/^[0-9a-f]{64}$/.test(r.clip.sha256),r.id);
  // RE-MEASURED 2026-09-17 after the village install, the last of three times this line moved: it read

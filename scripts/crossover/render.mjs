@@ -30,7 +30,7 @@ try {
   await page.goto(`http://127.0.0.1:${port}/page.html`);
   await page.waitForFunction('window.__ready === true');
   const info = await page.evaluate((o) => window.setup(o), {glb: '/model.glb', width, height, style: args.style || 'msf', yaw: +(args.yaw || 0),
-    elevation: +(args.elevation ?? 4), fov: +(args.fov || 18), heightFraction: +(args['height-fraction'] || 0.74), verticalOffset: +(args['vertical-offset'] || 0), saberSign: +(args['saber-sign'] || 1)});
+    elevation: +(args.elevation ?? 4), fov: +(args.fov || 18), heightFraction: +(args['height-fraction'] || 0.74), verticalOffset: +(args['vertical-offset'] || 0), saberSign: +(args['saber-sign'] || 1), sabers: !args['no-sabers']});
   const fps = +(args.fps || 12);
   const loop = info.duration || 0;
   // Whole loops only, so the MP4 repeats seamlessly: frames = round(duration*fps), each at i*duration/frames.

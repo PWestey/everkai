@@ -60,6 +60,8 @@ def main():
     ap.add_argument('--still', required=True)
     ap.add_argument('--out-frames', required=True)
     ap.add_argument('--match', help='a shipped still whose framing and size this build must reproduce')
+    ap.add_argument('--source-box', help='x0,y0,x1,y1 of the BODY in the source frames, measured from a '
+                    'saber-less render; without it the box is the frames\' own alpha, which a blade enlarges')
     ap.add_argument('--size', default='1280x1920')
     ap.add_argument('--clip-size', default='1024x1536')
     a = ap.parse_args()
@@ -68,7 +70,7 @@ def main():
         raise SystemExit(f'no frames in {a.frames}')
     w, h = (int(x) for x in a.size.split('x'))
     cw, ch = (int(x) for x in a.clip_size.split('x'))
-    src_box = alpha_box(files)
+    src_box = tuple(int(v) for v in a.source_box.split(',')) if a.source_box else alpha_box(files)
     if a.match:
         target, (mw, mh) = shipped_box(a.match, a.backdrop)
         if (mw, mh) != (w, h):
@@ -100,7 +102,7 @@ def main():
         out.resize((cw, ch), Image.LANCZOS).save(os.path.join(a.out_frames, f'f{i:04d}.png'))
     meta = {'width': w, 'height': h, 'clipWidth': cw, 'clipHeight': ch, 'frames': len(files),
             'backdrop': os.path.basename(a.backdrop), 'matched': bool(a.match), 'scale': round(scale, 5),
-            'sourceBox': src_box, 'targetBox': list(target), 'stillBytes': os.path.getsize(a.still)}
+            'sourceBox': list(src_box), 'sourceBoxMeasured': not bool(a.source_box), 'targetBox': list(target), 'stillBytes': os.path.getsize(a.still)}
     json.dump(meta, open(os.path.join(a.out_frames, 'compose.json'), 'w'), indent=1)
     print(json.dumps(meta))
 

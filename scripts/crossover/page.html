@@ -79,22 +79,51 @@ window.setup = async (opts) => {
   // like vfx_swd_saber_chld_<colour> gets a simple emissive blade along its local -Y, starting at the hilt's emitter end (checked against the hilt in the render). The blade
   // length comes from its 'Tron Trail' child when present (Vader: 1.122 m), else 1.0.
   if (opts.sabers !== false) {
-    const colours = {red: 0xff2a1a, blue: 0x2a7bff, green: 0x3dff5a, purple: 0xb04dff, yellow: 0xffd23a, white: 0xf4f4ff, orange: 0xff8a1a, cyan: 0x3de8ff};
+    // MEASURED over all 68 SWGOH bundles (2026-09-23): 35 characters carry a saber emitter, and the
+    // node is spelled BOTH ways -- `saber_chld_` on 18 and `saber_chd_` on 23. Matching only `chld`
+    // found 15 of the 35, so 20 characters rendered a bare hilt and no blade: Jedi Knight Luke, Jedi
+    // Master Kenobi, Anakin, Yoda, Rey, Ben Solo, Ahsoka among them. Vader is a `chld`, which is why
+    // the feature looked finished when it was written on him.
+    // The colour tokens the corpus uses are red 18, blue 15, green 12, prpl 5, white 2, black 1 and
+    // `pre` 1 -- `prpl` and `black` were in no map, so those six fell through to the default and
+    // rendered RED. The two Darksabers are named differently from every other blade and from each
+    // other: Sabine Wren (S3) carries `vfx_swd_saber_chd_black_pre`, but Bo-Katan's is
+    // `vfx_dark_saber_chd_pre`, whose colour token is the literal "pre". Both are matched by name.
+    const colours = {red: 0xff2a1a, blue: 0x2a7bff, green: 0x3dff5a, purple: 0xb04dff, prpl: 0xb04dff,
+                     yellow: 0xffd23a, white: 0xf4f4ff, orange: 0xff8a1a, cyan: 0x3de8ff, black: 0x14141a};
     const found = [];
-    model.traverse((o) => { const m = /saber_chld_([a-z]+)/i.exec(o.name); if (m && !/trail|glow/i.test(o.name)) found.push([o, m[1].toLowerCase()]); });
+    model.traverse((o) => {
+      const m = /saber_chl?d_([a-z]+)/i.exec(o.name);
+      if (!m || /trail|glow/i.test(o.name)) return;
+      found.push([o, /dark_saber|black_saber/i.test(o.name) ? 'black' : m[1].toLowerCase()]);
+    });
     for (const [node, colourName] of found) {
       const colour = colours[colourName] ?? colours.red;
+      // The Darksaber inverts an ordinary blade: a black blade with a bright white edge, rather than a
+      // white core inside a coloured glow. Built from the same three cylinders, with core and rim swapped.
+      const dark = colourName === 'black';
       let length = 1.0;
       node.traverse((c) => { if (/tron trail/i.test(c.name)) length = Math.abs(c.position.y) || length; });
       const blade = new THREE.Group();
       // Blade starts at the emitter end of the hilt mesh (its most negative local Y), not at the pommel.
       let start = 0;
       if (node.parent && node.parent.isMesh) { node.parent.geometry.computeBoundingBox(); start = Math.min(0, node.parent.geometry.boundingBox.min.y - node.position.y); }
-      const core = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.013, length, 16, 1), new THREE.MeshBasicMaterial({color: 0xffffff}));
-      const glow1 = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.03, length * 1.01, 16, 1), new THREE.MeshBasicMaterial({color: colour, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false}));
-      const glow2 = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.06, length * 1.03, 16, 1), new THREE.MeshBasicMaterial({color: colour, transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false}));
+      // These are concentric cylinders, so what is drawn LAST is what the viewer sees in the middle.
+      // An ordinary blade wants the white core on top of its colour; the Darksaber wants the opposite,
+      // a black body drawn over a white halo, which leaves the bright edge showing around it.
+      // The dark core must join the TRANSPARENT pass, or renderOrder cannot help it: three.js draws
+      // every opaque mesh before any transparent one, so an opaque black core is laid down first and
+      // the additive white halo then brightens it to white -- which is what happened to Bo-Katan's
+      // Darksaber on the first attempt. transparent with opacity 1 keeps it solid and late.
+      const core = new THREE.Mesh(new THREE.CylinderGeometry(dark ? 0.028 : 0.011, dark ? 0.03 : 0.013, length, 16, 1),
+        new THREE.MeshBasicMaterial(dark ? {color: colour, transparent: true, opacity: 1, depthWrite: false} : {color: 0xffffff}));
+      const glow1 = new THREE.Mesh(new THREE.CylinderGeometry(dark ? 0.038 : 0.026, dark ? 0.04 : 0.03, length * 1.01, 16, 1),
+        new THREE.MeshBasicMaterial({color: dark ? 0xe8ecff : colour, transparent: true, opacity: dark ? 0.75 : 0.85, blending: THREE.AdditiveBlending, depthWrite: false}));
+      const glow2 = new THREE.Mesh(new THREE.CylinderGeometry(dark ? 0.052 : 0.055, dark ? 0.054 : 0.06, length * 1.03, 16, 1),
+        new THREE.MeshBasicMaterial({color: dark ? 0xb9c4ff : colour, transparent: true, opacity: dark ? 0.22 : 0.28, blending: THREE.AdditiveBlending, depthWrite: false}));
       for (const b of [glow2, glow1, core]) { b.position.y = start - length / 2; b.userData.noBounds = true; b.frustumCulled = false; blade.add(b); }
-      core.renderOrder = 2; glow1.renderOrder = 3; glow2.renderOrder = 4;
+      if (dark) { glow2.renderOrder = 2; glow1.renderOrder = 3; core.renderOrder = 4; }
+      else { core.renderOrder = 2; glow1.renderOrder = 3; glow2.renderOrder = 4; }
       node.add(blade);
     }
     window.__sabers = found.map(([n, c]) => n.name + ':' + c);

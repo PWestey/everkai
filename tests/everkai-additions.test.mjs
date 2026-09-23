@@ -149,7 +149,12 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
  // MOVED AGAIN 2026-09-23, DOWN by a further 12,652,960, when the remaining 22 affected Fellows were
  // re-rendered in the same pass (31 crossover rows sit in the 31 SWGOH bundles that mis-decode; 8 of
  // them are Family and move the pin in tests/crossover-family.test.mjs instead).
- assert.equal(bytes,174841666,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
+ // MOVED 2026-09-23 by the saber pass, DOWN a further 3,338,979: 35 of the 68 SWGOH characters carry
+ // a saber emitter and 18 of them were rendering a bare hilt, because the node is spelled BOTH
+ // `saber_chld_` (18 nodes) and `saber_chd_` (23) and scripts/crossover/page.html matched only the
+ // first. Those 18 gained a blade and three more (Mace Windu, Traya, Mara Jade) had `prpl` corrected
+ // from red; the two Darksabers are named differently again and are matched by name.
+ assert.equal(bytes,171502687,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
  assert.ok(bytes<256*1024*1024,'and the on-demand total stays inside a quarter gigabyte');
 });
 

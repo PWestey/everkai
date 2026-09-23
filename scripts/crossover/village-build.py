@@ -109,6 +109,10 @@ def main():
     ap.add_argument('--tools', required=True)
     ap.add_argument('--repo', default='.')
     ap.add_argument('--python', default=sys.executable)
+    ap.add_argument('--body-box', action='store_true', help="measure the framing box from a saber-LESS "
+                    "render. Use it for a character that is GAINING a blade: its shipped still has none, "
+                    "so matching the blade-inclusive box would shrink the body to fit a box that never "
+                    "held a blade. A character whose still already shows its blade matches like for like.")
     ap.add_argument('--backdrops', nargs='+', help='glob(s) of candidate plates; defaults to DEFAULT_BACKDROPS')
     ap.add_argument('--dry-run', action='store_true')
     a = ap.parse_args()
@@ -162,8 +166,19 @@ def main():
             raise SystemExit(f'idle changed: row records {src["clip"]}, this build chose {chose}')
         sh(['node', tools / 'render.mjs', '--glb', w / 'model.glb', '--out', w / 'frames',
             '--style', 'swgoh' if src['game'] == 'SWGOH' else 'msf', '--width', 1280, '--height', 1920], cwd=tools)
-        comp = last_json(sh([a.python, HERE / 'village-compose.py', '--frames', w / 'frames', '--backdrop', best[1],
-                             '--still', w / f'{cid}.webp', '--out-frames', w / 'comp', '--match', still_path]))
+        # A character whose blade was missing before now grows one, and a blade is OUTSIDE the body box
+        # the shipped still measures. Framing on the blade-inclusive box would shrink the body to fit a
+        # box that never held a blade, so the body box comes from one extra saber-less frame.
+        compose = [a.python, HERE / 'village-compose.py', '--frames', w / 'frames', '--backdrop', best[1],
+                   '--still', w / f'{cid}.webp', '--out-frames', w / 'comp', '--match', still_path]
+        if a.body_box and src['game'] == 'SWGOH':
+            sh(['node', tools / 'render.mjs', '--glb', w / 'model.glb', '--out', w / 'body', '--style', 'swgoh',
+                '--width', 1280, '--height', 1920, '--no-sabers', '--still-time', 0], cwd=tools)
+            body = sorted(glob.glob(str(w / 'body' / 'f*.png')))
+            alpha = np.asarray(Image.open(body[0]).convert('RGBA'))[..., 3]
+            ys, xs = np.where(alpha > 8)
+            compose += ['--source-box', f'{xs.min()},{ys.min()},{xs.max()},{ys.max()}']
+        comp = last_json(sh(compose))
         # The row's own shipped quality, not the encoder default: bits / second of the clip it replaces.
         bitrate = int(row['clip']['bytes'] * 8 / row['clip']['encodedDuration'])
         enc = last_json(sh([tools / 'encode-h264', w / 'comp', w / f'{cid}-idle.mp4', 12, bitrate]))
