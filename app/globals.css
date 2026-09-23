@@ -1813,3 +1813,24 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .bless-row .qty-picker{flex:none}
 .bless-row .qty-picker button{font-size:10px;padding:0 5px;min-width:0}
 .bond-pairing select{width:100%}
+
+/* ===== FAMILY STELLA — docs/family-screen-specs/03-stella.md =====
+   Reuses the Fellow track's furniture, with one deliberate difference: the Family nodes are INERT.
+   The original's track is a gauge, not a picker, and the card always reads current -> current+1. */
+.family-stella .stella-node{cursor:default;pointer-events:none}
+.family-stella .stella-node.node-next{outline:2px dotted #ffcf63;outline-offset:2px;border-radius:5px}
+.attributes-open{display:grid;justify-items:center;gap:0;min-height:44px;padding:2px 8px;border:2px solid #b89a66;border-radius:5px;background:#dcc9a3;color:#5e4429;font:700 10px Georgia,serif;cursor:pointer}
+.attributes-open>i{font-style:normal;font-size:15px}
+.halo-row{display:grid;gap:2px;padding:6px 0;border-bottom:1px solid #c7b07f55}
+.halo-row:last-child{border-bottom:0}
+.halo-row>strong{font:700 13px Georgia,serif;color:#5b4128}
+.halo-row>strong>em{font-style:normal;font-size:11px;color:#8a6a34}
+.halo-row>p{margin:0;font-size:12px;color:#6d573c}
+.halo-row .step-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.bullet-list{margin:0;padding-left:18px;display:grid;gap:6px;font-size:13px;line-height:1.35;color:#4b3525}
+/* The Family sheet is shorter than the Fellow one, so the track and card scroll inside it and the
+   Upgrade button stays in view rather than being pushed under the dock. */
+.family-stella .stella-track,.family-stella .stella-detail{max-height:min(32dvh,250px)}
+.family-stella .stella-head{flex-wrap:nowrap}
+.family-stella .stella-head>strong{flex:1;min-width:0;font-size:14px}
+.attributes-open{flex:none;min-width:64px}
