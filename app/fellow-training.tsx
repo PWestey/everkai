@@ -1,5 +1,5 @@
 import {fellowById} from '@/lib/catalog.mjs';
-import StellaTraining from './stella-training';
+import StellaPanel from './stella-panel';
 import OperationTraining from './operation-training';
 import AwakenPanel from './awaken-panel';
 import PanelPages from './panel-pages';
@@ -28,7 +28,7 @@ import {operationSkills} from '@/lib/operations.mjs';
  *  capture, so they are not invented here. */
 export default function FellowTraining({game,id,action,locked}:any){
  const sections:[string,any][]=[];
- if(stellaRule(id))sections.push(['Stella',<StellaTraining key="s" id={id} game={game} action={action} locked={locked}/>]);
+ if(stellaRule(id))sections.push(['Stella',<StellaPanel key="s" id={id} game={game} action={action} locked={locked}/>]);
  sections.push(['Awaken',<AwakenPanel key="a" id={id} game={game} action={action} locked={locked}/>]);
  sections.push(['Aptitude',<AptitudePanel key="t" game={game} id={id} action={action} locked={locked}/>]);
  if(operationSkills(game,id).length)sections.push(['Operation',<OperationTraining key="o" id={id} game={game} action={action} locked={locked}/>]);

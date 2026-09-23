@@ -1406,3 +1406,77 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .milestone-bar>i>u{display:block;height:100%;text-decoration:none;background:linear-gradient(#ffe6a4,#d5a53c)}
 .milestone-pills>span{flex:0 0 74px;text-align:center;padding:2px 0;border:1px solid #a98f5d;border-radius:10px;background:#6b5132;color:#f0dcb0;font:700 11px Georgia,serif}
 .milestone-pills>span.reached{background:linear-gradient(#f0cd85,#c79a41);color:#3d2a10}
+
+/* ---------------------------------------------------------------------------------------------
+   STELLA (docs/fellow-screen-specs/04-stella.md). Two columns: a scrolling constellation at ~35%
+   and the selected node's own step at ~65%, with one action centred at the foot -- the original's
+   single exception to the bottom-right rule, because this panel owns its own action row.
+   --------------------------------------------------------------------------------------------- */
+.stella-panel{display:grid;gap:8px;font-family:Georgia,serif;color:#4b3525}
+.stella-head{display:flex;align-items:center;gap:8px}
+.stella-head>strong{font:700 15px Georgia,serif}
+.magnifier{margin-left:auto;display:flex;align-items:center;gap:5px;min-height:38px;padding:5px 11px;border:1px solid #b79a66;border-radius:5px;background:#e4d3ab;color:#5b4128;font:700 13px Georgia,serif}
+.magnifier>span{font-size:17px}
+.stella-body{display:grid;grid-template-columns:minmax(96px,35%) 1fr;gap:10px;align-items:start}
+/* The track: bright gold behind reached nodes, dull ahead of them. At Lv. 0 the same shape renders
+   with the stars unfilled -- nothing is hidden and nothing says "locked". */
+.stella-track{position:relative;display:grid;gap:10px;max-height:290px;overflow-y:auto;overscroll-behavior:contain;padding:4px 2px 4px 16px}
+.stella-track::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:4px;border-radius:2px;background:linear-gradient(#e7c374,#8a6a34)}
+.stella-track.stella-dark::before{background:linear-gradient(#8a5b4a,#5b3a2b)}
+.stella-node{position:relative;display:flex;align-items:center;gap:7px;min-height:38px;padding:3px 6px;border:0;background:transparent;color:#6d573c;font:700 12px Georgia,serif}
+.stella-node>i{width:24px;height:24px;flex:none;display:grid;place-items:center;border-radius:50%;border:2px solid #b78f45;background:#3a2c1c;color:#6f5a3a;font-size:13px;font-style:normal}
+.stella-node.lit>i{background:radial-gradient(#ffffff,#8fc8ef 60%,#3f7fb5);color:#1d3d5a;border-color:#ffe6a6}
+.stella-node>span{padding:1px 7px;border:1px solid #a98f5d;border-radius:9px;background:#6b5132;color:#f0dcb0}
+.stella-node[aria-selected=true]>i{transform:scale(1.32)}
+.stella-node[aria-selected=true]>span{background:linear-gradient(#f0cd85,#c79a41);color:#3d2a10}
+.stella-detail{min-width:0;display:grid;gap:2px;align-content:start;max-height:290px;overflow-y:auto;overscroll-behavior:contain}
+.node-step{margin:0 0 4px;text-align:center;font:700 15px Georgia,serif;color:#5b4128}
+.node-step>em{font-style:normal;color:#9a7c4c;padding:0 5px}
+.node-step>b{color:#2f7a45}
+.step-row{display:flex;align-items:baseline;gap:6px;margin:0;padding:4px 6px;border-bottom:1px dotted #c8b58c;font:700 13px Georgia,serif;color:#6d573c}
+.step-row .glyph{flex:none;font-size:11px;color:#a2761f}
+.step-row .step-value{margin-left:auto;white-space:nowrap;color:#3c2d1c}
+.stella-foot{display:flex;justify-content:center;padding-top:4px}
+/* Convention 7: a disabled state is a DIFFERENT WORD, not a greyed button. */
+.activated-pill{display:grid;place-items:center;width:200px;max-width:52vw;min-height:50px;border:2px solid #b0564a;border-radius:7px;background:transparent;color:#b0564a;font:700 16px Georgia,serif}
+.boost-row{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:Georgia,serif}
+.boost-row>i{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:2px solid #b79a66;background:#e4d3ab;color:#6b5132;font:700 11px Georgia,serif;font-style:normal}
+.boost-row>div{min-width:0;flex:1}
+.boost-row strong{display:block;font:700 14px Georgia,serif;color:#5b4128}
+.boost-row hr{border:0;border-top:1px solid #c8b58c;margin:3px 0}
+.boost-row span{font-size:13px;color:#6d573c}
+
+/* The character sheet's generic `button` rule (48px pill, cream border) is more specific than a
+   single class, so every control the Fellow specs introduce restates its own shape inside the sheet
+   rather than inheriting a pill it is not. */
+.character-sheet-body .stella-node,.character-sheet-body .medallion,.character-sheet-body .qty-picker>button,
+.character-sheet-body .folder-tabs>button,.character-sheet-body .magnifier,.character-sheet-body .info-dot{border-radius:0;border:0;padding:0}
+.character-sheet-body .stella-node{min-height:38px;padding:3px 6px;background:transparent}
+.character-sheet-body .medallion{border:3px solid #b08d4f;border-radius:50%;min-height:66px}
+.character-sheet-body .medallion[aria-selected=true]{border-color:#f2cd7c}
+.character-sheet-body .qty-picker>button{min-height:34px;padding:4px 9px;border-right:1px solid #8b6c3d}
+.character-sheet-body .qty-picker>button:last-child{border-right:0}
+.character-sheet-body .folder-tabs>button{min-height:40px;padding:7px 14px;border:1px solid #b79a66;border-top:0;border-radius:0 0 8px 8px}
+.character-sheet-body .magnifier{min-height:38px;padding:5px 11px;border:1px solid #b79a66;border-radius:5px}
+.character-sheet-body .info-dot{width:22px;border:2px solid #e3bd72;border-radius:50%}
+.character-sheet-body .primary-action{min-height:50px}
+/* A nowrap value in an auto-sized grid column pushes the column wider than the sheet, so both
+   Stella columns are told they may be narrower than their content and scroll or wrap instead. */
+.stella-body{grid-template-columns:minmax(88px,34%) minmax(0,1fr)}
+.stella-track,.stella-detail{max-height:min(46dvh,360px)}
+.step-row{flex-wrap:wrap}
+.step-row>span:nth-child(2){min-width:0;overflow:hidden;text-overflow:ellipsis}
+
+/* `.character-sheet-body button:not([data-variant=outline]):not([data-variant=ghost])` paints every
+   plain button in a sheet green -- right for an action, wrong for a tab, a medallion, a node or a
+   magnifier. That selector scores (0,3,1), so these say `!important` rather than grow a selector
+   nobody can read. */
+.character-sheet-body .stella-node{background-color:transparent!important}
+.character-sheet-body .magnifier{background-color:#e4d3ab!important;color:#5b4128}
+.character-sheet-body .folder-tabs>button{background-color:#d9c69c!important;color:#6b5132}
+.character-sheet-body .folder-tabs>button[aria-pressed=true]{background-color:#f3e7cb!important;color:#3f2c1a}
+.character-sheet-body .qty-picker>button{background-color:#6b4a2c!important;color:#ffe9bd}
+.character-sheet-body .qty-picker>button[aria-pressed=true]{background-image:linear-gradient(#f3cd7e,#cf9f3f);background-color:#e0b357!important;color:#37230f}
+.character-sheet-body .info-dot{background-color:#43301fd9!important;color:#ffe2a4}
+.character-sheet-body .aptitude-header .info-dot{background-color:#6a4c2f!important;color:#ffe9c4}
+.character-sheet-body .tag-pill{background-color:#e4d3ab}
