@@ -321,13 +321,70 @@ def renderer_list(nodes, report):
                     out.append((n, kind, r, mesh, mats))
     return out
 
+def compressed_skin(mesh, vc):
+    """Bone indices and weights from a Unity COMPRESSED mesh, decoded here rather than by UnityPy.
+
+    MEASURED BUG (2026-09-23, UnityPy 1.25.3). `MeshHandler.m_BoneWeights` mis-decodes
+    `m_CompressedMesh`: on char_mandalorian_beskar_pre every one of the three skinned meshes came back
+    with per-vertex weight sums ranging from -28.032 to 1.0 instead of a constant 1.0. The caller then
+    divides by that sum, so a negative sum flips the vertex's displacement and its triangles blow up --
+    on the Mandalorian, 50 of 2,712 body triangles (1.8%) stretched by more than 3x, the worst by 15x,
+    every one of them at chest and shoulder height. That is the "disfigured body" the owner reported.
+
+    Unity packs a compressed skin as a stream, not a fixed 4 per vertex: weights are 5-bit ints out of
+    31 and a vertex stops early once they reach 31 (the remaining slots are zero), while the fourth
+    weight of a full set is implied as 31 - sum. Decoded that way, every vertex of all three meshes sums
+    to exactly 1.000 and the two packed arrays are consumed to the last item (5,201/5,201 weights and
+    5,921/5,921 bone indices on mandalorian_beskar_mesh) -- the positive control that the walk is right.
+    Uncompressed meshes are untouched and still come from MeshHandler.
+    """
+    cm = getattr(mesh, 'm_CompressedMesh', None)
+    if cm is None or not getattr(cm.m_Weights, 'm_NumItems', 0):
+        return None
+    weights, bones = unpack_ints(cm.m_Weights), unpack_ints(cm.m_BoneIndices)
+    idx = np.zeros((vc, 4), dtype=np.uint16)
+    wts = np.zeros((vc, 4), dtype=np.float32)
+    wpos = bpos = slot = total = 0
+    i = 0
+    while i < vc * 4:
+        v = i // 4
+        if slot == 3:  # the fourth weight of a full set is what is left of 31
+            wts[v, slot] = (31 - total) / 31.0
+            idx[v, slot] = bones[bpos]; bpos += 1
+            slot, total, i = 0, 0, i + 1
+            continue
+        wts[v, slot] = weights[wpos] / 31.0
+        idx[v, slot] = bones[bpos]; bpos += 1
+        total += weights[wpos]; wpos += 1
+        slot += 1; i += 1
+        if total >= 31:  # this vertex is done; its remaining slots stay zero
+            while slot < 4:
+                slot += 1; i += 1
+            slot, total = 0, 0
+    if wpos != len(weights) or bpos != len(bones):
+        raise SystemExit(f'{mesh.m_Name}: compressed skin walk consumed {wpos}/{len(weights)} weights '
+                         f'and {bpos}/{len(bones)} bone indices; the packing is not the expected one')
+    return idx, wts
+
 def vertex_count(renderers):
+    """Vertices behind a candidate prefab root, used only to break ties when choosing one.
+
+    `m_VertexData.m_VertexCount` is 0 on a COMPRESSED mesh -- the vertices live in `m_CompressedMesh`
+    instead -- so this used to score every compressed character as zero and break their ties blind.
+    Measured: char_grievous_pre reads 0 that way and 11,852 through MeshHandler; bobafett_old 0 and
+    4,116. MeshHandler is the one that is right for both kinds, so ask it and fall back to the field.
+    """
     total = 0
     for _, _, _, mesh, _ in renderers:
         try:
-            total += mesh.m_VertexData.m_VertexCount
+            h = MeshHandler(mesh)
+            h.process()
+            total += h.m_VertexCount or mesh.m_VertexData.m_VertexCount
         except Exception:
-            pass
+            try:
+                total += mesh.m_VertexData.m_VertexCount
+            except Exception:
+                pass
     return total
 
 
@@ -946,7 +1003,10 @@ def main():
             uv[:, 1] = 1 - uv[:, 1]
             attrs['TEXCOORD_0'] = g.accessor(uv.astype(np.float32), 'VEC2', target=34962)
         skinned = kind == 'SkinnedMeshRenderer' and len(r.m_Bones) > 0 and h.m_BoneIndices
-        if skinned:
+        packed = compressed_skin(mesh, vc) if skinned else None
+        if skinned and packed is not None:
+            idx, wts = packed
+        elif skinned:
             idx = np.zeros((vc, 4), dtype=np.uint16)
             wts = np.zeros((vc, 4), dtype=np.float32)
             for i, bi in enumerate(h.m_BoneIndices):
@@ -961,6 +1021,7 @@ def main():
             sums[sums == 0] = 1
             wts = wts / sums
             wts[:, 0] += 1 - wts.sum(axis=1)
+        if skinned:
             attrs['JOINTS_0'] = g.accessor(idx, 'VEC4', ctype=5123, target=34962)
             attrs['WEIGHTS_0'] = g.accessor(wts, 'VEC4', target=34962)
         tris = h.get_triangles()

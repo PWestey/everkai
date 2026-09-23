@@ -3348,16 +3348,16 @@
    "art": "crossover/xover_swgoh_themandalorianbeskararmor.webp",
    "clip": {
     "src": "crossover/xover_swgoh_themandalorianbeskararmor-idle.mp4",
-    "bytes": 3029042,
-    "sha256": "c65a7ac4f701f98b0ebc3281ebc065c28c811aed3f62ff075aab0bb43e888dd0",
+    "bytes": 2661643,
+    "sha256": "d69c00dce961d7f493b08fa05e232b6b233666699fc3707c5a446f67c98c0fb5",
     "width": 1024,
     "height": 1536,
     "fps": 12,
     "frames": 102,
     "encodedDuration": 8.5
    },
-   "artSha256": "b0deba69085f6222a94544ad3987b263ef6990b8d4d77ddf931f5e0549d05395",
-   "artBytes": 231500,
+   "artSha256": "3ba59fa12ac454ee5a25f9b44956bac388f73cf53bb042d0eeb4c0cdf5c5697f",
+   "artBytes": 149422,
    "source": {
     "game": "SWGOH",
     "assetId": "THEMANDALORIANBESKARARMOR",

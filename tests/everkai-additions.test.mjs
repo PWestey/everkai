@@ -137,11 +137,16 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
  }
  assert.deepEqual(data.fellows.filter(r=>!r.clip).map(r=>r.id),[],'every Fellow ships an idle clip after the village install');
  assert.equal(clips,133);
- // MEASURED 2026-09-17 from the installed files, not from the plan: the 133 Fellows carry 34,678,548
+ // MEASURED 2026-09-17 from the installed files, not from the plan: the 133 Fellows carried 34,678,548
  // bytes of stills and 153,265,555 bytes of idle clips. None of it is in the precache (STREAMED
  // excludes assets/crossover/), so the budget guard in tests/offline-manifest.test.mjs cannot move --
  // this is the download-on-demand total, and it is pinned so a re-render cannot quietly double it.
- assert.equal(bytes,187944103,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
+ // MOVED 2026-09-23, DOWN by 449,477 bytes: The Mandalorian (Beskar Armor) was re-rendered after the
+ // compressed-skin decode fix in scripts/crossover/unity_to_glb.py (his body's worst triangle went from
+ // 15.11x its bind area to 2.24x), and re-composited by scripts/crossover/village-compose.py. Both of
+ // his files got SMALLER at the same settings -- still 231,500 -> 149,422 at WebP q85, clip 3,029,042
+ // -> 2,661,643 at 12 fps -- which is what a re-render that removes torn geometry does to an encoder.
+ assert.equal(bytes,187494626,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
  assert.ok(bytes<256*1024*1024,'and the on-demand total stays inside a quarter gigabyte');
 });
 
