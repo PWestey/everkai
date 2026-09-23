@@ -1558,3 +1558,38 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .operation-passive b{color:#2f7a45}
 .operation-passive i{font-style:normal;color:#2f7a45}
 .operation-info{display:flex;justify-content:flex-end}
+
+/* ---------------------------------------------------------------------------------------------
+   THE FELLOW ROSTER (docs/fellow-screen-specs/01-roster.md). Title row, count pill, a three-column
+   grid whose cards carry four things -- level, class, name and "has an action" -- and a floating
+   class-filter capsule over the foot of the grid rather than a toolbar under the header.
+   --------------------------------------------------------------------------------------------- */
+.roster-title-row{display:flex;align-items:center;gap:9px;flex:none}
+.roster-title-row h2{font:700 21px Georgia,serif;color:#4b3421;margin-right:auto}
+.roster-title-row .info-dot{border-color:#a9854a;background:#6a4c2f!important;color:#ffe9c4}
+.roster-title-row .roster-sort{font:700 12px Georgia,serif;color:#5e5238;display:flex;align-items:center;gap:5px}
+.count-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border:1px solid #8f9d6a;border-radius:13px;background:#e6edcf;color:#3f5230;font:700 13px Georgia,serif}
+.count-pill>b{color:#5c8a3c}
+.roster-landing .roster-search{display:flex;align-items:center;gap:8px}
+/* The grid scrolls under the capsule, so it keeps room for it at the foot. */
+.roster-landing .roster-picker{padding-bottom:62px}
+.type-capsule{position:sticky;bottom:6px;z-index:3;display:flex;justify-content:center;gap:4px;margin:8px auto 0;padding:4px 7px;width:max-content;max-width:100%;border:2px solid #b08d4f;border-radius:30px;background:#5a3f28ee;box-shadow:0 5px 16px #1c110877}
+.type-capsule button{min-width:44px;width:44px;min-height:44px;padding:2px;border-radius:50%;color:#f9e8b8;font:700 11px Georgia,serif}
+.type-capsule img{width:32px;height:32px;object-fit:contain}
+.type-capsule button[aria-pressed=true]{outline:2px solid #ffd98f;outline-offset:-2px;background:#ad8d3f66}
+/* The card: the level banner is a notched tab on the top edge and is ABSENT on an unjoined card,
+   which is the strongest owned/unowned signal in the capture. */
+.character-collection .roster-tile>.level-banner{position:absolute;top:0;left:50%;translate:-50% 0;z-index:2;padding:1px 10px 2px;background:#3f2c1a;color:#ffe2a6;border:1px solid #b78f45;border-top:0;border-radius:0 0 7px 7px;font:700 11px Georgia,serif}
+.character-collection .roster-tile>.class-medallion{position:absolute;top:2px;left:2px;z-index:2;width:30px;height:30px;object-fit:contain;filter:drop-shadow(0 1px 2px #23180c)}
+.character-collection .roster-tile>.action-badge{position:absolute;top:2px;right:2px;z-index:2;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#b0392a;border:2px solid #ffd7a1;color:#fff;font:700 14px/1 Georgia,serif}
+/* Rarity leaves the card as a letter and comes back as the name plate's colour. */
+:is(.roster-landing,.roster-cards) .roster-tile>.name-plate{position:absolute;z-index:3;left:5%;right:5%;bottom:5%;width:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 2px;border:0;border-radius:0;font:700 12px/1.1 Georgia,serif;color:#2c2013;background:#c9bda0;clip-path:polygon(5% 0,95% 0,100% 50%,95% 100%,5% 100%,0 50%)}
+.name-plate.plate-n{background:#c9bda0}
+.name-plate.plate-r{background:#a9cfdc}
+.name-plate.plate-sr{background:#c2b0dd}
+.name-plate.plate-ssr,.name-plate.plate-ssr1{background:#e8cf93}
+.name-plate.plate-ur,.name-plate.plate-ur1{background:#e5a99c}
+.name-plate.plate-lr{background:#e7aad6}
+/* Unjoined cards desaturate toward sepia and keep the art legible -- a collection, not a blackout. */
+.character-collection .not-joined .roster-tile-art img{filter:sepia(.75) saturate(.5) brightness(.85)}
+.character-collection .not-joined .name-plate{filter:saturate(.45) brightness(.9)}
