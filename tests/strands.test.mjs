@@ -1,11 +1,12 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {legacyStart} from './progression-helpers.mjs';
+import {legacyStart,grantFragments} from './progression-helpers.mjs';
 import {readdirSync,readFileSync} from 'node:fs';
 import {act,valid,totalRate} from '../lib/game.mjs';
 import {enterpriseBreakdown,enterpriseRate,businessBonus,BUSINESSES} from '../lib/businesses.mjs';
 import {blessingCost} from '../lib/progression.mjs';
 import {ACTIONS_PER_SLOT} from '../lib/fathoms.mjs';
 import {latencyBonus} from '../lib/latency.mjs';
+import {familyStellaYield} from '../lib/family-stella.mjs';
 import {staffed,funded,costOf} from './gear-fixtures.mjs';
 
 // Every strand the game DECLARES as a village-earnings bonus must actually reach a business.
@@ -76,7 +77,7 @@ const STRANDS=[
    s={...s,habits:{...s.habits,totals},family:{...s.family,[id]:{...s.family[id],intimacy:5000}}};
    return run(s,'fathomAdvance',id,1);}},  // slot 1 is Diligent, like the Inn
 
- {id:'latency',key:'latency',declaredIn:'app/latency-panel.tsx "to every building\u2019s earnings"',
+ {id:'latency',key:'latency',declaredIn:'app/latency-panel.tsx "village earnings, at every business"',
   probe(){ // Latency needs an Intimacy-gated cap AND a successful Stimulate; the roll is seeded, so
    // this loop is deterministic -- at an empty bar the original's own chance is 80%.
    let s=inn();
@@ -87,6 +88,18 @@ const STRANDS=[
    s=run(s,'latencyLevel',id);
    for(let i=0;i<20&&!latencyBonus(s);i++)s=run(s,'latencyStimulate',id,1);
    assert.ok(latencyBonus(s)>0,'fixture never landed a Stimulate');
+   return s;}},
+
+ {id:'stella',key:'stella',declaredIn:'app/family-stella-panel.tsx "All Building Earnings"',
+  probe(){ // Family Stella's `city | yield percent` halo (WifeSpirit NewHalo_1), recorded in the 5th
+   // column of every rank row since the import and paid since 2026-09-22. wife_112 reaches it at
+   // rank 1 for 20 shards, which is the cheapest route to a non-zero yield on any member.
+   let s=inn();
+   s={...s,family:{...s.family,wife_112:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}}};
+   s=grantFragments(s,'hero_74');            // a pooled ladder, so this funds the shared village pool
+   s=run(s,'familyStellaActivate','wife_112');
+   s=run(s,'familyStellaUpgrade','wife_112',1);
+   assert.ok(familyStellaYield(s)>0,'fixture reached no city-yield rank');
    return s;}},
 
  {id:'farm',key:'farm',declaredIn:'app/farm-panel.tsx "+X% village earnings from every building"',
@@ -145,7 +158,7 @@ test('the source extractors still work (a drifted pattern must fail loudly, not 
  const claims=earningsClaims();
  assert.ok(claims.length>=6,`found only ${claims.length} village-earnings claims in app/; the pattern has drifted`);
  for(const f of ['apothecary-panel.tsx','blessing-panel.tsx','family-panel.tsx','farm-panel.tsx',
-                 'fathom-panel.tsx','habit-panel.tsx'])
+                 'fathom-panel.tsx','habit-panel.tsx','family-stella-panel.tsx','latency-panel.tsx'])
   assert.ok(claims.includes(f),`claim scan missed ${f}; the prose pattern has broken`);
 });
 

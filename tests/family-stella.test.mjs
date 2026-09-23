@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,refusedBy,decode} from '../lib/game.mjs';
 import {newFellow,powerParts} from '../lib/adventure.mjs';
 import {stellaRule,stellaState,validStella,SPIRIT_SHARD_ITEM} from '../lib/stella.mjs';
-import {FAMILY_STELLA,STELLA_BLESS_PAIRS,familyStellaSpend,validFamilyStella} from '../lib/family-stella.mjs';
+import {FAMILY_STELLA,STELLA_BLESS_PAIRS,familyStellaSpend,validFamilyStella,familyStellaYield} from '../lib/family-stella.mjs';
 import {familyStellaParts,familyPairBlessing,stellaBlessPairs} from '../lib/family-stella-power.mjs';
 import {validBlessings,blessingRecipients} from '../lib/blessings.mjs';
 import {talentSkillCap} from '../lib/talent-skills.mjs';
@@ -94,4 +94,45 @@ test('quenching: the cheapest slot steps first, gold is spent at the ladder’s 
  assert.equal(validQuench(q([17,16])),false);assert.equal(validQuench(q([3,16])),false);assert.equal(validQuench(q([16,16,16])),false);
  assert.equal(quenchStepCost(16),null);
  const raw=JSON.stringify(s);assert.equal(JSON.stringify(decode(raw)),raw);
+});
+
+// ---- THE CITY-YIELD HALO (2026-09-22, docs/character-systems-gap.md 3.2 and 7.1) ----
+// WifeSpirit's NewHalo_1, `city | yield percent`. The 5th column of every rank row has been recorded
+// in lib/family-stella-data.json since the import and deliberately left unwired. It lands now, with
+// Family Latency and under the same rule -- doc 7.1 calls them one decision, because both are
+// per-member percentages the original sums over the whole roster and adds to every building.
+
+test('the city-yield column is the data it always was, now read instead of ignored',()=>{
+ // Positive control on the column itself before trusting anything measured from it.
+ const rows=Object.values(FAMILY_STELLA);
+ const withYield=rows.filter(w=>(w.ranks.at(-1)[4]||0)>0);
+ assert.equal(rows.length,89);
+ assert.equal(withYield.length,74,'74 of the 89 members carry a city-yield column');
+ assert.equal(Math.max(...rows.map(w=>w.ranks.at(-1)[4]||0)),54500,'the largest single member, +545%');
+ assert.equal(withYield.reduce((n,w)=>n+w.ranks.at(-1)[4],0),1598000,'all 74 maxed: +15,980%');
+ // Every rank row is cumulative and monotonic, which is what lets the panel read the current row.
+ for(const w of rows)for(let r=1;r<w.ranks.length;r++)
+  assert.ok((w.ranks[r][4]||0)>=(w.ranks[r-1][4]||0),'a yield column went backwards');
+});
+
+test('the halo is account-wide, derived, and absent from a save that never activated Stella',()=>{
+ const s=fresh(1000);
+ assert.equal(familyStellaYield(s),0);
+ assert.equal(s.familyStella,undefined);
+ // Two activated members sum, exactly as the original's `city` scope does.
+ const two={...s,
+  family:{...s.family,wife_112:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1},
+                      wife_115:{intimacy:0,blessingPower:10,points:0,skill:0,relationship:1}},
+  familyStella:{policyVersion:1,ranks:{wife_112:1,wife_115:1}}};
+ const one={...two,familyStella:{policyVersion:1,ranks:{wife_112:1}}};
+ assert.equal(FAMILY_STELLA.wife_112.ranks[1][4],500);
+ assert.equal(familyStellaYield(one),0.05);
+ assert.equal(familyStellaYield(two),0.10,'two members sum; the original scopes it to the city, not to her');
+ // A member whose rank is stored but who has LEFT the family pays nothing.
+ const gone={...two,family:{...s.family,wife_112:two.family.wife_112}};
+ assert.equal(familyStellaYield(gone),0.05);
+ // Nothing is stored: the total is read off the ranks every time.
+ const before=JSON.stringify(two);
+ familyStellaYield(two);
+ assert.equal(JSON.stringify(two),before);
 });

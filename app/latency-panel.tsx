@@ -36,7 +36,7 @@ export default function LatencyPanel({id,game,action,locked}:any){
    <Button disabled={locked||full||!cap||stones<STIMULATE_COST} onClick={()=>action('latencyStimulate',id,1)}>Stimulate · {STIMULATE_COST} stones</Button>
    <Button disabled={locked||full||!cap||!tenX||stones<STIMULATE_COST*10} onClick={()=>action('latencyStimulate',id,10)}>Stimulate ×10 · {STIMULATE_COST*10} stones</Button>
   </div></div>
-  <p><strong>Across the whole family: +{(account*100).toLocaleString(undefined,{maximumFractionDigits:2})}% to every building’s earnings.</strong> The original sums this over every member, so each one you raise raises all seventeen businesses again.</p>
+  <p><strong>Across the whole family: +{(account*100).toLocaleString(undefined,{maximumFractionDigits:2})}% village earnings, at every business.</strong> The original sums this over every member, so each one you raise raises all seventeen businesses again.</p>
   <p className="small-note">If the original had instead shown one shared bar rather than a per-member sum, the same save would be worth +{(alternate*100).toLocaleString(undefined,{maximumFractionDigits:2})}% — its largest single member. Everkai pays the sum, which is what the client’s own GetAllWifeBuildingPotential computes.</p>
   <details className="rules-note"><summary>About these rules</summary>
    <p>Every number here is the original’s: 41 cap steps of +2% each from 0% to +800%, gated on Intimacy from 2,000 to 50,000 and costing one Luck Stone a step; success chances of 80% / 50% / 25% / 10% read off how full the bar already is; gains of +1% / +2% / +4% at weights 7000 / 2000 / 1000; and {STIMULATE_COST} Luck Stones a Stimulate. The roll is seeded and its result is saved, so reloading cannot re-roll it.</p>
