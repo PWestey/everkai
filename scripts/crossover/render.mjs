@@ -11,7 +11,7 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, all) =>
 const here = path.dirname(fileURLToPath(import.meta.url));
 const glb = path.resolve(args.glb), out = path.resolve(args.out);
 fs.mkdirSync(out, {recursive: true});
-const types = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.glb': 'model/gltf-binary'};
+const types = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.glb': 'model/gltf-binary', '.png': 'image/png'};
 const server = http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
   const file = url === '/model.glb' ? glb : path.join(here, url);

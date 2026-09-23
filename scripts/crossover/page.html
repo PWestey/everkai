@@ -9,9 +9,19 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 // Shared by the offline renderer (render.mjs) and, in spirit, by the app's live viewer.
 // SWGOH: unlit dual matcap (mask.R picks the shiny matcap), which is what its shader keywords say.
 // MSF: lit standard material with the DXT5nm normal map decoded in the shader.
-function swgohMaterial(src, extras, tex) {
-  const m = new THREE.MeshMatcapMaterial({map: src.map, matcap: extras._MatCap ? tex(extras._MatCap.index) : null});
-  const matB = extras._MatCapB ? tex(extras._MatCapB.index) : m.matcap;
+// MEASURED 2026-09-23 across all 68 SWGOH bundles: 282 of the 298 matcap slots point at a texture in a
+// SHARED bundle the corpus does not include, and every single character has at least one. Only 7 carry
+// any matcap of their own. A MeshMatcapMaterial with `matcap: null` does not skip the lookup -- three.js
+// compiles its fallback branch, `vec4 matcapColor = vec4( vec3( mix( 0.2, 0.8, uv.y ) ), 1.0 )`, a plain
+// grey ramp down the view-space normal. That is what made every Star Wars character look flat and
+// washed next to the lit Marvel ones: they were being shaded by a gradient, not by a material.
+// FALLBACK is the game's own art, not an invention: `matcap_metal_glossy_b_tex` (a chrome sphere) and
+// `matcap_plastic_less_gloss_tex` (a soft one) are both IN the corpus, in other characters' bundles,
+// and they are the pair this shader is built around -- the mask's red channel picks the shiny one for
+// metal and the soft one for everything else, which is exactly what the 62 in-bundle masks encode.
+function swgohMaterial(src, extras, tex, fallback) {
+  const m = new THREE.MeshMatcapMaterial({map: src.map, matcap: extras._MatCap ? tex(extras._MatCap.index) : fallback.glossy});
+  const matB = extras._MatCapB ? tex(extras._MatCapB.index) : (extras._MatCap ? m.matcap : fallback.soft);
   const mask = extras._Mask ? tex(extras._Mask.index) : null;
   const f = extras.floats || {};
   m.onBeforeCompile = (sh) => {
@@ -65,15 +75,28 @@ window.setup = async (opts) => {
   const parser = gltf.parser;
   const texList = await Promise.all((parser.json.textures || []).map((_, i) => parser.getDependency('texture', i)));
   const tex = (i) => { const t = texList[i]; t.flipY = false; return t; };
+  // The two shared matcaps, loaded once. flipY is false to match every texture that comes out of the
+  // GLB, so the highlight sits where the character's own matcap would have put it.
+  // AWAITED, not fired off: a matcap that has not arrived yet samples as black, and the shader
+  // multiplies the base texture by it, so the first frame renders the character as a silhouette.
+  const loader = new THREE.TextureLoader();
+  const sphere = async (file) => { const t = await loader.loadAsync(file); t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; return t; };
+  const [glossy, soft] = await Promise.all([sphere('./matcap_metal_glossy_b_tex.png'), sphere('./matcap_plastic_less_gloss_tex.png')]);
+  const fallback = {glossy, soft};
+  // These textures are 256x256 and the render is 1280x1920, so every one of them is magnified.
+  // Anisotropic filtering is what keeps a surface at an angle -- a pauldron, a boot, a floor-facing
+  // plate -- from smearing, and it costs nothing at this resolution.
+  const aniso = renderer.capabilities.getMaxAnisotropy();
   model.traverse((o) => {
     if (!o.isMesh) return;
     o.frustumCulled = false;
     const ex = o.material.userData || {};
     const extras = ex;
-    if (opts.style === 'swgoh') o.material = swgohMaterial(o.material, extras, tex);
+    if (opts.style === 'swgoh') o.material = swgohMaterial(o.material, extras, tex, fallback);
     else o.material = msfMaterial(o.material, extras, tex);
     if (o.material.map) o.material.map.colorSpace = THREE.SRGBColorSpace;
     if (o.material.matcap) o.material.matcap.colorSpace = THREE.SRGBColorSpace;
+    for (const slot of ['map', 'normalMap', 'matcap']) if (o.material[slot]) o.material[slot].anisotropy = aniso;
   });
   // SWGOH sabers are particle VFX in Unity. The GLB keeps their empty transforms, so a node named
   // like vfx_swd_saber_chld_<colour> gets a simple emissive blade along its local -Y, starting at the hilt's emitter end (checked against the hilt in the render). The blade

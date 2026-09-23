@@ -42,7 +42,13 @@ except SystemExit:
     pass
 DONORS, HUMANOID_DONORS = _bc.DONORS, _bc.HUMANOID_DONORS
 MARGIN = 2.0   # the winning backdrop must be this many times closer than the runner-up
-MAX_DISTANCE = 8.0  # ...and must itself be a real match: every one of the 30 identified sits at 3.79-7.83
+MAX_DISTANCE = 20.0  # ...and must itself be a real match.
+# The absolute distance depends on how much WebP noise the shipped still carries, so it is the MARGIN
+# that discriminates, not the number: the 65 identified plates sit at 0.15-19.30 with their runners-up
+# at 2.0x or better (most far better), while every plate that is genuinely not in the candidate set --
+# Yoda's, and the 33 Marvel characters' -- comes back with a margin between 1.03x and 1.41x. A first
+# pass at 8.0 rejected Ahsoka (8.52 against a runner-up at 18.61) and R2-D2 (19.30 against 38.51),
+# both of which are right; neither had been re-rendered before, so their stills are the noisiest.
 # The painted plates the village build stood the characters in. 38 of them ship in the repo; the rest are
 # the CLEAN character-art backgrounds the humanization pipeline selected from (lib/humanized-static-data
 # .json records the path of each one it used, e.g. Bg_Wife_175.png), which live in the owner's work tree
@@ -109,6 +115,23 @@ def main():
     ap.add_argument('--tools', required=True)
     ap.add_argument('--repo', default='.')
     ap.add_argument('--python', default=sys.executable)
+    ap.add_argument('--keep-frames', action='store_true', help='keep the intermediate PNG frames; they '
+                    'are deleted after each character because at 2x they are ~2 GB per character')
+    ap.add_argument('--supersample', type=int, default=2, help='render at this multiple of the still size '
+                    'and let village-compose.py resize it down (Lanczos). MEASURED: the SWGOH base '
+                    'textures are 256x256 or smaller -- 71 of 118 sampled at 256, 40 at 128, none above '
+                    '-- so texture detail is capped at the source and the aliasing is what actually reads '
+                    'as low quality: MSAA smooths geometry edges but not the matcap specular, which '
+                    'sparkles on every armour plate. Supersampling smooths both. 1 turns it off.')
+    ap.add_argument('--backdrop-override', help='a plate to use instead of identifying one from the '
+                    'shipped still -- either because the plate is in none of the candidates (Grandmaster '
+                    'Yoda, best match 37.63), or because the identification is right but just misses the '
+                    'margin and a human has checked it (R2-D2: treasure.webp at 19.30 against a runner-up '
+                    'at 38.51, a margin of 1.995 where the rule asks for 2.0, and his shipped still is '
+                    'unmistakably that desert oasis). Pass --no-match as well for the first case only: a '
+                    'still cannot measure a framing box against a plate it never stood on.')
+    ap.add_argument('--no-match', action='store_true', help='frame by the camera rather than by the '
+                    'shipped still (village-compose.py without --match)')
     ap.add_argument('--body-box', action='store_true', help="measure the framing box from a saber-LESS "
                     "render. Use it for a character that is GAINING a blade: its shipped still has none, "
                     "so matching the blade-inclusive box would shrink the body to fit a box that never "
@@ -139,8 +162,11 @@ def main():
             report.append({'id': cid, 'ok': False, 'why': 'not in everkai-additions-data.json'}); continue
         src = row['source']
         still_path = repo / 'public/assets' / row['art']
-        (best, runner) = pick_backdrop(still_path, candidates)
-        if best[0] > MAX_DISTANCE or runner[0] < best[0] * MARGIN:
+        if a.backdrop_override:
+            best, runner = (0.0, a.backdrop_override), (float('inf'), '(overridden)')
+        else:
+            (best, runner) = pick_backdrop(still_path, candidates)
+        if not a.backdrop_override and (best[0] > MAX_DISTANCE or runner[0] < best[0] * MARGIN):
             report.append({'id': cid, 'ok': False, 'why': f'backdrop not identified: {Path(best[1]).name} {best[0]:.2f} vs {Path(runner[1]).name} {runner[0]:.2f}'})
             continue
         if a.dry_run:
@@ -151,6 +177,11 @@ def main():
         w.mkdir(parents=True, exist_ok=True)
         raw = Path(a.corpus) / src['game'] / 'Raw-Bundles'
         export = [a.python, HERE / 'unity_to_glb.py', '--bundle', raw / src['bundle'], '--out', w / 'model.glb']
+        # Ask for the row's own clip by name FIRST. The pipeline's own choice reproduces the shipped one
+        # for almost every character, but not all: the Grand Inquisitor's bundle holds both
+        # _idle and _detailscreen_idle and the chooser now prefers the latter, which would have swapped
+        # his animation. When the name cannot be found -- the five characters whose idle lives in another
+        # character's bundle -- fall back to letting the pipeline choose, and assert what it chose.
         if src['game'] == 'MSF':
             export += ['--anim-bundle', raw / 'base_pack_1_storytelling_anims.assetbundle']
         else:
@@ -160,20 +191,27 @@ def main():
             donor_file, donor_clip = HUMANOID_DONORS.get(src['assetId'], HUMANOID_DONORS['*'])
             if (raw / donor_file).exists() and donor_file != src['bundle']:
                 export += ['--humanoid-donor', f'*={raw / donor_file}:{donor_clip}']
-        sh(export)
+        try:
+            sh(export + ['--clip', src['clip']])
+        except SystemExit:
+            sh(export)
         chose = json.loads((w / 'model.json').read_text())['clip']['name']
         if chose != src['clip']:
             raise SystemExit(f'idle changed: row records {src["clip"]}, this build chose {chose}')
+        ss = max(1, a.supersample)
         sh(['node', tools / 'render.mjs', '--glb', w / 'model.glb', '--out', w / 'frames',
-            '--style', 'swgoh' if src['game'] == 'SWGOH' else 'msf', '--width', 1280, '--height', 1920], cwd=tools)
+            '--style', 'swgoh' if src['game'] == 'SWGOH' else 'msf',
+            '--width', 1280 * ss, '--height', 1920 * ss], cwd=tools)
         # A character whose blade was missing before now grows one, and a blade is OUTSIDE the body box
         # the shipped still measures. Framing on the blade-inclusive box would shrink the body to fit a
         # box that never held a blade, so the body box comes from one extra saber-less frame.
         compose = [a.python, HERE / 'village-compose.py', '--frames', w / 'frames', '--backdrop', best[1],
-                   '--still', w / f'{cid}.webp', '--out-frames', w / 'comp', '--match', still_path]
+                   '--still', w / f'{cid}.webp', '--out-frames', w / 'comp']
+        if not a.no_match:
+            compose += ['--match', still_path]
         if a.body_box and src['game'] == 'SWGOH':
             sh(['node', tools / 'render.mjs', '--glb', w / 'model.glb', '--out', w / 'body', '--style', 'swgoh',
-                '--width', 1280, '--height', 1920, '--no-sabers', '--still-time', 0], cwd=tools)
+                '--width', 1280 * ss, '--height', 1920 * ss, '--no-sabers', '--still-time', 0], cwd=tools)
             body = sorted(glob.glob(str(w / 'body' / 'f*.png')))
             alpha = np.asarray(Image.open(body[0]).convert('RGBA'))[..., 3]
             ys, xs = np.where(alpha > 8)
@@ -205,6 +243,13 @@ def main():
         report.append({'id': cid, 'ok': True, 'backdrop': Path(best[1]).name, 'distance': round(best[0], 2),
                        'runnerUp': round(runner[0], 2), 'scale': comp['scale'], 'motion': round(motion, 3),
                        'artBytes': row['artBytes'], 'clipBytes': enc['bytes'], 'seconds': round(time.time() - t0, 1)})
+        # The frames are the whole cost on disk and nothing downstream reads them: at --supersample 2 a
+        # character's three frame directories are ~2 GB, and 27 characters into the first supersampled
+        # batch this machine ran out of space mid-render (the browser then 404s and every remaining
+        # character fails). The .glb and the two output files are kept; --keep-frames keeps the rest.
+        if not a.keep_frames:
+            for d_ in ('frames', 'body', 'comp'):
+                shutil.rmtree(w / d_, ignore_errors=True)
         data_path.write_text(json.dumps(data, indent=1, ensure_ascii=False) + '\n')
         print(json.dumps(report[-1]), flush=True)
       except SystemExit as e:

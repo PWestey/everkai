@@ -154,7 +154,11 @@ test('art and idle clips exist, match their recorded bytes and hashes, and strea
  // `saber_chld_` (18 nodes) and `saber_chd_` (23) and scripts/crossover/page.html matched only the
  // first. Those 18 gained a blade and three more (Mace Windu, Traya, Mara Jade) had `prpl` corrected
  // from red; the two Darksabers are named differently again and are matched by name.
- assert.equal(bytes,171502687,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
+ // MOVED 2026-09-23 by the material pass, DOWN a further 17,993,942: all 68 SWGOH characters were
+ // re-rendered with the corpus's own matcap spheres instead of three.js's grey-ramp fallback, with
+ // anisotropic filtering, and at 2x supersampling resolved down with Lanczos. Cleaner frames compress
+ // better, which is most of this; the rest is that the ramp had been washing flat grey over everything.
+ assert.equal(bytes,153508745,`${data.fellows.length} Fellow additions carry ${bytes} bytes of media`);
  assert.ok(bytes<256*1024*1024,'and the on-demand total stays inside a quarter gigabyte');
 });
 
