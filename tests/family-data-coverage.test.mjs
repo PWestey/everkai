@@ -74,9 +74,20 @@ test('Fathom slots and steps still match the original quenching tables 1:1', () 
  assert.equal(FATHOM_SLOTS[0].intimacy, 50);
  assert.equal(FATHOM_SLOTS[35].intimacy, 5000);
  assert.ok(FATHOM_SLOTS.every((s, i) => i === 0 || s.intimacy > FATHOM_SLOTS[i - 1].intimacy));
- assert.equal(fathoms.sources.length, 2);
+ // FOUR SOURCES SINCE 2026-09-22, not two: the roll landed, so the two weight columns, the original's
+ // 1,180-row gold ladder and the System rows that price a Luck Stone are all pinned here too. The two
+ // original hashes are unchanged, and the tier VALUES above are unchanged with them -- which is the
+ // whole claim the roll had to preserve (rule 12: a stored tier must not become worth something else).
+ assert.equal(fathoms.sources.length, 4);
  assert.equal(fathoms.sources[0].sha256, '361f81e24b1d1014c59bfe4a49a6bb9442c116245e318da713e725007ddd927c');
  assert.equal(fathoms.sources[1].sha256, '014b5cfa45cb47f54b9afd4bf4c923a567c6b1d5623a1223503b06ae17da03ae');
+ assert.equal(fathoms.sources[2].sha256, 'c861074878b0a1124bbba2351b61a3da763aeb65f9928a1e9c669c367d607a99');
+ assert.equal(fathoms.sources[3].sha256, 'd8ea3b50e218ba4b0e4eeeffbcec6b30824387ad2db6d77b0340c63750359312');
+ // The weight columns, on the same rows whose percents are pinned above.
+ assert.deepEqual(FATHOM_STEPS.map(s => s.normal).slice(0, 5), [15000, 23000, 28000, 33000, 27000]);
+ assert.deepEqual(FATHOM_STEPS.map(s => s.high).slice(19), [20000, 12000, 8000, 5000, 3000, 1500]);
+ assert.ok(FATHOM_STEPS.slice(0, 19).every(s => s.high === 0), 'the advanced column opens at tier 20');
+ assert.equal(fathoms.gold.length, 1180);
 });
 
 test('date pictures and costumes ship the counts the catalogue quotes', () => {
