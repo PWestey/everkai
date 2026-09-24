@@ -5,7 +5,7 @@ import {cardStyle,petCardIcon} from '@/lib/ui-sprites.mjs';
 import {FAMILIARS,familiarById} from '@/lib/familiars.mjs';
 import {DISPATCH_AREAS,DISPATCH_TEAM,dispatchState,dispatchArea,dispatchTeamPower,familiarPower,
  greatSuccessChance,dispatchUnlocked,dispatchDone,dispatchRemaining} from '@/lib/familiar-dispatch.mjs';
-import {towerFloorOf} from '@/lib/familiar-supplies.mjs';
+import {towerFloorOf,FAMILIAR_ITEM_NAMES} from '@/lib/familiar-supplies.mjs';
 
 // FAMILIAR DISPATCH (docs/familiar-screen-specs/08-dispatch.md).
 //
@@ -66,8 +66,8 @@ export default function FamiliarDispatchPanel({game,action,locked}:any){
   <header className="dispatch-head"><h4 className="bond-ribbon">Area {picked.id}</h4>
    <button className="instruction-link" aria-expanded={info} onClick={()=>setInfo(v=>!v)}>&#9432;</button></header>
   {info&&<p className="instruction-popover" role="note">Great Success Dispatch grants extra rewards.</p>}
-  <Tray title="Basic" items={[['Level-up',picked.base.levelUp],['Class-up',picked.base.classUp]]}/>
-  <Tray title="Extra" items={[['Level-up',picked.great.levelUp],['Class-up',picked.great.classUp],['Fragment draws',picked.fragments.length]]}/>
+  <Tray title="Basic" items={[[FAMILIAR_ITEM_NAMES.levelUp,picked.base.levelUp],[FAMILIAR_ITEM_NAMES.classUp,picked.base.classUp]]}/>
+  <Tray title="Extra" items={[[FAMILIAR_ITEM_NAMES.levelUp,picked.great.levelUp],[FAMILIAR_ITEM_NAMES.classUp,picked.great.classUp],['Fragment draws',picked.fragments.length]]}/>
   {!run&&<>
    <p className="dispatch-line">Expected Results &middot; Great Success: <b className="great-odds">{full?`${greatSuccessChance(game,picked.id)}%`:'—'}</b></p>
    <ol className="dispatch-seats" aria-label={`Dispatch team ${d.team.length} of ${DISPATCH_TEAM}`}>{seats.map((pid,i)=>{
@@ -124,7 +124,7 @@ export default function FamiliarDispatchPanel({game,action,locked}:any){
    <DialogTitle>Result</DialogTitle>
    <DialogDescription className="sr-only">Dispatch outcome</DialogDescription>
    <p className={'result-word'+(result?.great?' great':'')}>{result?.great?'Great Success':'Success'}</p>
-   {result?.area&&<Tray title="Basic" items={[['Level-up',result.area.base.levelUp],['Class-up',result.area.base.classUp]]}/>}
+   {result?.area&&<Tray title="Basic" items={[[FAMILIAR_ITEM_NAMES.levelUp,result.area.base.levelUp],[FAMILIAR_ITEM_NAMES.classUp,result.area.base.classUp]]}/>}
    <Button onClick={()=>setResult(null)}>OK</Button>
   </DialogContent></Dialog>
  </section>;

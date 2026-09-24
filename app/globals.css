@@ -890,16 +890,104 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .system-sheet .character-sheet-body .panel-pages{display:flex!important;flex-wrap:nowrap;gap:4px}
 .system-sheet .character-sheet-body .panel-pages>button{flex:1 1 auto;min-width:44px;padding-inline:4px;font-size:12px;white-space:nowrap}
 .system-sheet .business-actions:has(.supply-buy){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-/* FAMILIAR TOWER -- ribbon, floor progress, five team slots (front two marked), and the next floor as
-   a card with the guardians' stats and a gold Challenge. The skill text sits behind its own summary. */
-.familiar-tower{display:grid;gap:10px}
-.tower-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:0;padding:0;list-style:none}
-.tower-slots li{display:grid;gap:2px;justify-items:center}
-.tower-slots .framed-card{width:100%}
-.tower-slots .framed-card>span{top:24%;display:grid;place-items:center}.tower-slots .framed-card>span img{width:26px;height:26px}
-.tower-slots .framed-card>strong{font-size:9px;padding:1px}
+/* FAMILIAR TOWER -- the screen IS the progress bar (09-tower.md 11, defect D-TOWER-1): a vertical
+   stack of isometric platforms, one per floor, anchored on the current one, with cleared floors
+   falling away below and unbuilt floors stacked above. The right rail carries the Rewards badge, the
+   two-segment mode pill and Auto; the Attribute banner runs across the stack's foot, and the wing bar
+   holds Team / Challenge / Earnings. */
+.familiar-tower{display:grid;gap:8px}
+.tower-head{display:flex;align-items:center;justify-content:center;gap:6px}
+.tower-redo{display:flex;align-items:center;gap:8px;margin:0;padding:6px 8px;background:#f6e6c2;border:1px solid #c49a55;border-radius:6px;color:#6b4a26;font-size:12px}
+.tower-redo button{padding:2px 8px;background:#5b3d26;border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font-size:11px;font-weight:700}
+.tower-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,86px);gap:6px;padding:6px;
+ background:linear-gradient(#2d1f14,#4a3422);border:1px solid #c99a4e;border-radius:8px}
+.floor-stack{max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:13px;margin:0;padding:2px 2px 0;list-style:none;scrollbar-width:thin}
+.tower-platform{position:relative;flex:0 0 auto;display:grid;gap:2px;justify-items:center;align-content:center;min-height:46px;padding:14px 8px 8px;
+ background:linear-gradient(#6d5334,#4c3821);border:1px solid #8b6a3c;border-radius:4px/14px;box-shadow:inset 0 2px 0 #8d6d43,0 2px 0 #2a1d11}
+.tower-platform.done{background:linear-gradient(#5a4530,#3b2c1d);opacity:.82}
+.tower-platform.now{background:linear-gradient(#86673e,#5e4527);border-color:#f3cd6b;box-shadow:inset 0 2px 0 #b08d55,0 0 0 2px #f3cd6b55}
+.tower-platform.tuned{background:none;border:1px dashed #8b6a3c;box-shadow:none;min-height:34px}
+.floor-plaque{position:absolute;left:-2px;top:-6px;padding:1px 6px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:3px;
+ color:#e5bd6a;font:700 10px Georgia,serif;white-space:nowrap}
+.floor-mark{font:700 14px Georgia,serif;color:#d8c39d99;font-style:normal;letter-spacing:.08em}
+.tower-platform.tuned .floor-mark{color:#c9ab7a;font-size:12px;letter-spacing:0}
+.floor-mark.recommended{color:#ffe7b5;text-shadow:0 1px 0 #2a1d11}
+.floor-chain{display:flex;align-items:center;gap:4px;width:70%;color:#cbb28a;font-style:normal;font-size:13px}
+.floor-chain::before,.floor-chain::after{content:"";flex:1;height:4px;border-radius:2px;
+ background:repeating-linear-gradient(90deg,#cbb28a 0 5px,#4c3821 5px 8px)}
+.floor-chest{margin-top:2px;padding:3px 10px;background:linear-gradient(#f3cd6b,#d59a33);border:1px solid #8a5a1c;border-radius:4px;
+ color:#4b3421;font:700 11px Georgia,serif}
+.floor-boss{position:absolute;right:4px;top:-6px;padding:0 6px;background:#8a3a2a;border:1px solid #f3cd6b;border-radius:3px;color:#ffe7b5;font-size:10px}
+.floor-milestone{font-size:10px;color:#f3cd6b;font-weight:700}
+.tower-rail{display:grid;align-content:start;gap:6px;min-width:0}
+.tower-rail>*{min-width:0;width:100%}
+.reward-badge{display:grid;gap:1px;padding:5px 4px;background:linear-gradient(#f6e6c2,#e2c891);border:1px solid #8a5a1c;border-radius:6px;text-align:center}
+.reward-badge strong{font:700 12px Georgia,serif;color:#4b3421}
+.reward-badge span{font-size:10px;color:#7a5a12;font-weight:700}
+.reward-badge em{font-size:9px;color:#8a5a1c;font-style:normal}
+.mode-pill{display:grid;border:1px solid #c99a4e;border-radius:6px;overflow:hidden}
+.mode-pill button{min-width:0;padding:8px 1px;background:#3d2a1b;color:#c9ab7a;font:700 10px Georgia,serif;letter-spacing:-.02em;border-bottom:1px solid #c99a4e}
+.mode-pill button:last-child{border-bottom:0}
+.mode-pill button.lit{background:linear-gradient(#f3cd6b,#d59a33);color:#4b3421}
+.mode-pill button:disabled{opacity:.7}
+.tower-auto{width:100%;height:auto!important;padding:4px 2px!important;font-size:10px!important;line-height:1.2}
+.gate-badge{margin-left:2px;font-style:normal;font-size:10px}
+.attribute-banner{display:flex;align-items:center;justify-content:center;gap:6px;margin:0;padding:4px 8px;
+ background:#f6e6c2;border:1px solid #c49a55;border-radius:5px;color:#6b4a26;font:700 12px Georgia,serif}
+.attribute-banner b{color:#d07a1c;font-size:15px}
+.attribute-banner .instruction-link{margin-left:auto}
+.tower-wing{display:grid;grid-template-columns:70px minmax(0,1fr) 70px;align-items:center;gap:6px}
+.wing-tile{position:relative;display:grid;gap:1px;padding:6px 2px;background:linear-gradient(#f6e6c2,#e2c891);border:1px solid #8a5a1c;
+ border-radius:6px;color:#4b3421;font:700 11px Georgia,serif}
+.wing-tile em{font-size:10px;color:#8a5a1c;font-style:normal}
+.red-dot{position:absolute;right:3px;top:3px;width:8px;height:8px;background:#c3341f;border:1px solid #ffe7b5;border-radius:50%}
+.tower-challenge{width:100%;min-width:0!important;background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;color:#4b3421!important;
+ font:700 15px Georgia,serif!important}
+.endless-record{margin:0;text-align:center;color:#8a5a1c;font-size:12px;font-weight:700}
+.tower-hint{margin:0;text-align:center;color:#6b4a26;font-size:12px}
+/* Team: five ordered slots drawn as a staggered formation, the front row raised. */
+.formation{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:0;padding:0;list-style:none;align-items:end}
+.formation li.front{padding-bottom:12px}
+.formation .framed-card{width:100%;display:block}
+.formation .framed-card>span{top:22%;display:grid;place-items:center}.formation .framed-card>span img{width:24px;height:24px}
+.formation .framed-card>strong{font-size:9px;padding:1px}
+.formation small{display:block;font-size:9px;color:#8a5a1c;font-weight:700}
 .tower-empty{width:100%;aspect-ratio:206/280;display:grid;place-items:center;border:2px dashed #b88a47;border-radius:6px;background:#efe0bd;color:#8a5a1c;font:700 22px Georgia,serif}
-.tower-slots small{font-size:10px;color:#8a5a1c;font-weight:700}.tower-slots li.front small{color:#a8431f}
+.group-rail{display:flex;gap:4px;justify-content:center}
+.group-rail button{padding:3px 8px;background:#efe0bd;border:1px solid #c49a55;border-radius:12px;color:#6b4a26;font-size:11px;font-weight:700}
+.group-rail button.current{background:linear-gradient(#f3cd6b,#d59a33);color:#4b3421}
+.picker-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;max-height:220px;overflow-y:auto}
+.bond-ladder ul{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.bond-ladder li{padding:6px 8px;background:#f6e6c2;border:1px solid #c49a55;border-radius:6px}
+.bond-ladder li.current{border-color:#d59a33;box-shadow:0 0 0 2px #f3cd6b66}
+.bond-ladder p{margin:0 0 3px;color:#4b3421;font-size:12px!important}
+.bond-ladder b{display:block;color:#7a5a12;font-size:12px}
+/* Earnings: the rate table, the idle clock against its cap, pending tiles, and an orange Claim. */
+.ribbon-rule{margin:4px 0 0;text-align:center;color:#8a5a1c;font:700 12px Georgia,serif;letter-spacing:.06em}
+.rate-rows{display:grid;gap:4px;margin:0;padding:0;list-style:none}
+.rate-rows li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:4px;align-items:baseline;padding:5px 8px;
+ background:#f6e6c2;border:1px solid #c49a55;border-radius:5px;color:#6b4a26;font-size:12px}
+.rate-rows b{color:#2f8a3a;font:700 15px Georgia,serif}
+.rate-rows i{color:#8a5a1c;font-style:normal;font-size:11px}
+.idle-clock{margin:0;text-align:center;color:#6b4a26;font-size:12px}
+.idle-clock b{color:#2f8a3a;font:700 15px Georgia,serif}
+.reward-tiles{display:flex;flex-wrap:wrap;gap:5px;margin:0;padding:0;list-style:none}
+.reward-tiles li{position:relative;padding:5px 22px 5px 8px;background:#efe0bd;border:1px solid #c49a55;border-radius:5px;
+ color:#4b3421;font-size:11px}
+.reward-tiles b{position:absolute;right:4px;bottom:3px;color:#7a5a12;font-size:11px}
+.earn-bonus{margin:0;text-align:center;color:#8a5a1c;font-size:12px;font-weight:700}
+.earn-bonus.on{color:#2f8a3a}
+.claim-button{background:linear-gradient(#f0a53c,#d0761c)!important;border:1px solid #8a5a1c!important;color:#3b2408!important}
+/* Rewards ladder: all 300 PetTower rows, a red floor tab clipped to each card's top-left. */
+.reward-ladder ol{display:grid;gap:6px;margin:0;padding:0;list-style:none;max-height:56vh;overflow-y:auto}
+.reward-ladder li{position:relative;display:grid;gap:4px;margin-top:8px;padding:12px 8px 6px;background:#f6e6c2;
+ border:1px solid #c49a55;border-radius:6px}
+.reward-ladder li.done{opacity:.72}
+.floor-tab{position:absolute;left:-2px;top:-8px;padding:1px 8px;background:#a8341f;border:1px solid #f3cd6b;border-radius:3px;
+ color:#ffe7b5;font:700 11px Georgia,serif}
+.reward-ladder li>b{justify-self:end;color:#7a5a12;font-size:11px}
+.reward-ladder li.done>b{color:#2f8a3a}
+.reward-pet{color:#8a5a1c;font-size:11px;font-style:normal;font-weight:700}
 .tower-floor{display:grid;gap:6px;padding:10px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px;text-align:center}
 .tower-floor h4{justify-self:center;padding:3px 22px;background:#5b3d26;border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font:700 15px Georgia,serif}
 .tower-floor>p{margin:0;color:#6b4a26;font-size:13px!important}
@@ -907,7 +995,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .tower-floor dl div{padding:4px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px}
 .tower-floor dt{font-size:11px;color:#e5bd6a}.tower-floor dd{margin:0;font:700 15px Georgia,serif;color:#fff3d6}
 .tower-floor .tower-reward{color:#8a5a1c;font-weight:700}
-.tower-enemies{display:grid;gap:3px;margin:0;padding:0;list-style:none;font-size:12px;color:#4b3421;text-align:left}
+.tower-enemies{display:grid;gap:3px;margin:0;padding:0;list-style:none;font-size:12px;color:#4b3421;text-align:left;max-height:200px;overflow-y:auto}
 .tower-enemies li{padding:3px 6px;background:#f3e2bb;border-radius:4px}
 .explore-monster{width:96px;justify-self:center}.explore-monster>span{top:26%;display:grid;place-items:center}.explore-monster>span img{width:40px;height:40px;object-fit:contain}
 .familiar-forms ul{margin:0;padding-left:18px;color:#4b3421;font-size:13px}

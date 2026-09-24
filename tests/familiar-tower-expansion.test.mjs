@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {FAMILIARS} from '../lib/familiars.mjs';
-import {originalBattle,floorEnemies,teamBond,groupOf,towerSkill,endlessEnemies,endlessBattle,endlessState,endlessKey,towerState,towerKey,validTower,TOWER_DATA,ENDLESS_OPEN} from '../lib/familiar-tower.mjs';
+import {originalBattle,floorEnemies,teamBond,teamAttribute,quickDeployTeam,groupOf,towerSkill,endlessEnemies,endlessBattle,endlessState,endlessKey,towerState,towerKey,validTower,TOWER_DATA,ENDLESS_OPEN} from '../lib/familiar-tower.mjs';
 import {towerIncome,endlessBand,familiarSupplies} from '../lib/familiar-supplies.mjs';
 import {dispatchFragments,DISPATCH_AREAS,dispatchState} from '../lib/familiar-dispatch.mjs';
 import {exploreState} from '../lib/familiar-explore.mjs';
@@ -23,7 +23,10 @@ test('every PetEndlessTower band and PetEndlessTowerPool bot, the bond table and
  for(const b of e.bands){assert.deepEqual(b.careers,{1:[1,5],2:[1,2],3:[0,1]});assert.equal(b.coef.Lv,1000);assert.ok(e.bots.some(x=>x[0]===b.id),`band ${b.id} has bots`);}
  assert.deepEqual(e.bands.map(b=>b.income),[[1,0],[3,0],[5,0],[7,0],[9,0],[11,0],[13,0],[15,0],[17,1],[20,1],[22,1],[24,1],[26,1],[28,1],[30,1],[32,1],[34,2],[36,2],[38,2],[40,2],[42,2],[42,2],[42,2]]);
  for(const [,pet,career] of e.bots){assert.ok(FAMILIARS.some(p=>p.id===pet),pet);assert.equal(TOWER_DATA.pets[pet].career,career);}
- assert.deepEqual(TOWER_DATA.bond,{3:{ATK:1000,HP:1000},4:{ATK:1300,HP:1300},5:{ATK:1500,HP:1500}});
+ // POWER restored 2026-09-24: every `System.PetArrayAdd` Group row carries THREE fields and the
+ // client's bond modal prints all three, the third as `Attribute: +{val}%`. Importing two understated a
+ // five-of-a-type team's Attribute by 15% (docs/familiar-screen-specs/09-tower.md §3).
+ assert.deepEqual(TOWER_DATA.bond,{3:{ATK:1000,HP:1000,POWER:1000},4:{ATK:1300,HP:1300,POWER:1300},5:{ATK:1500,HP:1500,POWER:1500}});
  assert.equal(Object.keys(TOWER_DATA.pets).length,70);
  assert.deepEqual(DISPATCH_AREAS.map(a=>a.fragments.length),DISPATCH_AREAS.map(a=>a.fragmentPools));
  for(const a of dispatchData.areas)for(const p of a.fragments)for(const [pet,n] of p.entries){assert.ok(FAMILIARS.some(f=>f.id===pet),pet);assert.ok(Number.isInteger(n)&&n>0);}
@@ -55,13 +58,13 @@ test('enemies cast their own familiar skills in version 11, and never in version
  assert.deepEqual(originalBattle(floor,team,11),v11,'deterministic');
 });
 
-test('team bond: 3/4/5 of one type add +10/+13/+15% ATK and HP, on both sides; mixed teams get nothing',()=>{
+test('team bond: 3/4/5 of one type add +10/+13/+15% ATK, HP and Attribute, on both sides; mixed teams get nothing',()=>{
  const cool=FAMILIARS.filter(p=>p.type==='Cool').map(p=>p.id),cute=FAMILIARS.filter(p=>p.type==='Cute').map(p=>p.id);
  assert.equal(groupOf(cool[0]),1);assert.equal(groupOf('Pet_8041505'),groupOf('Pet_8041505'));
  assert.equal(teamBond([cool[0],cool[1],cute[0],cute[1]]),null);
- assert.deepEqual(teamBond(cool.slice(0,3)),{count:3,group:1,ATK:1000,HP:1000});
- assert.deepEqual(teamBond([...cool.slice(0,4),cute[0]]),{count:4,group:1,ATK:1300,HP:1300});
- assert.deepEqual(teamBond(cool.slice(0,5)),{count:5,group:1,ATK:1500,HP:1500});
+ assert.deepEqual(teamBond(cool.slice(0,3)),{count:3,group:1,ATK:1000,HP:1000,POWER:1000});
+ assert.deepEqual(teamBond([...cool.slice(0,4),cute[0]]),{count:4,group:1,ATK:1300,HP:1300,POWER:1300});
+ assert.deepEqual(teamBond(cool.slice(0,5)),{count:5,group:1,ATK:1500,HP:1500,POWER:1500});
  // Negative control through the battle: the same five, bonded vs not, differ only by the bond.
  const bonded=snap(cool.slice(0,5),30),r=originalBattle(1,bonded,11);
  const hp=r.log.length?r.playerHP:0;assert.ok(hp>=0);
@@ -143,4 +146,46 @@ test('a Great Success pays one repeatable draw from each of the area\'s fragment
  assert.match(act(s,'dispatchCollect',run.since+20*H).message,/Great Success/,'a maxed team at area 1 is always a Great Success');
  for(const [pet,n] of expect)assert.equal((exploreState(back).pieces[pet]||0)-(before[pet]||0),n);
  assert.deepEqual(decode(JSON.stringify(back)),back);
+});
+
+// `Quick Deploy` (09-tower.md §3): the original's button was never pressed, so what it optimises is
+// unmeasured and Everkai's rule is local -- but it must never be WORSE than picking the five highest
+// Attributes, which is the naive thing a player would do by hand. The candidate set always contains
+// that team, so this is a real invariant and not a restatement of the implementation.
+test('Quick Deploy fills five slots and never scores below the naive top five',()=>{
+ let s=at(fresh(T),'adoptFamiliars');
+ const roster=FAMILIARS.slice(0,14).map(p=>p.id);
+ s={...s,familiars:Object.fromEntries(roster.map((id,i)=>[id,{level:20+i*11,stars:i}]))};
+ const team=quickDeployTeam(s);
+ assert.equal(team.length,5);
+ assert.equal(new Set(team).size,5);
+ assert.ok(team.every(id=>roster.includes(id)),'only contracted familiars are deployed');
+ const naive=[...roster].sort((a,b)=>teamAttribute(s,[b])-teamAttribute(s,[a])).slice(0,5);
+ assert.ok(teamAttribute(s,team)>=teamAttribute(s,naive),'Quick Deploy is at least as strong as the top five by Attribute');
+ // And it is a real action, not a UI-only convenience: the save it writes has to validate.
+ const after=at(s,'towerQuickDeploy');
+ assert.deepEqual(towerState(after).party,team);
+ assert.ok(validTower(after));
+ // A roster of five or fewer deploys all of them rather than refusing.
+ const few={...s,familiars:Object.fromEntries(roster.slice(0,3).map(id=>[id,{level:30,stars:0}]))};
+ assert.equal(quickDeployTeam(few).length,3);
+});
+
+// Bond carries THREE fields, and the third one (POWER -> `Attribute: +{val}%`) was missing entirely
+// until 09-tower.md §3 measured `System.PetArrayAdd`. The tower screen prints all three per rung.
+test('the bond table carries ATK, HP and POWER at 1000/1300/1500 bp and teamAttribute applies POWER',()=>{
+ for(const [n,bp] of [[3,1000],[4,1300],[5,1500]]){
+  const row=TOWER_DATA.bond[n];
+  assert.deepEqual(row,{ATK:bp,HP:bp,POWER:bp},`bond rung ${n}`);
+ }
+ let s=at(fresh(T),'adoptFamiliars');
+ const cool=FAMILIARS.filter(p=>groupOf(p.id)===1).slice(0,5).map(p=>p.id);
+ assert.equal(cool.length,5,'five of one type exist to bond');
+ s={...s,familiars:Object.fromEntries(cool.map(id=>[id,{level:100,stars:10}]))};
+ const unbonded=cool.slice(0,2).reduce((n,id)=>n+teamAttribute(s,[id]),0)+teamAttribute(s,cool.slice(2,5))/1.1;
+ assert.equal(teamBond(cool).POWER,1500);
+ // The five-of-a-type team reads 15% above the same five with no bond applied.
+ const raw=cool.reduce((n,id)=>n+teamAttribute(s,[id]),0);
+ assert.equal(teamAttribute(s,cool),Math.floor(raw*11500/10000));
+ assert.ok(unbonded>0);
 });

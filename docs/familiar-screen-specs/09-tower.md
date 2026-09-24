@@ -662,3 +662,29 @@ included.
 | **The unclaimed states of the Rewards ladder** | Captured at `All Claimed`. `Claimable` and `{n} floors left` are known as strings; the row treatment is not. |
 | **A populated leaderboard** | Impossible on a one-player server, and irrelevant — §9 removes the surface rather than reproducing it. |
 | **The upper mode-pill caption** | Illegible at 270 × 480. Read it off the device before labelling the control. |
+
+---
+
+## 14 · Resolution (2026-09-24)
+
+Rule 7: every difference above is Fixed, Deferred with a stated reason, or Dropped.
+
+| # | Outcome |
+| --- | --- |
+| **D-TOWER-1** | **Fixed.** `.floor-stack` is the screen: one platform per floor, anchored on the current one, `Completed` watermark / `Recommended` + chest / padlock-and-chain / `Please stay tuned.`, scrolling both ways. The `<progress>` element is gone. (A grid stack clips its rows inside a bounded height — the stack is a flex column with `flex:0 0 auto` so the current floor grows around its chest.) |
+| **D-TOWER-2** | **Fixed.** One vertical `.mode-pill`, lit segment = current mode. The gate lives on the locked Endless segment (`Unlocks after completing Challenge Mode Floor 200`), not in a button label. |
+| **D-TOWER-3** | **Fixed.** `PetArrayAdd.Group{3,4,5}.POWER` imported, `teamAttribute()` applies it, and the `Bond` modal prints three lines per rung. Measured effect: a five-of-a-type team at 60 levels read 307,713 and now reads 353,869. POWER is deliberately NOT applied in combat — see the module comment. |
+| **D-TOWER-4** | **Fixed.** The enemy `<ul>` is off the screen. `Enemy Attribute` is one number behind the floor chest, summed from the stored `PetTowerArray.Power` column and never composed. |
+| **D-TOWER-5** | **Fixed** for the surface: a five-slot formation with the front row raised, a 4-wide picker, an `ALL` + four-type rail, and `Quick Deploy`. **Deferred:** drag-to-swap. `towerFront` is the only ordering the engine consumes (first two slots are the front row); a five-slot permutation needs its own action and a `validTower` branch, and belongs in a commit with a save check. |
+| **D-TOWER-6** | **Fixed.** `Familiar Tower Earning Rewards`: the two-row rate table with the value green and `/hour` brown, `Idle Time: HH:MM:SS/24:00:00`, pending item tiles, the two-state bonus row, and an orange `Claim`. The cap stays **24** hours — the captured `48:00:00` is a Pass-holder's screen (§7.4). |
+| **D-TOWER-7** | **Fixed.** The ladder is built from all 300 `PetTower` rows, not the capture's decade spacing, and opens at the player's own floor. Floor 25 reads `200 + 50`, exactly as §8 predicts a decade ladder never would. |
+| **D-TOWER-8** | **Fixed as adapted.** One `★ Endless Record: floor N` line. The leaderboard itself is **Dropped**, per §9: a board on a one-player server. |
+| **D-TOWER-9** | **Fixed.** The verb stays `Auto`; the gate is a padlock badge reading `30`. |
+| **D-TOWER-10** | **Fixed.** All three of the original's strings, each with `Continue` / `Adjust Team`. `There are stronger familiars not in the team` fires when `quickDeployTeam` beats the current formation's Attribute. |
+| **D-TOWER-11** | **Fixed.** The result is a closed `<details>`. The battle screen itself is still **not built** (§5) and this commit does not guess at one. |
+| **D-TOWER-12** | **Deferred.** The skill disclosure moved into the `Team` sheet, where the familiar is chosen, rather than onto the familiar's own detail shell — that shell is spec 03 and has its own slice. |
+| **D-TOWER-13** | **Fixed.** The three `rules-note` blocks are gone. The `(i)` carries the original's own `Combat Rule` and `Earnings` wording; the genuinely local residue (Rage fills by 25, initial Rage 0, ties lose) is one line. |
+| **D-TOWER-14** | **Fixed**, here and on Dispatch: `FAMILIAR_ITEM_NAMES` names them **Magical Fruit** and **Familiar Crystal**. |
+| **D-TOWER-15** | **Fixed.** A dismissible notice. The dismissal is a **device setting** (`localStorage`), not a save field — nothing about a village changes when the message is read. |
+| **D-TOWER-16** | **Fixed.** `Attribute` throughout: `Current Attribute` on the tower and the Team sheet, `Enemy Attribute` behind the chest, `Attribute: +n%` on the bond ladder. |
+| **D-TOWER-17** | **Deferred.** The `(i)` says there *is* an initial Rage but publishes no magnitude, so any value is invented; and changing combat maths without bumping `combatVersion` makes `validTower` refuse every save that holds a result (`originalBattle` is re-derived). It gets its own commit and its own save check. |

@@ -53,6 +53,8 @@ test('POSITIVE CONTROL for the Power weights: Everkai scores what the original r
  // gate ladder 100,000..20,000,000 spans exactly this roster. If a stat import ever drifts, this breaks.
  const five=strongest(DISPATCH_TEAM);
  const total=p=>five.reduce((n,id)=>n+familiarPower(id,p),0);
+ // These three stay UNBONDED on purpose: they sum `familiarPower` per familiar, which is the weights
+ // alone. The bond is a team-level multiplier and is asserted where it applies, below.
  assert.equal(total({level:1,stars:0}),86130,'five strongest at level 1');
  assert.equal(total({level:499,stars:0}),6671778,'five strongest at max level');
  assert.equal(total({level:499,stars:100}),27680957,'five strongest fully maxed');
@@ -86,10 +88,14 @@ test('Pet_Dispatch_Text7/Text8: the tower floor gates the area and the team must
 
 test('the Power gate refuses an underpowered team and admits a trained one',()=>{
  let s=ready();
- assert.equal(dispatchTeamPower(s),86130);
- assert.match(act(s,'dispatchStart',T,1).error,/Needs 100,000 team Power. This team has 86,130\./);
+ // MOVED 2026-09-24 (docs/familiar-screen-specs/09-tower.md §3): `dispatchTeamPower` is the team's
+ // ATTRIBUTE, and Attribute includes the same-type bond. `System.PetArrayAdd` Group5 pays
+ // {ATK,HP,POWER} 1500 bp and Everkai had imported only two of the three fields, so this figure read
+ // 15% low. The five strongest are all Legendary, so they bond at 5-of-a-type: 86,130 x 1.15 = 99,049.
+ assert.equal(dispatchTeamPower(s),99049);
+ assert.match(act(s,'dispatchStart',T,1).error,/Needs 100,000 team Power. This team has 99,049\./);
  s=ready(60);
- assert.equal(dispatchTeamPower(s),307713,'60 levels on each of the five');
+ assert.equal(dispatchTeamPower(s),353869,'60 levels on each of the five, bond included');
  assert.equal(act(s,'dispatchStart',T,1).error,undefined);
  // Higher areas stay shut on floors, not just power.
  assert.match(act(s,'dispatchStart',T,4).error,/floor 80/);

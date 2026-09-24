@@ -82,11 +82,16 @@ assert [f['floor'] for f in floors if f['boss']] == [100, 200, 300]
 # 2026-09-16 expansion. Team bond ("PetFettersTips1: The team contains {val} familiars of the same type",
 # PetFettersTips2/3 HP/ATK +{val}%): System.PetArrayAdd Group3/4/5, basis points. Pet.Group is the type;
 # checked against Everkai's familiar-data types: Group 1 Cool 19, 2 Cute 19, 3 Playful 19, 4 Legendary 13.
+# POWER was dropped on 2026-09-16 and restored on 2026-09-24 (docs/familiar-screen-specs/09-tower.md):
+# every Group row carries THREE fields, the client's bond modal prints all three, and taking two of them
+# understated a five-of-a-type team's Attribute by 15% on the tower banner AND in dispatch's Great
+# Success input. It is an ATTRIBUTE bonus, not a combat stat -- see lib/familiar-tower.mjs teamAttribute.
 bond = {}
 for n in (3, 4, 5):
     row = system['PetArrayAdd']['jsonValue'][f'Group{n}']
-    bond[str(n)] = {k: int(row[k]) for k in ('ATK', 'HP')}  # rule 5: "1300" arrives as a string
-assert bond == {'3': {'ATK': 1000, 'HP': 1000}, '4': {'ATK': 1300, 'HP': 1300}, '5': {'ATK': 1500, 'HP': 1500}}, bond
+    bond[str(n)] = {k: int(row[k]) for k in ('ATK', 'HP', 'POWER')}  # rule 5: "1300" arrives as a string
+assert bond == {'3': {'ATK': 1000, 'HP': 1000, 'POWER': 1000}, '4': {'ATK': 1300, 'HP': 1300, 'POWER': 1300},
+                '5': {'ATK': 1500, 'HP': 1500, 'POWER': 1500}}, bond
 pets = {p['_id']: p for p in table('Pet')}
 pet_info = {'Pet_' + k: {'group': int(p['Group']), 'career': int(p['career'])} for k, p in pets.items()}
 careers = {r['_id'] for r in table('PetCareer')}
