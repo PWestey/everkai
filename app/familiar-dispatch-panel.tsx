@@ -69,7 +69,9 @@ export default function FamiliarDispatchPanel({game,action,locked}:any){
   <Tray title="Basic" items={[[FAMILIAR_ITEM_NAMES.levelUp,picked.base.levelUp],[FAMILIAR_ITEM_NAMES.classUp,picked.base.classUp]]}/>
   <Tray title="Extra" items={[[FAMILIAR_ITEM_NAMES.levelUp,picked.great.levelUp],[FAMILIAR_ITEM_NAMES.classUp,picked.great.classUp],['Fragment draws',picked.fragments.length]]}/>
   {!run&&<>
-   <p className="dispatch-line">Expected Results &middot; Great Success: <b className="great-odds">{full?`${greatSuccessChance(game,picked.id)}%`:'—'}</b></p>
+   {/* The model is uncapped, as `GetBigSuccess` is: above 100 the roll always wins. The clamp here is
+      Everkai's, so an overwhelming team reads `100%` rather than an impossible `130%`. */}
+   <p className="dispatch-line">Expected Results &middot; Great Success: <b className="great-odds">{full?`${Math.min(100,greatSuccessChance(game,picked.id))}%`:'—'}</b></p>
    <ol className="dispatch-seats" aria-label={`Dispatch team ${d.team.length} of ${DISPATCH_TEAM}`}>{seats.map((pid,i)=>{
     const pet=pid?familiarById(pid):null;
     return <li key={i}><button className={'dispatch-seat'+(pet?' filled':'')} disabled={locked} aria-label={pet?`${pet.name}, change`:'Add a familiar'} onClick={()=>setPicker(true)}
@@ -89,7 +91,7 @@ export default function FamiliarDispatchPanel({game,action,locked}:any){
 
   <Dialog open={picker} onOpenChange={setPicker}><DialogContent className="save-dialog dispatch-picker">
    <DialogTitle>Select your familiars</DialogTitle>
-   <DialogDescription>Great Success: {greatSuccessChance(game,picked.id)}% &middot; Team Attribute {power.toLocaleString()}</DialogDescription>
+   <DialogDescription>Great Success: {Math.min(100,greatSuccessChance(game,picked.id))}% &middot; Team Attribute {power.toLocaleString()}</DialogDescription>
    <ol className="dispatch-seats" aria-label="Chosen">{seats.map((pid,i)=>{const pet=pid?familiarById(pid):null;
     return <li key={i}><span className={'dispatch-seat'+(pet?' filled':'')} style={pet?cardStyle(pet.rarity) as any:undefined}>
      {pet?<img src={petCardIcon(pet.rarity)||''} alt=""/>:<span aria-hidden="true">&#65291;</span>}</span></li>})}</ol>

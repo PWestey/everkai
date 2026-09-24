@@ -5,7 +5,7 @@ import {towerKey,towerState} from '../lib/familiar-tower.mjs';
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 import data from '../lib/familiar-dispatch-data.json' with {type:'json'};
 import {DISPATCH_AREAS,DISPATCH_TEAM,dispatchState,dispatchArea,dispatchTeamPower,familiarPower,
- greatSuccessChance,dispatchUnlocked,dispatchDone,dispatchRemaining,validFamiliarDispatch} from '../lib/familiar-dispatch.mjs';
+ greatSuccessChance,dispatchUnlocked,dispatchDone,dispatchRemaining,validFamiliarDispatch,DISPATCH_CRIT_BP,DISPATCH_COEFFICIENT} from '../lib/familiar-dispatch.mjs';
 
 const H=3600e3,T=new Date('2026-09-16T09:00:00').getTime();
 const at=(s,a,now=T,t=null,v=null)=>{const r=act(s,a,now,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),`invalid save after ${a}`);return r.state};
@@ -117,7 +117,9 @@ test('a run pays its base reward on return, and nothing at all before the 20 hou
  assert.ok(paid===1000||paid===1200,`area 1 pays 1,000 or 1,200 with Great Success, got ${paid}`);
  assert.equal(dispatchState(done).run,null,'the run clears');
  assert.deepEqual(dispatchState(done).team.length,5,'the team is kept for the next run');
- assert.ok(great>0&&great<=100,`chance out of range: ${great}`);
+ // Uncapped above 100 since 2026-09-24: `GetBigSuccess` floors at 0 and has no ceiling, so a team
+ // well past the gate reads over 100 and simply always wins. Only the panel clamps, for display.
+ assert.ok(great>0,`chance out of range: ${great}`);
  assert.deepEqual(decode(JSON.stringify(done)),done,'a dispatched save must round-trip');
 });
 
@@ -127,17 +129,30 @@ test('the Great Success roll is repeatable for the same run, so a reloaded save 
  assert.equal(familiarSupplies(a).levelUp,familiarSupplies(b).levelUp,'same run, same payout');
 });
 
-test('Pet_Dispatch_Text15: Great Success is 30% at exactly the gate and rises with surplus Power',()=>{
+test('Pet_Dispatch_Text15: Great Success is GetBigSuccess, transcribed -- 30% at the gate, a square root above it',()=>{
+ // REWRITTEN 2026-09-24. This used to pin Everkai's own invention, `30 x (1 + 0.5 x (P/L - 1))`, which
+ // the module header called local "because the expression is NOT in any table". True of the config
+ // tables, false of the client: `PetManager.lua:3393 GetBigSuccess` carries it in source as
+ //     crit + (totalPower / levelPower) ^ PetDispatch_Coefficient - 1,  floored at 0, times 100.
+ // The two agreed at exactly the gate and nowhere else. The old expression is kept below as a
+ // NEGATIVE CONTROL so the defect cannot come back unnoticed.
  const s=ready(60);
- // 30% at parity is PetDispatch_Crit 3000 basis points; the slope is PetDispatch_Coefficient 0.5.
- // Both inputs are measured; the expression combining them is LOCAL and marked as such in the module.
  const p=dispatchTeamPower(s),area1=dispatchArea(1).power;
- assert.equal(greatSuccessChance(s,1),Math.round(30*(1+0.5*(p/area1-1))*100)/100);
+ const original=r=>Math.max(0,Math.round((DISPATCH_CRIT_BP/10000+Math.pow(r,DISPATCH_COEFFICIENT)-1)*100*100)/100);
+ assert.equal(greatSuccessChance(s,1),original(p/area1),'greatSuccessChance must BE GetBigSuccess, not an expression that agrees at the gate');
  assert.ok(greatSuccessChance(s,1)>greatSuccessChance(s,2),'a harder area with the same team is less likely');
  assert.equal(greatSuccessChance(s,99),0,'an unknown area is never a Great Success');
- // Clamped at both ends: the maxed roster against area 1 is far past 100%.
+ // The four ratios that separate the two formulas. Exactly at the gate is the only agreement.
+ assert.equal(original(1),30,'crit is 3000 bp, so parity is 30%');
+ assert.equal(original(0.5),0.71,'an under-powered team is nearly hopeless, not 22.5%');
+ assert.equal(original(2),71.42,'doubling the gate is worth far more than the old +0.5 slope gave');
+ assert.equal(original(4),130,'and four times the gate is a guarantee');
+ const everkaiWas=r=>Math.min(100,Math.max(0,Math.round(30*(1+0.5*(r-1))*100)/100));
+ assert.equal(everkaiWas(1),original(1),'the old rule was right at the gate...');
+ for(const r of [0.5,2,4])assert.notEqual(everkaiWas(r),original(r),`...and wrong at ${r}x`);
+ // NO UPPER CLAMP in the model: `p * 100` with only a floor means an overwhelming team always wins.
  const maxed={...s,familiars:Object.fromEntries(Object.keys(s.familiars).map(id=>[id,{level:499,stars:100}]))};
- assert.equal(greatSuccessChance(maxed,1),100,'clamped to 100');
+ assert.ok(greatSuccessChance(maxed,1)>100,'no upper clamp: GetBigSuccess floors at 0 and has no ceiling');
 });
 
 test('Pet_Dispatch_Text14: cancelling forfeits the run and pays nothing',()=>{
