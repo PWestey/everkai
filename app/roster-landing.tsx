@@ -16,7 +16,10 @@ const readSort=(kind:string)=>{try{return localStorage.getItem('everkai-roster-s
 // `Sort by <choice>` button. Its four orders are Default / Power / Aptitude / Awakening, and
 // Awakening is offered now that spec 05's stars exist.
 export default function RosterLanding({entries,owned,selected,onSelect,family=false,kind,album,summary,status,power,sortKeys,info,badge}:any){
- const sorts=family?['power','rarity','name']:['default','power','aptitude','awakening','level','name'];
+ // A caller that brings its own sort keys gets exactly those; the Fellow list is not a default every
+ // roster should inherit. The Companions roster has no Aptitude and no Awakening, so offering them
+ // sorted 71 familiars by a key that returns 0 for all of them.
+ const sorts=sortKeys?['default',...Object.keys(sortKeys),'rarity','name']:family?['power','rarity','name']:['default','power','aptitude','awakening','level','name'];
  const [sort,setSort]=useState(()=>{const v=readSort(kind);return sorts.includes(v)?v:'power'});
  const choose=(v:string)=>{setSort(v);try{localStorage.setItem('everkai-roster-sort-'+kind,v)}catch{}};
  const key=rosterSort(entries,owned,sort,{power,keys:sortKeys}).map((f:any)=>f.id).join(',');

@@ -1910,3 +1910,45 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .story-row>span{color:#4b3720;font:700 13px Georgia,serif}
 .story-replay{min-width:56px;padding:4px 0;font-size:16px;line-height:1}
 .story-found{margin:4px 0;padding-left:18px;color:#6d573c;font:400 12px Georgia,serif}
+
+/* FAMILIAR GROWTH (specs 05, 06, 13). The two ladders are RAILS, not a <select> of node names: a card
+   per node, reached ones carrying their value, unreached greyed behind a padlock with the level or star
+   number where the value would be. The rail scrolls horizontally and anchors on where the familiar is. */
+/* min-width:0 and max-width:100% on both the row and the rail: without them the 99-card rail sizes the
+   flex parent to its CONTENT, which measured 7,623px wide in the browser and pushed the dock off the
+   right edge of the sheet entirely. The rail scrolls; nothing else may grow with it. */
+.familiar-dock-row{display:flex;align-items:flex-start;gap:10px;margin:6px 0 10px;min-width:0;max-width:100%}
+.familiar-growth{min-width:0;max-width:100%}
+.familiar-dock{display:flex;gap:6px;flex:1;justify-content:flex-end;align-self:center}
+/* These beat the shared Button variant, which otherwise leaves a ghost button transparent with dark
+   text -- invisible against the sheet's dark band. Measured in the browser, not assumed. */
+nav.familiar-dock>button{padding:5px 12px;border:1px solid #a98f5d;border-radius:6px;background:#f2e7cd;color:#5b4527;font:700 12px Georgia,serif}
+nav.familiar-dock>button[aria-pressed=true]{background:linear-gradient(#f0cd85,#c79a41);color:#3d2a10;border-color:#e0bd77}
+.node-rail{display:flex;gap:6px;overflow-x:auto;margin:8px 0;padding:2px 0 8px;list-style:none;scrollbar-width:thin;min-width:0;max-width:100%}
+.node-rail>li{flex:none}
+.node-card{position:relative;display:grid;place-items:center;min-width:62px;height:52px;padding:4px 6px;border:1px solid #9b8256;border-radius:7px;background:#3a2e20;color:#8c7a5c;font:700 11px Georgia,serif;cursor:pointer}
+.node-card.reached{background:linear-gradient(#2f6a45,#1f4a30);border-color:#7fc39a;color:#eafff2}
+.node-card.active{box-shadow:inset 0 0 0 2px #ffe6a6}
+.node-card.chosen{outline:2px solid #ffd98a;outline-offset:1px}
+.node-card>i{position:absolute;right:3px;top:2px;font-size:9px;font-style:normal;opacity:.75}
+.node-card>em{position:absolute;right:4px;bottom:2px;font-size:10px;font-style:normal;color:#ffe6a6}
+.node-earned{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.node-earned>span{padding:2px 9px;border:1px solid #a98f5d;border-radius:10px;background:#6b5132;color:#f0dcb0;font:700 11px Georgia,serif}
+.quick-activate{margin:2px 0}
+.stage-plate{display:flex;align-items:center;justify-content:center;gap:8px;margin:6px 0;color:#5b4527;font:700 14px Georgia,serif}
+.stage-plate>em{font-style:normal;font-size:11px;opacity:.8}
+button.growth-primary{display:inline-flex;flex-direction:column;gap:1px;line-height:1.15;height:auto;padding-top:6px;padding-bottom:6px}
+button.growth-primary>small{display:block;font:700 11px Georgia,serif;opacity:.92}
+button.growth-primary>small.short{color:#ffb4a4}
+/* The bind tile states capacity, the readout states effect, the POW pill states consequence --
+   between them they replace the sentence that used to explain all three. */
+.bind-tile{position:relative;width:62px;height:62px;flex:none;display:grid;place-items:center;border:2px dashed #a98f5d;border-radius:8px;background:#f2e7cd;color:#8a714a;font-size:24px;cursor:pointer}
+.bind-tile.filled{border-style:solid;background:#3a2e20;overflow:hidden}
+.bind-tile>img{width:100%;height:100%;object-fit:cover}
+.bind-tile>b{position:absolute;left:0;right:0;bottom:0;background:rgba(20,14,6,.72);color:#ffe7b5;font:700 10px Georgia,serif}
+.bind-readout{margin:2px 0 8px}
+.bind-banner{margin:0 0 4px;padding:2px 10px;border-radius:4px;background:linear-gradient(#f0cd85,#c79a41);color:#3d2a10;font:700 12px Georgia,serif;text-align:center}
+.bind-readout>dl{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;margin:0}
+.bind-readout>dl>div{display:flex;justify-content:space-between;gap:6px;font:400 11px Georgia,serif;color:#5b4527}
+.bind-readout dd{margin:0;font-weight:700}
+.pow-pill{margin:2px 0 0;font:700 11px Georgia,serif;color:#6d573c}

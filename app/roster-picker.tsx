@@ -31,6 +31,9 @@ function RosterArt({path}:{path:string}){const measured=artBounds(path),p=roster
 export default function RosterPicker({entries,selected,onSelect,status,owned={},family=false,pageSize=null,grouped=false,badge,countPill}:any){
  const size=pageSize??(family?2:3),[query,setQuery]=useState(''),[country,setCountry]=useState('all'),[page,setPage]=useState(Math.max(0,Math.floor(entries.findIndex((f:any)=>f.id===selected)/size)));
  useEffect(()=>{const i=entries.findIndex((f:any)=>f.id===selected);if(i>=0){setQuery('');setPage(Math.floor(i/size))}},[selected,entries,size]);
+ // The types present in THIS roster, in catalogue order: Fellows have five countries, Familiars have
+ // four classes, and a set with one type or none needs no capsule row at all.
+ const types=[...new Set(entries.map((f:any)=>f.type).filter(Boolean))] as string[];
  const matches=filterRoster(entries,query,'all',owned).filter((f:any)=>country==='all'||f.type===country),pages=Math.max(1,Math.ceil(matches.length/size)),current=Math.min(page,pages-1),kind=family?'Family':'Fellow';
  const rarity=(r:string)=>'plate-'+String(r||'n').toLowerCase().replace(/[^a-z0-9]/g,'');
  return <section className="roster-picker" aria-label={kind+' roster'}>
@@ -50,8 +53,13 @@ export default function RosterPicker({entries,selected,onSelect,status,owned={},
   </div>
   {!matches.length&&<p className="roster-count">No matches. Try another search or another type.</p>}
   {pages>1&&<nav className="roster-pagination" aria-label="Roster pages"><Button variant="outline" disabled={current===0} onClick={()=>setPage(current-1)}>Previous</Button><span>{current+1} / {pages}</span><Button variant="outline" disabled={current===pages-1} onClick={()=>setPage(current+1)}>Next</Button></nav>}
-  {!family&&<nav className="type-capsule" aria-label="Fellow types">{['all','Inspiring','Diligent','Brave','Informed','Unfettered'].map(type=>
-   <Button key={type} variant="ghost" aria-label={type==='all'?'All Fellow types':type} aria-pressed={country===type} onClick={()=>{setCountry(type);setPage(0)}}>
-    {countryIcon(type)?<img src={countryIcon(type)!} alt=""/>:'ALL'}</Button>)}</nav>}
+  {/* The capsule row is built from the TYPES THESE ENTRIES ACTUALLY HAVE, not a hardcoded list of the
+     five Fellow countries. Measured 2026-09-23: the 71 Familiars are Cool 19, Cute 19, Playful 19 and
+     Legendary 14, and countryIcon() returns null for every one of them -- so the Companions roster was
+     drawing five Fellow-country icons, and pressing any of them filtered 71 cards down to "No matches".
+     A type with no icon shows its name; only the `all` capsule says ALL. */}
+ {!family&&types.length>1&&<nav className="type-capsule" aria-label="Types">{['all',...types].map(type=>
+   <Button key={type} variant="ghost" aria-label={type==='all'?'All types':type} aria-pressed={country===type} onClick={()=>{setCountry(type);setPage(0)}}>
+    {type==='all'?'ALL':countryIcon(type)?<img src={countryIcon(type)!} alt=""/>:<span className="type-word">{type}</span>}</Button>)}</nav>}
  </section>;
 }
