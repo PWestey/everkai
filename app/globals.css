@@ -1917,8 +1917,13 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* min-width:0 and max-width:100% on both the row and the rail: without them the 99-card rail sizes the
    flex parent to its CONTENT, which measured 7,623px wide in the browser and pushed the dock off the
    right edge of the sheet entirely. The rail scrolls; nothing else may grow with it. */
-.familiar-dock-row{display:flex;align-items:flex-start;gap:10px;margin:6px 0 10px;min-width:0;max-width:100%}
+/* `.character-screen-controls` is a FLEX container, so a block child of it is a flex ITEM: with
+   min-width:0 and no width it collapsed to 4px, taking the dock and the bind tile with it. The wrapper
+   carries the width; everything inside it is a normal block again. Measured in the browser. */
+.familiar-growth-wrap{width:100%;min-width:0}
+.familiar-dock-row{display:flex;align-items:flex-start;gap:10px;margin:6px 0 10px;min-width:0;width:100%}
 .familiar-growth{min-width:0;max-width:100%}
+.familiar-growth-wrap .familiar-forms{width:100%;margin-top:8px}
 .familiar-dock{display:flex;gap:6px;flex:1;justify-content:flex-end;align-self:center}
 /* These beat the shared Button variant, which otherwise leaves a ghost button transparent with dark
    text -- invisible against the sheet's dark band. Measured in the browser, not assumed. */
