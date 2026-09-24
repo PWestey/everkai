@@ -4,7 +4,7 @@ import {FAMILIARS,familiarById} from '../lib/familiars.mjs';
 import {towerKey,towerState} from '../lib/familiar-tower.mjs';
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 import data from '../lib/familiar-explore-data.json' with {type:'json'};
-import {EXPLORE_AREAS,CATCH_ITEMS,STARTERS,HELD_ITEMS,exploreState,exploreAction,staminaAt,encounterPool,catchChance,validFamiliarExplore,INITIAL_SEED} from '../lib/familiar-explore.mjs';
+import {EXPLORE,EXPLORE_AREAS,CATCH_ITEMS,STARTERS,HELD_ITEMS,exploreState,exploreAction,staminaAt,encounterPool,catchChance,validFamiliarExplore,INITIAL_SEED} from '../lib/familiar-explore.mjs';
 
 const H=3600e3,T=new Date('2026-09-16T09:00:00').getTime();
 const at=(s,a,t=null,v=null,now=s.lastAt)=>{const r=act(s,a,now,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),`invalid save after ${a}`);return r.state};
@@ -64,16 +64,24 @@ test('the starter choice is one of three, once, and only for a village with no f
 // Determinism: the seed lives in the save, so nothing can be re-rolled by reloading.
 // ---------------------------------------------------------------------------------------------
 test('outcomes are deterministic and a reload cannot re-roll or refund anything',()=>{
+ // A press of Explore now lands on one of FOUR screens and pays nothing (10-explore.md 0). `settle`
+ // presses whichever verb that screen carries -- `Draw`/`Investigate` for the three item branches,
+ // a Basic Contract for the monster -- so these loops measure the same twelve events as before.
+ const settle=x=>{while(exploreState(x).pending)x=at(x,'exploreResolve');while(exploreState(x).encounter)x=at(x,'exploreCatch',null,1);return x};
  let s=starter();const trail=[];
- for(let i=0;i<12;i++){s=at(s,'exploreStep');trail.push(exploreState(s).last.text);while(exploreState(s).encounter)s=at(s,'exploreCatch',null,1);}
+ for(let i=0;i<12;i++){s=settle(at(s,'exploreStep'));trail.push(exploreState(s).last.text);}
  // Same starting save, same inputs, same world.
- let again=starter();for(let i=0;i<12;i++){again=at(again,'exploreStep');assert.equal(exploreState(again).last.text,trail[i]);while(exploreState(again).encounter)again=at(again,'exploreCatch',null,1);}
+ let again=starter();for(let i=0;i<12;i++){again=settle(at(again,'exploreStep'));assert.equal(exploreState(again).last.text,trail[i]);}
  assert.deepEqual(again,s);
  // Reload between every action: identical to never reloading.
- let reloaded=starter();for(let i=0;i<12;i++){reloaded=decode(JSON.stringify(at(reloaded,'exploreStep')));while(exploreState(reloaded).encounter)reloaded=decode(JSON.stringify(at(reloaded,'exploreCatch',null,1)));}
+ const reload=x=>decode(JSON.stringify(x));
+ let reloaded=starter();
+ for(let i=0;i<12;i++){reloaded=reload(at(reloaded,'exploreStep'));
+  while(exploreState(reloaded).pending)reloaded=reload(at(reloaded,'exploreResolve'));
+  while(exploreState(reloaded).encounter)reloaded=reload(at(reloaded,'exploreCatch',null,1));}
  assert.deepEqual(reloaded,s);
  // A failed contract, then "reload the save from before it" and try again: the same failure.
- let t=starter();while(!(exploreState(t).encounter))t=at(t,'exploreStep');
+ let t=starter();while(!(exploreState(t).encounter)){t=at(t,'exploreStep');while(exploreState(t).pending)t=at(t,'exploreResolve');}
  const before=JSON.stringify(t),first=act(t,'exploreCatch',t.lastAt,null,1),second=act(decode(before),'exploreCatch',t.lastAt,null,1);
  assert.deepEqual(second.state,first.state,'the retry from the older save lands exactly where the first try did');
  // Stamina spent is not refunded by a reload.
@@ -84,11 +92,24 @@ test('outcomes are deterministic and a reload cannot re-roll or refund anything'
 test('event and rarity frequencies follow the imported weights over a long run',()=>{
  let s=starter();s={...s,familiarExplore:{...exploreState(s),steps:{1:1000,2:0,3:0}}};// past the scripted steps
  const kinds={},grades={1:0,2:0,3:0,4:0};
- for(let i=0;i<6000;i++){s=direct(s,'exploreStep');const e=exploreState(s);const k=e.last.kind;kinds[k]=(kinds[k]||0)+1;if(e.encounter){grades[data.pets[e.encounter.pet].grade]++;s=direct(s,'exploreLeave');}
-  // Keep the store from filling, which would turn a grant into a refusal.
-  s={...s,familiarSupplies:{levelUp:0,classUp:0,since:null},familiarExplore:{...exploreState(s),items:Object.fromEntries(HELD_ITEMS.map(i=>[i,0]))}};}
- const monster=kinds.encounter/6000,item=(kinds.item+(kinds.buff||0))/6000,flower=kinds.lottery/6000;
- assert.ok(Math.abs(monster-.4)<.03&&Math.abs(item-.5)<.03&&Math.abs(flower-.1)<.02,JSON.stringify(kinds));
+ // The branch is now readable the moment it is rolled -- `pending.kind` for the three item screens,
+ // `encounter` for the monster -- so the composed leaf distribution can be asserted as the FOUR
+ // leaves the tables give (10-explore.md 0: monster 40 / lost item 30 / blessing 20 / Luck Flower 10).
+ // Everkai's panel used to print three, folding the blessing into "lost item"; that was a label bug
+ // over a correct model, and this pin is what keeps the label honest from here.
+ for(let i=0;i<6000;i++){s=direct(s,'exploreStep');const e=exploreState(s);
+  const k=e.encounter?'encounter':e.pending.kind;kinds[k]=(kinds[k]||0)+1;
+  if(e.encounter)grades[data.pets[e.encounter.pet].grade]++;
+  else s=direct(s,'exploreResolve');
+  // Keep the store from filling (a grant would turn into a refusal) and drop the monster: `Leave it`
+  // is gone with X10, and catching one would change `encounterPool` under the measurement.
+  s={...s,familiarSupplies:{levelUp:0,classUp:0,since:null},familiarExplore:{...exploreState(s),encounter:null,items:Object.fromEntries(HELD_ITEMS.map(i=>[i,0]))}};}
+ const monster=kinds.encounter/6000,lost=kinds.lostItem/6000,blessing=kinds.blessing/6000,flower=kinds.luckFlower/6000;
+ assert.ok(Math.abs(monster-.4)<.03,`monster ${monster}`);
+ assert.ok(Math.abs(lost-.3)<.03,`lost item ${lost}`);
+ assert.ok(Math.abs(blessing-.2)<.03,`blessing ${blessing}`);
+ assert.ok(Math.abs(flower-.1)<.02,`Luck Flower ${flower}`);
+ assert.equal(kinds.encounter+kinds.lostItem+kinds.blessing+kinds.luckFlower,6000,'four leaves, nothing else');
  const n=kinds.encounter;assert.ok(Math.abs(grades[1]/n-.335)<.04&&Math.abs(grades[2]/n-.47)<.04&&Math.abs(grades[3]/n-.15)<.03&&Math.abs(grades[4]/n-.045)<.02,JSON.stringify(grades));
 });
 
@@ -131,22 +152,25 @@ test('contracts: Advanced and Super consume an item, Super always succeeds, a du
  for(let i=0;i<3&&exploreState(m).encounter;i++)m=at(m,'exploreCatch',null,1);
  assert.ok(m.familiars.Pet_11321,'caught by the third attempt');
  // Scripted steps really fire in order: area 1 step 2 is Pet_21121.
- let t=at(at(starter(),'exploreStep'),'exploreStep');assert.equal(exploreState(t).encounter.pet,'Pet_21121');assert.equal(exploreState(t).encounter.mustCatch,2);
+ let t=at(starter(),'exploreStep');while(exploreState(t).pending)t=at(t,'exploreResolve');
+ if(exploreState(t).encounter)t={...t,familiarExplore:{...exploreState(t),encounter:null}};
+ t=at(t,'exploreStep');while(exploreState(t).pending)t=at(t,'exploreResolve');assert.equal(exploreState(t).encounter.pet,'Pet_21121');assert.equal(exploreState(t).encounter.mustCatch,2);
 });
 
 test('stamina: 1 per explore, one back every 5,400 s, never above 20, and Special Potion explores free',()=>{
  let s=starter();
- for(let i=0;i<20;i++){s=at(s,'exploreStep');while(exploreState(s).encounter)s=at(s,'exploreLeave');}
+ for(let i=0;i<20;i++){s=at(s,'exploreStep');if(exploreState(s).encounter)s={...s,familiarExplore:{...exploreState(s),encounter:null}};
+  while(exploreState(s).pending)s=at(s,'exploreResolve');}
  const e=exploreState(s);assert.equal(e.stamina,0);
  assert.match(act(s,'exploreStep',s.lastAt).error,/Out of stamina/);
  assert.equal(staminaAt(e,s.lastAt+5399e3).stamina,0);assert.equal(staminaAt(e,s.lastAt+5400e3).stamina,1);
  assert.equal(staminaAt(e,s.lastAt+100*H).stamina,20,'a long absence holds 20');
  s=at(s,'exploreStep',null,null,s.lastAt+5400e3);assert.equal(exploreState(s).stamina,0);
- const potion={...s,familiarExplore:{...exploreState(s),encounter:null,items:{...exploreState(s).items,Item_PetExploreBuff_04:1}}};
+ const potion={...s,familiarExplore:{...exploreState(s),encounter:null,pending:null,items:{...exploreState(s).items,Item_PetExploreBuff_04:1}}};
  const free=at(potion,'exploreStep');assert.equal(exploreState(free).items.Item_PetExploreBuff_04,0);assert.equal(exploreState(free).stamina,0);
 });
 
-test('areas open with the Familiar Tower floor and cannot be switched mid-encounter',()=>{
+test('areas open with the Familiar Tower floor, and switching area walks away from what is in front of you',()=>{
  let s=starter();
  assert.match(act(s,'exploreArea',T,2).error,/floor 100/);
  s=at(fresh(T),'adoptFamiliars');for(const id of ['Pet_1191','Pet_2391','Pet_3191','Pet_4151','Pet_4251'])s=at(s,'towerParty',id);
@@ -154,7 +178,48 @@ test('areas open with the Familiar Tower floor and cannot be switched mid-encoun
  while(towerState(s).cleared<100)s=at(s,'towerFight',towerKey(s));
  s=at(s,'exploreArea',2);assert.equal(exploreState(s).area,2);
  const e=exploreState(s);const busy={...s,familiarExplore:{...e,encounter:{pet:e.area===2?'Pet_31121':'Pet_11111',sp:false,alert:0,attempts:0,soothed:0,mustCatch:0}}};
- assert.ok(valid(busy));assert.match(act(busy,'exploreArea',T,1).error,/Finish with the monster/);
+ assert.ok(valid(busy));
+ // X10: `img/encounter.png` has `Use`, `Soothe`, `Skip`, `Ruin` and the back arrow -- and no `Leave it`.
+ // `Ruin` is on all four Explore screens, so it is the exit; leaving the area drops the monster and
+ // pays nothing, which is exactly what Everkai's own extra button did.
+ const before=Object.keys(busy.familiars).length;
+ const left=at(busy,'exploreArea',1);
+ assert.equal(exploreState(left).area,1);
+ assert.equal(exploreState(left).encounter,null,'the monster is left behind');
+ assert.equal(Object.keys(left.familiars).length,before,'and nothing is paid for leaving');
+ assert.deepEqual(exploreState(left).pieces,exploreState(busy).pieces,'no fragments either');
+});
+
+// ---------------------------------------------------------------------------------------------
+// The roll is a first-class value: `Explore` is one button with four screens behind it, three of
+// which carry their own verb (10-explore.md 0 and 9). A press must now STOP at the branch.
+// ---------------------------------------------------------------------------------------------
+test('Explore stops at the branch it rolled, pays nothing until its own verb, and pays exactly once',()=>{
+ let s=starter();s={...s,familiarExplore:{...exploreState(s),steps:{1:1000,2:0,3:0}}};// past the scripted steps
+ let flower=null,lost=null,blessing=null;
+ for(let i=0;i<400&&!(flower&&lost&&blessing);i++){
+  const before=exploreState(s);
+  s=at(s,'exploreStep');
+  const e=exploreState(s);
+  if(e.encounter){s={...s,familiarExplore:{...e,encounter:null}};continue;}
+  assert.ok(e.pending,'a non-monster press leaves a branch screen open');
+  assert.equal(e.last,null,'and the ribbon stays dark -- nothing has been paid yet');
+  assert.deepEqual(e.items,before.items,'no item is granted by the press itself');
+  assert.match(act(s,'exploreStep',s.lastAt).error,/Finish what you found/,'and Explore is blocked until it is');
+  const kind=e.pending.kind;
+  s=at(s,'exploreResolve');
+  const after=exploreState(s);
+  assert.equal(after.pending,null,'the screen closes when its verb is pressed');
+  assert.ok(after.last.reward.length,'and the ribbon has something to draw');
+  assert.match(act(s,'exploreResolve',s.lastAt).error,/Nothing to investigate/,'it cannot be pressed twice');
+  if(kind==='luckFlower')flower=after.last; else if(kind==='lostItem')lost=after.last; else blessing=after.last;
+ }
+ // The three ribbon variants, each with the slots 4.5 gives it.
+ assert.ok(flower&&lost&&blessing,'all three non-monster branches were seen');
+ assert.equal(lost.subtitle,"You've found lost supplies.",'the lost-item variant has the subtitle slot');
+ assert.equal(flower.subtitle,undefined,'the Luck Flower variant does not');
+ assert.ok(blessing.name&&blessing.effect&&Number.isInteger(blessing.remaining),'the blessing variant carries name, effect and Remaining');
+ assert.ok(EXPLORE.itemText[blessing.reward[0][0]]===blessing.effect,"the effect line is the item's own description");
 });
 
 test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
@@ -172,6 +237,23 @@ test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
  bad({...e,encounter:{pet:'Pet_11111',sp:false,alert:100,attempts:0,soothed:0,mustCatch:0}},'a monster that should have fled');
  bad({...e,encounter:{pet:'Pet_11111',sp:false,alert:0,attempts:0,soothed:4,mustCatch:0}},'four soothes');
  bad({...e,policyVersion:2},'an unknown policy');
+ // `pending` is the rolled branch. It pins WHICH screen is open and nothing else, so everything a
+ // hand-edit could want out of it -- a richer prize, a second screen, a branch from another area --
+ // has to be refused here rather than trusted at resolve.
+ bad({...e,pending:{kind:'lostItem',row:'101',extra:1}},'an extra field on the pending branch');
+ bad({...e,pending:{kind:'jackpot',row:'101'}},'a branch that is not one of the three');
+ bad({...e,pending:{kind:'luckFlower',row:'101'}},'a Luck Flower carrying a PetExploreItem row');
+ bad({...e,pending:{kind:'lostItem',row:null}},'a PetExploreItem screen with no row');
+ bad({...e,pending:{kind:'lostItem',row:'102'}},'the reward verb pointed at a buff row');
+ bad({...e,pending:{kind:'blessing',row:'101'}},'the blessing verb pointed at the reward row');
+ bad({...e,pending:{kind:'lostItem',row:'201'}},"another area's row");
+ bad({...e,pending:{kind:'lostItem',row:'101'},encounter:{pet:'Pet_11111',sp:false,alert:0,attempts:0,soothed:0,mustCatch:0}},'two screens open at once');
+ // And `last` grew optional slots for the ribbon; a save may not smuggle anything else through them.
+ bad({...e,last:{kind:'item',text:'x',reward:[['Item_PetLevelUP',-1]]}},'a negative reward count');
+ bad({...e,last:{kind:'item',text:'x',reward:[['Item_PetLevelUP']]}},'a reward pair missing its count');
+ bad({...e,last:{kind:'item',text:'x',payout:99}},'an unknown slot on last');
+ bad({...e,last:{kind:'buff',text:'x',remaining:1.5}},'a fractional Remaining');
+ assert.ok(validFamiliarExplore({...s,familiarExplore:{...e,last:{kind:'item',text:'x'}}}),'a save written before the ribbon still loads');
  assert.equal(valid({...s,familiarExplore:{...e,stamina:21}}),false,'valid() carries the refusal');
  assert.ok(validFamiliarExplore(s));assert.ok(validFamiliarExplore(fresh(T)),'a save with no exploring key is fine');
 });

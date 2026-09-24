@@ -925,3 +925,41 @@ captions and two one-line item descriptions shown at the moment of the grant.
 | `Leave it` (button) | **delete the button.** The capture settles audit question 8: the original's exit is `Ruin`, which is on every Explore state. Everkai's stated reason — "so a player without contracts is never stuck" — is served by `Ruin` too, and the Basic Contract is `∞` so the stuck case cannot arise |
 | `Tower floor 175 cleared.` (`:30`) | delete — duplicated from the Tower page (audit D7's sibling) |
 | `{area.text}` flavour, up to 50 words (`:23`) | keep, but as the **area art's caption** on the map's area strip, not on the explore screen. The original's explore screen shows the art and says nothing |
+
+---
+
+## 11 · Resolution (2026-09-24)
+
+Rule 7: every difference above is Fixed, Deferred with a stated reason, or Dropped.
+
+**The model first, because everything else is downstream of it (§0).** `exploreStep` used to roll a
+branch and pay it in the same press, so three of the four screens had no surface — the Luck Flower,
+the blessing and the lost-item cache all arrived as one sentence. It now stops at the branch:
+`pending = {kind, row}` says *which screen is open*, grants nothing, and blocks a second press.
+`exploreResolve` is the action behind `Draw` and `Investigate` and is where the prize is rolled, so a
+stored `pending` is two bounded fields and cannot smuggle a reward. Old saves have no `pending` key
+at all, which reads as "no screen open" — the state they were in.
+
+| # | Outcome |
+| --- | --- |
+| **X1** | **Fixed.** Five screens off one roll: REST, the monster ENCOUNTER, and the three branches, each with its own title plaque and its own verb (`Use` / `Draw` / `Investigate`). |
+| **X2** | **Fixed.** The Luck Flower is a screen with its five `PetExploreLottery` prizes, its own `Probability`, and a `Draw` that charges nothing — the 1 stamina was spent by the press that produced it. |
+| **X3, X13** | **Fixed.** The counter stack: a blessing is one chip with a number. There is no buff panel in the original and there is none here — the grant is loud (the ribbon) and the persistence is quiet (the chip). The four item texts moved from a `<details>` onto the chips' titles and the ribbon's effect line. |
+| **X4** | **Fixed.** `Probability` is its own screen: banded headers in the rarity's colour from `System.ExplorePetCatchWeight`, and a 5-wide grid of framed portraits with each familiar's individual share under it. P4's 196 words are deleted. |
+| **X5** | **Fixed.** `Ruin` lists the areas with `Contracted: n/total` and the locked one's Familiar Tower floor. |
+| **X6** | **Fixed as adapted.** P6's comma-joined name lists are gone; the roster grid they were describing is the `Probability` screen, which draws the same familiars with their rates. A separate Area Detail with locked cards and a `Source` tooltip is **deferred** to spec 07's locked-preview slice, which owns that card. |
+| **X7** | **Fixed.** `Intro`, four captions — which is what the deleted disclosures were trying to be. |
+| **X8** | **Fixed.** `Alertness: 34/100` is printed **inside** a red-filling bar, and the flee rule is one gold line. |
+| **X9** | **Fixed.** `Consume ⚡1` sits inside the primary, on its own line, and strikes through when a Special Potion waives it. The separate stamina and regen lines are gone; `⚡ n/20` sits beside the button. |
+| **X10** | **Fixed, and it resolves audit question 8.** `Leave it` is deleted — the button *and* the `exploreLeave` action, which `tests/dispatch.test.mjs` then caught as unreachable, exactly as that guard exists to do. `Ruin` is on all four screens and is the exit, so changing area walks away from the monster or the find and pays nothing — exactly what Everkai's own extra button did. |
+| **X11** | **Fixed.** One `Contract Success Rate` for the **selected** contract, with `Failed: Alertness +30-40` under it; the three medallions carry their grade and their stock, `∞` on grade 1. |
+| **X14** | **Fixed.** One `RewardRibbon` (`app/reward-ribbon.tsx`), built once with all five slots before any branch, per §4.5's instruction. Three of Explore's four branches call it; the hub pickup and the Compendium's `Quick Collect` are its next two callers. |
+| **X15** | **Deferred.** The catch's two animation beats are not built. §4.1 argues for building *less* here, not more, and the beats are presentation with no state behind them — but they are also the one payout that must NOT reach the ribbon, and that separation is now in place. |
+| **X12** | **Dropped for now, with the gates drawn.** `Full Auto` and both `Skip` checkboxes are gated in the original (`PetExploreAutoUnlock` 30, `PetExploreSkip` / `PetCatchSkip` 10) and none of the three is built. `Attract` is drawn **dimmed with a padlock and its `10`**, which §7 settles as the correct amount: an incense burns a consumable to buy a better rarity table and skip a cost that regenerates on its own — "build the dialog, or build nothing", and the dialog needs `System.PetTrap`, which is not imported, plus a grant path nothing in reach provides. |
+| **pity banner (§1.2)** | **Not built, deliberately.** No ceiling table exists for `Pet*`; the same search returns nineteen for other systems, so it reaches the right neighbourhood and finds nothing. The rule lives on the server. |
+
+**A label bug worth recording.** The panel printed `monster 40% · lost item 50% · Luck Flower 10%` —
+three leaves where the tables give four, because it folded the blessing into "lost item". The model
+was always right. `Probability` now *derives* the four rates from `PetArea.EventPool` and this area's
+`PetExploreItem` rows rather than restating them, and `tests/familiar-explore.test.mjs` pins all four
+(monster 40 / lost item 30 / blessing 20 / Luck Flower 10) over a 6,000-press run.

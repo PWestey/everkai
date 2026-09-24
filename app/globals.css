@@ -997,6 +997,97 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .tower-floor .tower-reward{color:#8a5a1c;font-weight:700}
 .tower-enemies{display:grid;gap:3px;margin:0;padding:0;list-style:none;font-size:12px;color:#4b3421;text-align:left;max-height:200px;overflow-y:auto}
 .tower-enemies li{padding:3px 6px;background:#f3e2bb;border-radius:4px}
+/* FAMILIAR EXPLORING -- one button, four screens (10-explore.md 0). The stage swaps between REST,
+   the monster ENCOUNTER and the three BRANCH screens; every control is art-as-button with its label
+   under it, and the cost lives INSIDE the primary rather than beside it. */
+.familiar-explore{display:grid;gap:8px}
+.explore-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.area-plaque{padding:3px 12px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px;color:#e5bd6a;font:700 13px Georgia,serif}
+.art-button{display:grid;justify-items:center;gap:1px;padding:6px 8px;min-width:62px;background:linear-gradient(#f6e6c2,#e2c891);
+ border:1px solid #8a5a1c;border-radius:10px;color:#4b3421;font:700 11px Georgia,serif}
+.art-button:disabled{opacity:.55}
+.art-button em{font-style:normal;font-size:10px;color:#8a5a1c}
+.art-button i{font-style:normal;font-size:10px;color:#7a5a12}
+.counter-stack{display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0;list-style:none}
+.counter-stack li{display:flex;align-items:baseline;gap:4px;padding:2px 7px;background:#efe0bd;border:1px solid #c49a55;
+ border-radius:11px;color:#4b3421;font-size:10px}
+.counter-stack b{color:#7a5a12;font-size:11px}
+.explore-stage{position:relative;display:grid;gap:6px;justify-items:center;padding:10px 8px;
+ background:linear-gradient(#5d7a4a,#3c5233);border:1px solid #c99a4e;border-radius:8px}
+.explore-stage.encounter{background:linear-gradient(#6b6248,#443c2a)}
+.explore-stage.branch.luckFlower{background:linear-gradient(#7a6a86,#463a52)}
+.explore-stage.branch.lostItem{background:linear-gradient(#7a6647,#4a3a24)}
+.explore-stage.branch.blessing{background:linear-gradient(#4c6f7a,#2c434c)}
+.area-art,.branch-art{width:100%;height:104px;border-radius:6px;background:
+ radial-gradient(circle at 30% 70%,#ffffff22,transparent 60%),repeating-linear-gradient(115deg,#ffffff0d 0 14px,transparent 14px 28px)}
+.stamina-line{align-self:end;justify-self:end;margin:0;color:#ffe7b5;font:700 14px Georgia,serif;text-shadow:0 1px 0 #2a1d11}
+.explore-primary{min-width:150px;background:linear-gradient(#f3cd6b,#d59a33)!important;border:1px solid #8a5a1c!important;
+ color:#4b3421!important;font:700 16px Georgia,serif!important}
+.explore-primary.big{height:auto!important;flex-direction:column;gap:0;padding:10px 20px!important;border-radius:999px!important}
+.explore-primary em{display:block;font-style:normal;font-size:11px;font-weight:700;color:#7a5a12}
+.explore-primary em.waived{text-decoration:line-through;opacity:.6}
+.explore-corners{display:flex;align-items:center;justify-content:space-between;width:100%}
+.explore-bar{display:flex;justify-content:flex-end}
+.intro-link{color:#8a5a1c;font-size:12px;font-weight:700;text-decoration:underline}
+/* The encounter: plaque, the value INSIDE the bar, one rate for the SELECTED contract. */
+.monster-plaque{display:flex;align-items:center;gap:6px;width:100%;padding:4px 6px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px}
+.monster-plaque strong{flex:1;color:#4b3421;font:700 14px Georgia,serif}
+.rarity-pip{display:grid;place-items:center;width:20px;height:20px;border:1px solid #ffe7b5;border-radius:4px;color:#fff;font:700 10px Georgia,serif}
+.fragment-badge{padding:1px 6px;background:#efe0bd;border-radius:9px;color:#7a5a12;font-size:10px;font-style:normal}
+.details-tab{padding:2px 8px;background:#5b3d26;border:1px solid #c99a4e;border-radius:3px;color:#ffe7b5;font-size:10px;font-weight:700}
+.alert-bar{position:relative;width:100%;height:20px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:10px;overflow:hidden}
+.alert-bar i{position:absolute;inset:0 auto 0 0;background:linear-gradient(#d85a3a,#a8341f);transition:width .2s}
+.alert-bar span{position:relative;display:grid;place-items:center;height:100%;color:#ffe7b5;font:700 11px Georgia,serif}
+.flee-line{margin:0;color:#f3cd6b;font-size:11px;text-align:center}
+.rate-strip{width:100%;padding:5px 8px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px;text-align:center}
+.rate-strip p{margin:0;color:#6b4a26;font-size:12px!important}
+.rate-strip b{color:#d07a1c;font:700 19px Georgia,serif}
+.rate-strip small{color:#8a5a1c;font-size:10px}
+.contract-carousel{display:flex;gap:10px;margin:0;padding:0;list-style:none}
+.contract-carousel li{display:flex}
+/* Three medallions, the stock printed under the grade INSIDE the circle. The `∞` on grade 1 is the
+   design's whole tutorial (4.1): unlimited and worst odds, against finite and better. */
+.medallion{flex:none;display:grid;align-content:center;justify-items:center;gap:0;width:54px!important;height:54px;
+ min-width:0!important;min-height:54px!important;padding:0!important;background:linear-gradient(#f6e6c2,#d9bd86);
+ border:2px solid #8a5a1c;border-radius:50%;color:#4b3421;font-family:Georgia,serif;line-height:1.05}
+.medallion b{font-size:16px;font-weight:700}
+.medallion em{font-style:normal;font-size:10px;font-weight:700;color:#7a5a12}
+.medallion.picked{border-color:#f3cd6b;box-shadow:0 0 0 3px #f3cd6b88;background:linear-gradient(#fff4d6,#f0d296)}
+.contract-name{margin:0;color:#ffe7b5;font:700 12px Georgia,serif}
+/* The three branches that pay. */
+.branch-title{margin:0;padding:3px 16px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:4px;color:#ffe7b5;font:700 15px Georgia,serif}
+.branch-flavour{margin:0;color:#ffe7b5;font-size:12px;text-align:center}
+.petal-wheel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;width:100%;margin:0;padding:0;list-style:none}
+.petal-wheel li{display:flex;justify-content:space-between;gap:6px;padding:4px 8px;background:#fbf0d4b8;border:1px solid #c49a55;
+ border-radius:14px;color:#4b3421;font-size:11px}
+.petal-wheel b{color:#7a5a12}
+.branch-head{display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+/* The shared reward ribbon (4.5): five optional slots, one dismissal, the screen visible behind it. */
+.reward-ribbon{display:grid;gap:8px;justify-items:center;text-align:center;background:#fbf0d4!important}
+.ribbon-banner{justify-self:stretch;padding:6px 26px;background:linear-gradient(#c3341f,#8a2414);border-block:2px solid #f3cd6b;
+ color:#ffe7b5!important;font:700 19px Georgia,serif!important;text-align:center}
+.ribbon-subtitle{color:#4b3421!important;font-size:13px!important}
+.ribbon-name{margin:0;color:#7a5a12;font:700 16px Georgia,serif}
+.ribbon-items{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.ribbon-items li{display:grid;gap:2px;padding:10px 14px;background:radial-gradient(circle,#fff6da,#efdcb0);
+ border:1px solid #c49a55;border-radius:8px;color:#4b3421;font-size:12px}
+.ribbon-items b{color:#7a5a12;font:700 15px Georgia,serif}
+.ribbon-items.unlabelled li{padding:14px 22px;font-size:16px}
+.ribbon-remaining{margin:0;padding:2px 12px;background:#e4f0dc;border:1px solid #2f8a3a;border-radius:11px;color:#2f8a3a;font-size:12px;font-weight:700}
+.ribbon-effect{margin:0;color:#8a5a1c;font-size:12px}
+.ribbon-continue{color:#6b4a26;font-size:12px;letter-spacing:.06em}
+/* Probability: the one place the game shows art and a number together at grid density. */
+.probability-sheet{max-height:78vh;overflow-y:auto}
+.branch-rates{margin:0;text-align:center;color:#6b4a26;font-size:12px;font-weight:700}
+.prob-band h5{margin:8px 0 4px;text-align:center;font:700 13px Georgia,serif}
+.prob-band ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:0;padding:0;list-style:none}
+.prob-band li{display:grid;justify-items:center;gap:1px}
+.prob-card{display:grid;place-items:center;width:100%;aspect-ratio:1;border:1px solid #c49a55;border-radius:5px;overflow:hidden}
+.prob-card img{width:100%;height:100%;object-fit:cover}
+.prob-band strong{font-size:9px;color:#4b3421;text-align:center;line-height:1.1}
+.prob-band small{font-size:9px;color:#7a5a12;font-weight:700}
+.ruin-map .area-gate em{font-style:normal}
+.intro-steps{display:grid;gap:6px;margin:0;padding-left:18px;color:#4b3421;font-size:13px}
 .explore-monster{width:96px;justify-self:center}.explore-monster>span{top:26%;display:grid;place-items:center}.explore-monster>span img{width:40px;height:40px;object-fit:contain}
 .familiar-forms ul{margin:0;padding-left:18px;color:#4b3421;font-size:13px}
 .tower-result{padding:8px 10px;border:2px solid #c49a55;border-radius:6px;background:#fbf0d4}
