@@ -1957,3 +1957,38 @@ button.growth-primary>small.short{color:#ffb4a4}
 .bind-readout>dl>div{display:flex;justify-content:space-between;gap:6px;font:400 11px Georgia,serif;color:#5b4527}
 .bind-readout dd{margin:0;font-weight:700}
 .pow-pill{margin:2px 0 0;font:700 11px Georgia,serif;color:#6d573c}
+
+/* FAMILIAR DISPATCH (spec 08). The four states are drawn, not described: seats are circles with a +
+   when empty and a padlock when the surface is locked, the two reward trays carry item tiles with
+   their counts, the away state says `In Progress` with a countdown on the screen rather than refusing
+   a button, and the result arrives as a ribbon with the outcome as one coloured word. */
+.dispatch-head{display:flex;align-items:center;justify-content:center;gap:8px}
+.dispatch-seats{display:flex;justify-content:center;gap:8px;margin:8px 0;padding:0;list-style:none}
+.dispatch-seat{display:grid;place-items:center;width:52px;height:52px;border:2px solid #a98f5d;border-radius:50%;background:#f2e7cd;color:#8a714a;font-size:20px;overflow:hidden;cursor:pointer}
+.dispatch-seat.filled{border-style:solid;background:#3a2e20}
+.dispatch-seat>img{width:100%;height:100%;object-fit:cover}
+.dispatch-seats.locked .dispatch-seat{cursor:default;font-size:16px}
+.dispatch-line{margin:4px 0;text-align:center;color:#5b4527;font:400 12px Georgia,serif}
+.dispatch-duration{margin:6px 0;text-align:center;color:#4b3720;font:700 13px Georgia,serif}
+.dispatch-state{margin:6px 0 2px;text-align:center;color:#2f6a45;font:700 15px Georgia,serif}
+.great-odds{color:#b4320f}
+.reward-tray{margin:6px 0}
+.reward-tray>h5{margin:0 0 3px;text-align:center;color:#6d573c;font:700 11px Georgia,serif;letter-spacing:.06em}
+.reward-tray>ul{display:flex;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.reward-tray li{display:flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid #a98f5d;border-radius:7px;background:#f6ecd5;color:#4b3720;font:400 11px Georgia,serif}
+.reward-tray b{font:700 12px Georgia,serif}
+.dispatch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.dispatch-card{display:grid;justify-items:center;gap:2px;padding:6px 4px;border:1px solid #9b8256;border-radius:8px;background:#f2e7cd;color:#4b3720;font:400 11px Georgia,serif;cursor:pointer}
+.dispatch-card.chosen{box-shadow:inset 0 0 0 2px #ffd98a}
+.dispatch-card>img{width:40px;height:40px;object-fit:cover;border-radius:6px}
+.dispatch-card>strong{font:700 11px Georgia,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.area-row{position:relative;display:grid;gap:2px;width:100%;margin:5px 0;padding:8px 10px;border:1px solid #c0a778;border-radius:8px;background:#f7efdb;color:#4b3720;text-align:left;cursor:pointer}
+.area-row.current{border-color:#c99a4e;box-shadow:inset 0 0 0 2px #e9c88a}
+.area-row.locked{opacity:.62;cursor:default}
+.current-ribbon{position:absolute;right:8px;top:6px;padding:1px 8px;border-radius:3px;background:linear-gradient(#c8452a,#962f1c);color:#ffe9dc;font:700 10px Georgia,serif}
+.area-trays{font:400 11px Georgia,serif;color:#6d573c}
+.area-gate{position:relative;display:block;height:12px;border:1px solid #a98f5d;border-radius:6px;background:#e4d6b4;overflow:hidden}
+.area-gate>i{display:block;height:100%;background:linear-gradient(#7fc39a,#2f6a45)}
+.area-gate>em{position:absolute;inset:0;display:grid;place-items:center;font:700 9px Georgia,serif;font-style:normal;color:#2b2113}
+.result-word{margin:6px 0;text-align:center;font:700 22px Georgia,serif;color:#24598b}
+.result-word.great{color:#b4320f}
