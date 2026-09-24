@@ -448,3 +448,63 @@ What they contribute is **two apologies for their own absence**, both shipping t
 | `app/familiar-explore-panel.tsx:28` — `Basic Metamorphixir ×3 · kept for Metamorphosis, not built yet` | the item's chip with its count. "Not built yet" is a repo fact and belongs in `docs/parity-catalog.csv` E7, where it already is (audit **D9**) |
 | Any future sentence explaining why Everkai has no shop, pass or bundle | **nothing on any screen.** This file is that explanation. A single-player game does not tell the player what it chose not to sell them |
 | `lib/familiar-explore.mjs`'s `NOT MODELLED:` header line, for the shop half only | keep the header, but once §5.1 lands, amend it: the shop is not unmodelled, it is **deliberately reduced to one exchange**, and the reason is this spec |
+
+---
+
+## 8 · Resolution (2026-09-24)
+
+This spec's job was to say what **not** to build, and that is most of what happened.
+
+### Built: one exchange, and nothing else from four screens
+
+`ScoreExchange` `PetShop_8` — **100 × Familiar Tears → 1 × Advanced Contract, limit 1** — is imported
+by `scripts/import-familiar-exchange.py` into `lib/familiar-exchange-data.json`, resolved through
+`split_reward/reward.json`, and exposed as the `exploreExchange` action. It lives **on the Explore
+screen, under the counter chips**, where the Tears are earned — not behind a shop button. There is no
+shell, no grid, no `Switch Shop`, no second row.
+
+It closes audit **S4/M1**: Tears accumulated with no sink, and the panel carried an *apology* saying
+so (`Dropped when a familiar runs away. Collect enough to exchange for rewards in the Familiar Shop.`
+against a Familiar Shop that did not exist). The importer also records the nine Crystal-priced rows it
+deliberately left out, so "why only one?" needs no re-measurement.
+
+**The reset period is Everkai's own**, and is marked as such in the module header, because no table
+states it — in the original `limit` resets on a server schedule. It is **daily**, and the choice is
+nearly free. Measured, both halves from the original's tables (rule 1): a flee needs three consecutive
+contract failures (`PetCatchItem.Alert` 30–40 against `Pet.AlertMax` 100), which with the unlimited
+Basic Contract happens on **51.2 %** of monster encounters for an average of **1.58 Tears**; monsters
+are 4,000 of `PetArea.EventPool`'s 10,000, so a press is worth **0.63 Tears** and 100 Tears is
+**~158 presses** — about **ten days** of a full stamina bar at `PetExploreEnergyTime`. A daily cap of
+one never binds; a lifetime cap of one would have made the loop pointless. Both figures are pinned in
+`tests/familiar-explore.test.mjs`.
+
+### Dropped, not deferred
+
+| Surface | Outcome |
+| --- | --- |
+| Familiar Shop panel + grid + `Switch Shop` | **Dropped.** Nine of ten rows are premium currency. If a shop is ever wanted it is a shell across Drakenberg, Golemore, Trading Post, Banquet, Wish and Alraune — a separate slice, and not this one. |
+| Familiar Pass ladder, Periodic Tasks, `Get EXP` | **Dropped as a subscription.** Its four *benefits* are a live owner decision — see below. |
+| Familiar Daily Offer / Familiar Bundle | **Dropped.** Real money. |
+| Benefits Card, Monthly/Yearly Pass, Recharge Rebate | **Dropped.** Real money, and not familiar-specific. |
+| `PetLotteryConfig` banners, `PetLotteryShop` gacha | **Dropped.** The 21 rows stay as documentation of crossover acquisition; no banner, no pull. |
+| A hub action row to hold any of the above | **Dropped, and this is the one layout fact worth copying** (§1): the original's own `(i)` names three of nine destinations, and the commerce sits in a row of small buttons stapled to the scene's bottom-left corner. Everkai copies that ordering by simply not having the row. Spec 01's hub draws five live destinations. |
+| VIP EXP, Privilege Coins, `Value n%` badges, any USD | **Dropped.** |
+
+### Open: §5.2, the Pass's four benefits — an owner decision, not implemented
+
+Per rule 9 this goes to the owner batched with a recommendation, and per this spec's own instruction
+(*"Do not implement these before the owner has seen M3/M4"*) **nothing here is built**. The
+magnitudes are the original's and must be used verbatim; only the *gates* would be Everkai's.
+
+| Benefit | Original magnitude | Recommended gate |
+| --- | --- | --- |
+| Stamina cap 20 → 50, regen 90 → 60 min | `PetExploreEnergyMax{,BP}`, `PetExploreEnergyTime{,BP}` | a contracted-count or Compendium-level milestone |
+| Tower income +10 %, storage 24 h → 48 h | `PetTowerIncomeBPCoef` 1000, `PetTowerIncomeTime` 24 → `…BPTimeMax` 48 | a Tower floor milestone |
+| A daily Ordinary Mochi | `Item_PetBP_PetPacifyDaliy` | the existing habit/daily loop, which is the single-player design rule |
+| A Fellow at Pass Lv. 50 | `Item_Owner_Hero_161` | **skip** — a roster decision, not a familiar one |
+
+**Recommendation: yes to the first three, staged (the original delivers them at Pass levels 1, 15 and
+30 — not all at once), no to the fourth.** The load-bearing risk is the base-vs-boosted distinction:
+granting all four at once would silently 2.5× the stamina cap and +10 % the tower's income, and per
+rule 12 the tower income figure is exactly the kind of derived value a save may already encode. If the
+owner says yes, it is its own commit with its own save check — not a line in this one.

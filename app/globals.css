@@ -1093,6 +1093,11 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .counter-stack li{display:flex;align-items:baseline;gap:4px;padding:2px 7px;background:#efe0bd;border:1px solid #c49a55;
  border-radius:11px;color:#4b3421;font-size:10px}
 .counter-stack b{color:#7a5a12;font-size:11px}
+.tears-exchange{display:flex;align-items:center;gap:8px;padding:5px 8px;background:#f6e6c2;border:1px solid #c49a55;border-radius:6px}
+.tears-exchange p{flex:1;margin:0;color:#6b4a26;font-size:11px!important}
+.tears-exchange b{color:#7a5a12;font-size:13px}
+.tears-exchange small{color:#8a5a1c;font-size:10px}
+.tears-exchange button{height:auto!important;min-height:0!important;padding:4px 10px!important;font-size:11px!important}
 .explore-stage{position:relative;display:grid;gap:6px;justify-items:center;padding:10px 8px;
  background:linear-gradient(#5d7a4a,#3c5233);border:1px solid #c99a4e;border-radius:8px}
 .explore-stage.encounter{background:linear-gradient(#6b6248,#443c2a)}

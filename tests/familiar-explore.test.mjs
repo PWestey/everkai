@@ -4,7 +4,7 @@ import {FAMILIARS,familiarById} from '../lib/familiars.mjs';
 import {towerKey,towerState} from '../lib/familiar-tower.mjs';
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 import data from '../lib/familiar-explore-data.json' with {type:'json'};
-import {EXPLORE,EXPLORE_AREAS,CATCH_ITEMS,STARTERS,HELD_ITEMS,exploreState,exploreAction,staminaAt,encounterPool,catchChance,validFamiliarExplore,INITIAL_SEED} from '../lib/familiar-explore.mjs';
+import {EXPLORE,EXCHANGE,exploreExchangeState,EXPLORE_AREAS,CATCH_ITEMS,STARTERS,HELD_ITEMS,exploreState,exploreAction,staminaAt,encounterPool,catchChance,validFamiliarExplore,INITIAL_SEED} from '../lib/familiar-explore.mjs';
 
 const H=3600e3,T=new Date('2026-09-16T09:00:00').getTime();
 const at=(s,a,t=null,v=null,now=s.lastAt)=>{const r=act(s,a,now,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),`invalid save after ${a}`);return r.state};
@@ -222,6 +222,58 @@ test('Explore stops at the branch it rolled, pays nothing until its own verb, an
  assert.ok(EXPLORE.itemText[blessing.reward[0][0]]===blessing.effect,"the effect line is the item's own description");
 });
 
+// ---------------------------------------------------------------------------------------------
+// ScoreExchange PetShop_8 -- the ONE row on the whole commerce surface that is not priced in premium
+// currency (12-monetisation.md §5.1), and the sink that closes audit S4/M1.
+// ---------------------------------------------------------------------------------------------
+test('Familiar Tears buy an Advanced Contract at the original\u2019s own price, once a day',()=>{
+ // The price is the table's, not a judgement: 100 x Item_PetExploreRunCoin -> 1 x Item_PetCatch2.
+ assert.equal(EXCHANGE.row,'PetShop_8');
+ assert.deepEqual(EXCHANGE.price,{item:'Item_PetExploreRunCoin',count:100});
+ assert.deepEqual(EXCHANGE.grants,{item:'Item_PetCatch2',count:1});
+ assert.equal(EXCHANGE.limit,1);
+ // And the nine rows deliberately NOT built are recorded, so "why only one?" needs no re-measuring.
+ assert.equal(EXCHANGE.crystalRows.length,9);
+ assert.ok(!EXCHANGE.crystalRows.includes('PetShop_8'));
+
+ let s=starter();
+ assert.equal(exploreExchangeState(s).held,0);
+ assert.match(act(s,'exploreExchange',s.lastAt).error,/0\/100/,'no Tears, no exchange');
+ const e=exploreState(s);
+ s={...s,familiarExplore:{...e,items:{...e.items,Item_PetExploreRunCoin:250}}};
+ assert.ok(valid(s));
+ const before=exploreState(s).items.Item_PetCatch2;
+ s=at(s,'exploreExchange');
+ assert.equal(exploreState(s).items.Item_PetExploreRunCoin,150,'exactly the price is spent');
+ assert.equal(exploreState(s).items.Item_PetCatch2,before+1);
+ assert.equal(exploreExchangeState(s).left,0);
+ assert.match(act(s,'exploreExchange',s.lastAt).error,/Already exchanged today/,'the limit is per day, and it is one');
+ // The RESET PERIOD is Everkai's own -- no table states it -- so it is pinned here rather than left
+ // to drift. Tomorrow it is available again; the same day at a later hour is not.
+ const later=s.lastAt+6*H;
+ assert.match(act({...s,lastAt:later},'exploreExchange',later).error,/Already exchanged today/);
+ const tomorrow=s.lastAt+26*H;
+ assert.equal(act({...s,lastAt:tomorrow},'exploreExchange',tomorrow).error,undefined,'the cap resets with the day, not once per save');
+});
+
+test('the daily cap never binds at the rate Tears actually accrue',()=>{
+ // CLAUDE.md rule 1: both halves from the original's tables. A flee needs three consecutive contract
+ // failures (PetCatchItem.Alert is 30-40 and Pet.AlertMax is 100), so with the unlimited Basic
+ // Contract the flee chance at each rarity is (1-p)^3, weighted by System.ExplorePetCatchWeight.
+ const basic=CATCH_ITEMS.find(c=>c.grade===1).prob,gw=EXPLORE.gradeWeights;
+ const tears={1:1,2:2,3:4,4:10};// Pet.RunReward -> Reward_PetRun_n, as imported
+ for(const [id,p] of Object.entries(EXPLORE.pets))assert.equal(p.tears,tears[p.grade],`${id} tears`);
+ const total=[1,2,3,4].reduce((n,g)=>n+gw[g],0);
+ let perEncounter=0;
+ for(const g of [1,2,3,4])perEncounter+=(gw[g]/total)*Math.pow(1-basic[g]/10000,3)*tears[g];
+ assert.ok(perEncounter>1.5&&perEncounter<1.7,`${perEncounter} Tears per monster encounter`);
+ // Monsters are 4000 of PetArea.EventPool's 10000, and stamina regenerates 16 presses a day.
+ const perPress=perEncounter*(EXPLORE_AREAS[0].events.PetCatch/10000);
+ const presses=EXCHANGE.price.count/perPress,perDay=24*3600/EXPLORE.energy.seconds;
+ assert.ok(presses>140&&presses<180,`${presses} presses for one exchange`);
+ assert.ok(presses/perDay>8,`only ${presses/perDay} days per exchange -- a daily cap of 1 would start to bind`);
+});
+
 test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
  const s=at(starter(),'exploreStep'),e=exploreState(s);
  const bad=(x,why)=>assert.equal(validFamiliarExplore({...s,familiarExplore:x}),false,why);
@@ -253,6 +305,11 @@ test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
  bad({...e,last:{kind:'item',text:'x',reward:[['Item_PetLevelUP']]}},'a reward pair missing its count');
  bad({...e,last:{kind:'item',text:'x',payout:99}},'an unknown slot on last');
  bad({...e,last:{kind:'buff',text:'x',remaining:1.5}},'a fractional Remaining');
+ bad({...e,exchange:{day:'2026-09-16',count:2}},'more exchanges than the row\u2019s limit');
+ bad({...e,exchange:{day:'2026-09-16'}},'an exchange ledger with no count');
+ bad({...e,exchange:{day:'2026-09-16',count:1,extra:1}},'an extra field on the exchange ledger');
+ bad({...e,exchange:{day:12345,count:1}},'a day that is not a date string');
+ assert.ok(validFamiliarExplore({...s,familiarExplore:{...e,exchange:{day:'2026-09-16',count:1}}}),'a real ledger passes');
  assert.ok(validFamiliarExplore({...s,familiarExplore:{...e,last:{kind:'item',text:'x'}}}),'a save written before the ribbon still loads');
  assert.equal(valid({...s,familiarExplore:{...e,stamina:21}}),false,'valid() carries the refusal');
  assert.ok(validFamiliarExplore(s));assert.ok(validFamiliarExplore(fresh(T)),'a save with no exploring key is fine');

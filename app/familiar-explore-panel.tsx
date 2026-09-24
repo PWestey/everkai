@@ -3,7 +3,7 @@ import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {cardStyle,cardRarity,rarityIcon,petCardIcon} from '@/lib/ui-sprites.mjs';
 import {familiarById} from '@/lib/familiars.mjs';
-import {EXPLORE,EXPLORE_AREAS,CATCH_ITEMS,RARITY_NAMES,exploreState,staminaAt,areaUnlocked,explorePet,catchChance,encounterPool} from '@/lib/familiar-explore.mjs';
+import {EXPLORE,EXCHANGE,EXPLORE_AREAS,CATCH_ITEMS,RARITY_NAMES,exploreState,staminaAt,areaUnlocked,explorePet,catchChance,encounterPool,exploreExchangeState} from '@/lib/familiar-explore.mjs';
 import RewardRibbon,{type RewardPayout} from './reward-ribbon';
 
 // FAMILIAR EXPLORING (docs/familiar-screen-specs/10-explore.md).
@@ -58,6 +58,7 @@ export default function FamiliarExplorePanel({game,action,locked}:any){
  const [grade,setGrade]=useState(1),[prob,setProb]=useState(false),[ruin,setRuin]=useState(false);
  const [intro,setIntro]=useState(false),[areaInfo,setAreaInfo]=useState(false),[detail,setDetail]=useState(false);
  const [seen,setSeen]=useState<number>(-1);
+ const ex=exploreExchangeState(game,now);
  const picked=CATCH_ITEMS.find((k:any)=>k.grade===grade)!,stock=grade===1?Infinity:e.items[picked.item];
  const bands=[4,3,2,1];
  // The ribbon fires for a payout this panel has not shown yet. `seq` is the save's own action counter,
@@ -76,6 +77,17 @@ export default function FamiliarExplorePanel({game,action,locked}:any){
   </header>
   {areaInfo&&<p className="instruction-popover" role="note">{area.text}</p>}
   <CounterChips e={e}/>
+  {/* THE ONE THING WORTH KEEPING FROM THE COMMERCE SURFACES (12-monetisation.md §5.1). The Familiar
+      Shop's ten ScoreExchange rows are nine Crystal prices -- a premium currency Everkai does not have
+      and should not add -- and ONE priced in Familiar Tears, which a player earns by having a monster
+      flee, for the Advanced Contract that would have stopped it fleeing. It closes audit S4/M1: Tears
+      accumulated with no sink at all, and an apology in a disclosure saying so. No shop shell, no
+      grid, no `Switch Shop` -- one exchange, where the Tears are earned. */}
+  {!c&&!q&&<div className="tears-exchange">
+   <p><b>{ex.held}</b>/{ex.price} {itemLabel(EXCHANGE.price.item)} &rarr; {EXCHANGE.grants.count} {itemLabel(EXCHANGE.grants.item)}</p>
+   <Button variant="outline" disabled={locked||!ex.left||!ex.affordable} onClick={()=>action('exploreExchange')}>Exchange</Button>
+   <small>{ex.left?'1 a day':'Done today'}</small>
+  </div>}
 
   {c&&pet&&info?<div className="explore-stage encounter">
    {/* 4.1 -- the monster branch. The rarity pip carries its letter; the Alertness value is printed
