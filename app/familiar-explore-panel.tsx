@@ -3,7 +3,7 @@ import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {cardStyle,cardRarity,rarityIcon,petCardIcon} from '@/lib/ui-sprites.mjs';
 import {familiarById} from '@/lib/familiars.mjs';
-import {EXPLORE,EXCHANGE,EXPLORE_AREAS,CATCH_ITEMS,RARITY_NAMES,exploreState,staminaAt,areaUnlocked,explorePet,catchChance,encounterPool,exploreExchangeState} from '@/lib/familiar-explore.mjs';
+import {EXPLORE,EXCHANGE,EXPLORE_AREAS,CATCH_ITEMS,RARITY_NAMES,exploreState,areaUnlocked,explorePet,catchChance,encounterPool,exploreExchangeState,familiarDailyState,staminaNow} from '@/lib/familiar-explore.mjs';
 import RewardRibbon,{type RewardPayout} from './reward-ribbon';
 
 // FAMILIAR EXPLORING (docs/familiar-screen-specs/10-explore.md).
@@ -51,14 +51,14 @@ function CounterChips({e}:any){
 }
 
 export default function FamiliarExplorePanel({game,action,locked}:any){
- const now=Date.now(),e=exploreState(game),tank=staminaAt(e,now);
+ const now=Date.now(),e=exploreState(game),tank=staminaNow(game,now);
  const area=EXPLORE_AREAS.find((a:any)=>a.id===e.area)!,c=e.encounter,q=e.pending||null;
  const pet=c?familiarById(c.pet)!:null,info=c?explorePet(c.pet):null,owned=c?!!game.familiars?.[c.pet]:false;
  const free=e.items.Item_PetExploreBuff_04>0;
  const [grade,setGrade]=useState(1),[prob,setProb]=useState(false),[ruin,setRuin]=useState(false);
  const [intro,setIntro]=useState(false),[areaInfo,setAreaInfo]=useState(false),[detail,setDetail]=useState(false);
  const [seen,setSeen]=useState<number>(-1);
- const ex=exploreExchangeState(game,now);
+ const ex=exploreExchangeState(game,now),daily=familiarDailyState(game,now);
  const picked=CATCH_ITEMS.find((k:any)=>k.grade===grade)!,stock=grade===1?Infinity:e.items[picked.item];
  const bands=[4,3,2,1];
  // The ribbon fires for a payout this panel has not shown yet. `seq` is the save's own action counter,
@@ -83,6 +83,12 @@ export default function FamiliarExplorePanel({game,action,locked}:any){
       flee, for the Advanced Contract that would have stopped it fleeing. It closes audit S4/M1: Tears
       accumulated with no sink at all, and an apology in a disclosure saying so. No shop shell, no
       grid, no `Switch Shop` -- one exchange, where the Tears are earned. */}
+  {/* The Pass's third benefit, re-gated (12-monetisation.md §5.2): one Ordinary Mochi a day. */}
+  {!c&&!q&&daily.open&&<div className="tears-exchange">
+   <p>Daily &middot; {daily.count} {itemLabel(daily.item)}</p>
+   <Button variant="outline" disabled={locked||!daily.left} onClick={()=>action('familiarDaily')}>Collect</Button>
+   <small>{daily.left?'1 a day':'Done today'}</small>
+  </div>}
   {!c&&!q&&<div className="tears-exchange">
    <p><b>{ex.held}</b>/{ex.price} {itemLabel(EXCHANGE.price.item)} &rarr; {EXCHANGE.grants.count} {itemLabel(EXCHANGE.grants.item)}</p>
    <Button variant="outline" disabled={locked||!ex.left||!ex.affordable} onClick={()=>action('exploreExchange')}>Exchange</Button>
@@ -138,7 +144,7 @@ export default function FamiliarExplorePanel({game,action,locked}:any){
 
   :<div className="explore-stage rest">
    <div className="area-art" aria-hidden="true"/>
-   <p className="stamina-line">&#9889; {tank.stamina}/{EXPLORE.energy.max}</p>
+   <p className="stamina-line">&#9889; {tank.stamina}/{tank.max}</p>
    <Button className="explore-primary big" disabled={locked||(!free&&tank.stamina<area.cost)} onClick={()=>action('exploreStep')}>
     Explore<em className={free?'waived':''}>Consume &#9889;{area.cost}</em></Button>
    <div className="explore-corners">

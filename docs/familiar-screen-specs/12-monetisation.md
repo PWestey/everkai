@@ -506,5 +506,51 @@ magnitudes are the original's and must be used verbatim; only the *gates* would 
 **Recommendation: yes to the first three, staged (the original delivers them at Pass levels 1, 15 and
 30 — not all at once), no to the fourth.** The load-bearing risk is the base-vs-boosted distinction:
 granting all four at once would silently 2.5× the stamina cap and +10 % the tower's income, and per
-rule 12 the tower income figure is exactly the kind of derived value a save may already encode. If the
-owner says yes, it is its own commit with its own save check — not a line in this one.
+rule 12 the tower income figure is exactly the kind of derived value a save may already encode.
+
+### §5.2 resolved — owner approved 2026-09-24, built
+
+`scripts/import-familiar-benefits.py` → `lib/familiar-benefit-data.json`. The **order** is the
+original's, read verbatim from `System.PetBPRightShow`; the **magnitudes** are the original's, asserted
+against the System constants; the **ladders each one hangs off are Everkai's** and are marked as such
+in the data's own `gates` block.
+
+| Benefit | Original magnitude | Everkai gate |
+| --- | --- | --- |
+| Stamina cap **20 → 50**, regen **5,400 → 3,600 s** | `Item_PetBP_EnergyMax`, Pass Lv. 1 | **Compendium Lv. 10** |
+| Tower income **+10 %**, storage **24 → 48 h** | `Item_PetBP_IncomeMax`, Pass Lv. 15 | **Familiar Tower floor 100** — not a new number: it is `PetArea.unlock` for the second exploring area |
+| **1 Ordinary Mochi a day** (`RewardPetPacifyDaliy`) | `Item_PetBP_PetPacifyDaliy`, Pass Lv. 30 | **Compendium Lv. 30**, once a day |
+| A Fellow | `Item_Owner_Hero_161`, Pass Lv. 50 | **skipped** — a roster decision, not a familiar one |
+
+Pacing, measured so the gates are legible rather than asserted: contracting the whole 71-familiar
+roster at 0 stars is **9,970** Compendium EXP, i.e. **Lv. 99** — so a Compendium level is worth roughly
+1 % of a complete collection. Lv. 10 is about forty distinct contracts; Lv. 30 is about a third of the
+roster with some starring; starring the whole roster to 10 reaches Lv. 199.
+
+**The base values remain the default everywhere.** `img/hub.png` reads `50/50` and
+`img/tower-earnings.png` reads `48:00:00` because that save carried the Pass. Neither is a base rule,
+and the test suite pins a fresh village at 20 / 5,400 s / 24 h.
+
+**Rule 12, and the trap this nearly walked into.** The stamina cap stopped being a constant, and
+`validFamiliarExplore` carried the rule *"a tank below the cap must have a clock"*. A save written by
+the old build sits at 20 with `staminaAt: null` — a **full** tank at cap 20, a **partial** tank the
+moment the cap becomes 50 — so that rule would have refused a real player's save on load. It is now
+stated against the **base** cap, which accepts strictly more saves than before and still refuses the
+hand-edit it was written for; the first press restarts the clock. A negative control asserts that
+tightening it back to the earned cap fails.
+
+**Two real bugs this surfaced, both caught by existing guards rather than by inspection:**
+
+1. The income gate first read `towerFloorOf` — the CURRENT cleared floor. The tower redo resets
+   `cleared` to 0 while keeping `redoFrom`, so a redone save would have *lost* the benefit, and worse,
+   flickered it on mid-migration. It reads `towerReachOf` now — the highest floor ever reached — which
+   is how every other floor-gated unlock on this surface (dispatch areas, exploring areas) already
+   survives a redo. Found by `tests/familiar-tower-redo.test.mjs` against four real shipped saves.
+2. The Earnings modal compared a **boosted** current rate against a **raw** next-floor rate and
+   printed `163 » 150` — a rise rendered as a fall. `incomeBoost()` is exported so a preview passes
+   through the same multiplier as the live figure.
+
+The four redo fixtures' settled figures rise with the rate, and that is the original's rule rather
+than drift: earnings are *"calculated according to the current earnings efficiency"* (09-tower.md
+§7.2), so settlement multiplies the whole waiting period by the rate **at collection**, not hour by
+hour at historical rates. The previous figures are recorded beside the new ones in that test.

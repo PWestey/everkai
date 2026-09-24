@@ -8,7 +8,7 @@ import {familiarStage,FAMILIARS,familiarById} from '@/lib/familiars.mjs';
 import {cardStyle,cardRarity,rarityIcon,petCardIcon} from '@/lib/ui-sprites.mjs';
 import {towerState,towerKey,originalBattle,floorEnemies,towerFloor,towerSkill,teamBond,teamAttribute,groupOf,floorPrepaid,floorRewardItems,quickDeployTeam,
  endlessState,endlessKey,endlessEnemies,endlessBattle,TOWER_FLOORS,TOWER_AUTO_UNLOCK,TOWER_DATA,ENDLESS_OPEN} from '@/lib/familiar-tower.mjs';
-import {familiarSupplies,suppliesWaiting,floorIncome,towerIncome,FAMILIAR_ITEM_NAMES,SUPPLY_HOLD_MS} from '@/lib/familiar-supplies.mjs';
+import {familiarSupplies,suppliesWaiting,floorIncome,towerIncome,FAMILIAR_ITEM_NAMES,supplyHoldMs,incomeBoost} from '@/lib/familiar-supplies.mjs';
 import {earningsMultiplier} from '@/lib/game.mjs';
 import {EXPLORE_AREAS} from '@/lib/familiar-explore.mjs';
 
@@ -82,8 +82,8 @@ export default function FamiliarTowerPanel({game,action,locked}:any){
  const attribute=teamAttribute(game,t.party),ownBond=teamBond(t.party);
  const last=mode==='endless'?(e.last&&endlessBattle(e.last.floor,e.last.team)):(t.last&&originalBattle(t.last.floor,t.last.team,t.last.combatVersion));
  const lastRec=mode==='endless'?e.last:t.last;
- const income=towerIncome(game),waiting=suppliesWaiting(game,Date.now()),supplies=familiarSupplies(game);
- const idle=supplies.since===null?0:Math.min(Date.now()-supplies.since,SUPPLY_HOLD_MS),bonusBP=Math.round((earningsMultiplier(game,game.lastAt)-1)*1000);
+ const income=towerIncome(game),waiting=suppliesWaiting(game,Date.now()),supplies=familiarSupplies(game),hold=supplyHoldMs(game);
+ const idle=supplies.since===null?0:Math.min(Date.now()-supplies.since,hold),bonusBP=Math.round((earningsMultiplier(game,game.lastAt)-1)*1000);
  const id=chosen||t.party[0]||owned[0]?.id,passive=statPassive(id);
  const passiveActive=!!(passive&&game.familiars?.[id]&&familiarStage(game.familiars[id].level)>=passive.stage);
  // The stack is anchored on the CURRENT floor, with cleared floors falling away below it and unbuilt
@@ -207,10 +207,11 @@ export default function FamiliarTowerPanel({game,action,locked}:any){
      <li><span>{itemName('classUp')}</span><b>{income.classUp.toFixed(1)}</b><i>/hour</i></li></ul>
     {(()=>{const step=nextIncomeStep(t.cleared);if(!step)return null;
      // Convention 13: `»` is the future tense. Only the rate that actually moves is printed.
-     const rows=[[itemName('levelUp'),income.levelUp,step.income.levelUp],[itemName('classUp'),income.classUp,step.income.classUp]].filter(([,a,b])=>a!==b);
+     const next=incomeBoost(game,step.income);
+     const rows=[[itemName('levelUp'),income.levelUp,next.levelUp],[itemName('classUp'),income.classUp,next.classUp]].filter(([,a,b])=>a!==b);
      return <p className="item-status">Floor {step.floor}: {rows.map(([n,a,b])=>`${n} ${a} » ${b}`).join(' · ')}</p>})()}
     <h5 className="ribbon-rule">Current Earning Reward</h5>
-    <p className="idle-clock">Idle Time: <b>{clock(idle)}</b>/{clock(SUPPLY_HOLD_MS)}</p>
+    <p className="idle-clock">Idle Time: <b>{clock(idle)}</b>/{clock(hold)}</p>
     <Tiles items={[['levelUp',waiting.levelUp],['classUp',waiting.classUp]] as any}/>
     <p className={'earn-bonus'+(bonusBP>0?' on':'')}>Earnings +{(bonusBP/10).toFixed(1)}% {bonusBP>0?'(Activated)':'(Not Activated)'}</p>
     <p className="item-status">In store: {supplies.levelUp.toLocaleString()} &middot; {supplies.classUp.toLocaleString()}</p>

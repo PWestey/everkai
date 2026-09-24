@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {decode,act,valid} from '../lib/game.mjs';
 import {towerState,towerKey,validTower,migrateTower,TOWER_DATA,floorRewardItems} from '../lib/familiar-tower.mjs';
-import {suppliesWaiting,towerIncome,familiarSupplies,towerReachOf} from '../lib/familiar-supplies.mjs';
+import {suppliesWaiting,towerIncome,familiarSupplies,towerReachOf,BENEFITS} from '../lib/familiar-supplies.mjs';
 import {dispatchUnlocked,DISPATCH_AREAS,dispatchState,validFamiliarDispatch} from '../lib/familiar-dispatch.mjs';
 import {exploreState,validFamiliarExplore} from '../lib/familiar-explore.mjs';
 import {HELPER_TASKS} from '../lib/helper.mjs';
@@ -15,11 +15,21 @@ import {HELPER_TASKS} from '../lib/helper.mjs';
 //                                               (scripts/generate-live-familiar-saves.mjs)
 const H=3600e3;
 const load=name=>readFileSync(new URL(`./familiar-save-${name}.json`,import.meta.url),'utf8');
+// RESTATED 2026-09-24 with the Pass's income benefit (12-monetisation.md §5.2, owner-approved). All
+// four fixtures have a REACH past Familiar Tower floor 100, so `Item_PetBP_IncomeMax` is earned and
+// the hourly rate is the table's +10%. The settled figures rise accordingly, and that is the
+// ORIGINAL'S OWN RULE rather than a drift: the (i) says earnings are "calculated according to the
+// current earnings efficiency" (09-tower.md §7.2), so settlement multiplies the whole waiting period
+// by the rate AT COLLECTION, not hour-by-hour at historical rates. `suppliesWaiting()` already did
+// that; only the rate moved. The previous figures, printed by the old build, were:
+//   bafe728-floor7 688 / bafe728-floor12 748 / 6b13d1a-climbed180 522 / 6b13d1a-floor300 748 level-up.
+// class-up is unchanged on every one, because the coefficient is applied to the HOURLY pair before it
+// is multiplied by the hours and floor(4 x 1.1) is still 4 -- which is the right composition order.
 const OLD={
- 'bafe728-floor7':{waiting:{levelUp:688,classUp:28},unlocked:[true,true,true,true,true,true,false,false,false],reach:175},
- 'bafe728-floor12':{waiting:{levelUp:748,classUp:32},unlocked:[true,true,true,true,true,true,true,true,true],reach:300},
- '6b13d1a-climbed180':{waiting:{levelUp:522,classUp:21},unlocked:[true,true,true,true,true,true,false,false,false],reach:180,area:2,prepaid:{from:176,to:180}},
- '6b13d1a-floor300':{waiting:{levelUp:748,classUp:32},unlocked:[true,true,true,true,true,true,true,true,true],reach:300},
+ 'bafe728-floor7':{waiting:{levelUp:756,classUp:28},unlocked:[true,true,true,true,true,true,false,false,false],reach:175},
+ 'bafe728-floor12':{waiting:{levelUp:820,classUp:32},unlocked:[true,true,true,true,true,true,true,true,true],reach:300},
+ '6b13d1a-climbed180':{waiting:{levelUp:573,classUp:21},unlocked:[true,true,true,true,true,true,false,false,false],reach:180,area:2,prepaid:{from:176,to:180}},
+ '6b13d1a-floor300':{waiting:{levelUp:820,classUp:32},unlocked:[true,true,true,true,true,true,true,true,true],reach:300},
 };
 
 for(const [name,old] of Object.entries(OLD))test(`${name}: resets to floor 0 once, keeps every item already earned, and loses no unlock`,()=>{
@@ -76,7 +86,11 @@ test('the redo climb pays every one-time reward once -- except floors the live b
  assert.equal(exploreState(s).items.Item_PetCatch2-items.Item_PetCatch2,sum('Item_PetCatch2'));
  assert.deepEqual(s.familiars.Pet_21131,{level:1,stars:0},'floor 60 familiar joins on the redo');
  assert.ok(exploreState(s).pieces.Pet_11141>=100,'floor 100 familiar already owned pays its fragments');
- assert.deepEqual(towerIncome(s),{levelUp:TOWER_DATA.floors[towerState(s).cleared-1].income[0],classUp:TOWER_DATA.floors[towerState(s).cleared-1].income[1]});
+ // The floor's own Income, plus the earned coefficient: this village's REACH is 180, so
+ // `Item_PetBP_IncomeMax`'s floor-100 gate is met even though the redo put `cleared` back to 0 --
+ // the same way dispatch and exploring areas stay open by reach through a redo.
+ const row=TOWER_DATA.floors[towerState(s).cleared-1].income,bp=BENEFITS.boosted.incomeBP;
+ assert.deepEqual(towerIncome(s),{levelUp:Math.floor(row[0]*(10000+bp)/10000),classUp:Math.floor(row[1]*(10000+bp)/10000)});
  assert.equal(towerReachOf(s),Math.max(180,towerState(s).cleared));
 });
 

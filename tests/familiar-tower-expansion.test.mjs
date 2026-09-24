@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {FAMILIARS} from '../lib/familiars.mjs';
 import {originalBattle,floorEnemies,teamBond,teamAttribute,quickDeployTeam,groupOf,towerSkill,endlessEnemies,endlessBattle,endlessState,endlessKey,towerState,towerKey,validTower,TOWER_DATA,ENDLESS_OPEN} from '../lib/familiar-tower.mjs';
-import {towerIncome,endlessBand,familiarSupplies} from '../lib/familiar-supplies.mjs';
+import {towerIncome,endlessBand,familiarSupplies,BENEFITS} from '../lib/familiar-supplies.mjs';
 import {dispatchFragments,DISPATCH_AREAS,dispatchState} from '../lib/familiar-dispatch.mjs';
 import {exploreState} from '../lib/familiar-explore.mjs';
 import dispatchData from '../lib/familiar-dispatch-data.json' with {type:'json'};
@@ -104,12 +104,23 @@ test('Endless Mode opens after floor 200, adds its band Income to the floor Inco
  let s=at(fresh(T),'adoptFamiliars');s=at(s,'towerParty','Pet_1191');
  assert.match(act(s,'endlessFight',T,endlessKey(s)).error,/after Challenge Mode floor 200/);
  s=climbed();
+ // The floor's own Income, and then the earned coefficient on top. `Item_PetBP_IncomeMax` is the
+ // Pass's second benefit, re-gated onto Familiar Tower floor 100 (12-monetisation.md §5.2, approved
+ // 2026-09-24) -- and this save is past 200, so it is earned. The BASE pair is the table's; the
+ // boosted pair is the table's times PetTowerIncomeBPCoef, applied after the endless band.
+ const row=TOWER_DATA.floors[towerState(s).cleared-1].income;
+ const boost=p=>Math.floor(p*(10000+BENEFITS.boosted.incomeBP)/10000);
  const before=towerIncome(s);
- assert.deepEqual(before,{levelUp:TOWER_DATA.floors[towerState(s).cleared-1].income[0],classUp:TOWER_DATA.floors[towerState(s).cleared-1].income[1]});
+ assert.deepEqual(before,{levelUp:boost(row[0]),classUp:boost(row[1])});
+ assert.ok(before.levelUp>row[0],'positive control: the +10% is actually applied at this floor');
+ // And a village that has not reached the gate still reads the table's own pair.
+ const early={...s,familiarTower:{...towerState(s),cleared:50,attempts:50,base:0,last:null,endless:undefined}};
+ assert.deepEqual(towerIncome(early),{levelUp:TOWER_DATA.floors[49].income[0],classUp:TOWER_DATA.floors[49].income[1]},
+  'below Familiar Tower floor 100 the rate is the table, unmodified');
  const r=act(s,'endlessFight',s.lastAt,endlessKey(s));assert.equal(r.error,undefined);s=r.state;assert.ok(valid(s));
  assert.equal(endlessState(s).attempts,1);assert.equal(endlessState(s).last.combatVersion,11);
  if(endlessState(s).cleared===1){
-  assert.deepEqual(towerIncome(s),{levelUp:before.levelUp+1,classUp:before.classUp},'band 1 Income [1,0] is added');
+  assert.deepEqual(towerIncome(s),{levelUp:boost(row[0]+1),classUp:boost(row[1])},'band 1 Income [1,0] is added before the coefficient');
  }
  assert.deepEqual(decode(JSON.stringify(s)),s);
  assert.ok(act(s,'endlessFight',s.lastAt,'0:0').error,'a stale key cannot replay');

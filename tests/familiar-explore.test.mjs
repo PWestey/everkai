@@ -2,9 +2,10 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {fresh,act,valid,decode} from '../lib/game.mjs';
 import {FAMILIARS,familiarById} from '../lib/familiars.mjs';
 import {towerKey,towerState} from '../lib/familiar-tower.mjs';
+import {BENEFITS,familiarBenefits,staminaRule,supplyHoldMs} from '../lib/familiar-supplies.mjs';
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 import data from '../lib/familiar-explore-data.json' with {type:'json'};
-import {EXPLORE,EXCHANGE,exploreExchangeState,EXPLORE_AREAS,CATCH_ITEMS,STARTERS,HELD_ITEMS,exploreState,exploreAction,staminaAt,encounterPool,catchChance,validFamiliarExplore,INITIAL_SEED} from '../lib/familiar-explore.mjs';
+import {EXPLORE,EXCHANGE,exploreExchangeState,familiarDailyState,staminaNow,EXPLORE_AREAS,CATCH_ITEMS,STARTERS,HELD_ITEMS,exploreState,exploreAction,staminaAt,encounterPool,catchChance,validFamiliarExplore,INITIAL_SEED} from '../lib/familiar-explore.mjs';
 
 const H=3600e3,T=new Date('2026-09-16T09:00:00').getTime();
 const at=(s,a,t=null,v=null,now=s.lastAt)=>{const r=act(s,a,now,t,v);assert.equal(r.error,undefined,`${a}: ${r.error}`);assert.ok(valid(r.state),`invalid save after ${a}`);return r.state};
@@ -274,6 +275,69 @@ test('the daily cap never binds at the rate Tears actually accrue',()=>{
  assert.ok(presses/perDay>8,`only ${presses/perDay} days per exchange -- a daily cap of 1 would start to bind`);
 });
 
+// ---------------------------------------------------------------------------------------------
+// The Familiar Pass's benefits, re-gated onto play (12-monetisation.md §5.2, approved 2026-09-24).
+// The MAGNITUDES and the ORDER are the original's; the ladders they hang off are Everkai's.
+// ---------------------------------------------------------------------------------------------
+test('the Pass benefits are the original\u2019s magnitudes, staged in the original\u2019s order',()=>{
+ assert.deepEqual(BENEFITS.ladder,[
+  {id:'Item_PetBP_EnergyMax',passLevel:1},
+  {id:'Item_PetBP_IncomeMax',passLevel:15},
+  {id:'Item_PetBP_PetPacifyDaliy',passLevel:30},
+  {id:'Item_Owner_Hero_161',passLevel:50}],'System.PetBPRightShow, verbatim');
+ assert.deepEqual(BENEFITS.base,{staminaMax:20,staminaSeconds:5400,holdHours:24,incomeBP:0});
+ assert.deepEqual(BENEFITS.boosted,{staminaMax:50,staminaSeconds:3600,holdHours:48,incomeBP:1000});
+ assert.deepEqual(BENEFITS.daily,{item:'Item_PetPacify1',count:1,limit:1});
+ // The fourth is skipped on purpose and the reason is carried with the data, not in a commit message.
+ assert.match(BENEFITS.skipped,/Item_Owner_Hero_161/);
+ // THE BASE VALUES REMAIN THE DEFAULT. The captures read 50/50 and 48:00:00 because that save carried
+ // the Pass; treating either as a base rule would make Everkai permanently generous.
+ const fresh0=fresh(T);
+ assert.deepEqual(familiarBenefits(fresh0),{stamina:false,income:false,mochi:false},'a fresh village has earned none of the three');
+ assert.equal(staminaRule(fresh0).max,20);
+ assert.equal(staminaRule(fresh0).seconds,5400);
+ assert.equal(supplyHoldMs(fresh0),24*H);
+});
+
+test('stamina takes its earned cap and interval, and an old full tank survives the cap rising',()=>{
+ let s=at(at(fresh(T),'adoptFamiliars'),'handbookClaimAll');
+ assert.ok(familiarBenefits(s).stamina,'this roster passes the Compendium gate');
+ assert.equal(staminaRule(s).max,50);
+ assert.equal(staminaRule(s).seconds,3600);
+ // RULE 12, and the trap this nearly walked into: a save written by the old build sits at 20 with no
+ // clock -- a FULL tank at cap 20, a PARTIAL tank at cap 50 -- and "a partial tank must have a clock"
+ // would have refused it on load. The rule is stated against the BASE cap, so it still loads.
+ const old={...s,familiarExplore:{...exploreState(s),stamina:20,staminaAt:null}};
+ assert.ok(valid(old),'an old full tank is still a valid save under the raised cap');
+ assert.deepEqual(decode(JSON.stringify(old)).familiarExplore.stamina,20);
+ assert.equal(staminaNow(old,old.lastAt).stamina,20);
+ assert.equal(staminaNow(old,old.lastAt).max,50);
+ // The first press starts the clock again, and regeneration runs at the boosted 60 minutes.
+ const pressed=at(old,'exploreStep');
+ assert.equal(exploreState(pressed).stamina,19);
+ assert.notEqual(exploreState(pressed).staminaAt,null,'the press restarts the clock');
+ assert.equal(staminaNow(pressed,pressed.lastAt+3600e3).stamina,20,'one point an hour, not every 90 minutes');
+ assert.equal(staminaNow(pressed,pressed.lastAt+40*3600e3).stamina,50,'and it fills to the raised cap');
+ // A village below the gate is untouched: 20, and 90 minutes.
+ const below={...s,familiarHandbook:undefined};
+ assert.equal(staminaRule(below).max,20);
+ assert.equal(staminaNow({...below,familiarExplore:{...exploreState(below),stamina:0,staminaAt:below.lastAt}},below.lastAt+5399e3).stamina,0);
+});
+
+test('the daily Ordinary Mochi is gated, is one a day, and resets with the day',()=>{
+ let s=starter();
+ assert.equal(familiarDailyState(s).open,false);
+ assert.match(act(s,'familiarDaily',s.lastAt).error,new RegExp(`Compendium Lv. ${BENEFITS.gates.mochi.level}`));
+ s=at(at(fresh(T),'adoptFamiliars'),'handbookClaimAll');
+ assert.ok(familiarDailyState(s).open);
+ const before=exploreState(s).items.Item_PetPacify1;
+ s=at(s,'familiarDaily');
+ assert.equal(exploreState(s).items.Item_PetPacify1,before+BENEFITS.daily.count,'RewardPetPacifyDaliy: one Ordinary Mochi');
+ assert.match(act(s,'familiarDaily',s.lastAt).error,/Already collected today/);
+ const tomorrow=s.lastAt+26*H;
+ assert.equal(act({...s,lastAt:tomorrow},'familiarDaily',tomorrow).error,undefined,'it resets with the day');
+});
+
 test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
  const s=at(starter(),'exploreStep'),e=exploreState(s);
  const bad=(x,why)=>assert.equal(validFamiliarExplore({...s,familiarExplore:x}),false,why);
@@ -309,6 +373,9 @@ test('NEGATIVE CONTROL: the validator refuses hand-edited exploring state',()=>{
  bad({...e,exchange:{day:'2026-09-16'}},'an exchange ledger with no count');
  bad({...e,exchange:{day:'2026-09-16',count:1,extra:1}},'an extra field on the exchange ledger');
  bad({...e,exchange:{day:12345,count:1}},'a day that is not a date string');
+ bad({...e,daily:{day:'2026-09-16',count:2}},'more daily collections than the reward\u2019s limit');
+ bad({...e,daily:{day:'2026-09-16',count:1,extra:1}},'an extra field on the daily ledger');
+ bad({...e,stamina:51},'stamina above even the boosted cap');
  assert.ok(validFamiliarExplore({...s,familiarExplore:{...e,exchange:{day:'2026-09-16',count:1}}}),'a real ledger passes');
  assert.ok(validFamiliarExplore({...s,familiarExplore:{...e,last:{kind:'item',text:'x'}}}),'a save written before the ribbon still loads');
  assert.equal(valid({...s,familiarExplore:{...e,stamina:21}}),false,'valid() carries the refusal');

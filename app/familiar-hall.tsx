@@ -5,9 +5,9 @@ import FamiliarExplorePanel from './familiar-explore-panel';
 import FamiliarDispatchPanel from './familiar-dispatch-panel';
 import FamiliarHandbook from './familiar-handbook';
 import {FAMILIARS,familiarCap} from '@/lib/familiars.mjs';
-import {EXPLORE,exploreState,staminaAt} from '@/lib/familiar-explore.mjs';
+import {EXPLORE,exploreState,staminaNow} from '@/lib/familiar-explore.mjs';
 import {familiarNodes,nodeUnlocked} from '@/lib/familiar-nodes.mjs';
-import {familiarSupplies,trainingCost,starCost,suppliesWaiting} from '@/lib/familiar-supplies.mjs';
+import {familiarSupplies,trainingCost,starCost,suppliesWaiting,staminaRule} from '@/lib/familiar-supplies.mjs';
 import {towerState,TOWER_FLOORS} from '@/lib/familiar-tower.mjs';
 import {dispatchState,dispatchDone} from '@/lib/familiar-dispatch.mjs';
 import {handbookClaimable} from '@/lib/familiar-handbook.mjs';
@@ -56,7 +56,7 @@ const DESTINATIONS=[
  {id:'dispatch',label:'Familiar Dispatch',x:62, y:14, badge:(g:any)=>dispatchDone(g,Date.now())||(!dispatchState(g).run&&Object.keys(g.familiars||{}).length>=3)},
  {id:'growth', label:'Familiar Growth', x:36, y:33, badge:growthReady},
  {id:'tower',  label:'Familiar Tower', x:64, y:52, badge:(g:any)=>{const w=suppliesWaiting(g,Date.now());return !!(w.levelUp||w.classUp)||towerState(g).cleared<TOWER_FLOORS&&towerState(g).party.length>0}},
- {id:'explore',label:'Explore',        x:34, y:70, badge:(g:any)=>{const e=exploreState(g);return !!e.encounter||!!e.pending||staminaAt(e,Date.now()).stamina>=1}},
+ {id:'explore',label:'Explore',        x:34, y:70, badge:(g:any)=>{const e=exploreState(g);return !!e.encounter||!!e.pending||staminaNow(g,Date.now()).stamina>=1}},
  {id:'handbook',label:'Handbook',      x:62, y:88, badge:(g:any)=>handbookClaimable(g)>0},
 ];
 const PAGES:Record<string,any>={growth:FamiliarPanel,tower:FamiliarTowerPanel,explore:FamiliarExplorePanel,dispatch:FamiliarDispatchPanel,handbook:FamiliarHandbook};
@@ -66,11 +66,11 @@ export default function FamiliarHall({game,action,locked,initialPage=null}:any){
  // place. `initialPage` stays for callers that deep-link to one destination.
  const [at,setAt]=useState<string|null>(initialPage===null?null:(['growth','tower','explore','dispatch','handbook'][initialPage]??null));
  const [info,setInfo]=useState(false),[list,setList]=useState(false);
- const e=exploreState(game),tank=staminaAt(e,Date.now());
+ const tank=staminaNow(game,Date.now()),rule=staminaRule(game);
  const Page=at?PAGES[at]:null;
  const header=<header className="hub-head">
   <button className="area-plaque" aria-expanded={info} onClick={()=>setInfo(v=>!v)}>&#9432; Familiar</button>
-  <p className="stamina-pill">&#9889; {tank.stamina}/{EXPLORE.energy.max}</p>
+  <p className="stamina-pill">&#9889; {tank.stamina}/{tank.max}</p>
  </header>;
  if(Page)return <section className="familiar-detail familiar-hall" aria-label="Familiar">
   {header}
@@ -83,7 +83,7 @@ export default function FamiliarHall({game,action,locked,initialPage=null}:any){
       is three headings for nine destinations; four of Everkai's six `rules-note` disclosures across
       four familiar pages came here to die. */}
   {info&&<div className="instruction-popover" role="note">
-   <p><b>Making Contracts with Monsters.</b> Explore to meet wild monsters. Each exploration costs {EXPLORE.areas[0].cost} stamina, and stamina returns on its own, one point every {EXPLORE.energy.seconds/60} minutes up to {EXPLORE.energy.max}. Use a contract on a monster to make it yours; a failed contract raises its alertness, and a full bar means it flees.</p>
+   <p><b>Making Contracts with Monsters.</b> Explore to meet wild monsters. Each exploration costs {EXPLORE.areas[0].cost} stamina, and stamina returns on its own, one point every {Math.round(rule.seconds/60)} minutes up to {rule.max}. Use a contract on a monster to make it yours; a failed contract raises its alertness, and a full bar means it flees.</p>
    <p><b>Familiar Development.</b> Contracting makes a monster your familiar. Items raise its level and its stars. Powerful Familiars can provide significant support when bound to a Fellow.</p>
    <p><b>Familiar Tower.</b> Team up and clear floors. As the total number of floors cleared increases, the gains from the Familiar Tower improve.</p></div>}
 
