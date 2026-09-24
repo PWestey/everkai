@@ -15,20 +15,20 @@ const readSort=(kind:string)=>{try{return localStorage.getItem('everkai-roster-s
 // reads "fellows matching what you are looking at", not "fellows owned" -- difference R6) and one
 // `Sort by <choice>` button. Its four orders are Default / Power / Aptitude / Awakening, and
 // Awakening is offered now that spec 05's stars exist.
-export default function RosterLanding({entries,owned,selected,onSelect,family=false,kind,album,summary,status,power,sortKeys,info,badge}:any){
+export default function RosterLanding({entries,owned,selected,onSelect,family=false,kind,album,summary,status,power,sortKeys,sortOrders,info,badge,search=true,pageSize=9,sub}:any){
  // A caller that brings its own sort keys gets exactly those; the Fellow list is not a default every
  // roster should inherit. The Companions roster has no Aptitude and no Awakening, so offering them
  // sorted 71 familiars by a key that returns 0 for all of them.
- const sorts=sortKeys?['default',...Object.keys(sortKeys),'rarity','name']:family?['power','rarity','name']:['default','power','aptitude','awakening','level','name'];
- const [sort,setSort]=useState(()=>{const v=readSort(kind);return sorts.includes(v)?v:'power'});
+ const sorts=sortOrders||(sortKeys?['default',...Object.keys(sortKeys),'rarity','name']:family?['power','rarity','name']:['default','power','aptitude','awakening','level','name']);
+ const [sort,setSort]=useState(()=>{const v=readSort(kind);return sorts.includes(v)?v:sorts.includes('power')?'power':sorts[0]});
  const choose=(v:string)=>{setSort(v);try{localStorage.setItem('everkai-roster-sort-'+kind,v)}catch{}};
  const key=rosterSort(entries,owned,sort,{power,keys:sortKeys}).map((f:any)=>f.id).join(',');
  const ordered=useMemo(()=>{const byId=new Map(entries.map((f:any)=>[f.id,f]));return key.split(',').map(id=>byId.get(id))},[key,entries]);
  return <section className="roster-landing character-collection" aria-label={kind+' roster'}>
   <header className="roster-title-row">{info}<h2>{kind}</h2>
-   {power&&<label className="roster-sort">Sort by <NativeSelect aria-label={'Sort '+kind} value={sort} onChange={(e:any)=>choose(e.target.value)}>{sorts.map(v=><NativeSelectOption key={v} value={v}>{SORT_LABEL[v]}</NativeSelectOption>)}</NativeSelect></label>}</header>
+   {(power||sortKeys)&&<label className="roster-sort">Sort by <NativeSelect aria-label={'Sort '+kind} value={sort} onChange={(e:any)=>choose(e.target.value)}>{sorts.map((v:string)=><NativeSelectOption key={v} value={v}>{SORT_LABEL[v]}</NativeSelectOption>)}</NativeSelect></label>}</header>
   {summary}
-  <RosterPicker grouped entries={ordered} owned={owned} selected={selected} onSelect={onSelect} family={family} pageSize={9} status={status} badge={badge}
+  <RosterPicker grouped entries={ordered} owned={owned} selected={selected} onSelect={onSelect} family={family} pageSize={pageSize} status={status} badge={badge} search={search} sub={sub}
    countPill={(shown:number)=><span className="count-pill"><b aria-hidden="true">&#9679;</b>{shown}</span>}/>
   {album&&<OriginalAlbum kind={album} onChoose={onSelect}/>}
  </section>;

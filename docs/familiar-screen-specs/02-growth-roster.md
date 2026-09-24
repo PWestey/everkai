@@ -210,3 +210,21 @@ fixed in the code**: the capsule is built from the entries' own types
 | `Previous · n / m · Next` under the grid | a continuously scrolling grid; the `Not Yet Joined` divider is already in the scroll (`app/roster-picker.tsx:45`) |
 | `No matches. Try another search or another type.` (`app/roster-picker.tsx:54`) | an empty grid under the divider. With four correct Group chips and no search, the only way to reach zero cards is a Group you own none of — and that state should show the `Not Yet Joined` half, not a sentence |
 | the type **word** in the capsule chips | the four `Icon_Pet_Group_n` sprites; `ALL` stays a word, as in the original |
+
+---
+
+## Resolution (2026-09-24)
+
+| Difference | Outcome |
+| --- | --- |
+| The grid paginates — `pageSize={9}` with `Previous · n / m · Next` | **Fixed**, for this roster only: `pageSize={0}` means one continuously scrolling grid. Fellow and Family keep their pagers; the capture is evidence about 58 cards and Everkai's Fellow roster is 244. |
+| `Find a companion…` search | **Fixed**, same scoping: `search={false}` here. The four-chip Group capsule plus a two-option sort is the original's whole filtering surface for 70 cards. |
+| The sort control renders only when `power` is passed, so the familiar roster had none | **Fixed.** The control now renders for any roster that brings its own keys, and this one brings the original's two orders: **Default** and **Rarity**. Everkai offered five. |
+| `badge` never passed, so no card carries the red `!` | **Fixed.** One predicate — does this familiar have an affordable level, star or node *right now*. On a roster where all three upgrades are per-familiar, that was the gap (audit D6). |
+| `info` not passed | **Fixed as adapted.** The `(i)` is on the hub, where the original puts it, and the roster inherits the system's one panel. |
+| No star count on the card | **Fixed.** `n ★` at the art's foot. |
+| No bound-Fellow marker | **Fixed.** A green pip on the card; Everkai binds familiars in two places and showed it in neither roster. |
+| No Group medallion art | **Deferred.** `countryIcon()` returns null for the four familiar types, so the capsule falls back to the type word — correct behaviour for a missing sprite, and `Icon_Pet_Group_1..4` is an extraction job, not a code one. |
+| No role badge (`PetCareer`) | **Deferred.** Carried in `familiar-tower-data.json`, never surfaced; cosmetic, and it belongs with the Group icons in one extraction pass. |
+| Header reads `Companions` | **Fixed** — `Familiar Growth`. |
+| `{n} contracted` summary sentence | **Fixed** — the count pill, which already tracked the active filter. |

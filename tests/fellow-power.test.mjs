@@ -129,7 +129,7 @@ test('the powerParts extractor still works (guards this whole file against a sil
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('powerParts reads exactly these twenty contributors, and no others',()=>{
+test('powerParts reads exactly these twenty-one contributors, and no others',()=>{
  // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
  // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
  // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
@@ -156,6 +156,11 @@ test('powerParts reads exactly these twenty contributors, and no others',()=>{
   'starHaloParts',        // talent + coef + percent -- every owned hero's star halos (finalpercent held out)
   'originParts',          // talent + coef + percent -- Origin Boost
   'originLevel',          // the stored Origin Boost level it reads
+  // ADDED 2026-09-24 with parity row E8. PetBookLevel.PowerCoef is the ONLY cross-system faucet on the
+  // familiar surface and the only thing anywhere that pays a CHARACTER stat: 500 bp per Compendium
+  // level, scoped to one of five Fellow types by `Country`, through the join lib/hero-scope.mjs
+  // already owned. See docs/familiar-screen-specs/11-handbook.md §0.
+  'handbookPowerBP',      // percent -- Compendium level, country-scoped
  ].sort());
 });
 

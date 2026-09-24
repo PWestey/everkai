@@ -27,11 +27,19 @@ test('all 300 PetTower floors and all 1,480 PetTowerArray enemies are imported a
 
 // The owner could not find the Tower or Dispatch: they were pages inside one selected familiar. This pins
 // the fix at the source level (app/ has no component tests).
-test('Familiars is a village destination whose top-level pages are the collection, Tower, Exploring and Dispatch',()=>{
+//
+// REBUILT 2026-09-24 to docs/familiar-screen-specs/01-hub.md. The fix used to be an icon dock with a
+// `Previous · n / 4 · Next` footer -- a pager, for four items, of the kind both character rebuilds
+// deleted. The original's Familiar opens onto a SCENE whose buildings are the destinations, so the
+// guard now pins the destinations rather than the dock's label array. The INTENT is unchanged and is
+// what this test has always been for: none of these systems may hide inside one selected familiar.
+test('Familiars is a village destination whose top-level places are the collection, Tower, Exploring, Dispatch and the Handbook',()=>{
  const read=f=>readFileSync(new URL('../app/'+f,import.meta.url),'utf8');
  const hall=read('familiar-hall.tsx'),page=read('page.tsx'),panel=read('familiar-panel.tsx');
- assert.match(hall,/labels=\{\['Familiars','Tower','Exploring','Dispatch'\]\}/);
- for(const c of ['FamiliarPanel','FamiliarTowerPanel','FamiliarExplorePanel','FamiliarDispatchPanel'])assert.match(hall,new RegExp(`<${c} `),c);
+ assert.doesNotMatch(hall,/PanelPages/,'the scene is the navigation; there is no pager');
+ for(const id of ['growth','tower','explore','dispatch','handbook'])
+  assert.match(hall,new RegExp(`id:'${id}'`),`${id} is a destination on the hub`);
+ for(const c of ['FamiliarPanel','FamiliarTowerPanel','FamiliarExplorePanel','FamiliarDispatchPanel','FamiliarHandbook'])assert.match(hall,new RegExp(c),c);
  assert.match(page,/\['familiars','Familiars'\]/,'modules[] row');
  assert.match(page,/<TabsContent value="familiars"><FamiliarHall /,'the pane');
  const side=page.slice(page.indexOf('village-side-buttons'),page.indexOf('objective={'));

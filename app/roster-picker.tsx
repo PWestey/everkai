@@ -28,26 +28,31 @@ function RosterArt({path}:{path:string}){const measured=artBounds(path),p=roster
  *  captured roster is 58 cards and "the class filter + sort covers it at this roster size". Everkai's
  *  is 244, four times that, and the capture is no evidence about a roster it never showed. Flagged
  *  for the owner rather than decided silently. */
-export default function RosterPicker({entries,selected,onSelect,status,owned={},family=false,pageSize=null,grouped=false,badge,countPill}:any){
- const size=pageSize??(family?2:3),[query,setQuery]=useState(''),[country,setCountry]=useState('all'),[page,setPage]=useState(Math.max(0,Math.floor(entries.findIndex((f:any)=>f.id===selected)/size)));
+export default function RosterPicker({entries,selected,onSelect,status,owned={},family=false,pageSize=null,grouped=false,badge,countPill,search=true,sub}:any){
+ // `pageSize={0}` means NO PAGER: one continuously scrolling grid. The Familiar roster asks for it
+ // (02-growth-roster.md) because the original scrolls 70 cards and Everkai drew `Previous · n / m ·
+ // Next` under nine -- the same control both character rebuilds deleted. Fellow and Family keep theirs.
+ const paged=pageSize!==0;
+ const size=(pageSize||null)??(family?2:3),[query,setQuery]=useState(''),[country,setCountry]=useState('all'),[page,setPage]=useState(Math.max(0,Math.floor(entries.findIndex((f:any)=>f.id===selected)/size)));
  useEffect(()=>{const i=entries.findIndex((f:any)=>f.id===selected);if(i>=0){setQuery('');setPage(Math.floor(i/size))}},[selected,entries,size]);
  // The types present in THIS roster, in catalogue order: Fellows have five countries, Familiars have
  // four classes, and a set with one type or none needs no capsule row at all.
  const types=[...new Set(entries.map((f:any)=>f.type).filter(Boolean))] as string[];
- const matches=filterRoster(entries,query,'all',owned).filter((f:any)=>country==='all'||f.type===country),pages=Math.max(1,Math.ceil(matches.length/size)),current=Math.min(page,pages-1),kind=family?'Family':'Fellow';
+ const matches=filterRoster(entries,query,'all',owned).filter((f:any)=>country==='all'||f.type===country),pages=paged?Math.max(1,Math.ceil(matches.length/size)):1,current=Math.min(page,pages-1),kind=family?'Family':'Fellow';
  const rarity=(r:string)=>'plate-'+String(r||'n').toLowerCase().replace(/[^a-z0-9]/g,'');
  return <section className="roster-picker" aria-label={kind+' roster'}>
   <div className="roster-search">
    {countPill?countPill(matches.length):<p className="roster-count" role="status">{matches.length} shown</p>}
-   <Input type="search" aria-label={'Search playable '+kind.toLowerCase()} placeholder={'Find a '+kind.toLowerCase()+'…'} value={query} onChange={e=>{setQuery(e.target.value);setPage(0)}}/>
+   {search&&<Input type="search" aria-label={'Search playable '+kind.toLowerCase()} placeholder={'Find a '+kind.toLowerCase()+'…'} value={query} onChange={e=>{setQuery(e.target.value);setPage(0)}}/>}
   </div>
-  <div className={family?'family-roster':'roster'}>{matches.slice(current*size,(current+1)*size).map((f:any,i:number,page:any[])=><Fragment key={f.id}>
+  <div className={family?'family-roster':'roster'}>{(paged?matches.slice(current*size,(current+1)*size):matches).map((f:any,i:number,page:any[])=><Fragment key={f.id}>
    {grouped&&(i===0||!!owned[page[i-1].id]!==!!owned[f.id])&&<p className="roster-group">{owned[f.id]?'Joined':'Not Yet Joined'}</p>}
    <Button variant="outline" className={'roster-tile '+(selected===f.id?'chosen':'')+(!owned[f.id]?' not-joined':'')} aria-pressed={selected===f.id} style={cardStyle(f.rarity) as any} onClick={()=>onSelect(f.id)}>
     {f.portrait||f.art?<RosterArt path={f.portrait||f.art}/>:<img className="roster-card-only" src={petCardIcon(f.rarity)||''} alt=""/>}
     {owned[f.id]&&status?<span className="level-banner">{status(f.id)}</span>:null}
     {countryIcon(f.type)?<img className="class-medallion" src={countryIcon(f.type)!} alt={f.type}/>:null}
     {badge?.(f.id)?<span className="action-badge" aria-label="Upgrade available">!</span>:null}
+    {sub?.(f)}
     <strong className={'name-plate '+rarity(f.rarity)}>{f.name}</strong>
    </Button></Fragment>)}
   </div>

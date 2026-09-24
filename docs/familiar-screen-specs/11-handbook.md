@@ -372,3 +372,43 @@ the Handbook would show.
 | Any future sentence explaining how Compendium EXP is earned | the `(i)`'s two blocks, six bullets, 78 words — the original's own copy, which already covers all four sources and the automatic level-up |
 | Any `Claim` button on a Collection Rewards rung | nothing. The level rises automatically; the ladder is a readout. Its only control is `✕` |
 | A rarity→EXP table written out anywhere | the `EXP n` badge on each card. The `(i)` says only *"Familiars of different rarity provide different amounts"*, and never prints the six values |
+
+---
+
+## 8 · Resolution (2026-09-24)
+
+Parity row **E8** is closed. There was nothing to compare against — no Compendium screen, no data, no
+UI string naming it — so this is a build record rather than a diff.
+
+**§0's finding is now a mechanic.** `PetBookLevel.PowerCoef` is imported, and `powerParts()` carries a
+`compendium` term in its percentage bag: a `country`-scoped percentage on every Fellow of that type,
+through the `TYPE_COUNTRY` join `lib/hero-scope.mjs` already owned. The familiar system feeds the
+fellow system, in the game's own words.
+
+**§1's correction is in the importer, with the assertion that keeps it true.** `PowerCoef.Country`
+cycles **one country per level**, not in blocks of 60; `scripts/import-familiar-handbook.py`
+run-length encodes the sequence and asserts 300 runs of length 1, and
+`tests/familiar-handbook.test.mjs` pins the first ten as `1,2,3,4,5,1,2,3,4,5`. A blocked reading
+would have built a Compendium whose first sixty rungs all paid Inspiring.
+`docs/familiar-data-inventory.md` §2 should be corrected to match.
+
+| # | Outcome |
+| --- | --- |
+| **H1** | **Fixed.** The familiar→Fellow Power link exists: 500 bp per rung, 60 rungs per type, +300% to each of five at the ceiling — both halves from the config set, no screenshot. |
+| **H2** | **Fixed.** Compendium EXP is `NewPetBookEXP[grade] + stars × PetStar.BookEXP[grade]`, plus `NewPetSPBookEXP[grade]` again for a shining variant. Stored as a per-familiar **banked total**, not a boolean, because stars keep rising after the first claim — so a familiar starred later pays the difference. |
+| **H3** | **Fixed.** The Handbook is a destination on the hub (spec 01). |
+| **H4** | **Fixed.** The `EXP n` badge, **as its own tap target**. The original's badge sits inside the card's tap area, so a tap that looks like "open this familiar" is a claim — the third instance of that trap in this capture programme. The spec's instruction was to copy the badge and not the trap; the card body opens the familiar. |
+| **H5** | **Fixed.** `Quick Collect`, one green primary, no count and no confirmation — the per-card badges are the count. |
+| **H6** | **Not ported, as specified.** `Reward_PetBookLevel_01/02` both pay the premium Crystal, which Everkai does not have and should not add, plus an item from E7-deferred Metamorphosis. The reward tiers are recorded in the imported data so a later E7 decision needs no re-measurement. |
+| **H7** | **Fixed.** Four Group chips, from `PetGroup`'s four rows. The capture shows three. |
+
+**The ladder has no `Claim` on any rung, and that was the easiest thing here to get wrong.** The `(i)`
+says the level *"will automatically increase"*, so the reward is paid on the level-up; the list is a
+readout whose only control is its close tab. Everkai's instinct on every other ladder has been to put
+a button on each rung.
+
+**Rule 12.** A save from before this table existed has no `familiarHandbook` key, so its Compendium
+level is 0, its bonus is 0, and every Power it ever recorded is unchanged — which is why this ships
+without a `SAVE_VERSION` bump. Both shipped fixture saves decode with identical Fellow Power, and the
+one validator that stores anything derived from Fellow Power (`lib/mine-clearance.mjs`) compares a
+stored value against an upper bound that only grows. The negative-control test asserts all of it.

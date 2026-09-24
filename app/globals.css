@@ -997,6 +997,87 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .tower-floor .tower-reward{color:#8a5a1c;font-weight:700}
 .tower-enemies{display:grid;gap:3px;margin:0;padding:0;list-style:none;font-size:12px;color:#4b3421;text-align:left;max-height:200px;overflow-y:auto}
 .tower-enemies li{padding:3px 6px;background:#f3e2bb;border-radius:4px}
+/* THE FAMILIAR HUB (01-hub.md). Familiar opens onto a SCENE, not a roster and not an icon dock: the
+   destinations are places, so there is no pager. The painting itself is not extracted -- Pet.BGPic and
+   PetTower.UIBG name six backgrounds nobody has pulled -- so the plates sit on a painted ground. */
+.familiar-hall{display:grid;gap:8px}
+.hub-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.stamina-pill{margin:0;padding:3px 12px;background:#1d2b33e0;border:1px solid #6fd3e8;border-radius:12px;
+ color:#eaf8ff;font:700 13px Georgia,serif}
+.hub-back{justify-self:start;color:#8a5a1c;font-size:12px;font-weight:700}
+.hub-scene{position:relative;aspect-ratio:3/4;max-height:420px;border:1px solid #c99a4e;border-radius:8px;overflow:hidden;
+ background:
+  radial-gradient(ellipse at 22% 78%,#6f8f55 0 22%,transparent 60%),
+  radial-gradient(ellipse at 74% 40%,#7d8f6a 0 18%,transparent 55%),
+  radial-gradient(circle at 78% 14%,#c9d8b6 0 10%,transparent 40%),
+  linear-gradient(#a9c6d8 0 26%,#8fae74 26% 100%)}
+.hub-plate{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px;
+ padding:5px 12px;background:linear-gradient(#f6e6c2,#e2c891);border:1px solid #8a5a1c;border-radius:14px;
+ color:#4b3421;font:700 12px Georgia,serif;white-space:nowrap;box-shadow:0 2px 0 #00000033}
+.hub-plate:hover{background:linear-gradient(#fff4d6,#f0d296)}
+.hub-alert{display:grid;place-items:center;width:15px;height:15px;background:#c3341f;border:1px solid #ffe7b5;
+ border-radius:50%;color:#fff;font:700 10px Georgia,serif;font-style:normal}
+.hub-list{margin:0}
+.hub-list button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;padding:8px 12px;
+ background:#f6e6c2;border:1px solid #c49a55;border-radius:6px;color:#4b3421;font:700 13px Georgia,serif}
+/* THE COMPENDIUM (11-handbook.md). The level plaque overlaps the book it describes, and all five type
+   chips render including the zeros -- a filtered strip would teach nothing. */
+.familiar-compendium{display:grid;gap:8px}
+.compendium-head{display:flex;align-items:flex-end;gap:10px}
+.compendium-book{position:relative;display:grid;justify-items:center;padding:6px 10px 14px;
+ background:radial-gradient(circle at 50% 35%,#fff6da,#e6d2a4);border:1px solid #8a5a1c;border-radius:8px;font-size:26px}
+.compendium-book em{position:absolute;bottom:-8px;padding:1px 8px;background:#fbf0d4;border:1px solid #8a5a1c;
+ border-radius:3px;color:#7a5a12;font:700 11px Georgia,serif;font-style:normal;white-space:nowrap}
+.compendium-right{flex:1;display:grid;gap:4px;min-width:0}
+.bonus-strip{display:flex;justify-content:space-between;gap:2px;margin:0;padding:3px 6px;background:#fffaf0;
+ border:1px solid #c49a55;border-radius:12px;list-style:none}
+.bonus-strip li{display:flex;align-items:center;gap:2px;font-size:10px;color:#4b3421}
+.bonus-strip b{font-size:11px;color:#7a5a12}
+.type-dot{width:10px;height:10px;border-radius:50%;border:1px solid #8a5a1c}
+.type-dot.inspiring{background:#d9a441}.type-dot.diligent{background:#4f8f57}.type-dot.brave{background:#b8452c}
+.type-dot.informed{background:#3f74a8}.type-dot.unfettered{background:#7a5ba8}
+.compendium-bar{position:relative;height:18px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:9px;overflow:hidden}
+.compendium-bar i{position:absolute;inset:0 auto 0 0;background:linear-gradient(#f3cd6b,#d59a33)}
+.compendium-bar span{position:relative;display:grid;place-items:center;height:100%;color:#ffe7b5;font:700 11px Georgia,serif}
+.compendium-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0;padding:0;list-style:none;
+ max-height:46vh;overflow-y:auto}
+.compendium-grid li{position:relative}
+.compendium-card{display:grid;justify-items:center;gap:1px;width:100%;padding:4px 2px!important;min-height:0!important;
+ background:var(--card-bg-color,#efe0bd);border:1px solid #c49a55;border-radius:6px;color:#4b3421}
+.compendium-card img{width:100%;aspect-ratio:206/280;object-fit:cover;border-radius:4px}
+.compendium-card .card-level{font:700 10px Georgia,serif;color:#7a5a12}
+.compendium-card strong{font-size:9px;line-height:1.1;text-align:center}
+.card-stars{font-style:normal;font-size:9px;font-weight:700;color:#8a5a1c}
+.exp-badge{position:absolute;right:-2px;top:-4px;display:grid;justify-items:center;padding:1px 5px;
+ background:linear-gradient(#3f74a8,#27507a);border:1px solid #ffe7b5;border-radius:5px;line-height:1.05}
+.exp-badge span{color:#8ef0a0;font:700 8px Georgia,serif}
+.exp-badge b{color:#fff;font:700 11px Georgia,serif}
+.quick-collect{justify-self:center;min-width:170px;background:#1c6650!important;border:1px solid #0f4535!important;color:#fff5da!important}
+.collection-rewards ol{display:grid;gap:6px;margin:0;padding:0;list-style:none;max-height:58vh;overflow-y:auto}
+.collection-rewards li{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;
+ padding:8px 8px 8px 6px;background:#fffaf0;border:1px solid #c49a55;border-radius:6px}
+.collection-rewards li.done{background:#f7e2b4}
+.rung-plaque{padding:2px 8px;background:#8a3a2a;border:1px solid #f3cd6b;border-radius:3px;color:#ffe7b5;font:700 11px Georgia,serif}
+.collection-rewards p{margin:0;color:#4b3421;font-size:12px!important}
+.collection-rewards li>b{color:#8a5a1c;font-size:10px;text-align:right}
+.collection-rewards li.done>b{color:#2f8a3a}
+/* The roster card's new corners (02-growth-roster.md): stars, and the Fellow this familiar is bound to. */
+.roster-tile .card-stars{position:absolute;left:4px;bottom:30px;padding:0 4px;background:#3d2a1bcc;border-radius:7px;color:#f3cd6b}
+.bound-mark{position:absolute;right:4px;bottom:30px;width:12px;height:12px;background:#2f8a3a;border:1px solid #fff5da;border-radius:50%}
+/* The locked preview (07-locked-preview.md): a Source tooltip and two tabs, one of which is the point. */
+.preview-head{display:flex;flex-direction:column;align-items:center;gap:4px}
+.source-button{padding:3px 14px;background:linear-gradient(#f6e6c2,#e2c891);border:1px solid #8a5a1c;border-radius:12px;
+ color:#4b3421;font:700 12px Georgia,serif}
+.source-tip{margin:0;padding:5px 8px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:5px;color:#f3e3bd;font-size:11px}
+.preview-tabs{display:flex!important;gap:6px;justify-content:center}
+.preview-info,.preview-stats{display:grid;gap:5px;margin:0}
+.preview-info div{display:flex;gap:8px;padding:5px 8px;background:#fbf0d4;border:1px solid #c49a55;border-radius:5px;font-size:12px}
+.preview-info dt{min-width:64px;font-weight:700;color:#8a5a1c}
+.preview-info dd{margin:0;color:#4b3421}
+.preview-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.preview-stats div{display:grid;justify-items:center;padding:6px 3px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:5px}
+.preview-stats dt{font-size:10px;color:#e5bd6a}
+.preview-stats dd{margin:0;color:#fff3d6;font:700 14px Georgia,serif}
 /* FAMILIAR EXPLORING -- one button, four screens (10-explore.md 0). The stage swaps between REST,
    the monster ENCOUNTER and the three BRANCH screens; every control is art-as-button with its label
    under it, and the cost lives INSIDE the primary rather than beside it. */
@@ -2099,7 +2180,8 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 /* `.character-screen-controls` is a FLEX container, so a block child of it is a flex ITEM: with
    min-width:0 and no width it collapsed to 4px, taking the dock and the bind tile with it. The wrapper
    carries the width; everything inside it is a normal block again. Measured in the browser. */
-.familiar-growth-wrap{width:100%;min-width:0}
+.familiar-growth-wrap,.familiar-preview-wrap{width:100%;min-width:0}
+.familiar-preview-wrap{display:grid;gap:8px;max-height:100%;overflow-y:auto}
 .familiar-dock-row{display:flex;align-items:flex-start;gap:10px;margin:6px 0 10px;min-width:0;width:100%}
 .familiar-growth{min-width:0;max-width:100%}
 .familiar-growth-wrap .familiar-forms{width:100%;margin-top:8px}

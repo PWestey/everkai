@@ -252,3 +252,21 @@ icon dock, a modal sheet, and a `Previous · n / 4 · Next` footer.
 | `+1 stamina in 46m · one point every 90 minutes` (`app/familiar-explore-panel.tsx:14`) | the header pill: `⚡ 12/20`, with the rate in the `(i)` under *Making Contracts with Monsters*, which is where the original states it |
 | `Tower floor 175 cleared.` on the Exploring page (`app/familiar-explore-panel.tsx:30`) | nothing — it duplicates the Tower destination, and the badge on the Tower building says "look here" without a sentence |
 | the shared `journey.webp` icon and heading for the Familiar module | the scene itself; the module heading is `Familiar` |
+
+---
+
+## Resolution (2026-09-24)
+
+Rule 7. **The owner's ruling this spec asked for — hub or flat dock — is settled as the hub**, which
+is what the original does and what every other spec in this set is downstream of.
+
+| Difference | Outcome |
+| --- | --- |
+| Four-entry icon dock vs a nine-destination scene | **Fixed as adapted: five live destinations.** Growth, Dispatch, Tower, Explore and the Handbook are places on a scene. Two of the original's nine are not familiar systems at all (`Familiar Daily Offer`, `Benefits Card`), one is the game's generic shop shell, and the Familiar Pass is monetisation — Everkai has none of it, and the spec's own instruction is **do not draw dead buildings**. The Familiar Shop appears when audit S4 lands. |
+| `Previous · n / 4 · Next` under four icons | **Fixed.** Deleted. The scene is the navigation. |
+| No hub-level `(i)` | **Fixed.** One `(i)`, one panel, the original's three headings — Making Contracts with Monsters, Familiar Development, Familiar Tower. Four of the six `rules-note` disclosures scattered across four familiar pages came here to die. |
+| Stamina lives inside Exploring | **Fixed.** `⚡ n/20` in the header, on every screen in the system. The cap is `System.PetExploreEnergyMax`; the capture's `50/50` is a Pass perk (`…MaxBP`) and copying it would import monetisation as a base rule. |
+| No action-available badges anywhere | **Fixed.** A red `!` on every destination from one predicate each — the same missing predicate the Fellow roster wanted (R4) and the Companions roster lacked (audit D6). |
+| No scene, no buildings, no art | **Partly fixed, and this is the one departure.** The plates, their percentage placement, the badges and the accessible list fallback are all here; the **painting is not**. Everkai has one scene painting (Drakenberg town) and no familiar-scene art — `Pet.BGPic` and `PetTower.UIBG` name six backgrounds nobody has extracted. Putting the town painting behind familiar plates would be a lie about the place, so the plates sit on a painted ground and the extraction is its own job. |
+| No scene pickup | **Dropped for now.** It is a faucet (`RewardPetPacifyDaliy`), so it is an owner decision, not a free port — and it is the third instance of the capture programme's tap-target trap. |
+| `Companions` on the roster header, `Familiars` in five other places | **Fixed.** `Familiar` for the system, `Familiar Growth` for the roster. One name, everywhere. |

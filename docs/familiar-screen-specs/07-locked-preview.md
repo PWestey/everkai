@@ -216,3 +216,22 @@ Familiar Preview
 | `Not found in exploring or the tower: in the original it came from events, the Legendary Familiar draw or bundles, which Everkai does not have.` (`app/familiar-panel.tsx:15`) | a short `Unobtainable` value in the `Source` tooltip; the explanation, if it is wanted at all, is one line in the hub `(i)` |
 | the level-1 `Attack / Health / Speed` row rendered for an uncontracted familiar | the `Max Level Preview` tab — the same numbers, evaluated at the cap, where they are a reason to go and catch it |
 | `Not contracted` / `Not Yet Joined` status strings on the roster card | the card with its level, badge, stars and bound-Fellow tile removed (spec 02) |
+
+---
+
+## Resolution (2026-09-24)
+
+| Difference | Outcome |
+| --- | --- |
+| Two sentences against a whole screen | **Fixed.** `Familiar Preview`: a greyscale showcase, a `Source` button with its one-line tooltip, and two tabs. |
+| No `Max Level Preview` — "the decision-relevant surface on the whole roster" | **Fixed, and it is the point of this slice.** Everkai showed an uncontracted familiar's **level-1** stats, so the one thing it told you about a familiar you did not have was its *weakest* numbers. The tab evaluates `familiarStats(id, {level: familiarCap(id), stars: <top of PetStar>})` — same function, same rows, at the cap — and adds the bond payout from `inherentFamiliarBonus()` at full stage, which is the comparison a player actually needs before deciding to hunt something. |
+| No form portraits, no silhouette | **Partly fixed.** The silhouette is `CharacterScreen`'s `preview` mode, already built for the Family locked-member screen. Form portraits need art that does not exist. |
+| No skill list | **Deferred.** `PetSkill` (192 rows) and `PetBuff` (137) are unimported; community kits cover 63 of 71 and the two tables are their own import. |
+| `Not contracted yet. {source}` as body text | **Fixed** — a `Source` button and a tooltip, as the original draws it. |
+| Everkai's header is the familiar's name | **Fixed** — `Familiar Preview`. |
+| The encounter's `Details` should reach the same component | **Deferred.** The encounter now has a `Details` tab (spec 10), but it opens a small sheet rather than routing into this screen; one route, one commit. |
+
+A layout note worth keeping, because it is the second time it has cost an hour:
+`.character-screen-controls` is a **flex container**, so a bare block child of it is a flex *item* and
+collapses to its min-content. The preview body needs the same `width:100%; min-width:0` wrapper that
+`.familiar-growth-wrap` already carries for exactly this reason. Measured in the browser both times.

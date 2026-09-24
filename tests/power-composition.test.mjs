@@ -65,7 +65,7 @@ test('every source sits in the original’s bucket, and the bucket set is exactl
  assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella','starHalo','origin'].sort());
  assert.deepEqual(Object.keys(p.coefpercent).sort(),['origin','starHalo'],'talent percent: the star halos’ talentpercent rows and Origin Boost (step 4)');
  // + Family Stella, the Stella-unlocked pairs and quenching (2026-09-18, spec 3): all the original's `percent`.
- assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella','familyStella','familyPair','quench','starHalo','origin'].sort());
+ assert.deepEqual(Object.keys(p.percent).sort(),['bonds','echo','familiar','family','fishing','museum','skill','stars','stella','familyStella','familyPair','quench','starHalo','origin','compendium'].sort());
  assert.deepEqual(Object.keys(p.flat).sort(),['elixir','familiar','family','fishing','stella','museum','familyPair','stars'].sort(),'museum: the relic flat; familyPair: the Stella-unlocked pairs; stars: HeroStar extraAtk (2026-09-18)');
  assert.deepEqual(Object.keys(p.final).sort(),['familiar','museum'].sort());
  assert.deepEqual(EVERKAI_ONLY_PARTS,['familiar']);
