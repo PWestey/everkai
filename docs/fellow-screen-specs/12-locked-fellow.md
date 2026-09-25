@@ -129,3 +129,28 @@ A **separate preview screen**, not the Cultivate screen with things disabled:
 | `Preview only · this skill can't be trained yet.` | the absence of any button on the preview screen |
 | Live upgrade controls rendered disabled for unowned fellows | the stripped preview screen: no dock, no action |
 | Any "you have 3 of 4 aura members" sentence | the aura row with the missing member greyed |
+
+---
+
+## Resolution (2026-09-25)
+
+| # | Outcome |
+| --- | --- |
+| **P1** | **Fixed.** `app/fellow-preview.tsx`, reached by its own branch in the fellows route *before* the Cultivate shell. An unowned Fellow used to reach that shell with live upgrade controls, a Power/Level block over an absent record, and a five-section dock where nothing worked. Fellow was the last of the three rosters still doing this; Family and Familiar got their previews earlier this month. |
+| **P2** | **Fixed.** `How to Invite`, one line, behind a `Source` button. `lib/fellow-source.mjs` answers with **Everkai's** route rather than the original's place name, per the Family set's spec 13 ruling. Measured across the 111-Fellow roster: 97 the Recruit counter with its price, 9 Wayfarer rank rewards (which is *why* `recruitPrice` returns null for them — they are not for sale), 5 the Fountain's wish. **Nothing falls through**, so the fallback line is a fallback and not the common answer. |
+| **P3** | **Fixed.** A `Skills` tab, which is the "what would I be getting" view Everkai had no equivalent of. |
+| **P4** | **Fixed.** `CharacterScreen`'s `preview` mode — greyscale at full brightness, reused unchanged from the Family locked member. Everkai's near-black-with-a-red-frame read as *broken*; desaturation reads as *not yet*. |
+| **P5** | **Fixed.** One band, `✦ Initial Aptitude ✦ N`, from `heroRow` — the same base-Aptitude column the Power Details dialog shows as `Base+N` for an owned Fellow. Every Fellow has one, and it varies (20 / 35 / 70), so the band compares something. |
+| **P6** | **Not built, and measured rather than assumed.** The original's Skills tab opens with a row of member portraits, only the missing one greyed — which says "you have 3 of 4 of this aura" without a sentence. Everkai cannot draw it: **every one of the 128 halos belongs to exactly one Fellow.** There is no group membership in the data at all. That row needs the `HeroBond` groups, which are catalogue **F8**, and **F6**'s group auras read the same table — they are one slice, and this screen should get its row when that lands. `tests/fellow-preview.test.mjs` pins the singleton property, so the day a shared halo appears the test fails and points here. |
+
+The aura band itself **is** built, titled with the aura's own name rather than the word "Aura" — one
+of the two treatments the spec says to carry over wholesale.
+
+Two bands are absent for their own reasons and neither is faked with a placeholder: `Operation Skill`
+needs spec 07's starting tier, which Everkai does not model, and `Blessing` needs a per-Fellow map of
+which family members bless them — `blessingRecipients` answers the opposite question.
+
+A layout note, now the third time it has cost an hour: `.character-screen-controls` is a **flex**
+container, so a bare block child is a flex *item* and collapses to its min-content. The preview body
+needs the same `width:100%; min-width:0` wrapper `.familiar-growth-wrap` and `.familiar-preview-wrap`
+already carry.

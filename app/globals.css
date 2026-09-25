@@ -133,6 +133,19 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen{height:100%;min-height:0;position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 50% 65%,#e1d6b4,#577b64 80%);overflow:hidden}
 .character-screen-art{position:absolute;inset:0;z-index:-1}
 .character-screen-art .character-showcase{height:100%;min-height:0;border-radius:0;background:transparent}
+/* THE NOT-YET-JOINED FELLOW (fellow-screen-specs/12-locked-fellow.md). Same wrapper rule as the
+   familiar preview and the growth panel: `.character-screen-controls` is a FLEX container, so a bare
+   block child is a flex item and collapses to its min-content. Third time this has cost an hour. */
+.fellow-preview-wrap{width:100%;min-width:0;display:grid;gap:8px;max-height:100%;overflow-y:auto}
+.aptitude-band{margin:0;text-align:center;color:#f3cd6b;font:700 14px Georgia,serif;letter-spacing:.04em}
+.aptitude-band b{color:#ffe7b5;font-size:18px}
+.preview-bio{grid-column:1/-1}
+.preview-bio dd{line-height:1.45}
+.preview-skills{display:grid;gap:8px}
+.aura-band{padding:7px 10px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px}
+.aura-band h5{margin:0 0 2px;color:#7a5a12;font:700 13px Georgia,serif}
+.aura-band p{margin:0;color:#4b3421;font-size:12px!important}
+.aura-none{margin:0;padding:6px 10px;background:#3d2a1b;border:1px solid #c99a4e;border-radius:6px;color:#e5bd6a;font-size:12px;text-align:center}
 /* FAMILIAR PORTRAITS (2026-09-24). The showcase was built for the Fellow/Family renders: tall
    full-bleed art, correctly `cover`ed. A familiar portrait is a 300x350 sprite on a transparent
    ground, so covering the 375x630 band scaled it 1.8x and cropped the sides to a zoomed slice.
