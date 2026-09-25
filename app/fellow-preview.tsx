@@ -4,6 +4,9 @@ import CharacterScreen from './character-screen';
 import CharacterSkillGuide from './character-skill-guide';
 import {heroRow} from '@/lib/original-progression.mjs';
 import {heroHalos} from '@/lib/hero-stars.mjs';
+import {bondsOf,bondGroup} from '@/lib/hero-bond.mjs';
+import {fellowById} from '@/lib/catalog.mjs';
+import {cardStyle} from '@/lib/ui-sprites.mjs';
 import {fellowSource} from '@/lib/fellow-source.mjs';
 
 // THE NOT-YET-JOINED FELLOW, built to docs/fellow-screen-specs/12-locked-fellow.md.
@@ -70,7 +73,18 @@ export default function FellowPreview({game,person,onBack,onPrevious,onNext,lock
        <h5>{h.name}</h5>
        <p>Broadcasts {h.prop==='percent'?`+${(h.values?.[0]||0)/100}% Power`:h.prop} to your roster once awakened.</p>
       </section>)}
-      {!halos.length&&<p className="aura-none">This Fellow carries no aura.</p>}
+      {/* P6, buildable since HeroBond landed: the group's members, with the one you do not have
+          greyed. That single treatment is how the original says "you have 3 of 4 of this group"
+          without a sentence. Until 2026-09-25 Everkai had no group membership at all to draw. */}
+      {bondsOf(person.id).map((bid:string)=>{const g=bondGroup(game,bid);if(!g)return null;
+       return <section key={bid} className="aura-band">
+        <h5>Bond {bid} &middot; {g.have}/{g.total}</h5>
+        <ul className="bond-members">{g.members.map((m:string)=>{const f=fellowById(m);
+         return <li key={m} className={g.owned.includes(m)?'':'missing'} title={f?.name||m}>
+          <span className="bond-pip" style={f?cardStyle(f.rarity) as any:undefined}/>
+          <small>{f?.name||m}</small></li>})}</ul>
+       </section>})}
+      {!halos.length&&!bondsOf(person.id).length&&<p className="aura-none">This Fellow carries no aura.</p>}
       <CharacterSkillGuide key={person.id+'-preview'} id={person.id} game={game} locked={locked}/>
      </div>}
   </div>

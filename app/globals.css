@@ -133,6 +133,30 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen{height:100%;min-height:0;position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 50% 65%,#e1d6b4,#577b64 80%);overflow:hidden}
 .character-screen-art{position:absolute;inset:0;z-index:-1}
 .character-screen-art .character-showcase{height:100%;min-height:0;border-radius:0;background:transparent}
+/* THE BOND COMPENDIUM (catalogue F8) and the group-aura membership row (F6). 23 groups, 4 of which
+   pay -- so the list marks which ones do rather than implying every group has a reward. */
+.bond-compendium{display:grid;gap:8px;max-height:80vh;overflow-y:auto}
+.bond-list{display:grid;gap:5px;margin:0;padding:0;list-style:none}
+.bond-list button{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:8px;width:100%;
+ padding:7px 10px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px;color:#4b3421;font:700 12px Georgia,serif}
+.bond-list button.complete{background:#f7e2b4;border-color:#d59a33}
+.bond-bar{height:8px;background:#3d2a1b;border-radius:4px;overflow:hidden}
+.bond-bar i{display:block;height:100%;background:linear-gradient(90deg,#f3cd6b,#d59a33)}
+.bond-list em{font-style:normal;font-size:11px;color:#7a5a12}
+.bond-pays{padding:0 6px;background:#2f8a3a;border-radius:8px;color:#fff5da;font-size:9px}
+.bond-members{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.bond-members li{display:grid;justify-items:center;gap:1px;width:52px}
+.bond-members li.missing{opacity:.45;filter:grayscale(1)}
+.bond-pip{width:34px;height:34px;border:1px solid #8a5a1c;border-radius:50%;
+ background:var(--card-bg-color,#efe0bd) center/cover}
+.bond-members small{font-size:8px;line-height:1.05;text-align:center;color:#4b3421}
+.aura-band .bond-members small{color:#4b3421}
+.bond-auras{display:grid;gap:4px;margin:0;padding:0;list-style:none}
+.bond-auras li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px;align-items:center;padding:5px 8px;
+ background:#efe0bd;border:1px solid #c49a55;border-radius:5px;font-size:11px;color:#4b3421}
+.bond-auras li.on{background:#e4f0dc;border-color:#2f8a3a}
+.bond-auras em{font-style:normal;color:#8a5a1c;font-size:10px}
+.bond-auras li.on em{color:#2f8a3a;font-weight:700}
 /* AUTO DATE RESULTS (family-screen-specs/09-auto-date.md). The missing moment of the system: a run
    used to apply its rewards and leave one sentence. One card per date, then one announcement per CG. */
 .date-results{display:grid;gap:8px;max-height:82vh;overflow-y:auto}

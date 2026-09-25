@@ -15,7 +15,7 @@ const readSort=(kind:string)=>{try{return localStorage.getItem('everkai-roster-s
 // reads "fellows matching what you are looking at", not "fellows owned" -- difference R6) and one
 // `Sort by <choice>` button. Its four orders are Default / Power / Aptitude / Awakening, and
 // Awakening is offered now that spec 05's stars exist.
-export default function RosterLanding({entries,owned,selected,onSelect,family=false,kind,album,summary,status,power,sortKeys,sortOrders,info,badge,search=true,pageSize=9,sub}:any){
+export default function RosterLanding({entries,owned,selected,onSelect,family=false,kind,album,summary,status,power,sortKeys,sortOrders,info,badge,search=true,pageSize=9,sub,extras}:any){
  // A caller that brings its own sort keys gets exactly those; the Fellow list is not a default every
  // roster should inherit. The Companions roster has no Aptitude and no Awakening, so offering them
  // sorted 71 familiars by a key that returns 0 for all of them.
@@ -30,6 +30,7 @@ export default function RosterLanding({entries,owned,selected,onSelect,family=fa
   {summary}
   <RosterPicker grouped entries={ordered} owned={owned} selected={selected} onSelect={onSelect} family={family} pageSize={pageSize} status={status} badge={badge} search={search} sub={sub}
    countPill={(shown:number)=><span className="count-pill"><b aria-hidden="true">&#9679;</b>{shown}</span>}/>
+  {extras}
   {album&&<OriginalAlbum kind={album} onChoose={onSelect}/>}
  </section>;
 }
