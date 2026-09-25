@@ -133,6 +133,27 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen{height:100%;min-height:0;position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 50% 65%,#e1d6b4,#577b64 80%);overflow:hidden}
 .character-screen-art{position:absolute;inset:0;z-index:-1}
 .character-screen-art .character-showcase{height:100%;min-height:0;border-radius:0;background:transparent}
+/* AUTO DATE RESULTS (family-screen-specs/09-auto-date.md). The missing moment of the system: a run
+   used to apply its rewards and leave one sentence. One card per date, then one announcement per CG. */
+.date-results{display:grid;gap:8px;max-height:82vh;overflow-y:auto}
+.date-total{text-align:center;color:#8a5a1c!important;font-weight:700}
+.date-cards{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.date-cards li{display:grid;justify-items:center;gap:2px;padding:8px 10px;background:#fbf0d4;border:1px solid #c49a55;border-radius:6px}
+.date-line{margin:0;color:#4b3421;font-size:12px!important;text-align:center}
+.date-line strong{color:#7a5a12}
+.date-line em{font-style:normal;color:#8a5a1c;font-size:11px}
+.date-rule{color:#c49a55;font-size:10px}
+.date-points{margin:0;color:#6b4a26;font-size:12px!important}
+.date-points b{color:#a8431f;font:700 15px Georgia,serif}
+.date-cg{margin:0;color:#2f8a3a;font-size:11px!important;font-weight:700}
+.date-total-line{margin:0;text-align:center;color:#6b4a26;font-size:12px!important}
+.date-total-line b{color:#a8431f;font:700 16px Georgia,serif}
+.cg-unlocked{display:grid;justify-items:center;gap:2px;padding:10px;background:linear-gradient(#fff6da,#f0dcb0);
+ border:2px solid #d59a33;border-radius:8px}
+.cg-banner{margin:0;padding:2px 16px;background:linear-gradient(#c3341f,#8a2414);border-block:2px solid #f3cd6b;
+ color:#ffe7b5;font:700 13px Georgia,serif}
+.cg-name{margin:0;color:#7a5a12;font:700 15px Georgia,serif}
+.cg-unlocked small{color:#8a5a1c;font-size:11px}
 /* THE NOT-YET-JOINED FELLOW (fellow-screen-specs/12-locked-fellow.md). Same wrapper rule as the
    familiar preview and the growth panel: `.character-screen-controls` is a FLEX container, so a bare
    block child is a flex item and collapses to its min-content. Third time this has cost an hour. */

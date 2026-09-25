@@ -147,3 +147,23 @@ Then, per unlocked CG:
 | `Natural Energy 3 / 11` + `Tonic reserve: n · spent first` + `Next Energy in 41s` | `DP: 3/11`, becoming a countdown when empty |
 | `Date bonuses and Energy` disclosure | the roster's Auto Date `(i)` |
 | Silent CG unlocks | the `New CG Unlocked` card, queued |
+
+---
+
+## Resolution (2026-09-25)
+
+| Difference | Outcome |
+| --- | --- |
+| No results screen at all — Everkai applies the rewards and updates the numbers in place | **Fixed.** `autoDate` returns a per-date `report` and `app/date-results.tsx` draws it: an `Auto Date` ribbon, `Total Dates: n`, one card per date naming the member and what it paid, then the run's total. |
+| Everkai pre-announces the reward; the original reports it afterwards, per date | **Fixed.** The card is the report, after the fact. |
+| No CG-unlock moment | **Fixed.** Each unlocked picture gets its own `New CG Unlocked` announcement. `discoverDatePicture` has always unlocked pictures on a qualifying date; the only trace was a toast that scrolled past with everything else. |
+| `Random date` has no original counterpart | **Deferred.** Removing a control players use is a behaviour change, not a presentation one, and the spec offers no replacement for it. |
+| Energy as three lines of text | **Covered by spec 01**, not here. |
+| The story reader is a panel, not a full-screen VN with `SKIP` | **Deferred.** A reader rebuild is its own slice. |
+
+**The report rides on the result, never the state.** Nothing new is stored, no validator sees it, and
+no save is affected — which is why this needed no migration despite touching a live action.
+
+A field-name trap worth recording, and the reason one of the tests exists: `discoverDatePicture` sets
+**`pictureDiscovered`**, not `picture`. Reading the wrong key gives a report where every row says "no
+CG" and looks entirely correct. The test pins both the right field and the absence of the wrong one.
