@@ -1,12 +1,26 @@
 # Familiar data inventory — the 28 `Pet*` tables
 
-**Measurement only.** Nothing outside this file was changed, and nothing was committed.
+**Measurement only** when written. **Acted on 2026-09-24**, and the entries below are left as they
+were measured rather than rewritten, so the reasoning stays auditable. What has since shipped:
+
+| Finding | Where it went |
+| --- | --- |
+| §10.2 the Great Success formula is a known-wrong shipped value | **Fixed.** `greatSuccessChance` is `PetManager:GetBigSuccess` transcribed, uncapped above 100 as the client is; the old expression is kept as a negative control. Catalogue E10. |
+| §7 rank 1, `PetSkill` (192) + `PetBuff` (137) | **Imported.** `scripts/import-familiar-combat.py`. Catalogue E6. |
+| §7 rank 2, `PetAttr`'s six missing weights; §10.1 `GetPower` reads all nine | **Fixed.** `PetInfo:GetPower` transcribed: nine attributes by `CombatAdd`, then `Combatcoef`. Power was 1.3x–3.5x low. Catalogue E10. |
+| §7 rank 4, `PetClass.PassiveSkillUnlock` as a Power-formula input | **Imported**, stages 2/4/6, and it gates which passives contribute `Combatcoef`. |
+| §2's `PowerCoef.Country` "blocks of 60" | **Corrected below**, and asserted in the handbook importer. |
+
+Still open from this document: Metamorphosis (§7 rank 5, parity E7), `PetDispatch.Time`'s unit, and
+the enemy `Power` residual — which §10.1 explains rather than solves, since `GetPower`'s primary
+branch returns a server-stored `battleData.power`, making that column authored by design.
 
 **Sources.** The original's config set,
 `/Users/westmanfamily/Documents/Codex/2026-09-07/your/work/apk-audit/configs/config/logic`
 (1,499 tables). Everkai's side: `lib/familiar-*.json`, `lib/familiars.mjs`,
-`scripts/import-familiar*.py`. Usage evidence: the 3,829-file string-table corpus under
-`.../apk-audit/lua-strings/` (see §9).
+`scripts/import-familiar*.py`. Usage evidence: **readable decompiled Lua** at
+`.../private-server/readable/*.lua` (§10 — the authoritative source for arithmetic), plus the
+3,829-file string-table corpus at `.../apk-audit/lua-strings/` (§9 — which screen reads which table).
 
 **Rule 2 positive control, run before every absence claim below:** the config set returns
 `Wife 33, City 15, SimGame3 21`. It came back correct. **Four** searches in this session silently
@@ -110,7 +124,12 @@ Two of these are load-bearing and already handled correctly in the repo:
   the **unit is not measured** — Everkai reads it as hours on an economic argument, not on evidence.
   That is the correct handling of a constant column.
 - **`PetBookLevel` is constant in *both* numeric columns** (`exp` 100, `PowerCoef.value` 500). Only
-  `PowerCoef.Country` varies, cycling 1→5 in blocks of 60 rows. So the Compendium is a **flat**
+  `PowerCoef.Country` varies. **CORRECTED 2026-09-24:** it cycles 1→5 **one country per level**, not
+  in blocks of 60 — run-length encoded, the 300-row sequence is 300 runs of length 1, and the
+  capture's first five rungs are Inspiring, Diligent, Brave, Informed, Unfettered. Each country still
+  collects 60 of the 300 levels, so the ceiling is unchanged; the interleaving is the whole player
+  experience of the ladder. `scripts/import-familiar-handbook.py` asserts the run lengths. The
+  Compendium is a **flat**
   ladder: 100 exp per level × 300 levels = **30,000 total**, granting a flat 500 coefficient to one
   country per level. Anyone importing this must not read the 300 rows as a growth curve.
 
@@ -327,7 +346,9 @@ Listed here with the measurable alternative named, per the brief.
 6. **Great Success probability.** `import-familiar-dispatch.py` measures the four inputs
    (`PetDispatch.Power`, team power, `PetDispatch_Crit` 3000bp, `PetDispatch_Coefficient` 0.5) and
    states that the formula combining them is not measured; `familiar-dispatch.mjs:47` applies a local
-   rule. Correctly marked.
+   rule. Correctly marked — **but the formula has since been measured (§10.2), and the local rule
+   diverges sharply from it everywhere except exactly at the gate.** This is now a known-wrong
+   shipped value, not an unavoidable invention.
 
 7. **Team power omits CRIT and Block.** Not flagged anywhere today. See §4 (`PetAttr`) — the gate is
    computed on 3 of the 9 weighted attributes.
@@ -339,17 +360,29 @@ Listed here with the measurable alternative named, per the brief.
 
 ## 7. Ranked: what is missing that would most affect numeric parity
 
+*(Ranks below are by parity impact. §10 added one item that outranks all of them on
+**cost-to-fix**, listed here as rank 0 because it needs no new data at all.)*
+
+0. **The Great Success formula (§10.2).** Not a missing table — a wrong expression over inputs
+   Everkai **already imports and already asserts**. `(0.3 + √(P/L) − 1)×100` in the original vs
+   `30×(1 + 0.5×(P/L − 1))` in `familiar-dispatch.mjs:47`. They agree only at the gate: at half
+   power the original gives 0.71% and Everkai gives 22.5%; at double power, 71.4% vs 45%. One
+   expression, shipped player-facing behaviour, zero import work.
+
 1. **`PetSkill` (192) + `PetBuff` (137).** 329 measured rows against 63 community-derived skills
    whose own provenance says they are not APK-version-matched. This is the largest single block of
    familiar numbers in the original and the only absent block that changes every combat outcome.
    It is also the cheapest to fix in kind: both tables are ordinary wrappers with flat integer
    columns, already cross-referenced by `Pet.ActiveSkill` / `PassiveSkill1-3` / `PetSkill.BuffID`,
-   and the ids resolve. **Caution (rule 12):** familiar power is derived from these, and
+   and the ids resolve. §10.1 raises the stakes: `PetSkill.Combatcoef` is a **direct multiplier in
+   the original's Power formula**, so without these rows Everkai cannot reproduce Power at all.
+   **Caution (rule 12):** familiar power is derived from these, and
    `validFamiliars` bounds `level` and `stars` — check what a save stores that is computed from
    current combat output before widening.
 
 2. **`PetAttr`'s six missing attribute weights, specifically `CRIT` and `Block` at weight 5.**
-   Three rows to add. 55 of 70 familiars carry `CRIT` 500 and `Block` 500, so every dispatch power
+   §10.1 confirms from the client's own source that `GetPower` iterates **all nine** rows
+   (`pairs(zxPetAttrConfigs:GetAll())`), so this is measured, not inferred. Three rows to add. 55 of 70 familiars carry `CRIT` 500 and `Block` 500, so every dispatch power
    gate in Everkai currently understates a full team by up to 25,000 Power against gates that run to
    20,000,000. Smallest change on this list, and it touches a shipped gate.
 
@@ -359,6 +392,8 @@ Listed here with the measurable alternative named, per the brief.
 
 4. **`PetClass.PassiveSkillUnlock`** (3 rows) with **`PetStar.ExternalSkillNum`** (2 rows). Five
    rows that replace Everkai's local v7 stage policy with the original's actual unlock thresholds.
+   §10.1 shows `PassiveSkillUnlock` is also the loop variable that selects which passives contribute
+   `Combatcoef` to Power, so these 3 rows are a Power-formula input, not just a UI gate.
 
 5. **Metamorphosis: `PetRefreshItem` (3) + `PetExternalAdd` (5) + `PetExternalSkill` (49) +
    `PetLevel.ExternalAdd` (99 rows) + `PetStar.ExternalAdd1` (100 rows).** 256 rows for a system
@@ -385,22 +420,25 @@ Listed here with the measurable alternative named, per the brief.
 
 ## 8. What could not be measured, and why
 
-- *(Resolved — see §9.)* Client-usage evidence for the absent tables was measured after all, once a
-  working search pattern was found. The caveat that survives: `lua-strings` holds extracted *string
-  tables*, one bare identifier per line, so this evidence is **identifier adjacency and file
-  membership**, which names the readers and accessor functions but is not decompiled code. It shows
-  *that* a table is read and *by which screen*; it does not show the arithmetic.
+*(This section was written on the first pass. §9 and §10 resolved three of its five entries; the
+resolutions are noted inline rather than deleted, so the reasoning stays auditable.)*
+
+- ~~Client-usage evidence for the absent tables.~~ **Resolved in §9** (which screens read which
+  table) and **§10** (the arithmetic, from the readable decompiled client).
 - **The `Power` column in `PetTowerArray` and `PetEndlessTowerPool`.** Tested against `PetAttr`'s own
   weights, both halves from the config set (rule 1): `ATK×15 + HP×1 + SPD×30` reproduces
   **6 of 1,480** `PetTowerArray` rows and **0 of 705** `PetEndlessTowerPool` rows; adding
   `Pet.CRIT×5 + Pet.Block×5` reproduces **the same 6 and 0**. So the enemy `Power` column is an
   authored value, not derivable from the attributes in these tables. Everkai imports it verbatim,
   which is the right call. **What the residual is composed of is not measured, and no plausible
-  number is offered here.**
+  number is offered here.** — **§10.1 now explains *why*:** `GetPower` returns a server-stored
+  `battleData.power` in its primary branch, so the column is authored by design. Re-tested there
+  against the full 9-attribute formula and it still does not reproduce. The finding stands.
 - **`PetDispatch.Time`'s unit** — constant 20, no competing key, unit genuinely undetermined
   (already documented in the importer).
-- **The Great Success formula** — inputs measured, combination not present in any table or in the
-  `Doc/Pet` strings.
+- ~~The Great Success formula.~~ **Resolved in §10.2** — it was absent from the tables and from the
+  `Doc/Pet` string dump, but present in readable source at `PetManager.lua:3393`. Everkai's local
+  stand-in is measurably wrong; this is now the cheapest real parity fix on the list.
 
 ---
 
@@ -439,3 +477,78 @@ one of them is a live registered sheet in the shipped client — none is dead co
 Two classifications in §1 and §5 move on this evidence: **`PetGroup`** is not purely cosmetic (story
 gating), and **`PetSpecPkg`**'s irrelevance is now measured rather than inferred. Neither changes the
 §7 ranking.
+
+---
+
+## 10. Correction: the readable decompiled client (added second pass)
+
+**I used the wrong corpus for §9.** The brief named
+`.../private-server/readable/*.lua` as the source for how a value is used. §9 was built instead from
+`apk-audit/lua-strings/`, which is a *string extraction* of LuaJIT bytecode — the three other lua
+trees under `apk-audit/` (`lua/main_game/`, `lua/main_game_86/`, `lua-verified/main_game_86/`) are
+all raw bytecode with an `LJ` header, which is what `lua-strings` was extracted from.
+`private-server/readable/` is **actual decompiled Lua source**, 18 `Pet*` files among 225.
+§9's conclusions stand — it correctly identified *which* screens read *which* table — but it could
+only ever show identifier adjacency. The readable tree shows the arithmetic, and it resolves both
+formulas §8 listed as unmeasurable.
+
+### 10.1 `PetInfo:GetPower` — the Power formula (`PetInfo.lua:763`)
+
+```
+allAttrPower = Σ over ALL PetAttr rows of  GetAttrValue(attr, stage, level, star) × attrConf.CombatAdd
+skillAddRatio = PetSkill[ActiveSkill].Combatcoef
+              + Σ over unlocked stages of PetSkill[PetClass[sg].PassiveSkillUnlock].Combatcoef
+power        = floor(allAttrPower × (1 + skillAddRatio / 10000))
+```
+
+Three measured consequences, each sharpening a §7 ranking rather than changing it:
+
+1. **The loop is `pairs(zxPetAttrConfigs:GetAll())` — literally all nine `PetAttr` rows.** Everkai's
+   3-row subset is confirmed wrong by the client's own code, not just by inference. (§7 rank 2.)
+2. **Power depends on `PetSkill.Combatcoef`** (7 distinct values: 3000, 6000, 7500, 9000, 12000,
+   15000, 18000 bp) **and on `PetClass.PassiveSkillUnlock`.** Both are unimported. So Everkai cannot
+   reproduce the original's Power at all — this promotes `PetSkill` and `PetClass.PassiveSkillUnlock`
+   from "combat-only" to **Power-formula inputs**, reinforcing §7 ranks 1 and 4.
+3. **Why the enemy `Power` column still is not reproducible.** `GetPower`'s *first* branch is
+   `return self.battleData.power` — the authoritative Power is a **server-stored value**, and the
+   arithmetic above is only the fallback used for previews. Tested anyway: `Power ÷ (9-attribute sum)`
+   yields **490 distinct ratios across 1,480** `PetTowerArray` rows, and some fall **below 1.0**,
+   which no non-negative `skillAddRatio` can produce. The endless pool yields exactly 3 ratios
+   (1.3082, 1.4600, 1.4793 as `skillAddRatio`) that match no single `Combatcoef`. So §8's finding
+   holds and is now *explained*: the column is authored/stored, not derived. Everkai importing it
+   verbatim remains correct. **The residual is still not decomposed, and no value is invented for it.**
+
+### 10.2 `PetManager:GetBigSuccess` — the dispatch formula (`PetManager.lua:3393`)
+
+```
+bigSuccessProb = PetDispatch_Crit/10000 + (totalPower / conf.Power) ^ PetDispatch_Coefficient - 1
+if bigSuccessProb < 0 then bigSuccessProb = 0 end
+bigSuccessProb = bigSuccessProb * 100          -- note: no upper clamp
+```
+
+With the two constants Everkai **already imports** (`critBP` 3000, `coefficient` 0.5) this is
+`(0.3 + √(P/L) − 1) × 100`. `lib/familiar-dispatch.mjs:47` instead computes
+`30 × (1 + 0.5 × (P/L − 1))`, clamped to 100 — labelled "LOCAL rule over measured inputs".
+Both halves of this comparison come from the original (formula from the readable client, constants
+from `System.json`), so it is a clean rule-1 comparison:
+
+| team power ÷ gate | original % | Everkai % |
+|---:|---:|---:|
+| 0.25 | 0.00 | 18.75 |
+| 0.50 | 0.71 | 22.50 |
+| 0.75 | 16.60 | 26.25 |
+| **1.00** | **30.00** | **30.00** |
+| 1.50 | 52.47 | 37.50 |
+| 2.00 | 71.42 | 45.00 |
+| 4.00 | 130.00 | 75.00 |
+
+They agree **only** at the gate. Everkai is far too generous below it (18.75% where the original
+gives 0%) and far too stingy above it (45% vs 71% at double power). The original applies no upper
+clamp, so it exceeds 100% past ~4× gate power.
+
+**This is the cheapest real parity fix found in this exercise:** the inputs are already imported and
+already asserted, the change is one expression, and it corrects shipped player-facing behaviour.
+Per rule 7 this is filed, not fixed, because the brief is measure-only — and per rule 12, note that
+`validFamiliarDispatch` re-checks `>= area.power` on load and the stored run records a reward, so
+whether a *completed* run's stored outcome is validated against this probability must be checked
+before changing it.
