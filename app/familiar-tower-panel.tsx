@@ -6,6 +6,7 @@ import {BASIC_HEAL,basicHealActive} from '@/lib/familiar-trigger-combat.mjs';
 import {statPassive} from '@/lib/familiar-passives.mjs';
 import {familiarStage,FAMILIARS,familiarById} from '@/lib/familiars.mjs';
 import {cardStyle,cardRarity,rarityIcon,petCardIcon} from '@/lib/ui-sprites.mjs';
+import {familiarHead} from '@/lib/familiar-portraits.mjs';
 import {towerState,towerKey,originalBattle,floorEnemies,towerFloor,towerSkill,teamBond,teamAttribute,groupOf,floorPrepaid,floorRewardItems,quickDeployTeam,
  endlessState,endlessKey,endlessEnemies,endlessBattle,TOWER_FLOORS,TOWER_AUTO_UNLOCK,TOWER_DATA,ENDLESS_OPEN} from '@/lib/familiar-tower.mjs';
 import {familiarSupplies,suppliesWaiting,floorIncome,towerIncome,FAMILIAR_ITEM_NAMES,supplyHoldMs,incomeBoost} from '@/lib/familiar-supplies.mjs';
@@ -178,7 +179,7 @@ export default function FamiliarTowerPanel({game,action,locked}:any){
    <div className="picker-grid">{picker.map(p=>{const on=t.party.includes(p.id);
     return <button key={p.id} className={'dispatch-card'+(on?' chosen':'')} disabled={locked||(!on&&t.party.length===5)} aria-pressed={on}
      style={cardStyle(p.rarity) as any} onClick={()=>{setChosen(p.id);action('towerParty',p.id)}}>
-     <img src={petCardIcon(p.rarity)||''} alt=""/><strong>{p.name}</strong><small>Lv. {game.familiars[p.id].level}</small></button>})}</div>
+     <img src={familiarHead(p.id)||petCardIcon(p.rarity)||''} alt=""/><strong>{p.name}</strong><small>Lv. {game.familiars[p.id].level}</small></button>})}</div>
    <div className="business-actions"><Button disabled={locked||owned.length<2} onClick={()=>action('towerQuickDeploy')}>Quick Deploy</Button>
     <Button variant="outline" onClick={()=>setTeam(false)}>OK</Button></div>
    {id&&<details className="rules-note tower-skill"><summary>Skill &middot; {towerSkill(id)?towerSkill(id)!.name:'Rage strike'}</summary>

@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {cardStyle,cardRarity,rarityIcon,petCardIcon} from '@/lib/ui-sprites.mjs';
+import {familiarHead,familiarHalf} from '@/lib/familiar-portraits.mjs';
 import {familiarById} from '@/lib/familiars.mjs';
 import {EXPLORE,EXCHANGE,EXPLORE_AREAS,CATCH_ITEMS,RARITY_NAMES,exploreState,areaUnlocked,explorePet,catchChance,encounterPool,exploreExchangeState,familiarDailyState,staminaNow} from '@/lib/familiar-explore.mjs';
 import RewardRibbon,{type RewardPayout} from './reward-ribbon';

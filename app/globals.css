@@ -133,6 +133,17 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen{height:100%;min-height:0;position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 50% 65%,#e1d6b4,#577b64 80%);overflow:hidden}
 .character-screen-art{position:absolute;inset:0;z-index:-1}
 .character-screen-art .character-showcase{height:100%;min-height:0;border-radius:0;background:transparent}
+/* FAMILIAR PORTRAITS (2026-09-24). The showcase was built for the Fellow/Family renders: tall
+   full-bleed art, correctly `cover`ed. A familiar portrait is a 300x350 sprite on a transparent
+   ground, so covering the 375x630 band scaled it 1.8x and cropped the sides to a zoomed slice.
+   Contained and top-anchored instead, at the height of the strip the chrome leaves exposed.
+   KNOWN LIMIT, measured in the browser: `.character-screen-art` is absolutely positioned across the
+   whole 630px screen and `.character-screen-controls` covers it from y=366 down, so a familiar's
+   portrait sits in a ~154px strip that the name plaque and stat row also occupy. It reads as a band
+   behind the chrome rather than as a showcase. Giving the familiar detail its own art strip is a
+   change to the shell (spec 03's surface), not to this rule. */
+.character-screen .character-screen-art .character-showcase>img[src*="/familiars/"]{
+ align-self:start;justify-self:center;height:26%;margin-top:4px;object-fit:contain;object-position:center top}
 .character-screen-art .character-showcase>img{height:100%;max-height:none;object-fit:contain;object-position:center bottom;filter:none}
 .character-screen-art .character-showcase>.family-art-stage{height:100%;width:100%;min-height:0;max-height:none;border:0;border-radius:0;background:transparent}
 .character-screen-art .family-scene-portrait{height:100%;max-height:none;object-fit:contain}

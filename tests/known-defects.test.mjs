@@ -93,7 +93,11 @@ test('the source and data extractors still work (a drifted pattern must fail lou
  // file genuinely carries the tables, so a scan of lib/ DATA must hit while the scan of lib/ CODE misses.
  // First: the sweep must actually be looking at a file. An importer list that came back empty would
  // make costReaders() trivially [] and the ECON-29 assertion below would prove nothing.
- assert.deepEqual(familiarDataImporters(),['familiar-supplies.mjs','familiars.mjs'],
+ // ADDED 2026-09-24: familiar-combat.mjs reads familiar-data.json for the GROWTH LADDERS
+ // (levels/classes/stars ATKcoef, HPcoef, SPDadd) to evaluate `PetInfo:GetAttrValue`. Checked against
+ // the question this guard asks: it does NOT read any Cost column, so ECON-29 has not moved -- the
+ // Cost sweep below re-proves that for every importer in this list, including the new one.
+ assert.deepEqual(familiarDataImporters(),['familiar-combat.mjs','familiar-supplies.mjs','familiars.mjs'],
   'the familiar-data.json importer sweep has drifted. If another module now imports the file, add it '
   +'here deliberately -- and check whether it reads the Cost columns, which would mean ECON-29 moved.');
  // ...and the matcher must be able to match. These are the three shapes a Cost read could take;

@@ -48,19 +48,36 @@ test('the imported areas are the original PetDispatch rows, gates, durations and
 });
 
 test('POSITIVE CONTROL for the Power weights: Everkai scores what the original roster scores',()=>{
- // Both halves come from configs/config/logic: the growth ladders (PetLevel/PetClass/PetStar) and the
- // weights (PetAttr). The original Pet.json's five strongest score exactly these three totals, so the
- // gate ladder 100,000..20,000,000 spans exactly this roster. If a stat import ever drifts, this breaks.
+ // Both halves come from configs/config/logic: the growth ladders (PetLevel/PetClass/PetStar), the
+ // weights (PetAttr, ALL NINE rows) and the skill ratios (PetSkill.Combatcoef). If a stat import ever
+ // drifts, this breaks.
+ //
+ // RESTATED 2026-09-24 with PetSkill imported. The three totals below used to be 86,130 / 6,671,778 /
+ // 27,680,957, from three of the nine PetAttr rows with no skill ratio at all. The old figures are kept
+ // here because the SHAPE of their error is the finding: at the absolute ceiling -- the five strongest
+ // familiars at level 499 with 100 stars -- the old Power reached only 1.38x area 9's gate, so the last
+ // rung of a nine-rung ladder was marginal even for a finished account. With `PetInfo:GetPower` the
+ // same team reaches 4.36x, and a level-300/50-star team sits at 0.96x, which is where a designed
+ // ladder's last rung belongs. That is design coherence, not proof -- the proof is that the formula is
+ // transcribed from the client -- but it is the check that would have caught the original error.
  const five=strongest(DISPATCH_TEAM);
  const total=p=>five.reduce((n,id)=>n+familiarPower(id,p),0);
- // These three stay UNBONDED on purpose: they sum `familiarPower` per familiar, which is the weights
- // alone. The bond is a team-level multiplier and is asserted where it applies, below.
- assert.equal(total({level:1,stars:0}),86130,'five strongest at level 1');
- assert.equal(total({level:499,stars:0}),6671778,'five strongest at max level');
- assert.equal(total({level:499,stars:100}),27680957,'five strongest fully maxed');
- // The ceiling clears the hardest gate; level 1 does not clear even the easiest. That is the pacing.
- assert.ok(total({level:499,stars:100})>DISPATCH_AREAS[8].power,'area 9 must be reachable');
- assert.ok(total({level:1,stars:0})<DISPATCH_AREAS[0].power,'area 1 must NOT be free at level 1');
+ // These stay UNBONDED on purpose: they sum `familiarPower` per familiar, which is the weights alone.
+ // The bond is a team-level multiplier and is asserted where it applies, below.
+ assert.equal(total({level:1,stars:0}),311161,'five strongest at level 1');
+ assert.equal(total({level:499,stars:0}),29085066,'five strongest at max level');
+ assert.equal(total({level:499,stars:100}),114182449,'five strongest fully maxed');
+ const OLD_MAXED=27680957;
+ assert.ok(total({level:499,stars:100})>OLD_MAXED*4,'the nine-attribute figure is several times the three-attribute one');
+ // THE PACING, stated against the two ends that mean something. The old assertion used the five
+ // STRONGEST at level 1, which is not a starting roster -- a player holding five top-rarity familiars
+ // has already achieved something, and 3x the tutorial gate is the right reward for it.
+ assert.ok(total({level:499,stars:100})>DISPATCH_AREAS[8].power*4,'area 9 must be comfortably finishable');
+ const weakest=[...FAMILIARS].map(f=>f.id)
+  .sort((a,b)=>familiarPower(a,{level:1,stars:0})-familiarPower(b,{level:1,stars:0})).slice(0,DISPATCH_TEAM);
+ const opening=weakest.reduce((n,id)=>n+familiarPower(id,{level:1,stars:0}),0);
+ assert.equal(opening,13764,'the five weakest at level 1, which is closer to what a new village holds');
+ assert.ok(opening<DISPATCH_AREAS[0].power,'area 1 must NOT be free to a starting roster');
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -87,15 +104,30 @@ test('Pet_Dispatch_Text7/Text8: the tower floor gates the area and the team must
 });
 
 test('the Power gate refuses an underpowered team and admits a trained one',()=>{
+ // `dispatchTeamPower` is the team's ATTRIBUTE: `PetInfo:GetPower` per familiar (all nine PetAttr rows
+ // by CombatAdd, then the active and unlocked-passive `PetSkill.Combatcoef`) with the same-type bond
+ // from `System.PetArrayAdd` on top. The five strongest are all Legendary, so they bond at 5-of-a-type.
+ //
+ // RESTATED 2026-09-24 with PetSkill imported. This used to read 99,049 and be REFUSED by area 1's
+ // 100,000 gate -- by 951 Power, which should have looked suspicious. That near-miss was an artifact:
+ // the old formula read three of nine attributes and no skill ratio, so the five strongest untrained
+ // familiars landed just under a gate they now clear three times over. A team of five top-rarity
+ // familiars, even at level 1, is an achievement and the tutorial gate is right to let it through.
+ // The refusal is exercised below against a team that really is underpowered.
  let s=ready();
- // MOVED 2026-09-24 (docs/familiar-screen-specs/09-tower.md §3): `dispatchTeamPower` is the team's
- // ATTRIBUTE, and Attribute includes the same-type bond. `System.PetArrayAdd` Group5 pays
- // {ATK,HP,POWER} 1500 bp and Everkai had imported only two of the three fields, so this figure read
- // 15% low. The five strongest are all Legendary, so they bond at 5-of-a-type: 86,130 x 1.15 = 99,049.
- assert.equal(dispatchTeamPower(s),99049);
- assert.match(act(s,'dispatchStart',T,1).error,/Needs 100,000 team Power. This team has 99,049\./);
+ assert.equal(dispatchTeamPower(s),357835);
+ assert.equal(act(s,'dispatchStart',T,1).error,undefined,'five top-rarity familiars clear the first gate');
+ // THE REFUSAL, against the five WEAKEST -- which is much closer to what a new village holds.
+ const weakest=[...FAMILIARS].map(f=>f.id)
+  .sort((a,b)=>familiarPower(a,{level:1,stars:0})-familiarPower(b,{level:1,stars:0})).slice(0,DISPATCH_TEAM);
+ let poor=s;
+ for(const id of dispatchState(s).team)poor=at(poor,'dispatchTeam',T,id);      // clear the team
+ for(const id of weakest)poor=at(poor,'dispatchTeam',T,id);
+ assert.equal(dispatchState(poor).team.length,DISPATCH_TEAM);
+ assert.ok(dispatchTeamPower(poor)<DISPATCH_AREAS[0].power,'the weakest five are under area 1');
+ assert.match(act(poor,'dispatchStart',T,1).error,/Needs 100,000 team Power/);
  s=ready(60);
- assert.equal(dispatchTeamPower(s),353869,'60 levels on each of the five, bond included');
+ assert.equal(dispatchTeamPower(s),1176960,'60 levels on each of the five, bond included');
  assert.equal(act(s,'dispatchStart',T,1).error,undefined);
  // Higher areas stay shut on floors, not just power.
  assert.match(act(s,'dispatchStart',T,4).error,/floor 80/);

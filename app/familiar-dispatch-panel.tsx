@@ -2,6 +2,7 @@ import {useState,useEffect,useRef} from 'react';
 import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {cardStyle,petCardIcon} from '@/lib/ui-sprites.mjs';
+import {familiarHead} from '@/lib/familiar-portraits.mjs';
 import {FAMILIARS,familiarById} from '@/lib/familiars.mjs';
 import {DISPATCH_AREAS,DISPATCH_TEAM,dispatchState,dispatchArea,dispatchTeamPower,familiarPower,
  greatSuccessChance,dispatchUnlocked,dispatchDone,dispatchRemaining} from '@/lib/familiar-dispatch.mjs';
@@ -75,7 +76,7 @@ export default function FamiliarDispatchPanel({game,action,locked}:any){
    <ol className="dispatch-seats" aria-label={`Dispatch team ${d.team.length} of ${DISPATCH_TEAM}`}>{seats.map((pid,i)=>{
     const pet=pid?familiarById(pid):null;
     return <li key={i}><button className={'dispatch-seat'+(pet?' filled':'')} disabled={locked} aria-label={pet?`${pet.name}, change`:'Add a familiar'} onClick={()=>setPicker(true)}
-     style={pet?cardStyle(pet.rarity) as any:undefined}>{pet?<img src={petCardIcon(pet.rarity)||''} alt=""/>:<span aria-hidden="true">&#65291;</span>}</button></li>})}</ol>
+     style={pet?cardStyle(pet.rarity) as any:undefined}>{pet?<img src={familiarHead(pet.id)||petCardIcon(pet.rarity)||''} alt=""/>:<span aria-hidden="true">&#65291;</span>}</button></li>})}</ol>
    <p className="dispatch-duration">Dispatch Duration: {picked.hours} hr(s)</p>
    <div className="business-actions">
     <Button className={full&&dispatchUnlocked(game,picked.id)&&power>=picked.power?'ready-badge':''} disabled={locked||!full||!dispatchUnlocked(game,picked.id)||power<picked.power}
@@ -98,7 +99,7 @@ export default function FamiliarDispatchPanel({game,action,locked}:any){
    <div className="dispatch-grid">{owned.map(p=>{const on=d.team.includes(p.id);
     return <button key={p.id} className={'dispatch-card'+(on?' chosen':'')} disabled={locked||(!on&&full)} aria-pressed={on}
      style={cardStyle(p.rarity) as any} onClick={()=>action('dispatchTeam',p.id)}>
-     <img src={petCardIcon(p.rarity)||''} alt=""/><strong>{p.name}</strong>
+     <img src={familiarHead(p.id)||petCardIcon(p.rarity)||''} alt=""/><strong>{p.name}</strong>
      <small>{short(familiarPower(p.id,game.familiars[p.id]))}</small></button>})}</div>
    <Button onClick={()=>setPicker(false)}>OK</Button>
   </DialogContent></Dialog>

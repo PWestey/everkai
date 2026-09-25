@@ -5,6 +5,7 @@ import PanelPages from './panel-pages';
 import RosterLanding from './roster-landing';
 import {useState} from 'react';
 import {cardStyle,petCardIcon} from '@/lib/ui-sprites.mjs';
+import {familiarHead,familiarHalf} from '@/lib/familiar-portraits.mjs';
 import CharacterScreen from './character-screen';
 import {Button} from '@/components/ui/button';
 import {FAMILIARS,familiarById,familiarStats,familiarStage,familiarCap} from '@/lib/familiars.mjs';
@@ -32,6 +33,9 @@ export default function FamiliarPanel({game,action,locked}:any){
  const [id,setId]=useState(FAMILIARS[0].id),pet=familiarById(id)!,progress=game.familiars?.[id],stats=familiarStats(id,progress||{level:1,stars:0}),supplies=familiarSupplies(game),waiting=suppliesWaiting(game,Date.now());
  const e=exploreState(game),ownedCount=Object.keys(game.familiars||{}).length;
  const [browse,setBrowse]=useState(true);
+ // The roster tile draws `portrait`/`art` when an entry has one and falls back to the rarity card.
+ // Familiars had neither until the portraits were extracted; now 66 of the 71 carry a half-body.
+ const rosterEntries=FAMILIARS.map((p:any)=>{const art=familiarHalf(p.id);return art?{...p,portrait:art.replace('./assets/','')}:p});
  // Which growth ladder the dock is showing. The original's dock is Metamorphosis | Awaken | Level-Up |
  // Basic Info; Metamorphosis is spec 04 and `Basic Info` is a close verb, not a panel (spec 03).
  const [dock,setDock]=useState('level');
@@ -54,7 +58,7 @@ export default function FamiliarPanel({game,action,locked}:any){
  //    both -- its roster is 244, four times the size the capture is evidence about.
  //  * Stars and the bound Fellow on the card. Stars are a 100-row upgrade track with no other
  //    roster-level readout, and Everkai binds familiars in two places and showed it in neither.
- if(browse)return <RosterLanding kind="Familiar Growth" entries={FAMILIARS} owned={game.familiars||{}} selected={id}
+ if(browse)return <RosterLanding kind="Familiar Growth" entries={rosterEntries} owned={game.familiars||{}} selected={id}
   sortKeys={{}} sortOrders={['default','rarity']} search={false} pageSize={0}
   status={(x:string)=>game.familiars?.[x]?`Lv. ${game.familiars[x].level}`:''}
   badge={(x:string)=>rosterReady(game,x)}
@@ -68,11 +72,11 @@ export default function FamiliarPanel({game,action,locked}:any){
  // persistent bonus band and an icon dock -- which is exactly `CharacterScreen`, built for the Fellow
  // rebuild and never used here. This adopts it.
  //
- // ART: familiars have no art asset in Everkai at all (the roster already falls back to the rarity
- // plate, lib/familiars.mjs carries no `art` field, and there is no idle clip), so the plate is what
- // the showcase shows. That is the honest placeholder for a gap spec 03 records rather than a
- // pretence of art; when familiar art exists, only this one line changes.
- const person={...pet,art:(petCardIcon(pet.rarity)||'').replace('./assets/',''),
+ // ART, 2026-09-24: it exists now. `scripts/import-familiar-portraits.py` pulled the half-body
+ // portraits out of the FairyGUI package in the APK's `ui/pet` bundles, which is where `Pet.HalfPic`
+ // always pointed. This line is the one the old comment said would change when familiar art existed.
+ // The rarity plate stays as the fallback for the five ids with no art in the original's own tables.
+ const person={...pet,art:(familiarHalf(pet.id)||petCardIcon(pet.rarity)||'').replace('./assets/',''),
   title:`${pet.rarity} \u00b7 ${pet.type}${shining?' \u00b7 shining':''}`,
   description:`A ${pet.type.toLowerCase()} familiar of the ${pet.rarity} tier.`};
  const order=FAMILIARS.filter((p:any)=>Object.hasOwn(game.familiars||{},p.id));

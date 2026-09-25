@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {cardStyle,petCardIcon} from '@/lib/ui-sprites.mjs';
+import {familiarHalf} from '@/lib/familiar-portraits.mjs';
 import {FAMILIARS,familiarById} from '@/lib/familiars.mjs';
 import {groupOf} from '@/lib/familiar-tower.mjs';
 import {HANDBOOK_MAX,HANDBOOK_EXP,HANDBOOK_COEF,handbookState,handbookLevel,handbookPending,
@@ -67,7 +68,7 @@ export default function FamiliarHandbook({game,action,locked,onOpen}:any){
    return <li key={p.id}>
     <button className="compendium-card" style={cardStyle(p.rarity) as any} disabled={locked} onClick={()=>onOpen?.(p.id)}>
      <b className="card-level">lv.{rec.level}</b>
-     <img src={petCardIcon(p.rarity)||''} alt=""/>
+     <img src={familiarHalf(p.id)||petCardIcon(p.rarity)||''} alt=""/>
      <em className="card-stars">{rec.stars||0} &#9733;</em>
      <strong>{p.name}</strong></button>
     {/* Its own tap target, deliberately -- the card body opens the familiar (spec 2, "do not copy the trap"). */}
