@@ -103,3 +103,15 @@ silhouette), then the selected blessing's card: generated title, stat pill, `»`
 | Row labels such as `Blesser` / `Target` / `Bonus` | the generated title `X's Blessing for Y` + a stat pill |
 | Explanatory text about how many blessings a fellow can hold | the fixed 4-slot row |
 | A labelled `View family member` button | the `»` glyph |
+
+---
+
+## Resolution (2026-09-25)
+
+| # | Outcome |
+| --- | --- |
+| **B1** | **Fixed**, and it is the structural point of this spec. Blessing is now reachable **from the Fellow**, because it is a property of the fellow *receiving* it. `blessingRecipients(s, familyId)` answered the forward question and nothing anywhere asked the reverse; `lib/fellow-blessers.mjs` asks it, and the test asserts the inverse is *exactly* the forward map so the rail can never show a blessing nobody gives. |
+| **B3** | **Fixed.** A fixed four-slot row, filled or silhouetted, because the row communicates capacity — "you have two more to fill" — which a list of however-many cannot. The four is the **original's shape**; Everkai enforces no cap, and a Fellow with five blessers still shows five. The panel says so rather than implying a rule. |
+| **B4** | **Fixed.** Empty slots are drawn, not described. |
+| **B2** | **Deferred.** The second kind — custom blessings in unlockable slots — needs an unlocked-slot concept Everkai has no data for at all. |
+| **B5, B6** | **Deferred**, cosmetic, and they belong with B2's tab. |

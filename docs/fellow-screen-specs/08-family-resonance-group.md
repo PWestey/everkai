@@ -177,3 +177,16 @@ filmstrip bottom-left, inert-when-current button bottom-right, back chevron.
 | `Blessing Power increases points earned on dates. Intimacy increases pupil graduation earnings.` | these belong on the Family screen, behind its own `(i)` — not on the Fellow screen at all |
 | A `Wardrobe` panel heading and any "select a costume" copy | the filmstrip; the selected thumbnail is the statement |
 | `Current tier cap reached` / `Fully upgraded` button labels | an inert grey button, or a distinct word (`Activated`) |
+
+---
+
+## Resolution (2026-09-25)
+
+| # | Outcome |
+| --- | --- |
+| **`Group`** | **Fixed.** A `Group` pill on the Fellow showing every bond group they belong to, with the members you do not have greyed. It could not be built before 2026-09-25: Everkai had no group membership anywhere — every one of its 128 star halos belongs to exactly one Fellow — and this pill reads the `HeroBond` import that landed the same day (catalogue F8). |
+| **L1** | **Partly fixed.** The relationship views now sit on their own rail rather than as pages in the progression pager. `Family` and `Form Switch` keep their existing homes. |
+| **L3 — Resonance** | **Deferred, and it is the largest single thing in this spec.** Pairing two Fellows for mutual stat gain, plus a resonance skill ladder, is a whole system: Everkai has no table behind it, and **no table in the config set is named for it** either. It needs the same measure-first pass `docs/artifact-measurement.md` just did for F12 before it can be sized, let alone built. |
+| **L2 — Form Switch as a full screen** | **Deferred.** A Wardrobe promotion to a full-bleed art viewer with a rarity-stamped filmstrip; its own slice. |
+| **L5 — the duplicated family UI** | **Deferred** with L1's remainder. |
+| **L4, L6** | **Deferred**, cosmetic. |

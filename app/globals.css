@@ -133,6 +133,16 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .character-screen{height:100%;min-height:0;position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 50% 65%,#e1d6b4,#577b64 80%);overflow:hidden}
 .character-screen-art{position:absolute;inset:0;z-index:-1}
 .character-screen-art .character-showcase{height:100%;min-height:0;border-radius:0;background:transparent}
+/* THE FELLOW'S OWN RELATIONSHIP RAIL (fellow-screen-specs 09 B1, 08's Group pill). Blessing was only
+   ever reachable from the family member GIVING it; the Fellow receiving it had no view at all. */
+.fellow-relation-rail{display:flex;gap:6px;margin-bottom:6px}
+.fellow-relation-rail button{display:grid;justify-items:center;gap:1px;padding:5px 12px;
+ background:linear-gradient(#f6e6c2,#e2c891);border:1px solid #8a5a1c;border-radius:8px;color:#4b3421;font:700 12px Georgia,serif}
+.fellow-relation-rail em{font-style:normal;font-size:10px;color:#7a5a12}
+.blessing-slots{display:flex;gap:8px;justify-content:center;margin:0;padding:0;list-style:none}
+.blessing-slots li{display:grid;justify-items:center;gap:2px;width:56px}
+.blessing-slots li.empty .bond-pip{background:#e2d6b6;border-style:dashed;opacity:.6}
+.blessing-slots small{font-size:9px;color:#4b3421;text-align:center;line-height:1.05}
 /* THE BOND COMPENDIUM (catalogue F8) and the group-aura membership row (F6). 23 groups, 4 of which
    pay -- so the list marks which ones do rather than implying every group has a reward. */
 .bond-compendium{display:grid;gap:8px;max-height:80vh;overflow-y:auto}
