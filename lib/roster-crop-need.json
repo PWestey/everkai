@@ -1,0 +1,2137 @@
+[
+ {
+  "view": "hero_15",
+  "sprites": [
+   "Half_Hero_15"
+  ],
+  "file": "half-hero-15.webp"
+ },
+ {
+  "view": "hero_1",
+  "sprites": [
+   "Half_Hero_1",
+   "Half_Hero_01"
+  ],
+  "file": "half-hero-1.webp"
+ },
+ {
+  "view": "hero_101",
+  "sprites": [
+   "Half_Hero_101"
+  ],
+  "file": "half-hero-101.webp"
+ },
+ {
+  "view": "hero_103",
+  "sprites": [
+   "Half_Hero_103"
+  ],
+  "file": "half-hero-103.webp"
+ },
+ {
+  "view": "hero_104",
+  "sprites": [
+   "Half_Hero_104"
+  ],
+  "file": "half-hero-104.webp"
+ },
+ {
+  "view": "hero_106",
+  "sprites": [
+   "Half_Hero_106"
+  ],
+  "file": "half-hero-106.webp"
+ },
+ {
+  "view": "hero_111",
+  "sprites": [
+   "Half_Hero_111"
+  ],
+  "file": "half-hero-111.webp"
+ },
+ {
+  "view": "hero_112",
+  "sprites": [
+   "Half_Hero_112"
+  ],
+  "file": "half-hero-112.webp"
+ },
+ {
+  "view": "hero_114",
+  "sprites": [
+   "Half_Hero_114"
+  ],
+  "file": "half-hero-114.webp"
+ },
+ {
+  "view": "hero_115",
+  "sprites": [
+   "Half_Hero_115"
+  ],
+  "file": "half-hero-115.webp"
+ },
+ {
+  "view": "hero_117",
+  "sprites": [
+   "Half_Hero_117"
+  ],
+  "file": "half-hero-117.webp"
+ },
+ {
+  "view": "hero_118",
+  "sprites": [
+   "Half_Hero_118"
+  ],
+  "file": "half-hero-118.webp"
+ },
+ {
+  "view": "hero_12",
+  "sprites": [
+   "Half_Hero_12"
+  ],
+  "file": "half-hero-12.webp"
+ },
+ {
+  "view": "hero_121",
+  "sprites": [
+   "Half_Hero_121"
+  ],
+  "file": "half-hero-121.webp"
+ },
+ {
+  "view": "hero_122",
+  "sprites": [
+   "Half_Hero_122"
+  ],
+  "file": "half-hero-122.webp"
+ },
+ {
+  "view": "hero_125",
+  "sprites": [
+   "Half_Hero_125"
+  ],
+  "file": "half-hero-125.webp"
+ },
+ {
+  "view": "hero_126",
+  "sprites": [
+   "Half_Hero_126"
+  ],
+  "file": "half-hero-126.webp"
+ },
+ {
+  "view": "hero_127",
+  "sprites": [
+   "Half_Hero_127"
+  ],
+  "file": "half-hero-127.webp"
+ },
+ {
+  "view": "hero_128",
+  "sprites": [
+   "Half_Hero_128"
+  ],
+  "file": "half-hero-128.webp"
+ },
+ {
+  "view": "hero_130",
+  "sprites": [
+   "Half_Hero_130"
+  ],
+  "file": "half-hero-130.webp"
+ },
+ {
+  "view": "hero_131",
+  "sprites": [
+   "Half_Hero_131"
+  ],
+  "file": "half-hero-131.webp"
+ },
+ {
+  "view": "hero_132",
+  "sprites": [
+   "Half_Hero_132"
+  ],
+  "file": "half-hero-132.webp"
+ },
+ {
+  "view": "hero_133",
+  "sprites": [
+   "Half_Hero_133"
+  ],
+  "file": "half-hero-133.webp"
+ },
+ {
+  "view": "hero_134",
+  "sprites": [
+   "Half_Hero_134"
+  ],
+  "file": "half-hero-134.webp"
+ },
+ {
+  "view": "hero_135",
+  "sprites": [
+   "Half_Hero_135"
+  ],
+  "file": "half-hero-135.webp"
+ },
+ {
+  "view": "hero_136",
+  "sprites": [
+   "Half_Hero_136"
+  ],
+  "file": "half-hero-136.webp"
+ },
+ {
+  "view": "hero_137",
+  "sprites": [
+   "Half_Hero_137"
+  ],
+  "file": "half-hero-137.webp"
+ },
+ {
+  "view": "hero_138",
+  "sprites": [
+   "Half_Hero_138"
+  ],
+  "file": "half-hero-138.webp"
+ },
+ {
+  "view": "hero_139",
+  "sprites": [
+   "Half_Hero_139"
+  ],
+  "file": "half-hero-139.webp"
+ },
+ {
+  "view": "hero_140",
+  "sprites": [
+   "Half_Hero_140"
+  ],
+  "file": "half-hero-140.webp"
+ },
+ {
+  "view": "hero_145",
+  "sprites": [
+   "Half_Hero_145"
+  ],
+  "file": "half-hero-145.webp"
+ },
+ {
+  "view": "hero_146",
+  "sprites": [
+   "Half_Hero_146"
+  ],
+  "file": "half-hero-146.webp"
+ },
+ {
+  "view": "hero_147",
+  "sprites": [
+   "Half_Hero_147"
+  ],
+  "file": "half-hero-147.webp"
+ },
+ {
+  "view": "hero_149",
+  "sprites": [
+   "Half_Hero_149"
+  ],
+  "file": "half-hero-149.webp"
+ },
+ {
+  "view": "hero_151",
+  "sprites": [
+   "Half_Hero_151"
+  ],
+  "file": "half-hero-151.webp"
+ },
+ {
+  "view": "hero_152",
+  "sprites": [
+   "Half_Hero_152"
+  ],
+  "file": "half-hero-152.webp"
+ },
+ {
+  "view": "hero_154",
+  "sprites": [
+   "Half_Hero_154"
+  ],
+  "file": "half-hero-154.webp"
+ },
+ {
+  "view": "hero_155",
+  "sprites": [
+   "Half_Hero_155"
+  ],
+  "file": "half-hero-155.webp"
+ },
+ {
+  "view": "hero_156",
+  "sprites": [
+   "Half_Hero_156"
+  ],
+  "file": "half-hero-156.webp"
+ },
+ {
+  "view": "hero_158",
+  "sprites": [
+   "Half_Hero_158"
+  ],
+  "file": "half-hero-158.webp"
+ },
+ {
+  "view": "hero_159",
+  "sprites": [
+   "Half_Hero_159"
+  ],
+  "file": "half-hero-159.webp"
+ },
+ {
+  "view": "hero_162",
+  "sprites": [
+   "Half_Hero_162"
+  ],
+  "file": "half-hero-162.webp"
+ },
+ {
+  "view": "hero_163",
+  "sprites": [
+   "Half_Hero_163"
+  ],
+  "file": "half-hero-163.webp"
+ },
+ {
+  "view": "hero_164",
+  "sprites": [
+   "Half_Hero_164"
+  ],
+  "file": "half-hero-164.webp"
+ },
+ {
+  "view": "hero_165",
+  "sprites": [
+   "Half_Hero_165"
+  ],
+  "file": "half-hero-165.webp"
+ },
+ {
+  "view": "hero_166",
+  "sprites": [
+   "Half_Hero_166"
+  ],
+  "file": "half-hero-166.webp"
+ },
+ {
+  "view": "hero_168",
+  "sprites": [
+   "Half_Hero_168"
+  ],
+  "file": "half-hero-168.webp"
+ },
+ {
+  "view": "hero_169",
+  "sprites": [
+   "Half_Hero_169"
+  ],
+  "file": "half-hero-169.webp"
+ },
+ {
+  "view": "hero_171",
+  "sprites": [
+   "Half_Hero_171"
+  ],
+  "file": "half-hero-171.webp"
+ },
+ {
+  "view": "hero_172",
+  "sprites": [
+   "Half_Hero_172"
+  ],
+  "file": "half-hero-172.webp"
+ },
+ {
+  "view": "hero_173",
+  "sprites": [
+   "Half_Hero_173"
+  ],
+  "file": "half-hero-173.webp"
+ },
+ {
+  "view": "hero_174",
+  "sprites": [
+   "Half_Hero_174"
+  ],
+  "file": "half-hero-174.webp"
+ },
+ {
+  "view": "hero_175",
+  "sprites": [
+   "Half_Hero_175"
+  ],
+  "file": "half-hero-175.webp"
+ },
+ {
+  "view": "hero_177",
+  "sprites": [
+   "Half_Hero_177"
+  ],
+  "file": "half-hero-177.webp"
+ },
+ {
+  "view": "hero_178",
+  "sprites": [
+   "Half_Hero_178"
+  ],
+  "file": "half-hero-178.webp"
+ },
+ {
+  "view": "hero_179",
+  "sprites": [
+   "Half_Hero_179"
+  ],
+  "file": "half-hero-179.webp"
+ },
+ {
+  "view": "hero_180",
+  "sprites": [
+   "Half_Hero_180"
+  ],
+  "file": "half-hero-180.webp"
+ },
+ {
+  "view": "hero_182",
+  "sprites": [
+   "Half_Hero_182"
+  ],
+  "file": "half-hero-182.webp"
+ },
+ {
+  "view": "hero_183",
+  "sprites": [
+   "Half_Hero_183"
+  ],
+  "file": "half-hero-183.webp"
+ },
+ {
+  "view": "hero_185",
+  "sprites": [
+   "Half_Hero_185"
+  ],
+  "file": "half-hero-185.webp"
+ },
+ {
+  "view": "hero_186",
+  "sprites": [
+   "Half_Hero_186"
+  ],
+  "file": "half-hero-186.webp"
+ },
+ {
+  "view": "hero_189",
+  "sprites": [
+   "Half_Hero_189"
+  ],
+  "file": "half-hero-189.webp"
+ },
+ {
+  "view": "hero_190",
+  "sprites": [
+   "Half_Hero_190"
+  ],
+  "file": "half-hero-190.webp"
+ },
+ {
+  "view": "hero_191",
+  "sprites": [
+   "Half_Hero_191"
+  ],
+  "file": "half-hero-191.webp"
+ },
+ {
+  "view": "hero_194",
+  "sprites": [
+   "Half_Hero_194"
+  ],
+  "file": "half-hero-194.webp"
+ },
+ {
+  "view": "hero_195",
+  "sprites": [
+   "Half_Hero_195"
+  ],
+  "file": "half-hero-195.webp"
+ },
+ {
+  "view": "hero_196",
+  "sprites": [
+   "Half_Hero_196"
+  ],
+  "file": "half-hero-196.webp"
+ },
+ {
+  "view": "hero_197",
+  "sprites": [
+   "Half_Hero_197"
+  ],
+  "file": "half-hero-197.webp"
+ },
+ {
+  "view": "hero_199",
+  "sprites": [
+   "Half_Hero_199"
+  ],
+  "file": "half-hero-199.webp"
+ },
+ {
+  "view": "hero_200",
+  "sprites": [
+   "Half_Hero_200"
+  ],
+  "file": "half-hero-200.webp"
+ },
+ {
+  "view": "hero_21",
+  "sprites": [
+   "Half_Hero_21"
+  ],
+  "file": "half-hero-21.webp"
+ },
+ {
+  "view": "hero_211",
+  "sprites": [
+   "Half_Hero_211"
+  ],
+  "file": "half-hero-211.webp"
+ },
+ {
+  "view": "hero_213",
+  "sprites": [
+   "Half_Hero_213"
+  ],
+  "file": "half-hero-213.webp"
+ },
+ {
+  "view": "hero_214",
+  "sprites": [
+   "Half_Hero_214"
+  ],
+  "file": "half-hero-214.webp"
+ },
+ {
+  "view": "hero_215",
+  "sprites": [
+   "Half_Hero_215"
+  ],
+  "file": "half-hero-215.webp"
+ },
+ {
+  "view": "hero_251",
+  "sprites": [
+   "Half_Hero_251"
+  ],
+  "file": "half-hero-251.webp"
+ },
+ {
+  "view": "hero_253",
+  "sprites": [
+   "Half_Hero_253"
+  ],
+  "file": "half-hero-253.webp"
+ },
+ {
+  "view": "hero_254",
+  "sprites": [
+   "Half_Hero_254"
+  ],
+  "file": "half-hero-254.webp"
+ },
+ {
+  "view": "hero_255",
+  "sprites": [
+   "Half_Hero_255"
+  ],
+  "file": "half-hero-255.webp"
+ },
+ {
+  "view": "hero_256",
+  "sprites": [
+   "Half_Hero_256"
+  ],
+  "file": "half-hero-256.webp"
+ },
+ {
+  "view": "hero_257",
+  "sprites": [
+   "Half_Hero_257"
+  ],
+  "file": "half-hero-257.webp"
+ },
+ {
+  "view": "hero_258",
+  "sprites": [
+   "Half_Hero_258"
+  ],
+  "file": "half-hero-258.webp"
+ },
+ {
+  "view": "hero_259",
+  "sprites": [
+   "Half_Hero_259"
+  ],
+  "file": "half-hero-259.webp"
+ },
+ {
+  "view": "hero_260",
+  "sprites": [
+   "Half_Hero_260"
+  ],
+  "file": "half-hero-260.webp"
+ },
+ {
+  "view": "hero_262",
+  "sprites": [
+   "Half_Hero_262"
+  ],
+  "file": "half-hero-262.webp"
+ },
+ {
+  "view": "hero_263",
+  "sprites": [
+   "Half_Hero_263"
+  ],
+  "file": "half-hero-263.webp"
+ },
+ {
+  "view": "hero_264",
+  "sprites": [
+   "Half_Hero_264"
+  ],
+  "file": "half-hero-264.webp"
+ },
+ {
+  "view": "hero_3",
+  "sprites": [
+   "Half_Hero_3",
+   "Half_Hero_03"
+  ],
+  "file": "half-hero-3.webp"
+ },
+ {
+  "view": "hero_301",
+  "sprites": [
+   "Half_Hero_301"
+  ],
+  "file": "half-hero-301.webp"
+ },
+ {
+  "view": "hero_302",
+  "sprites": [
+   "Half_Hero_302"
+  ],
+  "file": "half-hero-302.webp"
+ },
+ {
+  "view": "hero_303",
+  "sprites": [
+   "Half_Hero_303"
+  ],
+  "file": "half-hero-303.webp"
+ },
+ {
+  "view": "hero_304",
+  "sprites": [
+   "Half_Hero_304"
+  ],
+  "file": "half-hero-304.webp"
+ },
+ {
+  "view": "hero_305",
+  "sprites": [
+   "Half_Hero_305"
+  ],
+  "file": "half-hero-305.webp"
+ },
+ {
+  "view": "hero_308",
+  "sprites": [
+   "Half_Hero_308"
+  ],
+  "file": "half-hero-308.webp"
+ },
+ {
+  "view": "hero_4",
+  "sprites": [
+   "Half_Hero_4",
+   "Half_Hero_04"
+  ],
+  "file": "half-hero-4.webp"
+ },
+ {
+  "view": "hero_51",
+  "sprites": [
+   "Half_Hero_51"
+  ],
+  "file": "half-hero-51.webp"
+ },
+ {
+  "view": "hero_53",
+  "sprites": [
+   "Half_Hero_53"
+  ],
+  "file": "half-hero-53.webp"
+ },
+ {
+  "view": "hero_54",
+  "sprites": [
+   "Half_Hero_54"
+  ],
+  "file": "half-hero-54.webp"
+ },
+ {
+  "view": "hero_56",
+  "sprites": [
+   "Half_Hero_56"
+  ],
+  "file": "half-hero-56.webp"
+ },
+ {
+  "view": "hero_58",
+  "sprites": [
+   "Half_Hero_58"
+  ],
+  "file": "half-hero-58.webp"
+ },
+ {
+  "view": "hero_59",
+  "sprites": [
+   "Half_Hero_59"
+  ],
+  "file": "half-hero-59.webp"
+ },
+ {
+  "view": "hero_60",
+  "sprites": [
+   "Half_Hero_60"
+  ],
+  "file": "half-hero-60.webp"
+ },
+ {
+  "view": "hero_61",
+  "sprites": [
+   "Half_Hero_61"
+  ],
+  "file": "half-hero-61.webp"
+ },
+ {
+  "view": "hero_68",
+  "sprites": [
+   "Half_Hero_68"
+  ],
+  "file": "half-hero-68.webp"
+ },
+ {
+  "view": "hero_71",
+  "sprites": [
+   "Half_Hero_71"
+  ],
+  "file": "half-hero-71.webp"
+ },
+ {
+  "view": "hero_72",
+  "sprites": [
+   "Half_Hero_72"
+  ],
+  "file": "half-hero-72.webp"
+ },
+ {
+  "view": "hero_73",
+  "sprites": [
+   "Half_Hero_73"
+  ],
+  "file": "half-hero-73.webp"
+ },
+ {
+  "view": "hero_74",
+  "sprites": [
+   "Half_Hero_74"
+  ],
+  "file": "half-hero-74.webp"
+ },
+ {
+  "view": "hero_75",
+  "sprites": [
+   "Half_Hero_75"
+  ],
+  "file": "half-hero-75.webp"
+ },
+ {
+  "view": "hero_77",
+  "sprites": [
+   "Half_Hero_77"
+  ],
+  "file": "half-hero-77.webp"
+ },
+ {
+  "view": "hero_78",
+  "sprites": [
+   "Half_Hero_78"
+  ],
+  "file": "half-hero-78.webp"
+ },
+ {
+  "view": "wife_2",
+  "sprites": [
+   "Half_Wife_2",
+   "Half_Wife_02"
+  ],
+  "file": "half-wife-2.webp"
+ },
+ {
+  "view": "wife_3",
+  "sprites": [
+   "Half_Wife_3",
+   "Half_Wife_03"
+  ],
+  "file": "half-wife-3.webp"
+ },
+ {
+  "view": "wife_1",
+  "sprites": [
+   "Half_Wife_1",
+   "Half_Wife_01"
+  ],
+  "file": "half-wife-1.webp"
+ },
+ {
+  "view": "wife_101",
+  "sprites": [
+   "Half_Wife_101"
+  ],
+  "file": "half-wife-101.webp"
+ },
+ {
+  "view": "wife_102",
+  "sprites": [
+   "Half_Wife_102"
+  ],
+  "file": "half-wife-102.webp"
+ },
+ {
+  "view": "wife_103",
+  "sprites": [
+   "Half_Wife_103"
+  ],
+  "file": "half-wife-103.webp"
+ },
+ {
+  "view": "wife_104",
+  "sprites": [
+   "Half_Wife_104"
+  ],
+  "file": "half-wife-104.webp"
+ },
+ {
+  "view": "wife_105",
+  "sprites": [
+   "Half_Wife_105"
+  ],
+  "file": "half-wife-105.webp"
+ },
+ {
+  "view": "wife_106",
+  "sprites": [
+   "Half_Wife_106"
+  ],
+  "file": "half-wife-106.webp"
+ },
+ {
+  "view": "wife_11",
+  "sprites": [
+   "Half_Wife_11"
+  ],
+  "file": "half-wife-11.webp"
+ },
+ {
+  "view": "wife_111",
+  "sprites": [
+   "Half_Wife_111"
+  ],
+  "file": "half-wife-111.webp"
+ },
+ {
+  "view": "wife_112",
+  "sprites": [
+   "Half_Wife_112"
+  ],
+  "file": "half-wife-112.webp"
+ },
+ {
+  "view": "wife_113",
+  "sprites": [
+   "Half_Wife_113"
+  ],
+  "file": "half-wife-113.webp"
+ },
+ {
+  "view": "wife_114",
+  "sprites": [
+   "Half_Wife_114"
+  ],
+  "file": "half-wife-114.webp"
+ },
+ {
+  "view": "wife_115",
+  "sprites": [
+   "Half_Wife_115"
+  ],
+  "file": "half-wife-115.webp"
+ },
+ {
+  "view": "wife_116",
+  "sprites": [
+   "Half_Wife_116"
+  ],
+  "file": "half-wife-116.webp"
+ },
+ {
+  "view": "wife_118",
+  "sprites": [
+   "Half_Wife_118"
+  ],
+  "file": "half-wife-118.webp"
+ },
+ {
+  "view": "wife_119",
+  "sprites": [
+   "Half_Wife_119"
+  ],
+  "file": "half-wife-119.webp"
+ },
+ {
+  "view": "wife_12",
+  "sprites": [
+   "Half_Wife_12"
+  ],
+  "file": "half-wife-12.webp"
+ },
+ {
+  "view": "wife_120",
+  "sprites": [
+   "Half_Wife_120"
+  ],
+  "file": "half-wife-120.webp"
+ },
+ {
+  "view": "wife_121",
+  "sprites": [
+   "Half_Wife_121"
+  ],
+  "file": "half-wife-121.webp"
+ },
+ {
+  "view": "wife_122",
+  "sprites": [
+   "Half_Wife_122"
+  ],
+  "file": "half-wife-122.webp"
+ },
+ {
+  "view": "wife_123",
+  "sprites": [
+   "Half_Wife_123"
+  ],
+  "file": "half-wife-123.webp"
+ },
+ {
+  "view": "wife_124",
+  "sprites": [
+   "Half_Wife_124"
+  ],
+  "file": "half-wife-124.webp"
+ },
+ {
+  "view": "wife_125",
+  "sprites": [
+   "Half_Wife_125"
+  ],
+  "file": "half-wife-125.webp"
+ },
+ {
+  "view": "wife_126",
+  "sprites": [
+   "Half_Wife_126"
+  ],
+  "file": "half-wife-126.webp"
+ },
+ {
+  "view": "wife_127",
+  "sprites": [
+   "Half_Wife_127"
+  ],
+  "file": "half-wife-127.webp"
+ },
+ {
+  "view": "wife_128",
+  "sprites": [
+   "Half_Wife_128"
+  ],
+  "file": "half-wife-128.webp"
+ },
+ {
+  "view": "wife_129",
+  "sprites": [
+   "Half_Wife_129"
+  ],
+  "file": "half-wife-129.webp"
+ },
+ {
+  "view": "wife_13",
+  "sprites": [
+   "Half_Wife_13"
+  ],
+  "file": "half-wife-13.webp"
+ },
+ {
+  "view": "wife_130",
+  "sprites": [
+   "Half_Wife_130"
+  ],
+  "file": "half-wife-130.webp"
+ },
+ {
+  "view": "wife_132",
+  "sprites": [
+   "Half_Wife_132"
+  ],
+  "file": "half-wife-132.webp"
+ },
+ {
+  "view": "wife_133",
+  "sprites": [
+   "Half_Wife_133"
+  ],
+  "file": "half-wife-133.webp"
+ },
+ {
+  "view": "wife_134",
+  "sprites": [
+   "Half_Wife_134"
+  ],
+  "file": "half-wife-134.webp"
+ },
+ {
+  "view": "wife_136",
+  "sprites": [
+   "Half_Wife_136"
+  ],
+  "file": "half-wife-136.webp"
+ },
+ {
+  "view": "wife_137",
+  "sprites": [
+   "Half_Wife_137"
+  ],
+  "file": "half-wife-137.webp"
+ },
+ {
+  "view": "wife_138",
+  "sprites": [
+   "Half_Wife_138"
+  ],
+  "file": "half-wife-138.webp"
+ },
+ {
+  "view": "wife_14",
+  "sprites": [
+   "Half_Wife_14"
+  ],
+  "file": "half-wife-14.webp"
+ },
+ {
+  "view": "wife_143",
+  "sprites": [
+   "Half_Wife_143"
+  ],
+  "file": "half-wife-143.webp"
+ },
+ {
+  "view": "wife_144",
+  "sprites": [
+   "Half_Wife_144"
+  ],
+  "file": "half-wife-144.webp"
+ },
+ {
+  "view": "wife_146",
+  "sprites": [
+   "Half_Wife_146"
+  ],
+  "file": "half-wife-146.webp"
+ },
+ {
+  "view": "wife_148",
+  "sprites": [
+   "Half_Wife_148"
+  ],
+  "file": "half-wife-148.webp"
+ },
+ {
+  "view": "wife_149",
+  "sprites": [
+   "Half_Wife_149"
+  ],
+  "file": "half-wife-149.webp"
+ },
+ {
+  "view": "wife_15",
+  "sprites": [
+   "Half_Wife_15"
+  ],
+  "file": "half-wife-15.webp"
+ },
+ {
+  "view": "wife_150",
+  "sprites": [
+   "Half_Wife_150"
+  ],
+  "file": "half-wife-150.webp"
+ },
+ {
+  "view": "wife_151",
+  "sprites": [
+   "Half_Wife_151"
+  ],
+  "file": "half-wife-151.webp"
+ },
+ {
+  "view": "wife_152",
+  "sprites": [
+   "Half_Wife_152"
+  ],
+  "file": "half-wife-152.webp"
+ },
+ {
+  "view": "wife_153",
+  "sprites": [
+   "Half_Wife_153"
+  ],
+  "file": "half-wife-153.webp"
+ },
+ {
+  "view": "wife_154",
+  "sprites": [
+   "Half_Wife_154"
+  ],
+  "file": "half-wife-154.webp"
+ },
+ {
+  "view": "wife_155",
+  "sprites": [
+   "Half_Wife_155"
+  ],
+  "file": "half-wife-155.webp"
+ },
+ {
+  "view": "wife_156",
+  "sprites": [
+   "Half_Wife_156"
+  ],
+  "file": "half-wife-156.webp"
+ },
+ {
+  "view": "wife_157",
+  "sprites": [
+   "Half_Wife_157"
+  ],
+  "file": "half-wife-157.webp"
+ },
+ {
+  "view": "wife_158",
+  "sprites": [
+   "Half_Wife_158"
+  ],
+  "file": "half-wife-158.webp"
+ },
+ {
+  "view": "wife_159",
+  "sprites": [
+   "Half_Wife_159"
+  ],
+  "file": "half-wife-159.webp"
+ },
+ {
+  "view": "wife_160",
+  "sprites": [
+   "Half_Wife_160"
+  ],
+  "file": "half-wife-160.webp"
+ },
+ {
+  "view": "wife_161",
+  "sprites": [
+   "Half_Wife_161"
+  ],
+  "file": "half-wife-161.webp"
+ },
+ {
+  "view": "wife_162",
+  "sprites": [
+   "Half_Wife_162"
+  ],
+  "file": "half-wife-162.webp"
+ },
+ {
+  "view": "wife_164",
+  "sprites": [
+   "Half_Wife_164"
+  ],
+  "file": "half-wife-164.webp"
+ },
+ {
+  "view": "wife_166",
+  "sprites": [
+   "Half_Wife_166"
+  ],
+  "file": "half-wife-166.webp"
+ },
+ {
+  "view": "wife_167",
+  "sprites": [
+   "Half_Wife_167"
+  ],
+  "file": "half-wife-167.webp"
+ },
+ {
+  "view": "wife_168",
+  "sprites": [
+   "Half_Wife_168"
+  ],
+  "file": "half-wife-168.webp"
+ },
+ {
+  "view": "wife_169",
+  "sprites": [
+   "Half_Wife_169"
+  ],
+  "file": "half-wife-169.webp"
+ },
+ {
+  "view": "wife_17",
+  "sprites": [
+   "Half_Wife_17"
+  ],
+  "file": "half-wife-17.webp"
+ },
+ {
+  "view": "wife_170",
+  "sprites": [
+   "Half_Wife_170"
+  ],
+  "file": "half-wife-170.webp"
+ },
+ {
+  "view": "wife_171",
+  "sprites": [
+   "Half_Wife_171"
+  ],
+  "file": "half-wife-171.webp"
+ },
+ {
+  "view": "wife_173",
+  "sprites": [
+   "Half_Wife_173"
+  ],
+  "file": "half-wife-173.webp"
+ },
+ {
+  "view": "wife_174",
+  "sprites": [
+   "Half_Wife_174"
+  ],
+  "file": "half-wife-174.webp"
+ },
+ {
+  "view": "wife_175",
+  "sprites": [
+   "Half_Wife_175"
+  ],
+  "file": "half-wife-175.webp"
+ },
+ {
+  "view": "wife_178",
+  "sprites": [
+   "Half_Wife_178"
+  ],
+  "file": "half-wife-178.webp"
+ },
+ {
+  "view": "wife_179",
+  "sprites": [
+   "Half_Wife_179"
+  ],
+  "file": "half-wife-179.webp"
+ },
+ {
+  "view": "wife_18",
+  "sprites": [
+   "Half_Wife_18"
+  ],
+  "file": "half-wife-18.webp"
+ },
+ {
+  "view": "wife_180",
+  "sprites": [
+   "Half_Wife_180"
+  ],
+  "file": "half-wife-180.webp"
+ },
+ {
+  "view": "wife_182",
+  "sprites": [
+   "Half_Wife_182"
+  ],
+  "file": "half-wife-182.webp"
+ },
+ {
+  "view": "wife_183",
+  "sprites": [
+   "Half_Wife_183"
+  ],
+  "file": "half-wife-183.webp"
+ },
+ {
+  "view": "wife_184",
+  "sprites": [
+   "Half_Wife_184"
+  ],
+  "file": "half-wife-184.webp"
+ },
+ {
+  "view": "wife_185",
+  "sprites": [
+   "Half_Wife_185"
+  ],
+  "file": "half-wife-185.webp"
+ },
+ {
+  "view": "wife_186",
+  "sprites": [
+   "Half_Wife_186"
+  ],
+  "file": "half-wife-186.webp"
+ },
+ {
+  "view": "wife_188",
+  "sprites": [
+   "Half_Wife_188"
+  ],
+  "file": "half-wife-188.webp"
+ },
+ {
+  "view": "wife_19",
+  "sprites": [
+   "Half_Wife_19"
+  ],
+  "file": "half-wife-19.webp"
+ },
+ {
+  "view": "wife_191",
+  "sprites": [
+   "Half_Wife_191"
+  ],
+  "file": "half-wife-191.webp"
+ },
+ {
+  "view": "wife_192",
+  "sprites": [
+   "Half_Wife_192"
+  ],
+  "file": "half-wife-192.webp"
+ },
+ {
+  "view": "wife_20",
+  "sprites": [
+   "Half_Wife_20"
+  ],
+  "file": "half-wife-20.webp"
+ },
+ {
+  "view": "wife_201",
+  "sprites": [
+   "Half_Wife_201"
+  ],
+  "file": "half-wife-201.webp"
+ },
+ {
+  "view": "wife_21",
+  "sprites": [
+   "Half_Wife_21"
+  ],
+  "file": "half-wife-21.webp"
+ },
+ {
+  "view": "wife_22",
+  "sprites": [
+   "Half_Wife_22"
+  ],
+  "file": "half-wife-22.webp"
+ },
+ {
+  "view": "wife_251",
+  "sprites": [
+   "Half_Wife_251"
+  ],
+  "file": "half-wife-251.webp"
+ },
+ {
+  "view": "wife_252",
+  "sprites": [
+   "Half_Wife_252"
+  ],
+  "file": "half-wife-252.webp"
+ },
+ {
+  "view": "wife_253",
+  "sprites": [
+   "Half_Wife_253"
+  ],
+  "file": "half-wife-253.webp"
+ },
+ {
+  "view": "wife_254",
+  "sprites": [
+   "Half_Wife_254"
+  ],
+  "file": "half-wife-254.webp"
+ },
+ {
+  "view": "wife_4",
+  "sprites": [
+   "Half_Wife_4",
+   "Half_Wife_04"
+  ],
+  "file": "half-wife-4.webp"
+ },
+ {
+  "view": "wife_5",
+  "sprites": [
+   "Half_Wife_5",
+   "Half_Wife_05"
+  ],
+  "file": "half-wife-5.webp"
+ },
+ {
+  "view": "wife_51",
+  "sprites": [
+   "Half_Wife_51"
+  ],
+  "file": "half-wife-51.webp"
+ },
+ {
+  "view": "wife_52",
+  "sprites": [
+   "Half_Wife_52"
+  ],
+  "file": "half-wife-52.webp"
+ },
+ {
+  "view": "wife_53",
+  "sprites": [
+   "Half_Wife_53"
+  ],
+  "file": "half-wife-53.webp"
+ },
+ {
+  "view": "wife_54",
+  "sprites": [
+   "Half_Wife_54"
+  ],
+  "file": "half-wife-54.webp"
+ },
+ {
+  "view": "wife_55",
+  "sprites": [
+   "Half_Wife_55"
+  ],
+  "file": "half-wife-55.webp"
+ },
+ {
+  "view": "wife_57",
+  "sprites": [
+   "Half_Wife_57"
+  ],
+  "file": "half-wife-57.webp"
+ },
+ {
+  "view": "wife_58",
+  "sprites": [
+   "Half_Wife_58"
+  ],
+  "file": "half-wife-58.webp"
+ },
+ {
+  "view": "wife_59",
+  "sprites": [
+   "Half_Wife_59"
+  ],
+  "file": "half-wife-59.webp"
+ },
+ {
+  "view": "wife_61",
+  "sprites": [
+   "Half_Wife_61"
+  ],
+  "file": "half-wife-61.webp"
+ },
+ {
+  "view": "wife_62",
+  "sprites": [
+   "Half_Wife_62"
+  ],
+  "file": "half-wife-62.webp"
+ },
+ {
+  "view": "wife_63",
+  "sprites": [
+   "Half_Wife_63"
+  ],
+  "file": "half-wife-63.webp"
+ },
+ {
+  "view": "wife_64",
+  "sprites": [
+   "Half_Wife_64"
+  ],
+  "file": "half-wife-64.webp"
+ },
+ {
+  "view": "wife_65",
+  "sprites": [
+   "Half_Wife_65"
+  ],
+  "file": "half-wife-65.webp"
+ },
+ {
+  "view": "wife_66",
+  "sprites": [
+   "Half_Wife_66"
+  ],
+  "file": "half-wife-66.webp"
+ },
+ {
+  "view": "wife_67",
+  "sprites": [
+   "Half_Wife_67"
+  ],
+  "file": "half-wife-67.webp"
+ },
+ {
+  "view": "wife_70",
+  "sprites": [
+   "Half_Wife_70"
+  ],
+  "file": "half-wife-70.webp"
+ },
+ {
+  "view": "H101C1",
+  "sprites": [
+   "Half_Hero_101C1"
+  ],
+  "file": "half-hero-101c1.webp"
+ },
+ {
+  "view": "H4C1",
+  "sprites": [
+   "Half_Hero_4C1",
+   "Half_Hero_04C1"
+  ],
+  "file": "half-hero-4c1.webp"
+ },
+ {
+  "view": "H56C1",
+  "sprites": [
+   "Half_Hero_56C1"
+  ],
+  "file": "half-hero-56c1.webp"
+ },
+ {
+  "view": "H106C1",
+  "sprites": [
+   "Half_Hero_106C1"
+  ],
+  "file": "half-hero-106c1.webp"
+ },
+ {
+  "view": "H1C1",
+  "sprites": [
+   "Half_Hero_1C1",
+   "Half_Hero_01C1"
+  ],
+  "file": "half-hero-1c1.webp"
+ },
+ {
+  "view": "H54C1",
+  "sprites": [
+   "Half_Hero_54C1"
+  ],
+  "file": "half-hero-54c1.webp"
+ },
+ {
+  "view": "H58C1",
+  "sprites": [
+   "Half_Hero_58C1"
+  ],
+  "file": "half-hero-58c1.webp"
+ },
+ {
+  "view": "H114C1",
+  "sprites": [
+   "Half_Hero_114C1"
+  ],
+  "file": "half-hero-114c1.webp"
+ },
+ {
+  "view": "H59C1",
+  "sprites": [
+   "Half_Hero_59C1"
+  ],
+  "file": "half-hero-59c1.webp"
+ },
+ {
+  "view": "H51C1",
+  "sprites": [
+   "Half_Hero_51C1"
+  ],
+  "file": "half-hero-51c1.webp"
+ },
+ {
+  "view": "H191C2",
+  "sprites": [
+   "Half_Hero_191C2"
+  ],
+  "file": "half-hero-191c2.webp"
+ },
+ {
+  "view": "H12C2",
+  "sprites": [
+   "Half_Hero_12C2"
+  ],
+  "file": "half-hero-12c2.webp"
+ },
+ {
+  "view": "H111C1",
+  "sprites": [
+   "Half_Hero_111C1"
+  ],
+  "file": "half-hero-111c1.webp"
+ },
+ {
+  "view": "H15C1",
+  "sprites": [
+   "Half_Hero_15C1"
+  ],
+  "file": "half-hero-15c1.webp"
+ },
+ {
+  "view": "H158C1",
+  "sprites": [
+   "Half_Hero_158C1"
+  ],
+  "file": "half-hero-158c1.webp"
+ },
+ {
+  "view": "H121C1",
+  "sprites": [
+   "Half_Hero_121C1"
+  ],
+  "file": "half-hero-121c1.webp"
+ },
+ {
+  "view": "H126C1",
+  "sprites": [
+   "Half_Hero_126C1"
+  ],
+  "file": "half-hero-126c1.webp"
+ },
+ {
+  "view": "H127C1",
+  "sprites": [
+   "Half_Hero_127C1"
+  ],
+  "file": "half-hero-127c1.webp"
+ },
+ {
+  "view": "H154C1",
+  "sprites": [
+   "Half_Hero_154C1"
+  ],
+  "file": "half-hero-154c1.webp"
+ },
+ {
+  "view": "H156C2",
+  "sprites": [
+   "Half_Hero_156C2"
+  ],
+  "file": "half-hero-156c2.webp"
+ },
+ {
+  "view": "H151C1",
+  "sprites": [
+   "Half_Hero_151C1"
+  ],
+  "file": "half-hero-151c1.webp"
+ },
+ {
+  "view": "H137C1",
+  "sprites": [
+   "Half_Hero_137C1"
+  ],
+  "file": "half-hero-137c1.webp"
+ },
+ {
+  "view": "H104C4",
+  "sprites": [
+   "Half_Hero_104C4"
+  ],
+  "file": "half-hero-104c4.webp"
+ },
+ {
+  "view": "H155C3",
+  "sprites": [
+   "Half_Hero_155C3"
+  ],
+  "file": "half-hero-155c3.webp"
+ },
+ {
+  "view": "H152C2",
+  "sprites": [
+   "Half_Hero_152C2"
+  ],
+  "file": "half-hero-152c2.webp"
+ },
+ {
+  "view": "H159C2",
+  "sprites": [
+   "Half_Hero_159C2"
+  ],
+  "file": "half-hero-159c2.webp"
+ },
+ {
+  "view": "H133C1",
+  "sprites": [
+   "Half_Hero_133C1"
+  ],
+  "file": "half-hero-133c1.webp"
+ },
+ {
+  "view": "H169C1",
+  "sprites": [
+   "Half_Hero_169C1"
+  ],
+  "file": "half-hero-169c1.webp"
+ },
+ {
+  "view": "H68C1",
+  "sprites": [
+   "Half_Hero_68C1"
+  ],
+  "file": "half-hero-68c1.webp"
+ },
+ {
+  "view": "H103C3",
+  "sprites": [
+   "Half_Hero_103C3"
+  ],
+  "file": "half-hero-103c3.webp"
+ },
+ {
+  "view": "H256C1",
+  "sprites": [
+   "Half_Hero_256C1"
+  ],
+  "file": "half-hero-256c1.webp"
+ },
+ {
+  "view": "H21C2",
+  "sprites": [
+   "Half_Hero_21C2"
+  ],
+  "file": "half-hero-21c2.webp"
+ },
+ {
+  "view": "H115C1",
+  "sprites": [
+   "Half_Hero_115C1"
+  ],
+  "file": "half-hero-115c1.webp"
+ },
+ {
+  "view": "H164C2",
+  "sprites": [
+   "Half_Hero_164C2"
+  ],
+  "file": "half-hero-164c2.webp"
+ },
+ {
+  "view": "H255C1",
+  "sprites": [
+   "Half_Hero_255C1"
+  ],
+  "file": "half-hero-255c1.webp"
+ },
+ {
+  "view": "H128C2",
+  "sprites": [
+   "Half_Hero_128C2"
+  ],
+  "file": "half-hero-128c2.webp"
+ },
+ {
+  "view": "H251C1",
+  "sprites": [
+   "Half_Hero_251C1"
+  ],
+  "file": "half-hero-251c1.webp"
+ },
+ {
+  "view": "H117C3",
+  "sprites": [
+   "Half_Hero_117C3"
+  ],
+  "file": "half-hero-117c3.webp"
+ },
+ {
+  "view": "H112C2",
+  "sprites": [
+   "Half_Hero_112C2"
+  ],
+  "file": "half-hero-112c2.webp"
+ },
+ {
+  "view": "H194C1",
+  "sprites": [
+   "Half_Hero_194C1"
+  ],
+  "file": "half-hero-194c1.webp"
+ },
+ {
+  "view": "H61C3",
+  "sprites": [
+   "Half_Hero_61C3"
+  ],
+  "file": "half-hero-61c3.webp"
+ },
+ {
+  "view": "H308C2",
+  "sprites": [
+   "Half_Hero_308C2"
+  ],
+  "file": "half-hero-308c2.webp"
+ },
+ {
+  "view": "H118C2",
+  "sprites": [
+   "Half_Hero_118C2"
+  ],
+  "file": "half-hero-118c2.webp"
+ },
+ {
+  "view": "W51C1",
+  "sprites": [
+   "Half_Wife_51C1"
+  ],
+  "file": "half-wife-51c1.webp"
+ },
+ {
+  "view": "W101C1",
+  "sprites": [
+   "Half_Wife_101C1"
+  ],
+  "file": "half-wife-101c1.webp"
+ },
+ {
+  "view": "W15C1",
+  "sprites": [
+   "Half_Wife_15C1"
+  ],
+  "file": "half-wife-15c1.webp"
+ },
+ {
+  "view": "W104C1",
+  "sprites": [
+   "Half_Wife_104C1"
+  ],
+  "file": "half-wife-104c1.webp"
+ },
+ {
+  "view": "W111C1",
+  "sprites": [
+   "Half_Wife_111C1"
+  ],
+  "file": "half-wife-111c1.webp"
+ },
+ {
+  "view": "W106C1",
+  "sprites": [
+   "Half_Wife_106C1"
+  ],
+  "file": "half-wife-106c1.webp"
+ },
+ {
+  "view": "W64C1",
+  "sprites": [
+   "Half_Wife_64C1"
+  ],
+  "file": "half-wife-64c1.webp"
+ },
+ {
+  "view": "W57C1",
+  "sprites": [
+   "Half_Wife_57C1"
+  ],
+  "file": "half-wife-57c1.webp"
+ },
+ {
+  "view": "W54C1",
+  "sprites": [
+   "Half_Wife_54C1"
+  ],
+  "file": "half-wife-54c1.webp"
+ },
+ {
+  "view": "W61C1",
+  "sprites": [
+   "Half_Wife_61C1"
+  ],
+  "file": "half-wife-61c1.webp"
+ },
+ {
+  "view": "W14C1",
+  "sprites": [
+   "Half_Wife_14C1"
+  ],
+  "file": "half-wife-14c1.webp"
+ },
+ {
+  "view": "W55C1",
+  "sprites": [
+   "Half_Wife_55C1"
+  ],
+  "file": "half-wife-55c1.webp"
+ },
+ {
+  "view": "W53C1",
+  "sprites": [
+   "Half_Wife_53C1"
+  ],
+  "file": "half-wife-53c1.webp"
+ },
+ {
+  "view": "W12C1",
+  "sprites": [
+   "Half_Wife_12C1"
+  ],
+  "file": "half-wife-12c1.webp"
+ },
+ {
+  "view": "W20C1",
+  "sprites": [
+   "Half_Wife_20C1"
+  ],
+  "file": "half-wife-20c1.webp"
+ },
+ {
+  "view": "W102C2",
+  "sprites": [
+   "Half_Wife_102C2"
+  ],
+  "file": "half-wife-102c2.webp"
+ },
+ {
+  "view": "W191C2",
+  "sprites": [
+   "Half_Wife_191C2"
+  ],
+  "file": "half-wife-191c2.webp"
+ },
+ {
+  "view": "W105C2",
+  "sprites": [
+   "Half_Wife_105C2"
+  ],
+  "file": "half-wife-105c2.webp"
+ },
+ {
+  "view": "W11C1",
+  "sprites": [
+   "Half_Wife_11C1"
+  ],
+  "file": "half-wife-11c1.webp"
+ },
+ {
+  "view": "W115C1",
+  "sprites": [
+   "Half_Wife_115C1"
+  ],
+  "file": "half-wife-115c1.webp"
+ },
+ {
+  "view": "W103C2",
+  "sprites": [
+   "Half_Wife_103C2"
+  ],
+  "file": "half-wife-103c2.webp"
+ },
+ {
+  "view": "W52C2",
+  "sprites": [
+   "Half_Wife_52C2"
+  ],
+  "file": "half-wife-52c2.webp"
+ },
+ {
+  "view": "W2C1",
+  "sprites": [
+   "Half_Wife_2C1",
+   "Half_Wife_02C1"
+  ],
+  "file": "half-wife-2c1.webp"
+ },
+ {
+  "view": "W4C2",
+  "sprites": [
+   "Half_Wife_4C2",
+   "Half_Wife_04C2"
+  ],
+  "file": "half-wife-4c2.webp"
+ },
+ {
+  "view": "W22C1",
+  "sprites": [
+   "Half_Wife_22C1"
+  ],
+  "file": "half-wife-22c1.webp"
+ },
+ {
+  "view": "W18C2",
+  "sprites": [
+   "Half_Wife_18C2"
+  ],
+  "file": "half-wife-18c2.webp"
+ },
+ {
+  "view": "W63C2",
+  "sprites": [
+   "Half_Wife_63C2"
+  ],
+  "file": "half-wife-63c2.webp"
+ },
+ {
+  "view": "W13C1",
+  "sprites": [
+   "Half_Wife_13C1"
+  ],
+  "file": "half-wife-13c1.webp"
+ },
+ {
+  "view": "W134C1",
+  "sprites": [
+   "Half_Wife_134C1"
+  ],
+  "file": "half-wife-134c1.webp"
+ },
+ {
+  "view": "W136C1",
+  "sprites": [
+   "Half_Wife_136C1"
+  ],
+  "file": "half-wife-136c1.webp"
+ },
+ {
+  "view": "W21C2",
+  "sprites": [
+   "Half_Wife_21C2"
+  ],
+  "file": "half-wife-21c2.webp"
+ },
+ {
+  "view": "W114C1",
+  "sprites": [
+   "Half_Wife_114C1"
+  ],
+  "file": "half-wife-114c1.webp"
+ },
+ {
+  "view": "W58C1",
+  "sprites": [
+   "Half_Wife_58C1"
+  ],
+  "file": "half-wife-58c1.webp"
+ },
+ {
+  "view": "W113C2",
+  "sprites": [
+   "Half_Wife_113C2"
+  ],
+  "file": "half-wife-113c2.webp"
+ },
+ {
+  "view": "W59C2",
+  "sprites": [
+   "Half_Wife_59C2"
+  ],
+  "file": "half-wife-59c2.webp"
+ },
+ {
+  "view": "W1C3",
+  "sprites": [
+   "Half_Wife_1C3",
+   "Half_Wife_01C3"
+  ],
+  "file": "half-wife-1c3.webp"
+ },
+ {
+  "view": "W19C2",
+  "sprites": [
+   "Half_Wife_19C2"
+  ],
+  "file": "half-wife-19c2.webp"
+ },
+ {
+  "view": "W70C1",
+  "sprites": [
+   "Half_Wife_70C1"
+  ],
+  "file": "half-wife-70c1.webp"
+ },
+ {
+  "view": "W62C1",
+  "sprites": [
+   "Half_Wife_62C1"
+  ],
+  "file": "half-wife-62c1.webp"
+ },
+ {
+  "view": "W112C4",
+  "sprites": [
+   "Half_Wife_112C4"
+  ],
+  "file": "half-wife-112c4.webp"
+ },
+ {
+  "view": "W143C1",
+  "sprites": [
+   "Half_Wife_143C1"
+  ],
+  "file": "half-wife-143c1.webp"
+ },
+ {
+  "view": "W5C3",
+  "sprites": [
+   "Half_Wife_5C3",
+   "Half_Wife_05C3"
+  ],
+  "file": "half-wife-5c3.webp"
+ }
+]

@@ -85,24 +85,50 @@ needs at first launch is a fair candidate for `UnityStreamingAssetsPack.apk`, th
 this scan did not read. **That is a hypothesis, not a finding** — it has not been checked, and until it
 is, any import has to keep the measured-bounds path alive as the fallback for those eighteen.
 
-## The decision this leaves
+## Correction: the original's list row is NOT a wide row
 
-`Half_*` is **500×400 — landscape**. Everkai's roster card is 206:280 portrait. The original's list row
-is wide, so it can use a wide half-body; Everkai's portrait card is an Everkai design, and *that* is why
-it needs a framing heuristic at all. So importing the crops does not by itself fix the tiles. Three
-routes, none of them measurable further — this is taste, so it goes to the owner (rule 10):
+This document first read "`Half_*` is 500x400 landscape, so the original's list row must be wide, and
+our 206:280 portrait card is an Everkai invention." **That was an inference from the image size and it
+is wrong.** A FairyGUI package item carries its own `width`/`height` right after its `file` field, and
+the components measure:
 
-1. **Follow the game.** Roster becomes wide rows using `Half_*` at its native 500×400. Deletes the
-   heuristic, the bounds table and the 96-character defect list outright. Biggest change to the app.
-2. **Keep the portrait card, use `Head_*` (128×128) as a guaranteed-good face.** Small, safe, ~3 MB for
-   all 485 heads, and it fixes every bad tile including the fifteen costumes. The card stops showing the
-   body.
-3. **Keep everything, re-frame the fifteen by hand.** Cheapest, fixes only what was noticed, and leaves
-   the next full-scene costume to be noticed by eye again.
+| component | size | count |
+| --- | --- | --- |
+| `ListItem_Half_Hero_*` | **206 x 291** | 265 |
+| `LabelShop_Half_Hero_*` | 206 x 291 | 261 |
+| `ListItem_Half_Wife_*` | **224 x 319** | 212 |
 
-Recommendation: **2**, because it is the only one that is both cheap and complete, with 1 as the
-eventual target for the roster screen specifically.
+The original's list item is a **portrait card at essentially the aspect Everkai already draws**
+(206:291 vs 206:280). It shows the 500x400 half-body cropped to that card. So "follow the game" does
+not mean rebuilding the roster as wide rows; it means **keeping the card and changing what is in it**,
+which is what shipped.
 
-Precache note: 485 heads at 128×128 is roughly 3 MB against the 120 MB budget (86.9 MB used). The 595
-half-bodies at 500×400 are the order of 10–20 MB and would have to stream, not precache — `docs/`
-records that a large precache is what breaks saving on the phone.
+## Correction: the eighteen misses were not in the second APK
+
+The first pass hypothesised the missing starter crops were in `UnityStreamingAssetsPack.apk`. Checked:
+that APK holds **zero** FairyGUI descriptor bundles. The hypothesis is dead.
+
+The real cause was rule 4 -- a sprite name built from a pattern instead of read from the config.
+`Hero.json` row 1's `wideHead` is **`Half_Hero_01`**, zero-padded, not `Half_Hero_1`, which is exactly
+why the misses were the single-digit ids: the starter characters and their costumes. Offering both
+spellings took coverage from 285 to **299 of 303**.
+
+The four that remain are genuinely in neither APK: `H251C1`, `hero_180`, `hero_183`, `wife_168`. They
+keep the measured-bounds path, which is why `lib/art-framing.mjs` and `lib/art-bounds-data.json` are
+not deleted.
+
+## What shipped
+
+`scripts/import-roster-crops.py` cuts the 299 crops to `public/assets/roster/` (9.83 MB, inside the
+120 MB precache budget at ~97 MB total), `lib/roster-crop.mjs` places them, and `app/roster-picker.tsx`
+prefers them over the plate.
+
+Placement needs no heuristic, and this is the part that actually fixes the costume tiles: the
+half-body renders **carry a real alpha channel**, so the importer records each figure's exact bounding
+box (297 of 299; two are fully opaque). The card covers on height and the horizontal slice is centred
+on that box. Compare with what it replaced -- a plate-difference estimate against a flat surround,
+which on a full-scene costume plate returned the whole plate.
+
+**Still not measured:** the original's component holds its own display list, which this project does
+not parse, so how *it* places the 500x400 inside 206x291 is unknown. Cover-on-height is this project's
+choice, not a transcription.

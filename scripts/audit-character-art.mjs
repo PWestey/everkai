@@ -9,6 +9,7 @@ import {readFileSync,existsSync,statSync} from 'node:fs';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 import {COSTUMES,costumeArt,costumesFor} from '../lib/wardrobe.mjs';
 import {artBounds} from '../lib/art-framing.mjs';
+import {hasRosterCrop} from '../lib/roster-crop.mjs';
 
 const PUB=new URL('../public/assets/',import.meta.url);
 const file=rel=>new URL(rel,PUB);
@@ -19,7 +20,7 @@ const check=(kind,id,name,rel)=>{
  if(!existsSync(u)){rows.push({kind,id,name,rel,ok:false,why:'missing on disk'});return;}
  const bytes=statSync(u).size;
  const measured=artBounds(rel);
- rows.push({kind,id,name,rel,ok:true,bytes,framed:!!measured});
+ rows.push({kind,id,name,rel,ok:true,bytes,framed:!!measured,crop:hasRosterCrop(id)});
 };
 
 for(const f of FELLOWS)check('fellow',f.id,f.name,f.portrait||f.art);
@@ -30,8 +31,9 @@ const bad=rows.filter(r=>!r.ok);
 const unframed=rows.filter(r=>r.ok&&!r.framed);
 const byKind=k=>rows.filter(r=>r.kind===k);
 for(const k of ['fellow','family','costume']){
- const all=byKind(k),miss=all.filter(r=>!r.ok),unf=all.filter(r=>r.ok&&!r.framed);
- console.log(`${k.padEnd(8)} ${String(all.length).padStart(4)} views · ${miss.length} missing art · ${unf.length} with no measured framing`);
+ const all=byKind(k),miss=all.filter(r=>!r.ok),crop=all.filter(r=>r.crop);
+ console.log(`${k.padEnd(8)} ${String(all.length).padStart(4)} views · ${miss.length} missing art · `+
+             `${crop.length} draw the original's crop · ${all.length-miss.length-crop.length} fall back to measured bounds`);
 }
 // A costume owner with no costume is not a defect; an owner whose costume art is absent is.
 const orphan=COSTUMES.filter(c=>!FELLOWS.some(f=>f.id===c.ownerId)&&!FAMILY.some(w=>w.id===c.ownerId));
@@ -41,9 +43,16 @@ if(bad.length){
  console.log(`\nMISSING ART (${bad.length}):`);
  for(const r of bad.slice(0,40))console.log(`  ${r.kind} ${r.id} ${r.name} -> ${r.rel||'(none)'} : ${r.why}`);
 }
-if(unframed.length){
- console.log(`\nNO MEASURED FRAMING (${unframed.length}) -- these fall back to the default transform:`);
- for(const r of unframed.slice(0,40))console.log(`  ${r.kind} ${r.id} ${r.name}`);
+// Framing only matters now for a view with no imported crop: everything else draws the original's own
+// 500x400 half-body placed on its exact alpha box (lib/roster-crop.mjs), and never touches artBounds.
+const guessed=unframed.filter(r=>!r.crop);
+if(guessed.length){
+ console.log(`\nNO CROP AND NO MEASURED FRAMING (${guessed.length}) -- these fall back to the default transform:`);
+ for(const r of guessed)console.log(`  ${r.kind} ${r.id} ${r.name}`);
+}else if(unframed.length){
+ console.log(`\n${unframed.length} views have no measured framing, and none of them needs it: all carry an imported crop.`);
 }
-console.log(`\ntotal ${rows.length} character views; ${rows.length-bad.length} have art, ${rows.length-bad.length-unframed.length} also have measured framing`);
+const cropped=rows.filter(r=>r.crop).length;
+console.log(`\ntotal ${rows.length} character views; ${rows.length-bad.length} have art, `+
+            `${cropped} draw the original's own roster crop, ${rows.length-cropped} fall back to the measured-bounds path`);
 process.exit(bad.length?1:0);

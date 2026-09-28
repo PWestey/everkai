@@ -332,6 +332,7 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
 .roster-landing-heading p{font-size:13px;color:#635b41}
 /* Familiars ship no portrait art, so their tile shows the original's rarity card ground instead. */
 .roster-tile img.roster-card-only{object-fit:cover}
+.roster-tile-art.from-crop>img{object-fit:contain}
 .character-collection-control{position:absolute;left:7px;top:98px;pointer-events:auto}
 .character-screen-heading .collection-open{max-width:94px;min-height:40px!important;font:700 10px/1.15 Georgia,serif;padding:4px;border:2px solid #c09e64;background:#62442ed9}
 .character-rarity{position:absolute;left:8px;top:12px;width:54px;text-align:center;display:grid;gap:3px;text-shadow:0 2px 2px #422410;color:#ffda6b}
@@ -701,6 +702,8 @@ html,body,#root{height:100%;overflow:hidden;overscroll-behavior:none}
    and the layer is painted in that surround colour so the edges never show. */
 :is(.roster-landing,.roster-cards) .roster-tile>.roster-tile-art{position:absolute;inset:0;padding:0!important;overflow:hidden;-webkit-mask:var(--card-bg) 0 0/100% 100% no-repeat;mask:var(--card-bg) 0 0/100% 100% no-repeat}
 :is(.roster-landing,.roster-cards) .roster-tile>.roster-tile-art>img{position:absolute;top:0;left:-25%;width:150%;height:auto!important;aspect-ratio:2/3;max-width:none;object-fit:cover}
+/* The original's own list-row art is 500x400, not the 2:3 cutscene plate. */
+:is(.roster-landing,.roster-cards) .roster-tile>.roster-tile-art.from-crop>img{aspect-ratio:5/4}
 :is(.roster-landing,.roster-cards) .roster-tile{overflow:hidden}
 :is(.roster-landing,.roster-cards) .roster-tile>img.roster-card-only{-webkit-mask:none;mask:none;opacity:0}
 :is(.roster-landing,.roster-cards) .roster-tile>strong{position:absolute;z-index:3;left:6%;right:6%;bottom:5%;width:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 2px;border:1px solid #c99a4e;border-radius:2px;background:#5b3d26;color:#ffe7b5;font:700 12px/1.1 Georgia,serif;text-align:center}

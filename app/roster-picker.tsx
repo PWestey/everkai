@@ -4,8 +4,19 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {filterRoster} from '@/lib/roster-filter.mjs';
 import {artBounds,rosterArtPlacement} from '@/lib/art-framing.mjs';
-/** A roster card's portrait, placed by the render's measured art bounds (see rosterArtPlacement). */
-function RosterArt({path}:{path:string}){const measured=artBounds(path),p=rosterArtPlacement(measured?.bounds);return <span className="roster-tile-art" style={measured?{background:measured.surround}:undefined}><img src={'./assets/'+path} alt="" loading="lazy" decoding="async" style={{width:p.width+'%',left:p.left+'%',top:p.top+'%'}}/></span>}
+import {rosterCrop,rosterCropPlacement} from '@/lib/roster-crop.mjs';
+/** A roster card's portrait.
+ *
+ *  Preferred source is the original's own list-row art -- the 500x400 half-body `Hero.json wideHead`
+ *  names -- placed on its alpha box, which is an exact figure extent rather than an estimate. 299 of
+ *  303 views have one. The rest keep the old path: the 1280x1920 cutscene plate cropped by the
+ *  measured bounds table (see rosterArtPlacement and docs/roster-crop-measurement.md). */
+function RosterArt({id,path}:{id?:string,path:string}){
+ const crop=rosterCrop(id);
+ if(crop){const p=rosterCropPlacement(crop.box);
+  return <span className="roster-tile-art from-crop"><img src={'./assets/'+crop.path} alt="" loading="lazy" decoding="async" width={crop.width} height={crop.height} style={{width:p.width+'%',left:p.left+'%',top:p.top+'%'}}/></span>}
+ const measured=artBounds(path),p=rosterArtPlacement(measured?.bounds);
+ return <span className="roster-tile-art" style={measured?{background:measured.surround}:undefined}><img src={'./assets/'+path} alt="" loading="lazy" decoding="async" style={{width:p.width+'%',left:p.left+'%',top:p.top+'%'}}/></span>}
 /** THE ROSTER CARD, rebuilt to docs/fellow-screen-specs/01-roster.md.
  *
  *  The original puts exactly FOUR pieces of data on a card: level, class, name, and "has an action".
@@ -48,7 +59,7 @@ export default function RosterPicker({entries,selected,onSelect,status,owned={},
   <div className={family?'family-roster':'roster'}>{(paged?matches.slice(current*size,(current+1)*size):matches).map((f:any,i:number,page:any[])=><Fragment key={f.id}>
    {grouped&&(i===0||!!owned[page[i-1].id]!==!!owned[f.id])&&<p className="roster-group">{owned[f.id]?'Joined':'Not Yet Joined'}</p>}
    <Button variant="outline" className={'roster-tile '+(selected===f.id?'chosen':'')+(!owned[f.id]?' not-joined':'')} aria-pressed={selected===f.id} style={cardStyle(f.rarity) as any} onClick={()=>onSelect(f.id)}>
-    {f.portrait||f.art?<RosterArt path={f.portrait||f.art}/>:<img className="roster-card-only" src={petCardIcon(f.rarity)||''} alt=""/>}
+    {f.portrait||f.art?<RosterArt id={f.id} path={f.portrait||f.art}/>:<img className="roster-card-only" src={petCardIcon(f.rarity)||''} alt=""/>}
     {owned[f.id]&&status?<span className="level-banner">{status(f.id)}</span>:null}
     {countryIcon(f.type)?<img className="class-medallion" src={countryIcon(f.type)!} alt={f.type}/>:null}
     {badge?.(f.id)?<span className="action-badge" aria-label="Upgrade available">!</span>:null}
