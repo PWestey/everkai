@@ -13,7 +13,10 @@ test('a new journey keeps the habit journal and resets everything else',()=>{con
  // The played save welcomed wife_3; a new journey drops her and keeps only the starter picks.
  assert.equal(next.family.wife_3,undefined);assert.deepEqual(next.family,base.family);
  assert.deepEqual(Object.keys(next.fellows),Object.keys(base.fellows));
- assert.deepEqual(Object.keys(next.fellows),['hero_1','hero_195']);
+ // The starting gift, set by the owner 2026-09-28. Pinned by NAME rather than by count so a future
+ // change to it has to be made here deliberately; the four Everkai additions are appended only when
+ // the crossover flag is on, which it is not in this process.
+ assert.deepEqual(Object.keys(next.fellows),['hero_1','hero_195','hero_168','hero_156']);
  assert.equal(next.gold,base.gold);assert.equal(next.lastAt,T+1000);
  assert.ok(valid(next));assert.deepEqual(decode(JSON.stringify(next)),next);
  // A journey started from a save with no journal is exactly a starting save.

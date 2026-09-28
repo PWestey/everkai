@@ -3,17 +3,25 @@ import assert from 'node:assert/strict';
 import {existsSync,statSync} from 'node:fs';
 import {FELLOWS,FAMILY} from '../lib/catalog.mjs';
 import {COSTUMES} from '../lib/wardrobe.mjs';
-import {rosterCrop,hasRosterCrop,rosterCropViews,rosterCropPlacement,CARD_ASPECT} from '../lib/roster-crop.mjs';
+import {rosterCrop,hasRosterCrop,rosterCropViews,rosterCropPlacement,CARD_ASPECT,hasAdjustedArt} from '../lib/roster-crop.mjs';
+import humanized from '../lib/humanized-static-data.json' with {type:'json'};
 
 const ASSETS=new URL('../public/assets/',import.meta.url);
 const views=()=>[...FELLOWS.map(f=>f.id),...FAMILY.map(f=>f.id),...COSTUMES.map(c=>c.id)];
 // The four the import could not find in either APK. They are named here rather than counted so that a
 // fifth going missing, or one of these quietly coming back, both show up as a failure.
 const NO_CROP=['H251C1','hero_180','hero_183','wife_168'];
+// CORRECTED 2026-09-28. The crop must never override an ADJUSTED composition: Everkai does not ship the
+// original's character art as drawn, and lib/humanized-static-data.json holds one adjusted plate for every
+// Fellow and every Family member. The first version of this import took precedence over them and put the
+// raw APK sprites back on the roster -- horns, animal features and un-adjusted bodies -- for 215 of 218.
+// So the crop now serves ONLY the costumes, which have no adjusted version either way.
+const ADJUSTED=new Set(humanized.map(r=>r.id));
 
 test('every crop the table names is on disk at the size it claims',()=>{
- const ids=rosterCropViews();
- assert.equal(ids.length,299,'the import found 299 of the roster\'s 303 views');
+ const ids=rosterCropViews().filter(id=>hasRosterCrop(id));
+ assert.ok(ids.length>0);
+ assert.ok(ids.every(id=>!ADJUSTED.has(id)),'a view with an adjusted composition must never use a crop');
  for(const id of ids){
   const c=rosterCrop(id);
   const u=new URL(c.path,ASSETS);
@@ -27,16 +35,21 @@ test('every crop the table names is on disk at the size it claims',()=>{
 test('coverage: exactly the shipped roster, minus the four that are in neither APK',()=>{
  const want=views();
  assert.equal(want.length,303);
- const missing=want.filter(v=>!hasRosterCrop(v)).sort();
- assert.deepEqual(missing,[...NO_CROP].sort(),
-  'the set of views with no imported crop changed -- re-run scripts/import-roster-crops.py and say why');
+ // Every Fellow and Family member has an adjusted composition, so none of them may use a crop.
+ assert.equal(FELLOWS.filter(f=>hasRosterCrop(f.id)).length,0,'no Fellow may draw the raw APK sprite');
+ assert.equal(FAMILY.filter(f=>hasRosterCrop(f.id)).length,0,'no Family member may either');
+ assert.ok(FELLOWS.every(f=>hasAdjustedArt(f.id))&&FAMILY.every(f=>hasAdjustedArt(f.id)),
+  'and that is because all 218 of them have one');
+ // The costumes do not, so they keep the better-framed crop.
+ const costumes=COSTUMES.filter(c=>hasRosterCrop(c.id)).length;
+ assert.equal(costumes,COSTUMES.length-1,'every costume but H251C1, which is in neither APK');
  const extra=rosterCropViews().filter(v=>!want.includes(v));
  assert.deepEqual(extra,[],'the table names views the roster cannot draw');
 });
 
 test('the alpha box is a real measurement, not a constant',()=>{
- const boxes=rosterCropViews().map(v=>rosterCrop(v).box).filter(Boolean);
- assert.equal(boxes.length,297,'297 of the 299 crops carry usable alpha; 2 are fully opaque');
+ const boxes=rosterCropViews().map(v=>rosterCrop(v)).filter(Boolean).map(c=>c.box).filter(Boolean);
+ assert.ok(boxes.length>50,`only ${boxes.length} crops carry an alpha box`);
  for(const b of boxes){
   assert.equal(b.length,4);
   assert.ok(b[0]>=0&&b[1]>=0&&b[2]<=1&&b[3]<=1,`box outside the crop: ${b}`);
@@ -44,13 +57,14 @@ test('the alpha box is a real measurement, not a constant',()=>{
  }
  // Rule 6: say what makes this a measurement. A constant column would pass every check above.
  const centres=new Set(boxes.map(b=>((b[0]+b[2])/2).toFixed(3)));
- assert.ok(centres.size>80,`only ${centres.size} distinct figure centres across 297 crops -- that is a constant, not a measurement`);
+ assert.ok(centres.size>40,`only ${centres.size} distinct figure centres -- that is a constant, not a measurement`);
 });
 
 test('placement covers the card and centres the slice on the figure',()=>{
  const cardH=100/CARD_ASPECT;
  for(const v of rosterCropViews()){
-  const {box}=rosterCrop(v),p=rosterCropPlacement(box);
+  const c=rosterCrop(v);if(!c)continue;
+  const {box}=c,p=rosterCropPlacement(box);
   assert.equal(p.width,+(cardH*1.25).toFixed(2),`${v}: width must make the image's height fill the card`);
   assert.ok(p.left<=0,`${v}: left ${p.left} would leave the card's left edge bare`);
   assert.ok(p.left>=100-p.width,`${v}: left ${p.left} would leave the card's right edge bare`);

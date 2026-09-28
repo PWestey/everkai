@@ -6,7 +6,20 @@ import {startingSave} from '../lib/game.mjs';
  *  and it is still the thing `activateOriginalProgression` switches away from, so the measurements and
  *  the activation tests that are ABOUT it build from here. Their pinned numbers are unchanged by the
  *  new-village default; a test that wants the new default just calls startingSave(). */
-export const legacyStart=(now=Date.now())=>{const {originalProgression:_op,trainingCosts:_tc,...rest}=startingSave(now);return rest};
+/** THE ROSTER THESE FIXTURES MEASURE, pinned 2026-09-28 and deliberately NOT startingSave's.
+ *
+ *  The starting gift is a CONTENT choice -- the owner reset it that day to seven Fellows "to help get
+ *  past the initial slow stage" -- and it moved fourteen power fixtures that have nothing to do with it,
+ *  including the ceiling positive control. A measurement of what a maxed roster is worth must not shift
+ *  because a new village is handed more Fellows on day one, so these helpers pin the roster the pinned
+ *  numbers were taken on. A test that wants the CURRENT starting gift calls startingSave() directly. */
+const FIXTURE_ROSTER=Object.freeze({fellows:['hero_1','hero_195'],family:['wife_191']});
+export const legacyStart=(now=Date.now())=>{
+ const {originalProgression:_op,trainingCosts:_tc,...rest}=startingSave(now);
+ const keep=(map,ids)=>Object.fromEntries(Object.entries(map).filter(([id])=>ids.includes(id)));
+ return {...rest,fellows:keep(rest.fellows,FIXTURE_ROSTER.fellows),family:keep(rest.family,FIXTURE_ROSTER.family),
+  buildings:rest.buildings,adventure:{...rest.adventure,party:rest.adventure.party.filter(id=>FIXTURE_ROSTER.fellows.includes(id))}};
+};
 import {familiarSupplies} from '../lib/familiar-supplies.mjs';
 // Familiar training and Stella fragments are now earned (Familiar Tower income; one daily-habit grant).
 // Tests about what training or fragments DO, rather than how they are earned, stock the save directly
