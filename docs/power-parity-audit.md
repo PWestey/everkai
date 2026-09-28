@@ -770,6 +770,30 @@ where the owner's panel puts it. The large rise is the cap.
 
 ### 9.4 The two modes
 
+> **RETIRED 2026-09-28, and this section is now history rather than guidance.** Default mode is
+> unreachable: `startingSave` and `newJourney` both run `withOriginalProgression`, and `fresh()` is only
+> React's pre-load placeholder. The only default-mode saves that can exist are ones written before that
+> change; they still load, and they are NOT silently converted. `tests/one-mode.test.mjs` pins all of it.
+>
+> **If you are measuring anything against the original's own tables, use an APK save.** `buildCeiling`
+> starts from `legacyStart`, which is the retired shape, and on 2026-09-28 that produced two wrong
+> answers to the owner in a row: a maxed Fellow reads 401,355,307 there and 2,629,729,283 in the mode
+> every real save runs. Rule 1 is the reason it matters -- the `atk` and `HeroConversionRate` sides of
+> every comparison come from the original's tables, so the Power side has to be in the original's unit.
+>
+> **Which mode is correct was measured, not assumed.** The three pinned day-30 saves, read in each mode,
+> clear bosses to chapter 1,458 / 3,460 / 3,510 in APK and 4,816 / 6,000 / 6,000 in default: two of the
+> three finish the entire 6,000-chapter campaign on day 30. Income runs the other way, about 5x too poor,
+> because `rosterOperation`'s /1000 IS the original's `HeroConversionRate` of 10. Default is ~20x too
+> easy and ~5x too poor; APK is right on both.
+>
+> **Removing the flag outright was attempted and reverted the same day.** 13 modules branch on it, and
+> the two modes use different LEVEL-CAP ECONOMIES -- default spends limit-break tokens, APK refuses
+> `limitBreak` and sells quality tiers for crystals and breakthrough materials. It is a progression
+> migration, not a rescale, and it broke 179 tests. The dead branches are harmless while no player can
+> reach them, so they stay until cleaning them up is cheap.
+
+
 One composition (`composePower`) in both. APK growth: ADH = `HeroLevel.coefficientADH`, plus the hero
 row's talent as a talent part. Default: ADH = `(80+20·level)/10` — the old default arithmetic, with the
 `/10` that sat on `fellowFactor` folded into the column, so a fresh default Fellow is still exactly 100 and
