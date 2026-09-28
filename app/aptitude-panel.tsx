@@ -6,6 +6,8 @@ import {talentRule,talentLevel,talentTrainingPlan,talentCap} from '@/lib/talents
 import {insightRule,insightState,insightLevel,insightTrainingPlan} from '@/lib/insight.mjs';
 import {heroTalentSkills,talentSkillUnlocked,talentSkillLevel,talentSkillCap,talentSkillPlan,advancePlan,TALENT_SKILLS,SKILL_PEARL} from '@/lib/talent-skills.mjs';
 import {magicRule,pledgeRule,magicLevel,pledgeLevel,magicBonus,pledgeOpen,originRule,originLevel} from '@/lib/hero-advance.mjs';
+import {pledgeOf,pledgePartner,pledgeValue,pledgeRow} from '@/lib/hero-pledge.mjs';
+import {fellowById} from '@/lib/catalog.mjs';
 import {originParts} from '@/lib/hero-stars.mjs';
 import {stellaState,SPIRIT_SHARD_ITEM} from '@/lib/stella.mjs';
 import {aptitudeTrainingPlan,skillCost} from '@/lib/adventure.mjs';
@@ -37,7 +39,7 @@ import {PEARL_APTITUDE_CAP} from '@/lib/aptitude-cap.mjs';
 type Ladder={
  key:string,name:string,tag:string,level:number,max:number,now:number,next:number,
  currency:string,have:number,unitCost:number,plan:(q:Quantity)=>{count:number,cost:number},run:(q:Quantity)=>void,
- locked?:string,extra?:{label:string,onClick:()=>void},effect?:string,suffix?:string};
+ locked?:string,extra?:{label:string,onClick:()=>void},effect?:string,suffix?:string,note?:string};
 
 /** Every Aptitude ladder this Fellow has, in the order the strip shows them. */
 function ladders(game:any,id:string,action:any):Ladder[]{
@@ -70,7 +72,10 @@ function ladders(game:any,id:string,action:any):Ladder[]{
   now:magicBonus(id,magicLevel(game,id)),next:magicBonus(id,magicLevel(game,id)+1)-magicBonus(id,magicLevel(game,id)),
   currency:'Stella shard',have:shards,unitCost:magic.cost,plan:q=>advancePlan(game,id,'magic',q),run:q=>action('rarityAdvance',id,q)});
  const pledge=pledgeRule(id);
- if(pledge)out.push({key:'pledge',name:'Pledge',tag:'Pledge',level:pledgeLevel(game,id),max:pledge.max,now:0,next:0,
+ const pid=pledgeOf(id),bound=pid?pledgePartner(game,pid):null;
+ if(pledge)out.push({key:'pledge',name:'Resonance',tag:'Resonance',level:pledgeLevel(game,id),max:pledge.max,
+  now:pid?pledgeValue(game,pid):0,next:pledgeRow(pid||'')?.perLevel||0,
+  note:bound?`Paid to ${fellowById(bound)?.name||bound}`:'Bind a Fellow to receive it',
   currency:'Stella shard',have:shards,unitCost:pledge.cost,
   locked:pledgeOpen(game,id)?undefined:`${pledge.open[0]==='HeroMagicLevel'?'Rarity Advance':'Fellow level'} ${pledge.open[1]}`,
   plan:q=>advancePlan(game,id,'pledge',q),run:q=>action('pledgeAdvance',id,q)});
@@ -107,7 +112,22 @@ function SkillTab({game,id,action,locked}:any){
    <p className="ladder-effect">{chosen.locked
     ?<i className="ladder-gate">{chosen.locked}</i>
     :<>{chosen.effect||'Aptitude'} +{chosen.now.toLocaleString()}{chosen.suffix||''} <i>(Next Level +{chosen.next.toLocaleString()}{chosen.suffix||''})</i></>}</p>
+   {chosen.note&&<p className="ladder-note">{chosen.note}</p>}
   </div>
+  {chosen.key==='pledge'&&pledgeOf(id)&&<div className="resonance-bind">
+   <h4 className="band-rule">Resonance partner</h4>
+   <p className="small-note">Resonance pays one other Fellow you choose &mdash; not this one. Their own
+    Resonance skills are separate.</p>
+   <label className="resonance-pick">
+    <span className="sr-only">Resonance partner</span>
+    <select className="potion-select" disabled={locked} value={pledgePartner(game,pledgeOf(id)!)||''}
+     onChange={e=>action('pledgeBind',id,e.target.value||null)}>
+     <option value="">No partner</option>
+     {Object.keys(game.fellows).filter((f:string)=>f!==id).map((f:string)=>
+      <option key={f} value={f}>{fellowById(f)?.name||f}</option>)}
+    </select>
+   </label>
+  </div>}
   <h4 className="band-rule">Improve Skill</h4>
   <div className="improve-row">
    <span className="improve-cost">Use {chosen.currency}<b>{chosen.have.toLocaleString()}/{cost.toLocaleString()}</b></span>

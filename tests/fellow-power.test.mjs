@@ -129,7 +129,7 @@ test('the powerParts extractor still works (guards this whole file against a sil
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('powerParts reads exactly these twenty-four contributors, and no others',()=>{
+test('powerParts reads exactly these twenty-five contributors, and no others',()=>{
  // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
  // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
  // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
@@ -173,6 +173,10 @@ test('powerParts reads exactly these twenty-four contributors, and no others',()
   // Both read costumes at level 1, which is what owning one is; levelling is not modelled.
   'costumeSelfTalent',   // talent -- HeroClothes.clothesTalentSkill, scope `self`
   'costumeHaloTalent',   // talent -- the country halos, scope `country`
+  // ADDED 2026-09-28. RESONANCE -- the pledge's own skill, and the FIFTH scope. Unlike every other
+  // contributor it depends on save state rather than the catalogue: `pledge` reaches the one Fellow
+  // the player has bound to that pledge, so `reaches` had to take the state to express it.
+  'pledgePartnerTalent', // talent -- scope `pledge`, paid to the bound partner
  ].sort());
 });
 
