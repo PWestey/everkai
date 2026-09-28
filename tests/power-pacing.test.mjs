@@ -96,18 +96,27 @@ test('RULE 12: the stored Power in those receipts is checked as STORED, never re
 //   by day 90 the limit no longer matters at the top: every talent skill the top Fellow has is at its cap (5,202
 //          Aptitude, the same as the 360 run's day 30), so top 1.355B vs 1.350B.
 //   gold/s is 0.94x / 0.92x / 1.12x of the 360 run: pearls cost gold, fewer pearls buy more recruits (36-49 vs 34-47).
+// RE-PINNED 2026-09-28, deliberately, when the HeroBond GROUP auras were wired (catalogue F6/F8).
+// They had sat unwired since 2026-09-25 on a gate nobody could measure; docs/aura-progress-measurement.md
+// traced it. The movement is the point of re-pinning rather than relaxing: it is small, and it should be,
+// because the contributor's own ceiling is 384 talent against a maxed bucket of 10,996.
+//     day  30   gold/s 2,809,331,953 -> 2,815,757,539 (+0.23%)   top 554,906,376 -> 557,324,697 (+0.44%)
+//     day  90   gold/s 7,406,128,086 -> 7,423,923,257 (+0.24%)   top 1,355,454,810 -> 1,360,904,842 (+0.40%)
+//     day 180   gold/s 18,043,557,731 -> 18,077,595,604 (+0.19%) top 1,361,587,265 -> 1,367,062,872 (+0.40%)
+// `bottom` did not move at any horizon: the weakest Fellow belongs to no paying bond. If a later change
+// moves these by percent rather than fractions of one, the local gate in lib/hero-bond.mjs is too loose.
 const PINS=[
- {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2809331953,top:554906376,bottom:3978890,fellows:36},
+ {day:30, file:'power-pacing-day30.json.gz', now:{goldPerSecond:2815757539,top:557324697,bottom:3978890,fellows:36},
   p360:{goldPerSecond:2996414185,top:701609884,bottom:3725113,fellows:34},
   c5b4477:{goldPerSecond:2311764907,top:230796106,bottom:9050034,fellows:25},
   uncapped:{goldPerSecond:4923957499,top:2146877316,bottom:16210487,fellows:16},
   before:{goldPerSecond:3965436060,top:364195900,bottom:9519535,fellows:28}},
- {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:7406128086,top:1355454810,bottom:6290250,fellows:49},
+ {day:90, file:'power-pacing-day90.json.gz', now:{goldPerSecond:7423923257,top:1360904842,bottom:6290250,fellows:49},
   p360:{goldPerSecond:8025807147,top:1349526440,bottom:5622934,fellows:47},
   c5b4477:{goldPerSecond:5404947644,top:257649411,bottom:26800807,fellows:30},
   uncapped:{goldPerSecond:6637997008,top:3701223720,bottom:17275670,fellows:17},
   before:{goldPerSecond:6913806855,top:443154590,bottom:20058869,fellows:31}},
- {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:18043557731,top:1361587265,bottom:11474001,fellows:49},
+ {day:180,file:'power-pacing-day180.json.gz',now:{goldPerSecond:18077595604,top:1367062872,bottom:11474001,fellows:49},
   p360:{goldPerSecond:16110018248,top:1428901977,bottom:10737995,fellows:47},
   c5b4477:{goldPerSecond:6186448810,top:260261323,bottom:27183227,fellows:30},
   uncapped:{goldPerSecond:9285714088,top:3909900285,bottom:17618893,fellows:17},

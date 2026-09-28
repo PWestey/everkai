@@ -64,7 +64,7 @@ test('every source sits in the original’s bucket, and the bucket set is exactl
  // Rarity Advance's talentBonus and its stage's initial talent -- all the original's `talent` bucket.
  // + the costume skills (2026-09-28, catalogue F9 slice A): `costumeSelf` is the wearer's own, `costumeHalo`
  //   is the country broadcast that reaches a Fellow who owns no costume at all.
- assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella','starHalo','origin','costumeSelf','costumeHalo','resonance'].sort());
+ assert.deepEqual(Object.keys(p.talent).sort(),['artifact','echo','familiar','family','fishing','gear','hero','museum','record','skills','intimacy','stellaTalent','stellaBond','rarity','stage','familyStella','starHalo','origin','costumeSelf','costumeHalo','resonance','bondAura'].sort());
  assert.deepEqual(Object.keys(p.coefpercent).sort(),['origin','starHalo'],'talent percent: the star halos’ talentpercent rows and Origin Boost (step 4)');
  // + Family Stella, the Stella-unlocked pairs and quenching (2026-09-18, spec 3): all the original's `percent`.
  // + `shapeshift` (2026-09-28): the protagonist's own outfits. It is the one part in ANY bucket that is not

@@ -129,7 +129,7 @@ test('the powerParts extractor still works (guards this whole file against a sil
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('powerParts reads exactly these twenty-five contributors, and no others',()=>{
+test('powerParts reads exactly these twenty-six contributors, and no others',()=>{
  // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
  // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
  // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
@@ -177,6 +177,10 @@ test('powerParts reads exactly these twenty-five contributors, and no others',()
   // contributor it depends on save state rather than the catalogue: `pledge` reaches the one Fellow
   // the player has bound to that pledge, so `reaches` had to take the state to express it.
   'pledgePartnerTalent', // talent -- scope `pledge`, paid to the bound partner
+  // ADDED 2026-09-28. The HeroBond GROUP auras, unwired since 2026-09-25 because their gate is
+  // `auraProgress` and no counter existed. docs/aura-progress-measurement.md traced it to a per-hero
+  // count of skill upgrades; the "+1 each" step is LOCAL and marked in lib/hero-bond.mjs.
+  'bondTalent',          // talent -- every unlocked group aura on a bond this Fellow belongs to
  ].sort());
 });
 

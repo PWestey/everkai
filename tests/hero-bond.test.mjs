@@ -64,20 +64,103 @@ test('collection progress counts what the village owns, and needs no magnitude a
  assert.equal(bondGroups(s).length,22);
 });
 
-test('the group aura is NOT wired into Power, because its gate is a counter Everkai does not have',()=>{
- // UnderlingManager.lua:2157 -- `config.unlockReq <= heroData.auraProgress`. I first read `unlockReq`
- // as a star threshold, which was wrong and visibly so: STAR_CAP is 7 and the ladders run to 500.
- // Wiring it to a guessed gate gave a bond-5 Fellow up to +384 Aptitude and moved a fixture 1.85x.
- // This test is what keeps it out until `auraProgress` is measured.
+test('the group aura is wired now, and an ungated village still gets nothing',()=>{
+ // HISTORY, kept because it cost real time. UnderlingManager.lua:2165 gates the aura on
+ // `config.unlockReq <= heroData.auraProgress`. I first read `unlockReq` as a star threshold, which
+ // was wrong and visibly so -- STAR_CAP is 7 and the ladders run to 250 -- and wiring it to that
+ // guessed gate moved a fixture 1.85x. It then sat unwired from 2026-09-25 to 2026-09-28 on a second
+ // wrong claim: that no config carried `auraProgress`. It does; my search was case-sensitive. See
+ // docs/aura-progress-measurement.md.
  const s=fresh(T);
  const id=Object.keys(s.fellows)[0];
- assert.ok(!('heroBond' in powerParts(s,id).talent),'no bond contributor in the talent bucket');
- // The ceiling it WOULD have been worth, kept as the measurement rather than as a magnitude in play.
+ assert.equal(typeof powerParts(s,id).talent.bondAura,'number','the contributor exists now');
+ assert.equal(powerParts(s,id).talent.bondAura,0,'and a fresh village has earned none of it');
+ assert.equal(activeBondAuras(s).length,0,'it owns none of the aura holders, let alone their gates');
+ // The ceiling, unchanged by the wiring: this is a small contributor and is pinned as one.
  const byBond={};
  for(const a of BOND_AURAS)byBond[a.bond]=(byBond[a.bond]||0)+a.value;
  assert.equal(byBond['5'],384);
  assert.equal(byBond['3'],160);
- // `bondTalent` still exists and still computes, so the day `auraProgress` lands it is one wire.
- assert.equal(typeof bondTalent(s,id),'number');
- assert.ok(activeBondAuras(s).length===0,'a fresh village owns none of the aura holders');
+});
+
+
+// ---------------------------------------------------------------------------------------------
+// THE GROUP AURAS, wired 2026-09-28 on the gate docs/aura-progress-measurement.md traced.
+// ---------------------------------------------------------------------------------------------
+import {auraProgress,bondAuraRows} from '../lib/hero-bond.mjs';
+import {startingSave as start2} from '../lib/game.mjs';
+
+const AURA_T=1767225600000;
+const withSkills=(s,id,skills)=>({...s,fellows:{...s.fellows,[id]:{...s.fellows[id],talentSkills:skills}}});
+const full=()=>act(start2(AURA_T),'recruitAll',AURA_T).state;
+
+test('auraProgress counts levels BOUGHT, not levels held',()=>{
+ let s=full();
+ assert.equal(auraProgress(s,'hero_114'),0,'an untrained Fellow has none');
+ // A skill's first level is its free unlock, so level 1 is worth nothing. LOCAL, and marked as such
+ // in lib/hero-bond.mjs; it is the reading of System.AuraProgress = 1.
+ assert.equal(auraProgress(withSkills(s,'hero_114',{A:1}),'hero_114'),0,'level 1 is the unlock');
+ assert.equal(auraProgress(withSkills(s,'hero_114',{A:2}),'hero_114'),1);
+ assert.equal(auraProgress(withSkills(s,'hero_114',{A:60,B:40}),'hero_114'),98,'59 + 39');
+ assert.equal(auraProgress(withSkills(s,'hero_114',{A:'x'}),'hero_114'),0,'a malformed level counts nothing');
+});
+
+test('an aura is locked until its OWNER clears its own unlockReq',()=>{
+ let s=full();
+ assert.equal(activeBondAuras(s).length,0,'nothing is unlocked on an untrained roster');
+ const owner=BOND_AURAS[0].hero,req=BOND_AURAS[0].unlockReq;
+ // Exactly at the threshold it opens; one short it does not. The gate is on the AURA'S OWNER, which
+ // is what UnderlingManager.lua:2165 reads (CheckHeroAuraRed keys the rows on that heroId).
+ const below=withSkills(s,owner,{A:req}),at=withSkills(s,owner,{A:req+1});
+ assert.equal(auraProgress(below,owner),req-1);
+ assert.equal(activeBondAuras(below).some(a=>a.hero===owner),false,'one short stays shut');
+ assert.equal(activeBondAuras(at).some(a=>a.hero===owner),true,'at the threshold it opens');
+});
+
+test('an unlocked aura pays every member of its bond, and reaches Power',()=>{
+ let s=full();
+ const aura=BOND_AURAS.find(a=>bondsOf(a.hero).includes(a.bond))||BOND_AURAS[0];
+ s=withSkills(s,aura.hero,{A:aura.unlockReq+1});
+ const member=BOND_GROUPS[aura.bond].members.find(m=>s.fellows[m]);
+ assert.ok(member,'the bond must have an owned member to pay');
+ assert.ok(bondTalent(s,member)>=aura.value,'the member receives at least this aura');
+ assert.equal(powerParts(s,member).talent.bondAura,bondTalent(s,member),'and it lands in the talent bucket');
+ const outsider=Object.keys(s.fellows).find(id=>!bondsOf(id).includes(aura.bond));
+ if(outsider)assert.equal(bondTalent(s,outsider),0,'a Fellow outside the bond gets nothing from it');
+});
+
+test('the ceiling of this contributor is small, and named',()=>{
+ // 384 talent is the most any one Fellow can receive (bond 5, 36 auras), against a maxed talent
+ // bucket of 10,996. Pinned so a re-priced gate cannot quietly make this a major faucet.
+ const byBond={};
+ for(const a of BOND_AURAS)byBond[a.bond]=(byBond[a.bond]||0)+a.value;
+ assert.equal(Math.max(...Object.values(byBond)),384);
+ assert.deepEqual(Object.keys(byBond).sort(),['10','13','3','5']);
+});
+
+test('the Compendium can show a locked aura rather than hiding it',()=>{
+ let s=full();
+ const rows=bondAuraRows(s);
+ assert.ok(rows.length>0,'owned auras are listed even while locked');
+ assert.ok(rows.every(r=>r.unlocked===false),'all locked on an untrained roster');
+ const owner=rows[0].hero;
+ const opened=bondAuraRows(withSkills(s,owner,{A:1000}));
+ assert.ok(opened.some(r=>r.hero===owner&&r.unlocked),'and they open when the gate is met');
+});
+
+test('the gate is on the aura’s OWNER, not on whoever receives it',()=>{
+ // UnderlingManager.lua:2165 -- CheckHeroAuraRed(heroId) reads the HeroBondBonus rows keyed on that
+ // heroId against THAT hero's auraProgress. So training the owner opens the aura for the whole bond,
+ // including members who have bought no skills at all. Gating on the recipient instead would look
+ // identical in every other test in this file, which is why this one exists.
+ let s=act(start2(AURA_T),'recruitAll',AURA_T).state;
+ const aura=BOND_AURAS.find(a=>{
+  const members=BOND_GROUPS[a.bond].members.filter(m=>m!==a.hero);
+  return members.length&&members.some(m=>s.fellows[m]);});
+ assert.ok(aura,'need an aura whose bond has another owned member');
+ const mate=BOND_GROUPS[aura.bond].members.find(m=>m!==aura.hero&&s.fellows[m]);
+ s=withSkills(s,aura.hero,{A:aura.unlockReq+1});          // ONLY the owner is trained
+ assert.equal(auraProgress(s,mate),0,'the bond-mate has bought nothing');
+ assert.ok(bondTalent(s,mate)>=aura.value,
+  'and still receives the aura, because the gate is the owner’s');
 });

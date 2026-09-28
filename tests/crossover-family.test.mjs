@@ -720,19 +720,22 @@ test('flag ON, fully maxed: a maxed crossover Fellow is ~1.0x a maxed original o
   assert.equal(mid,r.originalByType.Diligent,`${mode}: Diligent is the middle of the five type medians`);
  }
  assert.deepEqual(m.crossover,{min:455039462,median:455644890,max:456250319},'the 133 (66,731,308 / 67,336,736 / 67,942,164 before 2026-09-19)');
- assert.deepEqual(m.original,{min:113388150,q25:237131054,median:475295010,q75:1545935567,max:4454896209},'the 111, untouched');
- assert.deepEqual(m.originalByType,{Unfettered:323169140,Diligent:462211046,Brave:540528507,Inspiring:437939947,Informed:939480407});
+ assert.deepEqual(m.original,{min:113388150,q25:237131054,median:475295010,q75:1557015183,max:4454896209},'the 111, untouched; q75 +0.72% when the group auras were wired 2026-09-28');
+ // RE-PINNED 2026-09-28 with the group auras: only Informed moved (+0.14%), because the four paying
+ // bonds sit in that type. Every other type is byte-identical, which is the check that the aura is
+ // reaching bonds rather than broadcasting.
+ assert.deepEqual(m.originalByType,{Unfettered:323169140,Diligent:462211046,Brave:540528507,Inspiring:437939947,Informed:940783980});
  assert.equal(+(m.crossover.max/m.originalByType.Diligent).toFixed(3),0.987,'default growth vs the middle type (0.147 before)');
  assert.equal(+(m.crossover.max/m.original.median).toFixed(3),0.96,'vs the median original of any type (0.143 before)');
  assert.equal(+(m.crossover.max/m.original.max).toFixed(3),0.102,'vs the strongest original there is (0.015 before)');
  // APK growth, the parity mode (0.179 under the flat-only x12 that was tried first).
  assert.deepEqual(m.apk.crossover,{min:3986270890,median:3991492810,max:3996714730});
- assert.deepEqual(m.apk.originalByType,{Unfettered:2840544490,Diligent:3976182402,Brave:4725287747,Inspiring:3813449616,Informed:8202484721});
+ assert.deepEqual(m.apk.originalByType,{Unfettered:2840544490,Diligent:3976182402,Brave:4725287747,Inspiring:3813449616,Informed:8215883504});
  assert.equal(+(m.apk.crossover.max/m.apk.originalByType.Diligent).toFixed(3),1.005,'APK growth vs the middle type');
  assert.equal(+(m.apk.crossover.max/m.apk.original.median).toFixed(3),0.975);
  assert.equal(+(m.apk.crossover.max/m.apk.original.max).toFixed(3),0.091);
  // The fully-maxed flag-on ceiling, pinned beside the records-only one above (80,007,548).
- assert.equal(m.ceiling,172968437,'rosterOperation, every Fellow and every sink maxed');
+ assert.equal(m.ceiling,173351064,'rosterOperation, every Fellow and every sink maxed');
  assert.equal(m.crossoverWorth,60621355,'of which the 133 crossover Fellows');
 });
 
