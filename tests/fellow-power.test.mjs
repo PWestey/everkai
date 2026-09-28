@@ -129,7 +129,7 @@ test('the powerParts extractor still works (guards this whole file against a sil
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('powerParts reads exactly these twenty-one contributors, and no others',()=>{
+test('powerParts reads exactly these twenty-two contributors, and no others',()=>{
  // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
  // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
  // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
@@ -161,6 +161,12 @@ test('powerParts reads exactly these twenty-one contributors, and no others',()=
   // level, scoped to one of five Fellow types by `Country`, through the join lib/hero-scope.mjs
   // already owned. See docs/familiar-screen-specs/11-handbook.md §0.
   'handbookPowerBP',      // percent -- Compendium level, country-scoped
+  // ADDED 2026-09-28. The ONLY account-wide contributor in the composition: ShapeshiftClothes'
+  // skill is scoped {conditionType:'all'}, so it is the one source with no per-Fellow join at all --
+  // it reaches a Fellow recruited this morning and the 133 crossover Fellows that no `rare` scope
+  // touches, which is why it was built ahead of the per-Fellow costume skills (catalogue F9).
+  // 172,000 bp at the original's own caps; docs/power-parity-audit.md 7 step 3 named it absent.
+  'shapeshiftPercentBp', // percent -- the protagonist's own outfits, scope `all`
  ].sort());
 });
 

@@ -2340,3 +2340,20 @@ button.growth-primary>small.short{color:#ffb4a4}
 .area-gate>em{position:absolute;inset:0;display:grid;place-items:center;font:700 9px Georgia,serif;font-style:normal;color:#2b2113}
 .result-word{margin:6px 0;text-align:center;font:700 22px Georgia,serif;color:#24598b}
 .result-word.great{color:#b4320f}
+/* THE PROTAGONIST'S WARDROBE. The value line is the point of the screen -- it is the only bonus in the
+   game that is not per-Fellow -- so it is set larger than the outfit's own name. */
+.shapeshift-wardrobe{max-height:92dvh;overflow:auto;max-width:520px}
+.shapeshift-lead{font-size:.9rem;line-height:1.45;color:#5e5238}
+.shapeshift-daily{margin:0;padding:6px 10px;border-radius:8px;background:#ece4cf;font-size:.85rem;color:#4b3421}
+.shapeshift-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.shapeshift-list>li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:center;
+ padding:10px;border:1px solid #caba96;border-radius:12px;background:#fff8e9}
+.shapeshift-list>li.tailored{border-color:#1c6650;background:#f9f5e9}
+.shapeshift-name{min-width:0}
+.shapeshift-name strong{display:block;font:700 1rem Georgia,serif;color:#4b3421}
+.shapeshift-name small,.shapeshift-value small{display:block;font-size:.78rem;color:#635b41}
+.shapeshift-value{text-align:right;min-width:0}
+.shapeshift-value strong{font:700 1.25rem Georgia,serif;color:#1c6650;font-variant-numeric:tabular-nums}
+.shapeshift-buttons{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
+.shapeshift-buttons button{flex:1 1 auto;min-height:44px;white-space:normal}
+.shapeshift-capped{flex:1;align-self:center;font-size:.85rem;color:#635b41}
