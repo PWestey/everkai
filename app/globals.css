@@ -2357,3 +2357,7 @@ button.growth-primary>small.short{color:#ffb4a4}
 .shapeshift-buttons{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
 .shapeshift-buttons button{flex:1 1 auto;min-height:44px;white-space:normal}
 .shapeshift-capped{flex:1;align-self:center;font-size:.85rem;color:#635b41}
+/* What a costume pays, on its card. Greyed until collected, because ownership is what grants it. */
+.costume-skills{display:grid;gap:2px;margin:4px 0 0;font-size:.8rem;color:#8a7f60}
+.costume-skills.live{color:#1c6650;font-weight:600}
+.costume-skills span::before{content:'\25b8\00a0'}

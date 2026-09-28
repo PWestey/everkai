@@ -129,7 +129,7 @@ test('the powerParts extractor still works (guards this whole file against a sil
   assert.ok(found.includes(known),`extractor missed ${known} (${why}); the pattern has broken`);
 });
 
-test('powerParts reads exactly these twenty-two contributors, and no others',()=>{
+test('powerParts reads exactly these twenty-four contributors, and no others',()=>{
  // The full spine. Adding a fourteenth is a real parity change and must edit this list deliberately.
  // REBUILT 2026-09-18 (was fifteen): applyStella, starredAptitude and fellowPower are gone because the
  // stars, the skill and Stella's percent are now PARTS of the one additive `percent` bucket rather than
@@ -167,6 +167,12 @@ test('powerParts reads exactly these twenty-two contributors, and no others',()=
   // touches, which is why it was built ahead of the per-Fellow costume skills (catalogue F9).
   // 172,000 bp at the original's own caps; docs/power-parity-audit.md 7 step 3 named it absent.
   'shapeshiftPercentBp', // percent -- the protagonist's own outfits, scope `all`
+  // ADDED 2026-09-28 with catalogue F9 slice A. Two parts, and only the first is about the wearer:
+  // `costumeSelfTalent` pays the costume's own owner, `costumeHaloTalent` pays every Fellow of a
+  // country from ANY collected costume -- including a Family member's, whose halo targets `hero`.
+  // Both read costumes at level 1, which is what owning one is; levelling is not modelled.
+  'costumeSelfTalent',   // talent -- HeroClothes.clothesTalentSkill, scope `self`
+  'costumeHaloTalent',   // talent -- the country halos, scope `country`
  ].sort());
 });
 
