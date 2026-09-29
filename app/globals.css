@@ -2365,3 +2365,5 @@ button.growth-primary>small.short{color:#ffb4a4}
 .ladder-note{margin:2px 0 0;font-size:.8rem;color:#1c6650;font-weight:600}
 .resonance-bind{display:grid;gap:6px}
 .resonance-pick select{width:100%;min-height:44px;font-size:16px;background:#fff9e9}
+/* Why Auto is greyed. The gate is known; hiding it just looks broken. */
+.auto-gate-note{margin:4px 0 0;font-size:.8rem;color:#8a5a2b;font-weight:600}

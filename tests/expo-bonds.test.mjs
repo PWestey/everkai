@@ -1,6 +1,10 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {fresh,act,valid,decode,totalRate} from '../lib/game.mjs';import {newFellow,bondedPower} from '../lib/adventure.mjs';import {expoOperator,expoStartKey,expoStepKey,expoRating,expoVisitors,expoBond} from '../lib/expo.mjs';import data from '../lib/expo-bond-data.json' with {type:'json'};
 const run=(s,a,t=null,v=null)=>{const r=act(s,a,s.lastAt,t,v);assert.ok(!r.error,r.error);assert.ok(valid(r.state));return r.state};
-function prepared(id='hero_103'){let s=fresh(1000);s.fellows.hero_103={...newFellow(),aptitude:250};s.fellows.hero_15.aptitude=250;s=run(s,'claimExpoStall','Stall203');return run(s,'assignExpo','Stall203',id)}
+// The fish stall is vacated first because `fresh()` seats hero_15 there, and since 2026-09-29 a Fellow
+// holds ONE post (lib/work-posts.mjs) -- so assigning hero_15 to the stall would pull him out of the
+// shop while assigning hero_103 would not, and the two branches would no longer be comparable. This
+// test is about a bonded vs an unbonded operator at equal investment, not about who runs the shop.
+function prepared(id='hero_103'){let s=fresh(1000);s.fellows.hero_103={...newFellow(),aptitude:250};s.fellows.hero_15.aptitude=250;s=run(s,'assign','fish',null);s=run(s,'claimExpoStall','Stall203');return run(s,'assignExpo','Stall203',id)}
 const start=s=>run(s,'startExpo',expoStartKey(s));const finish=s=>{while(s.expo.active)s=run(s,'serveExpo',expoStepKey(s));return s};
 test('twelve exact joins; equal investment changes customer outcome; stronger nonbonded Fellow can still win',()=>{
  assert.equal(data.records.length,12);assert.equal(data.deferred.length,16);for(const b of data.records){let s=fresh(1000);s.fellows[b.fellow]={...newFellow(),aptitude:250};assert.equal(expoOperator(s,b.stall,b.fellow).bond.percent,b.percent);assert.equal(expoOperator(s,b.stall,'hero_15').bond,null);}assert.equal(expoBond('Stall206'),null);
