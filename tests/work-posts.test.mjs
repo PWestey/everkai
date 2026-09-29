@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {act,valid,startingSave} from '../lib/game.mjs';
 import {vacateFellow,postsOf} from '../lib/work-posts.mjs';
 import {EXPO_STALLS} from '../lib/expo.mjs';
-import {openingAutoGate,openingChapter,AUTO_CHAPTER,AUTO_RANK} from '../lib/opening.mjs';
+import {openingAutoGate,openingChapter,AUTO_CHAPTER,AUTO_RANK,eventLimit} from '../lib/opening.mjs';
 
 const NOW=1767225600000;
 const F='hero_1';
@@ -63,3 +63,40 @@ test('the screen shows the reason rather than only greying the button',()=>{
  assert.ok(/\{autoGate&&<p/.test(src),'and be rendered when it is non-empty');
 });
 import {readFileSync} from 'node:fs';
+
+// ROUND TWO, 2026-09-29. The owner hit the greyed Auto button again at stage 21-1-1 on RANK 12 -- past
+// both gates. The button disabled on four conditions and only `openingAutoGate` explained itself, so
+// the other three greyed it in silence. One of them was also simply wrong: it blocked on a SINGLE queued
+// roadside encounter, while the action stops at eventLimit(rank) -- 25, or 100 from rank 35. One
+// encounter was blocking a batch the engine would have run twenty-five of.
+const opening=(o)=>({opening:{rank:12,events:[],cleared:21*20,...o}});
+
+test('one queued encounter does not block Auto; a full queue does, and says so',()=>{
+ assert.equal(openingAutoGate(opening({events:[1]})),'','a single encounter is not a wall');
+ assert.equal(openingAutoGate(opening({events:new Array(10).fill(1)})),'','nor ten');
+ const cap=eventLimit(12);
+ assert.equal(openingAutoGate(opening({events:new Array(cap).fill(1)})),
+  `Roadside encounter list is full (${cap}). Resolve them in Explore.`,
+  'the wall is the action\'s own cap, and it is the same sentence the action uses');
+});
+
+test('the owner\'s actual position is not blocked at all',()=>{
+ // Chapter 21, rank 12: past AUTO_CHAPTER and AUTO_RANK, so nothing should stand in the way.
+ const s=opening({});
+ assert.equal(openingChapter(s),21);
+ assert.ok(s.opening.rank>AUTO_RANK&&openingChapter(s)>AUTO_CHAPTER);
+ assert.equal(openingAutoGate(s),'','a player past both gates with an empty queue can Auto');
+});
+
+test('every reason the button can be disabled is a sentence',()=>{
+ // The point of the change: no silent path. Each of these used to grey the button with no explanation.
+ assert.equal(openingAutoGate({}),'Begin the opening journey first.');
+ assert.equal(openingAutoGate(opening({cleared:0,rank:1})),`Full-Auto opens in chapter ${AUTO_CHAPTER}.`);
+ assert.equal(openingAutoGate(opening({rank:1})),`Full-Auto opens at rank ${AUTO_RANK}.`);
+ assert.ok(openingAutoGate(opening({cleared:1e9})).length>0,'and running out of chapters says so too');
+ const src=readFileSync(new URL('../app/stage-screen.tsx',import.meta.url),'utf8');
+ // The button must disable on the gate alone now -- if a bare condition is added back beside it, a
+ // reason can go missing again.
+ assert.ok(src.includes('disabled={locked||!!autoGate}'),'the button disables on the gate, nothing else');
+ assert.ok(!/disabled=\{locked\|\|!o\|\|!stage\|\|pending/.test(src),'the old silent conditions are gone');
+});
