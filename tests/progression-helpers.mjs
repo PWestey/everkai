@@ -15,7 +15,7 @@ import {startingSave} from '../lib/game.mjs';
  *  numbers were taken on. A test that wants the CURRENT starting gift calls startingSave() directly. */
 const FIXTURE_ROSTER=Object.freeze({fellows:['hero_1','hero_195'],family:['wife_191']});
 export const legacyStart=(now=Date.now())=>{
- const {originalProgression:_op,trainingCosts:_tc,...rest}=startingSave(now);
+ const {originalProgression:_op,trainingCosts:_tc,...rest}=startingSave(now,{gift:false});
  const keep=(map,ids)=>Object.fromEntries(Object.entries(map).filter(([id])=>ids.includes(id)));
  return {...rest,fellows:keep(rest.fellows,FIXTURE_ROSTER.fellows),family:keep(rest.family,FIXTURE_ROSTER.family),
   buildings:rest.buildings,adventure:{...rest.adventure,party:rest.adventure.party.filter(id=>FIXTURE_ROSTER.fellows.includes(id))}};
